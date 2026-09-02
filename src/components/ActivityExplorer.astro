@@ -25,10 +25,13 @@ const labels = isPl
 
 <section class="activity-explorer" data-explorer data-locale={locale}>
   <div class="filter-panel">
-    <label class="search-field">
-      <span>{labels.search}</span>
-      <input type="search" data-filter="query" placeholder={labels.placeholder} autocomplete="off" />
-    </label>
+    <div class="filter-toolbar">
+      <label class="search-field">
+        <span>{labels.search}</span>
+        <input type="search" data-filter="query" placeholder={labels.placeholder} autocomplete="off" />
+      </label>
+      <button type="button" class="clear-filters" data-clear>{labels.clear}</button>
+    </div>
     <div class="filter-grid">
       {!kind && <label><span>{labels.kind}</span><select data-filter="kind"><option value="">{labels.allKinds}</option><option value="game">{labels.game}</option><option value="trial">{labels.trial}</option></select></label>}
       <label><span>{labels.trait}</span><select data-filter="trait"><option value="">{labels.allTraits}</option>{traits.map((value) => <option value={value}>{value}</option>)}</select></label>
@@ -37,7 +40,6 @@ const labels = isPl
       <label><span>{labels.year}</span><select data-filter="year"><option value="">{labels.allYears}</option>{years.map((value) => <option value={value}>{value}</option>)}</select></label>
       <label><span>{labels.section}</span><select data-filter="section"><option value="">{labels.allSections}</option>{sections.map((value) => <option value={value}>{value}</option>)}</select></label>
     </div>
-    <button type="button" class="clear-filters" data-clear>{labels.clear}</button>
   </div>
 
   <div class="results-heading"><strong><span data-count>{activities.length}</span> {labels.results}</strong></div>
