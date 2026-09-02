@@ -13,3 +13,9 @@ subjects:
     status: discovery
     priority: 1
     rightsNote: Zatwierdź konkretną edycję, współautorów, ilustracje i ewentualne tłumaczenie.
+  - id: jacques-sevin
+    name: Jacques Sevin
+    referenceUrl: https://en.wikipedia.org/wiki/Jacques_Sevin
+    status: discovery
+    priority: 1
+    rightsNote: Zatwierdź konkretną francuską edycję, współautorów, ilustracje i prawa do tłumaczenia.

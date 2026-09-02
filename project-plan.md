@@ -76,9 +76,10 @@ instrukcją dla agenta.
 
 ## V2 — kontrolowane autoresearch
 
-Pierwsza kolejka badawcza obejmuje dzieła Roberta Baden-Powella i Ernesta Thompsona Setona.
-Preferowane kolekcje to Project Gutenberg, Internet Archive, Wikisource, Polona i biblioteki
-narodowe. Pierwszy przebieg nie importuje automatycznie żadnej zagranicznej książki.
+Pierwsza kolejka badawcza obejmuje dzieła Roberta Baden-Powella, Ernesta Thompsona Setona
+i [Jacques’a Sevina](https://en.wikipedia.org/wiki/Jacques_Sevin). Preferowane kolekcje to
+Project Gutenberg, Internet Archive, Wikisource, Polona i biblioteki narodowe. Pierwszy
+przebieg nie importuje automatycznie żadnej zagranicznej książki.
 
 Pipeline:
 
@@ -122,7 +123,7 @@ po zatwierdzeniu zasad dostępu.
 
 ## Kolejka dalszych prac V2
 
-- zweryfikować po jednej konkretnej edycji Baden-Powella i Setona,
+- zweryfikować po jednej konkretnej edycji Baden-Powella, Setona i Sevina,
 - zaimplementować adapter metadanych dla pierwszej zaakceptowanej kolekcji,
 - ustalić taksonomię cech dwujęzycznych i słownik synonimów,
 - dodać deduplikację bliskich wariantów tej samej aktywności,
