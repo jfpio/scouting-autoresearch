@@ -7,6 +7,8 @@ import json
 import re
 from pathlib import Path
 
+from audit_taxonomy_inputs import REPORT_PATH as TAXONOMY_INPUT_AUDIT_PATH
+from audit_taxonomy_inputs import build_quality_report
 from analyze_taxonomy import REPORT_PATH as TAXONOMY_ANALYSIS_PATH
 from analyze_taxonomy import build_analysis, load_usage
 from common import GENERATED, ROOT, VAULT, load_markdown, read_json, source_hash
@@ -119,6 +121,29 @@ def main() -> None:
         )
 
     if embedding_paths:
+        require(TAXONOMY_INPUT_AUDIT_PATH.exists(), "Missing taxonomy V1 input-quality report", errors)
+        if TAXONOMY_INPUT_AUDIT_PATH.exists():
+            input_audit = read_json(TAXONOMY_INPUT_AUDIT_PATH)
+            expected_input_audit = build_quality_report(
+                [load_markdown(path) for path in activity_paths],
+                [read_json(path) for path in embedding_paths],
+                embedding_config=embedding_config,
+            )
+            require(
+                input_audit == expected_input_audit,
+                "Taxonomy V1 input-quality report is stale or nondeterministic",
+                errors,
+            )
+            require(
+                not input_audit["corpus"]["candidateNoise"]["sourceFooterIds"],
+                "Candidate embedding recipe retains source footers",
+                errors,
+            )
+            require(
+                not input_audit["corpus"]["candidateNoise"]["rawUrlIds"],
+                "Candidate embedding recipe retains raw URLs",
+                errors,
+            )
         require(TAXONOMY_ANALYSIS_PATH.exists(), "Missing taxonomy V1 analysis report", errors)
         if TAXONOMY_ANALYSIS_PATH.exists():
             analysis = read_json(TAXONOMY_ANALYSIS_PATH)

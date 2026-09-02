@@ -57,6 +57,7 @@ Przed płatnym wywołaniem API skrypt pokazuje plan partii, szacowany koszt i ko
 ```bash
 .venv/bin/python scripts/embed_taxonomy.py
 .venv/bin/python scripts/embed_taxonomy.py --execute --limit 20
+.venv/bin/python scripts/audit_taxonomy_inputs.py
 .venv/bin/python scripts/analyze_taxonomy.py
 ```
 
