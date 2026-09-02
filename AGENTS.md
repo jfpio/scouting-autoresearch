@@ -16,6 +16,14 @@
 - Każdy cykl ma twardy limit dokumentów i kosztu; po dojściu do limitu zapisz checkpoint i stop.
 - Operacje muszą być resumowalne oraz idempotentne. Nie powtarzaj udanego pobrania,
   ekstrakcji ani tłumaczenia, gdy hash wejścia się nie zmienił.
+- W Goal Mode odróżniaj problemy przejściowe od trwałych. `429`, chwilowy rate limit lub
+  krótkotrwała niedostępność dostawcy oznaczają: zapisz checkpoint z `nextRetryAt`, odczekaj
+  12 godzin i samodzielnie wznów cel. Jeżeli dostawca poda dłuższy `Retry-After`, zastosuj
+  dłuższy okres. Nie oznaczaj celu jako zablokowanego po pierwszym przejściowym limicie.
+- Zatrzymaj cel i zgłoś blokadę, gdy problem wymaga decyzji człowieka albo sam nie zniknie:
+  niejasne prawa, brak uprawnień lub sekretu, wyczerpany limit miesięczny/finansowy,
+  sprzeczność danych, uszkodzone źródło albo trzy kolejne nieudane wznowienia tego samego
+  kroku. Nie obchodź limitów przez zmianę konta, klucza lub dostawcy.
 - Nie loguj sekretów, tokenów, pełnych nagłówków żądań ani zawartości plików `.env`.
 - Klucz Mistral czytaj tylko ze środowiska albo `~/.secrets/mistral.env`.
 - Zewnętrzne pobieranie musi być ograniczone do zatwierdzonego wpisu w rejestrze źródeł.
@@ -26,6 +34,14 @@
 ## Zmiany i publikacja
 
 - Nigdy nie zapisuj bezpośrednio do `main`. Każda automatyczna zmiana idzie przez pull request.
+- Traktuj każdą kompletnie przetworzoną książkę lub samodzielną jednostkę źródłową jako
+  atomowy checkpoint: dokończ generowanie i walidację, utwórz osobny commit i natychmiast
+  wypchnij go na zdalną gałąź przed rozpoczęciem następnego źródła. Nie trzymaj kilku
+  ukończonych źródeł wyłącznie lokalnie.
+- Po wznowieniu Goal Mode zaczynaj od ostatniego wypchniętego commita i checkpointu. Każdy
+  pull request ma jednoznacznie wskazywać obejmowane książki lub jednostki źródłowe; kolejne
+  poprawne commity mogą aktualizować ten sam otwarty PR tylko wtedy, gdy dotyczą tego samego
+  źródła.
 - Agent może proponować źródła, prawa, mapowania i tłumaczenia, lecz ich nie zatwierdza.
 - PR musi zawierać listę źródeł, decyzje prawne do kontroli, liczbę rekordów, koszt, model,
   wyniki walidacji, duplikaty i wszystkie nierozstrzygnięte problemy.

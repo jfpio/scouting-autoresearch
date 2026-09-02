@@ -39,6 +39,46 @@ angielskim. Filtry obejmują tekst, rodzaj, cechę, autora, książkę, rok i dz
 - testy, walidacja schematu, generowanie i statyczny build przechodzą lokalnie i w CI,
 - GitHub Pages działa pod `/scouting-autoresearch/`.
 
+## V1 — semantyczna taksonomia istniejącego korpusu
+
+V1 porządkuje cechy 202 już zaimportowanych aktywności. Nie odkrywa ani nie importuje nowych
+książek. Oryginalne cechy i określenia pozostają częścią rekordu jako dane źródłowe, a
+szersze kategorie są osobną, współczesną warstwą ułatwiającą filtrowanie i wyszukiwanie.
+
+Pipeline V1:
+
+```text
+normalize labels → embed source labels and activity context → propose clusters
+                 → inspect outliers → version taxonomy → map activities → validate → publish
+```
+
+- Użyć dostępnego na koncie modelu `mistral-embed`; każda partia zapisuje faktyczny
+  identyfikator modelu, wymiar wektora, wersję przepisu wejścia, datę oraz hash wejścia.
+- Embedding obejmuje etykietę źródłową oraz krótki kontekst aktywności, aby odróżnić podobne
+  słowa używane w różnych znaczeniach. Wyniki są cache'owane i ponawiane tylko po zmianie
+  modelu, przepisu albo hasha wejścia.
+- Sąsiedztwa wektorowe i klastrowanie służą do przygotowania propozycji, nie do dynamicznego
+  zmieniania filtrów przy każdym buildzie. Produkcyjna mapa kategorii jest jawnym,
+  wersjonowanym plikiem w `vault/taxonomy/`.
+- Celować w około 10–15 szerokich, dwujęzycznych kategorii. Rekord zachowuje zarówno
+  oryginalne `sourceTraits`, jak i stabilne identyfikatory współczesnych kategorii; żadna
+  cecha źródłowa nie może zniknąć wskutek klastrowania.
+- Raport V1 zawiera klastry, najbliższych sąsiadów, odstające etykiety, niejednoznaczne
+  przypisania, wersję taksonomii, wykorzystane tokeny i koszt. Brakujące lub słabe
+  dopasowanie pozostaje jawnie nieprzypisane zamiast być zgadywane.
+- Limit kosztu obowiązuje przed wysłaniem partii. Przejściowe ograniczenia API korzystają
+  z zasad 12-godzinnego wznowienia opisanych dla Goal Mode; wyczerpanie limitu miesięcznego
+  lub brak dostępu zatrzymuje cel i wymaga interwencji.
+
+### Kryteria V1
+
+- wszystkie 202 aktywności mają zachowane niezmienione etykiety źródłowe,
+- każdy wektor ma model, wersję wejścia i zgodny hash, a cache jest deterministyczny,
+- produkcyjne kategorie i ich polskie/angielskie etykiety mają stabilne identyfikatory,
+- filtry używają szerokich kategorii, a strona rekordu nadal pokazuje zapis źródłowy,
+- raport wymienia wszystkie niejednoznaczne mapowania i nie ukrywa etykiet odstających,
+- ponowny build bez zmian nie wykonuje nowych wywołań embedding API.
+
 ## Model danych i jakości
 
 `vault/activities/<id>.md` przechowuje tekst w języku źródłowym. Tłumaczenie jest nakładką
@@ -86,7 +126,13 @@ materiałów metodycznych. Zaufanie dotyczy jakości i proweniencji, nie praw do
 publikacji: domyślnie zapisujemy metadane oraz link, a pełny tekst dopiero po potwierdzeniu
 licencji, domeny publicznej albo uzyskaniu zgody dla konkretnego materiału.
 
-## V2 — kontrolowane autoresearch
+## V2 — kontrolowana eksploracja nowych źródeł
+
+V2 jest stricte etapem eksploracji i pozyskiwania nowych materiałów. Obejmuje odkrywanie,
+ocenę praw i jakości, ekstrakcję oraz proponowanie importów kolejnych książek i źródeł.
+Nie służy do przebudowy istniejącego UX ani podstawowej taksonomii — korzysta z fundamentu
+V0 i semantycznej taksonomii V1, rozszerzając ją tylko wtedy, gdy nowe źródło ujawni
+rzeczywistą lukę.
 
 Pierwsza kolejka badawcza obejmuje dzieła Roberta Baden-Powella, Ernesta Thompsona Setona
 i [Jacques’a Sevina](https://en.wikipedia.org/wiki/Jacques_Sevin). Preferowane kolekcje to
@@ -137,8 +183,14 @@ Agent serwerowy:
 - używa osobnego, ograniczonego tokenu tylko do tego repozytorium,
 - nigdy nie zapisuje bezpośrednio do `main`,
 - tworzy gałąź `autoresearch/<data>-<cykl>` i pull request,
+- po każdej kompletnie przetworzonej książce lub jednostce źródłowej wykonuje walidację,
+  tworzy osobny commit i natychmiast wypycha go na zdalną gałąź przed przejściem dalej,
 - nie zatwierdza własnych decyzji prawnych,
 - zatrzymuje cykl po przekroczeniu limitu dokumentów lub szacowanego kosztu,
+- w Goal Mode zapisuje `nextRetryAt` i po przejściowym limicie sam wznawia pracę po
+  12 godzinach (albo później, jeśli wymaga tego `Retry-After`),
+- zatrzymuje cel i zgłasza blokadę przy problemie wymagającym decyzji człowieka, trwałym
+  limicie albo trzech kolejnych nieudanych wznowieniach tego samego kroku,
 - nie umieszcza sekretów, surowych nagłówków HTTP ani danych konta w logach.
 
 Przykładowa usługa i timer znajdują się w `deploy/systemd/`. Na początku V2 cykl jedynie
@@ -150,7 +202,6 @@ po zatwierdzeniu zasad dostępu.
 - zweryfikować po jednej konkretnej edycji Baden-Powella, Setona i Sevina,
 - ocenić zasady dostępu oraz kolekcje `historyczna.slaska.zhp.pl` i Archiwum Harcerskiego,
 - zaimplementować adapter metadanych dla pierwszej zaakceptowanej kolekcji,
-- ustalić taksonomię cech dwujęzycznych i słownik synonimów,
 - dodać deduplikację bliskich wariantów tej samej aktywności,
 - dodać redakcyjną ocenę wartości i bezpieczeństwa niezależną od oceny źródła,
 - opisać politykę krótkich cytatów i rekordów `link-only` dla źródeł chronionych,

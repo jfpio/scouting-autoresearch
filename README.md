@@ -63,6 +63,20 @@ rekordy z aktualnym hashem. Model V0 to `mistral-medium-2604`; żądany pierwotn
 
 Pełny kierunek rozwoju opisuje [project-plan.md](project-plan.md).
 
+## Etapy rozwoju
+
+- **V0:** działający, dwujęzyczny import 202 aktywności z dwóch polskich książek.
+- **V1:** semantyczne uporządkowanie cech istniejącego korpusu za pomocą `mistral-embed` oraz
+  wersjonowanej, dwujęzycznej taksonomii. Oryginalne określenia źródłowe pozostają bez zmian.
+- **V2:** wyłącznie eksploracja, ocena i pozyskiwanie nowych książek oraz źródeł polskich
+  i zagranicznych; korzysta z modelu danych i taksonomii wypracowanych w V0–V1.
+
+Automatyczny agent zapisuje checkpoint po każdej kompletnie przetworzonej książce lub
+jednostce źródłowej, wykonuje osobny commit i od razu wypycha go na gałąź pull requestu.
+W Goal Mode przejściowy limit API powoduje trwałą pauzę na 12 godzin i automatyczne
+wznowienie. Problemy wymagające decyzji człowieka zatrzymują cel, dzięki czemu mogą zostać
+zgłoszone użytkownikowi zamiast wpadać w pętlę ponowień.
+
 ## Zaufane źródła badawcze
 
 [Azymut ZHR](https://azymut.zhr.pl/) jest zatwierdzonym źródłem redakcyjnym do odkrywania
