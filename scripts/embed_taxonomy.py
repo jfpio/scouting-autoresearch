@@ -64,10 +64,30 @@ def normalize_context(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
 
-def build_embedding_input(metadata: dict[str, Any], body: str, context_characters: int) -> str:
+def prepare_context(body: str, recipe_version: str) -> str:
+    if recipe_version == "activity-context-v1":
+        return normalize_context(body)
+    if recipe_version != "activity-context-v2":
+        raise ValueError(f"Unsupported embedding recipe: {recipe_version}")
+
+    footer = re.search(r"\n---\s*\n+\*Źródło skanu:", body)
+    if footer:
+        body = body[: footer.start()]
+    body = re.sub(r"!\[([^\]]*)\]\([^)]+\)", r"\1", body)
+    body = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", body)
+    body = re.sub(r"https?://\S+", "", body)
+    return normalize_context(body)
+
+
+def build_embedding_input(
+    metadata: dict[str, Any],
+    body: str,
+    context_characters: int,
+    recipe_version: str,
+) -> str:
     source_traits = metadata.get("traits") or []
     traits_text = " | ".join(str(item).strip() for item in source_traits) or "[brak cech w źródle]"
-    context = normalize_context(body)[:context_characters].rstrip()
+    context = prepare_context(body, recipe_version)[:context_characters].rstrip()
     kinds = " | ".join(metadata.get("kinds") or [])
     return "\n".join(
         [
@@ -217,7 +237,12 @@ def activity_items(config: dict[str, Any]) -> list[dict[str, Any]]:
     items: list[dict[str, Any]] = []
     for path in sorted((VAULT / "activities").glob("*.md")):
         metadata, body = load_markdown(path)
-        text = build_embedding_input(metadata, body, int(embedding["contextCharacters"]))
+        text = build_embedding_input(
+            metadata,
+            body,
+            int(embedding["contextCharacters"]),
+            embedding["recipeVersion"],
+        )
         items.append(
             {
                 "id": metadata["id"],

@@ -16,6 +16,7 @@ from embed_taxonomy import (
     estimated_tokens,
     input_hash,
     next_daily_reset,
+    prepare_context,
     recover_cached_items,
     retry_at,
 )
@@ -30,7 +31,12 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
             "section": "Dział",
             "traits": ["Spryt", "cierpliwość"],
         }
-        value = build_embedding_input(metadata, "  Pierwszy\n\n drugi akapit  ", 15)
+        value = build_embedding_input(
+            metadata,
+            "  Pierwszy\n\n drugi akapit  ",
+            15,
+            "activity-context-v1",
+        )
         self.assertIn("cechy źródłowe: Spryt | cierpliwość", value)
         self.assertIn("kontekst: Pierwszy drugi", value)
         self.assertFalse(value.endswith(" "))
@@ -39,6 +45,35 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
     def test_token_estimate_uses_utf8_conservative_bound(self):
         self.assertEqual(estimated_tokens("abc"), 1)
         self.assertEqual(estimated_tokens("ąąą"), 2)
+
+    def test_v2_context_removes_provenance_footer_and_markdown_urls(self):
+        body = (
+            "Idź według [szkicu drogi](https://example.test/route). "
+            "![rysunek](https://example.test/image.jpg)\n\n"
+            "---\n\n"
+            "*Źródło skanu: [Biblioteka](https://example.test/record).*"
+        )
+        value = prepare_context(body, "activity-context-v2")
+        self.assertEqual(value, "Idź według szkicu drogi. rysunek")
+        self.assertNotIn("Źródło skanu", value)
+        self.assertNotIn("https://", value)
+
+    def test_recipe_version_changes_input_and_rejects_unknown_recipe(self):
+        metadata = {
+            "id": "hwp-001",
+            "kinds": ["game"],
+            "title": "Gra",
+            "section": "Dział",
+            "traits": [],
+        }
+        body = "Treść [odnośnika](https://example.test)."
+        v1 = build_embedding_input(metadata, body, 600, "activity-context-v1")
+        v2 = build_embedding_input(metadata, body, 600, "activity-context-v2")
+        self.assertNotEqual(input_hash(v1), input_hash(v2))
+        self.assertIn("https://example.test", v1)
+        self.assertNotIn("https://example.test", v2)
+        with self.assertRaises(ValueError):
+            prepare_context(body, "activity-context-unknown")
 
     def test_cache_requires_matching_recipe_hash_and_dimensions(self):
         with tempfile.TemporaryDirectory() as directory:

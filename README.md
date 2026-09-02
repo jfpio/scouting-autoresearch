@@ -71,6 +71,12 @@ oznacza niejednoznaczne przypisania oraz kandydatów odstających. Dopóki nie m
 202 aktualnych cache’y, raport ma status `partial`; zawsze pozostaje propozycją do ręcznego
 przeglądu i nie zmienia produkcyjnych kategorii ani filtrów.
 
+Kod obsługuje też przepis `activity-context-v2`, który przed skróceniem kontekstu usuwa
+techniczną stopkę źródłową oraz adresy URL z Markdown, zachowując tekst widoczny odnośników.
+Zmiana `recipeVersion` jest jawna i celowo unieważnia wcześniejsze cache’e. Pilotaż v1
+pozostaje przypięty do dotychczasowego przepisu do czasu ograniczonego ponowienia całej
+pierwszej partii na v2; nie należy skalować kolejnych partii na v1.
+
 ## Struktura
 
 - `vault/` — źródło prawdy zgodne z Obsidianem,

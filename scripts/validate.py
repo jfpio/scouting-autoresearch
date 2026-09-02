@@ -101,7 +101,12 @@ def main() -> None:
         require(activity_path.exists(), f"Embedding without activity: {path}", errors)
         if activity_path.exists():
             metadata, body = load_markdown(activity_path)
-            expected_input = build_embedding_input(metadata, body, int(embedding_config["contextCharacters"]))
+            expected_input = build_embedding_input(
+                metadata,
+                body,
+                int(embedding_config["contextCharacters"]),
+                embedding_config["recipeVersion"],
+            )
             require(payload.get("inputHash") == input_hash(expected_input), f"Stale taxonomy embedding: {path.name}", errors)
             require(payload.get("sourceTraits") == (metadata.get("traits") or []), f"Embedding changed source traits: {path.name}", errors)
         require(payload.get("modelRequested") == embedding_config["model"], f"Wrong embedding model: {path.name}", errors)
