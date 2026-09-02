@@ -1,0 +1,22 @@
+{
+  "name": "scouting-autoresearch",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "import": "python3 scripts/import_sources.py",
+    "translate": "python3 scripts/translate.py",
+    "generate": "python3 scripts/build_content.py",
+    "validate": "python3 scripts/validate.py",
+    "check-links": "python3 scripts/check_links.py",
+    "test": "python3 -m unittest discover -s tests -p 'test_*.py'"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "0.41.10",
+    "astro": "7.2.9",
+    "sharp": "0.35.4"
+  }
+}

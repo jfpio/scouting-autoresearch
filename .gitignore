@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.env
+.venv/
+.DS_Store
+data/checkpoints/
+data/reports/cycle-*.json
+*.log

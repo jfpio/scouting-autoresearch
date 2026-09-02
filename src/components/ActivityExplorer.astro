@@ -1,0 +1,107 @@
+---
+import activitiesPl from '../../data/generated/activities.pl.json';
+import activitiesEn from '../../data/generated/activities.en.json';
+
+interface Props {
+  locale?: 'pl' | 'en';
+  kind?: 'game' | 'trial';
+}
+
+const { locale = 'pl', kind } = Astro.props;
+const all = locale === 'en' ? activitiesEn : activitiesPl;
+const activities = kind ? all.filter((item) => item.kinds.includes(kind)) : all;
+const isPl = locale === 'pl';
+const options = (key) => [...new Set(activities.map((item) => item[key]).filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b), locale));
+const authors = options('author');
+const books = options('sourceTitle');
+const years = options('year');
+const sections = options('section');
+const traits = [...new Set(activities.flatMap((item) => item.traits))].sort((a, b) => a.localeCompare(b, locale));
+const basePath = locale === 'en' ? '/scouting-autoresearch/en/activities/' : '/scouting-autoresearch/activities/';
+const labels = isPl
+  ? { search: 'Szukaj w tytule, treści i cechach', placeholder: 'np. ogień, tropienie, cierpliwość', kind: 'Rodzaj', allKinds: 'Wszystkie rodzaje', game: 'Gra', trial: 'Próba', trait: 'Cecha', allTraits: 'Wszystkie cechy', author: 'Autor', allAuthors: 'Wszyscy autorzy', book: 'Książka', allBooks: 'Wszystkie książki', year: 'Rok', allYears: 'Wszystkie lata', section: 'Dział', allSections: 'Wszystkie działy', clear: 'Wyczyść filtry', results: 'aktywności', noResults: 'Brak aktywności pasujących do filtrów.', machine: 'Tłumaczenie automatyczne', original: 'Tekst źródłowy', safety: 'Wymaga współczesnej oceny ryzyka', read: 'Czytaj' }
+  : { search: 'Search titles, text, and traits', placeholder: 'e.g. fire, tracking, patience', kind: 'Type', allKinds: 'All types', game: 'Game', trial: 'Trial', trait: 'Trait', allTraits: 'All traits', author: 'Author', allAuthors: 'All authors', book: 'Book', allBooks: 'All books', year: 'Year', allYears: 'All years', section: 'Section', allSections: 'All sections', clear: 'Clear filters', results: 'activities', noResults: 'No activities match these filters.', machine: 'Machine translation', original: 'Source text', safety: 'Modern risk assessment required', read: 'Read' };
+---
+
+<section class="activity-explorer" data-explorer data-locale={locale}>
+  <div class="filter-panel">
+    <label class="search-field">
+      <span>{labels.search}</span>
+      <input type="search" data-filter="query" placeholder={labels.placeholder} autocomplete="off" />
+    </label>
+    <div class="filter-grid">
+      {!kind && <label><span>{labels.kind}</span><select data-filter="kind"><option value="">{labels.allKinds}</option><option value="game">{labels.game}</option><option value="trial">{labels.trial}</option></select></label>}
+      <label><span>{labels.trait}</span><select data-filter="trait"><option value="">{labels.allTraits}</option>{traits.map((value) => <option value={value}>{value}</option>)}</select></label>
+      <label><span>{labels.author}</span><select data-filter="author"><option value="">{labels.allAuthors}</option>{authors.map((value) => <option value={value}>{value}</option>)}</select></label>
+      <label><span>{labels.book}</span><select data-filter="book"><option value="">{labels.allBooks}</option>{books.map((value) => <option value={value}>{value}</option>)}</select></label>
+      <label><span>{labels.year}</span><select data-filter="year"><option value="">{labels.allYears}</option>{years.map((value) => <option value={value}>{value}</option>)}</select></label>
+      <label><span>{labels.section}</span><select data-filter="section"><option value="">{labels.allSections}</option>{sections.map((value) => <option value={value}>{value}</option>)}</select></label>
+    </div>
+    <button type="button" class="clear-filters" data-clear>{labels.clear}</button>
+  </div>
+
+  <div class="results-heading"><strong><span data-count>{activities.length}</span> {labels.results}</strong></div>
+  <div class="activity-grid" data-grid>
+    {activities.map((item) => (
+      <article
+        class="activity-card"
+        data-card
+        data-search={item.searchText}
+        data-kinds={item.kinds.join('|')}
+        data-traits={item.traits.join('|')}
+        data-author={item.author}
+        data-book={item.sourceTitle}
+        data-year={String(item.year)}
+        data-section={item.section}
+      >
+        <div class="card-topline">
+          <span class={`kind-badge kind-${item.kinds[0]}`}>{item.kinds.map((value) => value === 'game' ? labels.game : labels.trial).join(' · ')}</span>
+          <span class="activity-id">{item.id}</span>
+        </div>
+        <h2><a href={`${basePath}${item.id}/`}>{item.title}</a></h2>
+        {item.traits.length > 0 && <ul class="trait-list">{item.traits.slice(0, 5).map((trait) => <li>{trait}</li>)}</ul>}
+        <p class="card-preview">{item.summary}</p>
+        <p class="source-line"><strong>{item.author}</strong> · <cite>{item.sourceTitle}</cite> · {item.year}</p>
+        <div class="card-footer">
+          <span>{locale === 'en' ? labels.machine : labels.original}</span>
+          <a href={`${basePath}${item.id}/`}>{labels.read} →</a>
+        </div>
+      </article>
+    ))}
+  </div>
+  <p class="no-results" data-empty hidden>{labels.noResults}</p>
+</section>
+
+<script>
+  const normalize = (value) => value.toLocaleLowerCase('pl').normalize('NFKD').replace(/\p{Diacritic}/gu, '');
+  document.querySelectorAll('[data-explorer]').forEach((explorer) => {
+    const fields = [...explorer.querySelectorAll('[data-filter]')];
+    const cards = [...explorer.querySelectorAll('[data-card]')];
+    const count = explorer.querySelector('[data-count]');
+    const empty = explorer.querySelector('[data-empty]');
+    const apply = () => {
+      const values = Object.fromEntries(fields.map((field) => [field.dataset.filter, field.value]));
+      let visible = 0;
+      cards.forEach((card) => {
+        const matches = (!values.query || normalize(card.dataset.search || '').includes(normalize(values.query)))
+          && (!values.kind || (card.dataset.kinds || '').split('|').includes(values.kind))
+          && (!values.trait || (card.dataset.traits || '').split('|').includes(values.trait))
+          && (!values.author || card.dataset.author === values.author)
+          && (!values.book || card.dataset.book === values.book)
+          && (!values.year || card.dataset.year === values.year)
+          && (!values.section || card.dataset.section === values.section);
+        card.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      count.textContent = String(visible);
+      empty.hidden = visible !== 0;
+      const params = new URLSearchParams();
+      Object.entries(values).forEach(([key, value]) => value && params.set(key, value));
+      history.replaceState(null, '', `${location.pathname}${params.size ? `?${params}` : ''}`);
+    };
+    const initial = new URLSearchParams(location.search);
+    fields.forEach((field) => { if (initial.has(field.dataset.filter)) field.value = initial.get(field.dataset.filter); field.addEventListener('input', apply); });
+    explorer.querySelector('[data-clear]').addEventListener('click', () => { fields.forEach((field) => { field.value = ''; }); apply(); });
+    apply();
+  });
+</script>

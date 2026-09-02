@@ -1,0 +1,37 @@
+[
+  {
+    "id": "hwp-1946",
+    "author": "Zygmunt Wyrobek",
+    "title": "Harcerz w polu: zabawy i gry terenowe",
+    "year": 1946,
+    "edition": "Wydanie piąte",
+    "publicationPlace": "Kraków",
+    "publisher": "Wydawnictwo Zakładu Narodowego imienia Ossolińskich",
+    "originalLanguage": "pl",
+    "rightsStatus": "public-domain",
+    "rightsStatement": "„Domena publiczna” — oznaczenie rekordu Polony",
+    "rightsEvidenceUrl": "https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0",
+    "sourceUrl": "https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0",
+    "digitalEditionUrl": "https://jfpio.github.io/harcerz-w-polu/",
+    "pdfUrl": "https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf",
+    "accessedOn": "2026-08-31",
+    "sourceCommit": "ab4541f6fda3cae04a45c74642fb4053571f5118"
+  },
+  {
+    "id": "pw-1935",
+    "author": "L. Ungeheuer",
+    "title": "Próby wodzów",
+    "year": 1935,
+    "publicationPlace": "Lwów",
+    "publisher": "Skaut",
+    "originalLanguage": "pl",
+    "rightsStatus": "public-domain",
+    "rightsStatement": "„Domena Publiczna” — oznaczenie rekordu Polony",
+    "rightsEvidenceUrl": "https://polona.pl/item-view/55e3bbc2-7804-485e-88c7-e9c7ebf672bf?page=0",
+    "sourceUrl": "https://polona.pl/item-view/55e3bbc2-7804-485e-88c7-e9c7ebf672bf?page=0",
+    "digitalEditionUrl": "https://jfpio.github.io/proby-wodzow/",
+    "pdfUrl": "https://jfpio.github.io/proby-wodzow/book/proby-wodzow.pdf",
+    "accessedOn": "2026-09-02",
+    "sourceCommit": "3833340df52a23ab6851924e999114a91e14609a"
+  }
+]

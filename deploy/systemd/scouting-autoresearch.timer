@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Scouting Autoresearch once per day
+
+[Timer]
+OnCalendar=daily
+RandomizedDelaySec=45m
+Persistent=true
+Unit=scouting-autoresearch.service
+
+[Install]
+WantedBy=timers.target

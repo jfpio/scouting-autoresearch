@@ -1,0 +1,17 @@
+[Unit]
+Description=Scouting Autoresearch bounded proposal cycle
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=scouting-autoresearch
+WorkingDirectory=/srv/scouting-autoresearch
+EnvironmentFile=-/etc/scouting-autoresearch.env
+ExecStart=/srv/scouting-autoresearch/.venv/bin/python scripts/run_cycle.py --propose-only --max-documents 20 --max-cost-usd 5
+Nice=10
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/srv/scouting-autoresearch

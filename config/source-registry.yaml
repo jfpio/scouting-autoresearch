@@ -1,0 +1,42 @@
+schemaVersion: 1
+policy:
+  fullTextRequires: public-domain
+  humanRightsApproval: true
+  obeyRobotsTxt: true
+  obeyTermsOfUse: true
+collections:
+  - id: polona
+    name: Polona / Biblioteka Narodowa
+    baseUrl: https://polona.pl/
+    status: approved-per-item
+    allowedMethods: [record-metadata, documented-download]
+    rateLimitPerMinute: 10
+    notes: Każdy obiekt wymaga zachowania własnego oznaczenia praw i URL rekordu.
+  - id: project-gutenberg
+    name: Project Gutenberg
+    baseUrl: https://www.gutenberg.org/
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 5
+    notes: Przed pobraniem zweryfikować prawa dla użytkownika i konkretnej edycji.
+  - id: internet-archive
+    name: Internet Archive
+    baseUrl: https://archive.org/
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 5
+    notes: Dostępność pliku nie jest dowodem domeny publicznej.
+  - id: wikisource
+    name: Wikisource
+    baseUrl: https://wikisource.org/
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 10
+    notes: Sprawdzić status tekstu, edycji, ilustracji i tłumaczenia.
+  - id: national-libraries
+    name: Biblioteki narodowe
+    baseUrl: null
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 5
+    notes: Każda domena i kolekcja wymaga osobnego wpisu przed pobieraniem.

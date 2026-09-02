@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "importedAt": "2026-09-02",
+  "activityCount": 202,
+  "sources": [
+    {
+      "id": "hwp-1946",
+      "repository": "https://github.com/jfpio/harcerz-w-polu.git",
+      "commit": "ab4541f6fda3cae04a45c74642fb4053571f5118",
+      "selectedContentSha256": "f86e5fc417ce9287a1dc7b6029df3389b69ba861ab63a646947e4696643a4de9",
+      "indexSha256": "2d3eeb638114b6c31a0705f2e5bea9bfde7652b77af78febe9739ac4f83d1d35",
+      "activityCount": 117
+    },
+    {
+      "id": "pw-1935",
+      "repository": "https://github.com/jfpio/proby-wodzow.git",
+      "commit": "3833340df52a23ab6851924e999114a91e14609a",
+      "selectedContentSha256": "930da1feaee59bf28a2478e304dfe4917c98d52d0f1dead1a52a329719f6a06e",
+      "indexSha256": "a4a3e45bf043b89bdcbdc4599ff6d0d48fa8ef0954e28b5b31a05286acd83861",
+      "activityCount": 85
+    }
+  ]
+}

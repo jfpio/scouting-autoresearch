@@ -1,0 +1,15 @@
+schemaVersion: 1
+dailyLimits:
+  documents: 20
+  estimatedCostUsd: 5
+subjects:
+  - id: robert-baden-powell
+    name: Robert Baden-Powell
+    status: discovery
+    priority: 1
+    rightsNote: Data śmierci autora jest tylko sygnałem; zatwierdź konkretną edycję i ilustracje.
+  - id: ernest-thompson-seton
+    name: Ernest Thompson Seton
+    status: discovery
+    priority: 1
+    rightsNote: Zatwierdź konkretną edycję, współautorów, ilustracje i ewentualne tłumaczenie.

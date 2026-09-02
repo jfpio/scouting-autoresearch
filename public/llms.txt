@@ -1,0 +1,12 @@
+# Scouting Autoresearch
+
+> 202 historical scouting activities: original Polish texts and machine-translated English versions.
+
+- [Polish JSON](https://jfpio.github.io/scouting-autoresearch/data/activities.pl.json)
+- [English JSON](https://jfpio.github.io/scouting-autoresearch/data/activities.en.json)
+- [Polish JSONL](https://jfpio.github.io/scouting-autoresearch/data/activities.pl.jsonl)
+- [English JSONL](https://jfpio.github.io/scouting-autoresearch/data/activities.en.jsonl)
+- [Sources](https://jfpio.github.io/scouting-autoresearch/data/sources.json)
+- [Full bilingual text](https://jfpio.github.io/scouting-autoresearch/llms-full.txt)
+
+Historical material is not automatically a recommendation. Perform a modern risk assessment before use.
