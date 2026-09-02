@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Run one bounded, resumable V2 proposal cycle.
+"""Materialize one bounded V2 proposal cycle for Codex.
 
-V0 intentionally ships without network collection adapters. A cycle validates configuration,
-materializes a review packet for the queued authors, and records a checkpoint. Later adapters
-must keep the same human rights-review and pull-request gates.
+The current scaffold has no network collection adapters. It validates configuration,
+materializes a review packet for the queued authors, and records the latest checkpoint. It does
+not orchestrate Codex or resume incomplete network work. Later adapters must keep the same human
+rights-review and pull-request gates.
 """
 
 from __future__ import annotations

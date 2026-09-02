@@ -171,31 +171,17 @@ discover → rights review → fetch → OCR/extract → normalize → deduplica
 9. **Pull request:** agent przedstawia różnice, koszty, ryzyka i nierozstrzygnięte punkty.
 10. **Publish:** następuje dopiero po zatwierdzeniu PR przez człowieka.
 
-## Praca na serwerze
+## Praca z Codex Goal Mode
 
-`scripts/run_cycle.py` wykonuje pojedynczy, resumowalny i domyślnie propozycyjny cykl. Timer
-systemd uruchamia go z limitem 20 dokumentów i 5 USD dziennie. Limity mogą być tylko
-zaostrzane przez środowisko automatyzacji bez zmiany konfiguracji. Checkpoint identyfikuje cykl
-i pozwala wznowić pracę bez ponownego pobierania lub tłumaczenia.
+Autoresearch orkiestruje Codex w Goal Mode. Wiążące zasady bezpieczeństwa, limitów,
+checkpointów, publikacji i wznowień znajdują się wyłącznie w `AGENTS.md`; ten dokument
+opisuje cele i kolejność rozwoju produktu.
 
-Agent serwerowy:
-
-- używa osobnego, ograniczonego tokenu tylko do tego repozytorium,
-- nigdy nie zapisuje bezpośrednio do `main`,
-- tworzy gałąź `autoresearch/<data>-<cykl>` i pull request,
-- po każdej kompletnie przetworzonej książce lub jednostce źródłowej wykonuje walidację,
-  tworzy osobny commit i natychmiast wypycha go na zdalną gałąź przed przejściem dalej,
-- nie zatwierdza własnych decyzji prawnych,
-- zatrzymuje cykl po przekroczeniu limitu dokumentów lub szacowanego kosztu,
-- w Goal Mode zapisuje `nextRetryAt` i po przejściowym limicie sam wznawia pracę po
-  12 godzinach (albo później, jeśli wymaga tego `Retry-After`),
-- zatrzymuje cel i zgłasza blokadę przy problemie wymagającym decyzji człowieka, trwałym
-  limicie albo trzech kolejnych nieudanych wznowieniach tego samego kroku,
-- nie umieszcza sekretów, surowych nagłówków HTTP ani danych konta w logach.
-
-Przykładowa usługa i timer znajdują się w `deploy/systemd/`. Na początku V2 cykl jedynie
-materializuje kolejkę kandydatów i raport; adaptery pobierania są dodawane kolekcja po kolekcji
-po zatwierdzeniu zasad dostępu.
+`scripts/run_cycle.py` jest opcjonalnym narzędziem pomocniczym. Materializuje ograniczoną kolejkę
+kandydatów i raport oraz zapisuje ostatni checkpoint, ale nie pobiera źródeł, nie wznawia
+niedokończonych operacji sieciowych i nie tworzy gałęzi ani pull requestów. Te czynności
+wykonuje Codex zgodnie z `AGENTS.md`. Adaptery pobierania są dodawane kolekcja po kolekcji po
+zatwierdzeniu zasad dostępu.
 
 ## Kolejka dalszych prac V2
 
