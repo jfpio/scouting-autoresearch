@@ -94,6 +94,15 @@ Project Gutenberg, Internet Archive, Wikisource, Polona i biblioteki narodowe. R
 `Azymut ZHR` służy jako zatwierdzone źródło odkrywania współczesnych polskich materiałów.
 Pierwszy przebieg nie importuje automatycznie żadnej zagranicznej książki.
 
+Do źródeł przeznaczonych do oceny i podłączenia w V2 należą również:
+
+- [historyczna.slaska.zhp.pl](https://historyczna.slaska.zhp.pl/?page_id=210),
+- [Archiwum Harcerskie](https://archiwumharcerskie.pl/).
+
+Oba serwisy są kandydatami do rejestru źródeł. Przed uruchomieniem adaptera sprawdzamy ich
+regulamin, `robots.txt`, dozwoloną metodę dostępu oraz dowód statusu prawnego każdej konkretnej
+publikacji; umieszczenie serwisu na liście V2 nie zatwierdza automatycznie pełnego tekstu.
+
 Pipeline:
 
 ```text
@@ -139,6 +148,7 @@ po zatwierdzeniu zasad dostępu.
 ## Kolejka dalszych prac V2
 
 - zweryfikować po jednej konkretnej edycji Baden-Powella, Setona i Sevina,
+- ocenić zasady dostępu oraz kolekcje `historyczna.slaska.zhp.pl` i Archiwum Harcerskiego,
 - zaimplementować adapter metadanych dla pierwszej zaakceptowanej kolekcji,
 - ustalić taksonomię cech dwujęzycznych i słownik synonimów,
 - dodać deduplikację bliskich wariantów tej samej aktywności,
