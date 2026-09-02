@@ -17,9 +17,13 @@
 
 ## Środowisko Heliosa
 
-- Na węźle logowania wykonuj tylko inspekcję oraz lekkie testy jednostkowe i
-  `scripts/validate.py`. Buildy, OCR, embeddingi, tłumaczenia i zadania wsadowe uruchamiaj przez
-  Slurm, zaczynając od najmniejszego reprezentatywnego smoke joba.
+- Na węźle logowania możesz wykonywać inspekcję, ograniczone wywołania zewnętrznych API,
+  małe operacje na plikach, Git, checkpointy oraz lekkie testy jednostkowe i
+  `scripts/validate.py`. Samo oczekiwanie na odpowiedź API nie wymaga węzła obliczeniowego.
+- Buildy, lokalny OCR, lokalne embeddingi lub inference, benchmarki i duże zadania wsadowe
+  uruchamiaj przez Slurm, zaczynając od najmniejszego reprezentatywnego smoke joba.
+- Nie utrzymuj na węźle logowania procesu uśpionego do czasu ponowienia API. Zapisz
+  `nextRetryAt`, zakończ bieżący krok i pozwól Goal Mode wznowić pracę.
 - Systemowy `python3` na węźle logowania jest zbyt stary. Dla x86_64 przed pracą sprawdź
   `module spider Python/3.12.3`, a następnie załaduj zweryfikowane zależności, obecnie
   `GCCcore/13.3.0` i `Python/3.12.3`.
