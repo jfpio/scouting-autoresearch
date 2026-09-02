@@ -1,0 +1,10 @@
+schemaVersion: 1
+embedding:
+  model: mistral-embed-2312
+  dimensions: 1024
+  recipeVersion: activity-context-v1
+  contextCharacters: 600
+  modelMaxInputTokens: 8192
+  priceUsdPerMillionInputTokens: 0.1
+  priceSource: https://docs.mistral.ai/models/mistral-embed-23-12
+

@@ -50,6 +50,19 @@ Importer zapisuje commity i sumy kontrolne w `imports.lock.json`. Tłumacz wczyt
 rekordy z aktualnym hashem. Model V0 to `mistral-medium-2604`; żądany pierwotnie
 `mistral-large-2512` nie był dostępny dla użytego planu API.
 
+## Taksonomia V1
+
+Przed płatnym wywołaniem API skrypt pokazuje plan partii, szacowany koszt i koszt graniczny:
+
+```bash
+.venv/bin/python scripts/embed_taxonomy.py
+.venv/bin/python scripts/embed_taxonomy.py --execute --limit 20
+```
+
+Cache jest ważny tylko dla zgodnego modelu, przepisu i hasha wejścia. Limit dokumentów oraz
+kosztu pochodzi z `config/research-queue.yaml`; przejściowy błąd API zapisuje `nextRetryAt`
+zamiast utrzymywać uśpiony proces.
+
 ## Struktura
 
 - `vault/` — źródło prawdy zgodne z Obsidianem,

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "taxonomy-v1-embeddings",
+  "status": "in-progress",
+  "generatedAt": "2026-09-02T16:21:02.743176+00:00",
+  "modelRequested": "mistral-embed-2312",
+  "dimensions": 1024,
+  "recipeVersion": "activity-context-v1",
+  "priceUsdPerMillionInputTokens": 0.1,
+  "priceSource": "https://docs.mistral.ai/models/mistral-embed-23-12",
+  "activities": {
+    "total": 202,
+    "cached": 20,
+    "remaining": 182
+  },
+  "usage": {
+    "promptTokens": 6488,
+    "estimatedCostUsd": 0.0006488
+  },
+  "batchIds": [
+    "20260902T162102743176Z"
+  ],
+  "cachedActivityIds": [
+    "hwp-001",
+    "hwp-002",
+    "hwp-003",
+    "hwp-004",
+    "hwp-005",
+    "hwp-006",
+    "hwp-007",
+    "hwp-008",
+    "hwp-009",
+    "hwp-010",
+    "hwp-011",
+    "hwp-012",
+    "hwp-013",
+    "hwp-014",
+    "hwp-015",
+    "hwp-016",
+    "hwp-017",
+    "hwp-018",
+    "hwp-019",
+    "hwp-020"
+  ]
+}

@@ -8,6 +8,7 @@ import re
 from pathlib import Path
 
 from common import GENERATED, ROOT, VAULT, load_markdown, read_json, source_hash
+from embed_taxonomy import build_embedding_input, input_hash, load_config
 
 
 def require(condition: bool, message: str, errors: list[str]) -> None:
@@ -85,6 +86,31 @@ def main() -> None:
         require(set((metadata.get("labels") or {}).keys()) == {"pl", "en"}, f"Exploration note lacks bilingual labels: {path}", errors)
         require(bool(body.strip()), f"Empty exploration note: {path}", errors)
 
+    taxonomy_config = load_config()
+    embedding_config = taxonomy_config["embedding"]
+    embedding_paths = sorted((ROOT / "data" / "embeddings" / "v1").glob("*.json"))
+    embedded_ids: set[str] = set()
+    for path in embedding_paths:
+        payload = read_json(path)
+        activity_id = payload.get("activityId")
+        require(activity_id not in embedded_ids, f"Duplicate taxonomy embedding: {activity_id}", errors)
+        embedded_ids.add(activity_id)
+        activity_path = VAULT / "activities" / f"{activity_id}.md"
+        require(activity_path.exists(), f"Embedding without activity: {path}", errors)
+        if activity_path.exists():
+            metadata, body = load_markdown(activity_path)
+            expected_input = build_embedding_input(metadata, body, int(embedding_config["contextCharacters"]))
+            require(payload.get("inputHash") == input_hash(expected_input), f"Stale taxonomy embedding: {path.name}", errors)
+            require(payload.get("sourceTraits") == (metadata.get("traits") or []), f"Embedding changed source traits: {path.name}", errors)
+        require(payload.get("modelRequested") == embedding_config["model"], f"Wrong embedding model: {path.name}", errors)
+        require(payload.get("recipeVersion") == embedding_config["recipeVersion"], f"Wrong embedding recipe: {path.name}", errors)
+        vector = payload.get("vector")
+        require(
+            isinstance(vector, list) and len(vector) == int(embedding_config["dimensions"]),
+            f"Wrong embedding dimensions: {path.name}",
+            errors,
+        )
+
     for locale in ("pl", "en"):
         json_path = GENERATED / f"activities.{locale}.json"
         jsonl_path = GENERATED / f"activities.{locale}.jsonl"
@@ -122,7 +148,10 @@ def main() -> None:
         for error in errors:
             print(f"- {error}")
         raise SystemExit(1)
-    print("Validation passed: 202 activities, 202 translations, 2 public-domain sources, bilingual exports and docs.")
+    print(
+        "Validation passed: 202 activities, 202 translations, 2 public-domain sources, "
+        f"{len(embedding_paths)} taxonomy embeddings, bilingual exports and docs."
+    )
 
 
 if __name__ == "__main__":
