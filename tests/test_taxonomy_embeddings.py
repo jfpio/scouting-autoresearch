@@ -10,6 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
 import embed_taxonomy as taxonomy_embeddings
 from embed_taxonomy import (
+    batch_estimated_cost,
     build_embedding_input,
     cache_is_current,
     daily_usage,
@@ -156,31 +157,57 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
             self.assertEqual(usage["promptTokens"], 100)
             self.assertEqual(usage["batchIds"], ["first"])
 
+    def test_daily_usage_preserves_ledger_cost_after_price_change(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "batch.json"
+            path.write_text(
+                json.dumps(
+                    {
+                        "batchId": "old-price",
+                        "generatedAt": "2026-09-02T10:00:00+00:00",
+                        "activityIds": ["hwp-001"],
+                        "usage": {"promptTokens": 100, "estimatedCostUsd": 1.25},
+                    }
+                ),
+                encoding="utf-8",
+            )
+            usage = daily_usage(
+                [path],
+                now=datetime(2026, 9, 2, 12, tzinfo=UTC),
+                timezone_name="Europe/Warsaw",
+                price_per_million_tokens=99.0,
+            )
+            self.assertEqual(usage["estimatedCostUsd"], 1.25)
+
+    def test_batch_cost_falls_back_for_legacy_ledgers(self):
+        batch = {"usage": {"promptTokens": 250}}
+        self.assertEqual(batch_estimated_cost(batch, 0.2), 0.00005)
+
     def test_batch_usage_is_grouped_by_recipe_without_hiding_superseded_cost(self):
         batches = [
             {
                 "batchId": "v1-batch-b",
                 "recipeVersion": "activity-context-v1",
                 "activityIds": ["hwp-002"],
-                "usage": {"promptTokens": 40},
+                "usage": {"promptTokens": 40, "estimatedCostUsd": 0.000004},
             },
             {
                 "batchId": "v1-batch-a",
                 "recipeVersion": "activity-context-v1",
                 "activityIds": ["hwp-001"],
-                "usage": {"promptTokens": 60},
+                "usage": {"promptTokens": 60, "estimatedCostUsd": 0.000012},
             },
             {
                 "batchId": "v2-batch",
                 "recipeVersion": "activity-context-v2",
                 "activityIds": ["hwp-001", "hwp-002", "hwp-003"],
-                "usage": {"promptTokens": 150},
+                "usage": {"promptTokens": 150, "estimatedCostUsd": 0.00003},
             },
         ]
         usage = summarize_batch_usage(list(reversed(batches)), 0.1)
         self.assertEqual(usage["documentsProcessed"], 5)
         self.assertEqual(usage["promptTokens"], 250)
-        self.assertEqual(usage["estimatedCostUsd"], 0.000025)
+        self.assertEqual(usage["estimatedCostUsd"], 0.000046)
         self.assertEqual(
             usage["byRecipe"],
             [
@@ -189,14 +216,14 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
                     "batchIds": ["v1-batch-a", "v1-batch-b"],
                     "documents": 2,
                     "promptTokens": 100,
-                    "estimatedCostUsd": 0.00001,
+                    "estimatedCostUsd": 0.000016,
                 },
                 {
                     "recipeVersion": "activity-context-v2",
                     "batchIds": ["v2-batch"],
                     "documents": 3,
                     "promptTokens": 150,
-                    "estimatedCostUsd": 0.000015,
+                    "estimatedCostUsd": 0.00003,
                 },
             ],
         )

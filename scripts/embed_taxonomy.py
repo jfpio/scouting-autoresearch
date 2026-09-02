@@ -162,6 +162,7 @@ def daily_usage(
     local_day = now.astimezone(timezone).date()
     documents = 0
     prompt_tokens = 0
+    estimated_cost = 0.0
     batch_ids: list[str] = []
     for batch_path in batch_paths:
         batch = read_json(batch_path)
@@ -172,15 +173,24 @@ def daily_usage(
             continue
         documents += len(batch.get("activityIds", []))
         prompt_tokens += int(batch.get("usage", {}).get("promptTokens", 0))
+        estimated_cost += batch_estimated_cost(batch, price_per_million_tokens)
         batch_ids.append(str(batch["batchId"]))
     return {
         "date": local_day.isoformat(),
         "timezone": timezone_name,
         "documents": documents,
         "promptTokens": prompt_tokens,
-        "estimatedCostUsd": round(prompt_tokens * price_per_million_tokens / 1_000_000, 8),
+        "estimatedCostUsd": round(estimated_cost, 8),
         "batchIds": batch_ids,
     }
+
+
+def batch_estimated_cost(batch: dict[str, Any], fallback_price_per_million_tokens: float) -> float:
+    usage = batch.get("usage", {})
+    stored_cost = usage.get("estimatedCostUsd")
+    if stored_cost is not None:
+        return float(stored_cost)
+    return int(usage.get("promptTokens", 0)) * fallback_price_per_million_tokens / 1_000_000
 
 
 def summarize_batch_usage(
@@ -196,20 +206,21 @@ def summarize_batch_usage(
         group["batchIds"].append(str(batch["batchId"]))
         group["documents"] += len(batch.get("activityIds", []))
         group["promptTokens"] += int(batch.get("usage", {}).get("promptTokens", 0))
+        group["estimatedCostUsd"] = group.get("estimatedCostUsd", 0.0) + batch_estimated_cost(
+            batch, price_per_million_tokens
+        )
     by_recipe = []
     for recipe_version in sorted(groups):
         group = groups[recipe_version]
         group["batchIds"].sort()
-        group["estimatedCostUsd"] = round(
-            group["promptTokens"] * price_per_million_tokens / 1_000_000,
-            8,
-        )
+        group["estimatedCostUsd"] = round(group["estimatedCostUsd"], 8)
         by_recipe.append(group)
     prompt_tokens = sum(group["promptTokens"] for group in by_recipe)
+    estimated_cost = sum(group["estimatedCostUsd"] for group in by_recipe)
     return {
         "documentsProcessed": sum(group["documents"] for group in by_recipe),
         "promptTokens": prompt_tokens,
-        "estimatedCostUsd": round(prompt_tokens * price_per_million_tokens / 1_000_000, 8),
+        "estimatedCostUsd": round(estimated_cost, 8),
         "byRecipe": by_recipe,
     }
 
@@ -523,6 +534,8 @@ def main() -> None:
         "modelRequested": embedding["model"],
         "model": actual_model,
         "recipeVersion": embedding["recipeVersion"],
+        "priceUsdPerMillionInputTokens": embedding["priceUsdPerMillionInputTokens"],
+        "priceSource": embedding["priceSource"],
         "activityIds": [item["id"] for item in selected],
         "usage": {"promptTokens": prompt_tokens, "estimatedCostUsd": round(batch_cost, 8)},
         "items": cache_payloads,
