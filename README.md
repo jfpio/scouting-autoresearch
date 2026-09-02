@@ -76,7 +76,10 @@ Kod obsługuje też przepis `activity-context-v2`, który przed skróceniem kont
 techniczną stopkę źródłową oraz adresy URL z Markdown, zachowując tekst widoczny odnośników.
 Zmiana `recipeVersion` jest jawna i celowo unieważnia wcześniejsze cache’e. Pilotaż v1
 pozostaje przypięty do dotychczasowego przepisu do czasu ograniczonego ponowienia całej
-pierwszej partii na v2; nie należy skalować kolejnych partii na v1.
+pierwszej partii na v2; nie należy skalować kolejnych partii na v1. Jeżeli raport jakości
+ma status `recipe-upgrade-pending`, tryb `--execute` jest blokowany dla starej receptury.
+Dry-run pokazuje przyczynę blokady; wykonanie staje się możliwe dopiero po przełączeniu
+konfiguracji na wskazaną recepturę kandydującą.
 
 ## Struktura
 

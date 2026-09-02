@@ -20,6 +20,7 @@ from embed_taxonomy import (
     next_daily_reset,
     prepare_context,
     recover_cached_items,
+    recipe_execution_block_reason,
     retry_at,
     summarize_batch_usage,
     write_retry_checkpoint,
@@ -78,6 +79,30 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
         self.assertNotIn("https://example.test", v2)
         with self.assertRaises(ValueError):
             prepare_context(body, "activity-context-unknown")
+
+    def test_pending_recipe_upgrade_blocks_old_recipe_but_allows_candidate(self):
+        audit = {
+            "status": "recipe-upgrade-pending",
+            "activeRecipeVersion": "activity-context-v1",
+            "candidateRecipeVersion": "activity-context-v2",
+        }
+        reason = recipe_execution_block_reason(
+            {"recipeVersion": "activity-context-v1"},
+            audit,
+        )
+        self.assertIn("activity-context-v2", reason or "")
+        self.assertIsNone(
+            recipe_execution_block_reason(
+                {"recipeVersion": "activity-context-v2"},
+                audit,
+            )
+        )
+        self.assertIsNone(
+            recipe_execution_block_reason(
+                {"recipeVersion": "activity-context-v1"},
+                {**audit, "status": "ready"},
+            )
+        )
 
     def test_cache_requires_matching_recipe_hash_and_dimensions(self):
         with tempfile.TemporaryDirectory() as directory:

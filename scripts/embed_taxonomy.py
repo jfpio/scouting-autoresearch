@@ -29,6 +29,7 @@ QUEUE_PATH = ROOT / "config" / "research-queue.yaml"
 CACHE_DIR = ROOT / "data" / "embeddings" / "v1"
 BATCH_DIR = CACHE_DIR / "batches"
 REPORT_PATH = ROOT / "data" / "reports" / "taxonomy-v1-embedding-progress.json"
+INPUT_QUALITY_REPORT_PATH = ROOT / "data" / "reports" / "taxonomy-v1-input-quality.json"
 CHECKPOINT_PATH = ROOT / "data" / "checkpoints" / "taxonomy-v1-state.json"
 TRANSIENT_HTTP_CODES = {408, 429, 500, 502, 503, 504}
 
@@ -237,6 +238,22 @@ def checkpoint_identity(embedding: dict[str, Any]) -> dict[str, Any]:
         "recipeVersion": str(embedding["recipeVersion"]),
         "dimensions": int(embedding["dimensions"]),
     }
+
+
+def recipe_execution_block_reason(
+    embedding: dict[str, Any], input_quality_report: dict[str, Any] | None
+) -> str | None:
+    if not input_quality_report or input_quality_report.get("status") != "recipe-upgrade-pending":
+        return None
+    configured_recipe = str(embedding["recipeVersion"])
+    audited_active_recipe = str(input_quality_report.get("activeRecipeVersion", ""))
+    candidate_recipe = str(input_quality_report.get("candidateRecipeVersion", ""))
+    if configured_recipe == audited_active_recipe and candidate_recipe != configured_recipe:
+        return (
+            f"input-quality audit requires recipe upgrade from {configured_recipe} "
+            f"to {candidate_recipe} before API execution"
+        )
+    return None
 
 
 def write_retry_checkpoint(
@@ -462,6 +479,10 @@ def main() -> None:
         / 1_000_000
     )
     documents_allowed_by_cost = math.floor(remaining_cost_budget / worst_case_cost_per_document)
+    input_quality_report = (
+        read_json(INPUT_QUALITY_REPORT_PATH) if INPUT_QUALITY_REPORT_PATH.exists() else None
+    )
+    execution_block_reason = recipe_execution_block_reason(embedding, input_quality_report)
 
     current_ids = {item["id"] for item in current_items(items, config)}
     pending = [item for item in items if item["id"] not in current_ids]
@@ -493,10 +514,14 @@ def main() -> None:
         "estimatedCostUsd": round(estimated_cost, 8),
         "worstCaseCostUsd": round(worst_case_cost, 8),
         "hardCostLimitUsd": hard_cost_limit,
+        "executionBlocked": execution_block_reason is not None,
+        "executionBlockReason": execution_block_reason,
     }
     print(json.dumps(plan, ensure_ascii=False, indent=2), flush=True)
     if worst_case_cost > remaining_cost_budget:
         raise SystemExit("planned batch exceeds the hard cost limit")
+    if args.execute and execution_block_reason:
+        raise SystemExit(execution_block_reason)
     if not args.execute:
         return
     if not selected:
