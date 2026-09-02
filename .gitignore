@@ -7,3 +7,5 @@ dist/
 data/checkpoints/
 data/reports/cycle-*.json
 *.log
+__pycache__/
+*.py[cod]
