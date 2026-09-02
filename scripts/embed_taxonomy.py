@@ -183,6 +183,37 @@ def daily_usage(
     }
 
 
+def summarize_batch_usage(
+    batches: list[dict[str, Any]], price_per_million_tokens: float
+) -> dict[str, Any]:
+    groups: dict[str, dict[str, Any]] = {}
+    for batch in batches:
+        recipe_version = str(batch.get("recipeVersion", "unknown"))
+        group = groups.setdefault(
+            recipe_version,
+            {"recipeVersion": recipe_version, "batchIds": [], "documents": 0, "promptTokens": 0},
+        )
+        group["batchIds"].append(str(batch["batchId"]))
+        group["documents"] += len(batch.get("activityIds", []))
+        group["promptTokens"] += int(batch.get("usage", {}).get("promptTokens", 0))
+    by_recipe = []
+    for recipe_version in sorted(groups):
+        group = groups[recipe_version]
+        group["batchIds"].sort()
+        group["estimatedCostUsd"] = round(
+            group["promptTokens"] * price_per_million_tokens / 1_000_000,
+            8,
+        )
+        by_recipe.append(group)
+    prompt_tokens = sum(group["promptTokens"] for group in by_recipe)
+    return {
+        "documentsProcessed": sum(group["documents"] for group in by_recipe),
+        "promptTokens": prompt_tokens,
+        "estimatedCostUsd": round(prompt_tokens * price_per_million_tokens / 1_000_000, 8),
+        "byRecipe": by_recipe,
+    }
+
+
 def next_daily_reset(now: datetime, timezone_name: str) -> datetime:
     timezone = ZoneInfo(timezone_name)
     local_now = now.astimezone(timezone)
@@ -317,14 +348,15 @@ def recover_cached_items(config: dict[str, Any], items: list[dict[str, Any]]) ->
     return recovered
 
 
-def write_progress_report(config: dict[str, Any], items: list[dict[str, Any]], *, generated_at: str) -> dict[str, Any]:
+def build_progress_report(
+    config: dict[str, Any], items: list[dict[str, Any]], *, generated_at: str
+) -> dict[str, Any]:
     embedding = config["embedding"]
     current = current_items(items, config)
     batch_paths = sorted(BATCH_DIR.glob("*.json"))
     batches = [read_json(path) for path in batch_paths]
-    prompt_tokens = sum(int(batch.get("usage", {}).get("promptTokens", 0)) for batch in batches)
-    estimated_cost = prompt_tokens * float(embedding["priceUsdPerMillionInputTokens"]) / 1_000_000
-    report = {
+    usage = summarize_batch_usage(batches, float(embedding["priceUsdPerMillionInputTokens"]))
+    return {
         "schemaVersion": 1,
         "pipeline": "taxonomy-v1-embeddings",
         "status": "complete" if len(current) == len(items) else "in-progress",
@@ -335,10 +367,16 @@ def write_progress_report(config: dict[str, Any], items: list[dict[str, Any]], *
         "priceUsdPerMillionInputTokens": embedding["priceUsdPerMillionInputTokens"],
         "priceSource": embedding["priceSource"],
         "activities": {"total": len(items), "cached": len(current), "remaining": len(items) - len(current)},
-        "usage": {"promptTokens": prompt_tokens, "estimatedCostUsd": round(estimated_cost, 8)},
-        "batchIds": [batch["batchId"] for batch in batches],
+        "usage": usage,
+        "batchIds": sorted(str(batch["batchId"]) for batch in batches),
         "cachedActivityIds": [item["id"] for item in current],
     }
+
+
+def write_progress_report(
+    config: dict[str, Any], items: list[dict[str, Any]], *, generated_at: str
+) -> dict[str, Any]:
+    report = build_progress_report(config, items, generated_at=generated_at)
     atomic_write_json(REPORT_PATH, report)
     return report
 

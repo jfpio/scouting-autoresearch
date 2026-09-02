@@ -19,6 +19,7 @@ from embed_taxonomy import (
     prepare_context,
     recover_cached_items,
     retry_at,
+    summarize_batch_usage,
 )
 
 
@@ -154,6 +155,51 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
             self.assertEqual(usage["documents"], 2)
             self.assertEqual(usage["promptTokens"], 100)
             self.assertEqual(usage["batchIds"], ["first"])
+
+    def test_batch_usage_is_grouped_by_recipe_without_hiding_superseded_cost(self):
+        batches = [
+            {
+                "batchId": "v1-batch-b",
+                "recipeVersion": "activity-context-v1",
+                "activityIds": ["hwp-002"],
+                "usage": {"promptTokens": 40},
+            },
+            {
+                "batchId": "v1-batch-a",
+                "recipeVersion": "activity-context-v1",
+                "activityIds": ["hwp-001"],
+                "usage": {"promptTokens": 60},
+            },
+            {
+                "batchId": "v2-batch",
+                "recipeVersion": "activity-context-v2",
+                "activityIds": ["hwp-001", "hwp-002", "hwp-003"],
+                "usage": {"promptTokens": 150},
+            },
+        ]
+        usage = summarize_batch_usage(list(reversed(batches)), 0.1)
+        self.assertEqual(usage["documentsProcessed"], 5)
+        self.assertEqual(usage["promptTokens"], 250)
+        self.assertEqual(usage["estimatedCostUsd"], 0.000025)
+        self.assertEqual(
+            usage["byRecipe"],
+            [
+                {
+                    "recipeVersion": "activity-context-v1",
+                    "batchIds": ["v1-batch-a", "v1-batch-b"],
+                    "documents": 2,
+                    "promptTokens": 100,
+                    "estimatedCostUsd": 0.00001,
+                },
+                {
+                    "recipeVersion": "activity-context-v2",
+                    "batchIds": ["v2-batch"],
+                    "documents": 3,
+                    "promptTokens": 150,
+                    "estimatedCostUsd": 0.000015,
+                },
+            ],
+        )
 
     def test_next_daily_reset_is_local_midnight(self):
         reset = next_daily_reset(datetime(2026, 9, 2, 22, 30, tzinfo=UTC), "Europe/Warsaw")

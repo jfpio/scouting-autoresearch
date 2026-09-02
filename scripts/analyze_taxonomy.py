@@ -20,6 +20,7 @@ from embed_taxonomy import (
     atomic_write_json,
     cache_is_current,
     load_config,
+    summarize_batch_usage,
 )
 
 
@@ -303,16 +304,16 @@ def build_analysis(
 
 def load_usage() -> dict[str, Any]:
     batches = [read_json(path) for path in sorted(BATCH_DIR.glob("*.json"))]
-    prompt_tokens = sum(int(batch.get("usage", {}).get("promptTokens", 0)) for batch in batches)
     config = load_config()["embedding"]
-    cost = prompt_tokens * float(config["priceUsdPerMillionInputTokens"]) / 1_000_000
-    return {
-        "batchIds": [batch["batchId"] for batch in batches],
-        "promptTokens": prompt_tokens,
-        "estimatedCostUsd": round(cost, 8),
-        "priceUsdPerMillionInputTokens": config["priceUsdPerMillionInputTokens"],
-        "priceSource": config["priceSource"],
-    }
+    usage = summarize_batch_usage(batches, float(config["priceUsdPerMillionInputTokens"]))
+    usage.update(
+        {
+            "batchIds": sorted(str(batch["batchId"]) for batch in batches),
+            "priceUsdPerMillionInputTokens": config["priceUsdPerMillionInputTokens"],
+            "priceSource": config["priceSource"],
+        }
+    )
+    return usage
 
 
 def write_analysis_checkpoint(

@@ -12,7 +12,14 @@ from audit_taxonomy_inputs import build_quality_report
 from analyze_taxonomy import REPORT_PATH as TAXONOMY_ANALYSIS_PATH
 from analyze_taxonomy import build_analysis, load_usage
 from common import GENERATED, ROOT, VAULT, load_markdown, read_json, source_hash
-from embed_taxonomy import build_embedding_input, input_hash, load_config
+from embed_taxonomy import REPORT_PATH as TAXONOMY_PROGRESS_PATH
+from embed_taxonomy import (
+    activity_items,
+    build_embedding_input,
+    build_progress_report,
+    input_hash,
+    load_config,
+)
 
 
 def require(condition: bool, message: str, errors: list[str]) -> None:
@@ -121,6 +128,19 @@ def main() -> None:
         )
 
     if embedding_paths:
+        require(TAXONOMY_PROGRESS_PATH.exists(), "Missing taxonomy V1 progress report", errors)
+        if TAXONOMY_PROGRESS_PATH.exists():
+            progress = read_json(TAXONOMY_PROGRESS_PATH)
+            expected_progress = build_progress_report(
+                taxonomy_config,
+                activity_items(taxonomy_config),
+                generated_at=progress.get("generatedAt"),
+            )
+            require(
+                progress == expected_progress,
+                "Taxonomy V1 progress report is stale or nondeterministic",
+                errors,
+            )
         require(TAXONOMY_INPUT_AUDIT_PATH.exists(), "Missing taxonomy V1 input-quality report", errors)
         if TAXONOMY_INPUT_AUDIT_PATH.exists():
             input_audit = read_json(TAXONOMY_INPUT_AUDIT_PATH)

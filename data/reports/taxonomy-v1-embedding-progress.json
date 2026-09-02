@@ -14,8 +14,20 @@
     "remaining": 182
   },
   "usage": {
+    "documentsProcessed": 20,
     "promptTokens": 6488,
-    "estimatedCostUsd": 0.0006488
+    "estimatedCostUsd": 0.0006488,
+    "byRecipe": [
+      {
+        "recipeVersion": "activity-context-v1",
+        "batchIds": [
+          "20260902T162102743176Z"
+        ],
+        "documents": 20,
+        "promptTokens": 6488,
+        "estimatedCostUsd": 0.0006488
+      }
+    ]
   },
   "batchIds": [
     "20260902T162102743176Z"
