@@ -113,6 +113,14 @@ def main() -> None:
         text = (DIST / path).read_text(encoding="utf-8")
         if "Automatic translations:" not in text or "have not been verified by a person" not in text:
             metric_errors.append(f"{path}: missing the automatic-translation disclosure")
+    obsolete_safety_notices = (
+        "materiały historyczne wymagają współczesnej oceny ryzyka",
+        "historical materials require a modern risk assessment",
+    )
+    for path in expected_cards:
+        text = (DIST / path).read_text(encoding="utf-8")
+        if any(notice in text for notice in obsolete_safety_notices):
+            metric_errors.append(f"{path}: obsolete safety callout is still visible")
     english_activity_pages = list((DIST / "en" / "activities").glob("*/index.html"))
     if len(english_activity_pages) != 202:
         metric_errors.append(f"Expected 202 English activity pages, found {len(english_activity_pages)}")

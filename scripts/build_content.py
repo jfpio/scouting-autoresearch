@@ -242,11 +242,6 @@ def explorer_page(locale: str, *, kind: str | None = None, home: bool = False) -
         "---\n\n"
         f"import ActivityExplorer from '{component_path}';\n\n"
         + hero
-        + (
-            "> **Ważne:** materiały historyczne wymagają współczesnej oceny ryzyka; ich obecność w bazie nie jest rekomendacją użycia.\n\n"
-            if is_pl
-            else "> **Important:** historical materials require a modern risk assessment; inclusion is not a recommendation for use.\n\n"
-        )
         + translation_note
         + f'<ActivityExplorer locale="{locale}"{kind_prop} />\n'
     )
