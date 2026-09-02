@@ -18,9 +18,11 @@ from embed_taxonomy import (
     estimated_tokens,
     input_hash,
     next_daily_reset,
+    pending_recipe_migration_ids,
     prepare_context,
     recover_cached_items,
     recipe_execution_block_reason,
+    restrict_to_recipe_migration,
     retry_at,
     summarize_batch_usage,
     write_retry_checkpoint,
@@ -102,6 +104,35 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
                 {"recipeVersion": "activity-context-v1"},
                 {**audit, "status": "ready"},
             )
+        )
+
+    def test_partial_recipe_migration_never_spills_into_new_activities(self):
+        audit = {
+            "candidateRecipeVersion": "activity-context-v2",
+            "remediation": {
+                "reembedBeforeNewActivities": ["hwp-001", "hwp-002", "hwp-003"]
+            },
+        }
+        migration_ids = pending_recipe_migration_ids(
+            {"recipeVersion": "activity-context-v2"},
+            audit,
+            {"hwp-001"},
+        )
+        self.assertEqual(migration_ids, ["hwp-002", "hwp-003"])
+        pending = [
+            {"id": activity_id}
+            for activity_id in ("hwp-002", "hwp-003", "hwp-021", "hwp-022")
+        ]
+        migration, deferred = restrict_to_recipe_migration(pending, migration_ids)
+        self.assertEqual([item["id"] for item in migration], ["hwp-002", "hwp-003"])
+        self.assertEqual(deferred, ["hwp-021", "hwp-022"])
+        self.assertEqual(
+            pending_recipe_migration_ids(
+                {"recipeVersion": "activity-context-v2"},
+                audit,
+                {"hwp-001", "hwp-002", "hwp-003"},
+            ),
+            [],
         )
 
     def test_cache_requires_matching_recipe_hash_and_dimensions(self):

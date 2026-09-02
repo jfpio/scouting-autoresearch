@@ -79,7 +79,9 @@ pozostaje przypięty do dotychczasowego przepisu do czasu ograniczonego ponowien
 pierwszej partii na v2; nie należy skalować kolejnych partii na v1. Jeżeli raport jakości
 ma status `recipe-upgrade-pending`, tryb `--execute` jest blokowany dla starej receptury.
 Dry-run pokazuje przyczynę blokady; wykonanie staje się możliwe dopiero po przełączeniu
-konfiguracji na wskazaną recepturę kandydującą.
+konfiguracji na wskazaną recepturę kandydującą. Dopóki wszystkie ID z
+`reembedBeforeNewActivities` nie mają aktualnego cache’a, selektor nie dobiera do partii
+żadnych nowych aktywności — również po częściowym odzyskaniu przerwanej partii.
 
 ## Struktura
 

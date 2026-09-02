@@ -256,6 +256,34 @@ def recipe_execution_block_reason(
     return None
 
 
+def pending_recipe_migration_ids(
+    embedding: dict[str, Any],
+    input_quality_report: dict[str, Any] | None,
+    current_ids: set[str],
+) -> list[str]:
+    if not input_quality_report:
+        return []
+    candidate_recipe = str(input_quality_report.get("candidateRecipeVersion", ""))
+    if str(embedding["recipeVersion"]) != candidate_recipe:
+        return []
+    remediation = input_quality_report.get("remediation", {})
+    required_ids = remediation.get("reembedBeforeNewActivities", [])
+    if not isinstance(required_ids, list):
+        raise ValueError("input-quality remediation IDs must be a list")
+    return sorted(str(activity_id) for activity_id in required_ids if str(activity_id) not in current_ids)
+
+
+def restrict_to_recipe_migration(
+    pending: list[dict[str, Any]], migration_ids: list[str]
+) -> tuple[list[dict[str, Any]], list[str]]:
+    if not migration_ids:
+        return pending, []
+    allowed = set(migration_ids)
+    selected_pool = [item for item in pending if item["id"] in allowed]
+    deferred_ids = [item["id"] for item in pending if item["id"] not in allowed]
+    return selected_pool, deferred_ids
+
+
 def write_retry_checkpoint(
     *,
     now: datetime,
@@ -455,14 +483,15 @@ def main() -> None:
     if args.limit < 1 or args.limit > hard_document_limit:
         raise SystemExit(f"limit must be between 1 and {hard_document_limit}")
 
-    items = activity_items(config)
-    recovered = recover_cached_items(config, items)
+    all_items = activity_items(config)
+    recovered = recover_cached_items(config, all_items)
+    items = all_items
     if args.ids:
         wanted = set(args.ids)
-        unknown = wanted - {item["id"] for item in items}
+        unknown = wanted - {item["id"] for item in all_items}
         if unknown:
             raise SystemExit(f"unknown activity IDs: {sorted(unknown)}")
-        items = [item for item in items if item["id"] in wanted]
+        items = [item for item in all_items if item["id"] in wanted]
 
     now = datetime.now(UTC)
     usage_today = daily_usage(
@@ -484,8 +513,14 @@ def main() -> None:
     )
     execution_block_reason = recipe_execution_block_reason(embedding, input_quality_report)
 
-    current_ids = {item["id"] for item in current_items(items, config)}
-    pending = [item for item in items if item["id"] not in current_ids]
+    current_ids = {item["id"] for item in current_items(all_items, config)}
+    requested_pending = [item for item in items if item["id"] not in current_ids]
+    migration_ids = pending_recipe_migration_ids(embedding, input_quality_report, current_ids)
+    pending, deferred_ids = restrict_to_recipe_migration(requested_pending, migration_ids)
+    if migration_ids and requested_pending and not pending and not execution_block_reason:
+        execution_block_reason = (
+            "recipe migration must finish before requested new activities can be embedded"
+        )
     effective_limit = min(args.limit, remaining_document_budget, documents_allowed_by_cost)
     selected = pending[:effective_limit]
     token_estimate = sum(estimated_tokens(item["input"]) for item in selected)
@@ -503,6 +538,10 @@ def main() -> None:
         "alreadyCached": len(current_ids),
         "recoveredFromBatchLedger": recovered,
         "remainingBeforeBatch": len(pending),
+        "requestedRemainingBeforeMigrationGate": len(requested_pending),
+        "migrationPendingIds": migration_ids,
+        "newActivitiesDeferred": len(deferred_ids),
+        "nextDeferredActivityId": deferred_ids[0] if deferred_ids else None,
         "dailyUsage": usage_today,
         "remainingDailyBudget": {
             "documents": remaining_document_budget,
