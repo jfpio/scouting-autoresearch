@@ -7,4 +7,9 @@ embedding:
   modelMaxInputTokens: 8192
   priceUsdPerMillionInputTokens: 0.1
   priceSource: https://docs.mistral.ai/models/mistral-embed-23-12
-
+analysis:
+  algorithmVersion: average-linkage-cosine-v1
+  targetClusterCount: 12
+  nearestNeighborCount: 5
+  ambiguityMargin: 0.03
+  outlierIqrMultiplier: 1.5

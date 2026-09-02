@@ -7,6 +7,8 @@ import json
 import re
 from pathlib import Path
 
+from analyze_taxonomy import REPORT_PATH as TAXONOMY_ANALYSIS_PATH
+from analyze_taxonomy import build_analysis, load_usage
 from common import GENERATED, ROOT, VAULT, load_markdown, read_json, source_hash
 from embed_taxonomy import build_embedding_input, input_hash, load_config
 
@@ -110,6 +112,30 @@ def main() -> None:
             f"Wrong embedding dimensions: {path.name}",
             errors,
         )
+
+    if embedding_paths:
+        require(TAXONOMY_ANALYSIS_PATH.exists(), "Missing taxonomy V1 analysis report", errors)
+        if TAXONOMY_ANALYSIS_PATH.exists():
+            analysis = read_json(TAXONOMY_ANALYSIS_PATH)
+            expected_analysis = build_analysis(
+                [read_json(path) for path in embedding_paths],
+                all_activity_ids=sorted(actual_ids),
+                parameters=taxonomy_config["analysis"],
+                usage=load_usage(),
+            )
+            require(analysis == expected_analysis, "Taxonomy V1 analysis report is stale or nondeterministic", errors)
+            require(analysis.get("proposalOnly") is True, "Taxonomy analysis is not marked proposal-only", errors)
+            require(analysis.get("reviewRequired") is True, "Taxonomy analysis lacks a human-review gate", errors)
+            require(
+                analysis.get("productionTaxonomyChanged") is False,
+                "Taxonomy analysis claims a production taxonomy change",
+                errors,
+            )
+            require(
+                set(analysis.get("unassignedProductionCategoryActivityIds", [])) == embedded_ids,
+                "Taxonomy analysis silently assigns production categories",
+                errors,
+            )
 
     for locale in ("pl", "en"):
         json_path = GENERATED / f"activities.{locale}.json"

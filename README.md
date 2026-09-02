@@ -57,6 +57,7 @@ Przed płatnym wywołaniem API skrypt pokazuje plan partii, szacowany koszt i ko
 ```bash
 .venv/bin/python scripts/embed_taxonomy.py
 .venv/bin/python scripts/embed_taxonomy.py --execute --limit 20
+.venv/bin/python scripts/analyze_taxonomy.py
 ```
 
 Cache jest ważny tylko dla zgodnego modelu, przepisu i hasha wejścia. Limit dokumentów oraz
@@ -64,6 +65,11 @@ kosztu pochodzi z `config/research-queue.yaml` i jest liczony łącznie dla wszy
 danego dnia w skonfigurowanej strefie czasowej. Po wyczerpaniu limitu skrypt zapisuje moment
 następnego cyklu bez wywołania API. Przejściowy błąd API zapisuje `nextRetryAt` zamiast
 utrzymywać uśpiony proces.
+
+Analizator nie wywołuje API. Wylicza deterministyczne sąsiedztwa i techniczne klastry,
+oznacza niejednoznaczne przypisania oraz kandydatów odstających. Dopóki nie ma wszystkich
+202 aktualnych cache’y, raport ma status `partial`; zawsze pozostaje propozycją do ręcznego
+przeglądu i nie zmienia produkcyjnych kategorii ani filtrów.
 
 ## Struktura
 

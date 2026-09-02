@@ -1,0 +1,1181 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "taxonomy-v1-analysis",
+  "status": "partial",
+  "proposalOnly": true,
+  "reviewRequired": true,
+  "productionTaxonomyChanged": false,
+  "generatedAt": "2026-09-02T16:21:02.743176+00:00",
+  "analysisHash": "4031fab5eeb7dd34e6057f493d936fb311442851b1d32933e2aea1f221b15608",
+  "algorithmVersion": "average-linkage-cosine-v1",
+  "coverage": {
+    "totalActivities": 202,
+    "embeddedActivities": 20,
+    "missingActivities": 182,
+    "missingActivityIds": [
+      "hwp-021",
+      "hwp-022",
+      "hwp-023",
+      "hwp-024",
+      "hwp-025",
+      "hwp-026",
+      "hwp-027",
+      "hwp-028",
+      "hwp-029",
+      "hwp-030",
+      "hwp-031",
+      "hwp-032",
+      "hwp-033",
+      "hwp-034",
+      "hwp-035",
+      "hwp-036",
+      "hwp-037",
+      "hwp-038",
+      "hwp-039",
+      "hwp-040",
+      "hwp-041",
+      "hwp-042",
+      "hwp-043",
+      "hwp-044",
+      "hwp-045",
+      "hwp-046",
+      "hwp-047",
+      "hwp-048",
+      "hwp-049",
+      "hwp-050",
+      "hwp-051",
+      "hwp-052",
+      "hwp-053",
+      "hwp-054",
+      "hwp-055",
+      "hwp-056",
+      "hwp-057",
+      "hwp-058",
+      "hwp-059",
+      "hwp-060",
+      "hwp-061",
+      "hwp-062",
+      "hwp-063",
+      "hwp-064",
+      "hwp-065",
+      "hwp-066",
+      "hwp-067",
+      "hwp-068",
+      "hwp-069",
+      "hwp-070",
+      "hwp-071",
+      "hwp-072",
+      "hwp-073",
+      "hwp-074",
+      "hwp-075",
+      "hwp-076",
+      "hwp-077",
+      "hwp-078",
+      "hwp-079",
+      "hwp-080",
+      "hwp-081",
+      "hwp-082",
+      "hwp-083",
+      "hwp-084",
+      "hwp-085",
+      "hwp-086",
+      "hwp-087",
+      "hwp-088",
+      "hwp-089",
+      "hwp-090",
+      "hwp-091",
+      "hwp-092",
+      "hwp-093",
+      "hwp-094",
+      "hwp-095",
+      "hwp-096",
+      "hwp-097",
+      "hwp-098",
+      "hwp-099",
+      "hwp-100",
+      "hwp-101",
+      "hwp-102",
+      "hwp-103",
+      "hwp-104",
+      "hwp-105",
+      "hwp-106",
+      "hwp-107",
+      "hwp-108",
+      "hwp-109",
+      "hwp-110",
+      "hwp-111",
+      "hwp-112",
+      "hwp-113",
+      "hwp-114",
+      "hwp-115",
+      "hwp-116",
+      "hwp-117",
+      "pw-001",
+      "pw-002",
+      "pw-003",
+      "pw-004",
+      "pw-005",
+      "pw-006",
+      "pw-007",
+      "pw-008",
+      "pw-009",
+      "pw-010",
+      "pw-011",
+      "pw-012",
+      "pw-013",
+      "pw-014",
+      "pw-015",
+      "pw-016",
+      "pw-017",
+      "pw-018",
+      "pw-019",
+      "pw-020",
+      "pw-021",
+      "pw-022",
+      "pw-023",
+      "pw-024",
+      "pw-025",
+      "pw-026",
+      "pw-027",
+      "pw-028",
+      "pw-029",
+      "pw-030",
+      "pw-031",
+      "pw-032",
+      "pw-033",
+      "pw-034",
+      "pw-035",
+      "pw-036",
+      "pw-037",
+      "pw-038",
+      "pw-039",
+      "pw-040",
+      "pw-041",
+      "pw-042",
+      "pw-043",
+      "pw-044",
+      "pw-045",
+      "pw-046",
+      "pw-047",
+      "pw-048",
+      "pw-049",
+      "pw-050",
+      "pw-051",
+      "pw-052",
+      "pw-053",
+      "pw-054",
+      "pw-055",
+      "pw-056",
+      "pw-057",
+      "pw-058",
+      "pw-059",
+      "pw-060",
+      "pw-061",
+      "pw-062",
+      "pw-063",
+      "pw-064",
+      "pw-065",
+      "pw-066",
+      "pw-067",
+      "pw-068",
+      "pw-069",
+      "pw-070",
+      "pw-071",
+      "pw-072",
+      "pw-073",
+      "pw-074",
+      "pw-075",
+      "pw-076",
+      "pw-077",
+      "pw-078",
+      "pw-079",
+      "pw-080",
+      "pw-081",
+      "pw-082",
+      "pw-083",
+      "pw-084",
+      "pw-085"
+    ],
+    "sourceIds": [
+      "hwp-1946"
+    ]
+  },
+  "embedding": {
+    "modelRequested": "mistral-embed-2312",
+    "model": "mistral-embed-2312",
+    "dimensions": 1024,
+    "recipeVersion": "activity-context-v1"
+  },
+  "parameters": {
+    "algorithmVersion": "average-linkage-cosine-v1",
+    "targetClusterCount": 12,
+    "nearestNeighborCount": 5,
+    "ambiguityMargin": 0.03,
+    "outlierIqrMultiplier": 1.5
+  },
+  "usage": {
+    "batchIds": [
+      "20260902T162102743176Z"
+    ],
+    "promptTokens": 6488,
+    "estimatedCostUsd": 0.0006488,
+    "priceUsdPerMillionInputTokens": 0.1,
+    "priceSource": "https://docs.mistral.ai/models/mistral-embed-23-12"
+  },
+  "clusters": [
+    {
+      "technicalClusterId": "technical-cluster-01",
+      "size": 3,
+      "activityIds": [
+        "hwp-001",
+        "hwp-002",
+        "hwp-004"
+      ]
+    },
+    {
+      "technicalClusterId": "technical-cluster-02",
+      "size": 1,
+      "activityIds": [
+        "hwp-003"
+      ]
+    },
+    {
+      "technicalClusterId": "technical-cluster-03",
+      "size": 1,
+      "activityIds": [
+        "hwp-005"
+      ]
+    },
+    {
+      "technicalClusterId": "technical-cluster-04",
+      "size": 4,
+      "activityIds": [
+        "hwp-006",
+        "hwp-012",
+        "hwp-015",
+        "hwp-018"
+      ]
+    },
+    {
+      "technicalClusterId": "technical-cluster-05",
+      "size": 1,
+      "activityIds": [
+        "hwp-007"
+      ]
+    },
+    {
+      "technicalClusterId": "technical-cluster-06",
+      "size": 2,
+      "activityIds": [
+        "hwp-008",
+        "hwp-009"
+      ]
+    },
+    {
+      "technicalClusterId": "technical-cluster-07",
+      "size": 1,
+      "activityIds": [
+        "hwp-010"
+      ]
+    },
+    {
+      "technicalClusterId": "technical-cluster-08",
+      "size": 1,
+      "activityIds": [
+        "hwp-011"
+      ]
+    },
+    {
+      "technicalClusterId": "technical-cluster-09",
+      "size": 3,
+      "activityIds": [
+        "hwp-013",
+        "hwp-014",
+        "hwp-016"
+      ]
+    },
+    {
+      "technicalClusterId": "technical-cluster-10",
+      "size": 1,
+      "activityIds": [
+        "hwp-017"
+      ]
+    },
+    {
+      "technicalClusterId": "technical-cluster-11",
+      "size": 1,
+      "activityIds": [
+        "hwp-019"
+      ]
+    },
+    {
+      "technicalClusterId": "technical-cluster-12",
+      "size": 1,
+      "activityIds": [
+        "hwp-020"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "activityId": "hwp-001",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93892486
+    },
+    {
+      "activityId": "hwp-002",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.94027009
+    },
+    {
+      "activityId": "hwp-003",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-02",
+      "neighborConnectivity": 0.91691551
+    },
+    {
+      "activityId": "hwp-004",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93711611
+    },
+    {
+      "activityId": "hwp-005",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-03",
+      "neighborConnectivity": 0.93188149
+    },
+    {
+      "activityId": "hwp-006",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-04",
+      "neighborConnectivity": 0.93748734
+    },
+    {
+      "activityId": "hwp-007",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-05",
+      "neighborConnectivity": 0.92715567
+    },
+    {
+      "activityId": "hwp-008",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-06",
+      "neighborConnectivity": 0.93820058
+    },
+    {
+      "activityId": "hwp-009",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-06",
+      "neighborConnectivity": 0.9362092
+    },
+    {
+      "activityId": "hwp-010",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-07",
+      "neighborConnectivity": 0.9327084
+    },
+    {
+      "activityId": "hwp-011",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-08",
+      "neighborConnectivity": 0.92092874
+    },
+    {
+      "activityId": "hwp-012",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-04",
+      "neighborConnectivity": 0.94613139
+    },
+    {
+      "activityId": "hwp-013",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-09",
+      "neighborConnectivity": 0.93511866
+    },
+    {
+      "activityId": "hwp-014",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-09",
+      "neighborConnectivity": 0.94301546
+    },
+    {
+      "activityId": "hwp-015",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-04",
+      "neighborConnectivity": 0.93796628
+    },
+    {
+      "activityId": "hwp-016",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-09",
+      "neighborConnectivity": 0.93493405
+    },
+    {
+      "activityId": "hwp-017",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-10",
+      "neighborConnectivity": 0.90769786
+    },
+    {
+      "activityId": "hwp-018",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-04",
+      "neighborConnectivity": 0.93457027
+    },
+    {
+      "activityId": "hwp-019",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-11",
+      "neighborConnectivity": 0.90640623
+    },
+    {
+      "activityId": "hwp-020",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-12",
+      "neighborConnectivity": 0.92288226
+    }
+  ],
+  "nearestNeighbors": [
+    {
+      "activityId": "hwp-001",
+      "neighbors": [
+        {
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.94884991
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.94308481
+        },
+        {
+          "activityId": "hwp-004",
+          "cosineSimilarity": 0.93692757
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.9337537
+        },
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.93200832
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-002",
+      "neighbors": [
+        {
+          "activityId": "hwp-004",
+          "cosineSimilarity": 0.94956531
+        },
+        {
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.94884991
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.93993708
+        },
+        {
+          "activityId": "hwp-013",
+          "cosineSimilarity": 0.93222396
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.93077422
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-003",
+      "neighbors": [
+        {
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.92024689
+        },
+        {
+          "activityId": "hwp-005",
+          "cosineSimilarity": 0.91944826
+        },
+        {
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.91909909
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.91334678
+        },
+        {
+          "activityId": "hwp-016",
+          "cosineSimilarity": 0.91243655
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-004",
+      "neighbors": [
+        {
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.94956531
+        },
+        {
+          "activityId": "hwp-005",
+          "cosineSimilarity": 0.93851978
+        },
+        {
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.93692757
+        },
+        {
+          "activityId": "hwp-011",
+          "cosineSimilarity": 0.93096533
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.92960257
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-005",
+      "neighbors": [
+        {
+          "activityId": "hwp-004",
+          "cosineSimilarity": 0.93851978
+        },
+        {
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.93186865
+        },
+        {
+          "activityId": "hwp-015",
+          "cosineSimilarity": 0.93027926
+        },
+        {
+          "activityId": "hwp-016",
+          "cosineSimilarity": 0.93004612
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.92869362
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-006",
+      "neighbors": [
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.94573534
+        },
+        {
+          "activityId": "hwp-018",
+          "cosineSimilarity": 0.94115213
+        },
+        {
+          "activityId": "hwp-015",
+          "cosineSimilarity": 0.93506411
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.93347681
+        },
+        {
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.93200832
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-007",
+      "neighbors": [
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.93524189
+        },
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.93125485
+        },
+        {
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.92363392
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.92331633
+        },
+        {
+          "activityId": "hwp-015",
+          "cosineSimilarity": 0.92233137
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-008",
+      "neighbors": [
+        {
+          "activityId": "hwp-009",
+          "cosineSimilarity": 0.95385447
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.94631453
+        },
+        {
+          "activityId": "hwp-010",
+          "cosineSimilarity": 0.93374337
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.93056052
+        },
+        {
+          "activityId": "hwp-020",
+          "cosineSimilarity": 0.92653
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-009",
+      "neighbors": [
+        {
+          "activityId": "hwp-008",
+          "cosineSimilarity": 0.95385447
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.9424296
+        },
+        {
+          "activityId": "hwp-010",
+          "cosineSimilarity": 0.93397776
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.92621753
+        },
+        {
+          "activityId": "hwp-013",
+          "cosineSimilarity": 0.92456667
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-010",
+      "neighbors": [
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.94008441
+        },
+        {
+          "activityId": "hwp-009",
+          "cosineSimilarity": 0.93397776
+        },
+        {
+          "activityId": "hwp-008",
+          "cosineSimilarity": 0.93374337
+        },
+        {
+          "activityId": "hwp-020",
+          "cosineSimilarity": 0.92852951
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.92720696
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-011",
+      "neighbors": [
+        {
+          "activityId": "hwp-004",
+          "cosineSimilarity": 0.93096533
+        },
+        {
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.92601032
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.9214776
+        },
+        {
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.91636857
+        },
+        {
+          "activityId": "hwp-020",
+          "cosineSimilarity": 0.90982187
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-012",
+      "neighbors": [
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.94765512
+        },
+        {
+          "activityId": "hwp-008",
+          "cosineSimilarity": 0.94631453
+        },
+        {
+          "activityId": "hwp-015",
+          "cosineSimilarity": 0.94622465
+        },
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.94573534
+        },
+        {
+          "activityId": "hwp-013",
+          "cosineSimilarity": 0.9447273
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-013",
+      "neighbors": [
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.9447273
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.94190596
+        },
+        {
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.93222396
+        },
+        {
+          "activityId": "hwp-016",
+          "cosineSimilarity": 0.93057313
+        },
+        {
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.92616293
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-014",
+      "neighbors": [
+        {
+          "activityId": "hwp-016",
+          "cosineSimilarity": 0.95093471
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.94765512
+        },
+        {
+          "activityId": "hwp-013",
+          "cosineSimilarity": 0.94190596
+        },
+        {
+          "activityId": "hwp-015",
+          "cosineSimilarity": 0.93933961
+        },
+        {
+          "activityId": "hwp-007",
+          "cosineSimilarity": 0.93524189
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-015",
+      "neighbors": [
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.94622465
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.93933961
+        },
+        {
+          "activityId": "hwp-018",
+          "cosineSimilarity": 0.93840925
+        },
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.93506411
+        },
+        {
+          "activityId": "hwp-016",
+          "cosineSimilarity": 0.93079375
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-016",
+      "neighbors": [
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.95093471
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.93112534
+        },
+        {
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.93105875
+        },
+        {
+          "activityId": "hwp-015",
+          "cosineSimilarity": 0.93079375
+        },
+        {
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.9307577
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-017",
+      "neighbors": [
+        {
+          "activityId": "hwp-005",
+          "cosineSimilarity": 0.91830586
+        },
+        {
+          "activityId": "hwp-016",
+          "cosineSimilarity": 0.9080427
+        },
+        {
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.90551065
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.90341732
+        },
+        {
+          "activityId": "hwp-003",
+          "cosineSimilarity": 0.90321275
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-018",
+      "neighbors": [
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.94115213
+        },
+        {
+          "activityId": "hwp-015",
+          "cosineSimilarity": 0.93840925
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.93655033
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.93447202
+        },
+        {
+          "activityId": "hwp-016",
+          "cosineSimilarity": 0.9222676
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-019",
+      "neighbors": [
+        {
+          "activityId": "hwp-007",
+          "cosineSimilarity": 0.91808836
+        },
+        {
+          "activityId": "hwp-018",
+          "cosineSimilarity": 0.90667055
+        },
+        {
+          "activityId": "hwp-015",
+          "cosineSimilarity": 0.90479087
+        },
+        {
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.90222904
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.90025233
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-020",
+      "neighbors": [
+        {
+          "activityId": "hwp-010",
+          "cosineSimilarity": 0.92852951
+        },
+        {
+          "activityId": "hwp-008",
+          "cosineSimilarity": 0.92653
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.92310743
+        },
+        {
+          "activityId": "hwp-018",
+          "cosineSimilarity": 0.91974879
+        },
+        {
+          "activityId": "hwp-009",
+          "cosineSimilarity": 0.91649558
+        }
+      ]
+    }
+  ],
+  "outliers": {
+    "method": "mean-neighbor-similarity-below-q1-minus-iqr-multiplier",
+    "threshold": 0.90818103,
+    "activityIds": [
+      "hwp-017",
+      "hwp-019"
+    ],
+    "lowestConnectivityForInspection": [
+      {
+        "activityId": "hwp-019",
+        "score": 0.90640623
+      }
+    ]
+  },
+  "ambiguousAssignments": [
+    {
+      "activityId": "hwp-001",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.00263724,
+      "clusterSimilarity": 0.95500697,
+      "alternativeSimilarity": 0.95236974
+    },
+    {
+      "activityId": "hwp-002",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-09",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01445871,
+      "clusterSimilarity": 0.9645384,
+      "alternativeSimilarity": 0.95007969
+    },
+    {
+      "activityId": "hwp-003",
+      "technicalClusterId": "technical-cluster-02",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "singleton-cluster",
+      "margin": null,
+      "clusterSimilarity": null,
+      "alternativeSimilarity": 0.93370414
+    },
+    {
+      "activityId": "hwp-004",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-09",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01577356,
+      "clusterSimilarity": 0.95554477,
+      "alternativeSimilarity": 0.93977121
+    },
+    {
+      "activityId": "hwp-005",
+      "technicalClusterId": "technical-cluster-03",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "singleton-cluster",
+      "margin": null,
+      "clusterSimilarity": null,
+      "alternativeSimilarity": 0.9501343
+    },
+    {
+      "activityId": "hwp-006",
+      "technicalClusterId": "technical-cluster-04",
+      "alternativeTechnicalClusterId": "technical-cluster-09",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01289311,
+      "clusterSimilarity": 0.95991582,
+      "alternativeSimilarity": 0.94702271
+    },
+    {
+      "activityId": "hwp-007",
+      "technicalClusterId": "technical-cluster-05",
+      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "reason": "singleton-cluster",
+      "margin": null,
+      "clusterSimilarity": null,
+      "alternativeSimilarity": 0.94524876
+    },
+    {
+      "activityId": "hwp-008",
+      "technicalClusterId": "technical-cluster-06",
+      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01040331,
+      "clusterSimilarity": 0.95385447,
+      "alternativeSimilarity": 0.94345115
+    },
+    {
+      "activityId": "hwp-009",
+      "technicalClusterId": "technical-cluster-06",
+      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01220908,
+      "clusterSimilarity": 0.95385447,
+      "alternativeSimilarity": 0.94164538
+    },
+    {
+      "activityId": "hwp-010",
+      "technicalClusterId": "technical-cluster-07",
+      "alternativeTechnicalClusterId": "technical-cluster-06",
+      "reason": "singleton-cluster",
+      "margin": null,
+      "clusterSimilarity": null,
+      "alternativeSimilarity": 0.94482403
+    },
+    {
+      "activityId": "hwp-011",
+      "technicalClusterId": "technical-cluster-08",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "singleton-cluster",
+      "margin": null,
+      "clusterSimilarity": null,
+      "alternativeSimilarity": 0.94183981
+    },
+    {
+      "activityId": "hwp-012",
+      "technicalClusterId": "technical-cluster-04",
+      "alternativeTechnicalClusterId": "technical-cluster-09",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.00268061,
+      "clusterSimilarity": 0.96287809,
+      "alternativeSimilarity": 0.96019748
+    },
+    {
+      "activityId": "hwp-013",
+      "technicalClusterId": "technical-cluster-09",
+      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "reason": "low-leave-one-out-margin",
+      "margin": -0.00102933,
+      "clusterSimilarity": 0.94793949,
+      "alternativeSimilarity": 0.94896882
+    },
+    {
+      "activityId": "hwp-014",
+      "technicalClusterId": "technical-cluster-09",
+      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.0028865,
+      "clusterSimilarity": 0.96328757,
+      "alternativeSimilarity": 0.96040108
+    },
+    {
+      "activityId": "hwp-015",
+      "technicalClusterId": "technical-cluster-04",
+      "alternativeTechnicalClusterId": "technical-cluster-09",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.00814417,
+      "clusterSimilarity": 0.95889923,
+      "alternativeSimilarity": 0.95075506
+    },
+    {
+      "activityId": "hwp-016",
+      "technicalClusterId": "technical-cluster-09",
+      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.00560215,
+      "clusterSimilarity": 0.95472216,
+      "alternativeSimilarity": 0.94912001
+    },
+    {
+      "activityId": "hwp-017",
+      "technicalClusterId": "technical-cluster-10",
+      "alternativeTechnicalClusterId": "technical-cluster-09",
+      "reason": "singleton-cluster",
+      "margin": null,
+      "clusterSimilarity": null,
+      "alternativeSimilarity": 0.92230377
+    },
+    {
+      "activityId": "hwp-018",
+      "technicalClusterId": "technical-cluster-04",
+      "alternativeTechnicalClusterId": "technical-cluster-09",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01459811,
+      "clusterSimilarity": 0.95728276,
+      "alternativeSimilarity": 0.94268465
+    },
+    {
+      "activityId": "hwp-019",
+      "technicalClusterId": "technical-cluster-11",
+      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "reason": "singleton-cluster",
+      "margin": null,
+      "clusterSimilarity": null,
+      "alternativeSimilarity": 0.92332882
+    },
+    {
+      "activityId": "hwp-020",
+      "technicalClusterId": "technical-cluster-12",
+      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "reason": "singleton-cluster",
+      "margin": null,
+      "clusterSimilarity": null,
+      "alternativeSimilarity": 0.93408979
+    }
+  ],
+  "unassignedProductionCategoryActivityIds": [
+    "hwp-001",
+    "hwp-002",
+    "hwp-003",
+    "hwp-004",
+    "hwp-005",
+    "hwp-006",
+    "hwp-007",
+    "hwp-008",
+    "hwp-009",
+    "hwp-010",
+    "hwp-011",
+    "hwp-012",
+    "hwp-013",
+    "hwp-014",
+    "hwp-015",
+    "hwp-016",
+    "hwp-017",
+    "hwp-018",
+    "hwp-019",
+    "hwp-020"
+  ]
+}
