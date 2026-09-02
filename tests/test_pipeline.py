@@ -3,6 +3,7 @@ import unittest
 from pathlib import Path
 
 import sys
+import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
@@ -37,6 +38,15 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(payload["title"], "Fire")
         with self.assertRaises(ValueError):
             parse_json_content('{"title":"Fire","body":"Text","traits":[],"section":"Trials","extra":true}')
+
+    def test_azymut_is_approved_for_editorial_discovery_only(self):
+        root = Path(__file__).resolve().parents[1]
+        registry = yaml.safe_load((root / "config" / "source-registry.yaml").read_text(encoding="utf-8"))
+        azymut = next(item for item in registry["collections"] if item["id"] == "azymut-zhr")
+        self.assertEqual(azymut["baseUrl"], "https://azymut.zhr.pl/")
+        self.assertEqual(azymut["status"], "approved-per-item")
+        self.assertEqual(azymut["trustScope"], "editorial-discovery")
+        self.assertEqual(azymut["allowedMethods"], ["article-metadata", "link-discovery"])
 
 
 if __name__ == "__main__":

@@ -63,6 +63,13 @@ rekordy z aktualnym hashem. Model V0 to `mistral-medium-2604`; żądany pierwotn
 
 Pełny kierunek rozwoju opisuje [project-plan.md](project-plan.md).
 
+## Zaufane źródła badawcze
+
+[Azymut ZHR](https://azymut.zhr.pl/) jest zatwierdzonym źródłem redakcyjnym do odkrywania
+współczesnych gier, prób i materiałów metodycznych. Zaufanie dotyczy jakości źródła, nie
+zbiorczej zgody na przedruk: każdy materiał zachowuje autora, datę i link, a możliwość
+publikacji pełnego tekstu jest ustalana osobno.
+
 ## Licencje i bezpieczeństwo
 
 Kod: MIT. Projektowe metadane i tłumaczenia: CC BY 4.0 w zakresie posiadanych praw.

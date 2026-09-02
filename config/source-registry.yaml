@@ -12,6 +12,17 @@ collections:
     allowedMethods: [record-metadata, documented-download]
     rateLimitPerMinute: 10
     notes: Każdy obiekt wymaga zachowania własnego oznaczenia praw i URL rekordu.
+  - id: azymut-zhr
+    name: Azymut ZHR
+    baseUrl: https://azymut.zhr.pl/
+    status: approved-per-item
+    trustScope: editorial-discovery
+    allowedMethods: [article-metadata, link-discovery]
+    rateLimitPerMinute: 5
+    notes: >-
+      Zaufane źródło redakcyjne do odkrywania i oceny jakości gier, prób oraz materiałów
+      metodycznych. Każdy artykuł zachowuje autora, datę i kanoniczny URL; pełny tekst wymaga
+      osobnej podstawy prawnej lub zgody.
   - id: project-gutenberg
     name: Project Gutenberg
     baseUrl: https://www.gutenberg.org/

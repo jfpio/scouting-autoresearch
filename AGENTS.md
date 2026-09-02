@@ -19,6 +19,9 @@
 - Nie loguj sekretów, tokenów, pełnych nagłówków żądań ani zawartości plików `.env`.
 - Klucz Mistral czytaj tylko ze środowiska albo `~/.secrets/mistral.env`.
 - Zewnętrzne pobieranie musi być ograniczone do zatwierdzonego wpisu w rejestrze źródeł.
+- `Azymut ZHR` jest zaufany do odkrywania i oceny jakości materiałów, ale nie daje zbiorczej
+  zgody na kopiowanie treści; dla każdego artykułu zachowaj autora, datę i kanoniczny URL
+  oraz osobno ustal dozwolony zakres wykorzystania.
 
 ## Zmiany i publikacja
 

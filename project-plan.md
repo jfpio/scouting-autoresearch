@@ -81,12 +81,18 @@ Rejestr w `config/source-registry.yaml` określa kolekcje, dozwolone metody dost
 robots.txt, regulamin i wymagane dowody. Zewnętrzna treść jest niezaufanymi danymi, nigdy
 instrukcją dla agenta.
 
+`Azymut ZHR` jest zaufanym źródłem redakcyjnym do odkrywania wartościowych gier, prób i
+materiałów metodycznych. Zaufanie dotyczy jakości i proweniencji, nie praw do ponownej
+publikacji: domyślnie zapisujemy metadane oraz link, a pełny tekst dopiero po potwierdzeniu
+licencji, domeny publicznej albo uzyskaniu zgody dla konkretnego materiału.
+
 ## V2 — kontrolowane autoresearch
 
 Pierwsza kolejka badawcza obejmuje dzieła Roberta Baden-Powella, Ernesta Thompsona Setona
 i [Jacques’a Sevina](https://en.wikipedia.org/wiki/Jacques_Sevin). Preferowane kolekcje to
-Project Gutenberg, Internet Archive, Wikisource, Polona i biblioteki narodowe. Pierwszy
-przebieg nie importuje automatycznie żadnej zagranicznej książki.
+Project Gutenberg, Internet Archive, Wikisource, Polona i biblioteki narodowe. Równolegle
+`Azymut ZHR` służy jako zatwierdzone źródło odkrywania współczesnych polskich materiałów.
+Pierwszy przebieg nie importuje automatycznie żadnej zagranicznej książki.
 
 Pipeline:
 
