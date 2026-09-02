@@ -13,6 +13,7 @@ from embed_taxonomy import (
     batch_estimated_cost,
     build_embedding_input,
     cache_is_current,
+    checkpoint_identity,
     daily_usage,
     estimated_tokens,
     input_hash,
@@ -21,6 +22,7 @@ from embed_taxonomy import (
     recover_cached_items,
     retry_at,
     summarize_batch_usage,
+    write_retry_checkpoint,
 )
 
 
@@ -119,6 +121,30 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
         now = datetime(2026, 9, 2, tzinfo=UTC)
         self.assertEqual(retry_at(now, "60"), now + timedelta(hours=12))
         self.assertEqual(retry_at(now, str(13 * 60 * 60)), now + timedelta(hours=13))
+
+    def test_retry_checkpoint_preserves_embedding_identity(self):
+        with tempfile.TemporaryDirectory() as directory:
+            checkpoint_path = Path(directory) / "checkpoint.json"
+            identity = checkpoint_identity(
+                {
+                    "model": "mistral-embed-2312",
+                    "recipeVersion": "activity-context-v2",
+                    "dimensions": 1024,
+                }
+            )
+            with mock.patch.object(taxonomy_embeddings, "CHECKPOINT_PATH", checkpoint_path):
+                write_retry_checkpoint(
+                    now=datetime(2026, 9, 3, tzinfo=UTC),
+                    reason="mistral-http-429",
+                    identity=identity,
+                )
+            checkpoint = json.loads(checkpoint_path.read_text(encoding="utf-8"))
+            self.assertEqual(checkpoint["status"], "retry-pending")
+            self.assertEqual(checkpoint["nextRetryAt"], "2026-09-03T12:00:00+00:00")
+            self.assertEqual(
+                {key: checkpoint[key] for key in identity},
+                identity,
+            )
 
     def test_daily_usage_uses_configured_local_date(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -232,34 +258,61 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
         reset = next_daily_reset(datetime(2026, 9, 2, 22, 30, tzinfo=UTC), "Europe/Warsaw")
         self.assertEqual(reset.isoformat(), "2026-09-04T00:00:00+02:00")
 
-    def test_batch_ledger_can_recover_a_missing_cache(self):
+    def test_batch_ledger_recovers_missing_and_superseded_caches_atomically(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             batch_dir = root / "batches"
             batch_dir.mkdir()
-            cache_path = root / "pw-001.json"
-            payload = {
-                "schemaVersion": 1,
-                "activityId": "pw-001",
-                "modelRequested": "mistral-embed-2312",
-                "model": "mistral-embed-2312",
-                "recipeVersion": "activity-context-v1",
-                "inputHash": "abc",
-                "dimensions": 3,
-                "vector": [0.1, 0.2, 0.3],
-            }
-            (batch_dir / "batch.json").write_text(json.dumps({"items": [payload]}), encoding="utf-8")
+            cache_paths = [root / "pw-001.json", root / "pw-002.json"]
+            payloads = [
+                {
+                    "schemaVersion": 1,
+                    "activityId": activity_id,
+                    "modelRequested": "mistral-embed-2312",
+                    "model": "mistral-embed-2312",
+                    "recipeVersion": "activity-context-v2",
+                    "inputHash": expected_hash,
+                    "dimensions": 3,
+                    "vector": vector,
+                }
+                for activity_id, expected_hash, vector in (
+                    ("pw-001", "v2-a", [0.1, 0.2, 0.3]),
+                    ("pw-002", "v2-b", [0.4, 0.5, 0.6]),
+                )
+            ]
+            batch_path = batch_dir / "batch.json"
+            batch_path.write_text(
+                json.dumps({"batchId": "v2-batch", "items": payloads}),
+                encoding="utf-8",
+            )
+            cache_paths[0].write_text(
+                json.dumps(
+                    {
+                        **payloads[0],
+                        "recipeVersion": "activity-context-v1",
+                        "inputHash": "v1-a",
+                    }
+                ),
+                encoding="utf-8",
+            )
             config = {
                 "embedding": {
                     "model": "mistral-embed-2312",
-                    "recipeVersion": "activity-context-v1",
+                    "recipeVersion": "activity-context-v2",
                     "dimensions": 3,
                 }
             }
-            items = [{"id": "pw-001", "inputHash": "abc", "cachePath": cache_path}]
+            items = [
+                {"id": payload["activityId"], "inputHash": payload["inputHash"], "cachePath": path}
+                for payload, path in zip(payloads, cache_paths, strict=True)
+            ]
             with mock.patch.object(taxonomy_embeddings, "BATCH_DIR", batch_dir):
-                self.assertEqual(recover_cached_items(config, items), 1)
-            self.assertEqual(json.loads(cache_path.read_text(encoding="utf-8")), payload)
+                self.assertEqual(recover_cached_items(config, items), 2)
+            self.assertEqual(
+                [json.loads(path.read_text(encoding="utf-8")) for path in cache_paths],
+                payloads,
+            )
+            self.assertNotIn("items", json.loads(batch_path.read_text(encoding="utf-8")))
 
 
 if __name__ == "__main__":

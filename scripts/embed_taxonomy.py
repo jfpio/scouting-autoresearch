@@ -231,7 +231,21 @@ def next_daily_reset(now: datetime, timezone_name: str) -> datetime:
     return datetime.combine(local_now.date() + timedelta(days=1), datetime.min.time(), timezone)
 
 
-def write_retry_checkpoint(*, now: datetime, reason: str, retry_after: str | None = None) -> None:
+def checkpoint_identity(embedding: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "modelRequested": str(embedding["model"]),
+        "recipeVersion": str(embedding["recipeVersion"]),
+        "dimensions": int(embedding["dimensions"]),
+    }
+
+
+def write_retry_checkpoint(
+    *,
+    now: datetime,
+    reason: str,
+    identity: dict[str, Any],
+    retry_after: str | None = None,
+) -> None:
     atomic_write_json(
         CHECKPOINT_PATH,
         {
@@ -240,11 +254,18 @@ def write_retry_checkpoint(*, now: datetime, reason: str, retry_after: str | Non
             "status": "retry-pending",
             "reason": reason,
             "nextRetryAt": retry_at(now, retry_after).isoformat(),
+            **identity,
         },
     )
 
 
-def request_embeddings(api_key: str, model: str, inputs: list[str]) -> dict[str, Any]:
+def request_embeddings(
+    api_key: str,
+    model: str,
+    inputs: list[str],
+    *,
+    identity: dict[str, Any],
+) -> dict[str, Any]:
     request = urllib.request.Request(
         API_URL,
         data=json.dumps({"model": model, "input": inputs}).encode("utf-8"),
@@ -257,7 +278,12 @@ def request_embeddings(api_key: str, model: str, inputs: list[str]) -> dict[str,
             return json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as error:
         if error.code in TRANSIENT_HTTP_CODES:
-            write_retry_checkpoint(now=now, reason=f"mistral-http-{error.code}", retry_after=error.headers.get("Retry-After"))
+            write_retry_checkpoint(
+                now=now,
+                reason=f"mistral-http-{error.code}",
+                retry_after=error.headers.get("Retry-After"),
+                identity=identity,
+            )
             raise RuntimeError(f"Transient Mistral HTTP {error.code}; checkpoint saved") from error
         atomic_write_json(
             CHECKPOINT_PATH,
@@ -266,11 +292,12 @@ def request_embeddings(api_key: str, model: str, inputs: list[str]) -> dict[str,
                 "pipeline": "taxonomy-v1-embeddings",
                 "status": "failed-permanent",
                 "reason": f"mistral-http-{error.code}",
+                **identity,
             },
         )
         raise RuntimeError(f"Permanent Mistral HTTP {error.code}; checkpoint saved") from error
     except (urllib.error.URLError, TimeoutError) as error:
-        write_retry_checkpoint(now=now, reason="mistral-network-unavailable")
+        write_retry_checkpoint(now=now, reason="mistral-network-unavailable", identity=identity)
         raise RuntimeError("Transient Mistral network failure; checkpoint saved") from error
 
 
@@ -397,6 +424,7 @@ def main() -> None:
     queue = load_yaml(QUEUE_PATH)
     daily_limits = queue["dailyLimits"]
     embedding = config["embedding"]
+    identity = checkpoint_identity(embedding)
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--execute", action="store_true", help="Send the planned bounded batch to Mistral")
@@ -487,12 +515,18 @@ def main() -> None:
                     },
                     "nextCycleAt": next_daily_reset(now, timezone_name).isoformat(),
                     "nextActivityId": pending[0]["id"],
+                    **identity,
                 }
             )
             atomic_write_json(CHECKPOINT_PATH, previous)
         return
 
-    result = request_embeddings(load_secret(), embedding["model"], [item["input"] for item in selected])
+    result = request_embeddings(
+        load_secret(),
+        embedding["model"],
+        [item["input"] for item in selected],
+        identity=identity,
+    )
     vectors_by_index = {entry["index"]: entry["embedding"] for entry in result.get("data", [])}
     if set(vectors_by_index) != set(range(len(selected))):
         raise RuntimeError("Mistral response indexes do not match the request")
@@ -568,6 +602,8 @@ def main() -> None:
             "cachedActivities": report["activities"]["cached"],
             "totalActivities": report["activities"]["total"],
             "nextActivityId": next_id,
+            **identity,
+            "model": actual_model,
         },
     )
     print(
