@@ -12,8 +12,10 @@ import embed_taxonomy as taxonomy_embeddings
 from embed_taxonomy import (
     build_embedding_input,
     cache_is_current,
+    daily_usage,
     estimated_tokens,
     input_hash,
+    next_daily_reset,
     recover_cached_items,
     retry_at,
 )
@@ -80,6 +82,47 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
         now = datetime(2026, 9, 2, tzinfo=UTC)
         self.assertEqual(retry_at(now, "60"), now + timedelta(hours=12))
         self.assertEqual(retry_at(now, str(13 * 60 * 60)), now + timedelta(hours=13))
+
+    def test_daily_usage_uses_configured_local_date(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            first = root / "first.json"
+            second = root / "second.json"
+            first.write_text(
+                json.dumps(
+                    {
+                        "batchId": "first",
+                        "generatedAt": "2026-09-01T22:30:00+00:00",
+                        "activityIds": ["hwp-001", "hwp-002"],
+                        "usage": {"promptTokens": 100},
+                    }
+                ),
+                encoding="utf-8",
+            )
+            second.write_text(
+                json.dumps(
+                    {
+                        "batchId": "second",
+                        "generatedAt": "2026-09-02T22:30:00+00:00",
+                        "activityIds": ["hwp-003"],
+                        "usage": {"promptTokens": 50},
+                    }
+                ),
+                encoding="utf-8",
+            )
+            usage = daily_usage(
+                [first, second],
+                now=datetime(2026, 9, 2, 12, tzinfo=UTC),
+                timezone_name="Europe/Warsaw",
+                price_per_million_tokens=0.1,
+            )
+            self.assertEqual(usage["documents"], 2)
+            self.assertEqual(usage["promptTokens"], 100)
+            self.assertEqual(usage["batchIds"], ["first"])
+
+    def test_next_daily_reset_is_local_midnight(self):
+        reset = next_daily_reset(datetime(2026, 9, 2, 22, 30, tzinfo=UTC), "Europe/Warsaw")
+        self.assertEqual(reset.isoformat(), "2026-09-04T00:00:00+02:00")
 
     def test_batch_ledger_can_recover_a_missing_cache(self):
         with tempfile.TemporaryDirectory() as directory:

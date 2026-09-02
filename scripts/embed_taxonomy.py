@@ -15,6 +15,7 @@ from datetime import UTC, datetime, timedelta
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 import yaml
 
@@ -132,6 +133,40 @@ def retry_at(now: datetime, retry_after: str | None) -> datetime:
         except (TypeError, ValueError, OverflowError):
             return minimum
     return max(minimum, candidate)
+
+
+def daily_usage(
+    batch_paths: list[Path], *, now: datetime, timezone_name: str, price_per_million_tokens: float
+) -> dict[str, Any]:
+    timezone = ZoneInfo(timezone_name)
+    local_day = now.astimezone(timezone).date()
+    documents = 0
+    prompt_tokens = 0
+    batch_ids: list[str] = []
+    for batch_path in batch_paths:
+        batch = read_json(batch_path)
+        generated_at = datetime.fromisoformat(str(batch["generatedAt"]).replace("Z", "+00:00"))
+        if generated_at.tzinfo is None:
+            raise ValueError(f"Batch timestamp must include a timezone: {batch_path}")
+        if generated_at.astimezone(timezone).date() != local_day:
+            continue
+        documents += len(batch.get("activityIds", []))
+        prompt_tokens += int(batch.get("usage", {}).get("promptTokens", 0))
+        batch_ids.append(str(batch["batchId"]))
+    return {
+        "date": local_day.isoformat(),
+        "timezone": timezone_name,
+        "documents": documents,
+        "promptTokens": prompt_tokens,
+        "estimatedCostUsd": round(prompt_tokens * price_per_million_tokens / 1_000_000, 8),
+        "batchIds": batch_ids,
+    }
+
+
+def next_daily_reset(now: datetime, timezone_name: str) -> datetime:
+    timezone = ZoneInfo(timezone_name)
+    local_now = now.astimezone(timezone)
+    return datetime.combine(local_now.date() + timedelta(days=1), datetime.min.time(), timezone)
 
 
 def write_retry_checkpoint(*, now: datetime, reason: str, retry_after: str | None = None) -> None:
@@ -297,6 +332,7 @@ def main() -> None:
 
     hard_document_limit = int(daily_limits["documents"])
     hard_cost_limit = float(daily_limits["estimatedCostUsd"])
+    timezone_name = str(daily_limits["timezone"])
     if args.limit < 1 or args.limit > hard_document_limit:
         raise SystemExit(f"limit must be between 1 and {hard_document_limit}")
 
@@ -309,9 +345,26 @@ def main() -> None:
             raise SystemExit(f"unknown activity IDs: {sorted(unknown)}")
         items = [item for item in items if item["id"] in wanted]
 
+    now = datetime.now(UTC)
+    usage_today = daily_usage(
+        sorted(BATCH_DIR.glob("*.json")),
+        now=now,
+        timezone_name=timezone_name,
+        price_per_million_tokens=float(embedding["priceUsdPerMillionInputTokens"]),
+    )
+    remaining_document_budget = max(0, hard_document_limit - int(usage_today["documents"]))
+    remaining_cost_budget = max(0.0, hard_cost_limit - float(usage_today["estimatedCostUsd"]))
+    worst_case_cost_per_document = (
+        int(embedding["modelMaxInputTokens"])
+        * float(embedding["priceUsdPerMillionInputTokens"])
+        / 1_000_000
+    )
+    documents_allowed_by_cost = math.floor(remaining_cost_budget / worst_case_cost_per_document)
+
     current_ids = {item["id"] for item in current_items(items, config)}
     pending = [item for item in items if item["id"] not in current_ids]
-    selected = pending[: args.limit]
+    effective_limit = min(args.limit, remaining_document_budget, documents_allowed_by_cost)
+    selected = pending[:effective_limit]
     token_estimate = sum(estimated_tokens(item["input"]) for item in selected)
     estimated_cost = token_estimate * float(embedding["priceUsdPerMillionInputTokens"]) / 1_000_000
     worst_case_cost = (
@@ -327,15 +380,42 @@ def main() -> None:
         "alreadyCached": len(current_ids),
         "recoveredFromBatchLedger": recovered,
         "remainingBeforeBatch": len(pending),
+        "dailyUsage": usage_today,
+        "remainingDailyBudget": {
+            "documents": remaining_document_budget,
+            "estimatedCostUsd": round(remaining_cost_budget, 8),
+        },
+        "dailyLimitReached": bool(pending) and not selected,
+        "nextCycleAt": next_daily_reset(now, timezone_name).isoformat() if bool(pending) and not selected else None,
         "estimatedInputTokens": token_estimate,
         "estimatedCostUsd": round(estimated_cost, 8),
         "worstCaseCostUsd": round(worst_case_cost, 8),
         "hardCostLimitUsd": hard_cost_limit,
     }
     print(json.dumps(plan, ensure_ascii=False, indent=2), flush=True)
-    if worst_case_cost > hard_cost_limit:
+    if worst_case_cost > remaining_cost_budget:
         raise SystemExit("planned batch exceeds the hard cost limit")
-    if not args.execute or not selected:
+    if not args.execute:
+        return
+    if not selected:
+        if pending:
+            previous = read_json(CHECKPOINT_PATH) if CHECKPOINT_PATH.exists() else {}
+            previous.update(
+                {
+                    "schemaVersion": 1,
+                    "pipeline": "taxonomy-v1-embeddings",
+                    "status": "daily-limit-reached",
+                    "dailyUsage": usage_today,
+                    "dailyLimits": {
+                        "documents": hard_document_limit,
+                        "estimatedCostUsd": hard_cost_limit,
+                        "timezone": timezone_name,
+                    },
+                    "nextCycleAt": next_daily_reset(now, timezone_name).isoformat(),
+                    "nextActivityId": pending[0]["id"],
+                }
+            )
+            atomic_write_json(CHECKPOINT_PATH, previous)
         return
 
     result = request_embeddings(load_secret(), embedding["model"], [item["input"] for item in selected])
@@ -391,6 +471,12 @@ def main() -> None:
     atomic_write_json(BATCH_DIR / f"{batch_id}.json", batch)
 
     report = write_progress_report(config, activity_items(config), generated_at=generated_at)
+    usage_today = daily_usage(
+        sorted(BATCH_DIR.glob("*.json")),
+        now=now,
+        timezone_name=timezone_name,
+        price_per_million_tokens=float(embedding["priceUsdPerMillionInputTokens"]),
+    )
     next_id = next((item["id"] for item in activity_items(config) if item["id"] not in set(report["cachedActivityIds"])), None)
     atomic_write_json(
         CHECKPOINT_PATH,
@@ -400,8 +486,9 @@ def main() -> None:
             "status": "complete" if next_id is None else "batch-complete",
             "lastBatchId": batch_id,
             "lastCompletedAt": generated_at,
-            "documentsProcessedThisCycle": len(selected),
-            "estimatedCostUsdThisCycle": round(batch_cost, 8),
+            "documentsProcessedThisCycle": usage_today["documents"],
+            "estimatedCostUsdThisCycle": usage_today["estimatedCostUsd"],
+            "dailyUsage": usage_today,
             "cachedActivities": report["activities"]["cached"],
             "totalActivities": report["activities"]["total"],
             "nextActivityId": next_id,

@@ -60,8 +60,10 @@ Przed płatnym wywołaniem API skrypt pokazuje plan partii, szacowany koszt i ko
 ```
 
 Cache jest ważny tylko dla zgodnego modelu, przepisu i hasha wejścia. Limit dokumentów oraz
-kosztu pochodzi z `config/research-queue.yaml`; przejściowy błąd API zapisuje `nextRetryAt`
-zamiast utrzymywać uśpiony proces.
+kosztu pochodzi z `config/research-queue.yaml` i jest liczony łącznie dla wszystkich partii
+danego dnia w skonfigurowanej strefie czasowej. Po wyczerpaniu limitu skrypt zapisuje moment
+następnego cyklu bez wywołania API. Przejściowy błąd API zapisuje `nextRetryAt` zamiast
+utrzymywać uśpiony proces.
 
 ## Struktura
 
