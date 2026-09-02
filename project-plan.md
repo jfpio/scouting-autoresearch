@@ -45,6 +45,11 @@ angielskim. Filtry obejmują tekst, rodzaj, cechę, autora, książkę, rok i dz
 w `vault/translations/<locale>/<id>.md`, nigdy zamiennikiem oryginału. Zmiana tytułu lub treści
 zmienia `sourceHash` i unieważnia tłumaczenie.
 
+`vault/exploration/` przechowuje hipotezy powstające podczas badań: pomysły na podział cech
+(np. zakres „pomysłowości” w próbach) oraz kandydatury na rodzaje aktywności inne niż gra
+i próba. Propozycje mają przykłady, kontrprzykłady, dwujęzyczne etykiety i status redakcyjny.
+Nie wpływają na filtry ani eksport produkcyjny, dopóki człowiek ich nie zaakceptuje.
+
 Pola wieku, czasu, sprzętu, liczby uczestników i ryzyka mogą pojawić się dopiero, gdy wynikają
 wprost ze źródła albo przeszły osobną redakcję. Brakujące dane pozostają nieznane. Projekt
 oddziela trzy rodzaje ocen:
@@ -91,6 +96,7 @@ discover → rights review → fetch → OCR/extract → normalize → deduplica
 ### Bramki
 
 1. **Discover:** zapisuje kandydaturę, URL, autora, tytuł, edycję i sposób znalezienia.
+   Może również dopisać propozycję taksonomii lub nowego rodzaju aktywności do eksploracji.
 2. **Rights review:** człowiek zatwierdza konkretną edycję i zakres możliwego użycia.
 3. **Fetch:** pobiera wyłącznie z zaakceptowanej kolekcji, respektując limit i warunki.
 4. **OCR/extract:** zachowuje surowy wynik i parametry procesu, jeśli potrzebny jest OCR.

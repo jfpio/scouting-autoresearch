@@ -69,6 +69,17 @@ def main() -> None:
     models = {load_markdown(path)[0].get("model") for path in translation_paths}
     require(models == {"mistral-medium-2604"}, f"Unexpected translation model set: {sorted(models)}", errors)
 
+    exploration_paths = sorted((VAULT / "exploration").rglob("idea-*.md"))
+    require(len(exploration_paths) >= 2, "Expected seeded taxonomy and activity-kind exploration notes", errors)
+    for path in exploration_paths:
+        metadata, body = load_markdown(path)
+        require(metadata.get("proposalType") in {"taxonomy", "activity-kind"}, f"Bad proposal type in {path}", errors)
+        require(metadata.get("status") == "proposed", f"Exploration note is not proposed: {path}", errors)
+        require(metadata.get("sourceType") == "editorial-hypothesis", f"Exploration note lacks hypothesis marker: {path}", errors)
+        require(metadata.get("reviewRequired") is True, f"Exploration note lacks human review gate: {path}", errors)
+        require(set((metadata.get("labels") or {}).keys()) == {"pl", "en"}, f"Exploration note lacks bilingual labels: {path}", errors)
+        require(bool(body.strip()), f"Empty exploration note: {path}", errors)
+
     for locale in ("pl", "en"):
         json_path = GENERATED / f"activities.{locale}.json"
         jsonl_path = GENERATED / f"activities.{locale}.jsonl"

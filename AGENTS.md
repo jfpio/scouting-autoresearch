@@ -29,3 +29,12 @@
 - Zachowuj polski lub obcy tekst źródłowy bez modernizacji; korekty OCR muszą być odtwarzalne.
 - Angielskie i polskie tłumaczenia maszynowe oznaczaj `machine-beta` do ręcznej weryfikacji.
 - Nie kopiuj PDF-ów ani pełnych repozytoriów źródłowych do tego repozytorium.
+
+## Eksploracja modelu wiedzy
+
+- Pomysły na podział cech i nowe rodzaje aktywności zapisuj w `vault/exploration/`.
+- Każdy pomysł oznacz jako `status: proposed` i `sourceType: editorial-hypothesis`.
+- Oddzielaj określenia występujące w źródle od współczesnych etykiet ułatwiających wyszukiwanie.
+- Zbieraj identyfikatory przykładów i kontrprzykładów; nie przepisuj na ich podstawie treści.
+- Nie dodawaj propozycji do produkcyjnych filtrów, taksonomii ani eksportów przed ręcznym
+  zatwierdzeniem. Agent nie może zaakceptować własnej hipotezy.

@@ -52,6 +52,7 @@ rekordy z aktualnym hashem. Model V0 to `mistral-medium-2604`; żądany pierwotn
 ## Struktura
 
 - `vault/` — źródło prawdy zgodne z Obsidianem,
+- `vault/exploration/` — niezatwierdzone pomysły na taksonomię i nowe rodzaje aktywności,
 - `data/generated/` — wersjonowane eksporty JSON i JSONL,
 - `public/data/` — te same eksporty publikowane na stronie,
 - `src/content/docs/` — generowane strony Starlight,
