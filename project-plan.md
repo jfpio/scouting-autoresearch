@@ -55,7 +55,9 @@ wprost ze źródła albo przeszły osobną redakcję. Brakujące dane pozostają
 oddziela trzy rodzaje ocen:
 
 1. **Pochodzenie** — czy znamy konkretną edycję, autora, rok i strony.
-2. **Wierność** — czy ekstrakcja, OCR i tłumaczenie są kompletne oraz zweryfikowane.
+2. **Wierność** — czy ekstrakcja i OCR są kompletne, a tłumaczenie ma aktualny hash, jawny
+   model i łatwo dostępny tekst źródłowy. Tłumaczenie automatyczne nie jest weryfikowane przez
+   człowieka i nie przedstawiamy go jako wersji oczekującej na przyszłą recenzję.
 3. **Przydatność i bezpieczeństwo** — czy współczesny redaktor uznał aktywność za wartościową
    i możliwą do bezpiecznego dostosowania.
 
@@ -102,7 +104,8 @@ discover → rights review → fetch → OCR/extract → normalize → deduplica
 4. **OCR/extract:** zachowuje surowy wynik i parametry procesu, jeśli potrzebny jest OCR.
 5. **Normalize:** poprawia jedynie techniczne artefakty; nie modernizuje treści.
 6. **Deduplicate:** porównuje hash, tytuł, źródło i podobieństwo tekstu.
-7. **Translate:** zapisuje model, prompt, datę i hash wejścia; oznacza `machine-beta`.
+7. **Translate:** zapisuje model, prompt, datę i hash wejścia; oznacza
+   `machine-translation` i zawsze linkuje tekst źródłowy oraz skan.
 8. **Verify:** sprawdza schemat, kompletność, prawa, źródła, języki i bezpieczeństwo.
 9. **Pull request:** agent przedstawia różnice, koszty, ryzyka i nierozstrzygnięte punkty.
 10. **Publish:** następuje dopiero po zatwierdzeniu PR przez człowieka.

@@ -57,7 +57,12 @@ def main() -> None:
             original, original_body = load_markdown(original_path)
             expected_hash = source_hash(original["title"], original_body)
             require(metadata.get("sourceHash") == expected_hash, f"Stale translation: {path.name}", errors)
-        require(metadata.get("status") in {"machine-beta", "reviewed"}, f"Bad translation status: {path.name}", errors)
+            require(
+                len(metadata.get("traits", [])) == len(original.get("traits", [])),
+                f"Translation invented or dropped traits: {path.name}",
+                errors,
+            )
+        require(metadata.get("status") == "machine-translation", f"Bad translation status: {path.name}", errors)
         for key in ("model", "modelRequested", "promptVersion", "generatedAt", "title", "section"):
             require(bool(metadata.get(key)), f"Translation {path.name} lacks {key}", errors)
         require(bool(body.strip()), f"Empty translation body: {path.name}", errors)

@@ -6,9 +6,10 @@ Dwujęzyczna, otwarta baza historycznych gier, prób i ćwiczeń harcerskich. We
 - 117 gier z *Harcerza w polu* Zygmunta Wyrobka (1946),
 - 85 prób z *Prób wodzów* L. Ungeheuera (1935).
 
-Polskie transkrypcje są tekstem źródłowym. Angielskie wersje są automatycznymi tłumaczeniami
-oznaczonymi jako publiczna beta. Każdy rekord zachowuje autora, oryginalny tytuł książki, rok,
-strony, commit źródłowego wydania cyfrowego i status prawny.
+Polskie transkrypcje są tekstem źródłowym. Angielskie wersje są tłumaczeniami automatycznymi
+i nie są weryfikowane przez człowieka. Każdy rekord prowadzi bezpośrednio do polskiej
+transkrypcji i skanu oraz zachowuje autora, oryginalny tytuł książki, rok, strony, commit
+źródłowego wydania cyfrowego i status prawny.
 
 Strona: <https://jfpio.github.io/scouting-autoresearch/>
 

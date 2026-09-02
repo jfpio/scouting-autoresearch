@@ -122,7 +122,7 @@ def current_translation(path: Path, expected_hash: str) -> bool:
         metadata, body = load_markdown(path)
     except (ValueError, OSError):
         return False
-    return metadata.get("sourceHash") == expected_hash and metadata.get("status") in {"machine-beta", "reviewed"} and bool(body)
+    return metadata.get("sourceHash") == expected_hash and metadata.get("status") == "machine-translation" and bool(body)
 
 
 def translate_one(api_key: str, model: str, path: Path) -> tuple[str, str | None]:
@@ -133,6 +133,11 @@ def translate_one(api_key: str, model: str, path: Path) -> tuple[str, str | None
     if current_translation(output_path, expected_hash):
         return activity_id, None
     translated, actual_model = request_translation(api_key, model, activity_id, metadata, body)
+    if len(translated["traits"]) != len(metadata.get("traits", [])):
+        raise ValueError(
+            f"Translation changed trait count for {activity_id}: "
+            f"{len(metadata.get('traits', []))} -> {len(translated['traits'])}"
+        )
     translated_meta = {
         "activityId": activity_id,
         "locale": "en",
@@ -144,7 +149,7 @@ def translate_one(api_key: str, model: str, path: Path) -> tuple[str, str | None
         "promptVersion": PROMPT_VERSION,
         "generatedAt": date.today().isoformat(),
         "sourceHash": expected_hash,
-        "status": "machine-beta",
+        "status": "machine-translation",
     }
     dump_markdown(output_path, translated_meta, translated["body"])
     with print_lock:

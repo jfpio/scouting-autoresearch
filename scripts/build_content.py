@@ -159,8 +159,10 @@ def activity_page(record: dict, *, locale: str) -> str:
     machine = ""
     if not is_pl:
         machine = (
-            '<div class="machine-notice"><strong>Machine translation — public beta.</strong> '
-            "It may contain errors; consult the Polish transcription and facsimile for critical use.</div>\n\n"
+            '<div class="machine-notice"><strong>Automatic translation.</strong> '
+            f'This English text was generated automatically with <code>{record["translationModel"]}</code> and has not been verified by a person. '
+            f'<a href="{SITE_ROOT}/activities/{record["id"]}/">Read the source Polish transcription</a>; '
+            "the source scan is linked in the metadata below.</div>\n\n"
         )
     warning = (
         "Historyczna aktywność nie jest automatycznie rekomendacją metodyczną. Przed użyciem oceń współczesne ryzyko, wiek uczestników, warunki i przepisy."
@@ -177,7 +179,7 @@ def activity_page(record: dict, *, locale: str) -> str:
         "pages": "Strony drukowane / PDF" if is_pl else "Printed / PDF pages",
         "edition": "Wydanie cyfrowe" if is_pl else "Digital edition",
         "facsimile": "Otwórz skan na właściwej stronie" if is_pl else "Open the scan at the relevant page",
-        "other": "Read the machine translation" if is_pl else "Czytaj polski tekst źródłowy",
+        "other": "Zobacz tłumaczenie automatyczne" if is_pl else "Read the source Polish transcription",
     }
     other_link = translated_link if is_pl else original_link
     return (
@@ -227,6 +229,11 @@ def explorer_page(locale: str, *, kind: str | None = None, home: bool = False) -
     else:
         hero = f"# {title}\n\n{description}\n\n"
     kind_prop = f' kind="{kind}"' if kind else ""
+    translation_note = (
+        ""
+        if is_pl
+        else "> **Automatic translations:** all English texts were generated automatically and have not been verified by a person. Every activity links to its source Polish transcription and the scan.\n\n"
+    )
     return (
         "---\n"
         f"title: {yaml_scalar(title)}\n"
@@ -240,6 +247,7 @@ def explorer_page(locale: str, *, kind: str | None = None, home: bool = False) -
             if is_pl
             else "> **Important:** historical materials require a modern risk assessment; inclusion is not a recommendation for use.\n\n"
         )
+        + translation_note
         + f'<ActivityExplorer locale="{locale}"{kind_prop} />\n'
     )
 
@@ -274,23 +282,23 @@ def about_page(locale: str) -> str:
     body = (
         """Scouting Autoresearch porządkuje historyczne gry, próby i ćwiczenia harcerskie w jednej, przeszukiwalnej bazie. V0 importuje bezstratnie dwa niezależne wydania cyfrowe i nie kopiuje ich PDF-ów.
 
-Angielskie wersje są tłumaczeniami automatycznymi w publicznej becie. Każdy rekord zachowuje autora, oryginalny tytuł książki, rok, strony i odsyłacze do źródła. Brakujące dane pozostają nieznane — nie dopowiadamy wieku, czasu, sprzętu ani ryzyka.
+Angielskie wersje są tłumaczeniami automatycznymi i nie są weryfikowane przez człowieka. Każdy rekord prowadzi do polskiej transkrypcji źródłowej i skanu oraz zachowuje autora, oryginalny tytuł książki, rok i strony. Brakujące dane pozostają nieznane — nie dopowiadamy wieku, czasu, sprzętu ani ryzyka.
 
 Kod projektu jest udostępniony na licencji MIT. Projektowe metadane i tłumaczenia są udostępniane na CC BY 4.0 wyłącznie w zakresie posiadanych praw; importowane teksty zachowują indywidualne oznaczenia praw.
 
 ## Następny etap
 
-V2 przygotowuje kontrolowany proces wyszukiwania public-domain dzieł Roberta Baden-Powella i Ernesta Thompsona Setona. Agent może proponować źródła, ale zatwierdzenie praw i publikacji zawsze wymaga człowieka. Szczegóły zawiera [plan projektu](https://github.com/jfpio/scouting-autoresearch/blob/main/project-plan.md)."""
+V2 przygotowuje kontrolowany proces wyszukiwania public-domain dzieł Roberta Baden-Powella, Ernesta Thompsona Setona i Jacques’a Sevina. Agent może proponować źródła, ale zatwierdzenie praw i publikacji zawsze wymaga człowieka. Szczegóły zawiera [plan projektu](https://github.com/jfpio/scouting-autoresearch/blob/main/project-plan.md)."""
         if is_pl
         else """Scouting Autoresearch organizes historical scouting games, trials, and exercises in one searchable knowledge base. V0 imports two independent digital editions without copying their PDFs.
 
-English versions are machine translations in public beta. Every record preserves the author, original book title, year, page references, and source links. Missing facts remain unknown: the project does not invent ages, duration, equipment, or risk levels.
+English versions are automatic translations and are not verified by a person. Every record links to the source Polish transcription and scan while preserving the author, original book title, year, and page references. Missing facts remain unknown: the project does not invent ages, duration, equipment, or risk levels.
 
 The project code is MIT-licensed. Project metadata and translations are offered under CC BY 4.0 only to the extent that the project owns the relevant rights; imported texts retain their record-level rights statements.
 
 ## Next stage
 
-V2 prepares a controlled discovery process for public-domain works by Robert Baden-Powell and Ernest Thompson Seton. The agent may propose sources, but rights approval and publication always require a human. See the [project plan](https://github.com/jfpio/scouting-autoresearch/blob/main/project-plan.md)."""
+V2 prepares a controlled discovery process for public-domain works by Robert Baden-Powell, Ernest Thompson Seton, and Jacques Sevin. The agent may propose sources, but rights approval and publication always require a human. See the [project plan](https://github.com/jfpio/scouting-autoresearch/blob/main/project-plan.md)."""
     )
     return f"---\ntitle: {yaml_scalar(title)}\ndescription: {yaml_scalar(plain_text(body)[:155])}\n---\n\n# {title}\n\n{body}\n"
 
@@ -376,7 +384,7 @@ def write_exports(polish: list[dict], english: list[dict], sources: dict[str, di
             "",
             pl["body"],
             "",
-            f"### English — machine translation ({en['translationModel']}, public beta)",
+            f"### English — automatic translation ({en['translationModel']}, not human-verified)",
             "",
             en["body"],
             "",

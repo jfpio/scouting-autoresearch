@@ -27,7 +27,8 @@
 - PR musi zawierać listę źródeł, decyzje prawne do kontroli, liczbę rekordów, koszt, model,
   wyniki walidacji, duplikaty i wszystkie nierozstrzygnięte problemy.
 - Zachowuj polski lub obcy tekst źródłowy bez modernizacji; korekty OCR muszą być odtwarzalne.
-- Angielskie i polskie tłumaczenia maszynowe oznaczaj `machine-beta` do ręcznej weryfikacji.
+- Angielskie i polskie tłumaczenia maszynowe zawsze oznaczaj `machine-translation`. Nie twórz
+  obietnicy późniejszej weryfikacji; zamiast tego zawsze linkuj tekst w języku źródłowym i skan.
 - Nie kopiuj PDF-ów ani pełnych repozytoriów źródłowych do tego repozytorium.
 
 ## Eksploracja modelu wiedzy

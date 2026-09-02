@@ -97,6 +97,22 @@ def main() -> None:
             metric_errors.append(f"{path}: expected lang={expected_language}, found {language}")
     if not (DIST / "pagefind" / "pagefind.js").exists():
         metric_errors.append("Pagefind index is missing")
+    for path in ("en/index.html", "en/all/index.html", "en/games/index.html", "en/trials/index.html"):
+        text = (DIST / path).read_text(encoding="utf-8")
+        if "Automatic translations:" not in text or "have not been verified by a person" not in text:
+            metric_errors.append(f"{path}: missing the automatic-translation disclosure")
+    english_activity_pages = list((DIST / "en" / "activities").glob("*/index.html"))
+    if len(english_activity_pages) != 202:
+        metric_errors.append(f"Expected 202 English activity pages, found {len(english_activity_pages)}")
+    for path in english_activity_pages:
+        text = path.read_text(encoding="utf-8")
+        activity_id = path.parent.name
+        if "Automatic translation." not in text or "has not been verified by a person" not in text:
+            metric_errors.append(f"{path.relative_to(DIST)}: missing translation disclosure")
+        if f"/scouting-autoresearch/activities/{activity_id}/" not in text:
+            metric_errors.append(f"{path.relative_to(DIST)}: missing source Polish transcription link")
+        if "public beta" in text.lower():
+            metric_errors.append(f"{path.relative_to(DIST)}: obsolete translation beta wording")
     if metric_errors:
         print("Rendered-site checks failed:")
         for value in metric_errors:

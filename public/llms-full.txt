@@ -91,7 +91,7 @@ Po drodze zwraca się uwagę na napotykane wybitne przedmioty (wieża, komin, ci
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 52–58](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=52).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 a) On a hill with a wide view, a scout patrol gathers. They orient the map—first using a compass, then by matching map symbols—and determine the patrol’s position on it (see below). Next, while examining the surroundings, they identify various terrain features, starting with closer ones and then moving to more distant ones, and locate their corresponding symbols on the map; then they reverse the process: they find a feature drawn on the map and locate it in the terrain.
 
@@ -179,7 +179,7 @@ Zastępowy robi na mapie kreskę, prowadząc ją przez możliwy do przebycia ter
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 58–59](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=58).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 The patrol leader draws a line on the map, leading it through passable terrain. He hands the map to one scout and orders him to lead the patrol exactly along the line. The rest, with maps in hand, are to monitor the march and, if called upon, correct his mistaken direction. The leader must constantly observe the terrain passed and compare the features encountered with the map’s drawing, so as not to deviate from the marked course and to reach the designated destination. All observations are to be made aloud. This is an excellent exercise in map reading.
 
@@ -204,7 +204,7 @@ Podobnie nakazuje się wyznaczenie laską kierunku Pn—Pd wieczorem według gwi
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 59](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=59).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 On a sunny day, the patrol stands in an open space, each scout several paces apart from the next.
 
@@ -263,7 +263,7 @@ Jeżeli podziałka na stopnie umieszczona jest w kierunku odwrotnym, tj. na lewo
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 59–62](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=59).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 After explaining the construction and use of the compass (busola) in the field, the patrol sets off with a compass in hand, heading north, south, east, or west. (For repeated exercises, intermediate directions are chosen). The requirement is only to maintain the general prescribed direction, and it is the patrol leader’s duty to choose the most suitable route for the patrol. He also checks the march using the compass.
 
@@ -370,7 +370,7 @@ Ostatnie ćwiczenie jest trudniejsze i można je przerabiać tylko wtedy, gdy po
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 62–65](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=62).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -427,7 +427,7 @@ O ile mają ze sobą zawodniczyć 2 zastępy, tworzy się placówki z 2 harcerzy
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 65–66](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=65).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Based on a map, scouts are positioned at various points in the terrain, each several hundred paces apart. The location of each is unknown to the others. One stands, for example, at a road junction, another at a bridge, a third in a ravine, at the edge of a forest, under a solitary tree, etc. Each has a number that they must memorize.
 
@@ -456,7 +456,7 @@ Takie wypadki zachodzą często przy wysyłce patrolu na wywiady, gdy brak zast�
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 66–67](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=66).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Point out to the patrol a distant but not overly prominent object—yet not so difficult to recognize and locate. Allow them to observe it for a moment to determine its position relative to other notable landmarks, then order them to reach it by any route, and if possible, in concealment. Choose such an object in unfamiliar or at least little-known terrain, one that will disappear from sight during the march. Make the exercise more difficult by first having them march for 5–10 minutes in a certain direction, and only then turn back to search for the indicated object.
 
@@ -487,7 +487,7 @@ Mniej wyrobionym pozwala się znaczyć drogę w sposób nie bijący w oczy i to 
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 67–68](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=67).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 This exercise takes place in unfamiliar terrain, or at least known roads must not be used. The patrol knows that after covering a certain distance—e.g., several kilometers—and changing direction several times, they must return to the starting point by the exact same route they took. Therefore, each scout tries to memorize distinctive features of the path during the march, such as a characteristic boulder, a forest barrier, a broken tree, a factory chimney visible from a certain point, etc., and frequently looks back to observe these features from the opposite side, as they appear differently when viewed from behind. Even in a forest, the route can be memorized by paying attention to the terrain’s shape, the course of valleys, and the layout of elevations.
 
@@ -522,7 +522,7 @@ b) W dzień pochmurny, gdy wykluczona jest orientacja według słońca, a także
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 68–69](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=68).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 a) The leader marks his position with a flag and sends out several patrols in different directions, instructing them to dispatch scouts at set intervals with fictional reports—i.e., merely a note indicating the report’s serial number, the dispatch location (as per the map), and the time the messenger was sent. Each messenger is given a direction in which to seek the leader. He must take the shortest route. Upon arrival, the leader records the time of arrival on the note for later verification of who returned on time.
 
@@ -557,7 +557,7 @@ Ponieważ nie idzie tu o zwyczajny wyścig, lecz raczej o szybkie orientowanie s
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 69–70](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=69).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Patrol follows patrol every 10 minutes. The route, cleverly laid out, leads through rocks, ditches, fences, bushes, forests, etc.—in short, through varied terrain, but over a small area of no more than a few kilometers. Each patrol has its route precisely marked on a map, or better yet, on a rough sketch, which also indicates the individual stages of the route, where each patrol must stop for 2 (3) minutes. Which patrol will reach the finish line, marked by a small flag, in the shortest time? At each stage, an impartial observer is present to record the patrol’s arrival and verify the rest period. Others, stationed at vantage points with a view of the surroundings, monitor the march. Running is strictly forbidden under threat of disqualification.
 
@@ -624,7 +624,7 @@ Jeżeli jest do rozporządzenia większa liczba busoli, może każdy harcerz iś
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 70–73](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=70).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A direction marked on a map can be transferred to the field using a compass:
 
@@ -675,7 +675,7 @@ Może lepsza jest taka odmiana tego ćwiczenia, że każdy harcerz zastępu prze
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 73–74](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=73).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Lay out a map and draw on it with a pencil, very precisely, the route the patrol is to take. Lead it partly along a road, then through a forest, a meadow, a bridge, etc., and mark the point the patrol is to reach. The patrol observes this route on the map for several minutes, then sets out—but without the map. Each segment of the route is led by a different scout, and each marks the traversed path with chalk, twigs, stones, etc. Upon arrival at the destination and after a rest, they return along the same route, but now with the map in hand, and check where they deviated from the prescribed path. (When reading the map, each scout should memorize the image of the entire route, dividing it into sections, e.g., *along the road to the north to the wayside shrine — along the path through the field to the east to the bridge — towards the factory chimney until the forest — along the forest path to the northwest*, etc.).
 
@@ -704,7 +704,7 @@ Odległość dla wszystkich powinna być mniej więcej jednakowa, podobnie i sam
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 74–75](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=74).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -733,7 +733,7 @@ Szkic sporządza się bez mapy, nie mogą w nim widnieć nazwy miejscowości. Po
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 75](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=75).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -770,7 +770,7 @@ Mamy przykład, jak mały na pozór dodatek może z gruntu zmienić charakter ć
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 75–76](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=75).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -815,7 +815,7 @@ Rys. 19.
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 77](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=77).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -860,7 +860,7 @@ Jeżeli komu nie uda się znaleźć za pierwszym marszem drugiej chorągiewki, p
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 78–79](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=78).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -929,7 +929,7 @@ Przed ćwiczeniem trzeba ustalić warunki ew. spotkania z nieprzyjacielem.
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 79–82](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=79).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -994,7 +994,7 @@ d) Na jednakowym tle i w jednakowym ubraniu jeden harcerz stoi lub leży spokojn
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 86–87](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=86).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 The following exercises, in addition to developing visual acuity and observance, aim to teach how lighting, color, background, the size of an object, and whether it is stationary or moving affect its visibility—that is, how easily or difficult it is to distinguish.
 
@@ -1029,7 +1029,7 @@ Z początku idzie się na mniejszą, potem na większą odległość (także bie
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 87](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=87).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 From a staff planted in the ground by the patrol leader, the scouts march one after another in a straight line toward a designated target (a tree trunk, the edge of a house, etc.). During the march, they help themselves maintain an accurate direction by selecting intermediate points (pebbles, clumps of earth, light or dark patches of ground, etc.) lying on the line of march. After walking 100 (or 200–400) paces, each scout plants their staff where they have stopped. The patrol leader, looking through his staff at the target, measures the extent of the deviation from the line of march; the winner is the one who deviated the least.
 
@@ -1056,7 +1056,7 @@ W ten sam sposób można wytyczyć linię w potrzebnym kierunku w nocy za pomoc�
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 88](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=88).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 The task is to mark a straight line in a specific direction, e.g., W–E. The first scout stands with a compass in hand, facing west. The second scout walks 30–50 paces in that direction according to the compass, and the third scout walks another few dozen paces, then aligns with the two previous scouts. The first scout then moves forward, positioning himself in line with the others, and so on. The line can be extended as needed, marking each abandoned position with a stick or stone.
 
@@ -1083,7 +1083,7 @@ Zamiast odpowiedzi na pytania można żądać opisu terenu i to z początku bez 
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 88–89](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=88).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Everyone stands with their back to the terrain that is to be observed. Its boundaries to the left and right are marked by prominent, easily noticeable objects. ("You will observe the terrain from the railway line on the left to the river on the right.") Now, "About turn!" and each person observes intently for 1 minute. Then, "About turn!" again, and each person writes down answers to a series of questions: "How many chimneys are on the factory building by the river? — What color is the cottage under the forest? — What is interesting on its roof? — What is the background of the chapel by the road? — What stands by the poplar in the meadow?" and so on. Guessing is not allowed; each person provides an answer only if they have noticed the thing in question. By counting the points for correct answers, the patrol leader will see who was the best observer.
 
@@ -1108,7 +1108,7 @@ Kinds: game; printed pages: 83; PDF pages: 89
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 89](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=89).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 —During a march to exercises, the patrol leader poses a series of questions, such as: «How many cows are grazing in the pasture? — How many trees are in the group on the meadow? — How many windows are in the building by the road? — How many broken panes? — How many cars are in the passing train? How many people are working in the field? How many of them are without head coverings? — How many ducks are swimming in the pond?» etc. After a brief observation (count to 5 or 10), each scout records their answer. The answers are then checked, and points are awarded for the best responses. Who will have the most points upon reaching the destination? This kind of competition can also take place between two patrols. In such cases, each correct answer counts toward the patrol’s score, not the individual scout’s.
 
@@ -1147,7 +1147,7 @@ Tektura ma służyć do dłuższego użytku, nie rysuje się więc liczb na niej
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 89–90](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=89).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A piece of cardboard, divided into 16 squares measuring 6 × 6 cm, is placed on a tree trunk at eye level.
 
@@ -1190,7 +1190,7 @@ Znowu, jak poprzednio, każdy pisze odpowiedzi, nie zdradzając ich przed reszt�
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 90–91](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=90).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Observation can be directed not only at specially indicated objects but also at everything encountered during the march—both the terrain configuration to the right and left of the road and objects near and far. Moreover, observations should be memorized. This forms a distinct exercise:
 
@@ -1225,7 +1225,7 @@ Zabawa nadaje się i do zawodów między zastępami. Wtedy wypuszcza się w drog
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 91–92](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=91).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A route—chosen by the patrol leader—leads through varied terrain (sections of forest, buildings, thickets, hollows, etc.) and is several hundred or even one or two thousand paces long. The entire patrol walks this route to become thoroughly familiar with it and then stops at the end of the path.
 
@@ -1256,7 +1256,7 @@ Wprawnym wybiera się drobne, trudne do wyszukania przedmioty, początkującym �
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 92](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=92).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 We stand on a hill from which there is a fairly extensive view. The question is asked: «Where is the wayside shrine surrounded by trees?» Everyone eagerly scans the area. A shout — someone has spotted it and points in that direction. Now they describe its exact location, and for the discovery, they receive a point. We turn to the opposite side, then the question: «Who sees the black cow?» Eyes scan the distance, everyone observes intently, someone has found the cow. «Where is the statue by the road? Where is the footbridge over the stream?» and so on. Ten such questions, always one point for each discovery. Who will collect the most?
 
@@ -1287,7 +1287,7 @@ Z zabawy tej można zrobić zawody między dwoma zastępami.
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 92–93](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=92).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 The patrol observes for several minutes a section of terrain with boundaries precisely defined by the patrol leader (a few hundred meters in width and depth). After the observation, they move to a concealed spot from which this section is not visible.
 
@@ -1330,7 +1330,7 @@ Zwrócić należy uwagę harcerzy na to, że informacje, dawane gońcom, muszą 
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 93–95](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=93).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 At the assembly point, the red patrol remains. The white patrol sets out and, every few hundred paces, leaves a small group of scouts. In one spot, three remain; in another, one; then two, and so on. The patrol’s route passes through varied terrain and in different directions, such that the last group is approximately the same distance from the assembly point as the first.
 
@@ -1369,7 +1369,7 @@ Jeżeli zwierzęta umieszczono w dobrych ukryciach tak, że je spostrzec można 
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 95–96](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=95).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 In a coniferous forest, there is a polygon enclosed by a rope with a diameter of several dozen paces.
 
@@ -1408,7 +1408,7 @@ Podobną zbiórkę można robić z owadami lub minerałami.
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 96–97](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=96).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 The patrol leader distributes among the scouts samples of 10 previously collected plants and orders them to find and bring them back to camp. These are, of course, plants that are either in the wider vicinity of the camp or are not encountered at every step.
 
@@ -1464,7 +1464,7 @@ Niemniej ważne jest opanowanie sygnalizowania semaforem, tarczą, latarką itp.
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 97–98](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=97).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Signalling can be practiced in the form of a game or play. Here is one for beginners:
 
@@ -1512,7 +1512,7 @@ Rozkaz powinien być krótki, i jednak dla wszystkich zastępów, np. «Rozpali�
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 98–99](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=98).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Several patrols (at least two) position themselves in the field at equal distances from a location indicated to them on a map, e.g., from hill ×. At the designated time, all patrols set out toward this hill, leaving 3 scouts at their starting point with a planted flag. Along the way, they set up signaling stations (at least one) so that, in the end, a group of 2–3 scouts reaches the hilltop. This creates a chain of stations, arranged in such a way that each station is visible only to its neighboring stations.
 
@@ -1551,7 +1551,7 @@ Jeżeli który z patroli zostanie spostrzeżony przez jedną ze stacji, to odpad
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 99–100](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=99).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A vital, secret dispatch from the Whites is being transmitted through a chain of signaling stations. The objective is to intercept it.
 
@@ -1598,7 +1598,7 @@ Nieprzyjaciel śledzi, skąd wróg nadchodzi, a dojrzawszy go, stara się go nie
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 100–102](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=100).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 At greater distances, Scouts communicate using flag signaling (or a lantern at night), while at shorter distances, they use hand, cap, or stick signals. There is a series of such signals expressing the most important actions during stalking, e.g., *"forward — run — backward — assembly — take cover"* and so on. However, these are not sufficient, as there are often orders that are difficult to convey with these few conventional signals, and which cannot be given by signaling or voice. A Scout should learn, as it were, to read the thoughts of his patrol leader as conveyed through signs that illustrate those thoughts as clearly as possible. This is a field for creativity on the part of the one giving the signals, and for intuition on the part of the one receiving them. This skill—both in deftly giving signals and in accurately interpreting them—must be acquired through appropriate practice.
 
@@ -1641,7 +1641,7 @@ Podczas powrotnej drogi porównuje się szkice z terenem i zaznacza w nich niedo
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 102–103](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=102).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 The patrol leader hands the scouts a sheet of paper on which only conventional symbols of various terrain features are drawn, in the order in which the marching patrol may encounter them. The route of the march is unknown to the scouts, as only the initial direction is given, e.g., North-West. The sheet may contain, for example, a drawing of a roadside cross, then a field road, a factory chimney, a bridge, etc. The last symbol is the destination of the march.
 
@@ -1672,7 +1672,7 @@ Jeden harcerz idzie wytyczoną na mapie drogą i robi najrozmaitsze umówione zn
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 103](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=103).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 One scout walks along a route marked on a map and makes various agreed-upon signs (with chalk, arranged sticks, laid stones, tied grass or branches, etc.). He records the order and type of signs on a piece of paper. The rest follow him, one scout after another, every few minutes. Each scout follows the signs and notes the ones he observes on his own paper. The last scout additionally erases all the signs. Who recorded the most signs? — In this exercise, the scouts do not track the signs but merely search for them, knowing the route of the march.
 
@@ -1726,7 +1726,7 @@ Każdy zastęp może mieć ponadto swoje własne, tajne, sobie tylko znane znaki
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 103–105](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=103).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 The previous exercise can be arranged differently. Here, the scout leading the way does not make the agreed-upon but meaningless signs, but only those that have a specific meaning. The patrol following him observes the signs and acts accordingly. There are many such signs; in addition to the generally known ones, each patrol may have its own secret signs. For example, an arrow—whether made of sticks or chalk—indicates the direction of the march; then the patrol encounters a sign forbidding them to proceed further and a sign that a hidden letter is nearby, which explains the matter, followed by a sign to stop, a sign of danger (quick dispersal), and so on.
 
@@ -1874,7 +1874,7 @@ W tabeli w poziomej rubryce obok cyfry 750 a w pionowej pod cyfrą błędu 250 z
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 105–111](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=105).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 a) Measure a space of 100 m (on a road, you have it between two roadside stones) and have the entire patrol walk it in double steps, i.e., counting each time the left foot steps. After taking 66.5 such double steps, the patrol should reach the finish line. However, some will not reach it, others may pass it—the former took steps that were too small, the latter too large. Now the patrol walks back, and if necessary, repeats this a third and fourth time until every Scout, taking 133 steps, covers exactly 100 m. In this way, each will feel the muscle tension required to take a step of 75 cm, and later, when measuring any distance by steps, will strive to always feel the same degree of tension, i.e., will take normal steps of 75 cm.
 
@@ -1987,7 +1987,7 @@ Ciemny wieczór. Jeden harcerz rusza w pole licząc kroki. Po pewnym czasie staj
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 111](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=111).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A dark evening. One scout sets off into the field, counting his steps. After some time, he stops, and at the patrol leader’s whistle, he flashes an electric torch for 5 seconds. Then he makes a mark where he stood and moves aside or hides. The rest estimate how far away the light was and in which direction it flashed. Then everyone sets off, and each stops at the spot where, in their estimation, the light had flashed. Who stands closest—and who went in the best direction? The one who judged best takes the torch and goes into the field, while the rest will do the judging.
 
@@ -2010,7 +2010,7 @@ W oznaczonym czasie ma się osaczyć niosącego latarkę i wziąć go do niewoli
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 111](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=111).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Two scouts go into the field with an electric torch. Two minutes later, the rest set off in pursuit of them. The pursued flash the light every minute, constantly changing position in order to escape the chase. If things go badly, they separate to divide the pursuers; the one without the torch tries to draw as many pursuers as possible to himself in order to help his comrade. Both fugitives should previously agree on signals between themselves. The torch passes from hand to hand, always to the one in less danger.
 
@@ -2045,7 +2045,7 @@ W ten sposób można rozstawić szereg harcerzy w różnych punktach, a innym da
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 112–113](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=112).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A white scout is given the order: «You will walk 10 minutes along the road, then 300 paces in the direction of NW, where you will find a wayside shrine surrounded by trees—hide there. A red scout will arrive; follow him, for you must later describe what he did.»
 
@@ -2088,7 +2088,7 @@ O ile idzie o zawodniczenie, po ukończeniu ćwiczenia oblicza się procenty bł
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 113–114](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=113).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 On a terrain extending up to 1,000 meters in depth and several hundred meters in width, with its lateral boundaries established, a patrol of *reds* is positioned. One lies, kneels, or stands closer, another farther away; in one spot stands a single scout, in another two together, and so on. Distances of 100—200—300 meters, etc., up to 1,000 meters have previously been measured and noted by both patrol leaders, along with the terrain features located at these distances.
 
@@ -2132,7 +2132,7 @@ Na rozkaz zastępowego ustawiąją się harcerze wzdłuż wąwozu według pierws
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 114–116](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=114).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 In a hidden spot, in a ravine or on a hillside, a scout patrol (in this case, 8 scouts) takes position, while the patrol leader stands at the edge of the ravine with a whistle and a flag in hand. The wings of the hiding place, which is several dozen paces long, are marked with clearly visible distant signs (flags). At a distance of 300–500 paces, another patrol stands similarly hidden, with its patrol leader visible and holding a flag. The first patrol will appear at intervals in various formations, while the second will observe. The patrol leader has a sheet with 8–10 consecutive formation changes noted. For example:
 
@@ -2188,7 +2188,7 @@ Gry te ćwiczą wzrok i uczą podchodzenia ku przeciwnikowi przy wyzyskiwaniu ws
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 116–118](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=116).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 a) The red patrol lies in hiding, while the whites, twice as numerous, are positioned 200–300 paces away. Everyone has a three-digit number pinned to the front of their cap. Each digit is 5–6 cm tall and 3 cm wide, drawn in ink with a stroke 1 cm thick.
 
@@ -2235,7 +2235,7 @@ Równie ważną rzeczą jest nauczenie się robienia szkicu perspektywicznego, k
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 118–119](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=118).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -2270,7 +2270,7 @@ Potem porównuje się szkic drogi z mapą dla przekonania się, jakie popełnion
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 119–120](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=119).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -2307,7 +2307,7 @@ Przy powtórzeniu ćwiczenia zmienia się rodzaj śladów.
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 120–121](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=120).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A patrol camps on a glade: they pitch tents, set up campfires, cook, etc., performing various camp duties. After some time, they leave the camp and not only do they fail to erase the traces of the campsite, but on the contrary, they leave behind various small objects and signs of their stay. (All of this can be noted down).
 
@@ -2342,7 +2342,7 @@ Na dany znak rozbiegają się zastępy. Jedni zbierają skrzętnie strzępy, dru
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 121–122](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=121).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 The task is to reconstruct the content of a letter from torn scraps of paper.
 
@@ -2369,7 +2369,7 @@ Na wilgotnym piasku lub świeżo narzuconej ziemi zastęp odbija stopy. Każdy o
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 122](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=122).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 On damp sand or freshly turned earth, the patrol leaves footprints. Each marks their own track, after which everyone observes all the tracks for several minutes. Finally, one scout steps aside, and one of the remaining scouts walks a dozen or so steps, leaving tracks. The first scout must then identify who passed by and justify their judgment based on the track. Next, a second scout steps aside, and so on. This is the simplest way to learn to distinguish tracks.
 
@@ -2400,7 +2400,7 @@ Szczególniej dobrze wychodzą takie tropy na śniegu.
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 122–123](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=122).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 The art of drawing conclusions from reading tracks is just as important as the skill of tracking itself. Tracks are merely the material from which one builds, i.e., derives the appropriate conclusions.
 
@@ -2457,7 +2457,7 @@ Niewolnicy biorą dalej udział w grze (trudno im ją w połowie przerywać) —
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 124–126](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=124).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Under the conditions in which we live, tracking over long distances by natural signs is usually impossible. We must create artificial trails. The simplest are colored scraps of paper, scattered along the marching route. At first, use more eye-catching scraps—red or yellow—then green, blue, etc.
 
@@ -2514,7 +2514,7 @@ Gdzie odpowiedni teren, można przerabiać opisane ćwiczenia w tropieniu także
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 126–128](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=126).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 It is possible to make tracking more difficult by laying false trails. Specifically, branches are created from the true trail, marked with scraps of paper of the same color, but ending at a certain distance with an agreed-upon sign indicating that the trail is false (e.g., a clearly visible chalk cross).
 
@@ -2553,7 +2553,7 @@ Jeśli zawodniczą ze sobą dwa zastępy, to pierwszy kładzie tropy, a drugi sz
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 128](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=128).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 For many, it is an interesting matter to find out whether the trail they laid has been discovered. This can be combined with laying another kind of trail. A stick about 30 cm long is split at one end, and a handful of twisted, knotted straw is inserted into the split. Such sticks are made, for example, 50 in number, and 10 scouts each take 5 sticks, marking their name or their sign at the spot where they have cut a bit of the bark with a knife. Now the trails are laid out, each 20–30 paces apart, either by driving the sticks into the ground or by hanging them on trees at arm’s reach height. Each tries to place their stick in a spot difficult to find. The patrol leader oversees the correct laying of the trails.
 
@@ -2592,7 +2592,7 @@ Grę tę można uprawiać także na nartach.
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 129–130](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=129).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 In winter, 2 or 3 scouts set out across clean snow, while the rest follow their trail 15–25 minutes later. The fugitives, weaving through not very open terrain (quite extensive but with defined boundaries), try to mislead the trackers to gain time. If they are not caught within the set time, they win. For example, they may split up and cross their own tracks repeatedly, then reunite—erase their footprints behind them with a branch—alter their trail by tying a strap to a boot—exploit every patch of ground, fence, or bridge where no tracks are left (allowed for no more than 50 paces)—walk backward—step into their own tracks so that three become two or one, possibly creating a different mark by leaning on a stick, etc.—as long as it delays the pursuit.
 
@@ -2629,7 +2629,7 @@ Na lisa wybiera się silniejszego narciarza.
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 130](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=130).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 The fox glides on skis. Wherever it encounters more ski tracks, it drops small scraps of colored paper. Fifteen minutes later, the hounds set off in pursuit of its trail. The fox zigzags, finally hiding in a den from which a convenient escape is possible. There, the hounds catch up to it, flush it out of the den, and try to corner it. Whoever touches it with their hand kills it.
 
@@ -2674,7 +2674,7 @@ poprzednio, na podstawie odnajdowanych kolejno wskazówek, lecz na podstawie wi�
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 130–133](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=130).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 a) The treasure — a pocketknife, a matchbox, or similar object — is well hidden, and the patrol must find it by following a series of hidden clues, discovered one after another. The patrol is set on the trail by being given the first and only clue. For example: *"Go north. After several hundred paces, you will reach a hill with three solitary pines. Stand beneath them, and you will see a white cottage. On one of its walls, there is an arrow. Follow the direction of the arrow for 50 paces, and you will find a stone beneath which lies the next clue."*
 
@@ -2718,7 +2718,7 @@ ucha do ziemi (w pogodnę, suche dni).
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 135–136](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=135).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 On a quiet, clear evening, a scout patrol gathers on a small hill. Each scout, in complete silence, strains their ears to catch all the rustles and sounds coming from every direction and to determine their origin. There are many and varied: the call of a bird or the bark of a dog, the footsteps of a person, the rumble of a cart, the rustling of trees, the whisper of falling leaves, the splash of a stream, the sound of conversation, and so on. Everyone listens intently. Suddenly, the name of one of the scouts is called softly. The scout responds with two words and points in the direction from which the sound comes. The others remain silent if they agree with his opinion; otherwise, they correct the mistake as briefly as possible. Soon, another name is called, and so on.
 
@@ -2760,7 +2760,7 @@ Do ćwiczenia nadaje się tak dobrze grunt gładki, jak i pokryty gałązkami, l
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 136–137](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=136).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 One scout has their eyes tightly blindfolded, and a small flag is stuck into the ground about 10 paces away from them. The blindfolded scout must not know where the flag is. The others stand scattered around at a distance of several dozen paces. Absolute silence is required. The scout designated by the patrol leader approaches the flag stealthily, avoiding any noise,
 
@@ -2793,7 +2793,7 @@ Ażeby zabawa szła składnie, podkradanie odbywa się na znak zastępowego, kt�
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 137–138](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=137).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Some scouts sit on the ground with their eyes blindfolded, forming a circle, each spaced 6–10 paces apart. In the center of the circle, scouting equipment is placed: hats, walking sticks, small shovels, canteens, etc. The rest of the scouts must, by stepping, crawling, or creeping, sneak into the center of the circle and, in the same manner, carry away one of the objects lying there. They should sneak in one at a time, not in a group, as one clumsy scout in the center could betray everyone. The guards may point out a suspicious rustle at their side or in the center of the circle, and the patrol leader checks the validity of the observation and removes the one discovered. A point is awarded to whoever completes the task. Then the roles are switched.
 
@@ -2816,7 +2816,7 @@ Między dwoma drzewami rozpina się sznurek, a na nim zawiesza zegarek. Jednemu 
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 138](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=138).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A string is stretched between two trees, and a pocket watch is hung from it. One Scout has their eyes blindfolded and is then led near the watch. The rest surround them and keep them within a circle during the game. Guided by hearing alone, the blindfolded Scout must find the watch.
 
@@ -2851,7 +2851,7 @@ Dobrym urozmaiceniem tej gry będzie wręczenie wartownikowi latarki elektryczne
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 138–139](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=138).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A sentinel stands on a hill clearly visible even in the evening. Scouts approach from all sides, each trying to get as close as possible. When a scout believes they are close enough, they make a sign to indicate they have reached that spot. Then, they carefully retreat (or reveal themselves, if ordered to do so). However, the sentinel listens intently, and if they hear a suspicious rustle, they whistle. Everyone freezes, and the patrol leader checks whether an enemy is indeed hiding in the spot indicated by the sentinel. The leader then either excludes the scout, measuring the distance from the sentinel, or signals for the others to continue advancing.
 
@@ -2888,7 +2888,7 @@ Może być i kilku ukrytych, każdy z gwizdkiem o innej tonacji. Mogą przy tym 
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 139–140](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=139).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 When it is sufficiently dark, one scout moves away from the patrol and, winding his way, hides in a place unknown to anyone. From there, he whistles once. The rest, standing in a group, determine from which direction the whistle came and from what distance, and each sets off separately in the direction he has chosen, then stops at the spot which, in his opinion, is closest to the hidden scout (one may also stick a branch at that point as proof of his presence and return). Now, a threefold whistle from the patrol leader calls the hidden scout to reveal himself, after which it is determined who came closest to him.
 
@@ -2915,7 +2915,7 @@ Ustalić trzeba znak na zbiórkę i miejsce zbiórki.
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 140](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=140).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 On a limited, enclosed space, one is to catch a Scout who, every minute, either whistles once or lights a match for a duration of 5 seconds. The pursuit is thus guided by both sight and hearing. If the pursuer does not catch the runner within the designated time, another takes over his role.
 
@@ -2942,7 +2942,7 @@ Następnie zmieniają zastępy role, a wygrywa zastęp, który zdobył większą
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 140–141](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=140).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A scout patrol lies in a single line on the ground, each scout 15 paces apart from the next. The patrol leader is in the middle. Opposite them, at a distance of 20–25 paces, another patrol lies in the same manner. The patrol leader gives a single sentence to the scouts on his right and left in a normal voice, e.g., *"The cross on the chapel, under the little forest."* These scouts pass it along until it reaches the ends of the line. The opposing patrol listens in, and each scout in that patrol writes down what they heard.
 
@@ -2973,7 +2973,7 @@ Podczas śledzenia nie wolno schodzić z drogi.
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 145–146](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=145).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Over a distance of 1–2 km, scouts hide on both sides of the road, no more than 50 paces away from it. Each scout uses ground depressions, rocks, bushes, etc., to better conceal themselves. After 10 minutes, the patrol leader walks along the road, and if he discovers anyone, he signals them to stand up and join him.
 
@@ -3002,7 +3002,7 @@ Może przy tym obowiązywać prawidło, że raz wybranej kryjówki nie wolno zmi
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 146](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=146).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 This exercise shares the same characteristic as the previous one: one person hides while the others search, or all the White Patrol hide while the Red Patrol search. One party must wear distinctive badges. It is essential to clearly mark the boundaries of the area where hiding is permitted (on a map, by pointing out the limits from an elevated vantage point, or by partially walking the perimeter), as well as the duration of the exercise. The area may cover several square kilometers, and the exercise may last several hours. It should also be determined how many found within a given time constitute a win. A "prisoner" is taken by touch (or by calling out from a distance of 15–20 paces).
 
@@ -3035,7 +3035,7 @@ Korzysta z tego każdy podkradający się i gdy tylko wartownik nie patrzy w jeg
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 147–148](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=147).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 a) The terrain abounds in various small cover: uneven ground, bushes, stones, etc. The patrol leader stands in the middle; everyone scatters in different directions to a distance of 500 paces and drops to the ground, concealing themselves behind cover. On a given signal, the scouts approach the patrol leader as closely as possible, unnoticed, and presenting the smallest possible targets (i.e., staying low to the ground and using the terrain’s unevenness), while keeping their eyes on him the entire time.
 
@@ -3076,7 +3076,7 @@ Po skończeniu ćwiczenia powtarza się je, puszczając zastępy w przeciwnych k
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 148–150](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=148).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 From opposite directions, at a distance of 2–4 km, two scout patrols approach each other. Both set out at the same time. The route is chosen such that they must meet; specifically, a meeting point is designated, which each patrol must reach, as well as two points they must pass.
 
@@ -3111,7 +3111,7 @@ Po zebraniu się — omówienie przygody i wskazanie na popełnione błędy.
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 150](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=150).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 a) After the assembly point is designated, in case of dispersion, the patrol goes on reconnaissance, using the terrain for concealed movement. Suddenly — at the patrol leader’s whistle — dispersion occurs. Each scout vanishes from sight as quickly as possible. The patrol leader swiftly proceeds to the assembly point and from there observes how and when the scouts arrive, using cover and terrain irregularities to approach unseen. Who performs this task most skillfully? Then, an assessment of proficiency follows.
 
@@ -3140,7 +3140,7 @@ Harcerze obu zastępów, którzy dojdą do celu w określonym czasie, przedstawi
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 151](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=151).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A scout patrol travels along a path forming a closed polygon, aiming to traverse it entirely and return unnoticed to the starting point. The path is 3–4 km long and should be covered in 1½–2 hours. The patrol knows that during the march, they will encounter an enemy, whom they must pass without drawing attention while observing them closely. They may deviate from the marked path, but no more than 30 paces to the side. Each scout who passes the enemy unnoticed must record who the enemy was, as well as where and under what conditions they were encountered. If both enemies notice each other, they must retreat until they are out of each other’s sight. Each scout moves separately unless the patrol leader has given other instructions.
 
@@ -3165,7 +3165,7 @@ Zastęp zdąża do celu, oddalonego o godzinę marszu, idąc ściśle wyznaczon�
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 151–152](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=151).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A patrol is heading to a destination, one hour's march away, following a strictly designated route and having several tasks to complete during the march at specified locations, e.g., two halts, measuring the width of a river, signaling with a semaphore from two hills, etc. At the destination, they are to set up camp. However, they are unaware that a second patrol has the task of tracking them without revealing their presence. Can the second patrol reach the destination unnoticed and observe the first patrol setting up camp? Can they accurately report the activities the first patrol performed during the march? Conversely, will the first patrol notice they are being followed, and if so, can they evade the tracker, mislead the pursuit, and set up camp undetected?
 
@@ -3186,7 +3186,7 @@ U celu, oddalonego o godzinę drogi od punktu wyjścia, zostaje przez umyślnego
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 152–153](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=152).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 At a destination, one hour’s march from the starting point, a flag is deliberately planted in a fairly visible spot by an appointed person. The White patrol heads there, while the Red patrol follows their trail. Only the Whites know where the flag is planted. The goal is to evade the pursuers’ eyes or mislead the chase so that neither the destination is revealed nor the flag is reached unnoticed. How can this be done when both patrols start from the same place?
 
@@ -3235,7 +3235,7 @@ c) W końcu przychodzą ćwiczenia w rekognosowaniu terenu, w czasie których za
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 153–155](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=153).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -3288,7 +3288,7 @@ Jeżeli mają być przy tym zawody między białymi a czerwonymi, to następuje 
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 155–156](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=155).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 At the designated bivouac site, the White patrol is stationed. Around it, 4–5 sentries, each a single scout, are positioned at a distance of several dozen paces from the bivouac. The terrain is not very open, allowing for stealthy approach.
 
@@ -3323,7 +3323,7 @@ Oznacza się długość czasu, przeznaczonego na ćwiczenie.
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 156–157](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=156).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -3376,7 +3376,7 @@ Ponieważ z oddalenia trudno sprawdzić, z jaką grupą ma się do czynienia, mu
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 157–159](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=157).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 a) The White patrol receives an order to launch a sudden raid on the Red patrol, which is bivouacked. If this exercise is not connected to another (e.g., the "step-by-step pursuit of the enemy" march, p. 72), meaning the Whites do not know the Reds' location, the leader designates a fairly large section of terrain within which the Reds are bivouacked.
 
@@ -3435,7 +3435,7 @@ Jeżeli ćwiczenia nie robi się wieczorem, tylko za dnia, należy je białym u�
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 159–161](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=159).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -3478,7 +3478,7 @@ Jak zawsze, tak i tu trzeba dokładnie oznaczyć czas odmarszu obu zastępów, k
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 161–162](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=161).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -3523,7 +3523,7 @@ Unikać przy tym należy walki wręcz, polegającej na zrywaniu «włóczki bojo
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 162–164](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=162).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A patrol should, as far as possible, not return by the same route it took to go on reconnaissance. This is one of the principles of conducting reconnaissance. Why? The following exercise provides the answer.
 
@@ -3566,7 +3566,7 @@ Teren nie powinien być rozległy, ma mieć określone granice boczne; zastępy 
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 164–165](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=164).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -3615,7 +3615,7 @@ Można przy tym zezwalać niekiedy na użycie wszelkich forteli (np. przebierani
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 165–167](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=165).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 a) In the evening, three outposts, each consisting of 3–4 men, are stationed in front of the village, spaced 100–300 paces apart (the distance depends on the quality of the terrain between the outposts and the degree of darkness). The outposts are marked with lanterns, and their positions must not be changed—each has a judge stationed with it.
 
@@ -3668,7 +3668,7 @@ Zwyciężają przekradający się, jeżeli po upływie oznaczonego czasu (1—2 
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 167–168](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=167).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -3707,7 +3707,7 @@ Jeżeli twierdza nie jest kolista, wolno ją atakować tylko z przodu. Dopuszcza
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 168](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=168).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A fortress is a wall of snow, perhaps semicircular, perhaps closed in a circle—it may be a solid snow wall, and it may have loopholes. Inside the fortress, the Whites are stationed with a supply of ammunition—snowballs.
 
@@ -3764,7 +3764,7 @@ Chorągiewki nie powinny być zakryte przed nieprzyjacielem. Robi się to jednak
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 169–172](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=169).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 The exercise terrain is uneven, full of trees, bushes, etc., and is divided by a clear natural boundary, such as a road, path, or a row of trees, etc.; its natural side boundaries should also be marked (which must not be crossed during the exercise). However, this is rarely possible. Therefore, it is usually necessary to mark the dividing line with flags, with the outermost flags indicating the side boundaries.
 
@@ -3825,7 +3825,7 @@ Nawet po zabraniu listu nie wolno niszczyć znaków, zrobionych przez kierownika
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 172–174](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=172).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 In a forest or terrain with clearings, many scattered trees, overgrown ground, thickets, hollows, etc.—where it is easy to hide and move unnoticed—the leader hides a letter, marking the hiding spot in a visible manner.
 
@@ -3896,7 +3896,7 @@ Do niewoli mogą brać tylko strażnicy (zerwanie włóczki, obwołanie itp. —
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 174–177](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=174).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -3975,7 +3975,7 @@ Granica wokół schowka może być bliższa lub dalsza od schowka, zależnie od 
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 177–179](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=177).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -4038,7 +4038,7 @@ Czas gry powinien być dość długi.
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 179–181](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=179).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 The road is a railway line that the scout patrol must break. The exercise takes place in the evening.
 
@@ -4089,7 +4089,7 @@ W ćwiczeniu może brać udział dowolna liczba harcerzy, po lesie powinni krą�
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 181–183](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=181).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 In the forest, an aviator has crashed and lies helpless. It is not known where he fell or to which side he belongs. Both the Whites and the Reds, encamped on opposite sides of the forest at a distance of 1–3 km from each other, receive this news simultaneously. Both sides set out at the same time to search for the aviator, so that upon determining which side he belongs to, they may either take him prisoner or defend him from the enemy and escort him to their own camp.
 
@@ -4140,7 +4140,7 @@ Dodać należy, że zwiadowcy, który się przekradł przez straże, nie wolno �
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 183–186](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=183).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -4191,7 +4191,7 @@ Ponieważ zbójów wydziela się z zastępów po ich rozejściu się, przeto ża
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 186–187](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=186).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -4234,7 +4234,7 @@ Przestrzeń, na której odbywa się ćwiczenie, a której granic przekraczać ni
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 187–189](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=187).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -4275,7 +4275,7 @@ Depesza może być również podawana ustnie. Wtedy mamy także ćwiczenie w dob
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 189–190](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=189).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 During many exercises, a relay post is set up for the rapid transmission of messages, as if a single messenger could do it. Scouts are positioned in a single long line every 50–150 paces, and a note, handed to the last scout, passes sequentially from hand to hand until it reaches the recipient. The note is marked with the speed of delivery using one, two, or three crosses. One (X) means a brisk march, two (XX) a normal run, three (XXX) a fast run.
 
@@ -4326,7 +4326,7 @@ Gońca bierze się do niewoli przez zatrzymanie go słowem: «Stój!» z oddalen
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 190–193](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=190).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -4401,7 +4401,7 @@ Oczywiście harcerz bez opaski nie bierze udziału w dalszym ćwiczeniu. Ćwicze
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 193–196](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=193).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -4466,7 +4466,7 @@ Przy ćwiczeniu obowiązują prawidła spotkań z nieprzyjacielem, ułożone na 
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 196–197](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=196).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -4513,7 +4513,7 @@ Z początku trudno o spotkanie, ale im bliżej podchodzi się do polany, tym o n
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 197–200](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=197).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Towards a forest glade, located in the middle of the terrain where the exercise takes place, scouts creep forward, each positioned singly around the area:
 
@@ -4574,7 +4574,7 @@ Można także zmienić nieco podane zasady. I tak np. po zdobyciu wózka odpada 
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 200–202](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=200).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -4646,7 +4646,7 @@ O danej godzinie kończy się ćwiczenie na umówiony sygnał. Wyśledzenie oboz
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 203–204](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=203).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -4705,7 +4705,7 @@ Czy obydwa zastępy wszystko to wykonają? Czy raczej nie rozpocznie się gonitw
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 204–206](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=204).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -4760,7 +4760,7 @@ Wszyscy mają włóczki jednej barwy. Zastępy stróżujące trzeba utrzymywać 
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 206–208](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=206).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -4811,7 +4811,7 @@ W A i B odbierają raporty wyznaczeni bezstronni harcerze, stojąc przy zatknię
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 208–210](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=208).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -4870,7 +4870,7 @@ Teren powinien być nierówny i nieprzejrzysty, co jednak mniej jest potrzebne, 
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 210–212](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=210).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -4941,7 +4941,7 @@ Tak przy tym, jak i przy każdym innym ćwiczeniu może kierownik zaniechać wsz
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 212–214](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=212).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -5010,7 +5010,7 @@ Jeżeli czerwony zwiadowca przedrze się przez pierwszą linię i to zostanie sp
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 214–216](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=214).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -5083,7 +5083,7 @@ Rolę czerwonych może pełnić tylko wyrobiony zastęp harcerski. Przed ćwicze
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 217–218](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=217).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -5158,7 +5158,7 @@ określone, gdyż ćwiczenie może się bardzo skomplikować. Zawsze też musi b
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 219–224](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=219).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -5237,7 +5237,7 @@ Na początku ćwiczenia nie umieszcza się obu partyj na przeciwnych krańcach t
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 224–226](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=224).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -5290,7 +5290,7 @@ Jeżeli w oznaczonym czasie stanie przy chorągiewce wyznaczona liczba czerwonyc
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 226–228](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=226).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 The Whites set up outposts in a semicircle. There are at least four of them, each consisting of several people. They are well concealed, and if the terrain in front of an outpost is impassable, it sends out two-man scouts ahead. Small patrols move back and forth between the outposts, making it even harder to slip through to the flag, which is planted a few hundred paces behind.
 
@@ -5351,7 +5351,7 @@ Przy chorągiewkach są bezstronni z białymi opaskami, którzy kontrolują czas
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 228–230](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=228).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -5422,7 +5422,7 @@ Potrzebni są bezstronni, którzy by pilnowali przestrzegania czasu każdej czyn
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 230–234](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=230).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -5495,7 +5495,7 @@ O ile zadanie białych w stosunku do czerwonych okazałoby się zbyt łatwe, mo�
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 234–237](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=234).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 The Whites are to guard the railway line from damage, while the Reds are to destroy it—these are the tasks of both parties.
 
@@ -5558,7 +5558,7 @@ Im więcej harcerzy bierze udział w ćwiczeniu, tym lepiej może się ono udać
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 237–239](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=237).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -5631,7 +5631,7 @@ Czerwonym można ułatwić pierwszą część zadania przez wskazanie miejsca, s
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 239–243](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=239).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -5690,7 +5690,7 @@ Długość bronionej linii i ilość mostów należy dostosować do liczby ćwic
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 243–244](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=243).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 > **Game marked with an asterisk in the book:** more suitable for older scouts.
 
@@ -5755,7 +5755,7 @@ Biegi harcerskie cieszą się wielkim wzięciem a to z powodu wielkiej rozmaito�
 
 *Źródło skanu: [Polona / Biblioteka Narodowa](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0), oznaczenie „Domena publiczna”. [Zobacz skan — strony PDF 244–248](https://jfpio.github.io/harcerz-w-polu/book/harcerz-w-polu.pdf#page=244).*
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A relatively new and well-conceived outdoor game is the so-called *scout orienteering course* (*bieg harcerski*). What does it involve? A scout patrol (or groups of 2–3 scouts) moves along a designated route in the field and, at pre-marked points, must complete certain tasks. These tasks can cover various areas of scouting skills or activities—such as terrain recognition, nature or local history, scouting techniques like pioneering, camp work, signaling, first aid, etc.—or they may reflect scouting ethics or social attitudes, such as a collective good deed, and so on. In other words, the scout orienteering course is, to some extent, a test of knowledge and technical scouting proficiency. But it is not only that. It is also a test and check of the patrol’s cohesion, ability to organize work, initiative, resourcefulness, and ingenuity. Therefore, a well-designed and well-executed scout orienteering course can serve as an excellent trial for the ranks of *młodzik* (young scout), *wywiadowca* (pathfinder), or *ćwik* (advanced scout).
 
@@ -5810,7 +5810,7 @@ Kinds: trial; printed pages: 77; PDF pages: 83
 
 Zamykam Cię w tej izbie na jedną godzinę. W tym kawałku drzewa wypalisz pierwszą literę swojego imienia. (Znak twego totemu, godło Twego zastępu itp.). — Zapałek, ani zapalniczek nie użyjesz. Wrócę za godzinę. Czuwaj!
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 I lock you in this room for one hour. In this piece of wood, you will burn the first letter of your name. (The sign of your totem, the emblem of your patrol, etc.). — You will use neither matches nor a lighter. I will return in an hour. Be prepared!
 
@@ -5823,7 +5823,7 @@ Kinds: trial; printed pages: 77; PDF pages: 83
 
 Masz tu jedną zapałkę i tę oto grubą linę, którą obciążam kamieniem i zawieszam na drzewie. Przepał tę linę w tem miejscu między temi dwoma węzełkami (których odległość od siebie 1 cm.). Liny rękoma nie dotykaj. Węzły ogniem zostawisz nietknięte. Czekam tam, pod tym wielkim dębem aż do zachodu słońca.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Here you have one match and this thick rope, which I am weighting with a stone and hanging from a tree. Burn through this rope at the spot between these two knots (which are 1 cm apart). Do not touch the rope with your hands. Leave the knots untouched by the fire. I will wait there, under that great oak, until sunset.
 
@@ -5836,7 +5836,7 @@ Kinds: trial; printed pages: 77; PDF pages: 83
 
 Masz przy sobie jakieś naczynie? — nie? to nic. Odszukaj źródło tego strumyka, i przynieś do tamtej groty ze źródła tego wody sześć garści. Czekam — do zobaczenia!
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Do you have any vessel with you? — No? That’s fine. Find the source of this stream, and bring six handfuls of its water to that grotto. I’m waiting — see you there!
 
@@ -5849,7 +5849,7 @@ Kinds: trial; printed pages: 77; PDF pages: 83
 
 Tę oto podkowę złamiesz, a każdą z tych części wyprostujesz. Co? ognia? owszem możesz używać. Czekam na Cię u Twego zastępu, który tam opodal harce wyprawia, tam przy potoku.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 You shall break this horseshoe, and then straighten each of the pieces. Fire? Yes, you may use it. I await you at your patrol, which is holding its games nearby, there by the stream.
 
@@ -5864,7 +5864,7 @@ Harcerz z zastępu np. Żbików porwany, związany i wniesiony do izby drużyny 
 
 Pod drzwiami wsuwa harcmistrz kartkę z napisem: Bądź u mnie za godzinę, jesteś mi potrzebny, baczność, bo wilki czyhają. Narzędzia znajdziesz. Czuwaj!
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 A Scout from a patrol, e.g., the Wild Boars, is kidnapped, bound, and carried into the troop’s room (located on the ground floor) by another patrol, the Wolves, and locked inside.
 
@@ -5881,7 +5881,7 @@ Jesteś głodny?
 
 — Na tej gałęzi nad potokiem wisi moja menażka, o tu o 3 kroki od ciebie — nie dostaniesz? Weź ten karabinek i naboje, zestrzeł ją i ugotuj śniadanie, reszta w moim plecaku.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Are you hungry?
 
@@ -5896,7 +5896,7 @@ Kinds: trial; printed pages: 78; PDF pages: 84
 
 Kamień ten znacznie cięższy (a droga trudniejsza, niż przypuszczasz) leży Ci na karku, zejdź z nim z tej góry nie tknąwszy go rękoma. Nie lekceważ, bo kamień jest ciężki a droga trudna.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 This stone is much heavier (and the path far more difficult than you suppose) rests upon your neck; descend the mountain with it without touching it with your hands. Do not underestimate it, for the stone is heavy and the path is hard.
 
@@ -5909,7 +5909,7 @@ Kinds: trial; printed pages: 78; PDF pages: 84
 
 Pamiętasz drogę, którą uszedłeś? — oto mapa naszych okolic. Punktualnie za godzinę i minut 30 zgłoś się do mnie to powiem, co masz czynić dalej! — Bez zegarka — słońce wystarczy!
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Do you remember the path you have walked? — here is a map of our surroundings. Precisely in one hour and thirty minutes, report to me, and I will tell you what to do next! — Without a watch — the sun will suffice!
 
@@ -5924,7 +5924,7 @@ Ostrzegam: tu wody niema wkoło, wyjm z tego worka czerepy starego garnka. Napra
 
 (W worku: gliniany garnek rozbity na 2—3 części, drut, obcęgi, młotek.)
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Beware: there is no water around here. Take the shards of an old pot from this sack. Repair the pot and store the water from my canteen in it until tomorrow; you will find the tools in the sack. Act quickly, for we must continue our journey soon.
 
@@ -5939,7 +5939,7 @@ Kinds: trial; printed pages: 79; PDF pages: 85
 
 W stroju jakim chcesz, nie poznany przez drużynowego (zastępowego, ojca, matkę, brata itp.) zamienisz z nim conajmniej 3 zdania na ciekawy temat, masz 3 godziny czasu.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 In any attire you choose, unrecognized by the troop leader (or patrol leader, father, mother, brother, etc.), you must exchange at least 3 sentences with them on an interesting topic. You have 3 hours to complete this.
 
@@ -5952,7 +5952,7 @@ Kinds: trial; printed pages: 79; PDF pages: 85
 
 Idź i zarób godziwie w przeciągu 6 godzin 50 gr. — dobrze, a teraz złóż je na Stanicę Harcerską we Lwowie (lub inny cel).
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Go and earn honestly within 6 hours 50 groszy — well done, and now deposit them at the Scout Station in Lwów (or another cause).
 
@@ -5965,7 +5965,7 @@ Kinds: trial; printed pages: 79; PDF pages: 85
 
 W piwnicy tej jest gaz, który wcale zdrowiu nie służy, a łzy wyciska. Idź i oblicz, ile ton węgla zmieści ta piwnica. Oto maska.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 There is gas in this cellar, which is not at all good for health and brings tears to the eyes. Go and calculate how many tons of coal this cellar can hold. Here is the mask.
 
@@ -5978,7 +5978,7 @@ Kinds: trial; printed pages: 79; PDF pages: 85
 
 Po drugiej stronie potoku, w odległości 25 kroków od nas postawiłem flaszkę z płynem. Otwórz tę flaszkę stojąc tutaj, a potem nie zamoczywszy stóp zbadaj co za płyn w niej się znajdował.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 On the other side of the stream, 25 paces from us, I placed a flask with a liquid. Open that flask while standing here, and then, without wetting your feet, determine what liquid is inside it.
 
@@ -5991,7 +5991,7 @@ Kinds: trial; printed pages: 79; PDF pages: 85
 
 Tam gdzie się drogi krzyżują stoi samotna olcha. Pod olchą tą leży kamień, a pod nim znak jakiś albo list. Idź tam o północy i zrób jak każe znak. (Treść listu jest drugorzędna, może być jakieś hasło życiowe).
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Where the roads cross, a solitary alder stands. Beneath that alder lies a stone, and under it a sign or a letter. Go there at midnight and do as the sign commands. (The content of the letter is secondary; it may be some life motto.)
 
@@ -6006,7 +6006,7 @@ Ten oto kawałek lodu kładę ci na dłoń. Wytrzymaj tak długo, aż lód się 
 
 Możesz przełożyć na drugą dłoń.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Here is a piece of ice I place on your palm. Hold it until the ice melts.
 
@@ -6025,7 +6025,7 @@ Znasz ten strumyk przy grotach?
 
 (W worku: dziurawy garnek, 3 gwoździe, obcegi, kawał blachy, herbata, cukier, chleb, ser, jaja itp.)
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Do you know that stream by the caves?
 
@@ -6046,7 +6046,7 @@ Stać będziesz na czacie obozu naszego zastępu. Niebo czyste gwiazdziste, niec
 
 Zbudzisz mnie na dalsze czuwanie.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Night approaches...
 
@@ -6063,7 +6063,7 @@ Kinds: trial; printed pages: 80; PDF pages: 86
 
 Taśmą zamykam Ci usta. Zastęp Twój jest blisko. On tylko może Cię z taśmy uwolnić. Zwabić go może tylko głos sztuką dobyty, nie pomogą wołania. Weź odemnie ten nóż i polano! Sztuką dobądź głos, sztuką znak!
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 I bind your mouth with tape. Your patrol is near. Only they can free you from the tape. Only a voice obtained by skill can lure them; shouts will not help. Take this knife and this log from me! Obtain a voice by skill, a sign by skill!
 
@@ -6084,7 +6084,7 @@ Idź na miasto i znajdź człowieka rudego. Dowiedz się o nim:
 
 — odpowiedź za 3 godziny.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Go to the town and find a red-haired man. Learn about him:
 
@@ -6105,7 +6105,7 @@ Kinds: trial; printed pages: 80; PDF pages: 86
 
 Zagraj mi piosenkę, którą najczęściej śpiewasz. Nie masz na czem? Na czemkolwiek, zrób sam instrument, flet, cymbały, co chcesz, ale zagraj.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Play me the song you sing most often. Have no instrument? On anything, make your own instrument—flute, cymbals, whatever you like—but play.
 
@@ -6118,7 +6118,7 @@ Kinds: trial; printed pages: 81; PDF pages: 87
 
 Zrób zdjęcie swego drużynowego (fotografja, szkic, karykatura) ale tak, aby tego nie zauważył.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Take a photograph of your troop leader (a photo, sketch, or caricature) without them noticing.
 
@@ -6131,7 +6131,7 @@ Kinds: trial; printed pages: 81; PDF pages: 87
 
 ...a teraz uwolnij się z tych więzów i powiedz jakim Ci węzłem ręce skrępowałem.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 ...and now free yourself from these bonds and tell me with what knot I bound your hands.
 
@@ -6144,7 +6144,7 @@ Kinds: trial; printed pages: 81; PDF pages: 87
 
 Na tej kartce gazety jest omyłka druku. Znajdź ją i podaj w minutach jak długo szukałeś. — Naturalnie bez zegarka. — Zaczynamy.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 There is a printing error on this newspaper page. Find it and state in minutes how long you searched. — Naturally, without a watch. — Begin.
 
@@ -6161,7 +6161,7 @@ Jaką to zrobisz sztuką? — Zobaczę!
 
 Odstęp tych drzew najwyżej 2 metry.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Here you have a 25-meter rope. You may not walk on the ground. Nor from branch to branch—only along the rope. From this tree here, you must reach that third one.
 
@@ -6178,7 +6178,7 @@ Kinds: trial; printed pages: 81; PDF pages: 87
 
 Z tej bryły gliny zrobisz, trwałą czarkę, by z niej gościć swoją gromadę w noc twego czuwania.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 From this lump of clay, you will make a durable bowl to serve your troop on the night of your vigil.
 
@@ -6191,7 +6191,7 @@ Kinds: trial; printed pages: 81; PDF pages: 87
 
 Na polankę, której szkic Ci daję, przyjdę punktualnie o 3 pop. wraz z Twoim zastępowym, który w ciągu jednej minuty zechce cię znaleźć. Zadanie twoje: o godz. 3'01 zwabisz głosem zastępowego w twoją stronę na odległość mniejszą niż 20 kroków. Masz 3 godz. czasu, łopatkę i siekierkę — żegnaj.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 On the glade, whose sketch I give you, I will arrive promptly at 3 p.m. along with your patrol leader, who will attempt to find you within one minute. Your task: by 3:01 p.m., you must lure the patrol leader toward you with your voice from a distance of less than 20 paces. You have 3 hours, a small shovel, and a hatchet — farewell.
 
@@ -6204,7 +6204,7 @@ Kinds: trial; printed pages: 82; PDF pages: 88
 
 Dziś wieczorem o godz. 6 ma mieć zbiórkę zastęp Zubrów twojej drużyny. Nie robiąc żadnemu z Zubrów najmniejszej krzywdy, postarasz się, aby zbiórka miała zupełnie inny program, aniżeli pierwotnie zamierzono.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Tonight at 6 o'clock, the Buffalo Patrol of your troop is to hold its meeting. Without causing the slightest harm to any of the Buffaloes, you shall endeavor to ensure that the meeting follows a completely different program than originally intended.
 
@@ -6219,7 +6219,7 @@ Czy masz w domu kota? nie? — to tem lepiej, bo jest mi właśnie potrzebny kot
 
 Przyniosłeś! No zuch z ciebie, a teraz uważaj, bo puszczam go na wolność, a ty prędko narysuj mi szkic drogi jaką on teraz przebywa, zdążając do domu.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Do you have a cat at home? No? — all the better, for I need a cat just for a moment. Bring me a cat from wherever you can, without harming it in any way.
 
@@ -6234,7 +6234,7 @@ Kinds: trial; printed pages: 82; PDF pages: 88
 
 Na północ stąd znajdziesz starą sosnę. Prowadź do niej. — Tak to ona. Widzisz te dolne konary uschnięte? — rozbij pod nią swój biwak. Drew na ogień i wszystko inne mieć pędziesz z tych starych konarów, ale pnia się tknąć nie wolno. Lina ta jest całkiem mocna, a ma około 20 metrów.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 To the north of here you will find an old pine. Lead the way to it. — That’s the one. Do you see those lower dead branches? — Set up your camp beneath it. You will have firewood and everything else from those old branches, but you must not touch the trunk. This rope is quite strong and is about 20 meters long.
 
@@ -6249,7 +6249,7 @@ Patrz: po obydwu stronach tej rozpadliny rosną dwa smereki prawie rówieśniki.
 
 Z jednego na drugi dostaniesz się tylko tą liną.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Look: on both sides of this ravine, two fir trees grow, almost of the same age. — How old do you think they are? — They stand no more than three paces apart.
 
@@ -6264,7 +6264,7 @@ Kinds: trial; printed pages: 82; PDF pages: 88
 
 Zrób coś takiego, coby całą drużynę ściągnęło do świetlicy albo w inne miejsce. Tam zaś urządź coś takiego, aby drużyna tego nie pożałowała.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Do something that will draw the entire troop to the clubhouse or another place. Then, arrange something there so that the troop will not regret coming.
 
@@ -6277,7 +6277,7 @@ Kinds: trial; printed pages: 83; PDF pages: 89
 
 Do tego parowu prowadzi stąd tylko jedna droga po linie w dół. Przeszukaj dokładnie dno parowu i donieś mi zaraz o tem. Oto masz kawałek chleba, cukier i herbatę. Woda w dole.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 There is only one way down to that ravine—along a rope. Search the bottom of the ravine thoroughly and report back to me at once. Here is a piece of bread, some sugar, and tea. There is water at the bottom.
 
@@ -6290,7 +6290,7 @@ Kinds: trial; printed pages: 83; PDF pages: 89
 
 Znasz to złamane drzewo przy drodze do Borek? na północ od tego drzewa jest polanka. Śnieg tam duży po kolana. Na polanie tej rozpal o godzinie trzeciej ognisko i utrzymaj je aż do mojego tam przybycia. Będę o 3.15. Ukryci wrogowie zechcą je zagasić. Obroń.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Do you know that broken tree by the road to Borek? North of that tree is a clearing. The snow there is deep, up to the knees. In that clearing, light a fire at three o'clock and keep it burning until I arrive. I will be there at 3:15. Hidden enemies will try to extinguish it. Defend it.
 
@@ -6313,7 +6313,7 @@ jaki mają inwentarz,
 czy mają i co mają w swoim kąciku w izbie drużyny.  
 Na to wszystko daję Ci czasu 3 dni.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 You will cleverly find out about the "Eagles" patrol of the neighboring troop: when the Eagles hold their meetings,
 where,
@@ -6336,7 +6336,7 @@ Kinds: trial; printed pages: 83; PDF pages: 89
 
 Widzisz tę oto gałąź na tym buku — o ta w wysokości 5 mtr. nad ziemią. Pod tym drzewem stawiam pełną menażkę wody. Weź tę linę i wykonaj co ci polecam. Wodę tę wydostań natychmiast na tę wysokość, nie wylewając nic z menażki, a następnie sprowadź tę wodę na dół, trzymając stale menażkę przy sobie. Kto zuch. ten wykona!
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Do you see that branch on this beech tree—yes, the one 5 meters above the ground? Beneath this tree, I place a full mess tin of water. Take this rope and do as I command. Bring that water up to that height immediately, without spilling a drop from the mess tin, and then bring the water back down, keeping the mess tin always with you. He who is bold will succeed!
 
@@ -6349,7 +6349,7 @@ Kinds: trial; printed pages: 84; PDF pages: 90
 
 Jaka jest dokładna odległość od ciebie do tego starego czerepu, co tam po drugiej stronie potoku stoi. — Mówisz, że 7 kroków, no a ile metrów? sprawdź to dokładnie, a potem, nie przechodząc rzeki, dowiedz się jaka substancja się w tym czerepie znajduje. Oto lina 15 metrowa.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 What is the exact distance from you to that old pot standing on the other side of the stream? — You say 7 steps, but how many meters? Check it precisely, and then, without crossing the river, find out what substance is inside that pot. Here is a 15-meter rope.
 
@@ -6368,7 +6368,7 @@ Trzy drzewa poznasz — z każdego drzewa liść, korę i żywicy bryłkę.
 
 Trzy różne kamienie poznasz — rozbijesz i opiszesz.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 For half a day, you will come with me. We will go into the forest.
 
@@ -6391,7 +6391,7 @@ Trzy metry skoczysz?
 
 Ten potok jest właśnie trzy metry szeroki. — Skacz!
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Do you have the sports badge?
 
@@ -6408,7 +6408,7 @@ Kinds: trial; printed pages: 84; PDF pages: 90
 
 Jutro punktualnie o godz. 12 w południe otrzymasz odemnie na górze kota 435 na północny zachód od miasta kawałek lodu. Zrób tak, nie schodząc z góry, — abym o godz. 6 wieczorem otrzymał od Ciebie resztę lodu. Czekać tam będzie cały Twój zastęp. Czuwaj!
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Tomorrow, precisely at 12 noon, you will receive from me on the hill at 435 meters northwest of the city a piece of ice. Do this—without leaving the hill—so that by 6 p.m. I receive from you the remainder of the ice. Your entire patrol will be waiting there. Be prepared!
 
@@ -6421,7 +6421,7 @@ Kinds: trial; printed pages: 84; PDF pages: 90
 
 Na tym oto palu narysuj żarzącem żelazem dzieje tej próby.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 On this very stake, draw with a glowing iron the history of this trial.
 
@@ -6434,7 +6434,7 @@ Kinds: trial; printed pages: 85; PDF pages: 91
 
 W Komendzie Hufca znajduje się cenny dokument który musisz wydostać. List ten jest pisany przezemnie do Komendanta hufca dnia 7 marca b. roku.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 In the Troop Command, there is a valuable document that you must retrieve. This letter is written by me to the Troop Commander on the 7th of March of the current year.
 
@@ -6449,7 +6449,7 @@ Zrób własnym przemysłem dla kogoś Tobie najdroższego coś bardzo ładnego i
 
 Sprawę zdasz i przedmiot pokażesz w ostatnią noc czuwania.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Make, by your own industry, for someone dearest to you something both very beautiful and useful.
 
@@ -6466,7 +6466,7 @@ W przeciągu 5 minut wspinaj się na ten maszt do wysokości bocianego gniazda.
 
 Liną możesz się posługiwać.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Within 5 minutes, climb this mast to the height of the stork’s nest.
 
@@ -6481,7 +6481,7 @@ Kinds: trial; printed pages: 85; PDF pages: 91
 
 Bez użycia ostrych narzędzi przetniesz tę linę na dwie części w przeciągu 5 minut.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Without using sharp tools, you will cut this rope into two parts within 5 minutes.
 
@@ -6494,7 +6494,7 @@ Kinds: trial; printed pages: 85; PDF pages: 91
 
 Przebiegniesz tocząc się w tej oto dużej beczce 25 metrów. Za chwilę daję znak.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 You will run by rolling inside this large barrel for 25 meters. I will give the signal in a moment.
 
@@ -6511,7 +6511,7 @@ Tu oto jest Twój własny siennik obozowy.
 
 Wejdź do niego, o tak. Zaszywam Cię w nim na przeciąg 15 minut. Za kwadrans staniesz przedemną w swoim mundurze skautowym.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Take your Scout uniform with you.
 
@@ -6528,7 +6528,7 @@ Kinds: trial; printed pages: 86; PDF pages: 92
 
 Tu na tej pięknej polanie rozpalisz ognisko ale tak, aby potem nikt nie poznał, że tu byłeś i ogień paliłeś.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Here, on this beautiful glade, you will kindle a fire—but in such a way that afterwards no one will recognize that you were here and that a fire burned.
 
@@ -6541,7 +6541,7 @@ Kinds: trial; printed pages: 86; PDF pages: 92
 
 Wejdź do tego siennika. Zapinam go. Powstań w nim. Weź teraz odemnie ten oto pal, zanieś tam pod skałę, nie więcej stąd jak 100 kroków. Pal ten wbij w ziemię pod skałą i czekaj dalszych rozkazów.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Enter this hayloft. I will fasten it. Stand up inside it. Now take this stake from me, carry it to that rock, no more than 100 paces from here. Drive the stake into the ground beneath the rock and await further orders.
 
@@ -6554,7 +6554,7 @@ Kinds: trial; printed pages: 86; PDF pages: 92
 
 Na tym oto dębie obierzesz sobie legowisko na noc dzisiejszą. Dobranoc.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 On this very oak, you shall make your bed for tonight. Good night.
 
@@ -6569,7 +6569,7 @@ Herbata gotowa? — Zatem zasiądźmy tu w kręgu i wypijmy. W tym liście zawar
 
 Pytaj, odpowiadać będę tak lub nie, odszukaj myśl moją.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Tea ready? — Then let us sit here in a circle and drink. In this leaf, I have enclosed my thought.
 
@@ -6584,7 +6584,7 @@ Kinds: trial; printed pages: 86; PDF pages: 92
 
 — A teraz narysuj na ziemi liczbę arabską dziewięć (9), tak, aby średnica kółka tej liczby wynosiła 2 małe kroki, a kreska 10 kroków. Dobrze, a teraz przebiegnij po obwodzie tego kółka 100 kroków, potem po linji prostej dziewiątki. — Już! biegiem marsz!!
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 — Now, draw the Arabic numeral nine (9) on the ground so that the diameter of the circle in this number is 2 small steps, and the line is 10 steps long. Good, now run around the circumference of that circle for 100 steps, then along the straight line of the nine. — Go! On the double, march!!
 
@@ -6597,7 +6597,7 @@ Kinds: trial; printed pages: 86; PDF pages: 92
 
 Zgaś tę latarnię gazową, a następnie szybko ją zapal, ale tak, aby cię na tem nie przyłapano.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Put out this gas lantern, then quickly light it again, but in such a way that you are not caught doing so.
 
@@ -6611,7 +6611,7 @@ Kinds: trial; printed pages: 87; PDF pages: 93
 Od chwili obecnej aż do nadejścia Twojego czuwania, t. zn. przez całą dobę nikt głosu Twego nie
 usłyszy.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 From this moment until the arrival of your watch, that is, for the entire day, no one shall hear your voice.
 
@@ -6625,7 +6625,7 @@ Kinds: trial; printed pages: 87; PDF pages: 93
 Z tego oto pręta żelaznego zrób nóż obozowy, użyj
 więc ognia, cegów i siekiery.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 From this iron bar, make a camp knife, using fire, bricks, and an axe.
 
@@ -6640,7 +6640,7 @@ Jutro o wschodzie słońca wybierz się hen na harc
 i aż do zachodu słońca nic pić, ani jeść nie będziesz. —
 O zachodzie wieczerzę sam sobie sporządzisz.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Tomorrow at sunrise, set out on a hike
 and until sunset you shall neither drink nor eat. —
@@ -6657,7 +6657,7 @@ Napisz coś tak zajmującego do naszego „Skauta”
 albo innego czasopisma harcerskiego, aby to rzeczywiście
 dostało się na szpalty.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Write something so engaging for our *"Skaut"* or another Scout magazine that it truly gets published in its pages.
 
@@ -6675,7 +6675,7 @@ kamieniu w odległości 5 kroków od nas. Tylko ziemniaki
 
 Celuj i traf!
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 — Make yourself a bow and arrows. You must cook your own dinner from the potatoes that lie there on the rock, 5 paces away from us. Only the potatoes hit by 16 of your arrows will be yours.
 
@@ -6692,7 +6692,7 @@ Daję Ci 17 minut czasu. Widzisz to jabłko przyczepione do deski? Do niego nie 
 swój nóż obozowy i spraw dowcipnie z tej odległości,
 aby tego jabłka tam nie było.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 I give you 17 minutes. Do you see that apple attached to the board? It is no more than 3 steps away. Take out your camping knife and cleverly ensure that the apple is no longer there from this distance.
 
@@ -6705,7 +6705,7 @@ Kinds: trial; printed pages: 88; PDF pages: 94
 
 Ten oto polny kwiat przesadź tam pod skałę i dbaj o to, abyśmy gdy przyjdziemy w noc Twego czuwania zastali go tak świeżym jak teraz.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Take this wildflower and transplant it there beneath the rock, and see to it that when we come on the night of your vigil, we find it as fresh as it is now.
 
@@ -6718,7 +6718,7 @@ Kinds: trial; printed pages: 88; PDF pages: 94
 
 Nic ci się złego nie stanie choć masz nogi skrępowane. Zejdź z tego piaskowego osypiska na dole czempredzej się uwolnij z więzów i wydostań się tutaj, aby podołać dalszej próbie.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 No harm will come to you, even with your legs bound. Descend this sandy scree slope; at the bottom, free yourself from the bonds and make your way back here to face the next trial.
 
@@ -6731,7 +6731,7 @@ Kinds: trial; printed pages: 88; PDF pages: 94
 
 Daję Ci kartkę papieru z takiem poleceniem: Zrób w niej taki otwór, abyś przezeń cały mógł przejść, Ty i Twój zastęp.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 I give you a sheet of paper with this instruction: Make a hole in it so that you and your entire patrol can pass through it.
 
@@ -6744,7 +6744,7 @@ Kinds: trial; printed pages: 88; PDF pages: 94
 
 Lichtarz obozowy zrobisz z tej oto butelki. Musi mieć tę zaletę, aby świecę w nim umieszczoną silny nawet wiatr zgasić nie zdołał.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 You will make a camp lantern from this bottle. It must have the advantage that even a strong wind cannot extinguish the candle placed inside it.
 
@@ -6757,7 +6757,7 @@ Kinds: trial; printed pages: 88; PDF pages: 94
 
 W tej kotlinie na dole obozuje zastęp wilków. — Cichym krokiem podkradnij się doń, dowiedz się co się tam dzieje, zapisz wszystko i wracaj do mnie. Uważaj, bo kołatki (dzwonki), które ci do nóg uwiązałem łacno Cię zdradzić mogą, a jeśli zdradzą, to wilki ci łanie sprawią solidne.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 In that hollow below, a wolf patrol is encamped. — Approach it with silent step, find out what is happening there, write everything down, and return to me. Be careful, for the jingles (bells) I have tied to your legs may easily betray you, and if they do, the wolves will give you a thorough thrashing.
 
@@ -6770,7 +6770,7 @@ Kinds: trial; printed pages: 88; PDF pages: 94
 
 — Tomek wstawaj! alarm — patrz tam się pali. Biegiem na ratunek.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 — Tomek, get up! Alarm — look, there’s a fire. Run to the rescue.
 
@@ -6783,7 +6783,7 @@ Kinds: trial; printed pages: 89; PDF pages: 95
 
 Połóż się na tej murawie na wznak, załóż ręce na piersiach. — Tak dobrze, a teraz nie krzyżując nóg powstań!
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Lie down on this turf on your back, place your hands on your chest. — Very well, and now, without crossing your legs, arise!
 
@@ -6796,7 +6796,7 @@ Kinds: trial; printed pages: 89; PDF pages: 95
 
 Ten oto kamień waży więcej jak Ty. Wytocz ten kamień na ten pagórek do samego kręgu, by na tym kamieniu zasiąść do dalszej próby.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 This stone weighs more than you. Roll this stone up this hill to the very circle, so that you may sit upon this stone for the next trial.
 
@@ -6809,7 +6809,7 @@ Kinds: trial; printed pages: 89; PDF pages: 95
 
 Jak sądzisz, ile waży ten skalny odłamek? 10 dkg? być może. Trzymając go ciągle w ręku stocz go po tym stoku tam aż do tego smereku nad potokiem.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 How much do you think this rock fragment weighs? 10 decagrams? Perhaps. Holding it continuously in your hand, roll it down this slope all the way to that spruce tree above the stream.
 
@@ -6822,7 +6822,7 @@ Kinds: trial; printed pages: 89; PDF pages: 95
 
 Tu oto masz ciężar 1 kg. Nie mając wagi — powiedz mi za chwilę ile ja ważę.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Here you have a weight of 1 kg. Without a scale — tell me in a moment how much I weigh.
 
@@ -6837,7 +6837,7 @@ Mówią że zastępowi widelki trójrogie szczęście przynoszą. Taki zapołon 
 
 — Idź i znajdź takie widelki, tylko trzeba po nie koniecznie iść o 12 w nocy, aby znaleźć takie, które moc szczęśliwą mają.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 They say that three-pronged forks bring luck to the patrol. Such a forest talisman.
 
@@ -6852,7 +6852,7 @@ Kinds: trial; printed pages: 89; PDF pages: 95
 
 Idziemy w las, ale przedtem pójdziesz jeszcze na zakupno. Daję Ci 25 groszy. Kup za nie tyle i takiej żywności, aby nam obydwu na śniadanie wystarczyło.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 We are going into the forest, but first you will go shopping. I give you 25 groszy. Buy with it enough food of such kind that it will suffice for both of us for breakfast.
 
@@ -6865,7 +6865,7 @@ Kinds: trial; printed pages: 90; PDF pages: 96
 
 Połóż to koło na ziemi, usiądź na niem i nie daj się zeń zrzucić, choćby koło zrzucić chciało.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Place this wheel on the ground, sit on it, and do not let yourself be thrown off, even if the wheel tries to throw you off.
 
@@ -6880,7 +6880,7 @@ Podobny do tego przynieś kamień i połóż na tym pniu starym obok wodospadu.
 
 — Jest — przykrywam obydwa chustą i z pod chusty wrzucam do wody. Poznaj je w wodzie obydwa, przynieś i powiedz który z nich położyłeś na pniu starym.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Bring a stone similar to this one and place it on that old stump beside the waterfall.
 
@@ -6895,7 +6895,7 @@ Kinds: trial; printed pages: 90; PDF pages: 96
 
 Masz oto koło od wozu. Zrób z tego jednego koła taki puszczański wóz, abyś na nim siedząc przejechał po tej drodze, tyle, ile najmocniejszy człowiek kamieniem rzuci.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Here you have a wagon wheel. From this single wheel, make a forest cart so that, sitting on it, you can travel along this road as far as the strongest man can throw a stone.
 
@@ -6910,7 +6910,7 @@ Nadmij ten pęcherz i zwiąż mocno, a teraz zmierz głębokość i wartkość t
 
 Pływać umiesz? Woda po pas mówisz? otóż umocuj ten pęcherz na dnie, nie wchodząc wcale do wody, ani używając sznurka.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Inflate this bladder and tie it tightly, then measure the depth and current of this stream.
 
@@ -6925,7 +6925,7 @@ Kinds: trial; printed pages: 90; PDF pages: 96
 
 Stań twarzą do Polskiego morza nie używając żadnych przyrządów.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Stand facing the Polish sea without using any instruments.
 
@@ -6938,7 +6938,7 @@ Kinds: trial; printed pages: 90; PDF pages: 96
 
 Na 15 minut daję Ci tę książkę. Dowiedz się jaka jest jej treść, a gdy przyjdę — opowiesz.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 I give you this book for 15 minutes. Find out what its content is, and when I return—you will tell me.
 
@@ -6951,7 +6951,7 @@ Kinds: trial; printed pages: 91; PDF pages: 97
 
 — Zdejm trzewiki, a teraz włóż lewy na prawą nogę i prawy na lewą nogę, idź tak i znajdź kogoś znajomego, zachowaj się tak, aby tej zmiany nie zauważył, potem przełóż buty prawidłowo i wracaj czempredzej.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 — Take off your shoes, then put the left one on your right foot and the right one on your left foot. Walk like this and find someone you know, behaving so that they do not notice the change. Then switch the shoes back to the correct feet and return as quickly as possible.
 
@@ -6964,7 +6964,7 @@ Kinds: trial; printed pages: 91; PDF pages: 97
 
 Umiesz pływać? — tak? a kajakiem? — zatem siadaj i płyń w dół tego potoku. Zatrzymaj się na zakręcie przy tem złamanem drzewie. Bez wiosel. Czuwaj!
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Can you swim? — yes? and in a kayak? — then sit down and paddle down this stream. Stop at the bend by that broken tree. Without paddles. Be prepared!
 
@@ -6977,7 +6977,7 @@ Kinds: trial; printed pages: 91; PDF pages: 97
 
 Tę obręcz weź do lewej a tę do prawej ręki i tocz je równocześnie drogą, którą Ci wskazuję — stąd aż do tamtego słupa.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Take this hoop in your left hand and that one in your right, and roll them simultaneously along the path I show you—from here all the way to that post.
 
@@ -6991,7 +6991,7 @@ Kinds: trial; printed pages: 91; PDF pages: 97
 Pamiętasz kto ostatni przeszedł obok Ciebie?
 Kto to był? jak ubrany? w jakim mniej więcej wieku? Opisz.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Do you remember who last passed by you?
 Who was it? How were they dressed? Approximately how old were they? Describe.
@@ -7005,7 +7005,7 @@ Kinds: trial; printed pages: 91; PDF pages: 97
 
 W tę deskę wbiłem końcami trzy gwoździe różnej długości. Mając ręce związane na plecach zabij, gwoździe w tę deskę.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 I have driven three nails of different lengths into this board with their ends exposed. With your hands tied behind your back, drive the nails into the board.
 
@@ -7019,7 +7019,7 @@ Kinds: trial; printed pages: 91; PDF pages: 97
 Przed chwilą naciąłem ślad siekierą na tej gałęzi.
 Jednem uderzeniem przetnij gałąź, trafiając w mój ślad.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Just now, I made a mark with an axe on this branch.
 With a single blow, cut through the branch, hitting my mark.
@@ -7033,7 +7033,7 @@ Kinds: trial; printed pages: 92; PDF pages: 98
 
 Jedną ręką urąb szczypek z tego oto polana. Czekam nie dłużej, jak 5 minut.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 With one hand, chop a log from this very clearing. I will wait no longer than 5 minutes.
 
@@ -7048,7 +7048,7 @@ Oto garść drobnych monet. Włóż je do swej kieszeni i nie patrząc przelicz 
 
 — Tak, a teraz sprawdź ile jest rzeczywiście. — Różnicę zdeklaruj na Stanicę harcerską.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Here is a handful of small coins. Put them in your pocket and, without looking, count how much money is there.
 
@@ -7063,6 +7063,6 @@ Kinds: trial; printed pages: 92; PDF pages: 98
 
 Zanurz lewą dłoń w tem naczyniu. Czarny tusz. Ręki tej nikt widzieć nie może przez całą dobę. Przyjdziesz tu jutro o tej porze i pokażesz czarną rękę.
 
-### English — machine translation (mistral-medium-2604, public beta)
+### English — automatic translation (mistral-medium-2604, not human-verified)
 
 Immerse your left hand in this vessel. Black ink. No one may see this hand for a full day. You will return here tomorrow at this hour and show the black hand.
