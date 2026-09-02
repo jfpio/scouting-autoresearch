@@ -49,6 +49,7 @@ body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: var
 .results-heading { display: flex; justify-content: space-between; margin: 1rem 0 .7rem; color: var(--muted); }
 .activity-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: 1rem; }
 .activity-card { display: flex; flex-direction: column; min-height: 19rem; padding: 1.15rem; border: 1px solid var(--rule); border-radius: 1rem; background: var(--paper); box-shadow: 0 8px 24px rgb(57 38 19 / 6%); }
+.activity-card[hidden] { display: none; }
 .activity-card:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgb(57 38 19 / 11%); }
 .card-topline, .card-footer { display: flex; align-items: center; justify-content: space-between; gap: .7rem; }
 .activity-id { color: var(--muted); font: 600 .72rem ui-monospace, monospace; }

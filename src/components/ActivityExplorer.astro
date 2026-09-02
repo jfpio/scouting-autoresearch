@@ -17,6 +17,7 @@ const books = options('sourceTitle');
 const years = options('year');
 const sections = options('section');
 const traits = [...new Set(activities.flatMap((item) => item.traits))].sort((a, b) => a.localeCompare(b, locale));
+const searchableText = (item) => [item.title, item.body, ...item.traits, item.section, item.author, item.sourceTitle].filter(Boolean).join(' ');
 const basePath = locale === 'en' ? '/scouting-autoresearch/en/activities/' : '/scouting-autoresearch/activities/';
 const labels = isPl
   ? { search: 'Szukaj w tytule, treści i cechach', placeholder: 'np. ogień, tropienie, cierpliwość', kind: 'Rodzaj', allKinds: 'Wszystkie rodzaje', game: 'Gra', trial: 'Próba', trait: 'Cecha', allTraits: 'Wszystkie cechy', author: 'Autor', allAuthors: 'Wszyscy autorzy', book: 'Książka', allBooks: 'Wszystkie książki', year: 'Rok', allYears: 'Wszystkie lata', section: 'Dział', allSections: 'Wszystkie działy', clear: 'Wyczyść filtry', results: 'aktywności', noResults: 'Brak aktywności pasujących do filtrów.', machine: 'Tłumaczenie automatyczne', original: 'Tekst źródłowy', safety: 'Wymaga współczesnej oceny ryzyka', read: 'Czytaj' }
@@ -48,7 +49,7 @@ const labels = isPl
       <article
         class="activity-card"
         data-card
-        data-search={item.searchText}
+        data-search={searchableText(item)}
         data-kinds={item.kinds.join('|')}
         data-traits={item.traits.join('|')}
         data-author={item.author}

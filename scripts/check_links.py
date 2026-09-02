@@ -19,6 +19,7 @@ class Links(HTMLParser):
         super().__init__()
         self.values: list[str] = []
         self.card_count = 0
+        self.searchable_card_count = 0
         self.html_lang: str | None = None
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
@@ -27,6 +28,8 @@ class Links(HTMLParser):
             self.html_lang = attributes.get("lang")
         if tag == "article" and "data-card" in attributes:
             self.card_count += 1
+            if (attributes.get("data-search") or "").strip():
+                self.searchable_card_count += 1
         attr = "href" if tag in {"a", "link"} else "src" if tag in {"img", "script", "source"} else None
         if not attr:
             return
@@ -52,11 +55,15 @@ def main() -> None:
         raise SystemExit("dist/ is missing; run npm run build first")
     broken: list[str] = []
     checked = 0
-    page_metrics: dict[str, tuple[int, str | None]] = {}
+    page_metrics: dict[str, tuple[int, int, str | None]] = {}
     for html_path in DIST.rglob("*.html"):
         parser = Links()
         parser.feed(html_path.read_text(encoding="utf-8"))
-        page_metrics[str(html_path.relative_to(DIST))] = (parser.card_count, parser.html_lang)
+        page_metrics[str(html_path.relative_to(DIST))] = (
+            parser.card_count,
+            parser.searchable_card_count,
+            parser.html_lang,
+        )
         route = "/" + str(html_path.relative_to(DIST)).replace("index.html", "")
         page_url = f"{ORIGIN}{BASE}{route.lstrip('/')}"
         for raw in parser.values:
@@ -89,12 +96,17 @@ def main() -> None:
     }
     metric_errors = []
     for path, expected in expected_cards.items():
-        actual, language = page_metrics.get(path, (-1, None))
+        actual, searchable, language = page_metrics.get(path, (-1, -1, None))
         expected_language = "en" if path.startswith("en/") else "pl"
         if actual != expected:
             metric_errors.append(f"{path}: expected {expected} cards, found {actual}")
+        if searchable != expected:
+            metric_errors.append(f"{path}: expected {expected} searchable cards, found {searchable}")
         if language != expected_language:
             metric_errors.append(f"{path}: expected lang={expected_language}, found {language}")
+    site_css = (ROOT / "src" / "styles" / "site.css").read_text(encoding="utf-8")
+    if ".activity-card[hidden] { display: none; }" not in site_css:
+        metric_errors.append("Activity cards do not honor the hidden state")
     if not (DIST / "pagefind" / "pagefind.js").exists():
         metric_errors.append("Pagefind index is missing")
     for path in ("en/index.html", "en/all/index.html", "en/games/index.html", "en/trials/index.html"):
