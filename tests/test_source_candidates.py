@@ -56,6 +56,54 @@ class SourceCandidateTests(unittest.TestCase):
     def test_review_only_candidate_passes(self):
         self.assertEqual(candidate_errors(self.candidate, "Review notes", self.registry), [])
 
+    def test_human_accepted_candidate_passes(self):
+        self.candidate.update(
+            {
+                "status": "accepted",
+                "reviewRequired": False,
+                "publicationBlocked": False,
+            }
+        )
+        self.candidate["rightsReview"] = {
+            "status": "human-approved",
+            "humanApproved": True,
+            "rightsStatus": "public-domain",
+            "approvedScope": ["original-text"],
+            "fullTextEligible": True,
+            "imagesEligible": False,
+            "translationEligible": True,
+            "humanDecision": {
+                "date": "2026-09-03",
+                "approvedBy": "repository-owner",
+                "basis": "Documented review",
+            },
+        }
+        self.assertEqual(
+            candidate_errors(self.candidate, "Decision notes", self.registry, "accepted"), []
+        )
+
+    def test_accepted_candidate_requires_recorded_human_decision(self):
+        self.candidate.update(
+            {
+                "status": "accepted",
+                "reviewRequired": False,
+                "publicationBlocked": False,
+            }
+        )
+        self.candidate["rightsReview"].update(
+            {
+                "status": "human-approved",
+                "humanApproved": True,
+                "rightsStatus": "public-domain",
+                "approvedScope": ["original-text"],
+                "fullTextEligible": True,
+                "translationEligible": True,
+                "unresolved": [],
+            }
+        )
+        errors = candidate_errors(self.candidate, "Decision notes", self.registry, "accepted")
+        self.assertTrue(any("human decision date" in error for error in errors))
+
     def test_candidate_cannot_enable_full_text_without_human_review(self):
         self.candidate["rightsReview"]["fullTextEligible"] = True
         errors = candidate_errors(self.candidate, "Review notes", self.registry)
