@@ -37,6 +37,17 @@ collections:
     allowedMethods: [metadata-only]
     rateLimitPerMinute: 5
     notes: Dostępność pliku nie jest dowodem domeny publicznej.
+  - id: scoutscan-the-dump
+    name: The Dump / Scoutscan
+    baseUrl: https://thedump.scoutscan.com/
+    status: candidate
+    trustScope: bibliographic-discovery
+    allowedMethods: [metadata-only, link-discovery]
+    rateLimitPerMinute: 5
+    notes: >-
+      Katalog i strony tytułowe mogą służyć do odnajdywania oraz porównywania wydań.
+      Obecność skanu nie rozstrzyga praw do tekstu, ilustracji, tłumaczenia ani warstwy
+      redakcyjnej; pobranie pliku wymaga osobnej decyzji dla konkretnego obiektu.
   - id: wikisource
     name: Wikisource
     baseUrl: https://wikisource.org/
