@@ -25,6 +25,7 @@ from propose_taxonomy import (
     REPORT_PATH as TAXONOMY_MAPPING_PROPOSAL_PATH,
     build_proposal_report,
 )
+from validate_candidates import validate_candidates
 
 
 def require(condition: bool, message: str, errors: list[str]) -> None:
@@ -103,6 +104,9 @@ def main() -> None:
         require(metadata.get("reviewRequired") is True, f"Exploration note lacks human review gate: {path}", errors)
         require(set((metadata.get("labels") or {}).keys()) == {"pl", "en"}, f"Exploration note lacks bilingual labels: {path}", errors)
         require(bool(body.strip()), f"Empty exploration note: {path}", errors)
+
+    candidate_count, candidate_validation_errors = validate_candidates()
+    errors.extend(candidate_validation_errors)
 
     taxonomy_config = load_config()
     embedding_config = taxonomy_config["embedding"]
@@ -286,7 +290,8 @@ def main() -> None:
         raise SystemExit(1)
     print(
         "Validation passed: 202 activities, 202 translations, 2 public-domain sources, "
-        f"{len(embedding_paths)} taxonomy embeddings, bilingual exports and docs."
+        f"{len(embedding_paths)} taxonomy embeddings, {candidate_count} review-only source "
+        "candidate(s), bilingual exports and docs."
     )
 
 
