@@ -290,8 +290,8 @@ def main() -> None:
         raise SystemExit(1)
     print(
         "Validation passed: 202 activities, 202 translations, 2 public-domain sources, "
-        f"{len(embedding_paths)} taxonomy embeddings, {candidate_count} review-only source "
-        "candidate(s), bilingual exports and docs."
+        f"{len(embedding_paths)} taxonomy embeddings, {candidate_count} source candidate "
+        "record(s), bilingual exports and docs."
     )
 
 
