@@ -134,5 +134,11 @@ Kod: MIT. Projektowe metadane i tłumaczenia: CC BY 4.0 w zakresie posiadanych p
 Importowane teksty zachowują status przypisany konkretnemu rekordowi; szczegóły zawiera
 [DATA-LICENSE.md](DATA-LICENSE.md).
 
+Dla Project Gutenberg obowiązuje zatwierdzona przez właściciela reguła: oznaczenie konkretnego
+eBooka `Public domain in the USA` wraz z udokumentowanym upływem 70 pełnych lat od śmierci
+ostatniego właściwego autora pozwala automatycznie przypisać jego składnikowi
+`rightsStatus: public-domain` dla publikacji projektu w Polsce i UE. Osobno wyłącza się wkłady
+innych autorów, późniejszą redakcję oraz licencję, znak i cyfrowe opakowanie Gutenberga.
+
 Materiały historyczne nie są automatycznie współczesnymi rekomendacjami. Każda aktywność
 wymaga oceny ryzyka, wieku uczestników, warunków i obowiązujących zasad.

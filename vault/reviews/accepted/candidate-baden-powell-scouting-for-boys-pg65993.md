@@ -36,6 +36,8 @@ rightsReview:
   rightsStatus: public-domain
   jurisdiction: Poland under the harmonized European Union term framework
   humanApproved: true
+  approvalPolicyId: project-gutenberg-pd-usa-plus-life-70
+  catalogClaim: public-domain-in-the-usa
   approvedScope:
     - original English text demonstrably present in the 1908 Horace Cox six-part edition
   fullTextEligible: true
@@ -48,7 +50,11 @@ rightsReview:
       The repository owner approved the original 1908 text after applying the Polish and EU
       life-plus-70 rule to Baden-Powell's documented death in 1941.
   calculation:
-    authorDeathDate: "1941-01-08"
+    relevantAuthors:
+      - name: Robert Stephenson Smyth Baden-Powell, Baron Baden-Powell of Gilwell
+        deathDate: "1941-01-08"
+        evidenceId: world-scouting-baden-powell-death
+    lastRelevantAuthorDeathDate: "1941-01-08"
     protectionTerm: life-plus-70-years
     protectionEnded: "2011-12-31"
     publicDomainFrom: "2012-01-01"
