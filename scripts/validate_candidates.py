@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -16,11 +17,71 @@ CANDIDATE_DIRS = {
     "accepted": VAULT / "reviews" / "accepted",
 }
 REGISTRY_PATH = ROOT / "config" / "source-registry.yaml"
+PG_LIFE_PLUS_70_POLICY_ID = "project-gutenberg-pd-usa-plus-life-70"
+PG_LIFE_PLUS_70_CONDITIONS = {
+    "catalog-claim-public-domain-in-the-usa",
+    "relevant-natural-authors-identified",
+    "seventy-full-calendar-years-after-last-relevant-author-death",
+}
 
 
 def load_registry(path: Path = REGISTRY_PATH) -> dict[str, dict[str, Any]]:
     payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     return {item["id"]: item for item in payload.get("collections", [])}
+
+
+def registry_errors(registry: dict[str, dict[str, Any]]) -> list[str]:
+    errors: list[str] = []
+    for collection_id, collection in registry.items():
+        policy = collection.get("rightsPresumption")
+        if collection.get("status") == "approved-by-policy" and not isinstance(policy, dict):
+            errors.append(f"{collection_id}: approved collection lacks rightsPresumption")
+            continue
+        if not isinstance(policy, dict):
+            continue
+        for field in ("id", "conditions", "resultRightsStatus", "approvedBy", "approvedAt"):
+            if not policy.get(field):
+                errors.append(f"{collection_id}: rightsPresumption lacks {field}")
+        if policy.get("humanApproved") is not True:
+            errors.append(f"{collection_id}: rightsPresumption lacks human approval")
+        if not policy.get("jurisdictions"):
+            errors.append(f"{collection_id}: rightsPresumption lacks jurisdictions")
+        if "documented-download" not in collection.get("allowedMethods", []):
+            errors.append(f"{collection_id}: policy-approved collection cannot download")
+        if policy.get("id") == PG_LIFE_PLUS_70_POLICY_ID:
+            if not PG_LIFE_PLUS_70_CONDITIONS.issubset(set(policy.get("conditions") or [])):
+                errors.append(f"{collection_id}: life-plus-70 conditions are incomplete")
+            if policy.get("resultRightsStatus") != "public-domain":
+                errors.append(f"{collection_id}: life-plus-70 result is not public-domain")
+            if (
+                policy.get("termCalculation")
+                != "first-january-after-seventy-full-years-from-death-year"
+            ):
+                errors.append(f"{collection_id}: life-plus-70 calculation rule is invalid")
+    return errors
+
+
+def life_plus_70_policy_is_satisfied(rights: dict[str, Any]) -> bool:
+    calculation = rights.get("calculation") or {}
+    relevant_authors = calculation.get("relevantAuthors") or []
+    if rights.get("catalogClaim") != "public-domain-in-the-usa" or not relevant_authors:
+        return False
+    try:
+        death_dates = []
+        for author in relevant_authors:
+            if not author.get("name") or not author.get("evidenceId"):
+                return False
+            death_dates.append(date.fromisoformat(author["deathDate"]))
+        last_death = max(death_dates)
+        public_domain_from = date.fromisoformat(calculation["publicDomainFrom"])
+    except (KeyError, TypeError, ValueError):
+        return False
+    return (
+        calculation.get("lastRelevantAuthorDeathDate") == last_death.isoformat()
+        and calculation.get("protectionEnded") == f"{last_death.year + 70}-12-31"
+        and calculation.get("publicDomainFrom") == f"{last_death.year + 71}-01-01"
+        and public_domain_from <= date.today()
+    )
 
 
 def candidate_errors(
@@ -78,7 +139,10 @@ def candidate_errors(
         require(metadata.get("status") == "accepted", "accepted status must be accepted")
         require(metadata.get("reviewRequired") is False, "accepted scope still requires review")
         require(metadata.get("publicationBlocked") is False, "accepted scope remains blocked")
-        require(rights.get("status") == "human-approved", "accepted scope lacks approval")
+        require(
+            rights.get("status") in {"human-approved", "policy-approved"},
+            "accepted scope lacks approval",
+        )
         require(rights.get("humanApproved") is True, "accepted scope lacks human approval")
         require(rights.get("rightsStatus") == "public-domain", "accepted scope is not public-domain")
         require(bool(rights.get("approvedScope")), "accepted scope is missing")
@@ -90,9 +154,27 @@ def candidate_errors(
             "accepted record enables no reusable component",
         )
         decision = rights.get("humanDecision") or {}
-        require(bool(decision.get("date")), "human decision date is missing")
-        require(bool(decision.get("approvedBy")), "human approver is missing")
-        require(bool(decision.get("basis")), "human decision basis is missing")
+        approval_policy_id = rights.get("approvalPolicyId")
+        collection_policy = (collection or {}).get("rightsPresumption") or {}
+        policy_matches = (
+            bool(approval_policy_id)
+            and approval_policy_id == collection_policy.get("id")
+            and collection_policy.get("humanApproved") is True
+        )
+        policy_conditions_satisfied = policy_matches and life_plus_70_policy_is_satisfied(rights)
+        if approval_policy_id:
+            require(policy_matches, "approval policy does not match the collection")
+            require(
+                policy_conditions_satisfied,
+                "life-plus-70 policy conditions or calculation are not satisfied",
+            )
+        decision_is_recorded = all(
+            bool(decision.get(field)) for field in ("date", "approvedBy", "basis")
+        )
+        require(
+            decision_is_recorded or policy_conditions_satisfied,
+            "accepted scope lacks a recorded human decision or approved collection policy",
+        )
     else:
         require(False, f"unknown review stage {review_stage}")
 
@@ -119,7 +201,7 @@ def candidate_errors(
 
 def validate_candidates() -> tuple[int, list[str]]:
     registry = load_registry()
-    errors: list[str] = []
+    errors = registry_errors(registry)
     ids: list[str] = []
     count = 0
     for review_stage, directory in CANDIDATE_DIRS.items():

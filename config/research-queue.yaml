@@ -4,12 +4,17 @@ subjects:
     name: Robert Baden-Powell
     status: discovery
     priority: 1
-    rightsNote: Data śmierci autora jest tylko sygnałem; zatwierdź konkretną edycję i ilustracje.
+    rightsNote: >-
+      Dla eBooka Project Gutenberg oznaczonego Public domain in the USA zastosuj regułę
+      kolekcji po udokumentowaniu śmierci właściwego autora ponad 70 pełnych lat temu.
   - id: ernest-thompson-seton
     name: Ernest Thompson Seton
     status: discovery
     priority: 1
-    rightsNote: Zatwierdź konkretną edycję, współautorów, ilustracje i ewentualne tłumaczenie.
+    rightsNote: >-
+      Dla eBooka Project Gutenberg oznaczonego Public domain in the USA zastosuj regułę
+      kolekcji po udokumentowaniu śmierci ostatniego właściwego autora ponad 70 pełnych lat
+      temu; osobno sprawdź inne wkłady.
   - id: jacques-sevin
     name: Jacques Sevin
     referenceUrl: https://en.wikipedia.org/wiki/Jacques_Sevin
