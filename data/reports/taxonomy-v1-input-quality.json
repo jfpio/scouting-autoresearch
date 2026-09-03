@@ -1,77 +1,21 @@
 {
   "schemaVersion": 1,
   "pipeline": "taxonomy-v1-input-quality",
-  "status": "recipe-upgrade-pending",
+  "status": "ready",
   "generatedFrom": "activity-metadata-and-body",
-  "evidenceThrough": "2026-09-02T16:21:02.743176+00:00",
-  "auditHash": "2a4fb0f38930d700766ca4432e24b13aabcddaafd1853049a5a0d7b54d181c69",
+  "evidenceThrough": "2026-09-03T11:15:43.724483+00:00",
+  "auditHash": "47124812bb746e5b11dd6dfd4bb340896950c759a8a416a0a9ed71ee43a643f5",
   "model": "mistral-embed-2312",
   "contextCharacters": 600,
-  "activeRecipeVersion": "activity-context-v1",
+  "activeRecipeVersion": "activity-context-v2",
   "candidateRecipeVersion": "activity-context-v2",
   "corpus": {
     "totalActivities": 202,
-    "contentChangedActivities": 23,
-    "contentChangedActivityIds": [
-      "hwp-002",
-      "hwp-003",
-      "hwp-005",
-      "hwp-017",
-      "hwp-021",
-      "hwp-029",
-      "hwp-037",
-      "hwp-040",
-      "hwp-042",
-      "hwp-044",
-      "hwp-050",
-      "hwp-051",
-      "hwp-053",
-      "hwp-059",
-      "hwp-061",
-      "hwp-062",
-      "hwp-064",
-      "hwp-085",
-      "hwp-096",
-      "hwp-099",
-      "hwp-104",
-      "hwp-105",
-      "hwp-112"
-    ],
+    "contentChangedActivities": 0,
+    "contentChangedActivityIds": [],
     "activeNoise": {
-      "sourceFooterIds": [
-        "hwp-002",
-        "hwp-003",
-        "hwp-021",
-        "hwp-037",
-        "hwp-040",
-        "hwp-050",
-        "hwp-061",
-        "hwp-064"
-      ],
-      "rawUrlIds": [
-        "hwp-002",
-        "hwp-003",
-        "hwp-005",
-        "hwp-017",
-        "hwp-021",
-        "hwp-029",
-        "hwp-037",
-        "hwp-042",
-        "hwp-044",
-        "hwp-050",
-        "hwp-051",
-        "hwp-053",
-        "hwp-059",
-        "hwp-061",
-        "hwp-062",
-        "hwp-064",
-        "hwp-085",
-        "hwp-096",
-        "hwp-099",
-        "hwp-104",
-        "hwp-105",
-        "hwp-112"
-      ]
+      "sourceFooterIds": [],
+      "rawUrlIds": []
     },
     "candidateNoise": {
       "sourceFooterIds": [],
@@ -80,76 +24,21 @@
   },
   "existingCaches": {
     "total": 20,
-    "contentChanged": 4,
-    "contentChangedActivityIds": [
-      "hwp-002",
-      "hwp-003",
-      "hwp-005",
-      "hwp-017"
-    ],
+    "contentChanged": 0,
+    "contentChangedActivityIds": [],
     "activeNoise": {
-      "sourceFooterIds": [
-        "hwp-002",
-        "hwp-003"
-      ],
-      "rawUrlIds": [
-        "hwp-002",
-        "hwp-003",
-        "hwp-005",
-        "hwp-017"
-      ]
+      "sourceFooterIds": [],
+      "rawUrlIds": []
     },
-    "invalidatedByRecipeChange": 20,
-    "invalidatedActivityIds": [
-      "hwp-001",
-      "hwp-002",
-      "hwp-003",
-      "hwp-004",
-      "hwp-005",
-      "hwp-006",
-      "hwp-007",
-      "hwp-008",
-      "hwp-009",
-      "hwp-010",
-      "hwp-011",
-      "hwp-012",
-      "hwp-013",
-      "hwp-014",
-      "hwp-015",
-      "hwp-016",
-      "hwp-017",
-      "hwp-018",
-      "hwp-019",
-      "hwp-020"
-    ]
+    "invalidatedByRecipeChange": 0,
+    "invalidatedActivityIds": []
   },
   "remediation": {
     "activateRecipeVersion": "activity-context-v2",
-    "configurationChangeRequired": true,
-    "reembedBeforeNewActivities": [
-      "hwp-001",
-      "hwp-002",
-      "hwp-003",
-      "hwp-004",
-      "hwp-005",
-      "hwp-006",
-      "hwp-007",
-      "hwp-008",
-      "hwp-009",
-      "hwp-010",
-      "hwp-011",
-      "hwp-012",
-      "hwp-013",
-      "hwp-014",
-      "hwp-015",
-      "hwp-016",
-      "hwp-017",
-      "hwp-018",
-      "hwp-019",
-      "hwp-020"
-    ],
+    "configurationChangeRequired": false,
+    "reembedBeforeNewActivities": [],
     "nextNewActivityId": "hwp-021",
-    "requiresExternalApi": true,
+    "requiresExternalApi": false,
     "humanTaxonomyApprovalRequired": false
   }
 }

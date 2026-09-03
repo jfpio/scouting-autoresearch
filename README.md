@@ -74,12 +74,12 @@ przeglądu i nie zmienia produkcyjnych kategorii ani filtrów.
 
 Kod obsługuje też przepis `activity-context-v2`, który przed skróceniem kontekstu usuwa
 techniczną stopkę źródłową oraz adresy URL z Markdown, zachowując tekst widoczny odnośników.
-Zmiana `recipeVersion` jest jawna i celowo unieważnia wcześniejsze cache’e. Pilotaż v1
-pozostaje przypięty do dotychczasowego przepisu do czasu ograniczonego ponowienia całej
-pierwszej partii na v2; nie należy skalować kolejnych partii na v1. Jeżeli raport jakości
-ma status `recipe-upgrade-pending`, tryb `--execute` jest blokowany dla starej receptury.
-Dry-run pokazuje przyczynę blokady; wykonanie staje się możliwe dopiero po przełączeniu
-konfiguracji na wskazaną recepturę kandydującą. Dopóki wszystkie ID z
+Zmiana `recipeVersion` jest jawna i celowo unieważnia wcześniejsze cache’e. Pierwsza partia
+`hwp-001`–`hwp-020` została ponownie osadzona na v2; raport kosztu zachowuje osobno zastąpiony
+przebieg v1. Kolejne partie używają v2. Jeżeli raport jakości ma status
+`recipe-upgrade-pending`, tryb `--execute` jest blokowany dla starej receptury. Dry-run
+pokazuje przyczynę blokady; wykonanie staje się możliwe dopiero po przełączeniu konfiguracji
+na wskazaną recepturę kandydującą. Dopóki wszystkie ID z
 `reembedBeforeNewActivities` nie mają aktualnego cache’a, selektor nie dobiera do partii
 żadnych nowych aktywności — również po częściowym odzyskaniu przerwanej partii.
 

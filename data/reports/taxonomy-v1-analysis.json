@@ -5,8 +5,8 @@
   "proposalOnly": true,
   "reviewRequired": true,
   "productionTaxonomyChanged": false,
-  "generatedAt": "2026-09-02T16:21:02.743176+00:00",
-  "analysisHash": "4031fab5eeb7dd34e6057f493d936fb311442851b1d32933e2aea1f221b15608",
+  "generatedAt": "2026-09-03T11:15:43.724483+00:00",
+  "analysisHash": "fcba7fb9d0fc7c2fd8ea874df250b86924625f694a66b8f45e28b922f7e0e077",
   "algorithmVersion": "average-linkage-cosine-v1",
   "coverage": {
     "totalActivities": 202,
@@ -204,7 +204,7 @@
     "modelRequested": "mistral-embed-2312",
     "model": "mistral-embed-2312",
     "dimensions": 1024,
-    "recipeVersion": "activity-context-v1"
+    "recipeVersion": "activity-context-v2"
   },
   "parameters": {
     "algorithmVersion": "average-linkage-cosine-v1",
@@ -214,9 +214,9 @@
     "outlierIqrMultiplier": 1.5
   },
   "usage": {
-    "documentsProcessed": 20,
-    "promptTokens": 6488,
-    "estimatedCostUsd": 0.0006488,
+    "documentsProcessed": 40,
+    "promptTokens": 12798,
+    "estimatedCostUsd": 0.0012798,
     "byRecipe": [
       {
         "recipeVersion": "activity-context-v1",
@@ -226,10 +226,20 @@
         "documents": 20,
         "promptTokens": 6488,
         "estimatedCostUsd": 0.0006488
+      },
+      {
+        "recipeVersion": "activity-context-v2",
+        "batchIds": [
+          "20260903T111543724483Z"
+        ],
+        "documents": 20,
+        "promptTokens": 6310,
+        "estimatedCostUsd": 0.000631
       }
     ],
     "batchIds": [
-      "20260902T162102743176Z"
+      "20260902T162102743176Z",
+      "20260903T111543724483Z"
     ],
     "priceUsdPerMillionInputTokens": 0.1,
     "priceSource": "https://docs.mistral.ai/models/mistral-embed-23-12"
@@ -237,11 +247,12 @@
   "clusters": [
     {
       "technicalClusterId": "technical-cluster-01",
-      "size": 3,
+      "size": 4,
       "activityIds": [
         "hwp-001",
         "hwp-002",
-        "hwp-004"
+        "hwp-004",
+        "hwp-005"
       ]
     },
     {
@@ -253,13 +264,6 @@
     },
     {
       "technicalClusterId": "technical-cluster-03",
-      "size": 1,
-      "activityIds": [
-        "hwp-005"
-      ]
-    },
-    {
-      "technicalClusterId": "technical-cluster-04",
       "size": 4,
       "activityIds": [
         "hwp-006",
@@ -269,14 +273,14 @@
       ]
     },
     {
-      "technicalClusterId": "technical-cluster-05",
+      "technicalClusterId": "technical-cluster-04",
       "size": 1,
       "activityIds": [
         "hwp-007"
       ]
     },
     {
-      "technicalClusterId": "technical-cluster-06",
+      "technicalClusterId": "technical-cluster-05",
       "size": 2,
       "activityIds": [
         "hwp-008",
@@ -284,24 +288,30 @@
       ]
     },
     {
-      "technicalClusterId": "technical-cluster-07",
+      "technicalClusterId": "technical-cluster-06",
       "size": 1,
       "activityIds": [
         "hwp-010"
       ]
     },
     {
-      "technicalClusterId": "technical-cluster-08",
+      "technicalClusterId": "technical-cluster-07",
       "size": 1,
       "activityIds": [
         "hwp-011"
       ]
     },
     {
-      "technicalClusterId": "technical-cluster-09",
-      "size": 3,
+      "technicalClusterId": "technical-cluster-08",
+      "size": 1,
       "activityIds": [
-        "hwp-013",
+        "hwp-013"
+      ]
+    },
+    {
+      "technicalClusterId": "technical-cluster-09",
+      "size": 2,
+      "activityIds": [
         "hwp-014",
         "hwp-016"
       ]
@@ -334,126 +344,126 @@
       "sourceId": "hwp-1946",
       "sourceTraits": [],
       "technicalClusterId": "technical-cluster-01",
-      "neighborConnectivity": 0.93892486
+      "neighborConnectivity": 0.94104418
     },
     {
       "activityId": "hwp-002",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
       "technicalClusterId": "technical-cluster-01",
-      "neighborConnectivity": 0.94027009
+      "neighborConnectivity": 0.94586234
     },
     {
       "activityId": "hwp-003",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
       "technicalClusterId": "technical-cluster-02",
-      "neighborConnectivity": 0.91691551
+      "neighborConnectivity": 0.92416651
     },
     {
       "activityId": "hwp-004",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
       "technicalClusterId": "technical-cluster-01",
-      "neighborConnectivity": 0.93711611
+      "neighborConnectivity": 0.93940152
     },
     {
       "activityId": "hwp-005",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-03",
-      "neighborConnectivity": 0.93188149
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.9380962
     },
     {
       "activityId": "hwp-006",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-04",
+      "technicalClusterId": "technical-cluster-03",
       "neighborConnectivity": 0.93748734
     },
     {
       "activityId": "hwp-007",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-05",
+      "technicalClusterId": "technical-cluster-04",
       "neighborConnectivity": 0.92715567
     },
     {
       "activityId": "hwp-008",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-06",
+      "technicalClusterId": "technical-cluster-05",
       "neighborConnectivity": 0.93820058
     },
     {
       "activityId": "hwp-009",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-06",
+      "technicalClusterId": "technical-cluster-05",
       "neighborConnectivity": 0.9362092
     },
     {
       "activityId": "hwp-010",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-07",
-      "neighborConnectivity": 0.9327084
+      "technicalClusterId": "technical-cluster-06",
+      "neighborConnectivity": 0.93300414
     },
     {
       "activityId": "hwp-011",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-08",
-      "neighborConnectivity": 0.92092874
+      "technicalClusterId": "technical-cluster-07",
+      "neighborConnectivity": 0.92180081
     },
     {
       "activityId": "hwp-012",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-04",
-      "neighborConnectivity": 0.94613139
+      "technicalClusterId": "technical-cluster-03",
+      "neighborConnectivity": 0.94671248
     },
     {
       "activityId": "hwp-013",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-09",
-      "neighborConnectivity": 0.93511866
+      "technicalClusterId": "technical-cluster-08",
+      "neighborConnectivity": 0.93625127
     },
     {
       "activityId": "hwp-014",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
       "technicalClusterId": "technical-cluster-09",
-      "neighborConnectivity": 0.94301546
+      "neighborConnectivity": 0.94335569
     },
     {
       "activityId": "hwp-015",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-04",
-      "neighborConnectivity": 0.93796628
+      "technicalClusterId": "technical-cluster-03",
+      "neighborConnectivity": 0.93900979
     },
     {
       "activityId": "hwp-016",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
       "technicalClusterId": "technical-cluster-09",
-      "neighborConnectivity": 0.93493405
+      "neighborConnectivity": 0.9369492
     },
     {
       "activityId": "hwp-017",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
       "technicalClusterId": "technical-cluster-10",
-      "neighborConnectivity": 0.90769786
+      "neighborConnectivity": 0.92061871
     },
     {
       "activityId": "hwp-018",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-04",
-      "neighborConnectivity": 0.93457027
+      "technicalClusterId": "technical-cluster-03",
+      "neighborConnectivity": 0.93459134
     },
     {
       "activityId": "hwp-019",
@@ -467,7 +477,7 @@
       "sourceId": "hwp-1946",
       "sourceTraits": [],
       "technicalClusterId": "technical-cluster-12",
-      "neighborConnectivity": 0.92288226
+      "neighborConnectivity": 0.9235972
     }
   ],
   "nearestNeighbors": [
@@ -476,11 +486,15 @@
       "neighbors": [
         {
           "activityId": "hwp-002",
-          "cosineSimilarity": 0.94884991
+          "cosineSimilarity": 0.95373726
         },
         {
           "activityId": "hwp-012",
           "cosineSimilarity": 0.94308481
+        },
+        {
+          "activityId": "hwp-005",
+          "cosineSimilarity": 0.93771755
         },
         {
           "activityId": "hwp-004",
@@ -489,10 +503,6 @@
         {
           "activityId": "hwp-014",
           "cosineSimilarity": 0.9337537
-        },
-        {
-          "activityId": "hwp-006",
-          "cosineSimilarity": 0.93200832
         }
       ]
     },
@@ -500,24 +510,24 @@
       "activityId": "hwp-002",
       "neighbors": [
         {
-          "activityId": "hwp-004",
-          "cosineSimilarity": 0.94956531
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.95373726
         },
         {
-          "activityId": "hwp-001",
-          "cosineSimilarity": 0.94884991
+          "activityId": "hwp-004",
+          "cosineSimilarity": 0.95311162
         },
         {
           "activityId": "hwp-012",
-          "cosineSimilarity": 0.93993708
+          "cosineSimilarity": 0.94763275
         },
         {
           "activityId": "hwp-013",
-          "cosineSimilarity": 0.93222396
+          "cosineSimilarity": 0.93788701
         },
         {
           "activityId": "hwp-014",
-          "cosineSimilarity": 0.93077422
+          "cosineSimilarity": 0.93694304
         }
       ]
     },
@@ -526,23 +536,23 @@
       "neighbors": [
         {
           "activityId": "hwp-001",
-          "cosineSimilarity": 0.92024689
+          "cosineSimilarity": 0.92682874
         },
         {
           "activityId": "hwp-005",
-          "cosineSimilarity": 0.91944826
-        },
-        {
-          "activityId": "hwp-002",
-          "cosineSimilarity": 0.91909909
+          "cosineSimilarity": 0.92598557
         },
         {
           "activityId": "hwp-012",
-          "cosineSimilarity": 0.91334678
+          "cosineSimilarity": 0.9248379
+        },
+        {
+          "activityId": "hwp-004",
+          "cosineSimilarity": 0.92246278
         },
         {
           "activityId": "hwp-016",
-          "cosineSimilarity": 0.91243655
+          "cosineSimilarity": 0.92071753
         }
       ]
     },
@@ -551,11 +561,11 @@
       "neighbors": [
         {
           "activityId": "hwp-002",
-          "cosineSimilarity": 0.94956531
+          "cosineSimilarity": 0.95311162
         },
         {
           "activityId": "hwp-005",
-          "cosineSimilarity": 0.93851978
+          "cosineSimilarity": 0.94640052
         },
         {
           "activityId": "hwp-001",
@@ -576,23 +586,23 @@
       "neighbors": [
         {
           "activityId": "hwp-004",
-          "cosineSimilarity": 0.93851978
+          "cosineSimilarity": 0.94640052
         },
         {
           "activityId": "hwp-001",
-          "cosineSimilarity": 0.93186865
+          "cosineSimilarity": 0.93771755
         },
         {
           "activityId": "hwp-015",
-          "cosineSimilarity": 0.93027926
+          "cosineSimilarity": 0.93601134
         },
         {
           "activityId": "hwp-016",
-          "cosineSimilarity": 0.93004612
+          "cosineSimilarity": 0.93544185
         },
         {
-          "activityId": "hwp-014",
-          "cosineSimilarity": 0.92869362
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.93490974
         }
       ]
     },
@@ -712,12 +722,12 @@
           "cosineSimilarity": 0.93374337
         },
         {
-          "activityId": "hwp-020",
-          "cosineSimilarity": 0.92852951
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.92868566
         },
         {
-          "activityId": "hwp-014",
-          "cosineSimilarity": 0.92720696
+          "activityId": "hwp-020",
+          "cosineSimilarity": 0.92852951
         }
       ]
     },
@@ -738,7 +748,7 @@
         },
         {
           "activityId": "hwp-002",
-          "cosineSimilarity": 0.91636857
+          "cosineSimilarity": 0.92072895
         },
         {
           "activityId": "hwp-020",
@@ -754,6 +764,10 @@
           "cosineSimilarity": 0.94765512
         },
         {
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.94763275
+        },
+        {
           "activityId": "hwp-008",
           "cosineSimilarity": 0.94631453
         },
@@ -764,10 +778,6 @@
         {
           "activityId": "hwp-006",
           "cosineSimilarity": 0.94573534
-        },
-        {
-          "activityId": "hwp-013",
-          "cosineSimilarity": 0.9447273
         }
       ]
     },
@@ -784,7 +794,7 @@
         },
         {
           "activityId": "hwp-002",
-          "cosineSimilarity": 0.93222396
+          "cosineSimilarity": 0.93788701
         },
         {
           "activityId": "hwp-016",
@@ -816,8 +826,8 @@
           "cosineSimilarity": 0.93933961
         },
         {
-          "activityId": "hwp-007",
-          "cosineSimilarity": 0.93524189
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.93694304
         }
       ]
     },
@@ -837,12 +847,12 @@
           "cosineSimilarity": 0.93840925
         },
         {
-          "activityId": "hwp-006",
-          "cosineSimilarity": 0.93506411
+          "activityId": "hwp-005",
+          "cosineSimilarity": 0.93601134
         },
         {
-          "activityId": "hwp-016",
-          "cosineSimilarity": 0.93079375
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.93506411
         }
       ]
     },
@@ -854,20 +864,20 @@
           "cosineSimilarity": 0.95093471
         },
         {
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.93618535
+        },
+        {
+          "activityId": "hwp-005",
+          "cosineSimilarity": 0.93544185
+        },
+        {
           "activityId": "hwp-012",
           "cosineSimilarity": 0.93112534
         },
         {
           "activityId": "hwp-001",
           "cosineSimilarity": 0.93105875
-        },
-        {
-          "activityId": "hwp-015",
-          "cosineSimilarity": 0.93079375
-        },
-        {
-          "activityId": "hwp-002",
-          "cosineSimilarity": 0.9307577
         }
       ]
     },
@@ -876,23 +886,23 @@
       "neighbors": [
         {
           "activityId": "hwp-005",
-          "cosineSimilarity": 0.91830586
+          "cosineSimilarity": 0.92511847
         },
         {
           "activityId": "hwp-016",
-          "cosineSimilarity": 0.9080427
-        },
-        {
-          "activityId": "hwp-001",
-          "cosineSimilarity": 0.90551065
+          "cosineSimilarity": 0.92311935
         },
         {
           "activityId": "hwp-014",
-          "cosineSimilarity": 0.90341732
+          "cosineSimilarity": 0.91945777
         },
         {
-          "activityId": "hwp-003",
-          "cosineSimilarity": 0.90321275
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.91915042
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.91624755
         }
       ]
     },
@@ -916,8 +926,8 @@
           "cosineSimilarity": 0.93447202
         },
         {
-          "activityId": "hwp-016",
-          "cosineSimilarity": 0.9222676
+          "activityId": "hwp-005",
+          "cosineSimilarity": 0.92237295
         }
       ]
     },
@@ -962,21 +972,20 @@
           "cosineSimilarity": 0.92310743
         },
         {
-          "activityId": "hwp-018",
-          "cosineSimilarity": 0.91974879
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.92007026
         },
         {
-          "activityId": "hwp-009",
-          "cosineSimilarity": 0.91649558
+          "activityId": "hwp-018",
+          "cosineSimilarity": 0.91974879
         }
       ]
     }
   ],
   "outliers": {
     "method": "mean-neighbor-similarity-below-q1-minus-iqr-multiplier",
-    "threshold": 0.90818103,
+    "threshold": 0.90735937,
     "activityIds": [
-      "hwp-017",
       "hwp-019"
     ],
     "lowestConnectivityForInspection": [
@@ -990,20 +999,20 @@
     {
       "activityId": "hwp-001",
       "technicalClusterId": "technical-cluster-01",
-      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "alternativeTechnicalClusterId": "technical-cluster-03",
       "reason": "low-leave-one-out-margin",
-      "margin": 0.00263724,
-      "clusterSimilarity": 0.95500697,
+      "margin": 0.00835208,
+      "clusterSimilarity": 0.96072182,
       "alternativeSimilarity": 0.95236974
     },
     {
       "activityId": "hwp-002",
       "technicalClusterId": "technical-cluster-01",
-      "alternativeTechnicalClusterId": "technical-cluster-09",
+      "alternativeTechnicalClusterId": "technical-cluster-03",
       "reason": "low-leave-one-out-margin",
-      "margin": 0.01445871,
-      "clusterSimilarity": 0.9645384,
-      "alternativeSimilarity": 0.95007969
+      "margin": 0.01595196,
+      "clusterSimilarity": 0.96639606,
+      "alternativeSimilarity": 0.95044411
     },
     {
       "activityId": "hwp-003",
@@ -1012,39 +1021,39 @@
       "reason": "singleton-cluster",
       "margin": null,
       "clusterSimilarity": null,
-      "alternativeSimilarity": 0.93370414
+      "alternativeSimilarity": 0.9436241
     },
     {
       "activityId": "hwp-004",
       "technicalClusterId": "technical-cluster-01",
-      "alternativeTechnicalClusterId": "technical-cluster-09",
+      "alternativeTechnicalClusterId": "technical-cluster-03",
       "reason": "low-leave-one-out-margin",
-      "margin": 0.01577356,
-      "clusterSimilarity": 0.95554477,
-      "alternativeSimilarity": 0.93977121
+      "margin": 0.0295682,
+      "clusterSimilarity": 0.96435579,
+      "alternativeSimilarity": 0.93478759
     },
     {
       "activityId": "hwp-005",
-      "technicalClusterId": "technical-cluster-03",
-      "alternativeTechnicalClusterId": "technical-cluster-01",
-      "reason": "singleton-cluster",
-      "margin": null,
-      "clusterSimilarity": null,
-      "alternativeSimilarity": 0.9501343
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-03",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.00427773,
+      "clusterSimilarity": 0.95615236,
+      "alternativeSimilarity": 0.95187463
     },
     {
       "activityId": "hwp-006",
-      "technicalClusterId": "technical-cluster-04",
-      "alternativeTechnicalClusterId": "technical-cluster-09",
+      "technicalClusterId": "technical-cluster-03",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
       "reason": "low-leave-one-out-margin",
-      "margin": 0.01289311,
+      "margin": 0.01441866,
       "clusterSimilarity": 0.95991582,
-      "alternativeSimilarity": 0.94702271
+      "alternativeSimilarity": 0.94549716
     },
     {
       "activityId": "hwp-007",
-      "technicalClusterId": "technical-cluster-05",
-      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "technicalClusterId": "technical-cluster-04",
+      "alternativeTechnicalClusterId": "technical-cluster-03",
       "reason": "singleton-cluster",
       "margin": null,
       "clusterSimilarity": null,
@@ -1052,8 +1061,8 @@
     },
     {
       "activityId": "hwp-008",
-      "technicalClusterId": "technical-cluster-06",
-      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "technicalClusterId": "technical-cluster-05",
+      "alternativeTechnicalClusterId": "technical-cluster-03",
       "reason": "low-leave-one-out-margin",
       "margin": 0.01040331,
       "clusterSimilarity": 0.95385447,
@@ -1061,8 +1070,8 @@
     },
     {
       "activityId": "hwp-009",
-      "technicalClusterId": "technical-cluster-06",
-      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "technicalClusterId": "technical-cluster-05",
+      "alternativeTechnicalClusterId": "technical-cluster-03",
       "reason": "low-leave-one-out-margin",
       "margin": 0.01220908,
       "clusterSimilarity": 0.95385447,
@@ -1070,8 +1079,8 @@
     },
     {
       "activityId": "hwp-010",
-      "technicalClusterId": "technical-cluster-07",
-      "alternativeTechnicalClusterId": "technical-cluster-06",
+      "technicalClusterId": "technical-cluster-06",
+      "alternativeTechnicalClusterId": "technical-cluster-05",
       "reason": "singleton-cluster",
       "margin": null,
       "clusterSimilarity": null,
@@ -1079,80 +1088,80 @@
     },
     {
       "activityId": "hwp-011",
-      "technicalClusterId": "technical-cluster-08",
+      "technicalClusterId": "technical-cluster-07",
       "alternativeTechnicalClusterId": "technical-cluster-01",
       "reason": "singleton-cluster",
       "margin": null,
       "clusterSimilarity": null,
-      "alternativeSimilarity": 0.94183981
+      "alternativeSimilarity": 0.94197847
     },
     {
       "activityId": "hwp-012",
-      "technicalClusterId": "technical-cluster-04",
-      "alternativeTechnicalClusterId": "technical-cluster-09",
+      "technicalClusterId": "technical-cluster-03",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
       "reason": "low-leave-one-out-margin",
-      "margin": 0.00268061,
+      "margin": 0.00358717,
       "clusterSimilarity": 0.96287809,
-      "alternativeSimilarity": 0.96019748
+      "alternativeSimilarity": 0.95929092
     },
     {
       "activityId": "hwp-013",
-      "technicalClusterId": "technical-cluster-09",
-      "alternativeTechnicalClusterId": "technical-cluster-04",
-      "reason": "low-leave-one-out-margin",
-      "margin": -0.00102933,
-      "clusterSimilarity": 0.94793949,
+      "technicalClusterId": "technical-cluster-08",
+      "alternativeTechnicalClusterId": "technical-cluster-03",
+      "reason": "singleton-cluster",
+      "margin": null,
+      "clusterSimilarity": null,
       "alternativeSimilarity": 0.94896882
     },
     {
       "activityId": "hwp-014",
       "technicalClusterId": "technical-cluster-09",
-      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "alternativeTechnicalClusterId": "technical-cluster-03",
       "reason": "low-leave-one-out-margin",
-      "margin": 0.0028865,
-      "clusterSimilarity": 0.96328757,
+      "margin": -0.00946636,
+      "clusterSimilarity": 0.95093471,
       "alternativeSimilarity": 0.96040108
     },
     {
       "activityId": "hwp-015",
-      "technicalClusterId": "technical-cluster-04",
+      "technicalClusterId": "technical-cluster-03",
       "alternativeTechnicalClusterId": "technical-cluster-09",
       "reason": "low-leave-one-out-margin",
-      "margin": 0.00814417,
+      "margin": 0.01214727,
       "clusterSimilarity": 0.95889923,
-      "alternativeSimilarity": 0.95075506
+      "alternativeSimilarity": 0.94675196
     },
     {
       "activityId": "hwp-016",
       "technicalClusterId": "technical-cluster-09",
-      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
       "reason": "low-leave-one-out-margin",
-      "margin": 0.00560215,
-      "clusterSimilarity": 0.95472216,
-      "alternativeSimilarity": 0.94912001
+      "margin": -0.0011139,
+      "clusterSimilarity": 0.95093471,
+      "alternativeSimilarity": 0.95204861
     },
     {
       "activityId": "hwp-017",
       "technicalClusterId": "technical-cluster-10",
-      "alternativeTechnicalClusterId": "technical-cluster-09",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
       "reason": "singleton-cluster",
       "margin": null,
       "clusterSimilarity": null,
-      "alternativeSimilarity": 0.92230377
+      "alternativeSimilarity": 0.93603471
     },
     {
       "activityId": "hwp-018",
-      "technicalClusterId": "technical-cluster-04",
+      "technicalClusterId": "technical-cluster-03",
       "alternativeTechnicalClusterId": "technical-cluster-09",
       "reason": "low-leave-one-out-margin",
-      "margin": 0.01459811,
+      "margin": 0.01731135,
       "clusterSimilarity": 0.95728276,
-      "alternativeSimilarity": 0.94268465
+      "alternativeSimilarity": 0.93997141
     },
     {
       "activityId": "hwp-019",
       "technicalClusterId": "technical-cluster-11",
-      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "alternativeTechnicalClusterId": "technical-cluster-03",
       "reason": "singleton-cluster",
       "margin": null,
       "clusterSimilarity": null,
@@ -1161,11 +1170,11 @@
     {
       "activityId": "hwp-020",
       "technicalClusterId": "technical-cluster-12",
-      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
       "reason": "singleton-cluster",
       "margin": null,
       "clusterSimilarity": null,
-      "alternativeSimilarity": 0.93408979
+      "alternativeSimilarity": 0.93504295
     }
   ],
   "unassignedProductionCategoryActivityIds": [

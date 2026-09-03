@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "pipeline": "taxonomy-v1-embeddings",
   "status": "in-progress",
-  "generatedAt": "2026-09-02T16:21:02.743176+00:00",
+  "generatedAt": "2026-09-03T11:15:43.724483+00:00",
   "modelRequested": "mistral-embed-2312",
   "dimensions": 1024,
-  "recipeVersion": "activity-context-v1",
+  "recipeVersion": "activity-context-v2",
   "priceUsdPerMillionInputTokens": 0.1,
   "priceSource": "https://docs.mistral.ai/models/mistral-embed-23-12",
   "activities": {
@@ -14,9 +14,9 @@
     "remaining": 182
   },
   "usage": {
-    "documentsProcessed": 20,
-    "promptTokens": 6488,
-    "estimatedCostUsd": 0.0006488,
+    "documentsProcessed": 40,
+    "promptTokens": 12798,
+    "estimatedCostUsd": 0.0012798,
     "byRecipe": [
       {
         "recipeVersion": "activity-context-v1",
@@ -26,11 +26,21 @@
         "documents": 20,
         "promptTokens": 6488,
         "estimatedCostUsd": 0.0006488
+      },
+      {
+        "recipeVersion": "activity-context-v2",
+        "batchIds": [
+          "20260903T111543724483Z"
+        ],
+        "documents": 20,
+        "promptTokens": 6310,
+        "estimatedCostUsd": 0.000631
       }
     ]
   },
   "batchIds": [
-    "20260902T162102743176Z"
+    "20260902T162102743176Z",
+    "20260903T111543724483Z"
   ],
   "cachedActivityIds": [
     "hwp-001",
