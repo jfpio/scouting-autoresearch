@@ -80,9 +80,9 @@ przeglądu i nie zmienia produkcyjnych kategorii ani filtrów.
 
 Kod obsługuje też przepis `activity-context-v2`, który przed skróceniem kontekstu usuwa
 techniczną stopkę źródłową oraz adresy URL z Markdown, zachowując tekst widoczny odnośników.
-Zmiana `recipeVersion` jest jawna i celowo unieważnia wcześniejsze cache’e. Wszystkie 117
-aktywności źródła `hwp-1946` mają aktualny cache v2; raport kosztu zachowuje osobno zastąpiony
-pilotażowy przebieg v1. Kolejne źródła używają v2. Jeżeli raport jakości ma status
+Zmiana `recipeVersion` jest jawna i celowo unieważnia wcześniejsze cache’e. Wszystkie 202
+aktywności źródeł `hwp-1946` i `pw-1935` mają aktualny cache v2; raport kosztu zachowuje
+osobno zastąpiony pilotażowy przebieg v1. Jeżeli raport jakości ma status
 `recipe-upgrade-pending`, tryb `--execute` jest blokowany dla starej receptury. Dry-run
 pokazuje przyczynę blokady; wykonanie staje się możliwe dopiero po przełączeniu konfiguracji
 na wskazaną recepturę kandydującą. Dopóki wszystkie ID z
