@@ -46,7 +46,19 @@
 
 ## Kontrola kosztu i procesu
 
-- Każdy cykl ma twardy limit dokumentów i kosztu; po dojściu do limitu zapisz checkpoint i stop.
+- Dla embeddingów V1 nie stosuj dziennego limitu dokumentów. Korpus i kolejność są jawne oraz
+  skończone, a `config/taxonomy-v1.yaml` ogranicza pojedynczy request do 50 rekordów. Nie łącz
+  rekordów z dwóch źródeł w jednym requeście. Kontynuuj w Goal Mode do ukończenia bieżącego
+  źródła albo do napotkania limitu dostawcy, błędu lub zewnętrznego limitu Goal Mode.
+- Po każdym udanym requeście embeddingów zapisz atomowy ledger i checkpoint. Commit oraz push
+  wykonaj po ukończeniu całej książki lub samodzielnej jednostki źródłowej, nie po arbitralnej
+  liczbie rekordów.
+- Konto Mistral używane obecnie do eksperymentu nie nalicza opłat. Zapisuj `billedCostUsd: 0`
+  i osobno koszt referencyjny według wersjonowanej ceny katalogowej; koszt referencyjny nie
+  blokuje wykonania, gdy `billingMode: experimental-no-charge`. Przejście na rozliczane konto
+  lub niepewny tryb rozliczeń wymaga decyzji człowieka i ponownego włączenia twardego limitu.
+- Dla eksploracji i pozyskiwania nowych źródeł V2 nadal stosuj jawny limit zakresu cyklu z
+  `config/research-queue.yaml`; nie używaj limitu embeddingów jako zamiennika bramek prawnych.
 - Operacje muszą być resumowalne oraz idempotentne. Nie powtarzaj udanego pobrania,
   ekstrakcji ani tłumaczenia, gdy hash wejścia się nie zmienił.
 - W Goal Mode odróżniaj problemy przejściowe od trwałych. `429`, chwilowy rate limit lub

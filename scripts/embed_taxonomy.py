@@ -7,7 +7,6 @@ import argparse
 import hashlib
 import json
 import math
-import os
 import re
 import urllib.error
 import urllib.request
@@ -15,7 +14,6 @@ from datetime import UTC, datetime, timedelta
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any
-from zoneinfo import ZoneInfo
 
 import yaml
 
@@ -25,7 +23,6 @@ from translate import load_secret
 
 API_URL = "https://api.mistral.ai/v1/embeddings"
 CONFIG_PATH = ROOT / "config" / "taxonomy-v1.yaml"
-QUEUE_PATH = ROOT / "config" / "research-queue.yaml"
 CACHE_DIR = ROOT / "data" / "embeddings" / "v1"
 BATCH_DIR = CACHE_DIR / "batches"
 REPORT_PATH = ROOT / "data" / "reports" / "taxonomy-v1-embedding-progress.json"
@@ -44,7 +41,12 @@ def load_yaml(path: Path) -> dict[str, Any]:
 def load_config() -> dict[str, Any]:
     config = load_yaml(CONFIG_PATH)
     embedding = config.get("embedding")
-    if config.get("schemaVersion") != 1 or not isinstance(embedding, dict):
+    execution = config.get("execution")
+    if (
+        config.get("schemaVersion") != 1
+        or not isinstance(embedding, dict)
+        or not isinstance(execution, dict)
+    ):
         raise ValueError(f"Unsupported taxonomy configuration: {CONFIG_PATH}")
     required = {
         "model",
@@ -58,6 +60,21 @@ def load_config() -> dict[str, Any]:
     missing = required - set(embedding)
     if missing:
         raise ValueError(f"Taxonomy configuration lacks: {sorted(missing)}")
+    required_execution = {
+        "maxDocumentsPerRequest",
+        "billingMode",
+        "enforceReferenceCostLimit",
+        "maxReferenceCostUsdPerRequest",
+    }
+    missing_execution = required_execution - set(execution)
+    if missing_execution:
+        raise ValueError(f"Taxonomy execution configuration lacks: {sorted(missing_execution)}")
+    if int(execution["maxDocumentsPerRequest"]) < 1:
+        raise ValueError("maxDocumentsPerRequest must be positive")
+    if execution["billingMode"] not in {"experimental-no-charge", "metered"}:
+        raise ValueError("Unsupported taxonomy billingMode")
+    if float(execution["maxReferenceCostUsdPerRequest"]) <= 0:
+        raise ValueError("maxReferenceCostUsdPerRequest must be positive")
     return config
 
 
@@ -139,6 +156,18 @@ def atomic_write_json(path: Path, value: Any) -> None:
     temporary.replace(path)
 
 
+def update_checkpoint(
+    updates: dict[str, Any], *, remove_keys: tuple[str, ...] = (), path: Path | None = None
+) -> dict[str, Any]:
+    target = path or CHECKPOINT_PATH
+    checkpoint = read_json(target) if target.exists() else {}
+    for key in remove_keys:
+        checkpoint.pop(key, None)
+    checkpoint.update({"schemaVersion": 1, "pipeline": "taxonomy-v1-embeddings", **updates})
+    atomic_write_json(target, checkpoint)
+    return checkpoint
+
+
 def retry_at(now: datetime, retry_after: str | None) -> datetime:
     minimum = now + timedelta(hours=12)
     if not retry_after:
@@ -156,39 +185,9 @@ def retry_at(now: datetime, retry_after: str | None) -> datetime:
     return max(minimum, candidate)
 
 
-def daily_usage(
-    batch_paths: list[Path], *, now: datetime, timezone_name: str, price_per_million_tokens: float
-) -> dict[str, Any]:
-    timezone = ZoneInfo(timezone_name)
-    local_day = now.astimezone(timezone).date()
-    documents = 0
-    prompt_tokens = 0
-    estimated_cost = 0.0
-    batch_ids: list[str] = []
-    for batch_path in batch_paths:
-        batch = read_json(batch_path)
-        generated_at = datetime.fromisoformat(str(batch["generatedAt"]).replace("Z", "+00:00"))
-        if generated_at.tzinfo is None:
-            raise ValueError(f"Batch timestamp must include a timezone: {batch_path}")
-        if generated_at.astimezone(timezone).date() != local_day:
-            continue
-        documents += len(batch.get("activityIds", []))
-        prompt_tokens += int(batch.get("usage", {}).get("promptTokens", 0))
-        estimated_cost += batch_estimated_cost(batch, price_per_million_tokens)
-        batch_ids.append(str(batch["batchId"]))
-    return {
-        "date": local_day.isoformat(),
-        "timezone": timezone_name,
-        "documents": documents,
-        "promptTokens": prompt_tokens,
-        "estimatedCostUsd": round(estimated_cost, 8),
-        "batchIds": batch_ids,
-    }
-
-
-def batch_estimated_cost(batch: dict[str, Any], fallback_price_per_million_tokens: float) -> float:
+def batch_reference_cost(batch: dict[str, Any], fallback_price_per_million_tokens: float) -> float:
     usage = batch.get("usage", {})
-    stored_cost = usage.get("estimatedCostUsd")
+    stored_cost = usage.get("referenceCostUsd", usage.get("estimatedCostUsd"))
     if stored_cost is not None:
         return float(stored_cost)
     return int(usage.get("promptTokens", 0)) * fallback_price_per_million_tokens / 1_000_000
@@ -202,34 +201,50 @@ def summarize_batch_usage(
         recipe_version = str(batch.get("recipeVersion", "unknown"))
         group = groups.setdefault(
             recipe_version,
-            {"recipeVersion": recipe_version, "batchIds": [], "documents": 0, "promptTokens": 0},
+            {
+                "recipeVersion": recipe_version,
+                "batchIds": [],
+                "documents": 0,
+                "promptTokens": 0,
+                "billedCostUsd": 0.0,
+                "referenceCostUsd": 0.0,
+                "_billedCostKnown": True,
+            },
         )
         group["batchIds"].append(str(batch["batchId"]))
         group["documents"] += len(batch.get("activityIds", []))
         group["promptTokens"] += int(batch.get("usage", {}).get("promptTokens", 0))
-        group["estimatedCostUsd"] = group.get("estimatedCostUsd", 0.0) + batch_estimated_cost(
+        billed_cost = batch.get("usage", {}).get("billedCostUsd")
+        if billed_cost is None:
+            group["_billedCostKnown"] = False
+        else:
+            group["billedCostUsd"] += float(billed_cost)
+        group["referenceCostUsd"] += batch_reference_cost(
             batch, price_per_million_tokens
         )
     by_recipe = []
     for recipe_version in sorted(groups):
         group = groups[recipe_version]
         group["batchIds"].sort()
-        group["estimatedCostUsd"] = round(group["estimatedCostUsd"], 8)
+        group["billedCostUsd"] = (
+            round(group["billedCostUsd"], 8) if group.pop("_billedCostKnown") else None
+        )
+        group["referenceCostUsd"] = round(group["referenceCostUsd"], 8)
         by_recipe.append(group)
     prompt_tokens = sum(group["promptTokens"] for group in by_recipe)
-    estimated_cost = sum(group["estimatedCostUsd"] for group in by_recipe)
+    billed_cost = (
+        sum(group["billedCostUsd"] for group in by_recipe)
+        if all(group["billedCostUsd"] is not None for group in by_recipe)
+        else None
+    )
+    reference_cost = sum(group["referenceCostUsd"] for group in by_recipe)
     return {
         "documentsProcessed": sum(group["documents"] for group in by_recipe),
         "promptTokens": prompt_tokens,
-        "estimatedCostUsd": round(estimated_cost, 8),
+        "billedCostUsd": round(billed_cost, 8) if billed_cost is not None else None,
+        "referenceCostUsd": round(reference_cost, 8),
         "byRecipe": by_recipe,
     }
-
-
-def next_daily_reset(now: datetime, timezone_name: str) -> datetime:
-    timezone = ZoneInfo(timezone_name)
-    local_now = now.astimezone(timezone)
-    return datetime.combine(local_now.date() + timedelta(days=1), datetime.min.time(), timezone)
 
 
 def checkpoint_identity(embedding: dict[str, Any]) -> dict[str, Any]:
@@ -284,6 +299,18 @@ def restrict_to_recipe_migration(
     return selected_pool, deferred_ids
 
 
+def restrict_to_current_source(
+    pending: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    if not pending:
+        return [], []
+    source_id = pending[0]["sourceId"]
+    return (
+        [item for item in pending if item["sourceId"] == source_id],
+        [item for item in pending if item["sourceId"] != source_id],
+    )
+
+
 def write_retry_checkpoint(
     *,
     now: datetime,
@@ -291,16 +318,14 @@ def write_retry_checkpoint(
     identity: dict[str, Any],
     retry_after: str | None = None,
 ) -> None:
-    atomic_write_json(
-        CHECKPOINT_PATH,
+    update_checkpoint(
         {
-            "schemaVersion": 1,
-            "pipeline": "taxonomy-v1-embeddings",
             "status": "retry-pending",
             "reason": reason,
             "nextRetryAt": retry_at(now, retry_after).isoformat(),
             **identity,
         },
+        remove_keys=("nextCycleAt",),
     )
 
 
@@ -330,15 +355,13 @@ def request_embeddings(
                 identity=identity,
             )
             raise RuntimeError(f"Transient Mistral HTTP {error.code}; checkpoint saved") from error
-        atomic_write_json(
-            CHECKPOINT_PATH,
+        update_checkpoint(
             {
-                "schemaVersion": 1,
-                "pipeline": "taxonomy-v1-embeddings",
                 "status": "failed-permanent",
                 "reason": f"mistral-http-{error.code}",
                 **identity,
             },
+            remove_keys=("nextCycleAt", "nextRetryAt"),
         )
         raise RuntimeError(f"Permanent Mistral HTTP {error.code}; checkpoint saved") from error
     except (urllib.error.URLError, TimeoutError) as error:
@@ -435,6 +458,7 @@ def build_progress_report(
     config: dict[str, Any], items: list[dict[str, Any]], *, generated_at: str
 ) -> dict[str, Any]:
     embedding = config["embedding"]
+    execution = config["execution"]
     current = current_items(items, config)
     batch_paths = sorted(BATCH_DIR.glob("*.json"))
     batches = [read_json(path) for path in batch_paths]
@@ -447,8 +471,11 @@ def build_progress_report(
         "modelRequested": embedding["model"],
         "dimensions": embedding["dimensions"],
         "recipeVersion": embedding["recipeVersion"],
-        "priceUsdPerMillionInputTokens": embedding["priceUsdPerMillionInputTokens"],
-        "priceSource": embedding["priceSource"],
+        "costAccounting": {
+            "billingMode": execution["billingMode"],
+            "referencePriceUsdPerMillionInputTokens": embedding["priceUsdPerMillionInputTokens"],
+            "referencePriceSource": embedding["priceSource"],
+        },
         "activities": {"total": len(items), "cached": len(current), "remaining": len(items) - len(current)},
         "usage": usage,
         "batchIds": sorted(str(batch["batchId"]) for batch in batches),
@@ -466,22 +493,22 @@ def write_progress_report(
 
 def main() -> None:
     config = load_config()
-    queue = load_yaml(QUEUE_PATH)
-    daily_limits = queue["dailyLimits"]
     embedding = config["embedding"]
-    identity = checkpoint_identity(embedding)
+    execution = config["execution"]
+    identity = {**checkpoint_identity(embedding), "billingMode": execution["billingMode"]}
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--execute", action="store_true", help="Send the planned bounded batch to Mistral")
-    parser.add_argument("--limit", type=int, default=int(daily_limits["documents"]))
+    parser.add_argument("--limit", type=int, default=int(execution["maxDocumentsPerRequest"]))
     parser.add_argument("--ids", nargs="*")
     args = parser.parse_args()
 
-    hard_document_limit = int(daily_limits["documents"])
-    hard_cost_limit = float(daily_limits["estimatedCostUsd"])
-    timezone_name = str(daily_limits["timezone"])
-    if args.limit < 1 or args.limit > hard_document_limit:
-        raise SystemExit(f"limit must be between 1 and {hard_document_limit}")
+    request_document_limit = int(execution["maxDocumentsPerRequest"])
+    billing_mode = str(execution["billingMode"])
+    enforce_reference_cost_limit = bool(execution["enforceReferenceCostLimit"])
+    max_reference_cost = float(execution["maxReferenceCostUsdPerRequest"])
+    if args.limit < 1 or args.limit > request_document_limit:
+        raise SystemExit(f"limit must be between 1 and {request_document_limit}")
 
     all_items = activity_items(config)
     recovered = recover_cached_items(config, all_items)
@@ -493,21 +520,6 @@ def main() -> None:
             raise SystemExit(f"unknown activity IDs: {sorted(unknown)}")
         items = [item for item in all_items if item["id"] in wanted]
 
-    now = datetime.now(UTC)
-    usage_today = daily_usage(
-        sorted(BATCH_DIR.glob("*.json")),
-        now=now,
-        timezone_name=timezone_name,
-        price_per_million_tokens=float(embedding["priceUsdPerMillionInputTokens"]),
-    )
-    remaining_document_budget = max(0, hard_document_limit - int(usage_today["documents"]))
-    remaining_cost_budget = max(0.0, hard_cost_limit - float(usage_today["estimatedCostUsd"]))
-    worst_case_cost_per_document = (
-        int(embedding["modelMaxInputTokens"])
-        * float(embedding["priceUsdPerMillionInputTokens"])
-        / 1_000_000
-    )
-    documents_allowed_by_cost = math.floor(remaining_cost_budget / worst_case_cost_per_document)
     input_quality_report = (
         read_json(INPUT_QUALITY_REPORT_PATH) if INPUT_QUALITY_REPORT_PATH.exists() else None
     )
@@ -521,11 +533,11 @@ def main() -> None:
         execution_block_reason = (
             "recipe migration must finish before requested new activities can be embedded"
         )
-    effective_limit = min(args.limit, remaining_document_budget, documents_allowed_by_cost)
-    selected = pending[:effective_limit]
+    source_pending, other_source_items = restrict_to_current_source(pending)
+    selected = source_pending[: args.limit]
     token_estimate = sum(estimated_tokens(item["input"]) for item in selected)
-    estimated_cost = token_estimate * float(embedding["priceUsdPerMillionInputTokens"]) / 1_000_000
-    worst_case_cost = (
+    reference_cost = token_estimate * float(embedding["priceUsdPerMillionInputTokens"]) / 1_000_000
+    worst_case_reference_cost = (
         len(selected)
         * int(embedding["modelMaxInputTokens"])
         * float(embedding["priceUsdPerMillionInputTokens"])
@@ -542,47 +554,48 @@ def main() -> None:
         "migrationPendingIds": migration_ids,
         "newActivitiesDeferred": len(deferred_ids),
         "nextDeferredActivityId": deferred_ids[0] if deferred_ids else None,
-        "dailyUsage": usage_today,
-        "remainingDailyBudget": {
-            "documents": remaining_document_budget,
-            "estimatedCostUsd": round(remaining_cost_budget, 8),
-        },
-        "dailyLimitReached": bool(pending) and not selected,
-        "nextCycleAt": next_daily_reset(now, timezone_name).isoformat() if bool(pending) and not selected else None,
+        "activeSourceId": source_pending[0]["sourceId"] if source_pending else None,
+        "remainingSourceBeforeBatch": len(source_pending),
+        "otherSourcesDeferred": len(other_source_items),
+        "nextSourceId": other_source_items[0]["sourceId"] if other_source_items else None,
+        "requestDocumentLimit": request_document_limit,
         "estimatedInputTokens": token_estimate,
-        "estimatedCostUsd": round(estimated_cost, 8),
-        "worstCaseCostUsd": round(worst_case_cost, 8),
-        "hardCostLimitUsd": hard_cost_limit,
+        "billingMode": billing_mode,
+        "billedCostUsd": 0.0 if billing_mode == "experimental-no-charge" else None,
+        "referenceCostUsd": round(reference_cost, 8),
+        "worstCaseReferenceCostUsd": round(worst_case_reference_cost, 8),
+        "referenceCostLimitEnforced": enforce_reference_cost_limit,
+        "maxReferenceCostUsdPerRequest": max_reference_cost,
         "executionBlocked": execution_block_reason is not None,
         "executionBlockReason": execution_block_reason,
     }
     print(json.dumps(plan, ensure_ascii=False, indent=2), flush=True)
-    if worst_case_cost > remaining_cost_budget:
-        raise SystemExit("planned batch exceeds the hard cost limit")
+    if enforce_reference_cost_limit and worst_case_reference_cost > max_reference_cost:
+        raise SystemExit("planned batch exceeds the reference cost limit")
     if args.execute and execution_block_reason:
         raise SystemExit(execution_block_reason)
     if not args.execute:
         return
     if not selected:
-        if pending:
-            previous = read_json(CHECKPOINT_PATH) if CHECKPOINT_PATH.exists() else {}
-            previous.update(
-                {
-                    "schemaVersion": 1,
-                    "pipeline": "taxonomy-v1-embeddings",
-                    "status": "daily-limit-reached",
-                    "dailyUsage": usage_today,
-                    "dailyLimits": {
-                        "documents": hard_document_limit,
-                        "estimatedCostUsd": hard_cost_limit,
-                        "timezone": timezone_name,
-                    },
-                    "nextCycleAt": next_daily_reset(now, timezone_name).isoformat(),
-                    "nextActivityId": pending[0]["id"],
-                    **identity,
-                }
-            )
-            atomic_write_json(CHECKPOINT_PATH, previous)
+        next_item = next((item for item in all_items if item["id"] not in current_ids), None)
+        update_checkpoint(
+            {
+                "status": "complete" if next_item is None else "selection-complete",
+                "cachedActivities": len(current_ids),
+                "totalActivities": len(all_items),
+                "nextActivityId": next_item["id"] if next_item else None,
+                "nextSourceId": next_item["sourceId"] if next_item else None,
+                "billingMode": billing_mode,
+                **identity,
+            },
+            remove_keys=(
+                "dailyUsage",
+                "dailyLimits",
+                "nextCycleAt",
+                "nextRetryAt",
+                "reason",
+            ),
+        )
         return
 
     result = request_embeddings(
@@ -605,7 +618,10 @@ def main() -> None:
     actual_model = result.get("model", embedding["model"])
     usage = result.get("usage") or {}
     prompt_tokens = int(usage.get("prompt_tokens", usage.get("total_tokens", token_estimate)))
-    batch_cost = prompt_tokens * float(embedding["priceUsdPerMillionInputTokens"]) / 1_000_000
+    actual_reference_cost = (
+        prompt_tokens * float(embedding["priceUsdPerMillionInputTokens"]) / 1_000_000
+    )
+    billed_cost = 0.0 if billing_mode == "experimental-no-charge" else None
     cache_payloads = []
     for index, item in enumerate(selected):
         cache_payloads.append(
@@ -632,10 +648,16 @@ def main() -> None:
         "modelRequested": embedding["model"],
         "model": actual_model,
         "recipeVersion": embedding["recipeVersion"],
-        "priceUsdPerMillionInputTokens": embedding["priceUsdPerMillionInputTokens"],
-        "priceSource": embedding["priceSource"],
+        "sourceId": selected[0]["sourceId"],
+        "billingMode": billing_mode,
+        "referencePriceUsdPerMillionInputTokens": embedding["priceUsdPerMillionInputTokens"],
+        "referencePriceSource": embedding["priceSource"],
         "activityIds": [item["id"] for item in selected],
-        "usage": {"promptTokens": prompt_tokens, "estimatedCostUsd": round(batch_cost, 8)},
+        "usage": {
+            "promptTokens": prompt_tokens,
+            "billedCostUsd": billed_cost,
+            "referenceCostUsd": round(actual_reference_cost, 8),
+        },
         "items": cache_payloads,
     }
     atomic_write_json(BATCH_DIR / f"{batch_id}.json", batch)
@@ -645,30 +667,54 @@ def main() -> None:
     atomic_write_json(BATCH_DIR / f"{batch_id}.json", batch)
 
     report = write_progress_report(config, activity_items(config), generated_at=generated_at)
-    usage_today = daily_usage(
-        sorted(BATCH_DIR.glob("*.json")),
-        now=now,
-        timezone_name=timezone_name,
-        price_per_million_tokens=float(embedding["priceUsdPerMillionInputTokens"]),
+    refreshed_items = activity_items(config)
+    current_after = set(report["cachedActivityIds"])
+    next_item = next((item for item in refreshed_items if item["id"] not in current_after), None)
+    next_source_item = next(
+        (
+            item
+            for item in refreshed_items
+            if item["sourceId"] == selected[0]["sourceId"] and item["id"] not in current_after
+        ),
+        None,
     )
-    next_id = next((item["id"] for item in activity_items(config) if item["id"] not in set(report["cachedActivityIds"])), None)
-    atomic_write_json(
-        CHECKPOINT_PATH,
+    status = (
+        "complete"
+        if next_item is None
+        else "source-batch-complete"
+        if next_source_item is not None
+        else "source-complete"
+    )
+    update_checkpoint(
         {
-            "schemaVersion": 1,
-            "pipeline": "taxonomy-v1-embeddings",
-            "status": "complete" if next_id is None else "batch-complete",
+            "status": status,
             "lastBatchId": batch_id,
             "lastCompletedAt": generated_at,
-            "documentsProcessedThisCycle": usage_today["documents"],
-            "estimatedCostUsdThisCycle": usage_today["estimatedCostUsd"],
-            "dailyUsage": usage_today,
+            "lastBatchActivityCount": len(selected),
+            "lastBatchSourceId": selected[0]["sourceId"],
+            "lastBatchPromptTokens": prompt_tokens,
+            "lastBatchBilledCostUsd": billed_cost,
+            "lastBatchReferenceCostUsd": round(actual_reference_cost, 8),
             "cachedActivities": report["activities"]["cached"],
             "totalActivities": report["activities"]["total"],
-            "nextActivityId": next_id,
+            "nextActivityId": next_item["id"] if next_item else None,
+            "nextSourceId": next_item["sourceId"] if next_item else None,
+            "billingMode": billing_mode,
+            "requestDocumentLimit": request_document_limit,
             **identity,
             "model": actual_model,
         },
+        remove_keys=(
+            "analysis",
+            "inputQualityAudit",
+            "dailyUsage",
+            "dailyLimits",
+            "nextCycleAt",
+            "nextRetryAt",
+            "reason",
+            "documentsProcessedThisCycle",
+            "estimatedCostUsdThisCycle",
+        ),
     )
     print(
         json.dumps(

@@ -5,6 +5,10 @@
   "modelRequested": "mistral-embed-2312",
   "model": "mistral-embed-2312",
   "recipeVersion": "activity-context-v1",
+  "sourceId": "hwp-1946",
+  "billingMode": "experimental-no-charge",
+  "referencePriceUsdPerMillionInputTokens": 0.1,
+  "referencePriceSource": "https://docs.mistral.ai/models/mistral-embed-23-12",
   "activityIds": [
     "hwp-001",
     "hwp-002",
@@ -29,6 +33,7 @@
   ],
   "usage": {
     "promptTokens": 6488,
-    "estimatedCostUsd": 0.0006488
+    "billedCostUsd": 0.0,
+    "referenceCostUsd": 0.0006488
   }
 }

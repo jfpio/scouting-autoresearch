@@ -66,9 +66,12 @@ normalize labels → embed source labels and activity context → propose cluste
 - Raport V1 zawiera klastry, najbliższych sąsiadów, odstające etykiety, niejednoznaczne
   przypisania, wersję taksonomii, wykorzystane tokeny i koszt. Brakujące lub słabe
   dopasowanie pozostaje jawnie nieprzypisane zamiast być zgadywane.
-- Limit kosztu obowiązuje przed wysłaniem partii. Przejściowe ograniczenia API korzystają
-  z zasad 12-godzinnego wznowienia opisanych dla Goal Mode; wyczerpanie limitu miesięcznego
-  lub brak dostępu zatrzymuje cel i wymaga interwencji.
+- Korpus V1 jest jawny i skończony; nie stosujemy dziennego limitu dokumentów. Pojedynczy
+  request obejmuje najwyżej 50 rekordów i nie przekracza granicy źródła, a po każdej odpowiedzi
+  powstaje resumowalny checkpoint. Na koncie eksperymentalnym bez opłat koszt katalogowy jest
+  raportem referencyjnym, nie bramką wykonania. Przejściowe ograniczenia API korzystają z zasad
+  12-godzinnego wznowienia opisanych dla Goal Mode; wyczerpanie limitu miesięcznego lub brak
+  dostępu zatrzymuje cel i wymaga interwencji.
 
 ### Kryteria V1
 

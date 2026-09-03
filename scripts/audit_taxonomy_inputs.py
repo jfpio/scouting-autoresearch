@@ -11,7 +11,15 @@ from pathlib import Path
 from typing import Any
 
 from common import ROOT, VAULT, load_markdown, read_json
-from embed_taxonomy import CACHE_DIR, atomic_write_json, build_embedding_input, input_hash, load_config
+from embed_taxonomy import (
+    CACHE_DIR,
+    CHECKPOINT_PATH,
+    atomic_write_json,
+    build_embedding_input,
+    input_hash,
+    load_config,
+    update_checkpoint,
+)
 
 
 REPORT_PATH = ROOT / "data" / "reports" / "taxonomy-v1-input-quality.json"
@@ -146,6 +154,32 @@ def build_quality_report(
     }
 
 
+def write_quality_checkpoint(
+    report: dict[str, Any], path: Path = CHECKPOINT_PATH, report_path: Path = REPORT_PATH
+) -> None:
+    update_checkpoint(
+        {
+            "inputQualityAudit": {
+                "status": report["status"],
+                "auditHash": report["auditHash"],
+                "reportPath": (
+                    str(report_path.relative_to(ROOT))
+                    if report_path.is_relative_to(ROOT)
+                    else str(report_path)
+                ),
+                "activeRecipeVersion": report["activeRecipeVersion"],
+                "candidateRecipeVersion": report["candidateRecipeVersion"],
+                "cachedInputContentAffected": report["existingCaches"]["contentChanged"],
+                "corpusInputContentAffected": report["corpus"]["contentChangedActivities"],
+                "existingCachesInvalidatedByRecipeChange": report["existingCaches"][
+                    "invalidatedByRecipeChange"
+                ],
+            }
+        },
+        path=path,
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--candidate-recipe", default=DEFAULT_CANDIDATE_RECIPE)
@@ -162,6 +196,7 @@ def main() -> None:
         candidate_recipe=args.candidate_recipe,
     )
     atomic_write_json(args.output, report)
+    write_quality_checkpoint(report, report_path=args.output)
     print(
         json.dumps(
             {

@@ -52,20 +52,26 @@ rekordy z aktualnym hashem. Model V0 to `mistral-medium-2604`; żądany pierwotn
 
 ## Taksonomia V1
 
-Przed płatnym wywołaniem API skrypt pokazuje plan partii, szacowany koszt i koszt graniczny:
+Przed wywołaniem API skrypt pokazuje plan partii, koszt referencyjny i granicę źródła:
 
 ```bash
 .venv/bin/python scripts/embed_taxonomy.py
-.venv/bin/python scripts/embed_taxonomy.py --execute --limit 20
+.venv/bin/python scripts/embed_taxonomy.py --execute --limit 50
 .venv/bin/python scripts/audit_taxonomy_inputs.py
 .venv/bin/python scripts/analyze_taxonomy.py
 ```
 
-Cache jest ważny tylko dla zgodnego modelu, przepisu i hasha wejścia. Limit dokumentów oraz
-kosztu pochodzi z `config/research-queue.yaml` i jest liczony łącznie dla wszystkich partii
-danego dnia w skonfigurowanej strefie czasowej. Po wyczerpaniu limitu skrypt zapisuje moment
-następnego cyklu bez wywołania API. Przejściowy błąd API zapisuje `nextRetryAt` zamiast
-utrzymywać uśpiony proces.
+Cache jest ważny tylko dla zgodnego modelu, przepisu i hasha wejścia. Embeddingi nie mają
+dziennego limitu dokumentów: jawny, skończony korpus ogranicza zakres, a konfiguracja dopuszcza
+maksymalnie 50 rekordów w pojedynczym requeście. Selektor nie przechodzi do kolejnej książki
+w środku requestu. Po każdej odpowiedzi zapisuje atomowy ledger i checkpoint, dzięki czemu
+Goal Mode może kontynuować do ukończenia źródła. Przejściowy błąd API zapisuje `nextRetryAt`
+zamiast utrzymywać uśpiony proces.
+
+Obecny `billingMode: experimental-no-charge` zapisuje naliczony koszt jako 0 USD. Cena modelu
+służy jedynie do raportowania kosztu referencyjnego i nie blokuje wykonania. Konfiguracja
+zachowuje wyłączony bezpiecznik kosztu referencyjnego, który trzeba ponownie włączyć przed
+użyciem rozliczanego konta.
 
 Analizator nie wywołuje API. Wylicza deterministyczne sąsiedztwa i techniczne klastry,
 oznacza niejednoznaczne przypisania oraz kandydatów odstających. Dopóki nie ma wszystkich

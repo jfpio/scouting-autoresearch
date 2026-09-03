@@ -304,13 +304,20 @@ def build_analysis(
 
 def load_usage() -> dict[str, Any]:
     batches = [read_json(path) for path in sorted(BATCH_DIR.glob("*.json"))]
-    config = load_config()["embedding"]
-    usage = summarize_batch_usage(batches, float(config["priceUsdPerMillionInputTokens"]))
+    config = load_config()
+    embedding = config["embedding"]
+    execution = config["execution"]
+    usage = summarize_batch_usage(
+        batches, float(embedding["priceUsdPerMillionInputTokens"])
+    )
     usage.update(
         {
             "batchIds": sorted(str(batch["batchId"]) for batch in batches),
-            "priceUsdPerMillionInputTokens": config["priceUsdPerMillionInputTokens"],
-            "priceSource": config["priceSource"],
+            "billingMode": execution["billingMode"],
+            "referencePriceUsdPerMillionInputTokens": embedding[
+                "priceUsdPerMillionInputTokens"
+            ],
+            "referencePriceSource": embedding["priceSource"],
         }
     )
     return usage

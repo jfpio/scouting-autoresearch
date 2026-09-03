@@ -10,21 +10,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
 import embed_taxonomy as taxonomy_embeddings
 from embed_taxonomy import (
-    batch_estimated_cost,
+    batch_reference_cost,
     build_embedding_input,
     cache_is_current,
     checkpoint_identity,
-    daily_usage,
     estimated_tokens,
     input_hash,
-    next_daily_reset,
     pending_recipe_migration_ids,
     prepare_context,
     recover_cached_items,
     recipe_execution_block_reason,
+    restrict_to_current_source,
     restrict_to_recipe_migration,
     retry_at,
     summarize_batch_usage,
+    update_checkpoint,
     write_retry_checkpoint,
 )
 
@@ -135,6 +135,16 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
             [],
         )
 
+    def test_request_never_spills_into_the_next_source(self):
+        pending = [
+            {"id": "hwp-116", "sourceId": "hwp-1946"},
+            {"id": "hwp-117", "sourceId": "hwp-1946"},
+            {"id": "pw-001", "sourceId": "pw-1935"},
+        ]
+        current_source, deferred = restrict_to_current_source(pending)
+        self.assertEqual([item["id"] for item in current_source], ["hwp-116", "hwp-117"])
+        self.assertEqual([item["id"] for item in deferred], ["pw-001"])
+
     def test_cache_requires_matching_recipe_hash_and_dimensions(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "pw-001.json"
@@ -181,6 +191,16 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
     def test_retry_checkpoint_preserves_embedding_identity(self):
         with tempfile.TemporaryDirectory() as directory:
             checkpoint_path = Path(directory) / "checkpoint.json"
+            checkpoint_path.write_text(
+                json.dumps(
+                    {
+                        "status": "daily-limit-reached",
+                        "nextCycleAt": "obsolete",
+                        "repository": {"lastPushedCommit": "abc"},
+                    }
+                ),
+                encoding="utf-8",
+            )
             identity = checkpoint_identity(
                 {
                     "model": "mistral-embed-2312",
@@ -197,73 +217,42 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
             checkpoint = json.loads(checkpoint_path.read_text(encoding="utf-8"))
             self.assertEqual(checkpoint["status"], "retry-pending")
             self.assertEqual(checkpoint["nextRetryAt"], "2026-09-03T12:00:00+00:00")
+            self.assertNotIn("nextCycleAt", checkpoint)
+            self.assertEqual(checkpoint["repository"], {"lastPushedCommit": "abc"})
             self.assertEqual(
                 {key: checkpoint[key] for key in identity},
                 identity,
             )
 
-    def test_daily_usage_uses_configured_local_date(self):
+    def test_checkpoint_merge_preserves_provenance_and_removes_stale_fields(self):
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            first = root / "first.json"
-            second = root / "second.json"
-            first.write_text(
-                json.dumps(
-                    {
-                        "batchId": "first",
-                        "generatedAt": "2026-09-01T22:30:00+00:00",
-                        "activityIds": ["hwp-001", "hwp-002"],
-                        "usage": {"promptTokens": 100},
-                    }
-                ),
-                encoding="utf-8",
-            )
-            second.write_text(
-                json.dumps(
-                    {
-                        "batchId": "second",
-                        "generatedAt": "2026-09-02T22:30:00+00:00",
-                        "activityIds": ["hwp-003"],
-                        "usage": {"promptTokens": 50},
-                    }
-                ),
-                encoding="utf-8",
-            )
-            usage = daily_usage(
-                [first, second],
-                now=datetime(2026, 9, 2, 12, tzinfo=UTC),
-                timezone_name="Europe/Warsaw",
-                price_per_million_tokens=0.1,
-            )
-            self.assertEqual(usage["documents"], 2)
-            self.assertEqual(usage["promptTokens"], 100)
-            self.assertEqual(usage["batchIds"], ["first"])
-
-    def test_daily_usage_preserves_ledger_cost_after_price_change(self):
-        with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory) / "batch.json"
+            path = Path(directory) / "checkpoint.json"
             path.write_text(
                 json.dumps(
                     {
-                        "batchId": "old-price",
-                        "generatedAt": "2026-09-02T10:00:00+00:00",
-                        "activityIds": ["hwp-001"],
-                        "usage": {"promptTokens": 100, "estimatedCostUsd": 1.25},
+                        "status": "daily-limit-reached",
+                        "nextCycleAt": "obsolete",
+                        "repository": {"lastPushedCommit": "abc"},
                     }
                 ),
                 encoding="utf-8",
             )
-            usage = daily_usage(
-                [path],
-                now=datetime(2026, 9, 2, 12, tzinfo=UTC),
-                timezone_name="Europe/Warsaw",
-                price_per_million_tokens=99.0,
+            checkpoint = update_checkpoint(
+                {"status": "source-batch-complete", "nextActivityId": "hwp-051"},
+                remove_keys=("nextCycleAt",),
+                path=path,
             )
-            self.assertEqual(usage["estimatedCostUsd"], 1.25)
+            self.assertEqual(checkpoint["repository"], {"lastPushedCommit": "abc"})
+            self.assertNotIn("nextCycleAt", checkpoint)
+            self.assertEqual(json.loads(path.read_text(encoding="utf-8")), checkpoint)
 
-    def test_batch_cost_falls_back_for_legacy_ledgers(self):
+    def test_reference_cost_falls_back_for_legacy_ledgers(self):
         batch = {"usage": {"promptTokens": 250}}
-        self.assertEqual(batch_estimated_cost(batch, 0.2), 0.00005)
+        self.assertEqual(batch_reference_cost(batch, 0.2), 0.00005)
+
+    def test_reference_cost_preserves_recorded_legacy_estimate(self):
+        batch = {"usage": {"promptTokens": 100, "estimatedCostUsd": 1.25}}
+        self.assertEqual(batch_reference_cost(batch, 99.0), 1.25)
 
     def test_batch_usage_is_grouped_by_recipe_without_hiding_superseded_cost(self):
         batches = [
@@ -271,25 +260,26 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
                 "batchId": "v1-batch-b",
                 "recipeVersion": "activity-context-v1",
                 "activityIds": ["hwp-002"],
-                "usage": {"promptTokens": 40, "estimatedCostUsd": 0.000004},
+                "usage": {"promptTokens": 40, "billedCostUsd": 0.0, "referenceCostUsd": 0.000004},
             },
             {
                 "batchId": "v1-batch-a",
                 "recipeVersion": "activity-context-v1",
                 "activityIds": ["hwp-001"],
-                "usage": {"promptTokens": 60, "estimatedCostUsd": 0.000012},
+                "usage": {"promptTokens": 60, "billedCostUsd": 0.0, "referenceCostUsd": 0.000012},
             },
             {
                 "batchId": "v2-batch",
                 "recipeVersion": "activity-context-v2",
                 "activityIds": ["hwp-001", "hwp-002", "hwp-003"],
-                "usage": {"promptTokens": 150, "estimatedCostUsd": 0.00003},
+                "usage": {"promptTokens": 150, "billedCostUsd": 0.0, "referenceCostUsd": 0.00003},
             },
         ]
         usage = summarize_batch_usage(list(reversed(batches)), 0.1)
         self.assertEqual(usage["documentsProcessed"], 5)
         self.assertEqual(usage["promptTokens"], 250)
-        self.assertEqual(usage["estimatedCostUsd"], 0.000046)
+        self.assertEqual(usage["billedCostUsd"], 0.0)
+        self.assertEqual(usage["referenceCostUsd"], 0.000046)
         self.assertEqual(
             usage["byRecipe"],
             [
@@ -298,21 +288,35 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
                     "batchIds": ["v1-batch-a", "v1-batch-b"],
                     "documents": 2,
                     "promptTokens": 100,
-                    "estimatedCostUsd": 0.000016,
+                    "billedCostUsd": 0.0,
+                    "referenceCostUsd": 0.000016,
                 },
                 {
                     "recipeVersion": "activity-context-v2",
                     "batchIds": ["v2-batch"],
                     "documents": 3,
                     "promptTokens": 150,
-                    "estimatedCostUsd": 0.00003,
+                    "billedCostUsd": 0.0,
+                    "referenceCostUsd": 0.00003,
                 },
             ],
         )
 
-    def test_next_daily_reset_is_local_midnight(self):
-        reset = next_daily_reset(datetime(2026, 9, 2, 22, 30, tzinfo=UTC), "Europe/Warsaw")
-        self.assertEqual(reset.isoformat(), "2026-09-04T00:00:00+02:00")
+    def test_unknown_metered_cost_is_not_reported_as_zero(self):
+        usage = summarize_batch_usage(
+            [
+                {
+                    "batchId": "metered",
+                    "recipeVersion": "activity-context-v2",
+                    "activityIds": ["hwp-001"],
+                    "usage": {"promptTokens": 100, "referenceCostUsd": 0.00001},
+                }
+            ],
+            0.1,
+        )
+        self.assertIsNone(usage["billedCostUsd"])
+        self.assertIsNone(usage["byRecipe"][0]["billedCostUsd"])
+        self.assertEqual(usage["referenceCostUsd"], 0.00001)
 
     def test_batch_ledger_recovers_missing_and_superseded_caches_atomically(self):
         with tempfile.TemporaryDirectory() as directory:

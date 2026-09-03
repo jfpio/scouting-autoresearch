@@ -7,6 +7,11 @@ embedding:
   modelMaxInputTokens: 8192
   priceUsdPerMillionInputTokens: 0.1
   priceSource: https://docs.mistral.ai/models/mistral-embed-23-12
+execution:
+  maxDocumentsPerRequest: 50
+  billingMode: experimental-no-charge
+  enforceReferenceCostLimit: false
+  maxReferenceCostUsdPerRequest: 0.25
 analysis:
   algorithmVersion: average-linkage-cosine-v1
   targetClusterCount: 12

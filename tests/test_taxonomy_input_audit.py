@@ -1,10 +1,12 @@
+import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from audit_taxonomy_inputs import build_quality_report
+from audit_taxonomy_inputs import build_quality_report, write_quality_checkpoint
 from embed_taxonomy import build_embedding_input
 
 
@@ -79,6 +81,37 @@ class TaxonomyInputAuditTests(unittest.TestCase):
             embedding_config=config,
         )
         self.assertEqual(first, second)
+
+    def test_quality_checkpoint_preserves_cycle_and_repository_state(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "checkpoint.json"
+            report_path = Path(directory) / "audit.json"
+            path.write_text(
+                json.dumps(
+                    {
+                        "status": "source-batch-complete",
+                        "nextActivityId": "hwp-051",
+                        "repository": {"lastPushedCommit": "abc"},
+                    }
+                ),
+                encoding="utf-8",
+            )
+            report = build_quality_report(
+                [record("hwp-001", "Treść bez odnośnika.")],
+                [],
+                embedding_config={
+                    "model": "mistral-embed-2312",
+                    "recipeVersion": "activity-context-v2",
+                    "contextCharacters": 600,
+                },
+            )
+            write_quality_checkpoint(report, path=path, report_path=report_path)
+            checkpoint = json.loads(path.read_text(encoding="utf-8"))
+            self.assertEqual(checkpoint["status"], "source-batch-complete")
+            self.assertEqual(checkpoint["nextActivityId"], "hwp-051")
+            self.assertEqual(checkpoint["repository"], {"lastPushedCommit": "abc"})
+            self.assertEqual(checkpoint["inputQualityAudit"]["status"], "ready")
+            self.assertEqual(checkpoint["inputQualityAudit"]["reportPath"], str(report_path))
 
 
 if __name__ == "__main__":

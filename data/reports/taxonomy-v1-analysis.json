@@ -216,7 +216,8 @@
   "usage": {
     "documentsProcessed": 40,
     "promptTokens": 12798,
-    "estimatedCostUsd": 0.0012798,
+    "billedCostUsd": 0.0,
+    "referenceCostUsd": 0.0012798,
     "byRecipe": [
       {
         "recipeVersion": "activity-context-v1",
@@ -225,7 +226,8 @@
         ],
         "documents": 20,
         "promptTokens": 6488,
-        "estimatedCostUsd": 0.0006488
+        "billedCostUsd": 0.0,
+        "referenceCostUsd": 0.0006488
       },
       {
         "recipeVersion": "activity-context-v2",
@@ -234,15 +236,17 @@
         ],
         "documents": 20,
         "promptTokens": 6310,
-        "estimatedCostUsd": 0.000631
+        "billedCostUsd": 0.0,
+        "referenceCostUsd": 0.000631
       }
     ],
     "batchIds": [
       "20260902T162102743176Z",
       "20260903T111543724483Z"
     ],
-    "priceUsdPerMillionInputTokens": 0.1,
-    "priceSource": "https://docs.mistral.ai/models/mistral-embed-23-12"
+    "billingMode": "experimental-no-charge",
+    "referencePriceUsdPerMillionInputTokens": 0.1,
+    "referencePriceSource": "https://docs.mistral.ai/models/mistral-embed-23-12"
   },
   "clusters": [
     {
