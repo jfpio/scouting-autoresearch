@@ -4,7 +4,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from validate_candidates import candidate_errors
+from validate_candidates import candidate_errors, registry_errors
 
 
 class SourceCandidateTests(unittest.TestCase):
@@ -102,9 +102,78 @@ class SourceCandidateTests(unittest.TestCase):
             }
         )
         errors = candidate_errors(self.candidate, "Decision notes", self.registry, "accepted")
-        self.assertTrue(any("human decision date" in error for error in errors))
+        self.assertTrue(any("approved collection policy" in error for error in errors))
 
-    def test_candidate_cannot_enable_full_text_without_human_review(self):
+    def test_accepted_candidate_can_use_approved_collection_policy(self):
+        self.registry["collection"]["rightsPresumption"] = {
+            "id": "collection-pd-policy",
+            "humanApproved": True,
+        }
+        self.candidate.update(
+            {
+                "status": "accepted",
+                "reviewRequired": False,
+                "publicationBlocked": False,
+            }
+        )
+        self.candidate["rightsReview"].update(
+            {
+                "status": "policy-approved",
+                "humanApproved": True,
+                "rightsStatus": "public-domain",
+                "approvalPolicyId": "collection-pd-policy",
+                "catalogClaim": "public-domain-in-the-usa",
+                "approvedScope": ["collection-marked-content"],
+                "fullTextEligible": True,
+                "translationEligible": True,
+                "unresolved": [],
+                "calculation": {
+                    "relevantAuthors": [
+                        {
+                            "name": "Author",
+                            "deathDate": "1941-01-08",
+                            "evidenceId": "evidence-1",
+                        }
+                    ],
+                    "lastRelevantAuthorDeathDate": "1941-01-08",
+                    "protectionEnded": "2011-12-31",
+                    "publicDomainFrom": "2012-01-01",
+                },
+            }
+        )
+        self.assertEqual(
+            candidate_errors(self.candidate, "Policy notes", self.registry, "accepted"), []
+        )
+
+        self.candidate["rightsReview"]["calculation"]["publicDomainFrom"] = "2011-01-01"
+        errors = candidate_errors(self.candidate, "Policy notes", self.registry, "accepted")
+        self.assertTrue(any("calculation" in error for error in errors))
+
+    def test_policy_approved_collection_configuration_is_validated(self):
+        self.registry["collection"].update(
+            {
+                "status": "approved-by-policy",
+                "allowedMethods": ["metadata-only", "documented-download"],
+                "rightsPresumption": {
+                    "id": "collection-pd-policy",
+                    "conditions": [
+                        "catalog-public-domain-claim",
+                        "seventy-full-calendar-years-after-author-death",
+                    ],
+                    "resultRightsStatus": "public-domain",
+                    "jurisdictions": ["PL", "EU"],
+                    "humanApproved": True,
+                    "approvedBy": "repository-owner",
+                    "approvedAt": "2026-09-03",
+                },
+            }
+        )
+        self.assertEqual(registry_errors(self.registry), [])
+
+        self.registry["collection"]["rightsPresumption"]["humanApproved"] = False
+        self.assertTrue(any("lacks human approval" in error for error in registry_errors(self.registry)))
+
+    def test_pending_candidate_cannot_enable_full_text(self):
         self.candidate["rightsReview"]["fullTextEligible"] = True
         errors = candidate_errors(self.candidate, "Review notes", self.registry)
         self.assertTrue(any("enables full text" in error for error in errors))

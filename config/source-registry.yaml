@@ -1,7 +1,7 @@
 schemaVersion: 1
 policy:
   fullTextRequires: public-domain
-  humanRightsApproval: true
+  humanRightsApproval: policy-or-per-item
   obeyRobotsTxt: true
   obeyTermsOfUse: true
 collections:
@@ -26,10 +26,29 @@ collections:
   - id: project-gutenberg
     name: Project Gutenberg
     baseUrl: https://www.gutenberg.org/
-    status: candidate
-    allowedMethods: [metadata-only]
+    status: approved-by-policy
+    allowedMethods: [metadata-only, documented-download]
     rateLimitPerMinute: 5
-    notes: Przed pobraniem zweryfikować prawa dla użytkownika i konkretnej edycji.
+    rightsPresumption:
+      id: project-gutenberg-pd-usa-plus-life-70
+      conditions:
+        - catalog-claim-public-domain-in-the-usa
+        - relevant-natural-authors-identified
+        - seventy-full-calendar-years-after-last-relevant-author-death
+      resultRightsStatus: public-domain
+      jurisdictions: [PL, EU]
+      termCalculation: first-january-after-seventy-full-years-from-death-year
+      humanApproved: true
+      approvedBy: repository-owner
+      approvedAt: "2026-09-03"
+      excludes:
+        - separately-licensed-or-later-protected-contributions
+        - project-gutenberg-license-and-trademark
+        - project-gutenberg-digital-packaging
+    notes: >-
+      Udokumentowane oznaczenie Public domain in the USA oraz upływ 70 pełnych lat od śmierci
+      ostatniego właściwego autora uruchamiają zatwierdzoną regułę dla Polski i UE. Osobno
+      wyłącz wkłady innych autorów, późniejszą redakcję i opakowanie Gutenberga.
   - id: internet-archive
     name: Internet Archive
     baseUrl: https://archive.org/
