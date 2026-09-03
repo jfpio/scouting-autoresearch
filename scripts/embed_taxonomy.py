@@ -586,6 +586,7 @@ def main() -> None:
                 "nextActivityId": next_item["id"] if next_item else None,
                 "nextSourceId": next_item["sourceId"] if next_item else None,
                 "billingMode": billing_mode,
+                "requestDocumentLimit": request_document_limit,
                 **identity,
             },
             remove_keys=(
@@ -594,6 +595,8 @@ def main() -> None:
                 "nextCycleAt",
                 "nextRetryAt",
                 "reason",
+                "documentsProcessedThisCycle",
+                "estimatedCostUsdThisCycle",
             ),
         )
         return
