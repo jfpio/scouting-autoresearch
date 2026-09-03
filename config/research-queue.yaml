@@ -2,6 +2,7 @@ schemaVersion: 1
 dailyLimits:
   documents: 20
   estimatedCostUsd: 5
+  timezone: Europe/Warsaw
 subjects:
   - id: robert-baden-powell
     name: Robert Baden-Powell

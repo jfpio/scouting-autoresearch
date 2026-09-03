@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "batchId": "20260903T111543724483Z",
+  "generatedAt": "2026-09-03T11:15:43.724483+00:00",
+  "modelRequested": "mistral-embed-2312",
+  "model": "mistral-embed-2312",
+  "recipeVersion": "activity-context-v2",
+  "sourceId": "hwp-1946",
+  "billingMode": "experimental-no-charge",
+  "referencePriceUsdPerMillionInputTokens": 0.1,
+  "referencePriceSource": "https://docs.mistral.ai/models/mistral-embed-23-12",
+  "activityIds": [
+    "hwp-001",
+    "hwp-002",
+    "hwp-003",
+    "hwp-004",
+    "hwp-005",
+    "hwp-006",
+    "hwp-007",
+    "hwp-008",
+    "hwp-009",
+    "hwp-010",
+    "hwp-011",
+    "hwp-012",
+    "hwp-013",
+    "hwp-014",
+    "hwp-015",
+    "hwp-016",
+    "hwp-017",
+    "hwp-018",
+    "hwp-019",
+    "hwp-020"
+  ],
+  "usage": {
+    "promptTokens": 6310,
+    "billedCostUsd": 0.0,
+    "referenceCostUsd": 0.000631
+  }
+}

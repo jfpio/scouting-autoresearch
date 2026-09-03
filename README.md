@@ -50,6 +50,51 @@ Importer zapisuje commity i sumy kontrolne w `imports.lock.json`. Tłumacz wczyt
 rekordy z aktualnym hashem. Model V0 to `mistral-medium-2604`; żądany pierwotnie
 `mistral-large-2512` nie był dostępny dla użytego planu API.
 
+## Taksonomia V1
+
+Przed wywołaniem API skrypt pokazuje plan partii, koszt referencyjny i granicę źródła:
+
+```bash
+.venv/bin/python scripts/embed_taxonomy.py
+.venv/bin/python scripts/embed_taxonomy.py --execute --limit 50
+.venv/bin/python scripts/audit_taxonomy_inputs.py
+.venv/bin/python scripts/analyze_taxonomy.py
+.venv/bin/python scripts/propose_taxonomy.py
+```
+
+Cache jest ważny tylko dla zgodnego modelu, przepisu i hasha wejścia. Embeddingi nie mają
+dziennego limitu dokumentów: jawny, skończony korpus ogranicza zakres, a konfiguracja dopuszcza
+maksymalnie 50 rekordów w pojedynczym requeście. Selektor nie przechodzi do kolejnej książki
+w środku requestu. Po każdej odpowiedzi zapisuje atomowy ledger i checkpoint, dzięki czemu
+Goal Mode może kontynuować do ukończenia źródła. Przejściowy błąd API zapisuje `nextRetryAt`
+zamiast utrzymywać uśpiony proces.
+
+Obecny `billingMode: experimental-no-charge` zapisuje naliczony koszt jako 0 USD. Cena modelu
+służy jedynie do raportowania kosztu referencyjnego i nie blokuje wykonania. Konfiguracja
+zachowuje wyłączony bezpiecznik kosztu referencyjnego, który trzeba ponownie włączyć przed
+użyciem rozliczanego konta.
+
+Analizator nie wywołuje API. Wylicza deterministyczne sąsiedztwa i techniczne klastry,
+oznacza niejednoznaczne przypisania oraz kandydatów odstających. Dopóki nie ma wszystkich
+202 aktualnych cache’y, raport ma status `partial`; zawsze pozostaje propozycją do ręcznego
+przeglądu i nie zmienia produkcyjnych kategorii ani filtrów.
+
+Generator propozycji taksonomii materializuje 13 szerokich, dwujęzycznych kategorii oraz
+jawne mapowania oparte wyłącznie na zastanych działach i polach redakcyjnych. Wynik trafia do
+raportu z oznaczeniami `proposalOnly` i `reviewRequired`; nie zmienia `vault/taxonomy/`,
+filtrów ani eksportów przed decyzją człowieka.
+
+Kod obsługuje też przepis `activity-context-v2`, który przed skróceniem kontekstu usuwa
+techniczną stopkę źródłową oraz adresy URL z Markdown, zachowując tekst widoczny odnośników.
+Zmiana `recipeVersion` jest jawna i celowo unieważnia wcześniejsze cache’e. Wszystkie 202
+aktywności źródeł `hwp-1946` i `pw-1935` mają aktualny cache v2; raport kosztu zachowuje
+osobno zastąpiony pilotażowy przebieg v1. Jeżeli raport jakości ma status
+`recipe-upgrade-pending`, tryb `--execute` jest blokowany dla starej receptury. Dry-run
+pokazuje przyczynę blokady; wykonanie staje się możliwe dopiero po przełączeniu konfiguracji
+na wskazaną recepturę kandydującą. Dopóki wszystkie ID z
+`reembedBeforeNewActivities` nie mają aktualnego cache’a, selektor nie dobiera do partii
+żadnych nowych aktywności — również po częściowym odzyskaniu przerwanej partii.
+
 ## Struktura
 
 - `vault/` — źródło prawdy zgodne z Obsidianem,

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "taxonomy-v1-input-quality",
+  "status": "ready",
+  "generatedFrom": "activity-metadata-and-body",
+  "evidenceThrough": "2026-09-03T12:12:09.601060+00:00",
+  "auditHash": "a59d4081c2028813078c4bbc98c19797cef97400aaada9d0f0d8cb3226d47294",
+  "model": "mistral-embed-2312",
+  "contextCharacters": 600,
+  "activeRecipeVersion": "activity-context-v2",
+  "candidateRecipeVersion": "activity-context-v2",
+  "corpus": {
+    "totalActivities": 202,
+    "contentChangedActivities": 0,
+    "contentChangedActivityIds": [],
+    "activeNoise": {
+      "sourceFooterIds": [],
+      "rawUrlIds": []
+    },
+    "candidateNoise": {
+      "sourceFooterIds": [],
+      "rawUrlIds": []
+    }
+  },
+  "existingCaches": {
+    "total": 202,
+    "contentChanged": 0,
+    "contentChangedActivityIds": [],
+    "activeNoise": {
+      "sourceFooterIds": [],
+      "rawUrlIds": []
+    },
+    "invalidatedByRecipeChange": 0,
+    "invalidatedActivityIds": []
+  },
+  "remediation": {
+    "activateRecipeVersion": "activity-context-v2",
+    "configurationChangeRequired": false,
+    "reembedBeforeNewActivities": [],
+    "nextNewActivityId": null,
+    "requiresExternalApi": false,
+    "humanTaxonomyApprovalRequired": false
+  }
+}
