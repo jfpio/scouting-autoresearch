@@ -3,8 +3,8 @@
   "pipeline": "taxonomy-v1-input-quality",
   "status": "ready",
   "generatedFrom": "activity-metadata-and-body",
-  "evidenceThrough": "2026-09-03T11:15:43.724483+00:00",
-  "auditHash": "47124812bb746e5b11dd6dfd4bb340896950c759a8a416a0a9ed71ee43a643f5",
+  "evidenceThrough": "2026-09-03T11:59:37.970010+00:00",
+  "auditHash": "b36037d2a1944eaacc5a6e705262107478e0786cf5120a1328831556f39be264",
   "model": "mistral-embed-2312",
   "contextCharacters": 600,
   "activeRecipeVersion": "activity-context-v2",
@@ -23,7 +23,7 @@
     }
   },
   "existingCaches": {
-    "total": 20,
+    "total": 117,
     "contentChanged": 0,
     "contentChangedActivityIds": [],
     "activeNoise": {
@@ -37,7 +37,7 @@
     "activateRecipeVersion": "activity-context-v2",
     "configurationChangeRequired": false,
     "reembedBeforeNewActivities": [],
-    "nextNewActivityId": "hwp-021",
+    "nextNewActivityId": "pw-001",
     "requiresExternalApi": false,
     "humanTaxonomyApprovalRequired": false
   }

@@ -5,111 +5,14 @@
   "proposalOnly": true,
   "reviewRequired": true,
   "productionTaxonomyChanged": false,
-  "generatedAt": "2026-09-03T11:15:43.724483+00:00",
-  "analysisHash": "fcba7fb9d0fc7c2fd8ea874df250b86924625f694a66b8f45e28b922f7e0e077",
+  "generatedAt": "2026-09-03T11:59:37.970010+00:00",
+  "analysisHash": "7490cb5187d19e60210913bb484bf536721b854cef9a8c6e1d622f806557b5db",
   "algorithmVersion": "average-linkage-cosine-v1",
   "coverage": {
     "totalActivities": 202,
-    "embeddedActivities": 20,
-    "missingActivities": 182,
+    "embeddedActivities": 117,
+    "missingActivities": 85,
     "missingActivityIds": [
-      "hwp-021",
-      "hwp-022",
-      "hwp-023",
-      "hwp-024",
-      "hwp-025",
-      "hwp-026",
-      "hwp-027",
-      "hwp-028",
-      "hwp-029",
-      "hwp-030",
-      "hwp-031",
-      "hwp-032",
-      "hwp-033",
-      "hwp-034",
-      "hwp-035",
-      "hwp-036",
-      "hwp-037",
-      "hwp-038",
-      "hwp-039",
-      "hwp-040",
-      "hwp-041",
-      "hwp-042",
-      "hwp-043",
-      "hwp-044",
-      "hwp-045",
-      "hwp-046",
-      "hwp-047",
-      "hwp-048",
-      "hwp-049",
-      "hwp-050",
-      "hwp-051",
-      "hwp-052",
-      "hwp-053",
-      "hwp-054",
-      "hwp-055",
-      "hwp-056",
-      "hwp-057",
-      "hwp-058",
-      "hwp-059",
-      "hwp-060",
-      "hwp-061",
-      "hwp-062",
-      "hwp-063",
-      "hwp-064",
-      "hwp-065",
-      "hwp-066",
-      "hwp-067",
-      "hwp-068",
-      "hwp-069",
-      "hwp-070",
-      "hwp-071",
-      "hwp-072",
-      "hwp-073",
-      "hwp-074",
-      "hwp-075",
-      "hwp-076",
-      "hwp-077",
-      "hwp-078",
-      "hwp-079",
-      "hwp-080",
-      "hwp-081",
-      "hwp-082",
-      "hwp-083",
-      "hwp-084",
-      "hwp-085",
-      "hwp-086",
-      "hwp-087",
-      "hwp-088",
-      "hwp-089",
-      "hwp-090",
-      "hwp-091",
-      "hwp-092",
-      "hwp-093",
-      "hwp-094",
-      "hwp-095",
-      "hwp-096",
-      "hwp-097",
-      "hwp-098",
-      "hwp-099",
-      "hwp-100",
-      "hwp-101",
-      "hwp-102",
-      "hwp-103",
-      "hwp-104",
-      "hwp-105",
-      "hwp-106",
-      "hwp-107",
-      "hwp-108",
-      "hwp-109",
-      "hwp-110",
-      "hwp-111",
-      "hwp-112",
-      "hwp-113",
-      "hwp-114",
-      "hwp-115",
-      "hwp-116",
-      "hwp-117",
       "pw-001",
       "pw-002",
       "pw-003",
@@ -214,10 +117,10 @@
     "outlierIqrMultiplier": 1.5
   },
   "usage": {
-    "documentsProcessed": 40,
-    "promptTokens": 12798,
+    "documentsProcessed": 137,
+    "promptTokens": 43652,
     "billedCostUsd": 0.0,
-    "referenceCostUsd": 0.0012798,
+    "referenceCostUsd": 0.0043652,
     "byRecipe": [
       {
         "recipeVersion": "activity-context-v1",
@@ -232,17 +135,21 @@
       {
         "recipeVersion": "activity-context-v2",
         "batchIds": [
-          "20260903T111543724483Z"
+          "20260903T111543724483Z",
+          "20260903T115822929757Z",
+          "20260903T115937970010Z"
         ],
-        "documents": 20,
-        "promptTokens": 6310,
+        "documents": 117,
+        "promptTokens": 37164,
         "billedCostUsd": 0.0,
-        "referenceCostUsd": 0.000631
+        "referenceCostUsd": 0.0037164
       }
     ],
     "batchIds": [
       "20260902T162102743176Z",
-      "20260903T111543724483Z"
+      "20260903T111543724483Z",
+      "20260903T115822929757Z",
+      "20260903T115937970010Z"
     ],
     "billingMode": "experimental-no-charge",
     "referencePriceUsdPerMillionInputTokens": 0.1,
@@ -251,94 +158,191 @@
   "clusters": [
     {
       "technicalClusterId": "technical-cluster-01",
-      "size": 4,
+      "size": 100,
       "activityIds": [
         "hwp-001",
         "hwp-002",
+        "hwp-003",
         "hwp-004",
-        "hwp-005"
+        "hwp-005",
+        "hwp-006",
+        "hwp-007",
+        "hwp-008",
+        "hwp-009",
+        "hwp-010",
+        "hwp-011",
+        "hwp-012",
+        "hwp-013",
+        "hwp-014",
+        "hwp-015",
+        "hwp-016",
+        "hwp-018",
+        "hwp-019",
+        "hwp-020",
+        "hwp-021",
+        "hwp-022",
+        "hwp-023",
+        "hwp-025",
+        "hwp-026",
+        "hwp-027",
+        "hwp-028",
+        "hwp-029",
+        "hwp-030",
+        "hwp-031",
+        "hwp-033",
+        "hwp-036",
+        "hwp-037",
+        "hwp-038",
+        "hwp-039",
+        "hwp-040",
+        "hwp-041",
+        "hwp-042",
+        "hwp-043",
+        "hwp-044",
+        "hwp-045",
+        "hwp-046",
+        "hwp-047",
+        "hwp-048",
+        "hwp-049",
+        "hwp-050",
+        "hwp-051",
+        "hwp-052",
+        "hwp-053",
+        "hwp-054",
+        "hwp-055",
+        "hwp-056",
+        "hwp-057",
+        "hwp-059",
+        "hwp-060",
+        "hwp-061",
+        "hwp-062",
+        "hwp-063",
+        "hwp-064",
+        "hwp-065",
+        "hwp-066",
+        "hwp-067",
+        "hwp-068",
+        "hwp-069",
+        "hwp-070",
+        "hwp-071",
+        "hwp-072",
+        "hwp-073",
+        "hwp-074",
+        "hwp-075",
+        "hwp-076",
+        "hwp-077",
+        "hwp-078",
+        "hwp-079",
+        "hwp-080",
+        "hwp-081",
+        "hwp-082",
+        "hwp-085",
+        "hwp-086",
+        "hwp-087",
+        "hwp-088",
+        "hwp-091",
+        "hwp-092",
+        "hwp-093",
+        "hwp-094",
+        "hwp-095",
+        "hwp-097",
+        "hwp-098",
+        "hwp-100",
+        "hwp-101",
+        "hwp-102",
+        "hwp-103",
+        "hwp-104",
+        "hwp-105",
+        "hwp-106",
+        "hwp-107",
+        "hwp-109",
+        "hwp-110",
+        "hwp-112",
+        "hwp-114",
+        "hwp-117"
       ]
     },
     {
       "technicalClusterId": "technical-cluster-02",
-      "size": 1,
+      "size": 2,
       "activityIds": [
-        "hwp-003"
+        "hwp-017",
+        "hwp-058"
       ]
     },
     {
       "technicalClusterId": "technical-cluster-03",
-      "size": 4,
+      "size": 1,
       "activityIds": [
-        "hwp-006",
-        "hwp-012",
-        "hwp-015",
-        "hwp-018"
+        "hwp-024"
       ]
     },
     {
       "technicalClusterId": "technical-cluster-04",
       "size": 1,
       "activityIds": [
-        "hwp-007"
+        "hwp-032"
       ]
     },
     {
       "technicalClusterId": "technical-cluster-05",
-      "size": 2,
+      "size": 1,
       "activityIds": [
-        "hwp-008",
-        "hwp-009"
+        "hwp-034"
       ]
     },
     {
       "technicalClusterId": "technical-cluster-06",
       "size": 1,
       "activityIds": [
-        "hwp-010"
+        "hwp-035"
       ]
     },
     {
       "technicalClusterId": "technical-cluster-07",
-      "size": 1,
+      "size": 4,
       "activityIds": [
-        "hwp-011"
+        "hwp-083",
+        "hwp-089",
+        "hwp-096",
+        "hwp-113"
       ]
     },
     {
       "technicalClusterId": "technical-cluster-08",
-      "size": 1,
+      "size": 3,
       "activityIds": [
-        "hwp-013"
+        "hwp-084",
+        "hwp-115",
+        "hwp-116"
       ]
     },
     {
       "technicalClusterId": "technical-cluster-09",
-      "size": 2,
+      "size": 1,
       "activityIds": [
-        "hwp-014",
-        "hwp-016"
+        "hwp-090"
       ]
     },
     {
       "technicalClusterId": "technical-cluster-10",
       "size": 1,
       "activityIds": [
-        "hwp-017"
+        "hwp-099"
       ]
     },
     {
       "technicalClusterId": "technical-cluster-11",
       "size": 1,
       "activityIds": [
-        "hwp-019"
+        "hwp-108"
       ]
     },
     {
       "technicalClusterId": "technical-cluster-12",
       "size": 1,
       "activityIds": [
-        "hwp-020"
+        "hwp-111"
       ]
     }
   ],
@@ -348,7 +352,7 @@
       "sourceId": "hwp-1946",
       "sourceTraits": [],
       "technicalClusterId": "technical-cluster-01",
-      "neighborConnectivity": 0.94104418
+      "neighborConnectivity": 0.94283574
     },
     {
       "activityId": "hwp-002",
@@ -361,127 +365,806 @@
       "activityId": "hwp-003",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-02",
-      "neighborConnectivity": 0.92416651
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92432173
     },
     {
       "activityId": "hwp-004",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
       "technicalClusterId": "technical-cluster-01",
-      "neighborConnectivity": 0.93940152
+      "neighborConnectivity": 0.93952199
     },
     {
       "activityId": "hwp-005",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
       "technicalClusterId": "technical-cluster-01",
-      "neighborConnectivity": 0.9380962
+      "neighborConnectivity": 0.93820641
     },
     {
       "activityId": "hwp-006",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-03",
-      "neighborConnectivity": 0.93748734
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.94221004
     },
     {
       "activityId": "hwp-007",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-04",
-      "neighborConnectivity": 0.92715567
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93053626
     },
     {
       "activityId": "hwp-008",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-05",
+      "technicalClusterId": "technical-cluster-01",
       "neighborConnectivity": 0.93820058
     },
     {
       "activityId": "hwp-009",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-05",
-      "neighborConnectivity": 0.9362092
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.9362871
     },
     {
       "activityId": "hwp-010",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-06",
+      "technicalClusterId": "technical-cluster-01",
       "neighborConnectivity": 0.93300414
     },
     {
       "activityId": "hwp-011",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-07",
-      "neighborConnectivity": 0.92180081
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92685588
     },
     {
       "activityId": "hwp-012",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-03",
+      "technicalClusterId": "technical-cluster-01",
       "neighborConnectivity": 0.94671248
     },
     {
       "activityId": "hwp-013",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-08",
-      "neighborConnectivity": 0.93625127
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93652252
     },
     {
       "activityId": "hwp-014",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-09",
-      "neighborConnectivity": 0.94335569
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.94653282
     },
     {
       "activityId": "hwp-015",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-03",
+      "technicalClusterId": "technical-cluster-01",
       "neighborConnectivity": 0.93900979
     },
     {
       "activityId": "hwp-016",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-09",
-      "neighborConnectivity": 0.9369492
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.94655571
     },
     {
       "activityId": "hwp-017",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-10",
-      "neighborConnectivity": 0.92061871
+      "technicalClusterId": "technical-cluster-02",
+      "neighborConnectivity": 0.92121265
     },
     {
       "activityId": "hwp-018",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-03",
-      "neighborConnectivity": 0.93459134
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93795045
     },
     {
       "activityId": "hwp-019",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
-      "technicalClusterId": "technical-cluster-11",
-      "neighborConnectivity": 0.90640623
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92558193
     },
     {
       "activityId": "hwp-020",
       "sourceId": "hwp-1946",
       "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92764287
+    },
+    {
+      "activityId": "hwp-021",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93416302
+    },
+    {
+      "activityId": "hwp-022",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92184894
+    },
+    {
+      "activityId": "hwp-023",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93417033
+    },
+    {
+      "activityId": "hwp-024",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-03",
+      "neighborConnectivity": 0.90937082
+    },
+    {
+      "activityId": "hwp-025",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92705522
+    },
+    {
+      "activityId": "hwp-026",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92650907
+    },
+    {
+      "activityId": "hwp-027",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92445943
+    },
+    {
+      "activityId": "hwp-028",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.91673313
+    },
+    {
+      "activityId": "hwp-029",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92673301
+    },
+    {
+      "activityId": "hwp-030",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93716812
+    },
+    {
+      "activityId": "hwp-031",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92857077
+    },
+    {
+      "activityId": "hwp-032",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-04",
+      "neighborConnectivity": 0.90922066
+    },
+    {
+      "activityId": "hwp-033",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.91949818
+    },
+    {
+      "activityId": "hwp-034",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-05",
+      "neighborConnectivity": 0.90770466
+    },
+    {
+      "activityId": "hwp-035",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-06",
+      "neighborConnectivity": 0.91682412
+    },
+    {
+      "activityId": "hwp-036",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.94946994
+    },
+    {
+      "activityId": "hwp-037",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.94014296
+    },
+    {
+      "activityId": "hwp-038",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93397838
+    },
+    {
+      "activityId": "hwp-039",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92282103
+    },
+    {
+      "activityId": "hwp-040",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.9334575
+    },
+    {
+      "activityId": "hwp-041",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92488045
+    },
+    {
+      "activityId": "hwp-042",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.9348399
+    },
+    {
+      "activityId": "hwp-043",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93650149
+    },
+    {
+      "activityId": "hwp-044",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.9183287
+    },
+    {
+      "activityId": "hwp-045",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92006003
+    },
+    {
+      "activityId": "hwp-046",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.94950933
+    },
+    {
+      "activityId": "hwp-047",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.94056903
+    },
+    {
+      "activityId": "hwp-048",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92718783
+    },
+    {
+      "activityId": "hwp-049",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92019908
+    },
+    {
+      "activityId": "hwp-050",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.95563751
+    },
+    {
+      "activityId": "hwp-051",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.95316223
+    },
+    {
+      "activityId": "hwp-052",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.95145446
+    },
+    {
+      "activityId": "hwp-053",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93396699
+    },
+    {
+      "activityId": "hwp-054",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93511569
+    },
+    {
+      "activityId": "hwp-055",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.94768385
+    },
+    {
+      "activityId": "hwp-056",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92341948
+    },
+    {
+      "activityId": "hwp-057",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92350988
+    },
+    {
+      "activityId": "hwp-058",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-02",
+      "neighborConnectivity": 0.9142699
+    },
+    {
+      "activityId": "hwp-059",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92609134
+    },
+    {
+      "activityId": "hwp-060",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92421234
+    },
+    {
+      "activityId": "hwp-061",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92545659
+    },
+    {
+      "activityId": "hwp-062",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.91527512
+    },
+    {
+      "activityId": "hwp-063",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.932297
+    },
+    {
+      "activityId": "hwp-064",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92937229
+    },
+    {
+      "activityId": "hwp-065",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92086116
+    },
+    {
+      "activityId": "hwp-066",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93574358
+    },
+    {
+      "activityId": "hwp-067",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92841112
+    },
+    {
+      "activityId": "hwp-068",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93079038
+    },
+    {
+      "activityId": "hwp-069",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92360589
+    },
+    {
+      "activityId": "hwp-070",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.91804913
+    },
+    {
+      "activityId": "hwp-071",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92637249
+    },
+    {
+      "activityId": "hwp-072",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93423226
+    },
+    {
+      "activityId": "hwp-073",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.91581829
+    },
+    {
+      "activityId": "hwp-074",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92841091
+    },
+    {
+      "activityId": "hwp-075",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93516998
+    },
+    {
+      "activityId": "hwp-076",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.9328374
+    },
+    {
+      "activityId": "hwp-077",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92905604
+    },
+    {
+      "activityId": "hwp-078",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92166771
+    },
+    {
+      "activityId": "hwp-079",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92561192
+    },
+    {
+      "activityId": "hwp-080",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92027137
+    },
+    {
+      "activityId": "hwp-081",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93403861
+    },
+    {
+      "activityId": "hwp-082",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92787004
+    },
+    {
+      "activityId": "hwp-083",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-07",
+      "neighborConnectivity": 0.91762954
+    },
+    {
+      "activityId": "hwp-084",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-08",
+      "neighborConnectivity": 0.90657664
+    },
+    {
+      "activityId": "hwp-085",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92480346
+    },
+    {
+      "activityId": "hwp-086",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93559605
+    },
+    {
+      "activityId": "hwp-087",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92463001
+    },
+    {
+      "activityId": "hwp-088",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92426567
+    },
+    {
+      "activityId": "hwp-089",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-07",
+      "neighborConnectivity": 0.92971865
+    },
+    {
+      "activityId": "hwp-090",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-09",
+      "neighborConnectivity": 0.90610046
+    },
+    {
+      "activityId": "hwp-091",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93093475
+    },
+    {
+      "activityId": "hwp-092",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92297499
+    },
+    {
+      "activityId": "hwp-093",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.91836199
+    },
+    {
+      "activityId": "hwp-094",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92374535
+    },
+    {
+      "activityId": "hwp-095",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93009534
+    },
+    {
+      "activityId": "hwp-096",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-07",
+      "neighborConnectivity": 0.91781219
+    },
+    {
+      "activityId": "hwp-097",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92053916
+    },
+    {
+      "activityId": "hwp-098",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.91786876
+    },
+    {
+      "activityId": "hwp-099",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-10",
+      "neighborConnectivity": 0.9030748
+    },
+    {
+      "activityId": "hwp-100",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93495166
+    },
+    {
+      "activityId": "hwp-101",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93736598
+    },
+    {
+      "activityId": "hwp-102",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93487129
+    },
+    {
+      "activityId": "hwp-103",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.94206919
+    },
+    {
+      "activityId": "hwp-104",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92156228
+    },
+    {
+      "activityId": "hwp-105",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.91834594
+    },
+    {
+      "activityId": "hwp-106",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.91970586
+    },
+    {
+      "activityId": "hwp-107",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.93626097
+    },
+    {
+      "activityId": "hwp-108",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-11",
+      "neighborConnectivity": 0.90845343
+    },
+    {
+      "activityId": "hwp-109",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92244337
+    },
+    {
+      "activityId": "hwp-110",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92665751
+    },
+    {
+      "activityId": "hwp-111",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
       "technicalClusterId": "technical-cluster-12",
-      "neighborConnectivity": 0.9235972
+      "neighborConnectivity": 0.89803617
+    },
+    {
+      "activityId": "hwp-112",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92527923
+    },
+    {
+      "activityId": "hwp-113",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-07",
+      "neighborConnectivity": 0.91621324
+    },
+    {
+      "activityId": "hwp-114",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.91470915
+    },
+    {
+      "activityId": "hwp-115",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-08",
+      "neighborConnectivity": 0.91298187
+    },
+    {
+      "activityId": "hwp-116",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-08",
+      "neighborConnectivity": 0.90830971
+    },
+    {
+      "activityId": "hwp-117",
+      "sourceId": "hwp-1946",
+      "sourceTraits": [],
+      "technicalClusterId": "technical-cluster-01",
+      "neighborConnectivity": 0.92163896
     }
   ],
   "nearestNeighbors": [
@@ -497,16 +1180,16 @@
           "cosineSimilarity": 0.94308481
         },
         {
+          "activityId": "hwp-074",
+          "cosineSimilarity": 0.94271153
+        },
+        {
           "activityId": "hwp-005",
           "cosineSimilarity": 0.93771755
         },
         {
           "activityId": "hwp-004",
           "cosineSimilarity": 0.93692757
-        },
-        {
-          "activityId": "hwp-014",
-          "cosineSimilarity": 0.9337537
         }
       ]
     },
@@ -555,8 +1238,8 @@
           "cosineSimilarity": 0.92246278
         },
         {
-          "activityId": "hwp-016",
-          "cosineSimilarity": 0.92071753
+          "activityId": "hwp-021",
+          "cosineSimilarity": 0.92149364
         }
       ]
     },
@@ -580,8 +1263,8 @@
           "cosineSimilarity": 0.93096533
         },
         {
-          "activityId": "hwp-012",
-          "cosineSimilarity": 0.92960257
+          "activityId": "hwp-021",
+          "cosineSimilarity": 0.93020491
         }
       ]
     },
@@ -601,18 +1284,22 @@
           "cosineSimilarity": 0.93601134
         },
         {
-          "activityId": "hwp-016",
-          "cosineSimilarity": 0.93544185
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.93546079
         },
         {
-          "activityId": "hwp-012",
-          "cosineSimilarity": 0.93490974
+          "activityId": "hwp-016",
+          "cosineSimilarity": 0.93544185
         }
       ]
     },
     {
       "activityId": "hwp-006",
       "neighbors": [
+        {
+          "activityId": "hwp-086",
+          "cosineSimilarity": 0.94579256
+        },
         {
           "activityId": "hwp-012",
           "cosineSimilarity": 0.94573534
@@ -622,16 +1309,12 @@
           "cosineSimilarity": 0.94115213
         },
         {
-          "activityId": "hwp-015",
-          "cosineSimilarity": 0.93506411
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.93953934
         },
         {
-          "activityId": "hwp-014",
-          "cosineSimilarity": 0.93347681
-        },
-        {
-          "activityId": "hwp-001",
-          "cosineSimilarity": 0.93200832
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.93883082
         }
       ]
     },
@@ -643,20 +1326,20 @@
           "cosineSimilarity": 0.93524189
         },
         {
+          "activityId": "hwp-066",
+          "cosineSimilarity": 0.93275931
+        },
+        {
           "activityId": "hwp-006",
           "cosineSimilarity": 0.93125485
         },
         {
-          "activityId": "hwp-001",
-          "cosineSimilarity": 0.92363392
+          "activityId": "hwp-067",
+          "cosineSimilarity": 0.92833972
         },
         {
-          "activityId": "hwp-012",
-          "cosineSimilarity": 0.92331633
-        },
-        {
-          "activityId": "hwp-015",
-          "cosineSimilarity": 0.92233137
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.92508553
         }
       ]
     },
@@ -705,8 +1388,8 @@
           "cosineSimilarity": 0.92621753
         },
         {
-          "activityId": "hwp-013",
-          "cosineSimilarity": 0.92456667
+          "activityId": "hwp-079",
+          "cosineSimilarity": 0.92495616
         }
       ]
     },
@@ -739,6 +1422,10 @@
       "activityId": "hwp-011",
       "neighbors": [
         {
+          "activityId": "hwp-021",
+          "cosineSimilarity": 0.93460878
+        },
+        {
           "activityId": "hwp-004",
           "cosineSimilarity": 0.93096533
         },
@@ -751,12 +1438,8 @@
           "cosineSimilarity": 0.9214776
         },
         {
-          "activityId": "hwp-002",
-          "cosineSimilarity": 0.92072895
-        },
-        {
-          "activityId": "hwp-020",
-          "cosineSimilarity": 0.90982187
+          "activityId": "hwp-089",
+          "cosineSimilarity": 0.92121739
         }
       ]
     },
@@ -805,14 +1488,18 @@
           "cosineSimilarity": 0.93057313
         },
         {
-          "activityId": "hwp-001",
-          "cosineSimilarity": 0.92616293
+          "activityId": "hwp-106",
+          "cosineSimilarity": 0.92751919
         }
       ]
     },
     {
       "activityId": "hwp-014",
       "neighbors": [
+        {
+          "activityId": "hwp-046",
+          "cosineSimilarity": 0.95282869
+        },
         {
           "activityId": "hwp-016",
           "cosineSimilarity": 0.95093471
@@ -828,10 +1515,6 @@
         {
           "activityId": "hwp-015",
           "cosineSimilarity": 0.93933961
-        },
-        {
-          "activityId": "hwp-002",
-          "cosineSimilarity": 0.93694304
         }
       ]
     },
@@ -864,24 +1547,24 @@
       "activityId": "hwp-016",
       "neighbors": [
         {
+          "activityId": "hwp-046",
+          "cosineSimilarity": 0.95269044
+        },
+        {
           "activityId": "hwp-014",
           "cosineSimilarity": 0.95093471
         },
         {
+          "activityId": "hwp-047",
+          "cosineSimilarity": 0.94813652
+        },
+        {
+          "activityId": "hwp-036",
+          "cosineSimilarity": 0.94483152
+        },
+        {
           "activityId": "hwp-002",
           "cosineSimilarity": 0.93618535
-        },
-        {
-          "activityId": "hwp-005",
-          "cosineSimilarity": 0.93544185
-        },
-        {
-          "activityId": "hwp-012",
-          "cosineSimilarity": 0.93112534
-        },
-        {
-          "activityId": "hwp-001",
-          "cosineSimilarity": 0.93105875
         }
       ]
     },
@@ -901,12 +1584,12 @@
           "cosineSimilarity": 0.91945777
         },
         {
-          "activityId": "hwp-001",
-          "cosineSimilarity": 0.91915042
+          "activityId": "hwp-058",
+          "cosineSimilarity": 0.91921724
         },
         {
-          "activityId": "hwp-012",
-          "cosineSimilarity": 0.91624755
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.91915042
         }
       ]
     },
@@ -916,6 +1599,10 @@
         {
           "activityId": "hwp-006",
           "cosineSimilarity": 0.94115213
+        },
+        {
+          "activityId": "hwp-086",
+          "cosineSimilarity": 0.93916851
         },
         {
           "activityId": "hwp-015",
@@ -928,10 +1615,6 @@
         {
           "activityId": "hwp-014",
           "cosineSimilarity": 0.93447202
-        },
-        {
-          "activityId": "hwp-005",
-          "cosineSimilarity": 0.92237295
         }
       ]
     },
@@ -939,30 +1622,34 @@
       "activityId": "hwp-019",
       "neighbors": [
         {
-          "activityId": "hwp-007",
-          "cosineSimilarity": 0.91808836
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.93160101
         },
         {
-          "activityId": "hwp-018",
-          "cosineSimilarity": 0.90667055
+          "activityId": "hwp-023",
+          "cosineSimilarity": 0.93053424
         },
         {
-          "activityId": "hwp-015",
-          "cosineSimilarity": 0.90479087
+          "activityId": "hwp-042",
+          "cosineSimilarity": 0.92758347
         },
         {
-          "activityId": "hwp-001",
-          "cosineSimilarity": 0.90222904
+          "activityId": "hwp-040",
+          "cosineSimilarity": 0.91970555
         },
         {
-          "activityId": "hwp-012",
-          "cosineSimilarity": 0.90025233
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.91848539
         }
       ]
     },
     {
       "activityId": "hwp-020",
       "neighbors": [
+        {
+          "activityId": "hwp-021",
+          "cosineSimilarity": 0.93997712
+        },
         {
           "activityId": "hwp-010",
           "cosineSimilarity": 0.92852951
@@ -978,207 +1665,2972 @@
         {
           "activityId": "hwp-002",
           "cosineSimilarity": 0.92007026
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-021",
+      "neighbors": [
+        {
+          "activityId": "hwp-020",
+          "cosineSimilarity": 0.93997712
+        },
+        {
+          "activityId": "hwp-011",
+          "cosineSimilarity": 0.93460878
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.93371087
+        },
+        {
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.9323134
+        },
+        {
+          "activityId": "hwp-004",
+          "cosineSimilarity": 0.93020491
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-022",
+      "neighbors": [
+        {
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.92595737
+        },
+        {
+          "activityId": "hwp-023",
+          "cosineSimilarity": 0.92330802
+        },
+        {
+          "activityId": "hwp-042",
+          "cosineSimilarity": 0.92127424
+        },
+        {
+          "activityId": "hwp-027",
+          "cosineSimilarity": 0.91994007
+        },
+        {
+          "activityId": "hwp-025",
+          "cosineSimilarity": 0.91876501
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-023",
+      "neighbors": [
+        {
+          "activityId": "hwp-042",
+          "cosineSimilarity": 0.94060651
+        },
+        {
+          "activityId": "hwp-027",
+          "cosineSimilarity": 0.93704061
+        },
+        {
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.93237398
+        },
+        {
+          "activityId": "hwp-019",
+          "cosineSimilarity": 0.93053424
+        },
+        {
+          "activityId": "hwp-025",
+          "cosineSimilarity": 0.93029629
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-024",
+      "neighbors": [
+        {
+          "activityId": "hwp-023",
+          "cosineSimilarity": 0.91281699
+        },
+        {
+          "activityId": "hwp-042",
+          "cosineSimilarity": 0.91140027
+        },
+        {
+          "activityId": "hwp-036",
+          "cosineSimilarity": 0.90908496
+        },
+        {
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.90711894
+        },
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.90643295
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-025",
+      "neighbors": [
+        {
+          "activityId": "hwp-026",
+          "cosineSimilarity": 0.93295461
+        },
+        {
+          "activityId": "hwp-023",
+          "cosineSimilarity": 0.93029629
+        },
+        {
+          "activityId": "hwp-046",
+          "cosineSimilarity": 0.92808605
+        },
+        {
+          "activityId": "hwp-042",
+          "cosineSimilarity": 0.92287952
+        },
+        {
+          "activityId": "hwp-039",
+          "cosineSimilarity": 0.92105961
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-026",
+      "neighbors": [
+        {
+          "activityId": "hwp-025",
+          "cosineSimilarity": 0.93295461
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.92959298
+        },
+        {
+          "activityId": "hwp-008",
+          "cosineSimilarity": 0.92430855
+        },
+        {
+          "activityId": "hwp-046",
+          "cosineSimilarity": 0.92410474
+        },
+        {
+          "activityId": "hwp-069",
+          "cosineSimilarity": 0.92158448
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-027",
+      "neighbors": [
+        {
+          "activityId": "hwp-023",
+          "cosineSimilarity": 0.93704061
+        },
+        {
+          "activityId": "hwp-057",
+          "cosineSimilarity": 0.9268827
+        },
+        {
+          "activityId": "hwp-022",
+          "cosineSimilarity": 0.91994007
+        },
+        {
+          "activityId": "hwp-042",
+          "cosineSimilarity": 0.91961621
+        },
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.91881756
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-028",
+      "neighbors": [
+        {
+          "activityId": "hwp-042",
+          "cosineSimilarity": 0.91790823
+        },
+        {
+          "activityId": "hwp-047",
+          "cosineSimilarity": 0.91781438
+        },
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.91627231
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.91616621
+        },
+        {
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.91550451
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-029",
+      "neighbors": [
+        {
+          "activityId": "hwp-082",
+          "cosineSimilarity": 0.93898045
+        },
+        {
+          "activityId": "hwp-076",
+          "cosineSimilarity": 0.93000676
+        },
+        {
+          "activityId": "hwp-033",
+          "cosineSimilarity": 0.92303964
+        },
+        {
+          "activityId": "hwp-010",
+          "cosineSimilarity": 0.92153266
+        },
+        {
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.92010557
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-030",
+      "neighbors": [
+        {
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.9391844
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.93892302
+        },
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.93883082
+        },
+        {
+          "activityId": "hwp-051",
+          "cosineSimilarity": 0.93535728
+        },
+        {
+          "activityId": "hwp-031",
+          "cosineSimilarity": 0.93354506
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-031",
+      "neighbors": [
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.93354506
+        },
+        {
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.93012482
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.92715821
+        },
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.92625752
         },
         {
           "activityId": "hwp-018",
-          "cosineSimilarity": 0.91974879
+          "cosineSimilarity": 0.92576827
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-032",
+      "neighbors": [
+        {
+          "activityId": "hwp-041",
+          "cosineSimilarity": 0.91573276
+        },
+        {
+          "activityId": "hwp-023",
+          "cosineSimilarity": 0.91066086
+        },
+        {
+          "activityId": "hwp-027",
+          "cosineSimilarity": 0.91025412
+        },
+        {
+          "activityId": "hwp-036",
+          "cosineSimilarity": 0.90623709
+        },
+        {
+          "activityId": "hwp-038",
+          "cosineSimilarity": 0.90321848
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-033",
+      "neighbors": [
+        {
+          "activityId": "hwp-029",
+          "cosineSimilarity": 0.92303964
+        },
+        {
+          "activityId": "hwp-010",
+          "cosineSimilarity": 0.92267901
+        },
+        {
+          "activityId": "hwp-089",
+          "cosineSimilarity": 0.91870782
+        },
+        {
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.91660864
+        },
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.91645577
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-034",
+      "neighbors": [
+        {
+          "activityId": "hwp-033",
+          "cosineSimilarity": 0.91376892
+        },
+        {
+          "activityId": "hwp-086",
+          "cosineSimilarity": 0.90807965
+        },
+        {
+          "activityId": "hwp-066",
+          "cosineSimilarity": 0.90713533
+        },
+        {
+          "activityId": "hwp-036",
+          "cosineSimilarity": 0.9058486
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.90369079
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-035",
+      "neighbors": [
+        {
+          "activityId": "hwp-036",
+          "cosineSimilarity": 0.92226965
+        },
+        {
+          "activityId": "hwp-038",
+          "cosineSimilarity": 0.91929613
+        },
+        {
+          "activityId": "hwp-041",
+          "cosineSimilarity": 0.91626387
+        },
+        {
+          "activityId": "hwp-063",
+          "cosineSimilarity": 0.91347345
+        },
+        {
+          "activityId": "hwp-042",
+          "cosineSimilarity": 0.91281752
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-036",
+      "neighbors": [
+        {
+          "activityId": "hwp-037",
+          "cosineSimilarity": 0.96216075
+        },
+        {
+          "activityId": "hwp-038",
+          "cosineSimilarity": 0.95543467
+        },
+        {
+          "activityId": "hwp-046",
+          "cosineSimilarity": 0.9463662
+        },
+        {
+          "activityId": "hwp-016",
+          "cosineSimilarity": 0.94483152
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.93855658
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-037",
+      "neighbors": [
+        {
+          "activityId": "hwp-036",
+          "cosineSimilarity": 0.96216075
+        },
+        {
+          "activityId": "hwp-038",
+          "cosineSimilarity": 0.94819812
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.9333611
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.92957876
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.92741609
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-038",
+      "neighbors": [
+        {
+          "activityId": "hwp-036",
+          "cosineSimilarity": 0.95543467
+        },
+        {
+          "activityId": "hwp-037",
+          "cosineSimilarity": 0.94819812
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.92454636
+        },
+        {
+          "activityId": "hwp-051",
+          "cosineSimilarity": 0.92196116
+        },
+        {
+          "activityId": "hwp-098",
+          "cosineSimilarity": 0.9197516
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-039",
+      "neighbors": [
+        {
+          "activityId": "hwp-040",
+          "cosineSimilarity": 0.93317167
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.92131519
+        },
+        {
+          "activityId": "hwp-025",
+          "cosineSimilarity": 0.92105961
+        },
+        {
+          "activityId": "hwp-010",
+          "cosineSimilarity": 0.91972943
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.91882926
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-040",
+      "neighbors": [
+        {
+          "activityId": "hwp-064",
+          "cosineSimilarity": 0.93829978
+        },
+        {
+          "activityId": "hwp-041",
+          "cosineSimilarity": 0.9380407
+        },
+        {
+          "activityId": "hwp-042",
+          "cosineSimilarity": 0.9364539
+        },
+        {
+          "activityId": "hwp-039",
+          "cosineSimilarity": 0.93317167
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.92132145
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-041",
+      "neighbors": [
+        {
+          "activityId": "hwp-040",
+          "cosineSimilarity": 0.9380407
+        },
+        {
+          "activityId": "hwp-042",
+          "cosineSimilarity": 0.9277357
+        },
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.9198664
+        },
+        {
+          "activityId": "hwp-064",
+          "cosineSimilarity": 0.91968153
+        },
+        {
+          "activityId": "hwp-036",
+          "cosineSimilarity": 0.91907794
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-042",
+      "neighbors": [
+        {
+          "activityId": "hwp-023",
+          "cosineSimilarity": 0.94060651
+        },
+        {
+          "activityId": "hwp-040",
+          "cosineSimilarity": 0.9364539
+        },
+        {
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.93642602
+        },
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.93297736
+        },
+        {
+          "activityId": "hwp-041",
+          "cosineSimilarity": 0.9277357
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-043",
+      "neighbors": [
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.9391844
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.93905033
+        },
+        {
+          "activityId": "hwp-042",
+          "cosineSimilarity": 0.93642602
+        },
+        {
+          "activityId": "hwp-086",
+          "cosineSimilarity": 0.93547269
+        },
+        {
+          "activityId": "hwp-023",
+          "cosineSimilarity": 0.93237398
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-044",
+      "neighbors": [
+        {
+          "activityId": "hwp-007",
+          "cosineSimilarity": 0.91989515
+        },
+        {
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.91859747
+        },
+        {
+          "activityId": "hwp-019",
+          "cosineSimilarity": 0.91828772
+        },
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.91757962
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.91728353
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-045",
+      "neighbors": [
+        {
+          "activityId": "hwp-110",
+          "cosineSimilarity": 0.9216059
+        },
+        {
+          "activityId": "hwp-059",
+          "cosineSimilarity": 0.92121037
+        },
+        {
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.91981668
+        },
+        {
+          "activityId": "hwp-068",
+          "cosineSimilarity": 0.91903229
+        },
+        {
+          "activityId": "hwp-067",
+          "cosineSimilarity": 0.91863492
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-046",
+      "neighbors": [
+        {
+          "activityId": "hwp-047",
+          "cosineSimilarity": 0.95846946
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.95282869
+        },
+        {
+          "activityId": "hwp-016",
+          "cosineSimilarity": 0.95269044
+        },
+        {
+          "activityId": "hwp-036",
+          "cosineSimilarity": 0.9463662
+        },
+        {
+          "activityId": "hwp-012",
+          "cosineSimilarity": 0.93719183
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-047",
+      "neighbors": [
+        {
+          "activityId": "hwp-046",
+          "cosineSimilarity": 0.95846946
+        },
+        {
+          "activityId": "hwp-016",
+          "cosineSimilarity": 0.94813652
+        },
+        {
+          "activityId": "hwp-036",
+          "cosineSimilarity": 0.93413783
+        },
+        {
+          "activityId": "hwp-076",
+          "cosineSimilarity": 0.93297123
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.92913009
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-048",
+      "neighbors": [
+        {
+          "activityId": "hwp-075",
+          "cosineSimilarity": 0.93429427
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.93252003
+        },
+        {
+          "activityId": "hwp-077",
+          "cosineSimilarity": 0.92362053
+        },
+        {
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.92338551
+        },
+        {
+          "activityId": "hwp-051",
+          "cosineSimilarity": 0.92211881
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-049",
+      "neighbors": [
+        {
+          "activityId": "hwp-036",
+          "cosineSimilarity": 0.92484364
+        },
+        {
+          "activityId": "hwp-038",
+          "cosineSimilarity": 0.91962245
+        },
+        {
+          "activityId": "hwp-086",
+          "cosineSimilarity": 0.91948468
+        },
+        {
+          "activityId": "hwp-042",
+          "cosineSimilarity": 0.91923804
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.91780659
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-050",
+      "neighbors": [
+        {
+          "activityId": "hwp-051",
+          "cosineSimilarity": 0.97596369
+        },
+        {
+          "activityId": "hwp-052",
+          "cosineSimilarity": 0.96106274
+        },
+        {
+          "activityId": "hwp-055",
+          "cosineSimilarity": 0.95863462
+        },
+        {
+          "activityId": "hwp-054",
+          "cosineSimilarity": 0.94246456
+        },
+        {
+          "activityId": "hwp-053",
+          "cosineSimilarity": 0.94006195
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-051",
+      "neighbors": [
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.97596369
+        },
+        {
+          "activityId": "hwp-052",
+          "cosineSimilarity": 0.95958375
+        },
+        {
+          "activityId": "hwp-055",
+          "cosineSimilarity": 0.95421485
+        },
+        {
+          "activityId": "hwp-053",
+          "cosineSimilarity": 0.93949774
+        },
+        {
+          "activityId": "hwp-054",
+          "cosineSimilarity": 0.93655114
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-052",
+      "neighbors": [
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.96106274
+        },
+        {
+          "activityId": "hwp-051",
+          "cosineSimilarity": 0.95958375
+        },
+        {
+          "activityId": "hwp-055",
+          "cosineSimilarity": 0.95523354
+        },
+        {
+          "activityId": "hwp-072",
+          "cosineSimilarity": 0.94381754
+        },
+        {
+          "activityId": "hwp-053",
+          "cosineSimilarity": 0.93757474
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-053",
+      "neighbors": [
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.94006195
+        },
+        {
+          "activityId": "hwp-051",
+          "cosineSimilarity": 0.93949774
+        },
+        {
+          "activityId": "hwp-052",
+          "cosineSimilarity": 0.93757474
+        },
+        {
+          "activityId": "hwp-055",
+          "cosineSimilarity": 0.92858218
+        },
+        {
+          "activityId": "hwp-072",
+          "cosineSimilarity": 0.92411832
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-054",
+      "neighbors": [
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.94246456
+        },
+        {
+          "activityId": "hwp-055",
+          "cosineSimilarity": 0.93661928
+        },
+        {
+          "activityId": "hwp-051",
+          "cosineSimilarity": 0.93655114
+        },
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.93034981
+        },
+        {
+          "activityId": "hwp-059",
+          "cosineSimilarity": 0.92959365
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-055",
+      "neighbors": [
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.95863462
+        },
+        {
+          "activityId": "hwp-052",
+          "cosineSimilarity": 0.95523354
+        },
+        {
+          "activityId": "hwp-051",
+          "cosineSimilarity": 0.95421485
+        },
+        {
+          "activityId": "hwp-054",
+          "cosineSimilarity": 0.93661928
+        },
+        {
+          "activityId": "hwp-072",
+          "cosineSimilarity": 0.93371697
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-056",
+      "neighbors": [
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.92581216
+        },
+        {
+          "activityId": "hwp-055",
+          "cosineSimilarity": 0.92441599
+        },
+        {
+          "activityId": "hwp-059",
+          "cosineSimilarity": 0.92299722
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.92263432
+        },
+        {
+          "activityId": "hwp-051",
+          "cosineSimilarity": 0.92123768
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-057",
+      "neighbors": [
+        {
+          "activityId": "hwp-027",
+          "cosineSimilarity": 0.9268827
+        },
+        {
+          "activityId": "hwp-031",
+          "cosineSimilarity": 0.92436692
+        },
+        {
+          "activityId": "hwp-086",
+          "cosineSimilarity": 0.92365674
+        },
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.92153395
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.92110907
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-058",
+      "neighbors": [
+        {
+          "activityId": "hwp-017",
+          "cosineSimilarity": 0.91921724
+        },
+        {
+          "activityId": "hwp-064",
+          "cosineSimilarity": 0.9139096
+        },
+        {
+          "activityId": "hwp-059",
+          "cosineSimilarity": 0.91381568
+        },
+        {
+          "activityId": "hwp-063",
+          "cosineSimilarity": 0.91377992
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.91062704
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-059",
+      "neighbors": [
+        {
+          "activityId": "hwp-054",
+          "cosineSimilarity": 0.92959365
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.92829603
+        },
+        {
+          "activityId": "hwp-051",
+          "cosineSimilarity": 0.92496261
+        },
+        {
+          "activityId": "hwp-068",
+          "cosineSimilarity": 0.92460718
+        },
+        {
+          "activityId": "hwp-056",
+          "cosineSimilarity": 0.92299722
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-060",
+      "neighbors": [
+        {
+          "activityId": "hwp-063",
+          "cosineSimilarity": 0.93082497
+        },
+        {
+          "activityId": "hwp-066",
+          "cosineSimilarity": 0.92577436
+        },
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.92352128
+        },
+        {
+          "activityId": "hwp-061",
+          "cosineSimilarity": 0.92094491
+        },
+        {
+          "activityId": "hwp-059",
+          "cosineSimilarity": 0.91999616
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-061",
+      "neighbors": [
+        {
+          "activityId": "hwp-063",
+          "cosineSimilarity": 0.94548153
+        },
+        {
+          "activityId": "hwp-064",
+          "cosineSimilarity": 0.92566649
+        },
+        {
+          "activityId": "hwp-060",
+          "cosineSimilarity": 0.92094491
+        },
+        {
+          "activityId": "hwp-054",
+          "cosineSimilarity": 0.91792169
+        },
+        {
+          "activityId": "hwp-065",
+          "cosineSimilarity": 0.91726832
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-062",
+      "neighbors": [
+        {
+          "activityId": "hwp-063",
+          "cosineSimilarity": 0.92254531
+        },
+        {
+          "activityId": "hwp-039",
+          "cosineSimilarity": 0.91756561
+        },
+        {
+          "activityId": "hwp-068",
+          "cosineSimilarity": 0.91289473
+        },
+        {
+          "activityId": "hwp-027",
+          "cosineSimilarity": 0.91177772
+        },
+        {
+          "activityId": "hwp-059",
+          "cosineSimilarity": 0.91159224
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-063",
+      "neighbors": [
+        {
+          "activityId": "hwp-061",
+          "cosineSimilarity": 0.94548153
+        },
+        {
+          "activityId": "hwp-060",
+          "cosineSimilarity": 0.93082497
+        },
+        {
+          "activityId": "hwp-064",
+          "cosineSimilarity": 0.93048117
+        },
+        {
+          "activityId": "hwp-065",
+          "cosineSimilarity": 0.92852718
+        },
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.92617015
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-064",
+      "neighbors": [
+        {
+          "activityId": "hwp-040",
+          "cosineSimilarity": 0.93829978
+        },
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.93273247
+        },
+        {
+          "activityId": "hwp-063",
+          "cosineSimilarity": 0.93048117
+        },
+        {
+          "activityId": "hwp-061",
+          "cosineSimilarity": 0.92566649
+        },
+        {
+          "activityId": "hwp-041",
+          "cosineSimilarity": 0.91968153
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-065",
+      "neighbors": [
+        {
+          "activityId": "hwp-063",
+          "cosineSimilarity": 0.92852718
+        },
+        {
+          "activityId": "hwp-068",
+          "cosineSimilarity": 0.92766477
+        },
+        {
+          "activityId": "hwp-061",
+          "cosineSimilarity": 0.91726832
+        },
+        {
+          "activityId": "hwp-059",
+          "cosineSimilarity": 0.91576992
+        },
+        {
+          "activityId": "hwp-064",
+          "cosineSimilarity": 0.91507558
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-066",
+      "neighbors": [
+        {
+          "activityId": "hwp-067",
+          "cosineSimilarity": 0.94646917
+        },
+        {
+          "activityId": "hwp-068",
+          "cosineSimilarity": 0.94440319
+        },
+        {
+          "activityId": "hwp-007",
+          "cosineSimilarity": 0.93275931
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.92931188
+        },
+        {
+          "activityId": "hwp-060",
+          "cosineSimilarity": 0.92577436
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-067",
+      "neighbors": [
+        {
+          "activityId": "hwp-066",
+          "cosineSimilarity": 0.94646917
+        },
+        {
+          "activityId": "hwp-007",
+          "cosineSimilarity": 0.92833972
+        },
+        {
+          "activityId": "hwp-068",
+          "cosineSimilarity": 0.92726966
+        },
+        {
+          "activityId": "hwp-086",
+          "cosineSimilarity": 0.92134214
+        },
+        {
+          "activityId": "hwp-045",
+          "cosineSimilarity": 0.91863492
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-068",
+      "neighbors": [
+        {
+          "activityId": "hwp-066",
+          "cosineSimilarity": 0.94440319
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.92819784
+        },
+        {
+          "activityId": "hwp-065",
+          "cosineSimilarity": 0.92766477
+        },
+        {
+          "activityId": "hwp-067",
+          "cosineSimilarity": 0.92726966
+        },
+        {
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.92641644
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-069",
+      "neighbors": [
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.93023645
+        },
+        {
+          "activityId": "hwp-008",
+          "cosineSimilarity": 0.92348932
+        },
+        {
+          "activityId": "hwp-059",
+          "cosineSimilarity": 0.92167064
+        },
+        {
+          "activityId": "hwp-026",
+          "cosineSimilarity": 0.92158448
+        },
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.92104858
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-070",
+      "neighbors": [
+        {
+          "activityId": "hwp-075",
+          "cosineSimilarity": 0.92032895
+        },
+        {
+          "activityId": "hwp-071",
+          "cosineSimilarity": 0.91951891
+        },
+        {
+          "activityId": "hwp-080",
+          "cosineSimilarity": 0.91718517
+        },
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.91711072
+        },
+        {
+          "activityId": "hwp-076",
+          "cosineSimilarity": 0.91610191
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-071",
+      "neighbors": [
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.92864002
+        },
+        {
+          "activityId": "hwp-075",
+          "cosineSimilarity": 0.9279914
+        },
+        {
+          "activityId": "hwp-079",
+          "cosineSimilarity": 0.92700987
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.9248021
+        },
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.92341906
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-072",
+      "neighbors": [
+        {
+          "activityId": "hwp-052",
+          "cosineSimilarity": 0.94381754
+        },
+        {
+          "activityId": "hwp-103",
+          "cosineSimilarity": 0.93382857
+        },
+        {
+          "activityId": "hwp-055",
+          "cosineSimilarity": 0.93371697
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.93289979
+        },
+        {
+          "activityId": "hwp-051",
+          "cosineSimilarity": 0.92689842
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-073",
+      "neighbors": [
+        {
+          "activityId": "hwp-071",
+          "cosineSimilarity": 0.91807319
+        },
+        {
+          "activityId": "hwp-110",
+          "cosineSimilarity": 0.91608218
+        },
+        {
+          "activityId": "hwp-072",
+          "cosineSimilarity": 0.91547794
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.91538921
+        },
+        {
+          "activityId": "hwp-085",
+          "cosineSimilarity": 0.91406895
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-074",
+      "neighbors": [
+        {
+          "activityId": "hwp-001",
+          "cosineSimilarity": 0.94271153
+        },
+        {
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.9265639
+        },
+        {
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.92454916
+        },
+        {
+          "activityId": "hwp-050",
+          "cosineSimilarity": 0.92431512
+        },
+        {
+          "activityId": "hwp-014",
+          "cosineSimilarity": 0.92391484
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-075",
+      "neighbors": [
+        {
+          "activityId": "hwp-077",
+          "cosineSimilarity": 0.95330553
+        },
+        {
+          "activityId": "hwp-048",
+          "cosineSimilarity": 0.93429427
+        },
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.93236675
+        },
+        {
+          "activityId": "hwp-071",
+          "cosineSimilarity": 0.9279914
+        },
+        {
+          "activityId": "hwp-076",
+          "cosineSimilarity": 0.92789197
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-076",
+      "neighbors": [
+        {
+          "activityId": "hwp-016",
+          "cosineSimilarity": 0.93612546
+        },
+        {
+          "activityId": "hwp-046",
+          "cosineSimilarity": 0.93320877
+        },
+        {
+          "activityId": "hwp-047",
+          "cosineSimilarity": 0.93297123
+        },
+        {
+          "activityId": "hwp-082",
+          "cosineSimilarity": 0.9318748
+        },
+        {
+          "activityId": "hwp-029",
+          "cosineSimilarity": 0.93000676
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-077",
+      "neighbors": [
+        {
+          "activityId": "hwp-075",
+          "cosineSimilarity": 0.95330553
+        },
+        {
+          "activityId": "hwp-080",
+          "cosineSimilarity": 0.92476028
+        },
+        {
+          "activityId": "hwp-095",
+          "cosineSimilarity": 0.92376477
+        },
+        {
+          "activityId": "hwp-048",
+          "cosineSimilarity": 0.92362053
+        },
+        {
+          "activityId": "hwp-072",
+          "cosineSimilarity": 0.91982908
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-078",
+      "neighbors": [
+        {
+          "activityId": "hwp-079",
+          "cosineSimilarity": 0.93257923
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.92564371
+        },
+        {
+          "activityId": "hwp-103",
+          "cosineSimilarity": 0.91714823
+        },
+        {
+          "activityId": "hwp-107",
+          "cosineSimilarity": 0.91686325
+        },
+        {
+          "activityId": "hwp-075",
+          "cosineSimilarity": 0.91610412
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-079",
+      "neighbors": [
+        {
+          "activityId": "hwp-078",
+          "cosineSimilarity": 0.93257923
+        },
+        {
+          "activityId": "hwp-071",
+          "cosineSimilarity": 0.92700987
+        },
+        {
+          "activityId": "hwp-009",
+          "cosineSimilarity": 0.92495616
+        },
+        {
+          "activityId": "hwp-107",
+          "cosineSimilarity": 0.9225463
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.92096807
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-080",
+      "neighbors": [
+        {
+          "activityId": "hwp-077",
+          "cosineSimilarity": 0.92476028
+        },
+        {
+          "activityId": "hwp-082",
+          "cosineSimilarity": 0.92155563
+        },
+        {
+          "activityId": "hwp-068",
+          "cosineSimilarity": 0.92100089
+        },
+        {
+          "activityId": "hwp-070",
+          "cosineSimilarity": 0.91718517
+        },
+        {
+          "activityId": "hwp-086",
+          "cosineSimilarity": 0.91685489
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-081",
+      "neighbors": [
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.93953934
+        },
+        {
+          "activityId": "hwp-087",
+          "cosineSimilarity": 0.93808357
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.93468992
+        },
+        {
+          "activityId": "hwp-086",
+          "cosineSimilarity": 0.92924021
+        },
+        {
+          "activityId": "hwp-071",
+          "cosineSimilarity": 0.92864002
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-082",
+      "neighbors": [
+        {
+          "activityId": "hwp-029",
+          "cosineSimilarity": 0.93898045
+        },
+        {
+          "activityId": "hwp-076",
+          "cosineSimilarity": 0.9318748
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.92440977
+        },
+        {
+          "activityId": "hwp-105",
+          "cosineSimilarity": 0.92252956
+        },
+        {
+          "activityId": "hwp-080",
+          "cosineSimilarity": 0.92155563
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-083",
+      "neighbors": [
+        {
+          "activityId": "hwp-089",
+          "cosineSimilarity": 0.9240329
+        },
+        {
+          "activityId": "hwp-087",
+          "cosineSimilarity": 0.92261655
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.9159363
+        },
+        {
+          "activityId": "hwp-033",
+          "cosineSimilarity": 0.91386477
+        },
+        {
+          "activityId": "hwp-096",
+          "cosineSimilarity": 0.9116972
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-084",
+      "neighbors": [
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.91114515
+        },
+        {
+          "activityId": "hwp-080",
+          "cosineSimilarity": 0.90773104
+        },
+        {
+          "activityId": "hwp-091",
+          "cosineSimilarity": 0.90515987
+        },
+        {
+          "activityId": "hwp-082",
+          "cosineSimilarity": 0.90501176
+        },
+        {
+          "activityId": "hwp-115",
+          "cosineSimilarity": 0.90383539
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-085",
+      "neighbors": [
+        {
+          "activityId": "hwp-110",
+          "cosineSimilarity": 0.95549735
+        },
+        {
+          "activityId": "hwp-071",
+          "cosineSimilarity": 0.91964978
+        },
+        {
+          "activityId": "hwp-082",
+          "cosineSimilarity": 0.91805539
+        },
+        {
+          "activityId": "hwp-059",
+          "cosineSimilarity": 0.91544882
+        },
+        {
+          "activityId": "hwp-088",
+          "cosineSimilarity": 0.91536594
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-086",
+      "neighbors": [
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.94579256
+        },
+        {
+          "activityId": "hwp-018",
+          "cosineSimilarity": 0.93916851
+        },
+        {
+          "activityId": "hwp-043",
+          "cosineSimilarity": 0.93547269
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.92924021
+        },
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.92830629
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-087",
+      "neighbors": [
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.93808357
+        },
+        {
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.9231309
+        },
+        {
+          "activityId": "hwp-083",
+          "cosineSimilarity": 0.92261655
+        },
+        {
+          "activityId": "hwp-109",
+          "cosineSimilarity": 0.92100438
+        },
+        {
+          "activityId": "hwp-071",
+          "cosineSimilarity": 0.91831464
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-088",
+      "neighbors": [
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.92549932
+        },
+        {
+          "activityId": "hwp-086",
+          "cosineSimilarity": 0.9248155
+        },
+        {
+          "activityId": "hwp-066",
+          "cosineSimilarity": 0.92448487
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.92355412
+        },
+        {
+          "activityId": "hwp-016",
+          "cosineSimilarity": 0.92297457
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-089",
+      "neighbors": [
+        {
+          "activityId": "hwp-096",
+          "cosineSimilarity": 0.95090326
+        },
+        {
+          "activityId": "hwp-113",
+          "cosineSimilarity": 0.93373188
+        },
+        {
+          "activityId": "hwp-083",
+          "cosineSimilarity": 0.9240329
+        },
+        {
+          "activityId": "hwp-011",
+          "cosineSimilarity": 0.92121739
+        },
+        {
+          "activityId": "hwp-033",
+          "cosineSimilarity": 0.91870782
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-090",
+      "neighbors": [
+        {
+          "activityId": "hwp-086",
+          "cosineSimilarity": 0.91032036
+        },
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.90725117
+        },
+        {
+          "activityId": "hwp-091",
+          "cosineSimilarity": 0.90540064
+        },
+        {
+          "activityId": "hwp-093",
+          "cosineSimilarity": 0.90382122
+        },
+        {
+          "activityId": "hwp-110",
+          "cosineSimilarity": 0.9037089
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-091",
+      "neighbors": [
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.94463122
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.92957322
+        },
+        {
+          "activityId": "hwp-092",
+          "cosineSimilarity": 0.92837944
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.92754542
+        },
+        {
+          "activityId": "hwp-107",
+          "cosineSimilarity": 0.92454445
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-092",
+      "neighbors": [
+        {
+          "activityId": "hwp-091",
+          "cosineSimilarity": 0.92837944
+        },
+        {
+          "activityId": "hwp-095",
+          "cosineSimilarity": 0.92745722
+        },
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.92208267
+        },
+        {
+          "activityId": "hwp-093",
+          "cosineSimilarity": 0.9186283
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.91832733
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-093",
+      "neighbors": [
+        {
+          "activityId": "hwp-097",
+          "cosineSimilarity": 0.92469256
+        },
+        {
+          "activityId": "hwp-092",
+          "cosineSimilarity": 0.9186283
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.91781303
+        },
+        {
+          "activityId": "hwp-095",
+          "cosineSimilarity": 0.91640224
+        },
+        {
+          "activityId": "hwp-091",
+          "cosineSimilarity": 0.91427384
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-094",
+      "neighbors": [
+        {
+          "activityId": "hwp-095",
+          "cosineSimilarity": 0.95130318
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.91900038
+        },
+        {
+          "activityId": "hwp-082",
+          "cosineSimilarity": 0.91687815
+        },
+        {
+          "activityId": "hwp-086",
+          "cosineSimilarity": 0.91650807
+        },
+        {
+          "activityId": "hwp-070",
+          "cosineSimilarity": 0.91503699
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-095",
+      "neighbors": [
+        {
+          "activityId": "hwp-094",
+          "cosineSimilarity": 0.95130318
+        },
+        {
+          "activityId": "hwp-092",
+          "cosineSimilarity": 0.92745722
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.92635088
+        },
+        {
+          "activityId": "hwp-077",
+          "cosineSimilarity": 0.92376477
+        },
+        {
+          "activityId": "hwp-097",
+          "cosineSimilarity": 0.92160063
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-096",
+      "neighbors": [
+        {
+          "activityId": "hwp-089",
+          "cosineSimilarity": 0.95090326
+        },
+        {
+          "activityId": "hwp-095",
+          "cosineSimilarity": 0.91282695
+        },
+        {
+          "activityId": "hwp-083",
+          "cosineSimilarity": 0.9116972
+        },
+        {
+          "activityId": "hwp-106",
+          "cosineSimilarity": 0.90777906
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.9058545
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-097",
+      "neighbors": [
+        {
+          "activityId": "hwp-093",
+          "cosineSimilarity": 0.92469256
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.92415939
+        },
+        {
+          "activityId": "hwp-095",
+          "cosineSimilarity": 0.92160063
+        },
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.91752082
+        },
+        {
+          "activityId": "hwp-091",
+          "cosineSimilarity": 0.9147224
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-098",
+      "neighbors": [
+        {
+          "activityId": "hwp-038",
+          "cosineSimilarity": 0.9197516
+        },
+        {
+          "activityId": "hwp-086",
+          "cosineSimilarity": 0.9194799
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.91815615
+        },
+        {
+          "activityId": "hwp-091",
+          "cosineSimilarity": 0.91765578
+        },
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.91430037
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-099",
+      "neighbors": [
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.90845872
+        },
+        {
+          "activityId": "hwp-093",
+          "cosineSimilarity": 0.90727032
+        },
+        {
+          "activityId": "hwp-097",
+          "cosineSimilarity": 0.90284575
+        },
+        {
+          "activityId": "hwp-095",
+          "cosineSimilarity": 0.89892134
+        },
+        {
+          "activityId": "hwp-033",
+          "cosineSimilarity": 0.8978779
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-100",
+      "neighbors": [
+        {
+          "activityId": "hwp-091",
+          "cosineSimilarity": 0.94463122
+        },
+        {
+          "activityId": "hwp-005",
+          "cosineSimilarity": 0.93546079
+        },
+        {
+          "activityId": "hwp-075",
+          "cosineSimilarity": 0.93236675
+        },
+        {
+          "activityId": "hwp-102",
+          "cosineSimilarity": 0.9318586
+        },
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.93044096
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-101",
+      "neighbors": [
+        {
+          "activityId": "hwp-102",
+          "cosineSimilarity": 0.94301751
+        },
+        {
+          "activityId": "hwp-103",
+          "cosineSimilarity": 0.94119047
+        },
+        {
+          "activityId": "hwp-107",
+          "cosineSimilarity": 0.93829054
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.93468992
+        },
+        {
+          "activityId": "hwp-112",
+          "cosineSimilarity": 0.92964147
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-102",
+      "neighbors": [
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.94301751
+        },
+        {
+          "activityId": "hwp-103",
+          "cosineSimilarity": 0.93988004
+        },
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.9318586
+        },
+        {
+          "activityId": "hwp-112",
+          "cosineSimilarity": 0.92987638
+        },
+        {
+          "activityId": "hwp-107",
+          "cosineSimilarity": 0.9297239
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-103",
+      "neighbors": [
+        {
+          "activityId": "hwp-107",
+          "cosineSimilarity": 0.96379842
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.94119047
+        },
+        {
+          "activityId": "hwp-102",
+          "cosineSimilarity": 0.93988004
+        },
+        {
+          "activityId": "hwp-072",
+          "cosineSimilarity": 0.93382857
+        },
+        {
+          "activityId": "hwp-112",
+          "cosineSimilarity": 0.93164844
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-104",
+      "neighbors": [
+        {
+          "activityId": "hwp-103",
+          "cosineSimilarity": 0.92383735
+        },
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.92243408
+        },
+        {
+          "activityId": "hwp-102",
+          "cosineSimilarity": 0.92146016
+        },
+        {
+          "activityId": "hwp-107",
+          "cosineSimilarity": 0.92049409
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.91958574
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-105",
+      "neighbors": [
+        {
+          "activityId": "hwp-082",
+          "cosineSimilarity": 0.92252956
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.91933034
+        },
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.91726942
+        },
+        {
+          "activityId": "hwp-106",
+          "cosineSimilarity": 0.91708473
+        },
+        {
+          "activityId": "hwp-102",
+          "cosineSimilarity": 0.91551565
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-106",
+      "neighbors": [
+        {
+          "activityId": "hwp-013",
+          "cosineSimilarity": 0.92751919
+        },
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.92334265
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.91723796
+        },
+        {
+          "activityId": "hwp-105",
+          "cosineSimilarity": 0.91708473
+        },
+        {
+          "activityId": "hwp-109",
+          "cosineSimilarity": 0.91334476
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-107",
+      "neighbors": [
+        {
+          "activityId": "hwp-103",
+          "cosineSimilarity": 0.96379842
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.93829054
+        },
+        {
+          "activityId": "hwp-102",
+          "cosineSimilarity": 0.9297239
+        },
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.92494757
+        },
+        {
+          "activityId": "hwp-091",
+          "cosineSimilarity": 0.92454445
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-108",
+      "neighbors": [
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.91421364
+        },
+        {
+          "activityId": "hwp-102",
+          "cosineSimilarity": 0.90849071
+        },
+        {
+          "activityId": "hwp-109",
+          "cosineSimilarity": 0.90699334
+        },
+        {
+          "activityId": "hwp-098",
+          "cosineSimilarity": 0.90653536
+        },
+        {
+          "activityId": "hwp-018",
+          "cosineSimilarity": 0.90603412
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-109",
+      "neighbors": [
+        {
+          "activityId": "hwp-102",
+          "cosineSimilarity": 0.92693108
+        },
+        {
+          "activityId": "hwp-002",
+          "cosineSimilarity": 0.92284383
+        },
+        {
+          "activityId": "hwp-087",
+          "cosineSimilarity": 0.92100438
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.92081751
+        },
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.92062003
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-110",
+      "neighbors": [
+        {
+          "activityId": "hwp-085",
+          "cosineSimilarity": 0.95549735
+        },
+        {
+          "activityId": "hwp-045",
+          "cosineSimilarity": 0.9216059
+        },
+        {
+          "activityId": "hwp-117",
+          "cosineSimilarity": 0.9200937
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.91902722
+        },
+        {
+          "activityId": "hwp-112",
+          "cosineSimilarity": 0.91706339
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-111",
+      "neighbors": [
+        {
+          "activityId": "hwp-110",
+          "cosineSimilarity": 0.90268601
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.89823276
+        },
+        {
+          "activityId": "hwp-117",
+          "cosineSimilarity": 0.89818014
+        },
+        {
+          "activityId": "hwp-114",
+          "cosineSimilarity": 0.89617077
+        },
+        {
+          "activityId": "hwp-116",
+          "cosineSimilarity": 0.89491115
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-112",
+      "neighbors": [
+        {
+          "activityId": "hwp-103",
+          "cosineSimilarity": 0.93164844
+        },
+        {
+          "activityId": "hwp-102",
+          "cosineSimilarity": 0.92987638
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.92964147
+        },
+        {
+          "activityId": "hwp-107",
+          "cosineSimilarity": 0.91816647
+        },
+        {
+          "activityId": "hwp-110",
+          "cosineSimilarity": 0.91706339
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-113",
+      "neighbors": [
+        {
+          "activityId": "hwp-089",
+          "cosineSimilarity": 0.93373188
+        },
+        {
+          "activityId": "hwp-011",
+          "cosineSimilarity": 0.91910322
+        },
+        {
+          "activityId": "hwp-110",
+          "cosineSimilarity": 0.9148411
+        },
+        {
+          "activityId": "hwp-095",
+          "cosineSimilarity": 0.90673284
+        },
+        {
+          "activityId": "hwp-116",
+          "cosineSimilarity": 0.90665718
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-114",
+      "neighbors": [
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.91682305
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.91520642
+        },
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.9144394
+        },
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.91374986
+        },
+        {
+          "activityId": "hwp-112",
+          "cosineSimilarity": 0.91332702
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-115",
+      "neighbors": [
+        {
+          "activityId": "hwp-116",
+          "cosineSimilarity": 0.92681015
+        },
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.91695996
+        },
+        {
+          "activityId": "hwp-110",
+          "cosineSimilarity": 0.91039916
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.90665622
+        },
+        {
+          "activityId": "hwp-114",
+          "cosineSimilarity": 0.90408387
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-116",
+      "neighbors": [
+        {
+          "activityId": "hwp-115",
+          "cosineSimilarity": 0.92681015
+        },
+        {
+          "activityId": "hwp-113",
+          "cosineSimilarity": 0.90665718
+        },
+        {
+          "activityId": "hwp-106",
+          "cosineSimilarity": 0.90328373
+        },
+        {
+          "activityId": "hwp-101",
+          "cosineSimilarity": 0.9030921
+        },
+        {
+          "activityId": "hwp-110",
+          "cosineSimilarity": 0.90170542
+        }
+      ]
+    },
+    {
+      "activityId": "hwp-117",
+      "neighbors": [
+        {
+          "activityId": "hwp-006",
+          "cosineSimilarity": 0.92782339
+        },
+        {
+          "activityId": "hwp-030",
+          "cosineSimilarity": 0.92514762
+        },
+        {
+          "activityId": "hwp-110",
+          "cosineSimilarity": 0.9200937
+        },
+        {
+          "activityId": "hwp-100",
+          "cosineSimilarity": 0.91760593
+        },
+        {
+          "activityId": "hwp-081",
+          "cosineSimilarity": 0.91752418
         }
       ]
     }
   ],
   "outliers": {
     "method": "mean-neighbor-similarity-below-q1-minus-iqr-multiplier",
-    "threshold": 0.90735937,
+    "threshold": 0.89867437,
     "activityIds": [
-      "hwp-019"
+      "hwp-111"
     ],
     "lowestConnectivityForInspection": [
       {
-        "activityId": "hwp-019",
-        "score": 0.90640623
+        "activityId": "hwp-111",
+        "score": 0.89803617
+      },
+      {
+        "activityId": "hwp-099",
+        "score": 0.9030748
+      },
+      {
+        "activityId": "hwp-090",
+        "score": 0.90610046
+      },
+      {
+        "activityId": "hwp-084",
+        "score": 0.90657664
+      },
+      {
+        "activityId": "hwp-034",
+        "score": 0.90770466
+      },
+      {
+        "activityId": "hwp-116",
+        "score": 0.90830971
       }
     ]
   },
   "ambiguousAssignments": [
     {
-      "activityId": "hwp-001",
-      "technicalClusterId": "technical-cluster-01",
-      "alternativeTechnicalClusterId": "technical-cluster-03",
-      "reason": "low-leave-one-out-margin",
-      "margin": 0.00835208,
-      "clusterSimilarity": 0.96072182,
-      "alternativeSimilarity": 0.95236974
-    },
-    {
       "activityId": "hwp-002",
       "technicalClusterId": "technical-cluster-01",
-      "alternativeTechnicalClusterId": "technical-cluster-03",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
       "reason": "low-leave-one-out-margin",
-      "margin": 0.01595196,
-      "clusterSimilarity": 0.96639606,
-      "alternativeSimilarity": 0.95044411
-    },
-    {
-      "activityId": "hwp-003",
-      "technicalClusterId": "technical-cluster-02",
-      "alternativeTechnicalClusterId": "technical-cluster-01",
-      "reason": "singleton-cluster",
-      "margin": null,
-      "clusterSimilarity": null,
-      "alternativeSimilarity": 0.9436241
-    },
-    {
-      "activityId": "hwp-004",
-      "technicalClusterId": "technical-cluster-01",
-      "alternativeTechnicalClusterId": "technical-cluster-03",
-      "reason": "low-leave-one-out-margin",
-      "margin": 0.0295682,
-      "clusterSimilarity": 0.96435579,
-      "alternativeSimilarity": 0.93478759
+      "margin": 0.02960945,
+      "clusterSimilarity": 0.95885841,
+      "alternativeSimilarity": 0.92924896
     },
     {
       "activityId": "hwp-005",
       "technicalClusterId": "technical-cluster-01",
-      "alternativeTechnicalClusterId": "technical-cluster-03",
+      "alternativeTechnicalClusterId": "technical-cluster-02",
       "reason": "low-leave-one-out-margin",
-      "margin": 0.00427773,
-      "clusterSimilarity": 0.95615236,
-      "alternativeSimilarity": 0.95187463
-    },
-    {
-      "activityId": "hwp-006",
-      "technicalClusterId": "technical-cluster-03",
-      "alternativeTechnicalClusterId": "technical-cluster-01",
-      "reason": "low-leave-one-out-margin",
-      "margin": 0.01441866,
-      "clusterSimilarity": 0.95991582,
-      "alternativeSimilarity": 0.94549716
-    },
-    {
-      "activityId": "hwp-007",
-      "technicalClusterId": "technical-cluster-04",
-      "alternativeTechnicalClusterId": "technical-cluster-03",
-      "reason": "singleton-cluster",
-      "margin": null,
-      "clusterSimilarity": null,
-      "alternativeSimilarity": 0.94524876
-    },
-    {
-      "activityId": "hwp-008",
-      "technicalClusterId": "technical-cluster-05",
-      "alternativeTechnicalClusterId": "technical-cluster-03",
-      "reason": "low-leave-one-out-margin",
-      "margin": 0.01040331,
-      "clusterSimilarity": 0.95385447,
-      "alternativeSimilarity": 0.94345115
-    },
-    {
-      "activityId": "hwp-009",
-      "technicalClusterId": "technical-cluster-05",
-      "alternativeTechnicalClusterId": "technical-cluster-03",
-      "reason": "low-leave-one-out-margin",
-      "margin": 0.01220908,
-      "clusterSimilarity": 0.95385447,
-      "alternativeSimilarity": 0.94164538
-    },
-    {
-      "activityId": "hwp-010",
-      "technicalClusterId": "technical-cluster-06",
-      "alternativeTechnicalClusterId": "technical-cluster-05",
-      "reason": "singleton-cluster",
-      "margin": null,
-      "clusterSimilarity": null,
-      "alternativeSimilarity": 0.94482403
+      "margin": 0.02253755,
+      "clusterSimilarity": 0.9502151,
+      "alternativeSimilarity": 0.92767756
     },
     {
       "activityId": "hwp-011",
-      "technicalClusterId": "technical-cluster-07",
-      "alternativeTechnicalClusterId": "technical-cluster-01",
-      "reason": "singleton-cluster",
-      "margin": null,
-      "clusterSimilarity": null,
-      "alternativeSimilarity": 0.94197847
-    },
-    {
-      "activityId": "hwp-012",
-      "technicalClusterId": "technical-cluster-03",
-      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
       "reason": "low-leave-one-out-margin",
-      "margin": 0.00358717,
-      "clusterSimilarity": 0.96287809,
-      "alternativeSimilarity": 0.95929092
-    },
-    {
-      "activityId": "hwp-013",
-      "technicalClusterId": "technical-cluster-08",
-      "alternativeTechnicalClusterId": "technical-cluster-03",
-      "reason": "singleton-cluster",
-      "margin": null,
-      "clusterSimilarity": null,
-      "alternativeSimilarity": 0.94896882
-    },
-    {
-      "activityId": "hwp-014",
-      "technicalClusterId": "technical-cluster-09",
-      "alternativeTechnicalClusterId": "technical-cluster-03",
-      "reason": "low-leave-one-out-margin",
-      "margin": -0.00946636,
-      "clusterSimilarity": 0.95093471,
-      "alternativeSimilarity": 0.96040108
-    },
-    {
-      "activityId": "hwp-015",
-      "technicalClusterId": "technical-cluster-03",
-      "alternativeTechnicalClusterId": "technical-cluster-09",
-      "reason": "low-leave-one-out-margin",
-      "margin": 0.01214727,
-      "clusterSimilarity": 0.95889923,
-      "alternativeSimilarity": 0.94675196
-    },
-    {
-      "activityId": "hwp-016",
-      "technicalClusterId": "technical-cluster-09",
-      "alternativeTechnicalClusterId": "technical-cluster-01",
-      "reason": "low-leave-one-out-margin",
-      "margin": -0.0011139,
-      "clusterSimilarity": 0.95093471,
-      "alternativeSimilarity": 0.95204861
+      "margin": -0.00480308,
+      "clusterSimilarity": 0.93045389,
+      "alternativeSimilarity": 0.93525698
     },
     {
       "activityId": "hwp-017",
+      "technicalClusterId": "technical-cluster-02",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "low-leave-one-out-margin",
+      "margin": -0.02349647,
+      "clusterSimilarity": 0.91921724,
+      "alternativeSimilarity": 0.94271372
+    },
+    {
+      "activityId": "hwp-021",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02447318,
+      "clusterSimilarity": 0.95053642,
+      "alternativeSimilarity": 0.92606324
+    },
+    {
+      "activityId": "hwp-024",
+      "technicalClusterId": "technical-cluster-03",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "singleton-cluster",
+      "margin": null,
+      "clusterSimilarity": null,
+      "alternativeSimilarity": 0.93672555
+    },
+    {
+      "activityId": "hwp-027",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-04",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.0285151,
+      "clusterSimilarity": 0.93876922,
+      "alternativeSimilarity": 0.91025412
+    },
+    {
+      "activityId": "hwp-031",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-02",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02548142,
+      "clusterSimilarity": 0.94313865,
+      "alternativeSimilarity": 0.91765722
+    },
+    {
+      "activityId": "hwp-032",
+      "technicalClusterId": "technical-cluster-04",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "singleton-cluster",
+      "margin": null,
+      "clusterSimilarity": null,
+      "alternativeSimilarity": 0.92844493
+    },
+    {
+      "activityId": "hwp-033",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01076341,
+      "clusterSimilarity": 0.94930018,
+      "alternativeSimilarity": 0.93853677
+    },
+    {
+      "activityId": "hwp-034",
+      "technicalClusterId": "technical-cluster-05",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "singleton-cluster",
+      "margin": null,
+      "clusterSimilarity": null,
+      "alternativeSimilarity": 0.93298542
+    },
+    {
+      "activityId": "hwp-035",
+      "technicalClusterId": "technical-cluster-06",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "singleton-cluster",
+      "margin": null,
+      "clusterSimilarity": null,
+      "alternativeSimilarity": 0.94128758
+    },
+    {
+      "activityId": "hwp-055",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-02",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02916368,
+      "clusterSimilarity": 0.95423019,
+      "alternativeSimilarity": 0.92506651
+    },
+    {
+      "activityId": "hwp-058",
+      "technicalClusterId": "technical-cluster-02",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "low-leave-one-out-margin",
+      "margin": -0.01694146,
+      "clusterSimilarity": 0.91921724,
+      "alternativeSimilarity": 0.9361587
+    },
+    {
+      "activityId": "hwp-060",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-02",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02871561,
+      "clusterSimilarity": 0.94747614,
+      "alternativeSimilarity": 0.91876053
+    },
+    {
+      "activityId": "hwp-063",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-02",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02598672,
+      "clusterSimilarity": 0.95531341,
+      "alternativeSimilarity": 0.92932669
+    },
+    {
+      "activityId": "hwp-069",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02404341,
+      "clusterSimilarity": 0.95219561,
+      "alternativeSimilarity": 0.92815221
+    },
+    {
+      "activityId": "hwp-070",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-02",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02850522,
+      "clusterSimilarity": 0.94764388,
+      "alternativeSimilarity": 0.91913866
+    },
+    {
+      "activityId": "hwp-073",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02883139,
+      "clusterSimilarity": 0.94326617,
+      "alternativeSimilarity": 0.91443478
+    },
+    {
+      "activityId": "hwp-076",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-08",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02582468,
+      "clusterSimilarity": 0.94943673,
+      "alternativeSimilarity": 0.92361205
+    },
+    {
+      "activityId": "hwp-077",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02129513,
+      "clusterSimilarity": 0.94080607,
+      "alternativeSimilarity": 0.91951094
+    },
+    {
+      "activityId": "hwp-078",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-08",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02534575,
+      "clusterSimilarity": 0.94517006,
+      "alternativeSimilarity": 0.91982431
+    },
+    {
+      "activityId": "hwp-079",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02339697,
+      "clusterSimilarity": 0.94762867,
+      "alternativeSimilarity": 0.9242317
+    },
+    {
+      "activityId": "hwp-080",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02530528,
+      "clusterSimilarity": 0.94497907,
+      "alternativeSimilarity": 0.91967379
+    },
+    {
+      "activityId": "hwp-081",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.0244491,
+      "clusterSimilarity": 0.95878449,
+      "alternativeSimilarity": 0.93433539
+    },
+    {
+      "activityId": "hwp-082",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01696635,
+      "clusterSimilarity": 0.94598862,
+      "alternativeSimilarity": 0.92902227
+    },
+    {
+      "activityId": "hwp-083",
+      "technicalClusterId": "technical-cluster-07",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.00104918,
+      "clusterSimilarity": 0.934535,
+      "alternativeSimilarity": 0.93348583
+    },
+    {
+      "activityId": "hwp-084",
+      "technicalClusterId": "technical-cluster-08",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "low-leave-one-out-margin",
+      "margin": -0.01245489,
+      "clusterSimilarity": 0.91562288,
+      "alternativeSimilarity": 0.92807778
+    },
+    {
+      "activityId": "hwp-085",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02307621,
+      "clusterSimilarity": 0.94357411,
+      "alternativeSimilarity": 0.9204979
+    },
+    {
+      "activityId": "hwp-087",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01412273,
+      "clusterSimilarity": 0.94649447,
+      "alternativeSimilarity": 0.93237173
+    },
+    {
+      "activityId": "hwp-088",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-02",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02857894,
+      "clusterSimilarity": 0.95464814,
+      "alternativeSimilarity": 0.9260692
+    },
+    {
+      "activityId": "hwp-089",
+      "technicalClusterId": "technical-cluster-07",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02494827,
+      "clusterSimilarity": 0.9676475,
+      "alternativeSimilarity": 0.94269923
+    },
+    {
+      "activityId": "hwp-090",
+      "technicalClusterId": "technical-cluster-09",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "singleton-cluster",
+      "margin": null,
+      "clusterSimilarity": null,
+      "alternativeSimilarity": 0.93509073
+    },
+    {
+      "activityId": "hwp-091",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-08",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02148952,
+      "clusterSimilarity": 0.95029043,
+      "alternativeSimilarity": 0.92880091
+    },
+    {
+      "activityId": "hwp-092",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02637239,
+      "clusterSimilarity": 0.94527627,
+      "alternativeSimilarity": 0.91890387
+    },
+    {
+      "activityId": "hwp-093",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02889498,
+      "clusterSimilarity": 0.94265653,
+      "alternativeSimilarity": 0.91376155
+    },
+    {
+      "activityId": "hwp-094",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01877107,
+      "clusterSimilarity": 0.94241414,
+      "alternativeSimilarity": 0.92364307
+    },
+    {
+      "activityId": "hwp-095",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01183995,
+      "clusterSimilarity": 0.942821,
+      "alternativeSimilarity": 0.93098104
+    },
+    {
+      "activityId": "hwp-096",
+      "technicalClusterId": "technical-cluster-07",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01798026,
+      "clusterSimilarity": 0.94689164,
+      "alternativeSimilarity": 0.92891139
+    },
+    {
+      "activityId": "hwp-097",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02535481,
+      "clusterSimilarity": 0.94116804,
+      "alternativeSimilarity": 0.91581323
+    },
+    {
+      "activityId": "hwp-099",
       "technicalClusterId": "technical-cluster-10",
       "alternativeTechnicalClusterId": "technical-cluster-01",
       "reason": "singleton-cluster",
       "margin": null,
       "clusterSimilarity": null,
-      "alternativeSimilarity": 0.93603471
+      "alternativeSimilarity": 0.92607767
     },
     {
-      "activityId": "hwp-018",
-      "technicalClusterId": "technical-cluster-03",
-      "alternativeTechnicalClusterId": "technical-cluster-09",
+      "activityId": "hwp-100",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-08",
       "reason": "low-leave-one-out-margin",
-      "margin": 0.01731135,
-      "clusterSimilarity": 0.95728276,
-      "alternativeSimilarity": 0.93997141
+      "margin": 0.01904174,
+      "clusterSimilarity": 0.95695876,
+      "alternativeSimilarity": 0.93791702
     },
     {
-      "activityId": "hwp-019",
+      "activityId": "hwp-101",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02538346,
+      "clusterSimilarity": 0.95384847,
+      "alternativeSimilarity": 0.92846501
+    },
+    {
+      "activityId": "hwp-102",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-08",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.0280519,
+      "clusterSimilarity": 0.95023026,
+      "alternativeSimilarity": 0.92217836
+    },
+    {
+      "activityId": "hwp-105",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02102866,
+      "clusterSimilarity": 0.9404669,
+      "alternativeSimilarity": 0.91943824
+    },
+    {
+      "activityId": "hwp-106",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01139084,
+      "clusterSimilarity": 0.94349782,
+      "alternativeSimilarity": 0.93210697
+    },
+    {
+      "activityId": "hwp-107",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-08",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.0279858,
+      "clusterSimilarity": 0.94542783,
+      "alternativeSimilarity": 0.91744202
+    },
+    {
+      "activityId": "hwp-108",
       "technicalClusterId": "technical-cluster-11",
-      "alternativeTechnicalClusterId": "technical-cluster-03",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
       "reason": "singleton-cluster",
       "margin": null,
       "clusterSimilarity": null,
-      "alternativeSimilarity": 0.92332882
+      "alternativeSimilarity": 0.92901176
     },
     {
-      "activityId": "hwp-020",
+      "activityId": "hwp-109",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-07",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.02233449,
+      "clusterSimilarity": 0.94772979,
+      "alternativeSimilarity": 0.92539529
+    },
+    {
+      "activityId": "hwp-110",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-08",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01657724,
+      "clusterSimilarity": 0.94741907,
+      "alternativeSimilarity": 0.93084183
+    },
+    {
+      "activityId": "hwp-111",
       "technicalClusterId": "technical-cluster-12",
       "alternativeTechnicalClusterId": "technical-cluster-01",
       "reason": "singleton-cluster",
       "margin": null,
       "clusterSimilarity": null,
-      "alternativeSimilarity": 0.93504295
+      "alternativeSimilarity": 0.9195546
+    },
+    {
+      "activityId": "hwp-112",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-08",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01920536,
+      "clusterSimilarity": 0.93784279,
+      "alternativeSimilarity": 0.91863743
+    },
+    {
+      "activityId": "hwp-113",
+      "technicalClusterId": "technical-cluster-07",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01044884,
+      "clusterSimilarity": 0.93391015,
+      "alternativeSimilarity": 0.92346132
+    },
+    {
+      "activityId": "hwp-114",
+      "technicalClusterId": "technical-cluster-01",
+      "alternativeTechnicalClusterId": "technical-cluster-08",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01839987,
+      "clusterSimilarity": 0.93803252,
+      "alternativeSimilarity": 0.91963266
+    },
+    {
+      "activityId": "hwp-115",
+      "technicalClusterId": "technical-cluster-08",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01356203,
+      "clusterSimilarity": 0.94068923,
+      "alternativeSimilarity": 0.9271272
+    },
+    {
+      "activityId": "hwp-116",
+      "technicalClusterId": "technical-cluster-08",
+      "alternativeTechnicalClusterId": "technical-cluster-01",
+      "reason": "low-leave-one-out-margin",
+      "margin": 0.01211367,
+      "clusterSimilarity": 0.93290491,
+      "alternativeSimilarity": 0.92079124
     }
   ],
   "unassignedProductionCategoryActivityIds": [
@@ -1201,6 +4653,103 @@
     "hwp-017",
     "hwp-018",
     "hwp-019",
-    "hwp-020"
+    "hwp-020",
+    "hwp-021",
+    "hwp-022",
+    "hwp-023",
+    "hwp-024",
+    "hwp-025",
+    "hwp-026",
+    "hwp-027",
+    "hwp-028",
+    "hwp-029",
+    "hwp-030",
+    "hwp-031",
+    "hwp-032",
+    "hwp-033",
+    "hwp-034",
+    "hwp-035",
+    "hwp-036",
+    "hwp-037",
+    "hwp-038",
+    "hwp-039",
+    "hwp-040",
+    "hwp-041",
+    "hwp-042",
+    "hwp-043",
+    "hwp-044",
+    "hwp-045",
+    "hwp-046",
+    "hwp-047",
+    "hwp-048",
+    "hwp-049",
+    "hwp-050",
+    "hwp-051",
+    "hwp-052",
+    "hwp-053",
+    "hwp-054",
+    "hwp-055",
+    "hwp-056",
+    "hwp-057",
+    "hwp-058",
+    "hwp-059",
+    "hwp-060",
+    "hwp-061",
+    "hwp-062",
+    "hwp-063",
+    "hwp-064",
+    "hwp-065",
+    "hwp-066",
+    "hwp-067",
+    "hwp-068",
+    "hwp-069",
+    "hwp-070",
+    "hwp-071",
+    "hwp-072",
+    "hwp-073",
+    "hwp-074",
+    "hwp-075",
+    "hwp-076",
+    "hwp-077",
+    "hwp-078",
+    "hwp-079",
+    "hwp-080",
+    "hwp-081",
+    "hwp-082",
+    "hwp-083",
+    "hwp-084",
+    "hwp-085",
+    "hwp-086",
+    "hwp-087",
+    "hwp-088",
+    "hwp-089",
+    "hwp-090",
+    "hwp-091",
+    "hwp-092",
+    "hwp-093",
+    "hwp-094",
+    "hwp-095",
+    "hwp-096",
+    "hwp-097",
+    "hwp-098",
+    "hwp-099",
+    "hwp-100",
+    "hwp-101",
+    "hwp-102",
+    "hwp-103",
+    "hwp-104",
+    "hwp-105",
+    "hwp-106",
+    "hwp-107",
+    "hwp-108",
+    "hwp-109",
+    "hwp-110",
+    "hwp-111",
+    "hwp-112",
+    "hwp-113",
+    "hwp-114",
+    "hwp-115",
+    "hwp-116",
+    "hwp-117"
   ]
 }
