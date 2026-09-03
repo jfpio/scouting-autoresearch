@@ -6,14 +6,11 @@
   `project-plan.md` opisuje cele i kontekst produktu, ale nie ustanawia dodatkowych reguł agenta.
 - Długotrwały autoresearch prowadź w Codex Goal Mode. Nie zakładaj istnienia zewnętrznego
   harmonogramu ani procesu serwerowego.
-- Przed rozpoczęciem cyklu sprawdź bieżącą gałąź, ostatni wypchnięty commit,
-  `data/checkpoints/cycle-state.json`, `config/research-queue.yaml` i
-  `config/source-registry.yaml`.
+- Przed rozpoczęciem pracy sprawdź bieżącą gałąź, ostatni wypchnięty commit, checkpoint
+  właściwy dla wznawianego źródła lub pipeline'u w `data/checkpoints/`,
+  `config/research-queue.yaml` i `config/source-registry.yaml`.
 - Pracuj na przygotowanej przez Codex gałęzi innej niż domyślna. Jeżeli trzeba utworzyć
   gałąź, nazwij ją `codex/autoresearch-<data>-<cykl>`.
-- `scripts/run_cycle.py` jest opcjonalnym generatorem ograniczonego pakietu propozycji i
-  checkpointu. Nie traktuj jego wykonania jako ukończonego researchu, zatwierdzenia praw ani
-  publikacji.
 
 ## Środowisko Heliosa
 
@@ -65,8 +62,10 @@
   i osobno koszt referencyjny według wersjonowanej ceny katalogowej; koszt referencyjny nie
   blokuje wykonania, gdy `billingMode: experimental-no-charge`. Przejście na rozliczane konto
   lub niepewny tryb rozliczeń wymaga decyzji człowieka i ponownego włączenia twardego limitu.
-- Dla eksploracji i pozyskiwania nowych źródeł V2 nadal stosuj jawny limit zakresu cyklu z
-  `config/research-queue.yaml`; nie używaj limitu embeddingów jako zamiennika bramek prawnych.
+- Dla eksploracji i pozyskiwania nowych źródeł V2 nie stosuj arbitralnego dziennego limitu
+  dokumentów ani kosztu. Zakres wynika z kolejki, atomowej granicy bieżącego źródła,
+  zewnętrznych limitów dostawców i bramek prawnych. Kontynuuj do ukończenia źródła albo
+  wystąpienia rzeczywistej przeszkody wymagającej checkpointu lub decyzji człowieka.
 - Operacje muszą być resumowalne oraz idempotentne. Nie powtarzaj udanego pobrania,
   ekstrakcji ani tłumaczenia, gdy hash wejścia się nie zmienił.
 - W Goal Mode odróżniaj problemy przejściowe od trwałych. `429`, chwilowy rate limit lub
@@ -74,9 +73,10 @@
   12 godzin i samodzielnie wznów cel. Jeżeli dostawca poda dłuższy `Retry-After`, zastosuj
   dłuższy okres. Nie oznaczaj celu jako zablokowanego po pierwszym przejściowym limicie.
 - Zatrzymaj cel i zgłoś blokadę, gdy problem wymaga decyzji człowieka albo sam nie zniknie:
-  niejasne prawa, brak uprawnień lub sekretu, wyczerpany limit miesięczny/finansowy,
-  sprzeczność danych, uszkodzone źródło albo trzy kolejne nieudane wznowienia tego samego
-  kroku. Nie obchodź limitów przez zmianę konta, klucza lub dostawcy.
+  niejasne prawa pozostałe po udokumentowanym researchu, brak uprawnień lub sekretu,
+  wyczerpany limit miesięczny/finansowy, sprzeczność danych, uszkodzone źródło albo trzy
+  kolejne nieudane wznowienia tego samego kroku. Nie obchodź limitów przez zmianę konta,
+  klucza lub dostawcy.
 - Nie loguj sekretów, tokenów, pełnych nagłówków żądań ani zawartości plików `.env`.
 - Klucz Mistral czytaj tylko ze środowiska albo `~/.secrets/mistral.env`.
 - Zewnętrzne pobieranie musi być ograniczone do zatwierdzonego wpisu w rejestrze źródeł.

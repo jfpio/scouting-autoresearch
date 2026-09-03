@@ -180,11 +180,10 @@ Autoresearch orkiestruje Codex w Goal Mode. Wiążące zasady bezpieczeństwa, l
 checkpointów, publikacji i wznowień znajdują się wyłącznie w `AGENTS.md`; ten dokument
 opisuje cele i kolejność rozwoju produktu.
 
-`scripts/run_cycle.py` jest opcjonalnym narzędziem pomocniczym. Materializuje ograniczoną kolejkę
-kandydatów i raport oraz zapisuje ostatni checkpoint, ale nie pobiera źródeł, nie wznawia
-niedokończonych operacji sieciowych i nie tworzy gałęzi ani pull requestów. Te czynności
-wykonuje Codex zgodnie z `AGENTS.md`. Adaptery pobierania są dodawane kolekcja po kolekcji po
-zatwierdzeniu zasad dostępu.
+Kolejka wskazuje następny temat, rekordy w `vault/reviews/` dokumentują decyzje, a checkpointy
+konkretnych pipeline'ów przechowują wyłącznie stan potrzebny do bezpiecznego wznowienia.
+Orkiestrację, gałęzie, commity i pull requesty prowadzi Codex zgodnie z `AGENTS.md`. Adaptery
+pobierania są dodawane kolekcja po kolekcji po zatwierdzeniu zasad dostępu.
 
 ## Kolejka dalszych prac V2
 
@@ -195,4 +194,4 @@ zatwierdzeniu zasad dostępu.
 - dodać redakcyjną ocenę wartości i bezpieczeństwa niezależną od oceny źródła,
 - opisać politykę krótkich cytatów i rekordów `link-only` dla źródeł chronionych,
 - przeprowadzić pilotaż na małej książce i zmierzyć koszt, jakość oraz czas recenzji,
-- dopiero po pilotażu zwiększać dzienny limit dokumentów.
+- po pilotażu skalować liczbę źródeł według zmierzonej przepustowości i zewnętrznych limitów.
