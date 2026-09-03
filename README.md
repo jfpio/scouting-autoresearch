@@ -102,7 +102,7 @@ na wskazaną recepturę kandydującą. Dopóki wszystkie ID z
 - `data/generated/` — wersjonowane eksporty JSON i JSONL,
 - `public/data/` — te same eksporty publikowane na stronie,
 - `src/content/docs/` — generowane strony Starlight,
-- `scripts/` — import, tłumaczenia, generowanie, walidacja i pomocniczy cykl V2,
+- `scripts/` — import, tłumaczenia, generowanie, analiza i walidacja,
 - `config/` — kolejka badawcza i rejestr dozwolonych kolekcji.
 
 Pełny kierunek rozwoju opisuje [project-plan.md](project-plan.md).
@@ -116,10 +116,10 @@ Pełny kierunek rozwoju opisuje [project-plan.md](project-plan.md).
   i zagranicznych; korzysta z modelu danych i taksonomii wypracowanych w V0–V1.
 
 Autoresearch prowadzi Codex w Goal Mode. Wiążące zasady pracy agenta znajdują się w
-[`AGENTS.md`](AGENTS.md); `project-plan.md` opisuje kierunek produktu. Codex zapisuje checkpoint
-po każdej kompletnie przetworzonej książce lub jednostce źródłowej, wykonuje osobny commit i
-od razu wypycha go na gałąź pull requestu. Przejściowy limit API powoduje pauzę na 12 godzin i
-automatyczne wznowienie, a problemy wymagające decyzji człowieka zatrzymują cel.
+[`AGENTS.md`](AGENTS.md); `project-plan.md` opisuje kierunek produktu. Stan operacji zapisują
+checkpointy właściwe dla konkretnego źródła lub pipeline'u, a ukończona jednostka otrzymuje
+osobny commit natychmiast wypchnięty na gałąź pull requestu. Przejściowy limit API powoduje
+checkpoint i wznowienie, a problemy wymagające decyzji człowieka zatrzymują cel.
 
 ## Zaufane źródła badawcze
 

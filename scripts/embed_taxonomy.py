@@ -187,7 +187,7 @@ def retry_at(now: datetime, retry_after: str | None) -> datetime:
 
 def batch_reference_cost(batch: dict[str, Any], fallback_price_per_million_tokens: float) -> float:
     usage = batch.get("usage", {})
-    stored_cost = usage.get("referenceCostUsd", usage.get("estimatedCostUsd"))
+    stored_cost = usage.get("referenceCostUsd")
     if stored_cost is not None:
         return float(stored_cost)
     return int(usage.get("promptTokens", 0)) * fallback_price_per_million_tokens / 1_000_000
@@ -325,7 +325,6 @@ def write_retry_checkpoint(
             "nextRetryAt": retry_at(now, retry_after).isoformat(),
             **identity,
         },
-        remove_keys=("nextCycleAt",),
     )
 
 
@@ -361,7 +360,7 @@ def request_embeddings(
                 "reason": f"mistral-http-{error.code}",
                 **identity,
             },
-            remove_keys=("nextCycleAt", "nextRetryAt"),
+            remove_keys=("nextRetryAt",),
         )
         raise RuntimeError(f"Permanent Mistral HTTP {error.code}; checkpoint saved") from error
     except (urllib.error.URLError, TimeoutError) as error:
@@ -590,13 +589,8 @@ def main() -> None:
                 **identity,
             },
             remove_keys=(
-                "dailyUsage",
-                "dailyLimits",
-                "nextCycleAt",
                 "nextRetryAt",
                 "reason",
-                "documentsProcessedThisCycle",
-                "estimatedCostUsdThisCycle",
             ),
         )
         return
@@ -710,13 +704,8 @@ def main() -> None:
         remove_keys=(
             "analysis",
             "inputQualityAudit",
-            "dailyUsage",
-            "dailyLimits",
-            "nextCycleAt",
             "nextRetryAt",
             "reason",
-            "documentsProcessedThisCycle",
-            "estimatedCostUsdThisCycle",
         ),
     )
     print(
