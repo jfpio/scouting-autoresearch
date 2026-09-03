@@ -20,6 +20,11 @@ from embed_taxonomy import (
     input_hash,
     load_config,
 )
+from propose_taxonomy import (
+    PROPOSAL_PATH as TAXONOMY_PROPOSAL_PATH,
+    REPORT_PATH as TAXONOMY_MAPPING_PROPOSAL_PATH,
+    build_proposal_report,
+)
 
 
 def require(condition: bool, message: str, errors: list[str]) -> None:
@@ -44,10 +49,12 @@ def main() -> None:
 
     expected_ids = {f"hwp-{number:03d}" for number in range(1, 118)} | {f"pw-{number:03d}" for number in range(1, 86)}
     actual_ids: set[str] = set()
+    activity_metadata: dict[str, dict] = {}
     for path in activity_paths:
         metadata, body = load_markdown(path)
         activity_id = metadata.get("id")
         actual_ids.add(activity_id)
+        activity_metadata[activity_id] = metadata
         require(activity_id == path.stem, f"ID/path mismatch in {path}", errors)
         require(metadata.get("sourceId") in sources, f"Unknown source in {path.name}", errors)
         require(metadata.get("rightsStatus") == "public-domain", f"Non-public full text in {path.name}", errors)
@@ -186,6 +193,59 @@ def main() -> None:
                 "Taxonomy analysis silently assigns production categories",
                 errors,
             )
+
+    if TAXONOMY_PROPOSAL_PATH.exists():
+        proposal, _ = load_markdown(TAXONOMY_PROPOSAL_PATH)
+        require(
+            TAXONOMY_MAPPING_PROPOSAL_PATH.exists(),
+            "Missing taxonomy V1 mapping proposal report",
+            errors,
+        )
+        if TAXONOMY_MAPPING_PROPOSAL_PATH.exists() and TAXONOMY_ANALYSIS_PATH.exists():
+            mapping_proposal = read_json(TAXONOMY_MAPPING_PROPOSAL_PATH)
+            expected_mapping_proposal = build_proposal_report(
+                [activity_metadata[activity_id] for activity_id in sorted(activity_metadata)],
+                proposal,
+                read_json(TAXONOMY_ANALYSIS_PATH),
+            )
+            require(
+                mapping_proposal == expected_mapping_proposal,
+                "Taxonomy V1 mapping proposal is stale or nondeterministic",
+                errors,
+            )
+            require(mapping_proposal.get("status") == "proposed", "Taxonomy proposal is not proposed", errors)
+            require(mapping_proposal.get("proposalOnly") is True, "Taxonomy mapping is not proposal-only", errors)
+            require(mapping_proposal.get("reviewRequired") is True, "Taxonomy mapping lacks human review", errors)
+            require(
+                mapping_proposal.get("productionTaxonomyChanged") is False,
+                "Taxonomy proposal claims a production change",
+                errors,
+            )
+            categories = mapping_proposal.get("categories", [])
+            category_ids = [category.get("id") for category in categories]
+            require(10 <= len(categories) <= 15, "Taxonomy proposal must have 10-15 categories", errors)
+            require(len(category_ids) == len(set(category_ids)), "Taxonomy proposal category IDs repeat", errors)
+            mappings = mapping_proposal.get("mappings", [])
+            require(
+                {mapping.get("activityId") for mapping in mappings} == actual_ids,
+                "Taxonomy proposal mapping IDs differ from the corpus",
+                errors,
+            )
+            source_traits = {
+                activity_id: metadata.get("traits", [])
+                for activity_id, metadata in activity_metadata.items()
+            }
+            for mapping in mappings:
+                require(
+                    mapping.get("sourceTraits") == source_traits.get(mapping.get("activityId")),
+                    f"Taxonomy proposal changed source traits for {mapping.get('activityId')}",
+                    errors,
+                )
+                require(
+                    set(mapping.get("categoryIds", [])).issubset(set(category_ids)),
+                    f"Taxonomy proposal uses an unknown category for {mapping.get('activityId')}",
+                    errors,
+                )
 
     for locale in ("pl", "en"):
         json_path = GENERATED / f"activities.{locale}.json"

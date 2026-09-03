@@ -59,6 +59,7 @@ Przed wywołaniem API skrypt pokazuje plan partii, koszt referencyjny i granicę
 .venv/bin/python scripts/embed_taxonomy.py --execute --limit 50
 .venv/bin/python scripts/audit_taxonomy_inputs.py
 .venv/bin/python scripts/analyze_taxonomy.py
+.venv/bin/python scripts/propose_taxonomy.py
 ```
 
 Cache jest ważny tylko dla zgodnego modelu, przepisu i hasha wejścia. Embeddingi nie mają
@@ -77,6 +78,11 @@ Analizator nie wywołuje API. Wylicza deterministyczne sąsiedztwa i techniczne 
 oznacza niejednoznaczne przypisania oraz kandydatów odstających. Dopóki nie ma wszystkich
 202 aktualnych cache’y, raport ma status `partial`; zawsze pozostaje propozycją do ręcznego
 przeglądu i nie zmienia produkcyjnych kategorii ani filtrów.
+
+Generator propozycji taksonomii materializuje 13 szerokich, dwujęzycznych kategorii oraz
+jawne mapowania oparte wyłącznie na zastanych działach i polach redakcyjnych. Wynik trafia do
+raportu z oznaczeniami `proposalOnly` i `reviewRequired`; nie zmienia `vault/taxonomy/`,
+filtrów ani eksportów przed decyzją człowieka.
 
 Kod obsługuje też przepis `activity-context-v2`, który przed skróceniem kontekstu usuwa
 techniczną stopkę źródłową oraz adresy URL z Markdown, zachowując tekst widoczny odnośników.

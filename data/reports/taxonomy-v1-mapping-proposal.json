@@ -1,0 +1,6834 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "taxonomy-v1-mapping-proposal",
+  "status": "proposed",
+  "proposalOnly": true,
+  "reviewRequired": true,
+  "productionTaxonomyChanged": false,
+  "proposalId": "exploration-taxonomy-v1-broad-categories",
+  "proposalVersion": "v1-candidate-1",
+  "createdAt": "2026-09-03",
+  "sourceType": "editorial-hypothesis",
+  "categories": [
+    {
+      "id": "observation-perception",
+      "labels": {
+        "pl": "Obserwacja i percepcja",
+        "en": "Observation and perception"
+      },
+      "definition": {
+        "pl": "Celowe zbieranie, rozróżnianie lub zapamiętywanie bodźców wzrokowych, słuchowych albo innych śladów zmysłowych.",
+        "en": "Deliberately gathering, distinguishing, or remembering visual, auditory, or other sensory cues."
+      },
+      "evidenceActivityIds": [
+        "hwp-022",
+        "hwp-061",
+        "pw-023"
+      ],
+      "counterexampleActivityIds": [
+        "hwp-003",
+        "pw-004"
+      ]
+    },
+    {
+      "id": "orientation-navigation",
+      "labels": {
+        "pl": "Orientacja i nawigacja",
+        "en": "Orientation and navigation"
+      },
+      "definition": {
+        "pl": "Ustalanie położenia lub kierunku, odczytywanie trasy i docieranie do celu z użyciem mapy, kompasu albo wskazówek terenowych.",
+        "en": "Establishing position or direction, reading a route, and reaching a destination with maps, a compass, or terrain cues."
+      },
+      "evidenceActivityIds": [
+        "hwp-001",
+        "hwp-003",
+        "hwp-014"
+      ],
+      "counterexampleActivityIds": [
+        "hwp-019",
+        "hwp-058"
+      ]
+    },
+    {
+      "id": "reconnaissance-fieldcraft",
+      "labels": {
+        "pl": "Zwiad i terenoznawstwo",
+        "en": "Reconnaissance and fieldcraft"
+      },
+      "definition": {
+        "pl": "Zdobywanie informacji w terenie przez skryte poruszanie się, tropienie, podchodzenie, zwiad lub praktyczne wykorzystanie warunków terenowych.",
+        "en": "Gathering information in the field through concealment, tracking, stalking, reconnaissance, or practical use of terrain."
+      },
+      "evidenceActivityIds": [
+        "hwp-068",
+        "hwp-072",
+        "pw-019"
+      ],
+      "counterexampleActivityIds": [
+        "hwp-001",
+        "pw-056"
+      ]
+    },
+    {
+      "id": "ingenuity-problem-solving",
+      "labels": {
+        "pl": "Pomysłowość i rozwiązywanie problemów",
+        "en": "Ingenuity and problem solving"
+      },
+      "definition": {
+        "pl": "Znajdowanie nieoczywistego sposobu wykonania zadania lub obejścia ograniczenia.",
+        "en": "Finding a non-obvious way to complete a task or work around a constraint."
+      },
+      "evidenceActivityIds": [
+        "pw-002",
+        "pw-024",
+        "pw-041"
+      ],
+      "counterexampleActivityIds": [
+        "pw-015",
+        "pw-023"
+      ]
+    },
+    {
+      "id": "resourcefulness-self-reliance",
+      "labels": {
+        "pl": "Zaradność i samodzielność",
+        "en": "Resourcefulness and self-reliance"
+      },
+      "definition": {
+        "pl": "Samodzielne poradzenie sobie z praktyczną potrzebą przy użyciu dostępnych środków.",
+        "en": "Independently meeting a practical need with the means available."
+      },
+      "evidenceActivityIds": [
+        "pw-001",
+        "pw-009",
+        "pw-029"
+      ],
+      "counterexampleActivityIds": [
+        "pw-014",
+        "pw-056"
+      ]
+    },
+    {
+      "id": "planning-judgment",
+      "labels": {
+        "pl": "Planowanie i osąd",
+        "en": "Planning and judgment"
+      },
+      "definition": {
+        "pl": "Układanie kolejności działań, przewidywanie skutków lub podejmowanie decyzji pod ograniczeniem czasu i informacji.",
+        "en": "Sequencing actions, anticipating consequences, or making decisions under limits of time and information."
+      },
+      "evidenceActivityIds": [
+        "pw-027",
+        "pw-052",
+        "pw-070"
+      ],
+      "counterexampleActivityIds": [
+        "pw-004",
+        "pw-015"
+      ]
+    },
+    {
+      "id": "self-discipline-endurance",
+      "labels": {
+        "pl": "Samodyscyplina i wytrwałość",
+        "en": "Self-discipline and endurance"
+      },
+      "definition": {
+        "pl": "Utrzymanie wysiłku, cierpliwości albo kontroli zachowania mimo dyskomfortu, monotonii lub trudności.",
+        "en": "Sustaining effort, patience, or behavioral control despite discomfort, monotony, or difficulty."
+      },
+      "evidenceActivityIds": [
+        "pw-002",
+        "pw-003",
+        "pw-014"
+      ],
+      "counterexampleActivityIds": [
+        "pw-042",
+        "pw-056"
+      ]
+    },
+    {
+      "id": "courage-composure",
+      "labels": {
+        "pl": "Odwaga i opanowanie",
+        "en": "Courage and composure"
+      },
+      "definition": {
+        "pl": "Działanie mimo strachu albo presji z zachowaniem kontroli nad reakcjami.",
+        "en": "Acting despite fear or pressure while retaining control of one's reactions."
+      },
+      "evidenceActivityIds": [
+        "pw-014",
+        "pw-035",
+        "pw-045"
+      ],
+      "counterexampleActivityIds": [
+        "pw-023",
+        "pw-070"
+      ]
+    },
+    {
+      "id": "physical-fitness",
+      "labels": {
+        "pl": "Sprawność fizyczna",
+        "en": "Physical fitness"
+      },
+      "definition": {
+        "pl": "Siła, wytrzymałość, szybkość lub ogólna zdolność ruchowa stanowiąca istotę zadania.",
+        "en": "Strength, endurance, speed, or general movement capacity that is central to the task."
+      },
+      "evidenceActivityIds": [
+        "pw-004",
+        "pw-007",
+        "pw-038"
+      ],
+      "counterexampleActivityIds": [
+        "pw-041",
+        "pw-056"
+      ]
+    },
+    {
+      "id": "dexterity-precision",
+      "labels": {
+        "pl": "Zręczność i precyzja",
+        "en": "Dexterity and precision"
+      },
+      "definition": {
+        "pl": "Dokładna koordynacja ruchów, celność, równowaga lub pewność ręki.",
+        "en": "Precise movement coordination, accuracy, balance, or steadiness of hand."
+      },
+      "evidenceActivityIds": [
+        "pw-006",
+        "pw-029",
+        "pw-036"
+      ],
+      "counterexampleActivityIds": [
+        "pw-011",
+        "pw-056"
+      ]
+    },
+    {
+      "id": "responsibility-service",
+      "labels": {
+        "pl": "Odpowiedzialność i służba",
+        "en": "Responsibility and service"
+      },
+      "definition": {
+        "pl": "Rzetelne wykonanie powierzonego obowiązku, troska o dobro wspólne lub działanie dla innych.",
+        "en": "Reliably fulfilling an entrusted duty, caring for the common good, or acting in service of others."
+      },
+      "evidenceActivityIds": [
+        "pw-011",
+        "pw-016",
+        "pw-019"
+      ],
+      "counterexampleActivityIds": [
+        "pw-004",
+        "pw-042"
+      ]
+    },
+    {
+      "id": "creativity-expression",
+      "labels": {
+        "pl": "Twórczość i ekspresja",
+        "en": "Creativity and expression"
+      },
+      "definition": {
+        "pl": "Tworzenie formy artystycznej, symbolicznej, językowej lub obrzędowej jako istotnej części zadania.",
+        "en": "Creating an artistic, symbolic, linguistic, or ceremonial form as a material part of the task."
+      },
+      "evidenceActivityIds": [
+        "pw-020",
+        "pw-040",
+        "pw-056"
+      ],
+      "counterexampleActivityIds": [
+        "pw-015",
+        "pw-023"
+      ]
+    },
+    {
+      "id": "teamwork-coordination",
+      "labels": {
+        "pl": "Współpraca i koordynacja",
+        "en": "Teamwork and coordination"
+      },
+      "definition": {
+        "pl": "Wspólne działanie większego zespołu, w którym podział ról lub koordynacja wpływa na wykonanie zadania.",
+        "en": "Joint action by a larger team where role allocation or coordination materially affects the task."
+      },
+      "evidenceActivityIds": [
+        "hwp-108",
+        "hwp-112",
+        "hwp-117"
+      ],
+      "counterexampleActivityIds": [
+        "hwp-061",
+        "pw-041"
+      ]
+    }
+  ],
+  "mappingRules": {
+    "sourceSections": {
+      "Orientowanie się w terenie": [
+        "orientation-navigation"
+      ],
+      "Wzrok i spostrzegawczość": [
+        "observation-perception"
+      ],
+      "Słuch": [
+        "observation-perception"
+      ],
+      "Zwiady": [
+        "reconnaissance-fieldcraft"
+      ],
+      "Ćwiczenia w większym zespole": [
+        "teamwork-coordination"
+      ]
+    },
+    "legacyTraitCategories": {
+      "pomyslowosc": [
+        "ingenuity-problem-solving"
+      ],
+      "zaradnosc": [
+        "resourcefulness-self-reliance"
+      ],
+      "samodyscyplina": [
+        "self-discipline-endurance"
+      ],
+      "odpowiedzialnosc": [
+        "responsibility-service"
+      ],
+      "sprawnosc": [
+        "physical-fitness"
+      ],
+      "zrecznosc": [
+        "dexterity-precision"
+      ],
+      "teren": [
+        "reconnaissance-fieldcraft"
+      ],
+      "odwaga": [
+        "courage-composure"
+      ],
+      "obserwacja": [
+        "observation-perception"
+      ],
+      "planowanie": [
+        "planning-judgment"
+      ],
+      "tworczosc": [
+        "creativity-expression"
+      ]
+    }
+  },
+  "coverage": {
+    "totalActivities": 202,
+    "proposedMappedActivities": 201,
+    "unassignedActivities": 1,
+    "unassignedActivityIds": [
+      "pw-018"
+    ],
+    "categoryCounts": [
+      {
+        "categoryId": "observation-perception",
+        "activities": 61
+      },
+      {
+        "categoryId": "orientation-navigation",
+        "activities": 18
+      },
+      {
+        "categoryId": "reconnaissance-fieldcraft",
+        "activities": 56
+      },
+      {
+        "categoryId": "ingenuity-problem-solving",
+        "activities": 43
+      },
+      {
+        "categoryId": "resourcefulness-self-reliance",
+        "activities": 21
+      },
+      {
+        "categoryId": "planning-judgment",
+        "activities": 8
+      },
+      {
+        "categoryId": "self-discipline-endurance",
+        "activities": 33
+      },
+      {
+        "categoryId": "courage-composure",
+        "activities": 14
+      },
+      {
+        "categoryId": "physical-fitness",
+        "activities": 39
+      },
+      {
+        "categoryId": "dexterity-precision",
+        "activities": 18
+      },
+      {
+        "categoryId": "responsibility-service",
+        "activities": 12
+      },
+      {
+        "categoryId": "creativity-expression",
+        "activities": 5
+      },
+      {
+        "categoryId": "teamwork-coordination",
+        "activities": 10
+      }
+    ]
+  },
+  "technicalAnalysis": {
+    "analysisHash": "1ff2b23b6b851bddbf0cbcf7482059f7fb7b190ff226e1ddf8e760be41d9f974",
+    "clusterCount": 12,
+    "ambiguousActivityIds": [
+      "hwp-027",
+      "hwp-032",
+      "hwp-070",
+      "hwp-071",
+      "hwp-075",
+      "hwp-076",
+      "hwp-077",
+      "hwp-078",
+      "hwp-079",
+      "hwp-080",
+      "hwp-082",
+      "hwp-083",
+      "hwp-084",
+      "hwp-085",
+      "hwp-087",
+      "hwp-088",
+      "hwp-089",
+      "hwp-090",
+      "hwp-091",
+      "hwp-092",
+      "hwp-093",
+      "hwp-095",
+      "hwp-096",
+      "hwp-097",
+      "hwp-098",
+      "hwp-099",
+      "hwp-100",
+      "hwp-101",
+      "hwp-102",
+      "hwp-103",
+      "hwp-104",
+      "hwp-105",
+      "hwp-106",
+      "hwp-107",
+      "hwp-108",
+      "hwp-109",
+      "hwp-110",
+      "hwp-111",
+      "hwp-112",
+      "hwp-113",
+      "hwp-114",
+      "hwp-115",
+      "hwp-116",
+      "hwp-117",
+      "pw-005",
+      "pw-008",
+      "pw-010",
+      "pw-011",
+      "pw-013",
+      "pw-014",
+      "pw-016",
+      "pw-017",
+      "pw-018",
+      "pw-021",
+      "pw-023",
+      "pw-028",
+      "pw-033",
+      "pw-034",
+      "pw-035",
+      "pw-036",
+      "pw-037",
+      "pw-038",
+      "pw-041",
+      "pw-043",
+      "pw-045",
+      "pw-047",
+      "pw-050",
+      "pw-051",
+      "pw-053",
+      "pw-055",
+      "pw-056",
+      "pw-059",
+      "pw-061",
+      "pw-062",
+      "pw-063",
+      "pw-064",
+      "pw-065",
+      "pw-069",
+      "pw-074",
+      "pw-075",
+      "pw-078",
+      "pw-080",
+      "pw-084",
+      "pw-085"
+    ],
+    "outlierActivityIds": [],
+    "manualReviewActivityIds": [
+      "hwp-020",
+      "pw-015",
+      "pw-018",
+      "pw-033"
+    ]
+  },
+  "mappings": [
+    {
+      "activityId": "hwp-001",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-002",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-003",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-004",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-005",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-006",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-007",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-008",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-009",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-010",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-011",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-012",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-013",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-014",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-015",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-016",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-017",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-018",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "orientation-navigation"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Orientowanie się w terenie",
+          "categoryIds": [
+            "orientation-navigation"
+          ]
+        }
+      ],
+      "sourceSection": "Orientowanie się w terenie",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-019",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-020",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "editorial-boundary"
+      ]
+    },
+    {
+      "activityId": "hwp-021",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-022",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-023",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-024",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-025",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-026",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-027",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-028",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-029",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-030",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-031",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-032",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-02",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-033",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-034",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-035",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-036",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-037",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-038",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-039",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-040",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-041",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-042",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-043",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-044",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-045",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-046",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-047",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-048",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-049",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-050",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-051",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-052",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-053",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-054",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-055",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-056",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-057",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Wzrok i spostrzegawczość",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Wzrok i spostrzegawczość",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-058",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Słuch",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Słuch",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-059",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Słuch",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Słuch",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-060",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Słuch",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Słuch",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-061",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Słuch",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Słuch",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-062",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Słuch",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Słuch",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-063",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Słuch",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Słuch",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-064",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Słuch",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Słuch",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-065",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Słuch",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Słuch",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-066",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-067",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-068",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-069",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-070",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-071",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-072",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-073",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-074",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-075",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-076",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-077",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-078",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-079",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-080",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-081",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-082",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-083",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-084",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-03",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-085",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-086",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-087",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-088",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-089",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-090",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-091",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-092",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-093",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-094",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "hwp-095",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-096",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-097",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-098",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-099",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-100",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-101",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-102",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-103",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-104",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-105",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-106",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-107",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Zwiady",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Zwiady",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-108",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "teamwork-coordination"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Ćwiczenia w większym zespole",
+          "categoryIds": [
+            "teamwork-coordination"
+          ]
+        }
+      ],
+      "sourceSection": "Ćwiczenia w większym zespole",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-04",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-109",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "teamwork-coordination"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Ćwiczenia w większym zespole",
+          "categoryIds": [
+            "teamwork-coordination"
+          ]
+        }
+      ],
+      "sourceSection": "Ćwiczenia w większym zespole",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-110",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "teamwork-coordination"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Ćwiczenia w większym zespole",
+          "categoryIds": [
+            "teamwork-coordination"
+          ]
+        }
+      ],
+      "sourceSection": "Ćwiczenia w większym zespole",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-111",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "teamwork-coordination"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Ćwiczenia w większym zespole",
+          "categoryIds": [
+            "teamwork-coordination"
+          ]
+        }
+      ],
+      "sourceSection": "Ćwiczenia w większym zespole",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-03",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-112",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "teamwork-coordination"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Ćwiczenia w większym zespole",
+          "categoryIds": [
+            "teamwork-coordination"
+          ]
+        }
+      ],
+      "sourceSection": "Ćwiczenia w większym zespole",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-113",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "teamwork-coordination"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Ćwiczenia w większym zespole",
+          "categoryIds": [
+            "teamwork-coordination"
+          ]
+        }
+      ],
+      "sourceSection": "Ćwiczenia w większym zespole",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-114",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "teamwork-coordination"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Ćwiczenia w większym zespole",
+          "categoryIds": [
+            "teamwork-coordination"
+          ]
+        }
+      ],
+      "sourceSection": "Ćwiczenia w większym zespole",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-115",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "teamwork-coordination"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Ćwiczenia w większym zespole",
+          "categoryIds": [
+            "teamwork-coordination"
+          ]
+        }
+      ],
+      "sourceSection": "Ćwiczenia w większym zespole",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-03",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-116",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "teamwork-coordination"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Ćwiczenia w większym zespole",
+          "categoryIds": [
+            "teamwork-coordination"
+          ]
+        }
+      ],
+      "sourceSection": "Ćwiczenia w większym zespole",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-03",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "hwp-117",
+      "sourceId": "hwp-1946",
+      "status": "proposed",
+      "categoryIds": [
+        "teamwork-coordination"
+      ],
+      "mappingBasis": [
+        {
+          "field": "section",
+          "value": "Ćwiczenia w większym zespole",
+          "categoryIds": [
+            "teamwork-coordination"
+          ]
+        }
+      ],
+      "sourceSection": "Ćwiczenia w większym zespole",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-01",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-001",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "resourcefulness-self-reliance",
+        "self-discipline-endurance",
+        "responsibility-service"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odpowiedzialnosc",
+          "categoryIds": [
+            "responsibility-service"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Rzetelność",
+        "spryt",
+        "zaradność",
+        "cierpliwość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "zaradnosc",
+        "samodyscyplina",
+        "odpowiedzialnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-002",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "self-discipline-endurance"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Spryt",
+        "cierpliwość",
+        "pomysłowość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "samodyscyplina"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-003",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft",
+        "ingenuity-problem-solving",
+        "self-discipline-endurance",
+        "physical-fitness",
+        "responsibility-service"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "teren",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odpowiedzialnosc",
+          "categoryIds": [
+            "responsibility-service"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Rzetelność",
+        "tropienie",
+        "pomysłowość w sporządzaniu prymitywu",
+        "wytrzymałość na trud",
+        "cierpliwość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "samodyscyplina",
+        "sprawnosc",
+        "teren",
+        "odpowiedzialnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-004",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "resourcefulness-self-reliance",
+        "self-discipline-endurance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Wytrzymałość na gorąco",
+        "zaradność",
+        "siła",
+        "wytrwałość"
+      ],
+      "legacyTraitCategories": [
+        "zaradnosc",
+        "samodyscyplina",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-005",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception",
+        "ingenuity-problem-solving",
+        "resourcefulness-self-reliance",
+        "self-discipline-endurance",
+        "physical-fitness",
+        "dexterity-precision",
+        "responsibility-service"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "obserwacja",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odpowiedzialnosc",
+          "categoryIds": [
+            "responsibility-service"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Siła",
+        "zręczność",
+        "zaradność",
+        "spryt",
+        "karność",
+        "poczucie odpowiedzialności",
+        "spostrzegawczość",
+        "wprawa",
+        "inteligencja"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "zaradnosc",
+        "samodyscyplina",
+        "sprawnosc",
+        "zrecznosc",
+        "obserwacja",
+        "odpowiedzialnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-006",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "resourcefulness-self-reliance",
+        "dexterity-precision"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Celność",
+        "umiejętność gotowania",
+        "spryt"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "zaradnosc",
+        "zrecznosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-007",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "physical-fitness",
+        "dexterity-precision"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Siła",
+        "równowaga"
+      ],
+      "legacyTraitCategories": [
+        "sprawnosc",
+        "zrecznosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-008",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception",
+        "reconnaissance-fieldcraft",
+        "ingenuity-problem-solving",
+        "resourcefulness-self-reliance",
+        "planning-judgment"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "obserwacja",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "teren",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "planowanie",
+          "categoryIds": [
+            "planning-judgment"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Dokładność",
+        "technika",
+        "orjentacja czasu",
+        "spryt"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "zaradnosc",
+        "obserwacja",
+        "teren",
+        "planowanie"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-009",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "resourcefulness-self-reliance",
+        "self-discipline-endurance"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Zaradność",
+        "tajemniczość",
+        "cierpliwość"
+      ],
+      "legacyTraitCategories": [
+        "zaradnosc",
+        "samodyscyplina"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-010",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft",
+        "courage-composure",
+        "responsibility-service",
+        "creativity-expression"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "odwaga",
+          "categoryIds": [
+            "courage-composure"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "teren",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odpowiedzialnosc",
+          "categoryIds": [
+            "responsibility-service"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "tworczosc",
+          "categoryIds": [
+            "creativity-expression"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Charakteryzacja",
+        "tropienie",
+        "rzetelność",
+        "pewność siebie"
+      ],
+      "legacyTraitCategories": [
+        "odwaga",
+        "teren",
+        "odpowiedzialnosc",
+        "tworczosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-011",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "resourcefulness-self-reliance",
+        "responsibility-service"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odpowiedzialnosc",
+          "categoryIds": [
+            "responsibility-service"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Zarobkowanie",
+        "uczciwość",
+        "honor",
+        "ofiarność",
+        "Stanica Harc. dobro sprawy"
+      ],
+      "legacyTraitCategories": [
+        "zaradnosc",
+        "odpowiedzialnosc"
+      ],
+      "technicalClusterId": "technical-cluster-06",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-012",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception",
+        "resourcefulness-self-reliance",
+        "courage-composure",
+        "responsibility-service"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odwaga",
+          "categoryIds": [
+            "courage-composure"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "obserwacja",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odpowiedzialnosc",
+          "categoryIds": [
+            "responsibility-service"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Obrona przeciwgazowa",
+        "ocena objętości",
+        "odwaga"
+      ],
+      "legacyTraitCategories": [
+        "zaradnosc",
+        "odwaga",
+        "obserwacja",
+        "odpowiedzialnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-013",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception",
+        "resourcefulness-self-reliance",
+        "dexterity-precision"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "obserwacja",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Celność",
+        "zaradność",
+        "przeprawa",
+        "próba powonienia"
+      ],
+      "legacyTraitCategories": [
+        "zaradnosc",
+        "zrecznosc",
+        "obserwacja"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-014",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "self-discipline-endurance",
+        "courage-composure"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "odwaga",
+          "categoryIds": [
+            "courage-composure"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Odwaga",
+        "opanowanie się"
+      ],
+      "legacyTraitCategories": [
+        "odwaga",
+        "samodyscyplina"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-015",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Wytrzymałość na zimno"
+      ],
+      "legacyTraitCategories": [
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "editorial-boundary"
+      ]
+    },
+    {
+      "activityId": "pw-016",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception",
+        "resourcefulness-self-reliance",
+        "self-discipline-endurance",
+        "courage-composure",
+        "responsibility-service"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odwaga",
+          "categoryIds": [
+            "courage-composure"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "obserwacja",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odpowiedzialnosc",
+          "categoryIds": [
+            "responsibility-service"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Tajemniczość",
+        "zaciekawienie",
+        "zaradność",
+        "opanowanie się przed strachem",
+        "odwaga",
+        "poczucie obowiązku",
+        "rzetelność"
+      ],
+      "legacyTraitCategories": [
+        "zaradnosc",
+        "odwaga",
+        "samodyscyplina",
+        "obserwacja",
+        "odpowiedzialnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-017",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "resourcefulness-self-reliance"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Wprawa"
+      ],
+      "legacyTraitCategories": [
+        "zaradnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-018",
+      "sourceId": "pw-1935",
+      "status": "unassigned",
+      "categoryIds": [],
+      "mappingBasis": [],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [],
+      "legacyTraitCategories": [],
+      "technicalClusterId": "technical-cluster-07",
+      "reviewFlags": [
+        "embedding-ambiguous",
+        "editorial-boundary"
+      ]
+    },
+    {
+      "activityId": "pw-019",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception",
+        "reconnaissance-fieldcraft",
+        "ingenuity-problem-solving",
+        "responsibility-service"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "obserwacja",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "teren",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odpowiedzialnosc",
+          "categoryIds": [
+            "responsibility-service"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Spryt",
+        "spostrzegawczość",
+        "wywiad",
+        "rzetelność",
+        "wnioskowanie",
+        "tropienie"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "obserwacja",
+        "teren",
+        "odpowiedzialnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-020",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "dexterity-precision",
+        "creativity-expression"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "tworczosc",
+          "categoryIds": [
+            "creativity-expression"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Muzykalność",
+        "zręczność",
+        "spryt"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "zrecznosc",
+        "tworczosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-021",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft",
+        "ingenuity-problem-solving"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "teren",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Tropienie",
+        "spryt",
+        "pomysłowość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "teren"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-022",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "resourcefulness-self-reliance"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Spryt",
+        "zaradność"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "zaradnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-023",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception",
+        "planning-judgment"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "obserwacja",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "planowanie",
+          "categoryIds": [
+            "planning-judgment"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Spostrzegawczość",
+        "ocena czasu"
+      ],
+      "legacyTraitCategories": [
+        "obserwacja",
+        "planowanie"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-024",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Pomysłowość",
+        "siła rąk i nóg"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-025",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "resourcefulness-self-reliance",
+        "self-discipline-endurance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Zaradność",
+        "cierpliwość",
+        "siła woli",
+        "pomysłowość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "zaradnosc",
+        "samodyscyplina",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-026",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "self-discipline-endurance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Siła mięśni",
+        "cierpliwość",
+        "siła woli",
+        "opanowanie się pomysłowość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "samodyscyplina",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-027",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "planning-judgment",
+        "self-discipline-endurance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "planowanie",
+          "categoryIds": [
+            "planning-judgment"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Siła woli",
+        "przedsiębiorczość",
+        "spryt"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "samodyscyplina",
+        "sprawnosc",
+        "planowanie"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-028",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft",
+        "ingenuity-problem-solving",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "teren",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Tropienie",
+        "szybkość",
+        "bystrość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "sprawnosc",
+        "teren"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-029",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "resourcefulness-self-reliance",
+        "dexterity-precision"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Samowystarczalność. Zaradność",
+        "pewność ręki",
+        "celność"
+      ],
+      "legacyTraitCategories": [
+        "zaradnosc",
+        "zrecznosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-030",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception",
+        "resourcefulness-self-reliance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "obserwacja",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Siła mięśni",
+        "ocena odległości",
+        "zaradność"
+      ],
+      "legacyTraitCategories": [
+        "zaradnosc",
+        "sprawnosc",
+        "obserwacja"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-031",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "planning-judgment",
+        "self-discipline-endurance",
+        "courage-composure",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odwaga",
+          "categoryIds": [
+            "courage-composure"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "planowanie",
+          "categoryIds": [
+            "planning-judgment"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Inicjatywa",
+        "pomysłowość",
+        "pogoda ducha",
+        "wiara we własne siły",
+        "siła woli"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "odwaga",
+        "samodyscyplina",
+        "sprawnosc",
+        "planowanie"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-032",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft",
+        "resourcefulness-self-reliance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "teren",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Wyrobienie fizyczne",
+        "wywiad rzeczy nieznanej",
+        "węzły praktycznie"
+      ],
+      "legacyTraitCategories": [
+        "zaradnosc",
+        "sprawnosc",
+        "teren"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-033",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft",
+        "physical-fitness",
+        "responsibility-service"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "teren",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odpowiedzialnosc",
+          "categoryIds": [
+            "responsibility-service"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Szukanie północy",
+        "orjentowanie się w terenie",
+        "zwinność",
+        "ambicja",
+        "obrona"
+      ],
+      "legacyTraitCategories": [
+        "sprawnosc",
+        "teren",
+        "odpowiedzialnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous",
+        "editorial-boundary"
+      ]
+    },
+    {
+      "activityId": "pw-034",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft",
+        "ingenuity-problem-solving"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "teren",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Spryt",
+        "wnioskowanie",
+        "inteligencja",
+        "tropienie"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "teren"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-035",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "self-discipline-endurance",
+        "courage-composure",
+        "physical-fitness",
+        "dexterity-precision"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "odwaga",
+          "categoryIds": [
+            "courage-composure"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Opanowanie ruchów ciała",
+        "siła mięśni",
+        "zimna krew"
+      ],
+      "legacyTraitCategories": [
+        "odwaga",
+        "samodyscyplina",
+        "sprawnosc",
+        "zrecznosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-036",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception",
+        "ingenuity-problem-solving",
+        "resourcefulness-self-reliance",
+        "dexterity-precision"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "obserwacja",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Celność",
+        "ocena odległość",
+        "mierzenie odległości",
+        "zaradność",
+        "spryt"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "zaradnosc",
+        "zrecznosc",
+        "obserwacja"
+      ],
+      "technicalClusterId": "technical-cluster-08",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-037",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "teren",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Znajomość ptaków",
+        "tropienie ich życia. Znajomość drzew i przyrody martwej"
+      ],
+      "legacyTraitCategories": [
+        "teren"
+      ],
+      "technicalClusterId": "technical-cluster-09",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-038",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "planning-judgment",
+        "courage-composure",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "odwaga",
+          "categoryIds": [
+            "courage-composure"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "planowanie",
+          "categoryIds": [
+            "planning-judgment"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Gotowość",
+        "skok w dal",
+        "szybka decyzja"
+      ],
+      "legacyTraitCategories": [
+        "odwaga",
+        "sprawnosc",
+        "planowanie"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-039",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "self-discipline-endurance"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Pomysłowość",
+        "cierpliwość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "samodyscyplina"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-040",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "dexterity-precision",
+        "creativity-expression"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "tworczosc",
+          "categoryIds": [
+            "creativity-expression"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Moment obrzędowości",
+        "pal",
+        "zręczność",
+        "pismo obrazkowe",
+        "zebranie wrażeń z odbytej próby"
+      ],
+      "legacyTraitCategories": [
+        "zrecznosc",
+        "tworczosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-041",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Spryt",
+        "pomysłowość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc"
+      ],
+      "technicalClusterId": "technical-cluster-10",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-042",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "dexterity-precision",
+        "creativity-expression"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "tworczosc",
+          "categoryIds": [
+            "creativity-expression"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Pomysłowość",
+        "poczucie piękna",
+        "celność"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "zrecznosc",
+        "tworczosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-043",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Siła mięśni",
+        "pomysłowość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-044",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "self-discipline-endurance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Pomysłowość",
+        "cierpliwość",
+        "siła woli"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "samodyscyplina",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-045",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception",
+        "ingenuity-problem-solving",
+        "self-discipline-endurance",
+        "courage-composure",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odwaga",
+          "categoryIds": [
+            "courage-composure"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "obserwacja",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Odwaga",
+        "opanowanie się",
+        "ocena odległości i czasu",
+        "spryt",
+        "siła mięśni"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "odwaga",
+        "samodyscyplina",
+        "sprawnosc",
+        "obserwacja"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-046",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "self-discipline-endurance",
+        "dexterity-precision"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Zręczność",
+        "cierpliwość"
+      ],
+      "legacyTraitCategories": [
+        "samodyscyplina",
+        "zrecznosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-047",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Pomysłowość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-048",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft",
+        "self-discipline-endurance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "teren",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Cierpliwość",
+        "wytrzymałość na trud",
+        "orjentowanie się"
+      ],
+      "legacyTraitCategories": [
+        "samodyscyplina",
+        "sprawnosc",
+        "teren"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-049",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "physical-fitness",
+        "dexterity-precision"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Zręczność",
+        "pomysłowość",
+        "wytrzymałość na trud"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "sprawnosc",
+        "zrecznosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-050",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Inteligencja",
+        "wnioskowanie"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-051",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "self-discipline-endurance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Wytrzymałość",
+        "opanowanie się"
+      ],
+      "legacyTraitCategories": [
+        "samodyscyplina",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-11",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-052",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "resourcefulness-self-reliance",
+        "planning-judgment",
+        "courage-composure",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odwaga",
+          "categoryIds": [
+            "courage-composure"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "planowanie",
+          "categoryIds": [
+            "planning-judgment"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Szybkość decyzji",
+        "odwaga",
+        "ryzyko",
+        "siła mięśni",
+        "zaradność"
+      ],
+      "legacyTraitCategories": [
+        "zaradnosc",
+        "odwaga",
+        "sprawnosc",
+        "planowanie"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-053",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "self-discipline-endurance",
+        "physical-fitness",
+        "responsibility-service"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odpowiedzialnosc",
+          "categoryIds": [
+            "responsibility-service"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Siła woli",
+        "rzetelność"
+      ],
+      "legacyTraitCategories": [
+        "samodyscyplina",
+        "sprawnosc",
+        "odpowiedzialnosc"
+      ],
+      "technicalClusterId": "technical-cluster-07",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-054",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "self-discipline-endurance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Siła mięśni",
+        "pomysłowość",
+        "siła woli"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "samodyscyplina",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-055",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "self-discipline-endurance",
+        "physical-fitness",
+        "responsibility-service"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odpowiedzialnosc",
+          "categoryIds": [
+            "responsibility-service"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Siła woli",
+        "rzetelność",
+        "wytrzymałość na niedostatek"
+      ],
+      "legacyTraitCategories": [
+        "samodyscyplina",
+        "sprawnosc",
+        "odpowiedzialnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-056",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "creativity-expression"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "tworczosc",
+          "categoryIds": [
+            "creativity-expression"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Inteligencja",
+        "umiejętność",
+        "wyrażania się"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "tworczosc"
+      ],
+      "technicalClusterId": "technical-cluster-10",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-057",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "resourcefulness-self-reliance",
+        "dexterity-precision",
+        "responsibility-service"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odpowiedzialnosc",
+          "categoryIds": [
+            "responsibility-service"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Celność",
+        "zaradność",
+        "rzetelność"
+      ],
+      "legacyTraitCategories": [
+        "zaradnosc",
+        "zrecznosc",
+        "odpowiedzialnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-058",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "dexterity-precision"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Celność",
+        "pewność ręki"
+      ],
+      "legacyTraitCategories": [
+        "zrecznosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-059",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft",
+        "ingenuity-problem-solving"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "teren",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Spryt",
+        "miłowanie przyrody"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "teren"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-060",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "self-discipline-endurance",
+        "courage-composure",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "odwaga",
+          "categoryIds": [
+            "courage-composure"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Cierpliwość",
+        "wytrzymałość na trud",
+        "odwaga"
+      ],
+      "legacyTraitCategories": [
+        "odwaga",
+        "samodyscyplina",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-061",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Inteligencja",
+        "pomysłowość",
+        "dowcip"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-062",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "self-discipline-endurance"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Pomysłowość",
+        "cierpliwość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "samodyscyplina"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-063",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "self-discipline-endurance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Opanowanie się",
+        "bystrość",
+        "siła woli"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "samodyscyplina",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-07",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-064",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "resourcefulness-self-reliance",
+        "planning-judgment",
+        "self-discipline-endurance",
+        "courage-composure",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odwaga",
+          "categoryIds": [
+            "courage-composure"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "planowanie",
+          "categoryIds": [
+            "planning-judgment"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Gotowość",
+        "opanowanie się",
+        "szybkość decyzji",
+        "zaradność"
+      ],
+      "legacyTraitCategories": [
+        "zaradnosc",
+        "odwaga",
+        "samodyscyplina",
+        "sprawnosc",
+        "planowanie"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-065",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "physical-fitness",
+        "dexterity-precision"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Zręczność siła mięśni"
+      ],
+      "legacyTraitCategories": [
+        "sprawnosc",
+        "zrecznosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-066",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "self-discipline-endurance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Siła mięśni",
+        "siła woli"
+      ],
+      "legacyTraitCategories": [
+        "samodyscyplina",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-067",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "self-discipline-endurance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Siła woli cierpliwość"
+      ],
+      "legacyTraitCategories": [
+        "samodyscyplina",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-068",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Pomysłowość",
+        "inteligencja"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-069",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "courage-composure"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "odwaga",
+          "categoryIds": [
+            "courage-composure"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Odwaga"
+      ],
+      "legacyTraitCategories": [
+        "odwaga"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-070",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "planning-judgment"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "planowanie",
+          "categoryIds": [
+            "planning-judgment"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Oszczędność",
+        "planowanie",
+        "roztropność"
+      ],
+      "legacyTraitCategories": [
+        "planowanie"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-071",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Siła mięśni",
+        "wytrzymałość"
+      ],
+      "legacyTraitCategories": [
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-072",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception",
+        "ingenuity-problem-solving",
+        "courage-composure"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "odwaga",
+          "categoryIds": [
+            "courage-composure"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "obserwacja",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Odwaga",
+        "spryt",
+        "spostrzegawczość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "odwaga",
+        "obserwacja"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-073",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Pomysłowość",
+        "siła mięśni"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-074",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Pomysłowość",
+        "spryt"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-075",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft",
+        "ingenuity-problem-solving"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "teren",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Orjentowanie się bystrość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "teren"
+      ],
+      "technicalClusterId": "technical-cluster-12",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-076",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Bystrość",
+        "wnioskowanie",
+        "inteligencja"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-077",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Wytrzymałość na trud",
+        "spryt"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-078",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "reconnaissance-fieldcraft",
+        "self-discipline-endurance",
+        "courage-composure",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "odwaga",
+          "categoryIds": [
+            "courage-composure"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "teren",
+          "categoryIds": [
+            "reconnaissance-fieldcraft"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Odwaga",
+        "siła woli",
+        "orjentowanie się",
+        "siła mięśni"
+      ],
+      "legacyTraitCategories": [
+        "odwaga",
+        "samodyscyplina",
+        "sprawnosc",
+        "teren"
+      ],
+      "technicalClusterId": "technical-cluster-12",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-079",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception",
+        "ingenuity-problem-solving",
+        "self-discipline-endurance",
+        "dexterity-precision"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "obserwacja",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Opanowanie ruchów",
+        "podzielność uwagi",
+        "bystrość"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "samodyscyplina",
+        "zrecznosc",
+        "obserwacja"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-080",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "obserwacja",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Spostrzegawczość",
+        "pamięć"
+      ],
+      "legacyTraitCategories": [
+        "obserwacja"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-081",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "self-discipline-endurance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Spryt",
+        "siła mięśni",
+        "siła woli"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "samodyscyplina",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-082",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "dexterity-precision"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Celność",
+        "pewność ręki"
+      ],
+      "legacyTraitCategories": [
+        "zrecznosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-083",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "resourcefulness-self-reliance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "zaradnosc",
+          "categoryIds": [
+            "resourcefulness-self-reliance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Zaradność",
+        "siła mięśni"
+      ],
+      "legacyTraitCategories": [
+        "zaradnosc",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": []
+    },
+    {
+      "activityId": "pw-084",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "observation-perception",
+        "self-discipline-endurance",
+        "dexterity-precision"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "zrecznosc",
+          "categoryIds": [
+            "dexterity-precision"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "obserwacja",
+          "categoryIds": [
+            "observation-perception"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Dotyk",
+        "skupienie się"
+      ],
+      "legacyTraitCategories": [
+        "samodyscyplina",
+        "zrecznosc",
+        "obserwacja"
+      ],
+      "technicalClusterId": "technical-cluster-06",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    },
+    {
+      "activityId": "pw-085",
+      "sourceId": "pw-1935",
+      "status": "proposed",
+      "categoryIds": [
+        "ingenuity-problem-solving",
+        "self-discipline-endurance",
+        "physical-fitness"
+      ],
+      "mappingBasis": [
+        {
+          "field": "traitCategories",
+          "value": "pomyslowosc",
+          "categoryIds": [
+            "ingenuity-problem-solving"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "samodyscyplina",
+          "categoryIds": [
+            "self-discipline-endurance"
+          ]
+        },
+        {
+          "field": "traitCategories",
+          "value": "sprawnosc",
+          "categoryIds": [
+            "physical-fitness"
+          ]
+        }
+      ],
+      "sourceSection": "Próby dzielności",
+      "sourceTraits": [
+        "Siła woli",
+        "opanowanie",
+        "spryt"
+      ],
+      "legacyTraitCategories": [
+        "pomyslowosc",
+        "samodyscyplina",
+        "sprawnosc"
+      ],
+      "technicalClusterId": "technical-cluster-05",
+      "reviewFlags": [
+        "embedding-ambiguous"
+      ]
+    }
+  ],
+  "proposalHash": "7d6edc9ffacaadeae0248141d02e5f87c6bc9bf86d585ae07823a570bc089b3a"
+}
