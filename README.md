@@ -1,15 +1,22 @@
 # Scouting Autoresearch
 
-Dwujęzyczna, otwarta baza historycznych gier, prób i ćwiczeń harcerskich. Wersja V0 zawiera
-202 aktywności z dwóch książek oznaczonych przez Polonę jako domena publiczna:
+Dwujęzyczna, otwarta baza historycznych gier, prób i ćwiczeń harcerskich. Bieżący korpus
+zawiera 284 aktywności z czterech książek w domenie publicznej:
 
 - 117 gier z *Harcerza w polu* Zygmunta Wyrobka (1946),
-- 85 prób z *Prób wodzów* L. Ungeheuera (1935).
+- 85 prób z *Prób wodzów* L. Ungeheuera (1935),
+- 49 gier z oryginalnego angielskiego tekstu *Scouting for Boys* Roberta Baden-Powella
+  (1908), wybranych z przypiętego wydania Project Gutenberg bez ilustracji i późniejszych
+  dodatków,
+- 33 gry z rozdziału „The Games” Ernesta Thompsona Setona w pierwszym wydaniu
+  *Boy Scouts Handbook* (1911), po wyłączeniu wkładów innych autorów i wariantów obecnych
+  już w korpusie.
 
-Polskie transkrypcje są tekstem źródłowym. Angielskie wersje są tłumaczeniami automatycznymi
-i nie są weryfikowane przez człowieka. Każdy rekord prowadzi bezpośrednio do polskiej
-transkrypcji i skanu oraz zachowuje autora, oryginalny tytuł książki, rok, strony, commit
-źródłowego wydania cyfrowego i status prawny.
+Pierwsze dwie książki składają się na zamknięty fundament V0. Tekst źródłowy jest polski albo
+angielski zależnie od książki, a wersja w drugim języku jest tłumaczeniem automatycznym bez
+weryfikacji człowieka. Każdy rekord prowadzi bezpośrednio do tekstu źródłowego i wydania
+cyfrowego oraz zachowuje autora, oryginalny tytuł książki, rok, strony, przypiętą rewizję
+źródła i status prawny.
 
 Strona: <https://jfpio.github.io/scouting-autoresearch/>
 
@@ -47,8 +54,40 @@ Repozytoria źródłowe pozostają niezależne. Po ich sklonowaniu do sąsiednic
 
 Importer zapisuje commity i sumy kontrolne w `imports.lock.json`. Tłumacz wczytuje
 `MISTRAL_API_KEY` z `~/.secrets/mistral.env` albo środowiska, nie zapisuje klucza i pomija
-rekordy z aktualnym hashem. Model V0 to `mistral-medium-2604`; żądany pierwotnie
-`mistral-large-2512` nie był dostępny dla użytego planu API.
+rekordy z aktualnym hashem. Tłumaczenia V0 pozostają przypisane do
+`mistral-medium-2604`. Dla nowych źródeł model jest przypinany w polityce źródła; bieżącym
+modelem produkcyjnym dla `sfb-1908` jest zatwierdzony `mistral-large-2512`, bez włączania
+`reasoning_effort`.
+
+Import Project Gutenberg korzysta z jawnego manifestu, przypiętego SHA-256 i cache'u poza
+repozytorium. Na Heliosie:
+
+```bash
+module purge
+module load GCCcore/13.3.0 Python/3.12.3
+source "$SCRATCH/scouting-autoresearch/venvs/x86_64-py312/bin/activate"
+python scripts/import_gutenberg.py
+python scripts/evaluate_translation_models.py
+python scripts/evaluate_translation_models.py --execute
+python scripts/translate.py --source-id sfb-1908
+```
+
+Importer zapisuje w repozytorium tylko wybrane rekordy i raport proweniencji; pobrany HTML
+pozostaje w `$SCRATCH`. Tłumacz działa sekwencyjnie, po każdym sukcesie zapisuje atomowo
+rekord i checkpoint, a przy `429` kończy proces z `nextRetryAt` zamiast utrzymywać go w uśpieniu.
+Termin pochodzi bezpośrednio z poprawnego `Retry-After`; gdy nagłówka nie ma albo jest błędny,
+pipeline stosuje godzinny fallback.
+Limit wyjścia jest wyliczany z wielkości rekordu i zapisywany w ledgerze zamiast stałej
+rezerwy 16 384 tokenów. Checkpoint błędu zawiera wyłącznie kod HTTP i dozwolone pola
+diagnostyczne, bez pełnych nagłówków lub treści odpowiedzi.
+
+Pierwsze polecenie ewaluacji jest dry-runem. Wariant `--execute` wykonuje sekwencyjny smoke
+test `mistral-large-2512` na pięciu trudnych rekordach, bez reasoningu. Pełne wyniki trafiają
+do `$SCRATCH/scouting-autoresearch/model-evaluations/`, a repozytorium zachowuje tylko
+resumowalny checkpoint. Test nie zastępuje przeglądu jakości przez człowieka i respektuje
+aktywny cooldown produkcyjnego tłumaczenia. Przed pierwszym tłumaczeniem pipeline sprawdza
+również dokładny identyfikator modelu w `/v1/models`; model niedostępny dla planu zapisuje
+trwały checkpoint zamiast zużywać kolejne requesty.
 
 ## Taksonomia V1
 
@@ -67,12 +106,14 @@ dziennego limitu dokumentów: jawny, skończony korpus ogranicza zakres, a konfi
 maksymalnie 50 rekordów w pojedynczym requeście. Selektor nie przechodzi do kolejnej książki
 w środku requestu. Po każdej odpowiedzi zapisuje atomowy ledger i checkpoint, dzięki czemu
 Goal Mode może kontynuować do ukończenia źródła. Przejściowy błąd API zapisuje `nextRetryAt`
-zamiast utrzymywać uśpiony proces.
+zamiast utrzymywać uśpiony proces, stosując `Retry-After` dostawcy albo godzinny fallback.
 
-Obecny `billingMode: experimental-no-charge` zapisuje naliczony koszt jako 0 USD. Cena modelu
-służy jedynie do raportowania kosztu referencyjnego i nie blokuje wykonania. Konfiguracja
-zachowuje wyłączony bezpiecznik kosztu referencyjnego, który trzeba ponownie włączyć przed
-użyciem rozliczanego konta.
+Nowe wywołania używają kredytów API subskrypcji Education. `billingMode:
+education-credit` zapisuje koszt katalogowy i egzekwuje twardy limit 10 USD; faktyczna kwota
+rozliczenia pozostaje nieznana, ponieważ API jej nie zwraca. Historyczne operacje wykonane
+poprzednim kluczem zachowują `experimental-no-charge`. Sam abonament Education nie jest
+traktowany jako dowód wyższego rate limitu — dostęp jest sprawdzany empirycznie dla dokładnego
+identyfikatora modelu.
 
 Analizator nie wywołuje API. Wylicza deterministyczne sąsiedztwa i techniczne klastry,
 oznacza niejednoznaczne przypisania oraz kandydatów odstających. Dopóki nie ma wszystkich
@@ -102,7 +143,7 @@ na wskazaną recepturę kandydującą. Dopóki wszystkie ID z
 - `data/generated/` — wersjonowane eksporty JSON i JSONL,
 - `public/data/` — te same eksporty publikowane na stronie,
 - `src/content/docs/` — generowane strony Starlight,
-- `scripts/` — import, tłumaczenia, generowanie, walidacja i pomocniczy cykl V2,
+- `scripts/` — import, tłumaczenia, generowanie, analiza i walidacja,
 - `config/` — kolejka badawcza i rejestr dozwolonych kolekcji.
 
 Pełny kierunek rozwoju opisuje [project-plan.md](project-plan.md).
@@ -116,10 +157,10 @@ Pełny kierunek rozwoju opisuje [project-plan.md](project-plan.md).
   i zagranicznych; korzysta z modelu danych i taksonomii wypracowanych w V0–V1.
 
 Autoresearch prowadzi Codex w Goal Mode. Wiążące zasady pracy agenta znajdują się w
-[`AGENTS.md`](AGENTS.md); `project-plan.md` opisuje kierunek produktu. Codex zapisuje checkpoint
-po każdej kompletnie przetworzonej książce lub jednostce źródłowej, wykonuje osobny commit i
-od razu wypycha go na gałąź pull requestu. Przejściowy limit API powoduje pauzę na 12 godzin i
-automatyczne wznowienie, a problemy wymagające decyzji człowieka zatrzymują cel.
+[`AGENTS.md`](AGENTS.md); `project-plan.md` opisuje kierunek produktu. Stan operacji zapisują
+checkpointy właściwe dla konkretnego źródła lub pipeline'u, a ukończona jednostka otrzymuje
+osobny commit natychmiast wypchnięty na gałąź pull requestu. Przejściowy limit API powoduje
+checkpoint i wznowienie, a problemy wymagające decyzji człowieka zatrzymują cel.
 
 ## Zaufane źródła badawcze
 
@@ -133,6 +174,12 @@ publikacji pełnego tekstu jest ustalana osobno.
 Kod: MIT. Projektowe metadane i tłumaczenia: CC BY 4.0 w zakresie posiadanych praw.
 Importowane teksty zachowują status przypisany konkretnemu rekordowi; szczegóły zawiera
 [DATA-LICENSE.md](DATA-LICENSE.md).
+
+Dla Project Gutenberg obowiązuje zatwierdzona przez właściciela reguła: oznaczenie konkretnego
+eBooka `Public domain in the USA` wraz z udokumentowanym upływem 70 pełnych lat od śmierci
+ostatniego właściwego autora pozwala automatycznie przypisać jego składnikowi
+`rightsStatus: public-domain` dla publikacji projektu w Polsce i UE. Osobno wyłącza się wkłady
+innych autorów, późniejszą redakcję oraz licencję, znak i cyfrowe opakowanie Gutenberga.
 
 Materiały historyczne nie są automatycznie współczesnymi rekomendacjami. Każda aktywność
 wymaga oceny ryzyka, wieku uczestników, warunków i obowiązujących zasad.

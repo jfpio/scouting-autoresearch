@@ -1,7 +1,7 @@
 schemaVersion: 1
 policy:
   fullTextRequires: public-domain
-  humanRightsApproval: true
+  humanRightsApproval: policy-or-per-item
   obeyRobotsTxt: true
   obeyTermsOfUse: true
 collections:
@@ -26,10 +26,29 @@ collections:
   - id: project-gutenberg
     name: Project Gutenberg
     baseUrl: https://www.gutenberg.org/
-    status: candidate
-    allowedMethods: [metadata-only]
+    status: approved-by-policy
+    allowedMethods: [metadata-only, documented-download]
     rateLimitPerMinute: 5
-    notes: Przed pobraniem zweryfikować prawa dla użytkownika i konkretnej edycji.
+    rightsPresumption:
+      id: project-gutenberg-pd-usa-plus-life-70
+      conditions:
+        - catalog-claim-public-domain-in-the-usa
+        - relevant-natural-authors-identified
+        - seventy-full-calendar-years-after-last-relevant-author-death
+      resultRightsStatus: public-domain
+      jurisdictions: [PL, EU]
+      termCalculation: first-january-after-seventy-full-years-from-death-year
+      humanApproved: true
+      approvedBy: repository-owner
+      approvedAt: "2026-09-03"
+      excludes:
+        - separately-licensed-or-later-protected-contributions
+        - project-gutenberg-license-and-trademark
+        - project-gutenberg-digital-packaging
+    notes: >-
+      Udokumentowane oznaczenie Public domain in the USA oraz upływ 70 pełnych lat od śmierci
+      ostatniego właściwego autora uruchamiają zatwierdzoną regułę dla Polski i UE. Osobno
+      wyłącz wkłady innych autorów, późniejszą redakcję i opakowanie Gutenberga.
   - id: internet-archive
     name: Internet Archive
     baseUrl: https://archive.org/
@@ -37,6 +56,17 @@ collections:
     allowedMethods: [metadata-only]
     rateLimitPerMinute: 5
     notes: Dostępność pliku nie jest dowodem domeny publicznej.
+  - id: scoutscan-the-dump
+    name: The Dump / Scoutscan
+    baseUrl: https://thedump.scoutscan.com/
+    status: candidate
+    trustScope: bibliographic-discovery
+    allowedMethods: [metadata-only, link-discovery]
+    rateLimitPerMinute: 5
+    notes: >-
+      Katalog i strony tytułowe mogą służyć do odnajdywania oraz porównywania wydań.
+      Obecność skanu nie rozstrzyga praw do tekstu, ilustracji, tłumaczenia ani warstwy
+      redakcyjnej; pobranie pliku wymaga osobnej decyzji dla konkretnego obiektu.
   - id: wikisource
     name: Wikisource
     baseUrl: https://wikisource.org/
@@ -51,3 +81,65 @@ collections:
     allowedMethods: [metadata-only]
     rateLimitPerMinute: 5
     notes: Każda domena i kolekcja wymaga osobnego wpisu przed pobieraniem.
+  - id: gallica-bnf
+    name: Gallica / Bibliothèque nationale de France
+    baseUrl: https://gallica.bnf.fr/
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 5
+    attribution: Source gallica.bnf.fr / Bibliothèque nationale de France
+    termsUrl: https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica
+    notes: >-
+      Metadane BnF są dostępne na otwartej licencji z podaniem źródła i daty pobrania.
+      Gallica zezwala na bezpłatne ponowne użycie treści niekomercyjne z atrybucją, ale
+      użycie komercyjne wymaga odpłatnej licencji. Pobranie dokumentu pozostaje wyłączone
+      do czasu zatwierdzenia przez właściciela konkretnego zakresu, warunków i sposobu
+      użycia; oznaczenie public domain nie obejmuje automatycznie osobnych wkładów.
+  - id: historyczna-slaska-zhp
+    name: Komisja Historyczna Chorągwi Śląskiej ZHP
+    baseUrl: https://historyczna.slaska.zhp.pl/
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 5
+    trustScope: bibliographic-link-directory
+    reviewRecord: vault/reviews/inbox/collection-historyczna-slaska.md
+    robotsTxt:
+      url: https://historyczna.slaska.zhp.pl/robots.txt
+      checkedAt: "2026-09-04"
+      status: not-found-404
+    termsOfUse:
+      checkedAt: "2026-09-04"
+      status: no-public-reuse-license-found
+      inspectedPages:
+        - https://historyczna.slaska.zhp.pl/
+        - https://historyczna.slaska.zhp.pl/?page_id=210
+        - https://historyczna.slaska.zhp.pl/?page_id=600
+    notes: >-
+      Repetytorium jest użytecznym indeksem bibliograficznym kierującym głównie do Polony
+      i regionalnych bibliotek cyfrowych, ale nie nadaje praw do materiałów docelowych.
+      Do czasu decyzji właściciela wolno pobierać wyłącznie metadane stron. Pliki, pełny
+      tekst, obrazy i automatyczne przechodzenie do serwisów docelowych pozostają wyłączone.
+  - id: archiwum-harcerskie
+    name: Archiwum Harcerskie
+    baseUrl: https://archiwumharcerskie.pl/
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 5
+    trustScope: archival-metadata-discovery
+    reviewRecord: vault/reviews/inbox/collection-archiwum-harcerskie.md
+    metadataApiUrl: https://archiwumharcerskie.pl/api.php
+    robotsTxt:
+      url: https://archiwumharcerskie.pl/robots.txt
+      checkedAt: "2026-09-04"
+      status: not-found-404
+    termsOfUse:
+      checkedAt: "2026-09-04"
+      status: all-rights-reserved-and-configured-license-page-missing
+      legalPage: https://archiwumharcerskie.pl/index.php?title=Archiwum:Informacje_prawne
+      configuredLicensePage: https://archiwumharcerskie.pl/index.php?title=Archiwum:Warunki_korzystania_z_archiwaliów
+    notes: >-
+      Oficjalna strona prawna zastrzega prawa do całego serwisu i wyłącza GFDL oraz CC.
+      Skonfigurowana strona warunków korzystania z archiwaliów obecnie nie istnieje. Do
+      czasu decyzji właściciela wolno pobierać wyłącznie metadane stron; API, pliki, pełny
+      tekst i obrazy pozostają wyłączone. Domena publiczna utworu nie znosi osobnych
+      warunków serwisu ani praw do opisu, reprodukcji i innych składników.

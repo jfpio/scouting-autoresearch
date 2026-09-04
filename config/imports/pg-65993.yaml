@@ -1,0 +1,157 @@
+schemaVersion: 1
+source:
+  id: sfb-1908
+  ebookId: "65993"
+  author: Robert Baden-Powell
+  title: Scouting for Boys
+  year: 1908
+  edition: Original six-part edition
+  publicationPlace: London
+  publisher: Horace Cox
+  originalLanguage: en
+  rightsStatus: public-domain
+  rightsStatement: >-
+    Original English text by Robert Baden-Powell; Project Gutenberg marks eBook 65993
+    Public domain in the USA, and the approved life-plus-70 policy applies in Poland/EU.
+  rightsEvidenceUrl: https://www.gutenberg.org/ebooks/65993
+  sourceUrl: https://www.gutenberg.org/ebooks/65993
+  digitalEditionUrl: https://www.gutenberg.org/files/65993/65993-h/65993-h.htm
+  textUrl: https://www.gutenberg.org/files/65993/65993-h/65993-h.htm
+  accessedOn: "2026-09-03"
+  approvalPolicyId: project-gutenberg-pd-usa-plus-life-70
+  rightsReviewRecord: vault/reviews/accepted/candidate-baden-powell-scouting-for-boys-pg65993.md
+  extractionReport: data/reports/pg-65993-extraction.json
+  rightsEvidence:
+    catalogClaim: Public domain in the USA
+    catalogUrl: https://www.gutenberg.org/ebooks/65993
+    relevantAuthors:
+      - name: Robert Stephenson Smyth Baden-Powell, Baron Baden-Powell of Gilwell
+        deathDate: "1941-01-08"
+        evidenceUrl: https://www.scout.org/who-we-are/scout-movement/scoutings-history
+    protectionEnded: "2011-12-31"
+    publicDomainFrom: "2012-01-01"
+  translationPolicy:
+    targetLocale: pl
+    modelRequested: mistral-large-2512
+    reasoningMode: disabled
+    promptVersion: translation-en-pl-v6
+    usageRequired: true
+    requestBudgetRequired: true
+    billingMode: education-credit
+    enforceReferenceCostLimit: true
+    maxReferenceCostUsd: 10
+    modelEvaluation: config/translation-model-evaluation.yaml
+    report: data/reports/sfb-1908-translation-en-pl.json
+    priceAccessedOn: "2026-09-04"
+download:
+  url: https://www.gutenberg.org/files/65993/65993-h/65993-h.htm
+  sha256: 46826e0cc47e2d923c36c699c68c91e106e49b4c46d6bcf1475a9924e1781634
+transcriptionEvidence:
+  sourceStatement: Archaic and colloquial spelling and punctuation was retained; missing or obscured punctuation was corrected.
+  sourceLocation: Project Gutenberg transcriber's notes at the end of the pinned HTML.
+  internalEditionEvidence: Six part title pages identify Horace Cox, London, 1908, with fortnightly issue statements where printed.
+  deterministicNormalization:
+    - omit Project Gutenberg header, footer, license and digital packaging
+    - omit illustrations, captions and footnotes
+    - collapse HTML whitespace within source blocks
+    - render source headings, table rows and display lines as Markdown
+    - remove a duplicated activity heading only where the manifest and parsed small-caps label identify it
+  lexicalModernization: false
+selection:
+  scope: Explicitly described games in the verified 1908 text attributable to Baden-Powell.
+  excludedGroups:
+    - label: Seton-derived games
+      reason: Separately attributed or expressly derived components require component-level review.
+      examples: [Bang the Bear, Whale Hunt, Old Spotty-face, Quick Sight, Spot the Thief, Track the Assassin, Spider and Fly]
+    - label: Other credited contributions
+      reason: The accepted scope covers Baden-Powell's text, not contributions with another or unclear author.
+      examples: [Morgan's Game, Boom-a-tata, Wild Animal Play]
+    - label: Bare references and generic game lists
+      reason: Names of ordinary sports and cross-references without standalone rules are not extractable activity records.
+      examples: [Hockey, Rounders, Football, Basket Ball, Boxing, Wrestling, Rowing, Skipping, Ju-jitsu, The Empire card game]
+    - label: Non-scouting games appendix
+      reason: The book says an unspecified number were quoted from Social—to Save, so authorship is unresolved.
+      examples: [Nobody's Airship, Artists, Target Ball, Circle Ball, Counting the Words, Animated Portraits, To Fit, City Chains, A Memory Game, Post, Number Groups, Their Weight, Basket Ball]
+    - label: Non-game material
+      reason: Practices, displays, plays, poems, songs, bibliographies and narrative text are outside this import's approved production kinds.
+      examples: ["Debates, Trials, Etc.", "Scouts' War Dance"]
+activities:
+  - {id: sfb-001, title: Arctic Expedition, section: Scoutcraft, start: {page: 52, text: Arctic Expedition}, endBefore: {page: 52, text: Snow Fort}}
+  - {id: sfb-002, title: Snow Fort, section: Scoutcraft, start: {page: 52, text: Snow Fort}, endBefore: {page: 52, text: Siberian Man Hunt}}
+  - {id: sfb-003, title: Siberian Man Hunt, section: Scoutcraft, start: {page: 52, text: Siberian Man Hunt}, endBefore: {page: 53, text: In Towns}}
+  - {id: sfb-004, title: Scout Meets Scout, section: Scoutcraft, start: {page: 53, text: Scout Meets Scout}, endBefore: {page: 53, text: Despatch Runners}}
+  - {id: sfb-005, title: Despatch Runners, section: Scoutcraft, start: {page: 53, text: Despatch Runners}, endBefore: {page: 54, text: Kim's Game}}
+  - {id: sfb-006, title: Kim's Game, section: Scoutcraft, start: {page: 54, text: Kim's Game}, endBefore: {page: 55, text: Morgan's Game}}
+  - {id: sfb-009, title: Thimble Finding, section: Observation, start: {page: 84, text: Thimble Finding}, endBefore: {page: 84, text: Shop Window}}
+  - {id: sfb-010, title: Shop Window, section: Observation, start: {page: 84, text: Shop Window}, endBefore: {page: 85, text: Similar Game}}
+  - {id: sfb-011, title: Similar Game, section: Observation, start: {page: 85, text: Similar Game}, endBefore: {page: 85, text: Spotting the Spot}}
+  - {id: sfb-012, title: Spotting the Spot, section: Observation, start: {page: 85, text: Spotting the Spot}, endBefore: {page: 85, text: Follow the Trail}}
+  - {id: sfb-013, title: Follow the Trail, section: Observation, start: {page: 85, text: Follow the Trail}, endBefore: {page: 86, text: Scouts' Nose}}
+  - {id: sfb-014, title: Scouts' Nose, section: Observation, start: {page: 86, text: Scouts' Nose}, endBefore: {page: 86, text: Far and Near}}
+  - {id: sfb-015, title: Far and Near, section: Observation, start: {page: 86, text: Far and Near}, endBefore: {page: 87, text: Camp Fire Yarn—No. 6}}
+  - {id: sfb-016, title: Track Memory, section: Spooring, start: {page: 99, text: Track Memory}, endBefore: {page: 99, text: Track Drawing}}
+  - {id: sfb-017, title: Track Drawing, section: Spooring, start: {page: 99, text: Track Drawing}, endBefore: {page: 99, text: For Honours}}
+  - {id: sfb-018, title: Smugglers Over the Border, section: Spooring, start: {page: 100, text: Smugglers Over the Border}, endBefore: {page: 100, text: Books to Read on Spooring}}
+  - {id: sfb-019, title: Games and Competitions in Deduction, section: Deduction, start: {page: 107, text: Games and Competitions in Deduction}, endBefore: {page: 108, text: Play}}
+  - {id: sfb-020, title: Scout Hunting, section: Stalking, start: {page: 114, text: Scout Hunting}, endBefore: {page: 114, text: Despatch Running}}
+  - {id: sfb-021, title: Despatch Running, section: Stalking, start: {page: 114, text: Despatch Running}, endBefore: {page: 114, text: Stalking}}
+  - {id: sfb-022, title: Stalking, section: Stalking, start: {page: 114, text: Stalking}, endBefore: {page: 115, text: Stalking and Reporting}}
+  - {id: sfb-023, title: Stalking and Reporting, section: Stalking, start: {page: 115, text: Stalking and Reporting}, endBefore: {page: 115, text: Book on Stalking}}
+  - {id: sfb-024, title: Lion Hunting, section: Animals, start: {page: 134, text: Lion Hunting}, endBefore: {page: 135, text: Books to Read}}
+  - {id: sfb-025, title: Plant Race, section: Plants, start: {page: 139, text: Plant Race}, endBefore: {page: 139, text: Books to Read}}
+  - {id: sfb-026, title: Night Patrolling, section: Life in the Open, start: {page: 182, text: Night Patrolling}, endBefore: {page: 182, text: Games}}
+  - {id: sfb-027, title: Mountain Scouting, section: Life in the Open, start: {page: 183, text: Mountain Scouting}, endBefore: {page: 184, text: Books on Life in the Open}}
+  - {id: sfb-028, title: Games in Pathfinding, section: Pathfinding, start: {page: 196, text: Games in Pathfinding}, endBefore: {page: 196, text: Star-gazing}}
+  - {id: sfb-029, title: Star-gazing, section: Pathfinding, start: {page: 196, text: Star-gazing}, endBefore: {page: 196, text: Judging Distance}}
+  - {id: sfb-030, title: Judging Distance, section: Pathfinding, start: {page: 196, text: Judging Distance}, endBefore: {page: 197, text: Find the North}}
+  - {id: sfb-031, title: Find the North, section: Pathfinding, start: {page: 197, text: Find the North}, endBefore: {page: 197, text: Other Games}}
+  - {id: sfb-032, title: Dispatch Running, section: Signalling, start: {page: 205, text: Dispatch Running}, endBefore: {page: 206, text: Display}}
+  - {id: sfb-033, title: The Struggle, section: Endurance and Health, start: {page: 219, text: The Struggle}, endBefore: {page: 219, text: Wrist Pushing}}
+  - {id: sfb-034, title: Wrist Pushing, section: Endurance and Health, start: {page: 219, text: Wrist Pushing}, endBefore: {page: 220, text: Books to Read}, preserveStartLabel: true}
+  - id: sfb-035
+    title: Doctoring
+    section: Endurance and Health
+    start: {page: 238, prefix: '"Doctoring"—each scout'}
+    endBefore: {page: 238, prefix: All ordinary boys' games}
+  - {id: sfb-036, title: Knight Errantry, section: Chivalry, start: {page: 250, text: Knight Errantry}, endBefore: {page: 250, text: Play}}
+  - id: sfb-037
+    title: Risking Life
+    section: Self-Discipline
+    start: {page: 258, prefix: Call for volunteers for some dangerous enterprise}
+    endBefore: {page: 258, prefix: Any games such as football}
+  - id: sfb-038
+    title: Bowmanship
+    section: Self-Discipline
+    start: {page: 258, prefix: '"Bowmanship."—Crossbow shooting'}
+    endBefore: {page: 258, prefix: '"Longbowmanship"'}
+    stripPrefix: '"Bowmanship."—'
+  - id: sfb-039
+    title: Longbowmanship
+    section: Self-Discipline
+    start: {page: 258, prefix: '"Longbowmanship"'}
+    endBefore: {page: 258, prefix: '"Quarter Staff Play"'}
+  - id: sfb-040
+    title: Quarter Staff Play
+    section: Self-Discipline
+    start: {page: 258, prefix: '"Quarter Staff Play"'}
+    endBefore: {page: 259, text: Camp Fire Yarn—No. 22}
+  - {id: sfb-041, title: Dragging Race, section: Saving Life, start: {page: 308, text: Dragging Race}, endBefore: {page: 308, text: Books to Read}}
+  - {id: sfb-042, title: Shoot Out, section: Patriotism, start: {page: 325, text: Shoot Out}, endBefore: {page: 326, prefix: '"French and English,"'}}
+  - id: sfb-043
+    title: French and English, or Tug of War
+    section: Patriotism
+    start: {page: 326, prefix: '"French and English,"'}
+    endBefore: {page: 326, text: The Storming of Badajoz}
+  - {id: sfb-044, title: The Storming of Badajoz, section: Patriotism, start: {page: 326, text: The Storming of Badajoz}, endBefore: {page: 326, text: Books to Read}}
+  - {id: sfb-045, title: Relay Race, section: Scouting Games Appendix — Woodcraft, start: {page: 367, text: Relay Race}, endBefore: {page: 367, text: Spider and Fly}}
+  - {id: sfb-046, title: Throwing the Assegai, section: Scouting Games Appendix — Woodcraft, start: {page: 368, text: Throwing the Assegai}, endBefore: {page: 368, text: Display}}
+  - {id: sfb-047, title: Flag Raiding, section: Scouting Games Appendix — Woodcraft, start: {page: 368, text: Flag Raiding}, endBefore: {page: 369, text: Camp Life}}
+  - id: sfb-048
+    title: Food
+    section: Scouting Games Appendix — Camp Life
+    start: {page: 370, text: Game}
+    endBefore: {page: 370, text: Fire-lighting Race}
+    stripPrefix: Game.—Food;
+  - {id: sfb-049, title: Fire-lighting Race, section: Scouting Games Appendix — Camp Life, start: {page: 370, text: Fire-lighting Race}, endBefore: {page: 370, text: Books to Read}}
+  - {id: sfb-050, title: Scouting Race, section: Scouting Games Appendix — Campaigning and Pathfinding, start: {page: 374, text: Scouting Race}, endBefore: {page: 374, text: On Trek}}
+  - {id: sfb-051, title: On Trek, section: Scouting Games Appendix — Campaigning and Pathfinding, start: {page: 374, text: On Trek}, endBefore: {page: 375, text: Books to Read}}

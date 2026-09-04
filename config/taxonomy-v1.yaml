@@ -1,4 +1,5 @@
 schemaVersion: 1
+corpusSourceIds: [hwp-1946, pw-1935]
 embedding:
   model: mistral-embed-2312
   dimensions: 1024

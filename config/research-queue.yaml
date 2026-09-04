@@ -1,22 +1,41 @@
 schemaVersion: 1
-dailyLimits:
-  documents: 20
-  estimatedCostUsd: 5
-  timezone: Europe/Warsaw
 subjects:
   - id: robert-baden-powell
     name: Robert Baden-Powell
-    status: discovery
+    status: complete
     priority: 1
-    rightsNote: Data śmierci autora jest tylko sygnałem; zatwierdź konkretną edycję i ilustracje.
+    activeSourceId: sfb-1908
+    checkpoint: data/checkpoints/translations/sfb-1908-en-pl.json
+    modelEvaluationCheckpoint: data/checkpoints/translation-model-evaluation/sfb-1908-large-quality-v6.json
+    approvedModel: mistral-large-2512
+    reasoningMode: disabled
+    rightsNote: >-
+      Dla eBooka Project Gutenberg oznaczonego Public domain in the USA zastosuj regułę
+      kolekcji po udokumentowaniu śmierci właściwego autora ponad 70 pełnych lat temu.
   - id: ernest-thompson-seton
     name: Ernest Thompson Seton
-    status: discovery
+    status: complete
     priority: 1
-    rightsNote: Zatwierdź konkretną edycję, współautorów, ilustracje i ewentualne tłumaczenie.
+    activeSourceId: bsh-1911-seton-games
+    checkpoint: data/checkpoints/pg-29558-import.json
+    modelEvaluationCheckpoint: data/checkpoints/translation-model-evaluation/bsh-1911-large-vs-small-v1.json
+    productionCandidate: mistral-large-2512
+    cheaperCandidate: mistral-small-2603
+    approvedModel: mistral-large-2512
+    reasoningMode: disabled
+    rightsNote: >-
+      Dla eBooka Project Gutenberg oznaczonego Public domain in the USA zastosuj regułę
+      kolekcji po udokumentowaniu śmierci ostatniego właściwego autora ponad 70 pełnych lat
+      temu; osobno sprawdź inne wkłady.
   - id: jacques-sevin
     name: Jacques Sevin
     referenceUrl: https://en.wikipedia.org/wiki/Jacques_Sevin
-    status: discovery
+    status: rights-review
     priority: 1
-    rightsNote: Zatwierdź konkretną francuską edycję, współautorów, ilustracje i prawa do tłumaczenia.
+    activeSourceId: chamarande-1934
+    checkpoint: vault/reviews/inbox/candidate-jacques-sevin-chamarande-gallica.md
+    rightsNote: >-
+      BnF/Gallica oznacza edycję Chamarande z 1934 r. jako domaine public, a Jacques Sevin
+      zmarł w 1951 r. Pełny tekst, tłumaczenie i pobranie pozostają zablokowane do decyzji
+      właściciela o niekomercyjnym użyciu z atrybucją oraz zakresie wykluczającym muzykę,
+      plansze, okładkę i inne osobne wkłady.

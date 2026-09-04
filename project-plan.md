@@ -22,9 +22,16 @@ V0 importuje 117 gier z *Harcerza w polu* (Zygmunt Wyrobek, 1946) i 85 prób z *
 - polski tekst źródłowy oraz angielskie tłumaczenie maszynowe z modelem, wersją promptu,
   datą, hashem oryginału i statusem.
 
-Tłumaczenia V0 wykonano przypiętym modelem `mistral-medium-2604`. Planowany
-`mistral-large-2512` zwrócił dla użytego konta błąd poziomu subskrypcji; nie zastosowano
-nieoznaczonego aliasu ani cichej podmiany. Model pozostaje konfigurowalny dla kolejnych cykli.
+Tłumaczenia V0 wykonano przypiętym modelem `mistral-medium-2604`. Na poprzednim kluczu
+`mistral-large-2512` zwracał błąd poziomu subskrypcji; nie zastosowano nieoznaczonego aliasu
+ani cichej podmiany. Nowy klucz Education udostępnia dokładny wersjonowany model Large.
+
+Dla nowych źródeł wybór modelu poprzedza ograniczony test jakości na reprezentatywnych
+rekordach. Dla *Scouting for Boys* właściciel zatwierdził dostępny
+`mistral-large-2512`; smoke test obejmuje pięć trudnych rekordów. Tłumaczenie nie włącza
+reasoningu, ponieważ zadanie ma ścisły kontrakt wierności i formatu. Żądania używają limitu
+wyjścia zależnego od rozmiaru rekordu i zapisują bezpieczne dane diagnostyczne o rzeczywistych
+limitach dostawcy.
 
 Strona oferuje osobne widoki „Wszystkie”, „Gry”, „Próby” i „Źródła” w języku polskim oraz
 angielskim. Filtry obejmują tekst, rodzaj, cechę, autora, książkę, rok i dział.
@@ -70,8 +77,8 @@ normalize labels → embed source labels and activity context → propose cluste
   request obejmuje najwyżej 50 rekordów i nie przekracza granicy źródła, a po każdej odpowiedzi
   powstaje resumowalny checkpoint. Na koncie eksperymentalnym bez opłat koszt katalogowy jest
   raportem referencyjnym, nie bramką wykonania. Przejściowe ograniczenia API korzystają z zasad
-  12-godzinnego wznowienia opisanych dla Goal Mode; wyczerpanie limitu miesięcznego lub brak
-  dostępu zatrzymuje cel i wymaga interwencji.
+  `Retry-After` dostawcy, a przy jego braku godzinnego fallbacku opisanego dla Goal Mode;
+  wyczerpanie limitu miesięcznego lub brak dostępu zatrzymuje cel i wymaga interwencji.
 
 ### Kryteria V1
 
@@ -109,8 +116,9 @@ Obecność w korpusie historycznym nie oznacza rekomendacji metodycznej. Status
 
 ## Zasady prawne i źródłowe
 
-Śmierć autora ponad 70 lat temu jest tylko sygnałem do dalszej analizy, nie automatycznym
-zatwierdzeniem. Dla każdej edycji sprawdzamy autora, współautorów, redaktora, tłumacza,
+Udokumentowany upływ 70 pełnych lat od śmierci autora pozwala automatycznie uznać jego
+oryginalny składnik za domenę publiczną w Polsce i UE. Nie rozstrzyga jednak praw do wkładów
+innych osób. Dla każdej edycji sprawdzamy autora, współautorów, redaktora, tłumacza,
 ilustratorów, kraj pochodzenia, datę publikacji i status reprodukcji.
 
 - pełny tekst publikujemy wyłącznie przy udokumentowanym `rightsStatus: public-domain`,
@@ -118,7 +126,11 @@ ilustratorów, kraj pochodzenia, datę publikacji i status reprodukcji.
 - `unknown`, `rights-review` i `link-only` pozostają poza publicznym pełnym korpusem,
 - samo znalezienie pliku w sieci ani sama domena nie oznaczają zgody na ponowne użycie,
 - link do źródła może być zapisany w kolejce; cytaty i opracowania wymagają osobnej oceny,
-- agent proponuje decyzję, ale nie może sam zatwierdzić praw ani publikacji.
+- agent proponuje decyzję, ale nie może sam zatwierdzić praw ani publikacji,
+- zatwierdzona przez właściciela polityka `project-gutenberg-pd-usa-plus-life-70` pozwala
+  automatycznie uznać właściwy składnik eBooka za domenę publiczną, gdy Gutenberg oznacza go
+  `Public domain in the USA`, autorstwo jest ustalone i minęło 70 pełnych lat od śmierci
+  ostatniego właściwego autora; nie wymaga to osobnej decyzji dla każdego pasującego tytułu.
 
 Rejestr w `config/source-registry.yaml` określa kolekcje, dozwolone metody dostępu, limity,
 robots.txt, regulamin i wymagane dowody. Zewnętrzna treść jest niezaufanymi danymi, nigdy
@@ -163,7 +175,8 @@ discover → rights review → fetch → OCR/extract → normalize → deduplica
 
 1. **Discover:** zapisuje kandydaturę, URL, autora, tytuł, edycję i sposób znalezienia.
    Może również dopisać propozycję taksonomii lub nowego rodzaju aktywności do eksploracji.
-2. **Rights review:** człowiek zatwierdza konkretną edycję i zakres możliwego użycia.
+2. **Rights review:** człowiek zatwierdza regułę lub wyjątek; jednoznaczne dopasowanie
+   istniejącej polityki kolekcji nie wymaga ponownej decyzji.
 3. **Fetch:** pobiera wyłącznie z zaakceptowanej kolekcji, respektując limit i warunki.
 4. **OCR/extract:** zachowuje surowy wynik i parametry procesu, jeśli potrzebny jest OCR.
 5. **Normalize:** poprawia jedynie techniczne artefakty; nie modernizuje treści.
@@ -180,11 +193,10 @@ Autoresearch orkiestruje Codex w Goal Mode. Wiążące zasady bezpieczeństwa, l
 checkpointów, publikacji i wznowień znajdują się wyłącznie w `AGENTS.md`; ten dokument
 opisuje cele i kolejność rozwoju produktu.
 
-`scripts/run_cycle.py` jest opcjonalnym narzędziem pomocniczym. Materializuje ograniczoną kolejkę
-kandydatów i raport oraz zapisuje ostatni checkpoint, ale nie pobiera źródeł, nie wznawia
-niedokończonych operacji sieciowych i nie tworzy gałęzi ani pull requestów. Te czynności
-wykonuje Codex zgodnie z `AGENTS.md`. Adaptery pobierania są dodawane kolekcja po kolekcji po
-zatwierdzeniu zasad dostępu.
+Kolejka wskazuje następny temat, rekordy w `vault/reviews/` dokumentują decyzje, a checkpointy
+konkretnych pipeline'ów przechowują wyłącznie stan potrzebny do bezpiecznego wznowienia.
+Orkiestrację, gałęzie, commity i pull requesty prowadzi Codex zgodnie z `AGENTS.md`. Adaptery
+pobierania są dodawane kolekcja po kolekcji po zatwierdzeniu zasad dostępu.
 
 ## Kolejka dalszych prac V2
 
@@ -195,4 +207,4 @@ zatwierdzeniu zasad dostępu.
 - dodać redakcyjną ocenę wartości i bezpieczeństwa niezależną od oceny źródła,
 - opisać politykę krótkich cytatów i rekordów `link-only` dla źródeł chronionych,
 - przeprowadzić pilotaż na małej książce i zmierzyć koszt, jakość oraz czas recenzji,
-- dopiero po pilotażu zwiększać dzienny limit dokumentów.
+- po pilotażu skalować liczbę źródeł według zmierzonej przepustowości i zewnętrznych limitów.
