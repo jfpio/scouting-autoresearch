@@ -89,6 +89,15 @@ aktywny cooldown produkcyjnego tłumaczenia. Przed pierwszym tłumaczeniem pipel
 również dokładny identyfikator modelu w `/v1/models`; model niedostępny dla planu zapisuje
 trwały checkpoint zamiast zużywać kolejne requesty.
 
+## Ocena redakcyjna
+
+Wartość edukacyjna, praktyczna wykonalność i bezpieczeństwo są oceniane niezależnie od
+statusu prawnego oraz jakości źródła. `scripts/prepare_editorial_review.py` tworzy dla
+konkretnej aktywności pusty formularz przypięty do jej `sourceHash`; agent nie wypełnia ocen
+i nie zatwierdza publikacji. Zmiana tekstu źródłowego powoduje błąd walidacji istniejącej
+oceny. Ręcznie zaakceptowane rekordy zachowują osobę, datę i uzasadnienie, a ich rekomendacje
+nie modyfikują automatycznie tekstu historycznego, tłumaczeń, praw ani eksportów.
+
 ## Taksonomia V1
 
 Przed wywołaniem API skrypt pokazuje plan partii, koszt referencyjny i granicę źródła:
