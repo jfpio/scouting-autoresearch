@@ -203,6 +203,22 @@ Wszystkie 199 gier z trzech źródeł ma aktualne embeddingi V3. Sześć request
 149 629 tokenów wejściowych, co odpowiada kosztowi referencyjnemu 0,0149629 USD. API nie
 zwróciło kwoty faktycznie rozliczonej z kredytów Education.
 
+Przypięty `umap-learn` wylicza na węźle CPU pozycje 2D, dziesięciu najbliższych sąsiadów
+każdej gry i wzajemne pary między różnymi źródłami do ręcznej oceny. Raport jest wyłącznie
+propozycją: kandydatury algorytmiczne nie trafiają do produkcyjnych relacji, a zatwierdzone
+relacje są nakładane jako osobna warstwa. Trzy dodatkowe ziarna mierzą stabilność układu;
+współrzędne służą do nawigacji, nie są kategorią ani dowodem pochodzenia historycznego.
+
+```bash
+python scripts/analyze_semantic_map.py
+python scripts/analyze_semantic_map.py --check
+```
+
+Dla bieżącego korpusu raport zawiera 199 punktów i 30 niezatwierdzonych par do przeglądu.
+Zatwierdzona relacja `bsh-037`–`hwp-041` jest w obu kierunkach najbliższym sąsiadem również
+w embeddingach V3. Trustworthiness projekcji przy `k=10` wynosi 0,72618405, a najniższa
+korelacja rangowa odległości między dodatkowymi ziarnami wynosi 0,81821257.
+
 Kod obsługuje też przepis `activity-context-v2`, który przed skróceniem kontekstu usuwa
 techniczną stopkę źródłową oraz adresy URL z Markdown, zachowując tekst widoczny odnośników.
 Zmiana `recipeVersion` jest jawna i celowo unieważnia wcześniejsze cache’e. Wszystkie 202
