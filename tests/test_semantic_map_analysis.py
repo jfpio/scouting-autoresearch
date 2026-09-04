@@ -1,6 +1,7 @@
 import sys
 import unittest
 import json
+import copy
 from pathlib import Path
 
 import numpy as np
@@ -12,6 +13,7 @@ from analyze_semantic_map import (
     cosine_similarities,
     load_config,
     nearest_neighbors,
+    portable_report_view,
 )
 
 
@@ -95,6 +97,51 @@ class SemanticMapAnalysisTests(unittest.TestCase):
                 and not candidate["productionRelation"]
                 for candidate in report["algorithmicCandidates"]
             )
+        )
+
+    def test_portable_view_ignores_only_projection_specific_values(self):
+        report = {
+            "corpus": {"corpusDigest": "stable"},
+            "quality": {
+                "trustworthinessAtK": 0.7,
+                "crossSourceDirectedNeighborRate": 0.3,
+                "nearestNeighborSimilarity": {"mean": 0.8},
+                "stabilityRuns": [{"seed": 1}],
+                "minimumSpearmanPairwiseDistanceCorrelation": 0.8,
+                "minimumMeanNeighborRetentionAtK": 0.5,
+            },
+            "points": [
+                {
+                    "activityId": "a",
+                    "sourceHash": "source",
+                    "inputHash": "input",
+                    "x": 1.0,
+                    "y": 2.0,
+                }
+            ],
+            "nearestNeighbors": [
+                {"activityId": "a", "neighbors": [{"activityId": "b"}]}
+            ],
+            "approvedRelationOverlays": [
+                {
+                    "relationId": "rel",
+                    "cosineSimilarity": 0.9,
+                    "projectedDistance": 1.2,
+                }
+            ],
+        }
+        changed_projection = copy.deepcopy(report)
+        changed_projection["points"][0]["x"] = 99.0
+        changed_projection["quality"]["trustworthinessAtK"] = 0.1
+        changed_projection["approvedRelationOverlays"][0]["projectedDistance"] = 88.0
+        self.assertEqual(
+            portable_report_view(report), portable_report_view(changed_projection)
+        )
+
+        changed_semantics = copy.deepcopy(report)
+        changed_semantics["nearestNeighbors"][0]["neighbors"][0]["activityId"] = "c"
+        self.assertNotEqual(
+            portable_report_view(report), portable_report_view(changed_semantics)
         )
 
 

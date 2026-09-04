@@ -21,6 +21,9 @@ class Links(HTMLParser):
         self.values: list[str] = []
         self.card_count = 0
         self.searchable_card_count = 0
+        self.map_point_count = 0
+        self.map_list_item_count = 0
+        self.map_relation_count = 0
         self.html_lang: str | None = None
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
@@ -31,6 +34,12 @@ class Links(HTMLParser):
             self.card_count += 1
             if (attributes.get("data-search") or "").strip():
                 self.searchable_card_count += 1
+        if tag == "a" and "data-map-point" in attributes:
+            self.map_point_count += 1
+        if tag == "li" and "data-map-list-item" in attributes:
+            self.map_list_item_count += 1
+        if tag == "line" and "data-map-relation" in attributes:
+            self.map_relation_count += 1
         attr = "href" if tag in {"a", "link"} else "src" if tag in {"img", "script", "source"} else None
         if not attr:
             return
@@ -72,7 +81,7 @@ def main() -> None:
     }
     broken: list[str] = []
     checked = 0
-    page_metrics: dict[str, tuple[int, int, str | None]] = {}
+    page_metrics: dict[str, tuple[int, int, int, int, int, str | None]] = {}
     html_paths = list(DIST.rglob("*.html"))
     for html_path in html_paths:
         parser = Links()
@@ -80,6 +89,9 @@ def main() -> None:
         page_metrics[str(html_path.relative_to(DIST))] = (
             parser.card_count,
             parser.searchable_card_count,
+            parser.map_point_count,
+            parser.map_list_item_count,
+            parser.map_relation_count,
             parser.html_lang,
         )
         route = "/" + str(html_path.relative_to(DIST)).replace("index.html", "")
@@ -114,7 +126,9 @@ def main() -> None:
     }
     metric_errors = []
     for path, expected in expected_cards.items():
-        actual, searchable, language = page_metrics.get(path, (-1, -1, None))
+        actual, searchable, _, _, _, language = page_metrics.get(
+            path, (-1, -1, -1, -1, -1, None)
+        )
         expected_language = "en" if path.startswith("en/") else "pl"
         if actual != expected:
             metric_errors.append(f"{path}: expected {expected} cards, found {actual}")
@@ -127,6 +141,48 @@ def main() -> None:
         metric_errors.append("Activity cards do not honor the hidden state")
     if not (DIST / "pagefind" / "pagefind.js").exists():
         metric_errors.append("Pagefind index is missing")
+    semantic_report_path = ROOT / "data" / "reports" / "semantic-map-v3-analysis.json"
+    if semantic_report_path.is_file():
+        semantic_report = json.loads(semantic_report_path.read_text(encoding="utf-8"))
+        approved_relation_count = len(semantic_report.get("approvedRelationOverlays") or [])
+    else:
+        approved_relation_count = -1
+        metric_errors.append("Semantic-map analysis report is missing")
+    for path, expected_language in (("map/index.html", "pl"), ("en/map/index.html", "en")):
+        _, _, points, list_items, relations, language = page_metrics.get(
+            path, (-1, -1, -1, -1, -1, None)
+        )
+        expected_games = kind_counts[expected_language]["game"]
+        if points != expected_games:
+            metric_errors.append(f"{path}: expected {expected_games} map points, found {points}")
+        if list_items != expected_games:
+            metric_errors.append(
+                f"{path}: expected {expected_games} accessible list items, found {list_items}"
+            )
+        if relations != approved_relation_count:
+            metric_errors.append(
+                f"{path}: expected {approved_relation_count} approved relation, found {relations}"
+            )
+        if language != expected_language:
+            metric_errors.append(f"{path}: expected lang={expected_language}, found {language}")
+        rendered_path = DIST / path
+        if not rendered_path.is_file():
+            metric_errors.append(f"{path}: rendered semantic map is missing")
+            continue
+        text = rendered_path.read_text(encoding="utf-8")
+        if any(
+            forbidden in text
+            for forbidden in ("algorithmic-candidate", "algorithmicCandidates", "nearestNeighbors")
+        ):
+            metric_errors.append(f"{path}: exposes unreviewed semantic candidates")
+        for required in (
+            'data-map-query',
+            'data-map-source',
+            'aria-live="polite"',
+            'aria-labelledby="semantic-map-title semantic-map-description"',
+        ):
+            if required not in text:
+                metric_errors.append(f"{path}: missing accessible map control {required}")
     disclosure_checks = {
         "pl": ("Tłumaczenia automatyczne:", "nie zostały zweryfikowane przez człowieka"),
         "en": ("Automatic translations:", "have not been verified by a person"),
@@ -196,6 +252,11 @@ def main() -> None:
         f"Rendered explorer check passed: {totals['pl']} total, "
         f"{kind_counts['pl']['game']} games and {kind_counts['pl']['trial']} trials "
         "in both languages; Pagefind present."
+    )
+    print(
+        f"Rendered semantic-map check passed: {kind_counts['pl']['game']} points, "
+        f"{kind_counts['pl']['game']} list items and {approved_relation_count} approved relation "
+        "in both languages; no unreviewed candidates exposed."
     )
 
 

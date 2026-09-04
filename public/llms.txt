@@ -4,6 +4,8 @@
 
 - [Polish JSON](https://jfpio.github.io/scouting-autoresearch/data/activities.pl.json)
 - [English JSON](https://jfpio.github.io/scouting-autoresearch/data/activities.en.json)
+- [Semantic map — Polish](https://jfpio.github.io/scouting-autoresearch/map/)
+- [Semantic map — English](https://jfpio.github.io/scouting-autoresearch/en/map/)
 - [Polish JSONL](https://jfpio.github.io/scouting-autoresearch/data/activities.pl.jsonl)
 - [English JSONL](https://jfpio.github.io/scouting-autoresearch/data/activities.en.jsonl)
 - [Sources](https://jfpio.github.io/scouting-autoresearch/data/sources.json)

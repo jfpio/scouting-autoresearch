@@ -1135,7 +1135,7 @@ def main() -> None:
             require(len(lines) == len(activity_paths), f"{locale} JSONL has {len(lines)} lines", errors)
 
     docs = list((ROOT / "src" / "content" / "docs").rglob("*.md")) + list((ROOT / "src" / "content" / "docs").rglob("*.mdx"))
-    expected_docs = 14 + 2 * len(activity_paths)
+    expected_docs = 16 + 2 * len(activity_paths)
     require(len(docs) == expected_docs, f"Expected {expected_docs} generated docs, found {len(docs)}", errors)
     for path in docs:
         text = path.read_text(encoding="utf-8")

@@ -212,12 +212,22 @@ współrzędne służą do nawigacji, nie są kategorią ani dowodem pochodzenia
 ```bash
 python scripts/analyze_semantic_map.py
 python scripts/analyze_semantic_map.py --check
+python scripts/analyze_semantic_map.py --check --portable
 ```
+
+Pełny `--check` jest kontrolą odtwarzalności w przypiętym środowisku Heliosa. Wariant
+`--portable`, używany w CI, nadal porównuje dokładnie hashe korpusu, sąsiadów cosinusowych,
+kandydatury i zatwierdzone relacje, ale pomija współrzędne i metryki projekcji UMAP, które
+mogą różnić się między implementacjami CPU mimo tych samych wersji bibliotek i ziaren.
 
 Dla bieżącego korpusu raport zawiera 199 punktów i 30 niezatwierdzonych par do przeglądu.
 Zatwierdzona relacja `bsh-037`–`hwp-041` jest w obu kierunkach najbliższym sąsiadem również
 w embeddingach V3. Trustworthiness projekcji przy `k=10` wynosi 0,72618405, a najniższa
 korelacja rangowa odległości między dodatkowymi ziarnami wynosi 0,81821257.
+
+Dwujęzyczna strona `/map/` pokazuje wyłącznie punkty, filtr źródła i zatwierdzone relacje.
+Ma równoważną listę linków oraz obsługę klawiatury. Nie publikuje kandydatur algorytmicznych;
+filtry kategorii i skali uczestników pozostają wyłączone do decyzji człowieka.
 
 Kod obsługuje też przepis `activity-context-v2`, który przed skróceniem kontekstu usuwa
 techniczną stopkę źródłową oraz adresy URL z Markdown, zachowując tekst widoczny odnośników.

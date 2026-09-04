@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import os
 from datetime import UTC, datetime
@@ -41,6 +42,30 @@ from embed_semantic_map import (
 
 REPORT_PATH = ROOT / "data" / "reports" / "semantic-map-v3-analysis.json"
 RELATIONS_PATH = ROOT / "config" / "similar-activities.yaml"
+
+
+def portable_report_view(report: dict[str, Any]) -> dict[str, Any]:
+    """Remove only UMAP outputs that can vary across CPU implementations.
+
+    Cosine neighbours, review candidates, corpus hashes, source hashes, and the
+    semantic part of approved overlays remain covered by exact comparison.
+    """
+
+    result = copy.deepcopy(report)
+    for point in result.get("points", []):
+        point.pop("x", None)
+        point.pop("y", None)
+    for overlay in result.get("approvedRelationOverlays", []):
+        overlay.pop("projectedDistance", None)
+    quality = result.get("quality", {})
+    for key in (
+        "trustworthinessAtK",
+        "stabilityRuns",
+        "minimumSpearmanPairwiseDistanceCorrelation",
+        "minimumMeanNeighborRetentionAtK",
+    ):
+        quality.pop(key, None)
+    return result
 
 
 def load_current_caches(
@@ -418,7 +443,17 @@ def build_report(
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
+    parser.add_argument(
+        "--portable",
+        action="store_true",
+        help=(
+            "with --check, compare all deterministic semantic outputs exactly but "
+            "exclude UMAP coordinates and projection-only quality metrics"
+        ),
+    )
     args = parser.parse_args()
+    if args.portable and not args.check:
+        parser.error("--portable requires --check")
     config = load_config()
     items = activity_items(config)
     caches = load_current_caches(config, items)
@@ -432,10 +467,14 @@ def main() -> None:
             caches,
             generated_at=str(actual.get("generatedAt")),
         )
-        if actual != expected:
+        comparable_actual = portable_report_view(actual) if args.portable else actual
+        comparable_expected = portable_report_view(expected) if args.portable else expected
+        if comparable_actual != comparable_expected:
             raise SystemExit("Semantic-map V3 analysis report is stale")
         print(
-            f"Semantic-map V3 analysis is current: {len(expected['points'])} points, "
+            f"Semantic-map V3 analysis is current"
+            f"{' (portable check)' if args.portable else ''}: "
+            f"{len(expected['points'])} points, "
             f"{len(expected['algorithmicCandidates'])} review candidates."
         )
         return
