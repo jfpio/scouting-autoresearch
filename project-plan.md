@@ -271,6 +271,9 @@ review participant scale → version input recipe → embed every game
 - Najbliżsi sąsiedzi są propozycjami eksploracyjnymi. Tylko relacje zatwierdzone przez
   człowieka mogą pojawić się jako trwałe linki „bardzo podobna gra”; na mapie zatwierdzone
   relacje i sugestie algorytmu muszą wyglądać inaczej.
+  Dopóki polityka zabrania publicznej ekspozycji kandydatur, pełna kolejka sąsiadów pozostaje
+  w dwujęzycznym pakiecie recenzenckim niewłączanym do publicznej strony. Publiczny widok nie
+  może wyprzedzić decyzji człowieka tylko po to, aby spełnić wymaganie prezentacyjne.
 - Projekcja dwuwymiarowa używa przypiętej wersji algorytmu i zależności, jawnego ziarna oraz
   hasha pełnego korpusu. Współrzędne są pomocą nawigacyjną, nie kategorią ani twierdzeniem o
   historycznym pochodzeniu; dodanie źródeł może zmienić układ całej mapy.

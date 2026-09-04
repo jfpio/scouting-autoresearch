@@ -215,6 +215,8 @@ python scripts/analyze_semantic_map.py --check
 python scripts/analyze_semantic_map.py --check --portable
 python scripts/audit_v3_facets.py
 python scripts/audit_v3_facets.py --check
+python scripts/build_semantic_review_packet.py
+python scripts/build_semantic_review_packet.py --check
 ```
 
 Pełny `--check` jest kontrolą odtwarzalności w przypiętym środowisku Heliosa. Wariant
@@ -226,6 +228,11 @@ Audyt praktycznych faset V3 działa bez API i nie zapisuje kategorii do aktywno�
 wymiarów podaje pokrycie jawnych sygnałów w tekstach źródłowych, rekordy z sygnałami wielu
 wartości, obciążenie ręcznego odczytu oraz proxy różnicowania korpusu. Wartość wyszukiwawcza
 i precyzja próbek pozostają jawnie nieocenioną decyzją człowieka.
+
+Pakiet recenzencki mapy materializuje wszystkie wzajemne, międzyźródłowe kandydatury z
+raportu analizy wraz z dwujęzycznymi tytułami, krótkimi fragmentami, wynikiem cosinusowym i
+rangami w obu kierunkach. Nie jest częścią publicznej strony i nie zapisuje relacji. Każda z
+30 par pozostaje `pending` do osobnej decyzji człowieka.
 
 Dla bieżącego korpusu raport zawiera 199 punktów i 30 niezatwierdzonych par do przeglądu.
 Zatwierdzona relacja `bsh-037`–`hwp-041` jest w obu kierunkach najbliższym sąsiadem również
