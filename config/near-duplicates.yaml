@@ -1,8 +1,0 @@
-schemaVersion: 1
-algorithmVersion: tfidf-word-unigram-bigram-cosine-v1
-comparisonLocale: en
-crossSourceOnly: true
-titleRepetitions: 2
-candidateThreshold: 0.09
-maxCandidates: 50
-automaticMerge: false
