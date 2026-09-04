@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-participant-input-audit",
+  "status": "human-review-required",
+  "auditId": "v3-participant-scale-lexical-signals-v1",
+  "configHash": "1993f4753aaf4a948a18a2db77c71179710314efa123716e3c70d2370db36e01",
+  "corpusDigest": "461174b877094fa6bcebde3712aa5e83c3fb778ae2a105ebbea06a2f1279d016",
+  "gameCount": 199,
+  "reportHash": "709febaa3dca02d6d197b70afc86bddcef70e57a6cdce5591aeb88e18b32ac14",
+  "reportPath": "data/reports/v3-participant-input-audit.json",
+  "humanReviewRequired": true,
+  "productionFieldsWritten": [],
+  "externalApiRequests": 0,
+  "referenceCostUsd": 0,
+  "nextStep": "human-review-scale-definitions-and-a-representative-sample-before-schema-or-filter-changes"
+}

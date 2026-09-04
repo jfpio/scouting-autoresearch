@@ -171,6 +171,20 @@ jawne mapowania oparte wyłącznie na zastanych działach i polach redakcyjnych.
 raportu z oznaczeniami `proposalOnly` i `reviewRequired`; nie zmienia `vault/taxonomy/`,
 filtrów ani eksportów przed decyzją człowieka.
 
+## Audyt skali uczestników V3
+
+Pierwszy krok V3 mierzy, w ilu tekstach gier występują jawne sygnały skali uczestników oraz
+wzmianki o liczbie osób. Raport leksykalny nie jest klasyfikacją: nie zapisuje
+`participantScales`, nie wyprowadza `minParticipants` ani `maxParticipants` i nie zmienia
+produkcyjnych filtrów. Wielokrotne trafienie jest oczekiwane, bo źródło może opisywać kilka
+wariantów albo różne role w tej samej grze. Wynik oraz checkpoint są deterministyczne i
+wymagają decyzji człowieka przed zmianą schematu.
+
+```bash
+python scripts/audit_v3_participants.py
+python scripts/audit_v3_participants.py --check
+```
+
 Kod obsługuje też przepis `activity-context-v2`, który przed skróceniem kontekstu usuwa
 techniczną stopkę źródłową oraz adresy URL z Markdown, zachowując tekst widoczny odnośników.
 Zmiana `recipeVersion` jest jawna i celowo unieważnia wcześniejsze cache’e. Wszystkie 202
@@ -201,6 +215,8 @@ Pełny kierunek rozwoju opisuje [project-plan.md](project-plan.md).
   wersjonowanej, dwujęzycznej taksonomii. Oryginalne określenia źródłowe pozostają bez zmian.
 - **V2:** wyłącznie eksploracja, ocena i pozyskiwanie nowych książek oraz źródeł polskich
   i zagranicznych; korzysta z modelu danych i taksonomii wypracowanych w V0–V1.
+- **V3:** embeddingi wszystkich gier, mapa semantyczna oraz jawne, ręcznie zatwierdzane
+  fasety praktyczne; pierwszy audyt mierzy sygnały skali uczestników bez klasyfikowania gier.
 
 Autoresearch prowadzi Codex w Goal Mode. Wiążące zasady pracy agenta znajdują się w
 [`AGENTS.md`](AGENTS.md); `project-plan.md` opisuje kierunek produktu. Stan operacji zapisują

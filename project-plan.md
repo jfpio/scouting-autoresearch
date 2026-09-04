@@ -235,9 +235,10 @@ review participant scale → version input recipe → embed every game
 - V3 dodaje ustrukturyzowaną skalę uczestników niezależną od embeddingu. Rekord może mieć
   zakres `minParticipants`–`maxParticipants`, jeżeli liczby są podane w źródle lub
   zatwierdzone redakcyjnie, oraz jedną lub więcej wartości `participantScales`:
-  `individual`, `pair`, `small-group`, `patrol`, `troop`, `multiple-troops`, `mass-game`
-  albo `unknown`. Dla układu typu „dwa zastępy” można dodatkowo zapisać liczbę i rodzaj
-  jednostek. Każda wartość zachowuje podstawę `source-stated`, `human-reviewed` albo
+  `individual`, `pair`, `small-group`, `single-patrol`, `multiple-patrols`, `single-troop`,
+  `multiple-troops`, `mass-event` albo `unknown`. Dla układu typu „dwa zastępy” można
+  dodatkowo zapisać liczbę i rodzaj jednostek. Każda wartość zachowuje podstawę
+  `source-stated`, `human-reviewed` albo
   `unknown`; agent nie wylicza jej wyłącznie z podobieństwa semantycznego ani nie zgaduje z
   nieprecyzyjnego opisu.
 - Publiczny interfejs pozwala filtrować co najmniej: pojedynczą osobę, parę, małą grupę,
@@ -282,9 +283,9 @@ review participant scale → version input recipe → embed every game
 - nie ma współdzielonego ani cicho ponownie użytego cache między V1 i V3,
 - każdy wektor i projekcja są odtwarzalne z przypiętej konfiguracji oraz hashy wejścia,
 - mapa pokazuje źródło i prowadzi do właściwej strony każdego punktu,
-- każda gra ma jawne `participantScales`, choćby `[unknown]`, a filtr skali odróżnia co najmniej
-  parę, zastęp, drużynę i wiele drużyn; filtry liczbowe korzystają tylko z potwierdzonych
-  wartości `minParticipants` i `maxParticipants`,
+- każda gra ma jawne `participantScales`, choćby `[unknown]`, a filtr skali odróżnia co
+  najmniej parę, jeden i kilka zastępów oraz jedną i wiele drużyn; filtry liczbowe korzystają
+  tylko z potwierdzonych wartości `minParticipants` i `maxParticipants`,
 - raport audytu porównuje pokrycie i użyteczność pozostałych kandydatów na filtry, a żaden z
   nich nie staje się filtrem produkcyjnym bez decyzji człowieka,
 - ręcznie zatwierdzone podobne gry są połączone dwukierunkowo, a sugestie pozostają oznaczone
