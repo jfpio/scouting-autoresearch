@@ -4,6 +4,7 @@ import hashlib
 import io
 import urllib.error
 from datetime import UTC, datetime, timedelta
+from html import escape
 from pathlib import Path
 from unittest.mock import patch
 
@@ -398,7 +399,7 @@ class PipelineTests(unittest.TestCase):
             dump_markdown(vault / "activities" / "test-001.md", activity, "English source text.")
             dump_markdown(vault / "translations" / "pl" / "test-001.md", translation, "Polskie tłumaczenie.")
             with patch("build_content.VAULT", vault):
-                polish, english, sources = load_records()
+                polish, english, sources = load_records(include_similarities=False)
             self.assertEqual(set(sources), {"source-1"})
             self.assertEqual(polish[0]["translationStatus"], "machine-translation")
             self.assertEqual(polish[0]["title"], "Tytuł tłumaczenia")
@@ -408,7 +409,27 @@ class PipelineTests(unittest.TestCase):
             translation["activityId"] = "wrong-id"
             dump_markdown(vault / "translations" / "pl" / "test-001.md", translation, "Polskie tłumaczenie.")
             with patch("build_content.VAULT", vault), self.assertRaisesRegex(RuntimeError, "activity ID mismatch"):
-                load_records()
+                load_records(include_similarities=False)
+
+    def test_approved_similar_games_are_linked_bidirectionally(self):
+        polish, english, _ = load_records()
+        for records in (polish, english):
+            by_id = {record["id"]: record for record in records}
+            self.assertEqual(
+                [item["activityId"] for item in by_id["bsh-037"]["similarActivities"]],
+                ["hwp-041"],
+            )
+            self.assertEqual(
+                [item["activityId"] for item in by_id["hwp-041"]["similarActivities"]],
+                ["bsh-037"],
+            )
+            rendered = activity_page(by_id["bsh-037"], locale=records[0]["locale"])
+            self.assertIn("hwp-041", rendered)
+            self.assertIn(escape(by_id["hwp-041"]["title"]), rendered)
+            self.assertIn(
+                "Bardzo podobne gry" if records[0]["locale"] == "pl" else "Highly similar games",
+                rendered,
+            )
 
     def test_gutenberg_parser_tracks_printed_pages_and_omits_images(self):
         html = b"""<div><span class='pageno' id='Page_52'>52</span><h5>GAME</h5></div>

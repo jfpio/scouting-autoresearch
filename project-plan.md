@@ -100,6 +100,11 @@ zmienia `sourceHash` i unieważnia tłumaczenie.
 i próba. Propozycje mają przykłady, kontrprzykłady, dwujęzyczne etykiety i status redakcyjny.
 Nie wpływają na filtry ani eksport produkcyjny, dopóki człowiek ich nie zaakceptuje.
 
+Bliskie warianty tej samej gry pozostają osobnymi rekordami, ponieważ każdy zachowuje własny
+tekst, autora, wydanie, strony i historię przekazu. Zatwierdzona przez człowieka relacja jest
+symetryczna: oba rekordy oraz ich strony wskazują drugi wariant. Sam wynik podobieństwa lub
+sąsiedztwa wektorowego jest tylko kandydaturą i nie tworzy publicznego powiązania.
+
 Pola wieku, czasu, sprzętu, liczby uczestników i ryzyka mogą pojawić się dopiero, gdy wynikają
 wprost ze źródła albo przeszły osobną redakcję. Brakujące dane pozostają nieznane. Projekt
 oddziela trzy rodzaje ocen:
@@ -180,7 +185,9 @@ discover → rights review → fetch → OCR/extract → normalize → deduplica
 3. **Fetch:** pobiera wyłącznie z zaakceptowanej kolekcji, respektując limit i warunki.
 4. **OCR/extract:** zachowuje surowy wynik i parametry procesu, jeśli potrzebny jest OCR.
 5. **Normalize:** poprawia jedynie techniczne artefakty; nie modernizuje treści.
-6. **Deduplicate:** porównuje hash, tytuł, źródło i podobieństwo tekstu.
+6. **Deduplicate:** porównuje hash, tytuł, źródło i podobieństwo tekstu. Dokładny duplikat
+   może zostać wyłączony przed importem; bliski wariant pozostaje osobnym rekordem i po
+   decyzji człowieka otrzymuje dwukierunkowy link do podobnej gry.
 7. **Translate:** zapisuje model, prompt, datę i hash wejścia; oznacza
    `machine-translation` i zawsze linkuje tekst źródłowy oraz skan.
 8. **Verify:** sprawdza schemat, kompletność, prawa, źródła, języki i bezpieczeństwo.
@@ -208,3 +215,79 @@ pobierania są dodawane kolekcja po kolekcji po zatwierdzeniu zasad dostępu.
 - opisać politykę krótkich cytatów i rekordów `link-only` dla źródeł chronionych,
 - przeprowadzić pilotaż na małej książce i zmierzyć koszt, jakość oraz czas recenzji,
 - po pilotażu skalować liczbę źródeł według zmierzonej przepustowości i zewnętrznych limitów.
+
+## V3 — embeddingi gier i mapa semantyczna
+
+V3 tworzy semantyczną warstwę eksploracji całego korpusu gier. Pierwsza iteracja obejmuje
+każdą aktywność zawierającą rodzaj `game`; próby pozostają poza zakresem, dopóki osobna
+decyzja nie rozszerzy mapy. V3 nie zastępuje taksonomii V1, tekstu źródłowego ani ręcznie
+zatwierdzonych relacji między wariantami.
+
+Pipeline V3:
+
+```text
+review participant scale → version input recipe → embed every game
+                         → verify cache and coverage → compute nearest neighbours
+                         → project to 2D → overlay approved relations
+                         → validate → publish filters and semantic map
+```
+
+- V3 dodaje ustrukturyzowaną skalę uczestników niezależną od embeddingu. Rekord może mieć
+  zakres `minParticipants`–`maxParticipants`, jeżeli liczby są podane w źródle lub
+  zatwierdzone redakcyjnie, oraz jedną lub więcej wartości `participantScales`:
+  `individual`, `pair`, `small-group`, `patrol`, `troop`, `multiple-troops`, `mass-game`
+  albo `unknown`. Dla układu typu „dwa zastępy” można dodatkowo zapisać liczbę i rodzaj
+  jednostek. Każda wartość zachowuje podstawę `source-stated`, `human-reviewed` albo
+  `unknown`; agent nie wylicza jej wyłącznie z podobieństwa semantycznego ani nie zgaduje z
+  nieprecyzyjnego opisu.
+- Publiczny interfejs pozwala filtrować co najmniej: pojedynczą osobę, parę, małą grupę,
+  zastęp, drużynę, kilka drużyn i grę masową. Osobno można użyć minimalnej lub maksymalnej
+  liczby uczestników tam, gdzie liczby są znane. `unknown` pozostaje widoczną opcją, a gra
+  bez danych nie jest cicho przypisywana do najbliższego przedziału.
+- Przed zamrożeniem filtrów V3 trzeba przeprowadzić audyt innych praktycznych wymiarów.
+  Kandydatami są: układ uczestników (indywidualnie, pary, zespoły, wszyscy przeciw wszystkim),
+  współpraca lub rywalizacja, eliminowanie uczestników, dominująca mechanika (np. pościg,
+  skradanie, obserwacja, sygnalizacja, pamięć, sztafeta), ćwiczona sprawność, przestrzeń
+  (wewnątrz, na zewnątrz, teren otwarty, las, woda), wymagana powierzchnia, ruch i intensywność
+  fizyczna, czas gry i przygotowania, sprzęt, pora dnia lub widoczność, pogoda i sezon, kontakt
+  fizyczny i ryzyko, hałas lub wymagana cisza, rola prowadzącego, dostępność, zalecany wiek
+  oraz wymagane umiejętności. Audyt ma dla każdego wymiaru zmierzyć pokrycie, jednoznaczność
+  źródeł, koszt redakcji i wartość dla wyszukiwania.
+  Dopiero człowiek wybiera z tej listy filtry produkcyjne; pozostałe mogą zostać metadanymi,
+  fasetami eksperymentalnymi albo elementami mapy semantycznej. Każde pole zachowuje podstawę
+  `source-stated`, `human-reviewed` albo `unknown` i nie jest uzupełniane samym modelem.
+- Każda gra otrzymuje jeden wektor z wersjonowanego, ograniczonego do kontekstu modelu
+  wejścia. Przepis zachowuje tytuł i treść w języku źródłowym oraz dodaje tytuł i krótki
+  kontekst w drugim języku, aby mapa nie dzieliła się wyłącznie według języka. Hash wejścia
+  obejmuje obie warstwy i unieważnia cache po zmianie tekstu lub tłumaczenia.
+- V3 ma osobną konfigurację, checkpointy, ledger kosztu i katalog cache od embeddingów V1.
+  Każdy wektor zapisuje dokładny model, wymiar, wersję przepisu, hash i użycie tokenów.
+  Ponowny build bez zmian nie wykonuje requestów API.
+- Najbliżsi sąsiedzi są propozycjami eksploracyjnymi. Tylko relacje zatwierdzone przez
+  człowieka mogą pojawić się jako trwałe linki „bardzo podobna gra”; na mapie zatwierdzone
+  relacje i sugestie algorytmu muszą wyglądać inaczej.
+- Projekcja dwuwymiarowa używa przypiętej wersji algorytmu i zależności, jawnego ziarna oraz
+  hasha pełnego korpusu. Współrzędne są pomocą nawigacyjną, nie kategorią ani twierdzeniem o
+  historycznym pochodzeniu; dodanie źródeł może zmienić układ całej mapy.
+- Widok mapy pozwala przejść do strony gry, filtrować co najmniej po źródle i zatwierdzonej
+  kategorii oraz zobaczyć najbliższe gry. Musi mieć dostępną alternatywę listową i nie może
+  wymagać interakcji wskaźnikiem.
+- Raport V3 podaje pokrycie korpusu, model, recepturę, tokeny, koszt, parametry sąsiedztwa i
+  projekcji, kandydatury podobnych gier, stabilność layoutu, audyt kandydatów na filtry oraz
+  wynik ręcznego smoke testu.
+
+### Kryteria V3
+
+- zbiór identyfikatorów embeddingów jest dokładnie równy zbiorowi aktywności rodzaju `game`,
+- nie ma współdzielonego ani cicho ponownie użytego cache między V1 i V3,
+- każdy wektor i projekcja są odtwarzalne z przypiętej konfiguracji oraz hashy wejścia,
+- mapa pokazuje źródło i prowadzi do właściwej strony każdego punktu,
+- każda gra ma jawne `participantScales`, choćby `[unknown]`, a filtr skali odróżnia co najmniej
+  parę, zastęp, drużynę i wiele drużyn; filtry liczbowe korzystają tylko z potwierdzonych
+  wartości `minParticipants` i `maxParticipants`,
+- raport audytu porównuje pokrycie i użyteczność pozostałych kandydatów na filtry, a żaden z
+  nich nie staje się filtrem produkcyjnym bez decyzji człowieka,
+- ręcznie zatwierdzone podobne gry są połączone dwukierunkowo, a sugestie pozostają oznaczone
+  jako niezatwierdzone,
+- zmiana samego stylu lub ponowny build nie uruchamia embedding API,
+- mapa ma działającą alternatywę listową oraz podstawową obsługę klawiatury.

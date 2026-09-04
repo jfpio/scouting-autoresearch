@@ -65,9 +65,11 @@ body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: var
 .card-footer { padding-top: .75rem; border-top: 1px solid var(--sl-color-gray-5); color: var(--muted); font-size: .75rem; }
 .card-footer a { font-weight: 800; }
 .no-results { padding: 2rem; text-align: center; color: var(--muted); }
-.activity-meta, .safety-notice, .machine-notice { padding: 1rem 1.1rem; border-left: .25rem solid var(--brown); border-radius: .35rem; background: var(--paper-deep); }
+.activity-meta, .safety-notice, .machine-notice, .similar-notice { padding: 1rem 1.1rem; border-left: .25rem solid var(--brown); border-radius: .35rem; background: var(--paper-deep); }
 .safety-notice { border-color: #a35b2b; }
 .machine-notice { border-color: var(--forest); }
+.similar-notice { border-color: #326a73; }
+.similar-notice ul { margin-bottom: 0; }
 .source-table { width: 100%; }
 @media (max-width: 48rem) { .filter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .activity-card { min-height: auto; } .hero { padding-block: 2rem 1rem; } }
 @media (max-width: 36rem) { .filter-toolbar, .filter-grid { grid-template-columns: 1fr; } .clear-filters { justify-self: start; } }

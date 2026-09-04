@@ -134,6 +134,11 @@
 - PR musi zawierać listę źródeł, decyzje prawne do kontroli, liczbę rekordów, koszt, model,
   wyniki walidacji, duplikaty i wszystkie nierozstrzygnięte problemy.
 - Zachowuj polski lub obcy tekst źródłowy bez modernizacji; korekty OCR muszą być odtwarzalne.
+- Wynik algorytmu podobieństwa jest wyłącznie kandydaturą. Dopiero decyzja człowieka może
+  utworzyć produkcyjne powiązanie między aktywnościami. Potwierdzone bliskie warianty
+  zachowuj jako osobne rekordy z własnym tekstem, identyfikatorem i proweniencją; zapisuj
+  relację centralnie, pokazuj ją dwukierunkowo w obu językach i linkuj strony obu aktywności.
+  Nie scalaj ani nie usuwaj gry tylko dlatego, że jest podobna do innej.
 - Angielskie i polskie tłumaczenia maszynowe zawsze oznaczaj `machine-translation`. Nie twórz
   obietnicy późniejszej weryfikacji; zamiast tego zawsze linkuj tekst w języku źródłowym i skan.
 - Nie kopiuj PDF-ów ani pełnych repozytoriów źródłowych do tego repozytorium.

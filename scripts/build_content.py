@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any
 
 from common import GENERATED, PUBLIC_DATA, ROOT, VAULT, load_markdown, write_json
+from similar_activities import add_similarity_links
 
 
 DOCS = ROOT / "src" / "content" / "docs"
@@ -80,7 +81,7 @@ def translated_record(metadata: dict, body: str, common: dict, locale: str) -> d
     return record
 
 
-def load_records() -> tuple[list[dict], list[dict], dict[str, dict]]:
+def load_records(*, include_similarities: bool = True) -> tuple[list[dict], list[dict], dict[str, dict]]:
     sources = load_sources()
     polish: list[dict] = []
     english: list[dict] = []
@@ -129,7 +130,12 @@ def load_records() -> tuple[list[dict], list[dict], dict[str, dict]]:
         translated = translated_record(translation, translated_body, common, target_locale)
         (polish if original_locale == "pl" else english).append(original)
         (polish if target_locale == "pl" else english).append(translated)
-    return sorted(polish, key=lambda item: item["id"]), sorted(english, key=lambda item: item["id"]), sources
+    polish = sorted(polish, key=lambda item: item["id"])
+    english = sorted(english, key=lambda item: item["id"])
+    if include_similarities:
+        add_similarity_links(polish, "pl")
+        add_similarity_links(english, "en")
+    return polish, english, sources
 
 
 def frontmatter(record: dict, *, locale: str) -> str:
@@ -214,11 +220,33 @@ def activity_page(record: dict, *, locale: str) -> str:
     facsimile_url = record.get("facsimileUrl")
     if not facsimile_url and record.get("pdfUrl") and record["pdfPages"]:
         facsimile_url = f"{record['pdfUrl']}#page={record['pdfPages'][0]}"
+    similar = ""
+    if record.get("similarActivities"):
+        similar_heading = "Bardzo podobne gry" if is_pl else "Highly similar games"
+        similar_intro = (
+            "Ta aktywność ma zatwierdzone powiązanie z innym historycznym wariantem. "
+            "Rekordy pozostają osobne, aby zachować tekst i pochodzenie każdego źródła."
+            if is_pl
+            else "This activity has an approved link to another historical variant. "
+            "The records remain separate to preserve each source text and provenance."
+        )
+        similar_items = "".join(
+            "<li>"
+            f'<a href="{html.escape(item["url"])}">{html.escape(item["title"])}</a>'
+            f' — {html.escape(item["author"])}, <cite>{html.escape(item["sourceTitle"])}</cite> '
+            f'({item["year"]}). {html.escape(item["note"])}</li>'
+            for item in record["similarActivities"]
+        )
+        similar = (
+            f'<div class="similar-notice"><strong>{similar_heading}.</strong> '
+            f"{similar_intro}<ul>{similar_items}</ul></div>\n\n"
+        )
     return (
         frontmatter(record, locale=locale)
         + "\n\n"
         + machine
         + f'<div class="safety-notice"><strong>{"Uwaga bezpieczeństwa." if is_pl else "Safety note."}</strong> {warning}</div>\n\n'
+        + similar
         + f"## {labels['meta']}\n\n"
         + f"- **{labels['type']}:** {kinds}\n"
         + f"- **{labels['traits']}:** {traits}\n"

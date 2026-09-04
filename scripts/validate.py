@@ -37,6 +37,8 @@ from validate_candidates import validate_candidates
 from validate_collection_reviews import validate_collection_reviews
 from validate_editorial_reviews import validate_editorial_reviews
 from validate_protected_source_policy import validate_protected_source_policy
+from similar_activities import load_config as load_similarity_config
+from similar_activities import validate_similar_activity_relations
 
 
 def require(condition: bool, message: str, errors: list[str]) -> None:
@@ -493,6 +495,16 @@ def main() -> None:
         )
         near_duplicate_candidate_count = near_duplicate_report.get("candidateCount", 0)
 
+    similar_relation_count, similar_relation_errors = validate_similar_activity_relations()
+    errors.extend(similar_relation_errors)
+    expected_similarity_links: set[tuple[str, str]] = set()
+    for relation in load_similarity_config().get("relations") or []:
+        activity_ids = relation.get("activityIds") or []
+        if len(activity_ids) == 2:
+            expected_similarity_links.update(
+                {(activity_ids[0], activity_ids[1]), (activity_ids[1], activity_ids[0])}
+            )
+
     taxonomy_config = load_config()
     embedding_config = taxonomy_config["embedding"]
     taxonomy_items = activity_items(taxonomy_config)
@@ -648,6 +660,16 @@ def main() -> None:
         if json_path.exists():
             records = read_json(json_path)
             require(len(records) == len(activity_paths), f"{locale} export has {len(records)} records", errors)
+            actual_similarity_links = {
+                (record.get("id"), related.get("activityId"))
+                for record in records
+                for related in record.get("similarActivities", [])
+            }
+            require(
+                actual_similarity_links == expected_similarity_links,
+                f"{locale} export has stale or asymmetric similar-activity links",
+                errors,
+            )
             for record in records:
                 for key in ("author", "sourceTitle", "year", "sourceId", "printedPages", "sourceRevision"):
                     require(bool(record.get(key)), f"{locale}/{record.get('id')} lacks {key}", errors)
@@ -683,6 +705,7 @@ def main() -> None:
         f"{editorial_review_count} editorial review record(s) "
         f"({accepted_editorial_review_count} accepted), {near_duplicate_candidate_count} "
         f"near-duplicate candidate(s), {pilot_count} measured pilot(s), bilingual exports and docs."
+        f" {similar_relation_count} approved similar-game relation(s)."
     )
 
 

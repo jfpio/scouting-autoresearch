@@ -1131,7 +1131,20 @@
     "summary": "Gra ta powinna odbywać się w terenie nocą. Dwóch harcowników wyrusza w określonym kierunku z zapaloną latarnią typu bull's-eye. Po upływie dwóch minut patrol lub drużyna rozpoczyna pościg. Niosący latarnię musi pokazywać światło przynajmniej co minutę,…",
     "translationModel": "mistral-large-2512",
     "translationPromptVersion": "translation-en-pl-v6",
-    "translationGeneratedAt": "2026-09-04"
+    "translationGeneratedAt": "2026-09-04",
+    "similarActivities": [
+      {
+        "activityId": "hwp-041",
+        "title": "Błędny ognik",
+        "sourceId": "hwp-1946",
+        "sourceTitle": "Harcerz w polu: zabawy i gry terenowe",
+        "author": "Zygmunt Wyrobek",
+        "year": 1946,
+        "relationType": "highly-similar-variant",
+        "note": "Oba warianty opisują nocny pościg za harcerzami przekazującymi sobie latarkę i pokazującymi światło w ustalonych odstępach.",
+        "url": "https://jfpio.github.io/scouting-autoresearch/activities/hwp-041/"
+      }
+    ]
   },
   {
     "id": "bsh-038",
@@ -2742,7 +2755,20 @@
     "traits": [],
     "section": "Wzrok i spostrzegawczość",
     "translationStatus": "source-text",
-    "summary": "Dwóch harcerzy idzie w pole z elektryczną latarką. W dwie minuty później rusza reszta w pościg za nimi. Ścigani co minutę błyskają światłem, ciągle zmieniając miejsce, ażeby ujść pogoni. Gdy jest źle, rozłączają się, ażeby rozdzielić ścigających; ten, który…"
+    "summary": "Dwóch harcerzy idzie w pole z elektryczną latarką. W dwie minuty później rusza reszta w pościg za nimi. Ścigani co minutę błyskają światłem, ciągle zmieniając miejsce, ażeby ujść pogoni. Gdy jest źle, rozłączają się, ażeby rozdzielić ścigających; ten, który…",
+    "similarActivities": [
+      {
+        "activityId": "bsh-037",
+        "title": "Błędny ognik",
+        "sourceId": "bsh-1911-seton-games",
+        "sourceTitle": "Boy Scouts Handbook: The Games",
+        "author": "Ernest Thompson Seton",
+        "year": 1911,
+        "relationType": "highly-similar-variant",
+        "note": "Oba warianty opisują nocny pościg za harcerzami przekazującymi sobie latarkę i pokazującymi światło w ustalonych odstępach.",
+        "url": "https://jfpio.github.io/scouting-autoresearch/activities/bsh-037/"
+      }
+    ]
   },
   {
     "id": "hwp-042",
