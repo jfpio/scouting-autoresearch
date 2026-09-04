@@ -28,7 +28,10 @@ jobs:
       - run: python -m unittest discover -s tests -p 'test_*.py'
       - run: python scripts/build_content.py
       - run: python scripts/validate.py
-      - run: python scripts/analyze_semantic_map.py --check
+      # UMAP coordinates can differ across CPU implementations even with pinned
+      # versions and seeds. CI checks all semantic outputs exactly and leaves the
+      # exact projection check to the pinned Helios x86_64 environment.
+      - run: python scripts/analyze_semantic_map.py --check --portable
       - name: Build and upload the Astro site
         uses: withastro/action@v5
       - run: python scripts/check_links.py
