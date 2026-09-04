@@ -199,9 +199,9 @@ python scripts/embed_semantic_map.py --source-id bsh-1911-seton-games --limit 50
 Pierwsze polecenie jest dry-runem, drugie najmniejszym requestem smoke, a trzecie kończy
 bieżące źródło. Po `429` proces zapisuje `nextRetryAt` i kończy się bez oczekiwania na węźle
 logowania. Źródło można commitować dopiero, gdy wszystkie jego gry mają aktualny cache.
-Pierwsza jednostka, 33 gry Setona, jest kompletna; dwa requesty zużyły łącznie 18 247 tokenów
-wejściowych, co odpowiada kosztowi referencyjnemu 0,0018247 USD. API nie zwróciło kwoty
-faktycznie rozliczonej z kredytów Education.
+Pierwsze dwie jednostki, 33 gry Setona i 117 gier z *Harcerza w polu*, są kompletne. Pięć
+requestów zużyło łącznie 129 040 tokenów wejściowych, co odpowiada kosztowi referencyjnemu
+0,012904 USD. API nie zwróciło kwoty faktycznie rozliczonej z kredytów Education.
 
 Kod obsługuje też przepis `activity-context-v2`, który przed skróceniem kontekstu usuwa
 techniczną stopkę źródłową oraz adresy URL z Markdown, zachowując tekst widoczny odnośników.
