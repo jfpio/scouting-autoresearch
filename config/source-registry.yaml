@@ -95,3 +95,27 @@ collections:
       użycie komercyjne wymaga odpłatnej licencji. Pobranie dokumentu pozostaje wyłączone
       do czasu zatwierdzenia przez właściciela konkretnego zakresu, warunków i sposobu
       użycia; oznaczenie public domain nie obejmuje automatycznie osobnych wkładów.
+  - id: historyczna-slaska-zhp
+    name: Komisja Historyczna Chorągwi Śląskiej ZHP
+    baseUrl: https://historyczna.slaska.zhp.pl/
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 5
+    trustScope: bibliographic-link-directory
+    reviewRecord: vault/reviews/inbox/collection-historyczna-slaska.md
+    robotsTxt:
+      url: https://historyczna.slaska.zhp.pl/robots.txt
+      checkedAt: "2026-09-04"
+      status: not-found-404
+    termsOfUse:
+      checkedAt: "2026-09-04"
+      status: no-public-reuse-license-found
+      inspectedPages:
+        - https://historyczna.slaska.zhp.pl/
+        - https://historyczna.slaska.zhp.pl/?page_id=210
+        - https://historyczna.slaska.zhp.pl/?page_id=600
+    notes: >-
+      Repetytorium jest użytecznym indeksem bibliograficznym kierującym głównie do Polony
+      i regionalnych bibliotek cyfrowych, ale nie nadaje praw do materiałów docelowych.
+      Do czasu decyzji właściciela wolno pobierać wyłącznie metadane stron. Pliki, pełny
+      tekst, obrazy i automatyczne przechodzenie do serwisów docelowych pozostają wyłączone.

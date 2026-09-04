@@ -30,6 +30,7 @@ from propose_taxonomy import (
     build_proposal_report,
 )
 from validate_candidates import validate_candidates
+from validate_collection_reviews import validate_collection_reviews
 
 
 def require(condition: bool, message: str, errors: list[str]) -> None:
@@ -424,6 +425,8 @@ def main() -> None:
 
     candidate_count, candidate_validation_errors = validate_candidates()
     errors.extend(candidate_validation_errors)
+    collection_review_count, collection_review_errors = validate_collection_reviews()
+    errors.extend(collection_review_errors)
 
     taxonomy_config = load_config()
     embedding_config = taxonomy_config["embedding"]
@@ -611,7 +614,7 @@ def main() -> None:
     print(
         f"Validation passed: {len(activity_paths)} activities, {len(translation_paths)} translations, {len(sources)} public-domain sources, "
         f"{len(embedding_paths)} taxonomy embeddings, {candidate_count} source candidate "
-        "record(s), bilingual exports and docs."
+        f"record(s), {collection_review_count} collection review record(s), bilingual exports and docs."
     )
 
 
