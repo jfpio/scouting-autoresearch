@@ -55,6 +55,31 @@ def load_sources() -> dict[str, dict[str, Any]]:
     return sources
 
 
+def translated_record(metadata: dict, body: str, common: dict, locale: str) -> dict:
+    record = {
+        **common,
+        "locale": locale,
+        "title": metadata["title"],
+        "body": body,
+        "traits": metadata.get("traits", []),
+        "section": metadata.get("section", ""),
+        "translationStatus": metadata.get("status", "source-text"),
+        "summary": summary(body),
+    }
+    if record["translationStatus"] == "machine-translation":
+        record.update(
+            {
+                "translationModel": metadata["model"],
+                "translationPromptVersion": metadata["promptVersion"],
+                "translationGeneratedAt": metadata["generatedAt"],
+            }
+        )
+    record["searchText"] = " ".join(
+        [record["title"], plain_text(body), *record["traits"], record["section"], common["author"], common["sourceTitle"]]
+    ).lower()
+    return record
+
+
 def load_records() -> tuple[list[dict], list[dict], dict[str, dict]]:
     sources = load_sources()
     polish: list[dict] = []
@@ -62,6 +87,10 @@ def load_records() -> tuple[list[dict], list[dict], dict[str, dict]]:
     for path in sorted((VAULT / "activities").glob("*.md")):
         metadata, body = load_markdown(path)
         source = sources[metadata["sourceId"]]
+        original_locale = metadata["originalLanguage"]
+        if original_locale not in {"pl", "en"}:
+            raise RuntimeError(f"Unsupported source language in {path.name}: {original_locale}")
+        target_locale = "en" if original_locale == "pl" else "pl"
         common = {
             "id": metadata["id"],
             "kinds": metadata["kinds"],
@@ -71,56 +100,36 @@ def load_records() -> tuple[list[dict], list[dict], dict[str, dict]]:
             "year": source["year"],
             "publisher": source.get("publisher"),
             "printedPages": metadata["printedPages"],
-            "pdfPages": metadata["pdfPages"],
+            "pdfPages": metadata.get("pdfPages", []),
             "sourceUrl": metadata["sourceUrl"],
             "digitalEditionUrl": metadata["digitalEditionUrl"],
-            "pdfUrl": source["pdfUrl"],
-            "sourceCommit": metadata["sourceCommit"],
+            "pdfUrl": source.get("pdfUrl"),
+            "facsimileUrl": metadata.get("facsimileUrl"),
+            "sourceCommit": metadata.get("sourceCommit"),
+            "sourceRevision": metadata.get("sourceRevision", metadata.get("sourceCommit")),
             "sourceHash": metadata["sourceHash"],
             "rightsStatus": metadata["rightsStatus"],
             "transcriptionStatus": metadata["transcriptionStatus"],
             "safetyStatus": metadata["safetyStatus"],
             "originalLanguage": metadata["originalLanguage"],
         }
-        pl_record = {
-            **common,
-            "locale": "pl",
-            "title": metadata["title"],
-            "body": body,
-            "traits": metadata.get("traits", []),
-            "section": metadata.get("section", ""),
-            "translationStatus": "source-text",
-            "summary": summary(body),
-        }
-        pl_record["searchText"] = " ".join(
-            [pl_record["title"], plain_text(body), *pl_record["traits"], pl_record["section"], common["author"], common["sourceTitle"]]
-        ).lower()
-        polish.append(pl_record)
-
-        translation_path = VAULT / "translations" / "en" / path.name
+        original = translated_record({**metadata, "status": "source-text"}, body, common, original_locale)
+        translation_path = VAULT / "translations" / target_locale / path.name
         if not translation_path.exists():
-            raise RuntimeError(f"Missing English translation: {translation_path.name}")
+            raise RuntimeError(f"Missing {target_locale} translation: {translation_path.name}")
         translation, translated_body = load_markdown(translation_path)
+        if translation.get("activityId") != metadata["id"]:
+            raise RuntimeError(f"Translation activity ID mismatch: {translation_path.name}")
         if translation.get("sourceHash") != metadata["sourceHash"]:
-            raise RuntimeError(f"Stale English translation: {translation_path.name}")
-        en_record = {
-            **common,
-            "locale": "en",
-            "title": translation["title"],
-            "body": translated_body,
-            "traits": translation.get("traits", []),
-            "section": translation.get("section", ""),
-            "translationStatus": translation["status"],
-            "translationModel": translation["model"],
-            "translationPromptVersion": translation["promptVersion"],
-            "translationGeneratedAt": translation["generatedAt"],
-            "summary": summary(translated_body),
-        }
-        en_record["searchText"] = " ".join(
-            [en_record["title"], plain_text(translated_body), *en_record["traits"], en_record["section"], common["author"], common["sourceTitle"]]
-        ).lower()
-        english.append(en_record)
-    return polish, english, sources
+            raise RuntimeError(f"Stale translation: {translation_path.name}")
+        if translation.get("locale") != target_locale:
+            raise RuntimeError(f"Wrong translation locale: {translation_path.name}")
+        if translation.get("status") != "machine-translation":
+            raise RuntimeError(f"Wrong translation status: {translation_path.name}")
+        translated = translated_record(translation, translated_body, common, target_locale)
+        (polish if original_locale == "pl" else english).append(original)
+        (polish if target_locale == "pl" else english).append(translated)
+    return sorted(polish, key=lambda item: item["id"]), sorted(english, key=lambda item: item["id"]), sources
 
 
 def frontmatter(record: dict, *, locale: str) -> str:
@@ -140,7 +149,7 @@ def frontmatter(record: dict, *, locale: str) -> str:
             "printedPages:",
             *[f"  - {page}" for page in record["printedPages"]],
             "pdfPages:",
-            *[f"  - {page}" for page in record["pdfPages"]],
+            *([f"  - {page}" for page in record["pdfPages"]] or ["  []"]),
             f"transcriptionStatus: {record['transcriptionStatus']}",
             f"translationStatus: {record['translationStatus']}",
             f"safetyStatus: {record['safetyStatus']}",
@@ -153,35 +162,58 @@ def frontmatter(record: dict, *, locale: str) -> str:
 
 def activity_page(record: dict, *, locale: str) -> str:
     is_pl = locale == "pl"
-    page = record["pdfPages"][0]
-    kinds = ", ".join(("gra" if value == "game" else "próba") if is_pl else value for value in record["kinds"])
+    kind_labels = {
+        "game": "gra",
+        "trial": "próba",
+    }
+    kinds = ", ".join(kind_labels.get(value, value) if is_pl else value for value in record["kinds"])
     traits = ", ".join(record["traits"]) or ("Nie podano w źródle" if is_pl else "Not stated in the source")
     machine = ""
-    if not is_pl:
+    if record["translationStatus"] == "machine-translation":
+        source_locale_name = "angielski" if is_pl else "Polish"
+        source_path = (
+            f"{SITE_ROOT}/en/activities/{record['id']}/"
+            if record["originalLanguage"] == "en"
+            else f"{SITE_ROOT}/activities/{record['id']}/"
+        )
         machine = (
-            '<div class="machine-notice"><strong>Automatic translation.</strong> '
-            f'This English text was generated automatically with <code>{record["translationModel"]}</code> and has not been verified by a person. '
-            f'<a href="{SITE_ROOT}/activities/{record["id"]}/">Read the source Polish transcription</a>; '
-            "the source scan is linked in the metadata below.</div>\n\n"
+            f'<div class="machine-notice"><strong>{"Tłumaczenie automatyczne." if is_pl else "Automatic translation."}</strong> '
+            + (
+                f'Ten polski tekst wygenerowano automatycznie modelem <code>{record["translationModel"]}</code> i nie został zweryfikowany przez człowieka. '
+                if is_pl
+                else f'This English text was generated automatically with <code>{record["translationModel"]}</code> and has not been verified by a person. '
+            )
+            + f'<a href="{source_path}">{"Przeczytaj tekst źródłowy po angielsku" if is_pl else f"Read the source {source_locale_name} transcription"}</a>; '
+            + ("odnośnik do wydania źródłowego znajduje się w metadanych poniżej.</div>\n\n" if is_pl else "the source edition is linked in the metadata below.</div>\n\n")
         )
     warning = (
         "Historyczna aktywność nie jest automatycznie rekomendacją metodyczną. Przed użyciem oceń współczesne ryzyko, wiek uczestników, warunki i przepisy."
         if is_pl
         else "A historical activity is not automatically a modern recommendation. Assess present-day risk, participants’ ages, conditions, and applicable rules before use."
     )
-    original_link = f"{SITE_ROOT}/activities/{record['id']}/"
-    translated_link = f"{SITE_ROOT}/en/activities/{record['id']}/"
+    pl_link = f"{SITE_ROOT}/activities/{record['id']}/"
+    en_link = f"{SITE_ROOT}/en/activities/{record['id']}/"
     labels = {
         "meta": "Metadane" if is_pl else "Metadata",
         "type": "Rodzaj" if is_pl else "Type",
         "traits": "Cechy" if is_pl else "Traits",
         "source": "Źródło" if is_pl else "Source",
-        "pages": "Strony drukowane / PDF" if is_pl else "Printed / PDF pages",
+        "pages": "Strony drukowane" if is_pl else "Printed pages",
         "edition": "Wydanie cyfrowe" if is_pl else "Digital edition",
-        "facsimile": "Otwórz skan na właściwej stronie" if is_pl else "Open the scan at the relevant page",
-        "other": "Zobacz tłumaczenie automatyczne" if is_pl else "Read the source Polish transcription",
+        "facsimile": "Otwórz wydanie na właściwej stronie" if is_pl else "Open the edition at the relevant page",
+        "other": (
+            "Przeczytaj tekst źródłowy" if record["translationStatus"] == "machine-translation" else "Zobacz tłumaczenie automatyczne"
+        ) if is_pl else (
+            "Read the source text" if record["translationStatus"] == "machine-translation" else "Read the automatic translation"
+        ),
     }
-    other_link = translated_link if is_pl else original_link
+    other_link = en_link if is_pl else pl_link
+    pages = pages_label(record["printedPages"])
+    if record["pdfPages"]:
+        pages += f" / PDF {pages_label(record['pdfPages'])}"
+    facsimile_url = record.get("facsimileUrl")
+    if not facsimile_url and record.get("pdfUrl") and record["pdfPages"]:
+        facsimile_url = f"{record['pdfUrl']}#page={record['pdfPages'][0]}"
     return (
         frontmatter(record, locale=locale)
         + "\n\n"
@@ -191,19 +223,28 @@ def activity_page(record: dict, *, locale: str) -> str:
         + f"- **{labels['type']}:** {kinds}\n"
         + f"- **{labels['traits']}:** {traits}\n"
         + f"- **{labels['source']}:** {record['author']}, *{record['sourceTitle']}* ({record['year']})\n"
-        + f"- **{labels['pages']}:** {pages_label(record['printedPages'])} / {pages_label(record['pdfPages'])}\n"
-        + f"- **{labels['edition']}:** [GitHub Pages]({record['digitalEditionUrl']}) · [Polona]({record['sourceUrl']})\n"
-        + f"- **{labels['facsimile']}:** [PDF, s. {page}]({record['pdfUrl']}#page={page})\n"
+        + f"- **{labels['pages']}:** {pages}\n"
+        + f"- **{labels['edition']}:** "
+        + (
+            f"[Wydanie cyfrowe]({record['digitalEditionUrl']}) · [Rekord źródłowy]({record['sourceUrl']})\n"
+            if is_pl
+            else f"[Digital edition]({record['digitalEditionUrl']}) · [Source record]({record['sourceUrl']})\n"
+        )
+        + (
+            f"- **{labels['facsimile']}:** [{'s.' if is_pl else 'p.'} {record['printedPages'][0]}]({facsimile_url})\n"
+            if facsimile_url
+            else ""
+        )
         + f"- **{labels['other']}:** [{record['id']}]({other_link})\n\n"
         + "## "
-        + ("Treść źródłowa" if is_pl else "Translated text")
+        + (("Treść źródłowa" if is_pl else "Source text") if record["translationStatus"] == "source-text" else ("Tekst przetłumaczony" if is_pl else "Translated text"))
         + "\n\n"
         + record["body"].strip()
         + "\n"
     )
 
 
-def explorer_page(locale: str, *, kind: str | None = None, home: bool = False) -> str:
+def explorer_page(locale: str, *, activity_count: int, source_count: int, kind: str | None = None, home: bool = False) -> str:
     is_pl = locale == "pl"
     titles = {
         None: ("Wszystkie aktywności", "All activities"),
@@ -221,18 +262,18 @@ def explorer_page(locale: str, *, kind: str | None = None, home: bool = False) -
     if home:
         eyebrow = "OTWARTA BAZA WIEDZY · V0" if is_pl else "OPEN KNOWLEDGE BASE · V0"
         text = (
-            "202 aktywności z dwóch książek w domenie publicznej. Oryginalne transkrypcje po polsku i automatyczne tłumaczenia po angielsku."
+            f"{activity_count} aktywności z {source_count} książek w domenie publicznej. Teksty źródłowe po polsku lub angielsku mają automatyczne tłumaczenie na drugi język."
             if is_pl
-            else "202 activities from two public-domain books. Original Polish transcriptions with machine-generated English translations."
+            else f"{activity_count} activities from {source_count} public-domain books. Polish or English source texts have machine translations into the other language."
         )
         hero = f'<p class="eyebrow">{eyebrow}</p>\n\n# {title}\n\n{text}\n\n'
     else:
         hero = f"# {title}\n\n{description}\n\n"
     kind_prop = f' kind="{kind}"' if kind else ""
     translation_note = (
-        ""
+        "> **Tłumaczenia automatyczne:** wersje w języku innym niż źródłowy nie zostały zweryfikowane przez człowieka. Każdy rekord prowadzi do tekstu źródłowego i wydania cyfrowego.\n\n"
         if is_pl
-        else "> **Automatic translations:** all English texts were generated automatically and have not been verified by a person. Every activity links to its source Polish transcription and the scan.\n\n"
+        else "> **Automatic translations:** versions in a language other than the source have not been verified by a person. Every record links to the source text and digital edition.\n\n"
     )
     return (
         "---\n"
@@ -264,7 +305,7 @@ def sources_page(locale: str, sources: dict[str, dict]) -> str:
             "",
             f"{source['rightsStatement']}",
             "",
-            f"[{'Rekord Polony' if is_pl else 'Polona record'}]({source['sourceUrl']}) · "
+            f"[{'Rekord źródłowy' if is_pl else 'Source record'}]({source['sourceUrl']}) · "
             f"[{'Wydanie cyfrowe' if is_pl else 'Digital edition'}]({source['digitalEditionUrl']})",
             "",
         ]
@@ -275,25 +316,25 @@ def about_page(locale: str) -> str:
     is_pl = locale == "pl"
     title = "O projekcie" if is_pl else "About"
     body = (
-        """Scouting Autoresearch porządkuje historyczne gry, próby i ćwiczenia harcerskie w jednej, przeszukiwalnej bazie. V0 importuje bezstratnie dwa niezależne wydania cyfrowe i nie kopiuje ich PDF-ów.
+        """Scouting Autoresearch porządkuje historyczne gry, próby i ćwiczenia harcerskie w jednej, przeszukiwalnej bazie. Korpus zachowuje teksty źródłowe i nie kopiuje PDF-ów.
 
-Angielskie wersje są tłumaczeniami automatycznymi i nie są weryfikowane przez człowieka. Każdy rekord prowadzi do polskiej transkrypcji źródłowej i skanu oraz zachowuje autora, oryginalny tytuł książki, rok i strony. Brakujące dane pozostają nieznane — nie dopowiadamy wieku, czasu, sprzętu ani ryzyka.
+Wersje w języku innym niż źródłowy są tłumaczeniami automatycznymi i nie są weryfikowane przez człowieka. Każdy rekord prowadzi do tekstu źródłowego i wydania cyfrowego oraz zachowuje autora, oryginalny tytuł książki, rok i strony. Brakujące dane pozostają nieznane — nie dopowiadamy wieku, czasu, sprzętu ani ryzyka.
 
 Kod projektu jest udostępniony na licencji MIT. Projektowe metadane i tłumaczenia są udostępniane na CC BY 4.0 wyłącznie w zakresie posiadanych praw; importowane teksty zachowują indywidualne oznaczenia praw.
 
 ## Następny etap
 
-V2 przygotowuje kontrolowany proces wyszukiwania public-domain dzieł Roberta Baden-Powella, Ernesta Thompsona Setona i Jacques’a Sevina. Agent może proponować źródła, ale zatwierdzenie praw i publikacji zawsze wymaga człowieka. Szczegóły zawiera [plan projektu](https://github.com/jfpio/scouting-autoresearch/blob/main/project-plan.md)."""
+V2 prowadzi kontrolowany proces pozyskiwania dzieł Roberta Baden-Powella, Ernesta Thompsona Setona i Jacques’a Sevina z potwierdzonym statusem prawnym. Szczegóły zawiera [plan projektu](https://github.com/jfpio/scouting-autoresearch/blob/main/project-plan.md)."""
         if is_pl
-        else """Scouting Autoresearch organizes historical scouting games, trials, and exercises in one searchable knowledge base. V0 imports two independent digital editions without copying their PDFs.
+        else """Scouting Autoresearch organizes historical scouting games, trials, and exercises in one searchable knowledge base. The corpus preserves source texts without copying PDFs.
 
-English versions are automatic translations and are not verified by a person. Every record links to the source Polish transcription and scan while preserving the author, original book title, year, and page references. Missing facts remain unknown: the project does not invent ages, duration, equipment, or risk levels.
+Versions in a language other than the source are automatic translations and are not verified by a person. Every record links to its source text and digital edition while preserving the author, original book title, year, and page references. Missing facts remain unknown: the project does not invent ages, duration, equipment, or risk levels.
 
 The project code is MIT-licensed. Project metadata and translations are offered under CC BY 4.0 only to the extent that the project owns the relevant rights; imported texts retain their record-level rights statements.
 
 ## Next stage
 
-V2 prepares a controlled discovery process for public-domain works by Robert Baden-Powell, Ernest Thompson Seton, and Jacques Sevin. The agent may propose sources, but rights approval and publication always require a human. See the [project plan](https://github.com/jfpio/scouting-autoresearch/blob/main/project-plan.md)."""
+V2 runs a controlled acquisition process for works by Robert Baden-Powell, Ernest Thompson Seton, and Jacques Sevin whose legal status has been confirmed. See the [project plan](https://github.com/jfpio/scouting-autoresearch/blob/main/project-plan.md)."""
     )
     return f"---\ntitle: {yaml_scalar(title)}\ndescription: {yaml_scalar(plain_text(body)[:155])}\n---\n\n# {title}\n\n{body}\n"
 
@@ -303,16 +344,17 @@ def write_docs(polish: list[dict], english: list[dict], sources: dict[str, dict]
         shutil.rmtree(DOCS)
     (DOCS / "activities").mkdir(parents=True)
     (DOCS / "en" / "activities").mkdir(parents=True)
-    (DOCS / "index.mdx").write_text(explorer_page("pl", home=True), encoding="utf-8")
-    (DOCS / "all.mdx").write_text(explorer_page("pl"), encoding="utf-8")
-    (DOCS / "games.mdx").write_text(explorer_page("pl", kind="game"), encoding="utf-8")
-    (DOCS / "trials.mdx").write_text(explorer_page("pl", kind="trial"), encoding="utf-8")
+    page_args = {"activity_count": len(polish), "source_count": len(sources)}
+    (DOCS / "index.mdx").write_text(explorer_page("pl", home=True, **page_args), encoding="utf-8")
+    (DOCS / "all.mdx").write_text(explorer_page("pl", **page_args), encoding="utf-8")
+    (DOCS / "games.mdx").write_text(explorer_page("pl", kind="game", **page_args), encoding="utf-8")
+    (DOCS / "trials.mdx").write_text(explorer_page("pl", kind="trial", **page_args), encoding="utf-8")
     (DOCS / "sources.md").write_text(sources_page("pl", sources), encoding="utf-8")
     (DOCS / "about.md").write_text(about_page("pl"), encoding="utf-8")
-    (DOCS / "en" / "index.mdx").write_text(explorer_page("en", home=True), encoding="utf-8")
-    (DOCS / "en" / "all.mdx").write_text(explorer_page("en"), encoding="utf-8")
-    (DOCS / "en" / "games.mdx").write_text(explorer_page("en", kind="game"), encoding="utf-8")
-    (DOCS / "en" / "trials.mdx").write_text(explorer_page("en", kind="trial"), encoding="utf-8")
+    (DOCS / "en" / "index.mdx").write_text(explorer_page("en", home=True, **page_args), encoding="utf-8")
+    (DOCS / "en" / "all.mdx").write_text(explorer_page("en", **page_args), encoding="utf-8")
+    (DOCS / "en" / "games.mdx").write_text(explorer_page("en", kind="game", **page_args), encoding="utf-8")
+    (DOCS / "en" / "trials.mdx").write_text(explorer_page("en", kind="trial", **page_args), encoding="utf-8")
     (DOCS / "en" / "sources.md").write_text(sources_page("en", sources), encoding="utf-8")
     (DOCS / "en" / "about.md").write_text(about_page("en"), encoding="utf-8")
     (DOCS / "404.md").write_text(
@@ -355,7 +397,7 @@ def write_exports(polish: list[dict], english: list[dict], sources: dict[str, di
     index_lines = [
         "# Scouting Autoresearch",
         "",
-        "> 202 historical scouting activities: original Polish texts and machine-translated English versions.",
+        f"> {len(polish)} historical scouting activities with source texts and machine translations in Polish and English.",
         "",
         "- [Polish JSON](https://jfpio.github.io/scouting-autoresearch/data/activities.pl.json)",
         "- [English JSON](https://jfpio.github.io/scouting-autoresearch/data/activities.en.json)",
@@ -373,13 +415,13 @@ def write_exports(polish: list[dict], english: list[dict], sources: dict[str, di
             f"## {pl['id']} — {pl['title']} / {en['title']}",
             "",
             f"Source: {pl['author']}, {pl['sourceTitle']} ({pl['year']}); {pl['sourceUrl']}",
-            f"Kinds: {', '.join(pl['kinds'])}; printed pages: {pages_label(pl['printedPages'])}; PDF pages: {pages_label(pl['pdfPages'])}",
+            f"Kinds: {', '.join(pl['kinds'])}; printed pages: {pages_label(pl['printedPages'])}",
             "",
-            "### Polski — tekst źródłowy",
+            "### Polski" + (" — tekst źródłowy" if pl["translationStatus"] == "source-text" else f" — tłumaczenie automatyczne ({pl['translationModel']}, bez weryfikacji człowieka)"),
             "",
             pl["body"],
             "",
-            f"### English — automatic translation ({en['translationModel']}, not human-verified)",
+            "### English" + (" — source text" if en["translationStatus"] == "source-text" else f" — automatic translation ({en['translationModel']}, not human-verified)"),
             "",
             en["body"],
             "",

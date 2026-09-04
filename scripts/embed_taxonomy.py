@@ -46,6 +46,8 @@ def load_config() -> dict[str, Any]:
         config.get("schemaVersion") != 1
         or not isinstance(embedding, dict)
         or not isinstance(execution, dict)
+        or not isinstance(config.get("corpusSourceIds"), list)
+        or not config["corpusSourceIds"]
     ):
         raise ValueError(f"Unsupported taxonomy configuration: {CONFIG_PATH}")
     required = {
@@ -169,9 +171,9 @@ def update_checkpoint(
 
 
 def retry_at(now: datetime, retry_after: str | None) -> datetime:
-    minimum = now + timedelta(hours=12)
+    fallback = now + timedelta(hours=1)
     if not retry_after:
-        return minimum
+        return fallback
     try:
         candidate = now + timedelta(seconds=max(0, int(retry_after)))
     except ValueError:
@@ -181,8 +183,8 @@ def retry_at(now: datetime, retry_after: str | None) -> datetime:
                 candidate = candidate.replace(tzinfo=UTC)
             candidate = candidate.astimezone(UTC)
         except (TypeError, ValueError, OverflowError):
-            return minimum
-    return max(minimum, candidate)
+            return fallback
+    return max(now, candidate)
 
 
 def batch_reference_cost(batch: dict[str, Any], fallback_price_per_million_tokens: float) -> float:
@@ -370,9 +372,12 @@ def request_embeddings(
 
 def activity_items(config: dict[str, Any]) -> list[dict[str, Any]]:
     embedding = config["embedding"]
+    source_ids = set(config["corpusSourceIds"])
     items: list[dict[str, Any]] = []
     for path in sorted((VAULT / "activities").glob("*.md")):
         metadata, body = load_markdown(path)
+        if metadata.get("sourceId") not in source_ids:
+            continue
         text = build_embedding_input(
             metadata,
             body,
