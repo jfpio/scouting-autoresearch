@@ -1,0 +1,52 @@
+schemaVersion: 1
+frameworkVersion: editorial-value-safety-v1
+valueReview:
+  outcomes:
+    - retain
+    - adapt
+    - archive-only
+    - reject
+  dimensions:
+    - educational-usefulness
+    - clarity
+    - playability
+    - adaptability
+    - distinctiveness
+  ratings:
+    - strong
+    - adequate
+    - weak
+    - not-applicable
+safetyReview:
+  outcomes:
+    - suitable
+    - suitable-with-controls
+    - historical-only
+    - reject
+  riskAreas:
+    - physical-contact
+    - projectiles-or-weapons
+    - fire-or-heat
+    - water
+    - traffic
+    - heights
+    - tools-or-construction
+    - animals
+    - food-or-allergens
+    - weather-or-exposure
+    - navigation-or-separation
+    - safeguarding
+    - privacy
+    - accessibility
+    - legal-or-regulatory
+    - discriminatory-or-harmful-framing
+publicationReview:
+  outcomes:
+    - publish-as-historical
+    - publish-with-warning
+    - needs-adaptation
+    - suppress
+pendingDefaults:
+  valueOutcome: pending
+  safetyOutcome: unassessed
+  publicationRecommendation: unchanged
