@@ -18,6 +18,12 @@ from audit_v3_participants import build_checkpoint as build_v3_participant_check
 from audit_v3_participants import build_report as build_v3_participant_report
 from audit_v3_participants import load_config as load_v3_participant_config
 from audit_v3_participants import load_game_records as load_v3_game_records
+from audit_v3_facets import CHECKPOINT_PATH as V3_FACET_CHECKPOINT_PATH
+from audit_v3_facets import REPORT_PATH as V3_FACET_REPORT_PATH
+from audit_v3_facets import build_checkpoint as build_v3_facet_checkpoint
+from audit_v3_facets import build_report as build_v3_facet_report
+from audit_v3_facets import load_config as load_v3_facet_config
+from audit_v3_facets import load_game_records as load_v3_facet_records
 from analyze_duplicates import REPORT_PATH as NEAR_DUPLICATE_REPORT_PATH
 from analyze_duplicates import build_report as build_duplicate_report
 from analyze_taxonomy import REPORT_PATH as TAXONOMY_ANALYSIS_PATH
@@ -573,6 +579,49 @@ def main() -> None:
             )
             == 0,
             "V3 participant audit unexpectedly used an external API",
+            errors,
+        )
+
+    require(V3_FACET_REPORT_PATH.is_file(), "V3 practical-facet audit report is missing", errors)
+    require(
+        V3_FACET_CHECKPOINT_PATH.is_file(),
+        "V3 practical-facet audit checkpoint is missing",
+        errors,
+    )
+    if V3_FACET_REPORT_PATH.is_file() and V3_FACET_CHECKPOINT_PATH.is_file():
+        expected_v3_facet_report = build_v3_facet_report(
+            load_v3_facet_config(), load_v3_facet_records()
+        )
+        actual_v3_facet_report = read_json(V3_FACET_REPORT_PATH)
+        require(
+            actual_v3_facet_report == expected_v3_facet_report,
+            "V3 practical-facet audit report is stale or nondeterministic",
+            errors,
+        )
+        require(
+            read_json(V3_FACET_CHECKPOINT_PATH)
+            == build_v3_facet_checkpoint(expected_v3_facet_report),
+            "V3 practical-facet audit checkpoint is stale or nondeterministic",
+            errors,
+        )
+        require(
+            actual_v3_facet_report.get("productionFieldsWritten") == [],
+            "V3 practical-facet audit claims a production-field change",
+            errors,
+        )
+        require(
+            (actual_v3_facet_report.get("execution") or {}).get("externalApiRequests")
+            == 0,
+            "V3 practical-facet audit unexpectedly used an external API",
+            errors,
+        )
+        require(
+            all(
+                (dimension.get("humanSearchValueAssessment") or {}).get("status")
+                == "human-rating-required"
+                for dimension in actual_v3_facet_report.get("dimensions") or []
+            ),
+            "V3 practical-facet audit claims an automated user-value decision",
             errors,
         )
 
@@ -1162,7 +1211,7 @@ def main() -> None:
         f"{editorial_review_count} editorial review record(s) "
         f"({accepted_editorial_review_count} accepted), {near_duplicate_candidate_count} "
         f"near-duplicate candidate(s), {pilot_count} measured pilot(s), bilingual exports and docs."
-        f" {similar_relation_count} approved similar-game relation(s); V3 participant audit is current; "
+        f" {similar_relation_count} approved similar-game relation(s); V3 participant and practical-facet audits are current; "
         f"{len(semantic_cached_ids)} semantic-map embedding(s); {semantic_analysis_count} map point(s), "
         f"{semantic_candidate_count} unreviewed semantic candidate pair(s)."
     )

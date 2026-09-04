@@ -213,12 +213,19 @@ współrzędne służą do nawigacji, nie są kategorią ani dowodem pochodzenia
 python scripts/analyze_semantic_map.py
 python scripts/analyze_semantic_map.py --check
 python scripts/analyze_semantic_map.py --check --portable
+python scripts/audit_v3_facets.py
+python scripts/audit_v3_facets.py --check
 ```
 
 Pełny `--check` jest kontrolą odtwarzalności w przypiętym środowisku Heliosa. Wariant
 `--portable`, używany w CI, nadal porównuje dokładnie hashe korpusu, sąsiadów cosinusowych,
 kandydatury i zatwierdzone relacje, ale pomija współrzędne i metryki projekcji UMAP, które
 mogą różnić się między implementacjami CPU mimo tych samych wersji bibliotek i ziaren.
+
+Audyt praktycznych faset V3 działa bez API i nie zapisuje kategorii do aktywności. Dla 12
+wymiarów podaje pokrycie jawnych sygnałów w tekstach źródłowych, rekordy z sygnałami wielu
+wartości, obciążenie ręcznego odczytu oraz proxy różnicowania korpusu. Wartość wyszukiwawcza
+i precyzja próbek pozostają jawnie nieocenioną decyzją człowieka.
 
 Dla bieżącego korpusu raport zawiera 199 punktów i 30 niezatwierdzonych par do przeglądu.
 Zatwierdzona relacja `bsh-037`–`hwp-041` jest w obu kierunkach najbliższym sąsiadem również

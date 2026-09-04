@@ -257,6 +257,10 @@ review participant scale → version input recipe → embed every game
   Dopiero człowiek wybiera z tej listy filtry produkcyjne; pozostałe mogą zostać metadanymi,
   fasetami eksperymentalnymi albo elementami mapy semantycznej. Każde pole zachowuje podstawę
   `source-stated`, `human-reviewed` albo `unknown` i nie jest uzupełniane samym modelem.
+  Pierwszy audyt leksykalny porównuje 12 wymiarów na wszystkich 199 grach, raportuje osobno
+  pokrycie, sygnały wielu wartości, obciążenie zimnym odczytem i zdolność rozkładu sygnałów do
+  różnicowania korpusu. Nie utożsamia tych proxy z trafnością ani wartością dla użytkownika;
+  próbki precyzji i rubryka wartości pozostają bramką decyzji człowieka.
 - Każda gra otrzymuje jeden wektor z wersjonowanego, ograniczonego do kontekstu modelu
   wejścia. Przepis zachowuje tytuł i treść w języku źródłowym oraz dodaje tytuł i krótki
   kontekst w drugim języku, aby mapa nie dzieliła się wyłącznie według języka. Hash wejścia
