@@ -533,6 +533,20 @@ activities:
         self.assertEqual(azymut["trustScope"], "editorial-discovery")
         self.assertEqual(azymut["allowedMethods"], ["article-metadata", "link-discovery"])
 
+    def test_gutenberg_uses_the_machine_readable_metadata_catalog(self):
+        root = Path(__file__).resolve().parents[1]
+        registry = yaml.safe_load((root / "config" / "source-registry.yaml").read_text(encoding="utf-8"))
+        gutenberg = next(item for item in registry["collections"] if item["id"] == "project-gutenberg")
+        self.assertEqual(gutenberg["metadataAdapter"], "scripts/gutenberg_metadata.py")
+        self.assertEqual(
+            gutenberg["metadataUrlTemplate"],
+            "https://www.gutenberg.org/cache/epub/{ebookId}/pg{ebookId}.rdf",
+        )
+        self.assertEqual(
+            gutenberg["robotPolicyUrl"],
+            "https://www.gutenberg.org/policy/robot_access.html",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

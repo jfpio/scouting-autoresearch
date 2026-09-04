@@ -169,6 +169,20 @@ współczesnych gier, prób i materiałów metodycznych. Zaufanie dotyczy jakoś
 zbiorczej zgody na przedruk: każdy materiał zachowuje autora, datę i link, a możliwość
 publikacji pełnego tekstu jest ustalana osobno.
 
+Metadane Project Gutenberg pobiera `scripts/gutenberg_metadata.py` z oficjalnych rekordów
+RDF pojedynczych eBooków. Adapter nie crawluje stron katalogowych przeznaczonych dla ludzi,
+waliduje identyfikator rekordu, ogranicza odpowiedź do 2 MiB, przypina SHA-256 wejścia i
+atomowo przechowuje cache pod `$SCRATCH/scouting-autoresearch/sources/`. Przykład lekkiego
+wywołania na węźle logowania:
+
+```bash
+python scripts/gutenberg_metadata.py --ebook-id 65993 --output "$SCRATCH/scouting-autoresearch/metadata/pg-65993.json"
+```
+
+Wynik jest wyłącznie rekordem odkrywania. Oznaczenie praw z RDF nadal wymaga zastosowania
+zatwierdzonej reguły kolekcji, ustalenia autorstwa właściwego składnika oraz zachowania
+osobnej bramki dla konkretnej edycji i jej wkładów.
+
 ## Licencje i bezpieczeństwo
 
 Kod: MIT. Projektowe metadane i tłumaczenia: CC BY 4.0 w zakresie posiadanych praw.
