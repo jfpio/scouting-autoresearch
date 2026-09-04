@@ -11,6 +11,12 @@ from pathlib import Path
 
 from audit_taxonomy_inputs import REPORT_PATH as TAXONOMY_INPUT_AUDIT_PATH
 from audit_taxonomy_inputs import build_quality_report
+from audit_v3_participants import CHECKPOINT_PATH as V3_PARTICIPANT_CHECKPOINT_PATH
+from audit_v3_participants import REPORT_PATH as V3_PARTICIPANT_REPORT_PATH
+from audit_v3_participants import build_checkpoint as build_v3_participant_checkpoint
+from audit_v3_participants import build_report as build_v3_participant_report
+from audit_v3_participants import load_config as load_v3_participant_config
+from audit_v3_participants import load_game_records as load_v3_game_records
 from analyze_duplicates import REPORT_PATH as NEAR_DUPLICATE_REPORT_PATH
 from analyze_duplicates import build_report as build_duplicate_report
 from analyze_taxonomy import REPORT_PATH as TAXONOMY_ANALYSIS_PATH
@@ -424,11 +430,27 @@ def main() -> None:
     require(len(exploration_paths) >= 2, "Expected seeded taxonomy and activity-kind exploration notes", errors)
     for path in exploration_paths:
         metadata, body = load_markdown(path)
-        require(metadata.get("proposalType") in {"taxonomy", "activity-kind"}, f"Bad proposal type in {path}", errors)
+        require(
+            metadata.get("proposalType") in {"taxonomy", "activity-kind", "filter-facets"},
+            f"Bad proposal type in {path}",
+            errors,
+        )
         require(metadata.get("status") == "proposed", f"Exploration note is not proposed: {path}", errors)
         require(metadata.get("sourceType") == "editorial-hypothesis", f"Exploration note lacks hypothesis marker: {path}", errors)
         require(metadata.get("reviewRequired") is True, f"Exploration note lacks human review gate: {path}", errors)
         require(set((metadata.get("labels") or {}).keys()) == {"pl", "en"}, f"Exploration note lacks bilingual labels: {path}", errors)
+        for activity_id in metadata.get("evidenceActivityIds") or []:
+            require(
+                activity_id in activity_metadata,
+                f"Exploration note references an unknown activity {activity_id}: {path}",
+                errors,
+            )
+        for source_id in metadata.get("relatedSourceIds") or []:
+            require(
+                source_id in sources,
+                f"Exploration note references an unknown source {source_id}: {path}",
+                errors,
+            )
         require(bool(body.strip()), f"Empty exploration note: {path}", errors)
 
     candidate_count, candidate_validation_errors = validate_candidates()
@@ -504,6 +526,39 @@ def main() -> None:
             expected_similarity_links.update(
                 {(activity_ids[0], activity_ids[1]), (activity_ids[1], activity_ids[0])}
             )
+
+    require(V3_PARTICIPANT_REPORT_PATH.is_file(), "V3 participant audit report is missing", errors)
+    require(
+        V3_PARTICIPANT_CHECKPOINT_PATH.is_file(),
+        "V3 participant audit checkpoint is missing",
+        errors,
+    )
+    if V3_PARTICIPANT_REPORT_PATH.is_file() and V3_PARTICIPANT_CHECKPOINT_PATH.is_file():
+        expected_v3_participant_report = build_v3_participant_report(
+            load_v3_participant_config(), load_v3_game_records()
+        )
+        actual_v3_participant_report = read_json(V3_PARTICIPANT_REPORT_PATH)
+        require(
+            actual_v3_participant_report == expected_v3_participant_report,
+            "V3 participant audit report is stale or nondeterministic",
+            errors,
+        )
+        require(
+            read_json(V3_PARTICIPANT_CHECKPOINT_PATH)
+            == build_v3_participant_checkpoint(expected_v3_participant_report),
+            "V3 participant audit checkpoint is stale or nondeterministic",
+            errors,
+        )
+        require(
+            actual_v3_participant_report.get("productionFieldsWritten") == [],
+            "V3 participant audit claims a production-field change",
+            errors,
+        )
+        require(
+            (actual_v3_participant_report.get("execution") or {}).get("externalApiRequests") == 0,
+            "V3 participant audit unexpectedly used an external API",
+            errors,
+        )
 
     taxonomy_config = load_config()
     embedding_config = taxonomy_config["embedding"]
@@ -705,7 +760,7 @@ def main() -> None:
         f"{editorial_review_count} editorial review record(s) "
         f"({accepted_editorial_review_count} accepted), {near_duplicate_candidate_count} "
         f"near-duplicate candidate(s), {pilot_count} measured pilot(s), bilingual exports and docs."
-        f" {similar_relation_count} approved similar-game relation(s)."
+        f" {similar_relation_count} approved similar-game relation(s); V3 participant audit is current."
     )
 
 

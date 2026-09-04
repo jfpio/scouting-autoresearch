@@ -1,0 +1,142 @@
+schemaVersion: 1
+auditId: v3-participant-scale-lexical-signals-v1
+status: proposed
+sourceType: editorial-hypothesis
+corpusKind: game
+signalsAreAssignments: false
+productionFieldsWritten: []
+humanReviewRequired: true
+numericParticipantPatterns:
+  pl:
+    - id: pl-numbered-people-digits
+      regex: '\b(?:[1-9]|[1-9][0-9]+) (?:harcerzy|graczy|uczestników|ludzi|chłopców)\b'
+    - id: pl-numbered-people-words
+      regex: '\b(?:jeden|jednego|dwaj|dwóch|trzech|czterech|pięciu|sześciu|siedmiu|ośmiu|dziewięciu|dziesięciu|kilku|kilkunastu|kilkudziesięciu) (?:harcerzy|harcerza|graczy|gracza|uczestników|uczestnika|ludzi|chłopców)\b'
+    - id: pl-relative-count
+      regex: '\b(?:połow[ęay]|dwukrotnie|dwa razy|tyle samo) (?:liczby|więcej|mniej|harcerzy|graczy|uczestników)\b'
+  en:
+    - id: en-numbered-people-digits
+      regex: '\b(?:[1-9]|[1-9][0-9]+) (?:scouts?|players?|participants?|people|men|boys)\b'
+    - id: en-numbered-people-words
+      regex: '\b(?:one|two|three|four|five|six|seven|eight|nine|ten|several) (?:scouts?|players?|participants?|people|men|boys)\b'
+    - id: en-relative-count
+      regex: '\b(?:half|twice|double) (?:their|the|its)? ?(?:number|strength)\b'
+scales:
+  - id: individual
+    labels:
+      pl: pojedyncza osoba
+      en: individual
+    patterns:
+      pl:
+        - id: pl-one-scout
+          regex: '\b(?:jeden|jednego|jednemu) harcerz(?:a|owi)?\b'
+        - id: pl-each-scout
+          regex: '\bkażdy harcerz\b'
+        - id: pl-separately
+          regex: '\b(?:pojedynczo|z osobna)\b'
+      en:
+        - id: en-one-scout-or-player
+          regex: '\bone (?:scout|player)\b'
+        - id: en-each-scout-or-player
+          regex: '\beach (?:scout|player)\b'
+        - id: en-single-or-singly
+          regex: '\b(?:single scouts?|singly)\b'
+  - id: pair
+    labels:
+      pl: para
+      en: pair
+    patterns:
+      pl:
+        - id: pl-pair-word
+          regex: '\b(?:para|pary|parę|parze|parą|parach|parami)\b'
+        - id: pl-two-scouts
+          regex: '\b(?:dwaj|dwóch|2) harcerz(?:e|y)\b'
+        - id: pl-two-players
+          regex: '\b(?:dwaj|dwóch|2) gracz(?:e|y)\b'
+      en:
+        - id: en-pair-word
+          regex: '\bpairs?\b'
+        - id: en-two-scouts-or-players
+          regex: '\btwo (?:scouts?|players?)\b'
+  - id: small-group
+    labels:
+      pl: mała grupa
+      en: small group
+    patterns:
+      pl:
+        - id: pl-small-group-word
+          regex: '\b(?:grupka|grupki|grupkę|grupką|grupkach)\b'
+        - id: pl-several-scouts
+          regex: '\bkilku harcerzy\b'
+      en:
+        - id: en-small-group-word
+          regex: '\bsmall groups?\b'
+        - id: en-several-scouts
+          regex: '\b(?:two or three|three or four|several) scouts?\b'
+        - id: en-numbered-group
+          regex: '\bgroups? of (?:two|three|four|2|3|4)\b'
+  - id: single-patrol
+    labels:
+      pl: jeden zastęp
+      en: one patrol
+    patterns:
+      pl:
+        - id: pl-patrol-noun
+          regex: '\bzastęp(?:|u|em|owi|ie)\b'
+      en:
+        - id: en-patrol-noun
+          regex: '\b(?:a|one|the|each) patrol\b'
+  - id: multiple-patrols
+    labels:
+      pl: kilka zastępów
+      en: multiple patrols
+    patterns:
+      pl:
+        - id: pl-counted-patrols
+          regex: '\b(?:dwa|dwie|kilka|wiele|2|3|4|5) zastęp(?:y|ów)\b'
+        - id: pl-between-patrols
+          regex: '\bmiędzy (?:dwoma|kilkoma) zastępami\b'
+      en:
+        - id: en-counted-patrols
+          regex: '\b(?:two|three|four|several|multiple|two or more) patrols\b'
+        - id: en-opposed-patrols
+          regex: '\b(?:one|a) patrol[^.\n]{0,80}(?:another|other) patrol\b'
+        - id: en-patrol-against-another
+          regex: '\bpatrol (?:pitted )?against another\b'
+  - id: single-troop
+    labels:
+      pl: jedna drużyna
+      en: one troop
+    patterns:
+      pl:
+        - id: pl-troop-noun
+          regex: '\bdrużyn(?:a|ę|ą|ie|o)\b'
+      en:
+        - id: en-troop-noun
+          regex: '\b(?:a|one|the|each) troop\b'
+        - id: en-coordinated-troop
+          regex: '\b(?:patrol|group) (?:or|and) troop\b'
+  - id: multiple-troops
+    labels:
+      pl: kilka drużyn
+      en: multiple troops
+    patterns:
+      pl:
+        - id: pl-counted-troops
+          regex: '\b(?:dwie|kilka|wiele|2|3|4|5) drużyn(?:y|ami)?\b'
+      en:
+        - id: en-counted-troops
+          regex: '\b(?:two|three|four|several|multiple|two or more) troops\b'
+  - id: mass-event
+    labels:
+      pl: duża zbiorowość
+      en: mass event
+    patterns:
+      pl:
+        - id: pl-troop-grouping
+          regex: '\b(?:hufiec|hufca|hufce|hufców|zlot|zlotu)\b'
+        - id: pl-dozens
+          regex: '\bkilkudziesięciu (?:harcerzy|uczestników)\b'
+      en:
+        - id: en-camp-wide
+          regex: '\b(?:whole camp|camp-wide|jamboree|rally)\b'
