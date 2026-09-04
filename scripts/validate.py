@@ -15,6 +15,8 @@ from analyze_duplicates import REPORT_PATH as NEAR_DUPLICATE_REPORT_PATH
 from analyze_duplicates import build_report as build_duplicate_report
 from analyze_taxonomy import REPORT_PATH as TAXONOMY_ANALYSIS_PATH
 from analyze_taxonomy import build_analysis, load_usage
+from build_pilot_report import build_report as build_pilot_report
+from build_pilot_report import load_config as load_pilot_config
 from common import GENERATED, ROOT, VAULT, load_markdown, read_json, source_hash
 from embed_taxonomy import REPORT_PATH as TAXONOMY_PROGRESS_PATH
 from embed_taxonomy import (
@@ -437,6 +439,33 @@ def main() -> None:
     errors.extend(editorial_review_errors)
     errors.extend(validate_protected_source_policy())
 
+    pilot_count = 0
+    for pilot_config_path in sorted((ROOT / "config" / "pilots").glob("*.yaml")):
+        pilot_config = load_pilot_config(pilot_config_path)
+        pilot_report_path = ROOT / pilot_config["reportPath"]
+        require(pilot_report_path.is_file(), f"Pilot report is missing: {pilot_report_path}", errors)
+        if not pilot_report_path.is_file():
+            continue
+        pilot_report = read_json(pilot_report_path)
+        expected_pilot_report = build_pilot_report(pilot_config)
+        require(
+            pilot_report == expected_pilot_report,
+            f"Pilot report is stale or nondeterministic: {pilot_report_path}",
+            errors,
+        )
+        require(
+            (pilot_report.get("conclusions") or {}).get("costMeasured") is True,
+            f"Pilot does not measure cost: {pilot_report_path}",
+            errors,
+        )
+        if pilot_report.get("status") != "complete":
+            require(
+                (pilot_report.get("conclusions") or {}).get("safeToScaleFromThisPilot") is False,
+                f"Incomplete pilot claims it is safe to scale: {pilot_report_path}",
+                errors,
+            )
+        pilot_count += 1
+
     near_duplicate_candidate_count = 0
     require(NEAR_DUPLICATE_REPORT_PATH.is_file(), "Near-duplicate report is missing", errors)
     if NEAR_DUPLICATE_REPORT_PATH.is_file():
@@ -653,7 +682,7 @@ def main() -> None:
         f"record(s), {collection_review_count} collection review record(s), "
         f"{editorial_review_count} editorial review record(s) "
         f"({accepted_editorial_review_count} accepted), {near_duplicate_candidate_count} "
-        f"near-duplicate candidate(s), bilingual exports and docs."
+        f"near-duplicate candidate(s), {pilot_count} measured pilot(s), bilingual exports and docs."
     )
 
 

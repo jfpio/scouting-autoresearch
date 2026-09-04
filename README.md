@@ -111,6 +111,21 @@ python scripts/analyze_duplicates.py
 python scripts/analyze_duplicates.py --check
 ```
 
+## Pilotaż Setona
+
+Rozdział gier Setona pełni rolę pierwszej małej jednostki pilotażowej. Raport
+`data/reports/bsh-1911-seton-games-pilot.json` wylicza zakres, koszt katalogowy, wyniki
+automatycznych kontroli i znane czasy wyłącznie z przypiętych artefaktów. Nie uzupełnia
+brakujących pomiarów szacunkiem: pełny czas pipeline'u i czas ręcznej recenzji pozostają
+`not-recorded`. Pięć formularzy w `vault/reviews/editorial/inbox/` odpowiada wcześniejszej
+próbie porównawczej modeli. Dopóki człowiek nie oceni tych rekordów i nie poda czasu,
+raport ma status oczekujący i nie pozwala uznać pilota za podstawę skalowania.
+
+```bash
+python scripts/build_pilot_report.py
+python scripts/build_pilot_report.py --check
+```
+
 ## Materiały chronione
 
 Materiały chronione i te o nierozstrzygniętych prawach są domyślnie zapisywane jako
