@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from build_content import activity_page, load_records
 from common import dump_markdown, load_markdown, source_hash
 from import_sources import clean_game_body
-from gutenberg import Block, fetch, parse_html
+from gutenberg import Block, fetch, parse_html, parse_text
 from import_gutenberg import extract_activity, load_manifest
 from evaluate_translation_models import (
     load_evaluation_config,
@@ -428,11 +428,39 @@ class PipelineTests(unittest.TestCase):
         html = b"""<span class='pageno' id='Page_1'>1</span><p>First<br>second.</p><p>Next.</p>"""
         self.assertEqual([block.text for block in parse_html(html)], ["First second.", "Next."])
 
+    def test_gutenberg_text_parser_tracks_braced_pages_and_omits_illustrations(self):
+        text = b"""Header without a page.
+
+{291}
+
+Game Title
+
+First wrapped
+instruction.
+
+[Illustration: Do not import this caption.]
+
+Second instruction crosses {292} the page.
+
+{293 continued}
+
+Next Game
+"""
+        blocks = parse_text(text)
+        self.assertEqual(
+            [block.text for block in blocks],
+            ["Game Title", "First wrapped instruction.", "Second instruction crosses the page.", "Next Game"],
+        )
+        self.assertEqual((blocks[2].page_start, blocks[2].page_end), (291, 292))
+        self.assertEqual((blocks[-1].page_start, blocks[-1].page_end), (293, 293))
+
     def test_gutenberg_manifest_rejects_yaml_flow_mapping_spillover(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "manifest.yaml"
             path.write_text(
                 """schemaVersion: 1
+source:
+  id: sfb-test
 activities:
   - {id: sfb-001, title: Debates, Trials, Etc., section: Test, start: {page: 1, text: A}, endBefore: {page: 1, text: B}}
 """,
@@ -454,6 +482,21 @@ activities:
             group for group in manifest["selection"]["excludedGroups"] if group["label"] == "Seton-derived games"
         )
         self.assertIn("Old Spotty-face", seton_group["examples"])
+
+    def test_gutenberg_manifest_supports_text_sources_and_source_specific_ids(self):
+        root = Path(__file__).resolve().parents[1]
+        manifest = load_manifest(root / "config" / "imports" / "pg-29558.yaml")
+        self.assertEqual(manifest["download"]["format"], "text")
+        self.assertEqual(manifest["source"]["activityPrefix"], "bsh")
+        self.assertEqual(len(manifest["activities"]), 33)
+        self.assertTrue(all(item["id"].startswith("bsh-") for item in manifest["activities"]))
+        excluded = {
+            example
+            for group in manifest["selection"]["excludedGroups"]
+            for example in group["examples"]
+        }
+        self.assertIn("Mumbly Peg", excluded)
+        self.assertIn("Arctic Expedition", excluded)
 
     def test_gutenberg_extraction_can_preserve_a_start_label(self):
         blocks = [

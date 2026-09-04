@@ -14,8 +14,15 @@ subjects:
       kolekcji po udokumentowaniu śmierci właściwego autora ponad 70 pełnych lat temu.
   - id: ernest-thompson-seton
     name: Ernest Thompson Seton
-    status: discovery
+    status: complete
     priority: 1
+    activeSourceId: bsh-1911-seton-games
+    checkpoint: data/checkpoints/pg-29558-import.json
+    modelEvaluationCheckpoint: data/checkpoints/translation-model-evaluation/bsh-1911-large-vs-small-v1.json
+    productionCandidate: mistral-large-2512
+    cheaperCandidate: mistral-small-2603
+    approvedModel: mistral-large-2512
+    reasoningMode: disabled
     rightsNote: >-
       Dla eBooka Project Gutenberg oznaczonego Public domain in the USA zastosuj regułę
       kolekcji po udokumentowaniu śmierci ostatniego właściwego autora ponad 70 pełnych lat

@@ -1,13 +1,16 @@
 # Scouting Autoresearch
 
 Dwujęzyczna, otwarta baza historycznych gier, prób i ćwiczeń harcerskich. Bieżący korpus
-zawiera 251 aktywności z trzech książek w domenie publicznej:
+zawiera 284 aktywności z czterech książek w domenie publicznej:
 
 - 117 gier z *Harcerza w polu* Zygmunta Wyrobka (1946),
 - 85 prób z *Prób wodzów* L. Ungeheuera (1935),
 - 49 gier z oryginalnego angielskiego tekstu *Scouting for Boys* Roberta Baden-Powella
   (1908), wybranych z przypiętego wydania Project Gutenberg bez ilustracji i późniejszych
-  dodatków.
+  dodatków,
+- 33 gry z rozdziału „The Games” Ernesta Thompsona Setona w pierwszym wydaniu
+  *Boy Scouts Handbook* (1911), po wyłączeniu wkładów innych autorów i wariantów obecnych
+  już w korpusie.
 
 Pierwsze dwie książki składają się na zamknięty fundament V0. Tekst źródłowy jest polski albo
 angielski zależnie od książki, a wersja w drugim języku jest tłumaczeniem automatycznym bez

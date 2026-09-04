@@ -7,6 +7,14 @@ description: "Pełne teksty są publikowane wyłącznie dla wydań z potwierdzon
 
 Pełne teksty są publikowane wyłącznie dla wydań z potwierdzonym statusem domeny publicznej. Oznaczenie praw przypisujemy instytucji źródłowej.
 
+## Boy Scouts Handbook: The Games
+
+**Ernest Thompson Seton · 1911 · Garden City, New York · Doubleday, Page & Company for the Boy Scouts of America**
+
+English text explicitly attributed to Ernest Thompson Seton on printed pages 291-319; Project Gutenberg marks eBook 29558 Public domain in the USA, and the approved life-plus-70 policy applies in Poland/EU.
+
+[Rekord źródłowy](https://www.gutenberg.org/ebooks/29558) · [Wydanie cyfrowe](https://www.gutenberg.org/files/29558/29558-h/29558-h.htm)
+
 ## Harcerz w polu: zabawy i gry terenowe
 
 **Zygmunt Wyrobek · 1946 · Kraków · Wydawnictwo Zakładu Narodowego imienia Ossolińskich**
