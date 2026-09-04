@@ -1,0 +1,14 @@
+schemaVersion: 1
+pilotId: bsh-1911-seton-games-v1
+sourceId: bsh-1911-seton-games
+sourceReview: vault/reviews/accepted/candidate-seton-boy-scouts-handbook-pg29558.md
+extractionReport: data/reports/pg-29558-extraction.json
+translationReport: data/reports/bsh-1911-seton-games-translation-en-pl.json
+translationEvaluation: config/translation-model-evaluations/bsh-1911-large-vs-small.yaml
+editorialSample:
+  - bsh-001
+  - bsh-003
+  - bsh-007
+  - bsh-023
+  - bsh-039
+reportPath: data/reports/bsh-1911-seton-games-pilot.json
