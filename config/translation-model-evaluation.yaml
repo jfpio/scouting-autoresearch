@@ -1,0 +1,36 @@
+schemaVersion: 1
+id: sfb-1908-large-quality-v6
+sourceId: sfb-1908
+status: approved-to-run
+productionCandidate: mistral-large-2512
+candidates:
+  - mistral-large-2512
+reasoningMode: disabled
+activityIds:
+  - sfb-019
+  - sfb-027
+  - sfb-032
+  - sfb-047
+  - sfb-050
+sampleRationale:
+  sfb-019: longest sample with archaic vocabulary and multiple instructions
+  sfb-027: clock notation that must not be converted or spelled out
+  sfb-032: constraints, roles and structured instructions
+  sfb-047: indented scoring table and complex Markdown structure
+  sfb-050: mixed digits, number words, thousands separators and a fraction
+criteria:
+  - complete-meaning
+  - no-summary-or-modernization
+  - numbers-and-units-preserved
+  - markdown-and-urls-preserved
+  - natural-polish
+execution:
+  maxActivities: 5
+  maxModels: 1
+  sequentialRequests: true
+  requireExplicitExecute: true
+  continueOnAutomaticPass: true
+  billingMode: education-credit
+  enforceReferenceCostLimit: true
+  maxReferenceCostUsd: 10
+  resultsUnderScratch: scouting-autoresearch/model-evaluations

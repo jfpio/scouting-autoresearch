@@ -22,9 +22,16 @@ V0 importuje 117 gier z *Harcerza w polu* (Zygmunt Wyrobek, 1946) i 85 prób z *
 - polski tekst źródłowy oraz angielskie tłumaczenie maszynowe z modelem, wersją promptu,
   datą, hashem oryginału i statusem.
 
-Tłumaczenia V0 wykonano przypiętym modelem `mistral-medium-2604`. Planowany
-`mistral-large-2512` zwrócił dla użytego konta błąd poziomu subskrypcji; nie zastosowano
-nieoznaczonego aliasu ani cichej podmiany. Model pozostaje konfigurowalny dla kolejnych cykli.
+Tłumaczenia V0 wykonano przypiętym modelem `mistral-medium-2604`. Na poprzednim kluczu
+`mistral-large-2512` zwracał błąd poziomu subskrypcji; nie zastosowano nieoznaczonego aliasu
+ani cichej podmiany. Nowy klucz Education udostępnia dokładny wersjonowany model Large.
+
+Dla nowych źródeł wybór modelu poprzedza ograniczony test jakości na reprezentatywnych
+rekordach. Dla *Scouting for Boys* właściciel zatwierdził dostępny
+`mistral-large-2512`; smoke test obejmuje pięć trudnych rekordów. Tłumaczenie nie włącza
+reasoningu, ponieważ zadanie ma ścisły kontrakt wierności i formatu. Żądania używają limitu
+wyjścia zależnego od rozmiaru rekordu i zapisują bezpieczne dane diagnostyczne o rzeczywistych
+limitach dostawcy.
 
 Strona oferuje osobne widoki „Wszystkie”, „Gry”, „Próby” i „Źródła” w języku polskim oraz
 angielskim. Filtry obejmują tekst, rodzaj, cechę, autora, książkę, rok i dział.
@@ -70,8 +77,8 @@ normalize labels → embed source labels and activity context → propose cluste
   request obejmuje najwyżej 50 rekordów i nie przekracza granicy źródła, a po każdej odpowiedzi
   powstaje resumowalny checkpoint. Na koncie eksperymentalnym bez opłat koszt katalogowy jest
   raportem referencyjnym, nie bramką wykonania. Przejściowe ograniczenia API korzystają z zasad
-  12-godzinnego wznowienia opisanych dla Goal Mode; wyczerpanie limitu miesięcznego lub brak
-  dostępu zatrzymuje cel i wymaga interwencji.
+  `Retry-After` dostawcy, a przy jego braku godzinnego fallbacku opisanego dla Goal Mode;
+  wyczerpanie limitu miesięcznego lub brak dostępu zatrzymuje cel i wymaga interwencji.
 
 ### Kryteria V1
 

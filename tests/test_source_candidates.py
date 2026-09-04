@@ -188,6 +188,29 @@ class SourceCandidateTests(unittest.TestCase):
         errors = candidate_errors(self.candidate, "Review notes", self.registry)
         self.assertTrue(any("outside the registered collection" in error for error in errors))
 
+    def test_documented_activity_excerpts_require_processing_evidence(self):
+        self.candidate["allowedMethodUsed"] = "documented-download"
+        self.registry["collection"]["allowedMethods"].append("documented-download")
+        self.candidate["discovery"].update(
+            {
+                "sourceFilesDownloaded": 1,
+                "repositoryContentAdded": "activity-excerpts",
+            }
+        )
+        errors = candidate_errors(self.candidate, "Review notes", self.registry)
+        self.assertTrue(any("pinned source SHA-256" in error for error in errors))
+
+        self.candidate["processing"] = {
+            "sourceId": "source-1",
+            "sourceSha256": "a" * 64,
+            "parserVersion": "test-parser-v1",
+            "extractionReport": "data/reports/test.json",
+            "importedActivityCount": 1,
+            "wholeSourceCopiedToRepository": False,
+        }
+        errors = candidate_errors(self.candidate, "Review notes", self.registry)
+        self.assertFalse(any("activity excerpts" in error or "processing copied" in error for error in errors))
+
 
 if __name__ == "__main__":
     unittest.main()

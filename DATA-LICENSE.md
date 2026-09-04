@@ -8,5 +8,12 @@ Importowane teksty źródłowe nie są obejmowane zbiorczą deklaracją licencyj
 wskazuje własne źródło, konkretną edycję, status prawny i dowód. W V0 oba źródła są oznaczone
 przez Polonę jako „Domena publiczna”; projekt zachowuje to przypisanie i odsyłacz do rekordu.
 
+Dla oryginalnego angielskiego tekstu *Scouting for Boys* (1908) Project Gutenberg podaje
+„Public domain in the USA”, a projekt stosuje zatwierdzoną politykę
+`project-gutenberg-pd-usa-plus-life-70`. Udokumentowana śmierć Roberta Baden-Powella w 1941 r.
+oznacza wygaśnięcie ochrony jego tekstu z końcem 2011 r. i domenę publiczną od 1 stycznia
+2012 r. w przyjętym zakresie dla Polski i UE. Nie obejmuje to automatycznie ilustracji,
+fotografii, wkładów innych autorów, późniejszej redakcji ani cyfrowego opakowania Gutenberga.
+
 Brak statusu `public-domain` oznacza, że pełny tekst nie może zostać opublikowany. Ten dokument
 nie jest poradą prawną i nie zastępuje oceny konkretnego utworu, edycji, tłumaczenia ani ilustracji.
