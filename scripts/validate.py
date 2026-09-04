@@ -32,6 +32,7 @@ from propose_taxonomy import (
 from validate_candidates import validate_candidates
 from validate_collection_reviews import validate_collection_reviews
 from validate_editorial_reviews import validate_editorial_reviews
+from validate_protected_source_policy import validate_protected_source_policy
 
 
 def require(condition: bool, message: str, errors: list[str]) -> None:
@@ -432,6 +433,7 @@ def main() -> None:
         validate_editorial_reviews()
     )
     errors.extend(editorial_review_errors)
+    errors.extend(validate_protected_source_policy())
 
     taxonomy_config = load_config()
     embedding_config = taxonomy_config["embedding"]

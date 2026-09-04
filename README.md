@@ -98,6 +98,15 @@ i nie zatwierdza publikacji. Zmiana tekstu źródłowego powoduje błąd walidac
 oceny. Ręcznie zaakceptowane rekordy zachowują osobę, datę i uzasadnienie, a ich rekomendacje
 nie modyfikują automatycznie tekstu historycznego, tłumaczeń, praw ani eksportów.
 
+## Materiały chronione
+
+Materiały chronione i te o nierozstrzygniętych prawach są domyślnie zapisywane jako
+`link-only`: fakty bibliograficzne, identyfikator, kanoniczny URL i własna notatka, bez tekstu,
+OCR-u, skanu, obrazu lub tłumaczenia. Repozytorium nie przyjmuje liczbowego limitu cytatu jako
+automatycznej bezpiecznej reguły. Każdy cytat wymaga osobnej decyzji człowieka, wskazanego celu,
+uzasadnienia zakresu, pełnej atrybucji i precyzyjnej lokalizacji. Szczegóły oraz źródła prawne
+są w `vault/policies/protected-sources.md`.
+
 ## Taksonomia V1
 
 Przed wywołaniem API skrypt pokazuje plan partii, koszt referencyjny i granicę źródła:

@@ -1,0 +1,71 @@
+schemaVersion: 1
+policyVersion: protected-source-use-v1
+defaultMode: link-only
+appliesWhen:
+  - rights-status-protected
+  - rights-status-unknown
+  - edition-or-contribution-rights-uncertain
+linkOnly:
+  allowedFields:
+    - title
+    - author
+    - publication-year
+    - edition-label
+    - holding-institution
+    - canonical-record-url
+    - stable-identifier
+    - exploration-notes
+  excludedContent:
+    - source-body
+    - source-description-prose
+    - images
+    - scans
+    - ocr
+    - transcription
+    - translation
+quotation:
+  enabledByDefault: false
+  humanApprovalRequiredPerExcerpt: true
+  noNumericSafeHarbor: true
+  allowedPurposes:
+    - explanation
+    - critical-analysis
+    - teaching
+    - genre-convention
+  requiredEvidence:
+    - lawfully-disseminated-work
+    - independent-context
+    - purpose-and-extent-justification
+    - author
+    - title
+    - source
+    - canonical-url
+    - precise-location
+    - human-decision
+  prohibitedUses:
+    - corpus-ingestion
+    - activity-reconstruction
+    - substitute-for-source
+    - systematic-extraction
+    - machine-translation
+    - image-or-scan-copy
+automation:
+  fetchProtectedContent: false
+  ocrProtectedContent: false
+  translateProtectedContent: false
+  embedProtectedContent: false
+  publishProtectedContent: false
+  followLinkWithoutRegisteredCollection: false
+legalBasis:
+  jurisdiction: PL
+  informationalOnly: true
+  reviewedAt: 2026-09-04
+  sources:
+    - id: polish-copyright-act-art-29
+      url: https://api.sejm.gov.pl/eli/acts/DU/1994/83/text.html#chpt_3-schp_3-arti_29
+    - id: polish-copyright-act-art-34
+      url: https://api.sejm.gov.pl/eli/acts/DU/1994/83/text.html#chpt_3-schp_3-arti_34
+    - id: polish-copyright-act-art-35
+      url: https://api.sejm.gov.pl/eli/acts/DU/1994/83/text.html#chpt_3-schp_3-arti_35
+    - id: eu-information-society-directive-art-5
+      url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32001L0029
