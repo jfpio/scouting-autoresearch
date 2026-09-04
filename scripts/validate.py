@@ -32,6 +32,13 @@ from embed_taxonomy import (
     input_hash,
     load_config,
 )
+from embed_semantic_map import CHECKPOINT_PATH as SEMANTIC_MAP_CHECKPOINT_PATH
+from embed_semantic_map import REPORT_PATH as SEMANTIC_MAP_PROGRESS_PATH
+from embed_semantic_map import activity_items as semantic_map_items
+from embed_semantic_map import build_progress_report as build_semantic_map_progress
+from embed_semantic_map import cache_is_current as semantic_map_cache_is_current
+from embed_semantic_map import load_batches as load_semantic_map_batches
+from embed_semantic_map import load_config as load_semantic_map_config
 from evaluate_translation_models import load_evaluation_config
 from translate import MAX_OUTPUT_TOKENS, MIN_OUTPUT_TOKENS
 from propose_taxonomy import (
@@ -543,6 +550,193 @@ def main() -> None:
             "V3 participant audit report is stale or nondeterministic",
             errors,
         )
+
+    semantic_config = load_semantic_map_config()
+    semantic_items = semantic_map_items(semantic_config)
+    semantic_items_by_id = {item["id"]: item for item in semantic_items}
+    semantic_embedding = semantic_config["embedding"]
+    semantic_cache_paths = sorted((ROOT / "data" / "embeddings" / "v3").glob("*.json"))
+    semantic_cached_ids: set[str] = set()
+    semantic_batch_ids_by_activity: dict[str, str] = {}
+    for path in semantic_cache_paths:
+        payload = read_json(path)
+        activity_id = payload.get("activityId")
+        require(activity_id == path.stem, f"V3 embedding ID/path mismatch: {path}", errors)
+        require(activity_id in semantic_items_by_id, f"V3 embedding lacks a game: {path}", errors)
+        require(activity_id not in semantic_cached_ids, f"Duplicate V3 embedding: {activity_id}", errors)
+        semantic_cached_ids.add(activity_id)
+        if activity_id in semantic_items_by_id:
+            require(
+                semantic_map_cache_is_current(
+                    path, semantic_items_by_id[activity_id], semantic_embedding
+                ),
+                f"Stale or invalid V3 embedding: {path.name}",
+                errors,
+            )
+        batch_id = payload.get("batchId")
+        require(bool(batch_id), f"V3 embedding lacks a batch ID: {path.name}", errors)
+        if isinstance(activity_id, str) and isinstance(batch_id, str):
+            semantic_batch_ids_by_activity[activity_id] = batch_id
+
+    semantic_batches = load_semantic_map_batches()
+    semantic_batch_by_id: dict[str, dict] = {}
+    for batch in semantic_batches:
+        batch_id = batch.get("batchId")
+        require(bool(batch_id), "V3 embedding batch lacks an ID", errors)
+        require(batch_id not in semantic_batch_by_id, f"Duplicate V3 batch ID: {batch_id}", errors)
+        if isinstance(batch_id, str):
+            semantic_batch_by_id[batch_id] = batch
+        require(
+            batch.get("pipeline") == "semantic-map-v3-embeddings",
+            f"V3 batch {batch_id} has the wrong pipeline",
+            errors,
+        )
+        require(
+            "items" not in batch,
+            f"V3 batch {batch_id} still contains recoverable vector payloads",
+            errors,
+        )
+        require(
+            batch.get("billingMode") == "education-credit",
+            f"V3 batch {batch_id} has the wrong billing mode",
+            errors,
+        )
+        require(
+            (batch.get("usage") or {}).get("billedCostUsd") is None,
+            f"V3 batch {batch_id} claims a known billed cost",
+            errors,
+        )
+        require(
+            batch.get("modelRequested") == semantic_embedding["model"],
+            f"V3 batch {batch_id} uses the wrong requested model",
+            errors,
+        )
+        require(
+            batch.get("recipeVersion") == semantic_embedding["recipeVersion"],
+            f"V3 batch {batch_id} uses the wrong recipe",
+            errors,
+        )
+        require(
+            (batch.get("modelAccess") or {}).get("checked") is True
+            and (batch.get("modelAccess") or {}).get("modelId")
+            == semantic_embedding["model"],
+            f"V3 batch {batch_id} lacks the exact model-access check",
+            errors,
+        )
+        batch_activity_ids = batch.get("activityIds") or []
+        require(
+            len(batch_activity_ids) == len(set(batch_activity_ids)),
+            f"V3 batch {batch_id} repeats activity IDs",
+            errors,
+        )
+        require(
+            len(batch_activity_ids) <= int(semantic_config["execution"]["maxDocumentsPerRequest"]),
+            f"V3 batch {batch_id} exceeds the request document limit",
+            errors,
+        )
+        require(
+            all(
+                activity_id in semantic_items_by_id
+                and semantic_items_by_id[activity_id]["sourceId"] == batch.get("sourceId")
+                for activity_id in batch_activity_ids
+            ),
+            f"V3 batch {batch_id} crosses source boundaries or has unknown games",
+            errors,
+        )
+        for activity_id in batch_activity_ids:
+            require(
+                activity_id in semantic_batch_ids_by_activity,
+                f"V3 batch {batch_id} lacks cache {activity_id}",
+                errors,
+            )
+            if activity_id in semantic_batch_ids_by_activity:
+                require(
+                    semantic_batch_ids_by_activity[activity_id] == batch_id,
+                    f"V3 batch/cache mismatch for {activity_id}",
+                    errors,
+                )
+
+    for activity_id, batch_id in semantic_batch_ids_by_activity.items():
+        require(batch_id in semantic_batch_by_id, f"V3 cache {activity_id} lacks its batch ledger", errors)
+        if batch_id in semantic_batch_by_id:
+            require(
+                activity_id in (semantic_batch_by_id[batch_id].get("activityIds") or []),
+                f"V3 cache {activity_id} is absent from batch {batch_id}",
+                errors,
+            )
+
+    for source_id in semantic_config["corpus"]["sourceOrder"]:
+        source_ids = {
+            item["id"] for item in semantic_items if item["sourceId"] == source_id
+        }
+        source_cached_ids = source_ids & semantic_cached_ids
+        require(
+            not source_cached_ids or source_cached_ids == source_ids,
+            f"V3 committed cache is partial for source {source_id}",
+            errors,
+        )
+
+    semantic_state_exists = bool(
+        semantic_cache_paths
+        or semantic_batches
+        or SEMANTIC_MAP_PROGRESS_PATH.exists()
+        or SEMANTIC_MAP_CHECKPOINT_PATH.exists()
+    )
+    if semantic_state_exists:
+        require(SEMANTIC_MAP_PROGRESS_PATH.is_file(), "V3 embedding progress report is missing", errors)
+        require(SEMANTIC_MAP_CHECKPOINT_PATH.is_file(), "V3 embedding checkpoint is missing", errors)
+    if SEMANTIC_MAP_PROGRESS_PATH.is_file():
+        semantic_report = read_json(SEMANTIC_MAP_PROGRESS_PATH)
+        expected_semantic_report = build_semantic_map_progress(
+            semantic_config,
+            semantic_items,
+            semantic_batches,
+            generated_at=semantic_report.get("generatedAt"),
+        )
+        require(
+            semantic_report == expected_semantic_report,
+            "V3 embedding progress report is stale or nondeterministic",
+            errors,
+        )
+        require(
+            semantic_report.get("cacheNamespace") == "data/embeddings/v3",
+            "V3 embedding report reuses the V1 cache namespace",
+            errors,
+        )
+        require(
+            (semantic_report.get("costAccounting") or {}).get("billingMode")
+            == "education-credit",
+            "V3 embedding report has the wrong billing mode",
+            errors,
+        )
+        require(
+            (semantic_report.get("usage") or {}).get("referenceCostUsd", 0)
+            <= float(semantic_config["execution"]["maxTotalReferenceCostUsd"]),
+            "V3 embedding reference cost exceeds 10 USD",
+            errors,
+        )
+        require(
+            (semantic_report.get("usage") or {}).get("billedCostUsd") is None,
+            "V3 embedding report claims a known billed cost",
+            errors,
+        )
+    if SEMANTIC_MAP_CHECKPOINT_PATH.is_file():
+        semantic_checkpoint = read_json(SEMANTIC_MAP_CHECKPOINT_PATH)
+        require(
+            semantic_checkpoint.get("pipeline") == "semantic-map-v3-embeddings",
+            "V3 embedding checkpoint has the wrong pipeline",
+            errors,
+        )
+        require(
+            semantic_checkpoint.get("cachedActivities") == len(semantic_cached_ids),
+            "V3 embedding checkpoint has a stale cache count",
+            errors,
+        )
+        require(
+            semantic_checkpoint.get("billingMode") == "education-credit",
+            "V3 embedding checkpoint has the wrong billing mode",
+            errors,
+        )
         require(
             read_json(V3_PARTICIPANT_CHECKPOINT_PATH)
             == build_v3_participant_checkpoint(expected_v3_participant_report),
@@ -760,7 +954,8 @@ def main() -> None:
         f"{editorial_review_count} editorial review record(s) "
         f"({accepted_editorial_review_count} accepted), {near_duplicate_candidate_count} "
         f"near-duplicate candidate(s), {pilot_count} measured pilot(s), bilingual exports and docs."
-        f" {similar_relation_count} approved similar-game relation(s); V3 participant audit is current."
+        f" {similar_relation_count} approved similar-game relation(s); V3 participant audit is current; "
+        f"{len(semantic_cached_ids)} semantic-map embedding(s)."
     )
 
 

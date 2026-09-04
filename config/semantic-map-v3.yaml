@@ -1,0 +1,29 @@
+schemaVersion: 1
+corpus:
+  kind: game
+  sourceOrder:
+    - bsh-1911-seton-games
+    - hwp-1946
+    - sfb-1908
+embedding:
+  model: mistral-embed-2312
+  dimensions: 1024
+  recipeVersion: bilingual-game-context-v1
+  sourceContextCharacters: 2400
+  parallelContextCharacters: 800
+  modelMaxInputTokens: 8192
+  priceUsdPerMillionInputTokens: 0.1
+  priceSource: https://docs.mistral.ai/models/mistral-embed-23-12
+  priceAccessedOn: "2026-09-04"
+execution:
+  maxDocumentsPerRequest: 50
+  billingMode: education-credit
+  enforceReferenceCostLimit: true
+  maxTotalReferenceCostUsd: 10
+  requireExactModelAccessCheck: true
+analysis:
+  nearestNeighborCount: 10
+  projectionAlgorithm: umap
+  projectionVersion: pending-pinned-implementation
+  randomSeed: 20260904
+  status: not-started
