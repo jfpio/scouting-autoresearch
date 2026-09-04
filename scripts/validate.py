@@ -30,6 +30,10 @@ from analyze_taxonomy import REPORT_PATH as TAXONOMY_ANALYSIS_PATH
 from analyze_taxonomy import build_analysis, load_usage
 from build_pilot_report import build_report as build_pilot_report
 from build_pilot_report import load_config as load_pilot_config
+from build_semantic_review_packet import build_checkpoint as build_semantic_review_checkpoint
+from build_semantic_review_packet import build_markdown as build_semantic_review_markdown
+from build_semantic_review_packet import build_report as build_semantic_review_report
+from build_semantic_review_packet import load_config as load_semantic_review_config
 from common import GENERATED, ROOT, VAULT, load_markdown, read_json, source_hash
 from embed_taxonomy import REPORT_PATH as TAXONOMY_PROGRESS_PATH
 from embed_taxonomy import (
@@ -1011,6 +1015,79 @@ def main() -> None:
             errors,
         )
 
+    semantic_review_config = load_semantic_review_config()
+    semantic_review_report_path = ROOT / semantic_review_config["reportPath"]
+    semantic_review_note_path = ROOT / semantic_review_config["reviewNotePath"]
+    semantic_review_checkpoint_path = ROOT / semantic_review_config["checkpointPath"]
+    require(
+        semantic_review_report_path.is_file(),
+        "V3 semantic review packet report is missing",
+        errors,
+    )
+    require(
+        semantic_review_note_path.is_file(),
+        "V3 semantic review packet note is missing",
+        errors,
+    )
+    require(
+        semantic_review_checkpoint_path.is_file(),
+        "V3 semantic review packet checkpoint is missing",
+        errors,
+    )
+    if (
+        semantic_review_report_path.is_file()
+        and semantic_review_note_path.is_file()
+        and semantic_review_checkpoint_path.is_file()
+    ):
+        expected_semantic_review_report = build_semantic_review_report(
+            semantic_review_config
+        )
+        expected_semantic_review_note = build_semantic_review_markdown(
+            expected_semantic_review_report
+        )
+        actual_semantic_review_report = read_json(semantic_review_report_path)
+        require(
+            actual_semantic_review_report == expected_semantic_review_report,
+            "V3 semantic review packet report is stale or nondeterministic",
+            errors,
+        )
+        require(
+            semantic_review_note_path.read_text(encoding="utf-8")
+            == expected_semantic_review_note,
+            "V3 semantic review packet note is stale or nondeterministic",
+            errors,
+        )
+        require(
+            read_json(semantic_review_checkpoint_path)
+            == build_semantic_review_checkpoint(
+                semantic_review_config,
+                expected_semantic_review_report,
+                expected_semantic_review_note,
+            ),
+            "V3 semantic review packet checkpoint is stale or nondeterministic",
+            errors,
+        )
+        require(
+            (actual_semantic_review_report.get("selection") or {}).get(
+                "candidateCount"
+            )
+            == semantic_candidate_count,
+            "V3 semantic review packet omits analysis candidates",
+            errors,
+        )
+        require(
+            actual_semantic_review_report.get("publicSiteExposure") is False
+            and actual_semantic_review_report.get("productionRelationsWritten") == []
+            and all(
+                candidate.get("status") == "human-review-required"
+                and candidate.get("productionRelation") is False
+                and (candidate.get("humanDecision") or {}).get("status") == "pending"
+                for candidate in actual_semantic_review_report.get("candidates") or []
+            ),
+            "V3 semantic review packet bypasses the human decision gate",
+            errors,
+        )
+
     taxonomy_config = load_config()
     embedding_config = taxonomy_config["embedding"]
     taxonomy_items = activity_items(taxonomy_config)
@@ -1213,7 +1290,7 @@ def main() -> None:
         f"near-duplicate candidate(s), {pilot_count} measured pilot(s), bilingual exports and docs."
         f" {similar_relation_count} approved similar-game relation(s); V3 participant and practical-facet audits are current; "
         f"{len(semantic_cached_ids)} semantic-map embedding(s); {semantic_analysis_count} map point(s), "
-        f"{semantic_candidate_count} unreviewed semantic candidate pair(s)."
+        f"{semantic_candidate_count} unreviewed semantic candidate pair(s) in a review packet."
     )
 
 

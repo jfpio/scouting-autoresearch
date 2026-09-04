@@ -16,3 +16,9 @@ autora, datę śmierci, zasady liczenia okresu ochrony, tożsamość wydania i o
 tekstu, ilustracji, tłumaczenia oraz cyfrowego opakowania w dostępnych wiarygodnych źródłach.
 Po decyzji człowieka lub jednoznacznym dopasowaniu zatwierdzonej polityki rekord trafia do
 `../accepted/` albo `../rejected/` wraz z zakresem rozstrzygnięcia.
+
+`semantic-map-v3-pair-review.md` jest deterministycznym pakietem porównawczym par wskazanych
+przez embeddingi, niewłączanym do publicznej strony. Zawarte w nim podobieństwo, rangi i
+fragmenty są materiałem do recenzji, nie relacją produkcyjną. Decyzję zapisuje się osobno;
+dopiero zatwierdzona para może trafić do `config/similar-activities.yaml` jako symetryczny
+link.

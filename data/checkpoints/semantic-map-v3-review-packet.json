@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "semantic-map-v3-review-packet",
+  "status": "human-review-required",
+  "packetId": "semantic-map-v3-pair-review-v1",
+  "sourceAnalysisHash": "766c770256fb36a7ad1531c2b5999edd34f842ac4c81269424eb65e8ea741412",
+  "candidateCount": 30,
+  "reportHash": "75b8c48fb465c93dd1aba1d60183cc4fb547ecf36b3d14ed266b0cae6181e828",
+  "reviewNoteHash": "93175c35f6ef58dac4c2bafe2bb12047a6b175b140fd50f5558573f7346297d5",
+  "reportPath": "data/reports/semantic-map-v3-review-packet.json",
+  "reviewNotePath": "vault/reviews/inbox/semantic-map-v3-pair-review.md",
+  "humanApprovalRequired": true,
+  "publicSiteExposure": false,
+  "productionRelationsWritten": [],
+  "nextStep": "human-review-each-pair-before-writing-any-production-relation"
+}

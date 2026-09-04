@@ -148,6 +148,16 @@ def main() -> None:
     else:
         approved_relation_count = -1
         metric_errors.append("Semantic-map analysis report is missing")
+    review_packet_path = ROOT / "data" / "reports" / "semantic-map-v3-review-packet.json"
+    if review_packet_path.is_file():
+        review_packet = json.loads(review_packet_path.read_text(encoding="utf-8"))
+        review_candidate_ids = [
+            str(candidate.get("candidateId"))
+            for candidate in review_packet.get("candidates") or []
+        ]
+    else:
+        review_candidate_ids = []
+        metric_errors.append("Semantic-map review packet is missing")
     for path, expected_language in (("map/index.html", "pl"), ("en/map/index.html", "en")):
         _, _, points, list_items, relations, language = page_metrics.get(
             path, (-1, -1, -1, -1, -1, None)
@@ -175,6 +185,8 @@ def main() -> None:
             for forbidden in ("algorithmic-candidate", "algorithmicCandidates", "nearestNeighbors")
         ):
             metric_errors.append(f"{path}: exposes unreviewed semantic candidates")
+        if any(candidate_id in text for candidate_id in review_candidate_ids):
+            metric_errors.append(f"{path}: exposes a review-only semantic pair")
         for required in (
             'data-map-query',
             'data-map-source',
