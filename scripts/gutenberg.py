@@ -125,11 +125,37 @@ def parse_html(data: bytes) -> list[Block]:
     return parser.blocks
 
 
-def default_cache_path(ebook_id: str) -> Path:
+def parse_text(data: bytes) -> list[Block]:
+    """Parse Gutenberg plain text into page-aware paragraphs.
+
+    Some older Gutenberg HTML files keep running text outside semantic tags. Their UTF-8
+    plain-text rendering is a more deterministic extraction source and retains the printed
+    page markers in braces.
+    """
+
+    text = data.decode("utf-8-sig").replace("\r\n", "\n").replace("\r", "\n")
+    page: int | None = None
+    blocks: list[Block] = []
+    for raw in re.split(r"\n[ \t]*\n+", text):
+        markers = list(re.finditer(r"\{(\d+)(?:\s+continued)?\}", raw, flags=re.IGNORECASE))
+        starts_with_marker = bool(markers and not raw[: markers[0].start()].strip())
+        pages = [] if starts_with_marker or page is None else [page]
+        pages.extend(int(match.group(1)) for match in markers)
+        if markers:
+            page = int(markers[-1].group(1))
+        value = re.sub(r"\{\d+(?:\s+continued)?\}", " ", raw, flags=re.IGNORECASE)
+        value = normalize_block_text(value)
+        if not value or value.startswith("[Illustration:") or not pages:
+            continue
+        blocks.append(Block("p", value, min(pages), max(pages)))
+    return blocks
+
+
+def default_cache_path(ebook_id: str, suffix: str = ".htm") -> Path:
     scratch = os.environ.get("SCRATCH")
     if not scratch:
         raise RuntimeError("SCRATCH is not set; pass --output explicitly")
-    return Path(scratch) / "scouting-autoresearch" / "sources" / f"pg-{ebook_id}" / f"{ebook_id}-h.htm"
+    return Path(scratch) / "scouting-autoresearch" / "sources" / f"pg-{ebook_id}" / f"{ebook_id}{suffix}"
 
 
 def fetch(url: str, output: Path, expected_sha256: str) -> str:

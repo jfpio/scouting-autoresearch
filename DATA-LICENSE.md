@@ -15,5 +15,12 @@ oznacza wygaśnięcie ochrony jego tekstu z końcem 2011 r. i domenę publiczną
 2012 r. w przyjętym zakresie dla Polski i UE. Nie obejmuje to automatycznie ilustracji,
 fotografii, wkładów innych autorów, późniejszej redakcji ani cyfrowego opakowania Gutenberga.
 
+Ta sama zatwierdzona polityka obejmuje wyłącznie tekst części „The Games” na stronach
+291–319 pierwszego wydania *Boy Scouts Handbook* (1911), bezpośrednio przypisanej Ernestowi
+Thompsonowi Setonowi. Library of Congress podaje jego śmierć w 1946 r., więc ochrona tego
+składnika wygasła z końcem 2016 r., a domena publiczna w Polsce i UE rozpoczęła się 1 stycznia
+2017 r. Pozostałe rozdziały, ilustracje, standardy sportowe, reklamy oraz wkłady przypisane
+Baden-Powellowi i Danielowi Carterowi Beardowi są poza tym zakresem.
+
 Brak statusu `public-domain` oznacza, że pełny tekst nie może zostać opublikowany. Ten dokument
 nie jest poradą prawną i nie zastępuje oceny konkretnego utworu, edycji, tłumaczenia ani ilustracji.

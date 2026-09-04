@@ -13,13 +13,13 @@ from typing import Any
 import yaml
 
 from common import ROOT, VAULT, dump_markdown, load_markdown, source_hash, write_json
-from gutenberg import Block, default_cache_path, fetch, parse_html
+from gutenberg import Block, default_cache_path, fetch, parse_html, parse_text
 
 
 DEFAULT_MANIFEST = ROOT / "config" / "imports" / "pg-65993.yaml"
 REPORT_PATH = ROOT / "data" / "reports" / "pg-65993-extraction.json"
-CHECKPOINT_PATH = ROOT / "data" / "checkpoints" / "pg-65993-import.json"
-PARSER_VERSION = "gutenberg-html-blocks-v2"
+HTML_PARSER_VERSION = "gutenberg-html-blocks-v2"
+TEXT_PARSER_VERSION = "gutenberg-text-paragraphs-v1"
 ACTIVITY_KEYS = {
     "id",
     "title",
@@ -39,6 +39,17 @@ def load_manifest(path: Path) -> dict[str, Any]:
     activities = manifest.get("activities")
     if not isinstance(activities, list) or not activities:
         raise ValueError(f"Gutenberg import manifest has no activities: {path}")
+    source = manifest.get("source") or {}
+    source_id = source.get("id")
+    if not isinstance(source_id, str) or not source_id.strip():
+        raise ValueError(f"Gutenberg import manifest has no source ID: {path}")
+    activity_prefix = source.get("activityPrefix") or source_id.split("-", 1)[0]
+    if not isinstance(activity_prefix, str) or not re.fullmatch(r"[a-z][a-z0-9]*", activity_prefix):
+        raise ValueError(f"Gutenberg import manifest has an invalid activity prefix: {path}")
+    source["activityPrefix"] = activity_prefix
+    download_format = (manifest.get("download") or {}).get("format", "html")
+    if download_format not in {"html", "text"}:
+        raise ValueError(f"Gutenberg import manifest has an invalid download format: {download_format}")
     ids: list[str] = []
     for index, item in enumerate(activities, start=1):
         if not isinstance(item, dict):
@@ -49,7 +60,7 @@ def load_manifest(path: Path) -> dict[str, Any]:
         for field in ("id", "title", "section"):
             if not isinstance(item.get(field), str) or not item[field].strip():
                 raise ValueError(f"Activity {index} lacks a non-empty {field}")
-        if not re.fullmatch(r"sfb-\d{3}", item["id"]):
+        if not re.fullmatch(rf"{re.escape(activity_prefix)}-\d{{3}}", item["id"]):
             raise ValueError(f"Activity {index} has an invalid ID: {item['id']}")
         ids.append(item["id"])
         for locator_name in ("start", "endBefore"):
@@ -134,7 +145,7 @@ def extract_activity(blocks: list[Block], item: dict[str, Any]) -> tuple[dict[st
         raise ValueError(f"Invalid block range for {item['id']}: {start}..{end}")
     selected = blocks[start:end]
     first_text: str | None = None
-    if selected[0].kind.startswith("h"):
+    if selected[0].kind.startswith("h") or locator_key(selected[0].text) == locator_key(item["title"]):
         selected = selected[1:]
     elif item.get("stripPrefix"):
         first_text = strip_prefix(selected[0].text, str(item["stripPrefix"]))
@@ -209,13 +220,16 @@ def main() -> None:
     manifest = load_manifest(args.manifest)
     source = manifest["source"]
     download = manifest["download"]
-    input_path = args.input or default_cache_path(str(source["ebookId"]))
+    download_format = download.get("format", "html")
+    suffix = ".txt" if download_format == "text" else ".htm"
+    input_path = args.input or default_cache_path(str(source["ebookId"]), suffix)
     revision = fetch(download["url"], input_path, download["sha256"])
-    blocks = parse_html(input_path.read_bytes())
+    parser_version = TEXT_PARSER_VERSION if download_format == "text" else HTML_PARSER_VERSION
+    blocks = parse_text(input_path.read_bytes()) if download_format == "text" else parse_html(input_path.read_bytes())
     write_source(source, revision)
 
     activity_ids = {item["id"] for item in manifest["activities"]}
-    for path in (VAULT / "activities").glob("sfb-*.md"):
+    for path in (VAULT / "activities").glob(f"{source['activityPrefix']}-*.md"):
         if path.stem not in activity_ids:
             path.unlink()
 
@@ -224,7 +238,12 @@ def main() -> None:
     for item in manifest["activities"]:
         evidence, body = extract_activity(blocks, item)
         first_page = evidence["printedPages"][0]
-        facsimile_url = f"{source['textUrl']}#Page_{first_page}"
+        facsimile_template = source.get("facsimileUrlTemplate")
+        facsimile_url = (
+            str(facsimile_template).format(page=first_page)
+            if facsimile_template
+            else source["digitalEditionUrl"]
+        )
         metadata = {
             "id": item["id"],
             "kinds": ["game"],
@@ -236,7 +255,7 @@ def main() -> None:
             "section": item["section"],
             "printedPages": evidence["printedPages"],
             "transcriptionStatus": "digital-proofread",
-            "extractionMethod": PARSER_VERSION,
+            "extractionMethod": parser_version,
             "sourceBlockSha256": evidence["sourceBlockSha256"],
             "safetyStatus": "historical-unreviewed",
             "rightsStatus": "public-domain",
@@ -263,7 +282,7 @@ def main() -> None:
         "sourceUrl": source["sourceUrl"],
         "downloadUrl": download["url"],
         "sourceSha256": revision,
-        "parserVersion": PARSER_VERSION,
+        "parserVersion": parser_version,
         "transcriptionEvidence": manifest["transcriptionEvidence"],
         "selection": manifest["selection"],
         "activityCount": len(imported),
@@ -276,12 +295,16 @@ def main() -> None:
         "reviewRequired": True,
         "wholeSourceCopiedToRepository": False,
     }
-    write_json(REPORT_PATH, report)
+    report_path = ROOT / source.get("extractionReport", str(REPORT_PATH.relative_to(ROOT)))
+    checkpoint_path = ROOT / source.get(
+        "checkpoint", f"data/checkpoints/{source['id']}-import.json"
+    )
+    write_json(report_path, report)
     write_json(
-        CHECKPOINT_PATH,
+        checkpoint_path,
         {
             "schemaVersion": 1,
-            "pipeline": "pg-65993-import",
+            "pipeline": f"{source['id']}-import",
             "status": "extraction-complete",
             "sourceSha256": revision,
             "activityCount": len(imported),

@@ -1,6 +1,6 @@
 # Scouting Autoresearch
 
-> 251 historical scouting activities with source texts and machine translations in Polish and English.
+> 284 historical scouting activities with source texts and machine translations in Polish and English.
 
 - [Polish JSON](https://jfpio.github.io/scouting-autoresearch/data/activities.pl.json)
 - [English JSON](https://jfpio.github.io/scouting-autoresearch/data/activities.en.json)

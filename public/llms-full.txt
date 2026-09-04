@@ -1,5 +1,868 @@
 # Scouting Autoresearch — full bilingual corpus
 
+## bsh-001 — Polowanie na jelenia / Deer Hunting
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 291–293
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Polowanie na jelenia okazało się jedną z naszych najbardziej udanych gier.
+
+Jeleń to atrapa, najlepiej wykonana z ramy drucianej, na którą nawija się miękkie siano, aż osiągnie odpowiedni rozmiar i kształt, a następnie całość pokrywa się luźnym workiem jutowym. Kilka dotknięć białą i czarną farbą czyni ją bardzo realistyczną.
+
+Jeśli czas nie pozwala na wykonanie dobrze wykończonego jelenia, można go zrobić z worka wypchanego sianem, ozdobionego na jednym końcu mniejszym workiem jako głową i szyją, osadzonego na czterech cienkich patykach.
+
+Bok jelenia oznacza się dużym owalem, a nad sercem mniejszym.
+
+Do strzelania do tego jelenia używa się wyłącznie łuków i strzał.
+
+Potrzebna jest teraz garść kukurydzy, grochu lub innego dużego ziarna na trop. Chłopiec, który jest jeleniem podczas pierwszego polowania, bierze atrapę pod pachę i ucieka, dając dziesięć minut przewagi lub do momentu, gdy wróci i zawoła „gotów!”. Pozostawia ślad z ziaren, upuszczając dwa lub trzy ziarna na każdy jard i kręcąc śladem, jak mu się podoba, stosując takie sztuczki, jakie zrobiłby jeleń, aby zmylić swoich prześladowców. Następnie chowa jelenia w dowolnym miejscu, które mu się podoba, ale nie wśród skał ani na szczycie grzbietu, ponieważ w jednym przypadku wiele strzał zostałoby złamanych, a w drugim zgubionych.
+
+Myśliwi teraz polują na tego jelenia tak, jak na prawdziwego, albo podążając za tropem, albo obserwując las przed sobą; najlepsi myśliwi łączą oba sposoby. Jeśli w którymś momencie trop zostanie całkowicie zgubiony, ten, kto jest odpowiedzialny, woła: „Zgubiony trop!”. Po tym ten, kto odnajdzie trop, zdobywa dwa punkty. Każdy, kto fałszywie zaalarmuje, wołając „Jeleń!”, zostaje ukarany pięcioma punktami.
+
+Tak postępują, dopóki ktoś nie znajdzie jelenia. Woła wtedy: „_Jeleń!_” i zdobywa dziesięć punktów za znalezienie go. Pozostali wołają: „_Drugi!_”, „_Trzeci!_” itd., w kolejności zauważenia, ale nie zdobywają punktów.
+
+Ten, kto znalazł atrapę, musi strzelić do jelenia z łuku i strzały z dokładnie tego miejsca, z którego go zobaczył. Jeśli chybi, drugi myśliwy może podejść pięć kroków i oddać strzał. Jeśli chybi, trzeci podchodzi pięć kroków i tak dalej, dopóki ktoś nie trafi w jelenia lub nie zostanie osiągnięta granica dziesięciu jardów. Jeśli znalazca jest w odległości mniejszej niż dziesięć jardów od zauważenia jelenia i chybi, pozostali myśliwi wracają do granicy dziesięciu jardów. Gdy jeleń zostanie trafiony, wszystkie strzały muszą być oddane z dokładnie tego miejsca, z którego padł celny strzał.
+
+Strzał w duży owal to rana ciała; daje to pięć punktów. Strzał poza nim to draśnięcie; daje to dwa punkty. Strzał w mały owal lub serce to rana serca; daje to dziesięć punktów i kończy polowanie. Strzały, które nie utkną, nie są liczone, chyba że można udowodnić, że przeszły na wylot, w którym to przypadku przyznaje się najwyższą liczbę punktów, jaką przebiły.
+
+Jeśli wszystkie strzały zostaną zużyte, a żadna nie trafi w serce, jeleń ucieka, a chłopiec, który był jeleniem, zdobywa dwadzieścia pięć punktów.
+
+Ten, kto znalazł atrapę, jest jeleniem podczas następnego polowania. Sprytny jeleń może znacznie zwiększyć emocje związane z grą.
+
+Początkowo używaliśmy papieru jako tropu, ale okazało się to złe. Zanieczyszczał lasy; wczorajszy trop mieszał się z dzisiejszym itp. Kukurydza okazała się lepsza, ponieważ ptaki i wiewiórki sprzątały ją z dnia na dzień, dzięki czemu ziemia była zawsze gotowa na nowy start. Jednak najlepsze ze wszystkiego są odciski racic na butach. Te żelazne odciski są przymocowane do pary butów i pozostawiają trop bardzo podobny do prawdziwego jelenia. Ma to kilka zalet. Daje myśliwemu szansę stwierdzenia, gdzie trop się podwaja i w którą stronę jeleń zmierzał. Jest bardziej realistyczne, a chłopiec, który potrafi śledzić ten trop umiejętnie, potrafi śledzić żywego jelenia. W praktyce okazało się, że dobrze jest używać trochę kukurydzy z tym na twardych miejscach, co jest zgodne z realizmem, jak przypomni sobie każdy myśliwy.
+
+Surowo zabrania się jakiemukolwiek myśliwemu stawać przed linią strzału; wszyscy muszą być za linią, na której stoi strzelec.
+
+Nie ma ograniczeń co do sytuacji i ciekawych kombinacji w tym polowaniu. Jeleń może być pozostawiony stojący lub leżący. Nie ma przepisu, który zabraniałby ukrycia go za pniem drzewa. Gra rozwija się w miarę jej prowadzenia. Po pewnym czasie gry z żelaznym odciskiem racicy jak powyżej, chłopcy stają się tak biegli w tropieniu, że można zrezygnować nawet z kukurydzy. Żelazny odcisk przypominający racicę jelenia pozostawia bardzo realistyczny „ślad” lub trop, który bardziej wprawni chłopcy łatwo śledzą przez las. Polowanie zwykle odbywa się na trzy, pięć lub więcej jeleni, zgodnie z umową, a wynik oblicza się na podstawie punktów za całe polowanie.
+
+### English — source text
+
+The deer hunt has proved one of our most successful games.
+
+The deer is a dummy, best made with a wire frame, on which soft hay is wrapped till it is of proper size and shape, then all is covered with open burlap. A few touches of white and black make it very realistic.
+
+If time does not admit of a well-finished deer, one can be made of a sack stuffed with hay, decorated at one end with a smaller sack for head and neck, and set on four thin sticks.
+
+The side of the deer is marked with a large oval, and over the heart is a smaller one.
+
+Bows and arrows only are used to shoot this deer.
+
+A pocketful of corn, peas, or other large grain is now needed for scent. The boy who is the deer for the first hunt takes the dummy under his arm and runs off, getting ten minutes' start, or until he comes back and shouts "ready!" He leaves a trail of corn, dropping two or three grains for every yard and making the trail as crooked as he likes, playing such tricks as a deer would do to baffle his pursuers. Then he hides the deer in any place he fancies, but not among rocks or on the top of a ridge, because in one case many arrows would be broken, and in the other, lost.
+
+The hunters now hunt for this deer just as for a real deer, either following the trail or watching the woods ahead; the best hunters combine the two. If at any time the trail is quite lost the one in charge shouts: "Lost Trail!" After that the one who finds the trail scores two. Anyone giving a false alarm by shouting "Deer" is fined five.
+
+Thus they go till some one finds the deer. He shouts: "_Deer!_" and scores ten for finding it. The others shout: "_Second_," "_Third_," etc., in order of seeing it, but they do not score.
+
+The finder must shoot at the deer with his bow and arrow from the very spot whence he saw it. If he misses, the second hunter may step up five paces, and have his shot. If he misses, the third one goes five, and so on till some one hits the deer, or until the ten-yard limit is reached. If the finder is within ten yards on sighting the deer, and misses his shot, the other hunters go back to the ten-yard limit. Once the deer is hit, all the shooting must be from the exact spot whence the successful shot was fired.
+
+A shot in the big oval is a body wound; that scores five. A shot outside that is a scratch; that scores two. A shot in the small oval or heart is a heart wound; it scores ten, and ends the hunt. Arrows which do not stick do not count, unless it can be proved that they passed right through, in which case they take the highest score that they pierced.
+
+If all the arrows are used, and none in the heart, the deer escapes, and the boy who was deer scores twenty-five.
+
+The one who found the dummy is deer for the next hunt. A clever deer can add greatly to the excitement of the game.
+
+Originally we used paper for scent, but found it bad. It littered the woods; yesterday's trail was confused with that of to-day, etc. Corn proved better, because the birds and the squirrels kept it cleaned up from day to day, and thus the ground was always ready for a fresh start. But the best of all is the hoof mark for the shoe. These iron hoof marks are fast to a pair of shoes, and leave a trail much like a real deer. This has several advantages. It gives the hunter a chance to tell where the trail doubled, and which way the deer was going, It is more realistic, and the boy who can follow this skillfully can follow a living deer. In actual practice it is found well to use a little corn with this on the hard places, a plan quite consistent with realism, as every hunter will recall.
+
+It is strictly forbidden to any hunter to stand in front of the firing line; all must be back of the line on which the shooter stands.
+
+There is no limit to the situations and curious combinations in this hunt. The deer may be left standing or lying. There is no law why it should not be hidden behind a solid tree trunk. The game develops as one follows it. After it has been played for some time with the iron hoof mark as above, the boys grow so skilful on the trail that we can dispense with even the corn. The iron mark like a deer hoof leaves a very realistic "slot" or track, which the more skilful boys readily follow through the woods. A hunt is usually for three, five, or more deer, according to agreement and the result is reckoned by points on the whole chase.
+
+## bsh-002 — Polowanie na niedźwiedzia / The Bear Hunt
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 293–294
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+W tę grę gra sześciu lub więcej chłopców. Każdy ma kij mniej więcej wielkości i kształtu kija do baseballa, ale wykonany ze słomy owiniętej wokół dwóch lub trzech witek i mocno zszytej w płótno żaglowe. -- Jeden duży chłopak zostaje wybrany na niedźwiedzia. Ma on na plecach mocno przymocowaną szkolną torbę, a w niej w pełni nadmuchany balonik. To jego serce. Na szyi nosi naszyjnik z niedźwiedziich pazurów z drewnianych paciorków i pazurów. (Patrz rycina.)
+
+Ma trzy legowiska oddalone od siebie o około sto jardów, ustawione w trójkącie. Gdy niedźwiedź jest w swoim legowisku, jest bezpieczny. Jeśli legowiskiem jest drzewo lub skała, jest bezpieczny, dopóki się jej dotyka. Jest zobowiązany wyjść, gdy główny myśliwy odliczy do stu, i musi objechać wszystkie trzy, aż polowanie się zakończy.
+
+Celem myśliwych jest rozbicie balonika, czyli serca, aby zabić niedźwiedzia. Gdy serce pęknie, musi upaść martwy. Myśliwy, który go zabije, zdobywa naszyjnik.
+
+Niedźwiedź również ma jednak kij do obrony. Każdy myśliwy musi nosić kapelusz, a gdy niedźwiedź strąci komuś kapelusz, ten jest martwy i odpada z tego polowania. Musi upaść tam, gdzie spadł jego kapelusz.
+
+Atakowanie w jakiejkolwiek formie jest zabronione.
+
+Niedźwiedź wygrywa, zabijając lub odpędzając wszystkich myśliwych. W takim przypadku zatrzymuje naszyjnik.
+
+Dzikość tych wielkich niedźwiedzi jest nie do opisania. W każdym polowaniu ginie wiele istnień, a kilkakrotnie zdarzyło się, że cała drużyna myśliwych została wytępiona przez jakiegoś potwora o niezwykłej dzikości.
+
+Gra ta została również rozwinięta w sztukę teatralną.
+
+### English — source text
+
+This is played by half a dozen or more boys. Each has a club about the size and shape of a baseball club, but made of straw tied around two or three switches and tightly sewn up in burlap.--One big fellow is selected for the bear. He has a school bag tightly strapped on his back, and in that a toy balloon fully blown up. This is his heart. On his neck is a bear-claw necklace of wooden beads and claws. (See cut.)
+
+He has three dens about one hundred yards apart in a triangle. While in his den the bear is safe. If the den is a tree or rock, he is safe while touching it. He is obliged to come out when the chief hunter counts one hundred, and must go the rounds of the three till the hunt is settled.
+
+The object of the hunters is to break the balloon or heart; that is, to kill the bear. He must drop dead when the heart bursts. The hunter who kills him claims the necklace.
+
+But the bear also has a club for defence. Each hunter must wear a hat, and once the bear knocks a hunter's hat off, that one is dead and out of this hunt. He must drop where his hat falls.
+
+Tackling of any kind is forbidden.
+
+The bear wins by killing or putting to flight all the hunters. In this case he keeps the necklace.
+
+The savageness of these big bears is indescribable. Many lives are lost in each hunt, and it has several times happened that the whole party of hunters has been exterminated by some monster of unusual ferocity.
+
+This game has also been developed into a play.
+
+## bsh-003 — Przebijanie wielkiego jesiotra / Spearing the Great Sturgeon
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 295–296
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Ta gra wodna cieszy się ogromną popularnością i doskonale nadaje się na pokaz publiczny, gdyż jest widowiskowa oraz pełna zabawy i emocji.
+
+Wymagane wyposażenie:
+
+(1) Jesiotr wykonany z miękkiego drewna, z grubsza uformowany; powinien mieć około trzech stóp długości i blisko stopę grubości przy głowie. Może być wykonany realistycznie lub wystarczy mały kloc zaostrzony na obu końcach.
+
+(2) Dwie włócznie z sześciocalowymi stalowymi grotami i drewnianymi trzonkami (około trzech stóp długości). Końcówki powinny być ostre, ale nie zadziory. Czasami zadziory są całkowicie pomijane. Każdy grot powinien mieć ucho, do którego przymocowane jest dwadzieścia stóp ćwierćcalowej liny. Na każdej linie, sześć stóp od grotu, znajduje się oznaczenie sążnia wykonane przez zawiązanie szmatki lub sznurka.
+
+(3) Dwie łodzie z załogami. Każda załoga składa się z włócznika, który jest kapitanem, oraz jednego lub dwóch wioślarzy lub wioślarzy-kajakarzy, z których ten na rufie jest sternikiem. Wszyscy powinni być wprawnymi pływakami lub nosić pasy ratunkowe podczas gry.
+
+Gra.--Każda łódź ma swoją bazę lub przystań; zazwyczaj jest to część brzegu naprzeciwko bazy przeciwnika; lub, aby uniknąć wszelkiego ryzyka zderzenia, łodzie mogą startować z tej samej strony. Jesiotr zostaje pozostawiony przez łódź sędziego w punkcie pośrodku między bazami. Na słowo "Start!" każda łódź opuszcza swoją bazę i, kierując się w stronę jesiotra, próbuje go przebić, a następnie wlec na linie do swojej bazy. Gdy obie włócznie wbite są w niego, konkurs zamienia się w przeciąganie liny, aż jedna z włóczni się wyciągnie.
+
+Jesiotr zostaje zdobyty, gdy dziób łodzi, która go holuje, dotknie właściwej bazy, nawet jeśli włócznia przeciwnika jest wtedy wbita w rybę; lub gdy sama ryba dotknie bazy. Łodzie zmieniają bazy po każdej rundzie.
+
+Zawody zazwyczaj rozgrywane są na jednego, trzech lub pięciu jesiotrów. Punkty liczone są tylko za zdobycie ryby, ale sędzia może podjąć decyzję w przypadku faulu lub serii fauli, lub ukaranego można cofnąć o jedną lub więcej długości łodzi.
+
+Czasami gra rozgrywana jest w kajakach lub łodziach z jednym człowiekiem jako włócznikiem i załogą.
+
+_Przepisy_.--_Nie wolno_ popychać jesiotra włócznią lub wiosłem w nowe położenie przed uderzeniem.
+
+_Wolno_ ciągnąć jesiotra pod łodzią lub przepuszczać go dookoła za pomocą liny po przebiciu.
+
+_Wolno_ położyć ręce na drugiej łodzi, aby zapobiec zderzeniu, ale w innym przypadku zabronione jest dotykanie drugiej łodzi lub załogi, wiosła, włóczni lub liny, kładzenie rąk na rybie lub dotykanie jej wiosłem lub wiosłem, dotykanie własnej włóczni, gdy jest wbita w rybę, lub przywiązywanie liny do ryby, chyba że nastąpi to przypadkowo podczas przebijania.
+
+_Wolno_ usunąć włócznię przeciwnika, rzucając swoją nad nią. Celem zadziorów jest ułatwienie tego.
+
+_Wolno_ najechać łodzią na jesiotra.
+
+_Zabronione jest absolutnie rzucanie włócznią nad drugą łodzią lub nad głowami własnej załogi_.
+
+Podczas holowania jesiotra oznaczenie sążnia musi znajdować się nad burtnicą--co najmniej sześć stóp liny powinno być wypuszczone, gdy ryba jest holowana. Nie jest faulem, gdy jest mniej, ale włócznik musi natychmiast wypuścić linę, jeśli sędzia lub druga załoga krzyknie "sążeń!".
+
+Włócznikowi wolno upuścić włócznię i używać wiosła lub wiosła według uznania, ale nie wolno przekazać włóczni innemu członkowi załogi. Włócznik musi znajdować się w swojej łodzi, gdy włócznia jest rzucana.
+
+Jeśli łódź się wywróci, łódź sędziego pomaga ją wyprostować. Każda załoga musi zaakceptować straty wynikające z własnych wypadków.
+
+### English — source text
+
+This water game is exceedingly popular and is especially good for public exhibition, being spectacular and full of amusement and excitement.
+
+The outfit needed is:
+
+(1) A sturgeon roughly formed of soft wood; it should be about three feet long and nearly a foot thick at the head. It may be made realistic, or a small log pointed at both ends will serve.
+
+(2) Two spears with six-inch steel heads and wooden handles (about three feet long). The points should be sharp, but not the barbs. Sometimes the barbs are omitted altogether. Each head should have an eye to which is attached twenty feet of one-quarter inch rope. On each rope, six feet from the spearhead, is a fathom mark made by tying on a rag or cord.
+
+(3) Two boats with crews. Each crew consists of a spearman, who is captain, and one or two oarsmen or paddlers, of whom the after one is the pilot. All should be expert swimmers or else wear life-belts during the game.
+
+The Game.--Each boat has a base or harbor; this is usually part of the shore opposite that of the enemy; or it obviates all danger of collision if the boats start from the same side. The sturgeon is left by the referee's canoe at a point midway between the bases. At the word "Go!" each boat leaves its base and, making for the sturgeon, tries to spear it, then drag it by the line to his base. When both get their spears into it the contest becomes a tug of war until one of the spears pulls out.
+
+The sturgeon is landed when the prow of the boat that has it in tow touches its proper base, even though the spear of the enemy is then in the fish: or it is landed when the fish itself touches base. The boats change bases after each heat.
+
+Matches are usually for one, three, or five sturgeon. Points are counted only for the landing of the fish, but the referee may give the decision on a foul or a succession of fouls, or the delinquent may be set back one or more boat lengths.
+
+Sometimes the game is played in canoes or boats, with one man as spearman and crew.
+
+_Rules_.--It is _not allowable_ to push the sturgeon into a new position with the spear or paddle before striking.
+
+It is _allowable_ to pull the sturgeon under the boat or pass it around by using the line after spearing.
+
+It is _allowable_ to lay hands on the other boat to prevent a collision, but otherwise it is forbidden to touch the other boat or crew or paddle or spear or line, or to lay hands on the fish, or to touch it with the paddle or oar, or touch your own spear while it is in the fish, or to tie the line around the fish except so far as this may be accidentally done in spearing.
+
+It is _allowable_ to dislodge the enemy's spear by throwing your own over it. The purpose of the barbs is to assist in this.
+
+It is _allowable_ to run on to the sturgeon with the boat.
+
+_It is absolutely forbidden to throw the spear over the other boat or over the heads of your crew_.
+
+In towing the sturgeon the fathom mark must be over the gunwale--at least six feet of line should be out when the fish is in tow. It is not a foul to have less, but the spearman must at once let it out if the umpire or the other crew cries "fathom!"
+
+The spearman is allowed to drop the spear and use the paddle or oar at will, but not to resign his spear to another of the crew. The spearman must be in his boat when the spear is thrown.
+
+If the boat is upset the referee's canoe helps them to right. Each crew must accept the backset of its accidents.
+
+## bsh-004 — Walka na wodzie / Tilting In The Water
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 296–297
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Do tej zabawy zazwyczaj używamy dwóch łodzi lub wojennych canoe, obsadzonych przez czterech ludzi każda. Są to: włócznik, który jest również kapitanem, sternik oraz dwóch wioślarzy.
+
+Włócznik jest uzbrojony w lekką tyczkę lub bambus długości ośmiu lub dziesięciu stóp, z miękką podkładką na końcu. Czasami jest on dodatkowo wyposażony w hak. Jest to rozwidlona gałąź z odnogami długości jednej stopy; jedna jest przymocowana do bambusa, druga wystaje na stopę i jest lekko odchylona do tyłu. Koniec włóczni oraz widełki są dokładnie wyściełane jutą w kształcie głowy i dzioba kaczki. Muszą być również pokryte wodoodpornym materiałem, aby nie nasiąkały wodą i nie stawały się ciężkie. Celem haka jest nagła zmiana z pchania na ciągnięcie przeciwnika poprzez zahaczenie wokół jego szyi. Każda łódź powinna mieć kwaterdeck lub podwyższoną platformę na jednym końcu, na której stoi włócznik.
+
+Walka toczy się rundami i na punkty.
+
+Przepchnięcie przeciwnika z powrotem do canoe jedną nogą daje ci pięć punktów; dwiema nogami, dziesięć. Jeśli straci swoją włócznię, liczysz pięć (z wyjątkiem sytuacji, gdy zostanie wyrzucony za burtę). Jeśli powalisz go na jedno kolano na pokładzie bojowym, liczysz pięć; na dwa kolana, dziesięć. Jeśli wyrzucisz go za burtę, liczy się to jako dwadzieścia pięć. Sto punktów to jedna runda.
+
+Walka trwa jedną lub więcej rund, zgodnie z ustaleniami. Zabronione jest hakowanie lub uderzanie poniżej pasa. Sędzia może odjąć punkty za faule.
+
+### English — source text
+
+For this we usually have two boats or war canoes manned by four men each. These are a spearman, who is also a captain, a pilot, and two oarsmen.
+
+The spearman is armed with a light pole or bamboo eight or ten feet long, with a soft pad on the end. Sometimes this is further provided with a hook. This is a forked branch with limbs a foot long; one is lashed to the bamboo, the other projecting out a foot, and slightly backward. The end of the spear and the fork are now thoroughly padded with burlap to the shape of a duck's head and bill. And it must be cased in waterproof, to keep it from getting wet and heavy. The object of the hook is to change suddenly from pushing, and to pull the enemy by hooking round his neck. Each boat should have a quarter-deck or raised platform at one end, on which the spearman stands.
+
+The battle is fought in rounds and by points.
+
+To put your opponent back into the canoe with one foot counts you five; two feet, ten. If he loses his spear you count five (excepting when he is put overboard). If you put him down on one knee on the fighting deck, you count five; two knees, ten. If you put him overboard it counts twenty-five. One hundred points is a round.
+
+A battle is for one or more rounds, as agreed on. It is forbidden to hook or strike below the belt. The umpire may dock for fouls.
+
+## bsh-005 — Berowanie łodzią / Canoe Tag
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 297–298
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+W tej grze może uczestniczyć dowolna liczba łodzi lub kajaków. Potrzebna jest gumowa poduszka, termofor napełniony powietrzem, gumowa piłka nożna lub bawełniany worek wypełniony korkami. Celem gry jest dotknięcie (oberowanie) innej łodzi poprzez wrzucenie do niej tego przedmiotu.
+
+Zasady są takie same jak w zwykłym berowaniu w poprzek.
+
+### English — source text
+
+Any number of canoes or boats may engage in this. A rubber cushion, a hot-water bag full of air, any rubber football, or a cotton bag with a lot of corks in it is needed. The game is to tag the other canoe by throwing this into it.
+
+The rules are as in ordinary cross-tag.
+
+## bsh-006 — Skauting / Scouting
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 298
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Skauci są wysyłani parami lub pojedynczo. Na mapie zaznacza się szereg punktów w równych odległościach od obozu, a skauci ciągną słomki, aby ustalić, dokąd każdy z nich pójdzie. Jeśli jedno miejsce jest wyraźnie trudniejsze, skaut otrzymuje sprawiedliwą liczbę punktów jako handicap. Wszyscy wyruszają w tym samym czasie, idą bezpośrednio i wracają tak szybko, jak to możliwe.
+
+Punkty przyznawane są w następujący sposób:
+
+Ostatni wracający otrzymuje zero za podróż.
+
+Pozostali otrzymują jeden punkt za każdą minutę, o którą wyprzedzają ostatniego.
+
+Za opowieść po powrocie przyznawane jest do stu punktów.
+
+Czasami przyznajemy dziesięć punktów za każdego widzianego żółwia; dziesięć za każdą sowę, którą zobaczyli i poprawnie nazwali; pięć za każdego jastrzębia, a jeden za każdego innego dzikiego ptaka; także dwa za kota i jeden za psa.
+
+Skaut nie otrzymuje żadnych informacji; mówi mu się, aby udał się do takiego a takiego punktu i zrobił to i to, ale karany jest punktami, jeśli się waha lub pyta jak lub dlaczego itp.
+
+### English — source text
+
+Scouts are sent out in pairs or singly. A number of points are marked on the map at equal distances from camp, and the scouts draw straws to see where each goes. If one place is obviously hard, the scout is allowed a fair number of points as handicap. All set out at same time, go direct, and return as soon as possible.
+
+Points are thus allowed:
+
+Last back, zero for travelling.
+
+The others count one for each minute they are ahead of the last.
+
+Points up to one hundred are allowed for their story on return.
+
+Sometimes we allow ten points for each turtle they have seen; ten for each owl seen and properly named; five for each hawk, and one each for other wild birds; also two for a cat one for a dog.
+
+No information is given the scout; he is told to go to such a point and do so and so, but is fined points if he hesitates or asks how or why, etc.
+
+## bsh-007 — Gra w Szybki Wzrok / The Game of Quicksight
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 298–299
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Wykonaj dwie tablice o boku około jednej stopy, podziel każdą na dwadzieścia pięć kwadratów; przygotuj dziesięć orzechów i dziesięć kamyków. Daj jednemu graczowi jedną tablicę, pięć orzechów i pięć kamyków. Umieszcza je na kwadratach w dowolnym układzie, jaki mu się podoba, a gdy jest gotowy, drugiemu graczowi pozwala się temu przyjrzeć przez pięć sekund. Następnie układ zostaje zakryty, a drugi gracz z pamięci musi odtworzyć ten sam wzór na swojej tablicy. Liczy jeden punkt za każdy prawidłowo umieszczony element i odejmuje jeden za każdy błędny. Gracze wykonują ruchy na zmianę.
+
+Gra ta znakomicie rozwija umiejętność szybkiego widzenia i zapamiętywania.
+
+### English — source text
+
+Make two boards about a foot square, divide each into twenty-five squares; get ten nuts and ten pebbles. Give to one player one board, five nuts, and five pebbles. He places these on the squares in any pattern he fancies, and when ready the other player is allowed to see it for five seconds. Then it is covered up, and from the memory of what he saw the second player must reproduce the pattern on his own board. He counts one for each that was right, and takes off one for each that was wrong. They take turn and turn about.
+
+This game is a wonderful developer of the power to see and memorize quickly.
+
+## bsh-008 — Dalekowzroczność, czyli Zauważ Króliczka / Farsight, or Spot the Rabbit
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 299
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Weź dwie sztywne białe tekturki lub bielone deseczki o wymiarach sześć na sześć cali. Na każdej z nich narysuj kontur króliczka, jeden dokładną kopią drugiego. Przygotuj dwadzieścia okrągłych czarnych wafelków lub plamek, każdy o średnicy pół cala. Niech jeden gracz przyklei kilka z nich na jednej planszy z królikiem i ustawi ją w pełnym świetle. Drugi, zaczynając z odległości stu jardów, zbliża się, aż będzie mógł dostrzec plamki na tyle dobrze, by odtworzyć ich układ na drugiej planszy, którą nosi przy sobie. Jeśli uda mu się to z odległości siedemdziesięciu pięciu jardów, ma wspaniały wzrok. Nawet do siedemdziesięciu jardów (udało się trzy razy na pięć) liczy się jako wysokie wyróżnienie; od siedemdziesięciu do sześćdziesięciu jardów liczy się jako wyróżnienie. Poniżej tego nie liczy się wcale.
+
+### English — source text
+
+Take two six-inch squares of stiff white pasteboard or whitened wood. On each of these draw an outline rabbit, one an exact duplicate of the other. Make twenty round black wafers or spots, each half an inch across. Let one player stick a few of these on one rabbit-board and set it up in full light. The other, beginning at one hundred yards, draws near till he can see the spots well enough to reproduce the pattern on the other which he carries. If he can do it at seventy-five yards he has wonderful eyes. Down even to seventy (done three times out of five), he counts high honor; from seventy to sixty counts honor. Below that does not count at all.
+
+## bsh-009 — Gwiazda Polarna / Pole-star
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 299–300
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Każdy zawodnik otrzymuje w ciągu dnia długą, prostą żerdź i ma za zadanie ułożyć ją dokładnie w kierunku północ-południe. Przy tym może posłużyć się słońcem, mchem lub czymkolwiek innym, co znajdzie w naturze – z wyjątkiem kompasu.
+
+Kierunek sprawdzany jest za pomocą dobrego kompasu, skorygowanego dla danej okolicy. Ten, kto najbardziej zbliży się do właściwego kierunku, wygrywa.
+
+Decyzja, czy wolno używać zegarka, należy do sędziów.
+
+### English — source text
+
+Each competitor is given a long straight stick in daytime, and told to lay it due north and south. In doing this he may guide himself by sun, moss, or anything he can find in nature--anything, indeed, except a compass.
+
+The direction is checked by a good compass corrected for the locality. The one who comes nearest wins.
+
+It is optional with the judges whether the use of a timepiece is to be allowed.
+
+## bsh-010 — Polowanie na króliki / Rabbit Hunt
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 300
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Gra w polowanie na króliki nadaje się dla dwóch myśliwych na ograniczonym terenie.
+
+Trzy małe worki z brązowego płótna żaglowego, każdy o wymiarach około osiem na dwanaście cali, są wypchane sianem.
+
+W dowolnym miejscu w lesie dwaj myśliwi stają w dziesięciostopowym okręgu ze swoimi łukami i strzałami. Jeden chłopiec jest zawiązany opaską na oczy; drugi, nie opuszczając okręgu, rzuca króliki w dobre kryjówki na ziemi. Następnie drugi myśliwy musi znaleźć króliki i trafić je, nie opuszczając okręgu. Najmniejsza liczba punktów wygrywa, podobnie jak w golfie. Jeśli myśliwy musi opuścić okrąg, otrzymuje jeden punkt za każdy krok, który wykonuje na zewnątrz. Po zauważeniu królika musi pozostać w tym miejscu i strzelać, aż trafi raz. Jeden strzał zabija go, niezależnie od miejsca trafienia. Za każdy chybiony strzał otrzymuje pięć punktów.
+
+Po pierwszym strzale do każdego królika osoba chowająca na zmianę strzela razem z nim.
+
+Jeśli to osoba chowająca zabije królika, myśliwy dodaje dziesięć punktów do swojego wyniku. Jeśli myśliwy trafi, odejmuje dziesięć od swojego wyniku.
+
+Jeśli myśliwy nie znajdzie wszystkich królików, otrzymuje dwadzieścia pięć punktów za każdego, którego się poddaje.
+
+Osoba chowająca nie może zdobywać punktów. Może jedynie wpędzić swojego przyjaciela w kłopoty. Następnym razem obaj zamieniają się miejscami.
+
+Mecz zwykle odbywa się na dwie pary królików.
+
+### English — source text
+
+The game of rabbit hunting is suited for two hunters in limited grounds.
+
+Three little sacks of brown burlap, each about eight inches by twelve, are stuffed with hay.
+
+At any given place in the woods the two hunters stand in a ten-foot circle with their bows and arrows. One boy is blindfolded; the other, without leaving the circle, throws the rabbits into good hiding places on the ground. Then the second hunter has to find the rabbits and shoot them without leaving the circle. The lowest number of points wins, as in golf. If the hunter has to leave the circle he gets one point for every step he takes outside. After he sees the rabbit he must keep to that spot and shoot till it is hit once. One shot kills it, no matter where struck. For every shot he misses he gets five points.
+
+After his first shot at each rabbit the hider takes alternate shots with him.
+
+If it is the hider who kills the rabbit, the hunter adds ten points to his score. If the hunter hits it, he takes ten off his score.
+
+If the hunter fails to find all the rabbits, he scores twenty-five for each one he gives up.
+
+The hider cannot score at all. He can only help his friend into trouble. Next time the two change places.
+
+A match is usually for two brace of rabbits.
+
+## bsh-011 — Wrogi Szpieg / Hostile Spy
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 300–301
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Na totemie wisi czerwony lub żółty koński ogon. To wielka skalp-medycyna bandy. Wrogi szpieg musi go ukraść. Przywódca krąży rankiem tego dnia i szepcze różnym wojownikom: "Uważajcie – w obozie jest szpieg." W końcu potajemnie zbliża się do tego, którego wybrał na szpiega, i szepcze: "Uważaj, w obozie jest szpieg, i to ty nim jesteś." Jednocześnie wręcza mu jakiś jaskrawo zabarwiony znak, który musi nosić, gdy tylko zdobędzie skalp-medycynę. Nie wolno mu ukrywać skalpu na sobie, lecz musi go trzymać na widoku. Ma cały dzień do zachodu słońca, by uciec z nim. Jeśli przedostanie się przez rzekę lub inną granicę, a wojownicy będą go ścigać z bliska, dają mu dziesięć grotów strzał (po dwa i pół centa każdy) lub inną ustaloną okup. Jeśli ucieknie bezpiecznie i ukryje skalp, może wrócić i zażądać od rady piętnastu grotów strzał jako okupu za skalp. Jeśli zostanie schwytany, płaci swemu pogromcy dziesięć grotów strzał jako okup za swoje życie.
+
+### English — source text
+
+Hanging from the totem pole is a red or yellow horse-tail. This is the grand medicine scalp of the band. The hostile spy has to steal it. The leader goes around on the morning of the day and whispers to the various braves, "Look out--there's a spy in camp." At length he gets secretly near the one he has selected for spy and whispers, "Look out, there's a spy in camp, and you are it." He gives him at the same time some bright-coloured badge, that he must wear as soon as he has secured the medicine scalp. He must not hide the scalp on his person, but keep it in view. He has all day till sunset to get away with it. If he gets across the river or other limit, with warriors in close pursuit, they give him ten arrow heads (two and one half cents each), or other ransom agreed on. If he gets away safely and hides it, he can come back and claim fifteen arrow heads from the council as ransom for the scalp. If he is caught, he pays his captor ten arrow heads ransom for his life.
+
+## bsh-012 — Polowanie na człowieka / The Man-Hunt
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 301
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Gra ta jest rozgrywana z jednym harcerzem i dziesięcioma lub więcej przeciwnikami, czyli ogarami, w zależności od terenu – więcej, gdy jest on nierówny lub zalesiony.
+
+Harcerz otrzymuje list zaadresowany do „Komendanta Wojskowego” (zazwyczaj pani domu, do której ma dotrzeć) w dowolnym miejscu oddalonym o jedną lub dwie mile. Ma on dostarczyć list do jednej z trzech wskazanych posesji, uzyskać jego potwierdzenie z godziną przybycia, a następnie wrócić do punktu wyjścia w określonym czasie.
+
+Przeciwnicy są wysyłani do punktu w połowie drogi i wypuszczani przez startera w tym samym czasie, w którym harcerz opuszcza obóz. Ich zadaniem jest przechwycenie go.
+
+Jeśli złapią go przed dostarczeniem listu, musi wykupić swoje życie, płacąc każdemu po dwie groty strzał (lub inną karę), a schwytujący zatrzymuje list jako trofeum. Jeśli przedostanie się, ale zostanie schwytany w drodze powrotnej, płaci połowę tej kwoty za swoje życie. Jeśli przedostanie się, ale przekroczy czas, jest remis. Jeśli dotrze pomyślnie na czas, żąda trzech grotów strzał od każdego przeciwnika i zatrzymuje list jako trofeum.
+
+Nie mogą podążać za nim do domu (czyli fortecy), ale mogą otoczyć go w odległości stu jardów. Nie wiedzą, które trzy domy może odwiedzić, ale wiedzą, że znajdują się one w określonych granicach.
+
+Harcerz powinien nosić wyraźny znak rozpoznawczy (czapkę, koszulę, płaszcz lub pióro), i może jechać na rowerze lub wozie itp., o ile jego znak jest wyraźnie widoczny.
+
+Dotknięcie harcerza nie oznacza schwytania. „Blokada jest wiążąca tylko wtedy, gdy jest skuteczna”.
+
+### English — source text
+
+This is played with a scout and ten or more hostiles, or hounds, according to the country, more when it is rough or wooded.
+
+The scout is given a letter addressed to the "Military Commandant" (usually the lady of the house that he gets to) of any given place a mile or two away. He is told to take the letter to anyone of three given houses, and get it endorsed, with the hour when he arrived, then return to the starting-point within a certain time.
+
+The hostiles are sent to a point half-way, and let go by a starter at the same time as the scout leaves the camp. They are to intercept him.
+
+If they catch him before he delivers the letter he must ransom his life by paying each two arrow heads (or other forfeit) and his captor keeps the letter as a trophy. If he gets through, but is caught on the road back, he pays half as much for his life. If he gets through, but is over time, it is a draw. If he gets through successfully on time he claims three arrow heads from each hostile and keeps the letter as a trophy.
+
+They may not follow him into the house (that is, the fort), but may surround it at one hundred yards distance. They do not know which three houses he is free to enter, but they do know that these are within certain limits.
+
+The scout should wear a conspicuous badge (hat, shirt, coat, or feather), and may ride a wheel or go in a wagon, etc., as long as his badge is clearly visible.
+
+To "tag" the scout is not to capture. "The blockade to be binding must be effectual."
+
+## bsh-013 — Polowanie na szopa / Hunt the Coon
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 301–302
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Jest to gra do przeprowadzenia w pomieszczeniu, oparta na znanej grze „Polowanie na naparstek”.
+
+Używamy małego szopa-zabawki; można go wykonać samodzielnie lub przerobić gotową zabawkę królika, dodając ogon i czarną maskę oraz przycinając uszy.
+
+Wszyscy gracze oprócz jednego wychodzą z pokoju. Ten jeden umieszcza szopa w dowolnym widocznym miejscu, wysoko lub nisko, ale w zasięgu wzroku; następnie wszyscy wchodzą i szukają. Pierwszy, który go znajdzie, siada cicho i zdobywa jeden punkt. Każdy siada po zauważeniu szopa, nie dając innym żadnej wskazówki.
+
+Zwycięzcą zostaje zazwyczaj ten, kto pierwszy zdobędzie trzy punkty za szopy. Czasami gramy, dopóki wszyscy oprócz jednego nie zdobędą punktu; ten jeden jest przegrywem. Pozostali zajmują pierwsze, drugie itd. miejsce.
+
+Czasami każdemu przydziela się numer w kolejności znalezienia szopa.
+
+Następnie, po siedmiu lub ośmiu szopach, numery te są sumowane, a najniższa suma wygrywa. Jeśli nie ma szopa, można użyć naparstka.
+
+### English — source text
+
+This is an in-door game, founded on the familiar "Hunt the Thimble."
+
+We use a little dummy coon; either make it or turn a ready-made toy rabbit into one by adding tail and black mask, and cropping the ears.
+
+All the players but one go out of the room. That one places the coon anywhere in sight, high or low, but in plain view; all come in and seek. The first to find it, sits down silently, and scores one. Each sits down, on seeing it, giving no clue to the others.
+
+The first to score three coons is winner, usually. Sometimes we play till everyone but one has a coon; that one is the booby. The others are first, second, etc.
+
+Sometimes each is given his number in order of finding it.
+
+Then, after seven or eight coons, these numbers are added up, and the lowest is winner. If no coon is available use a thimble.
+
+## bsh-014 — Walki włóczniami / Spear Fights
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 302
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Jest to gra halowa z bronią używaną na zewnątrz. Stosuje się miękkie, ośmiostopowe włócznie z turniejów rycerskich. Zawodnicy stoją na beczkach oddalonych od siebie o osiem stóp. Każdy stara się zrzucić przeciwnika z jego beczki. Dobrze jest mieć łapacza za każdym zawodnikiem, aby go złapać, jeśli spadnie.
+
+Gry rozgrywane są do siedmiu, jedenastu lub trzynastu punktów.
+
+### English — source text
+
+This is an in-door game with out-door weapons. The soft-headed, eight foot spears of the tilting-match are used. The contestants stand on barrels eight feet apart. Each tries to put the other off his barrel. It is well to have a catcher behind each player to save him if he falls.
+
+Games are for seven, eleven, or thirteen points.
+
+## bsh-015 — Taniec Pióra Nawaho / Navajo Feather Dance
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 302
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Orle pióro zawieszone na końskim włosie tak, aby stało pionowo, jest poruszane przez ukrytego operatora, tak by tańczyło i podskakiwało. Tancerz musi naśladować wszystkie jego ruchy. Można użyć marionetki. To świetna zabawa.
+
+### English — source text
+
+An eagle feather hung on a horse-hair, so as to stand upright, is worked by a hidden operator, so as to dance and caper. The dancer has to imitate all its motions. A marionette may be used. It is a great fun-maker.
+
+## bsh-016 — Piłka piórkowa albo dmuchanie piórka / Feather Football or Feather Blow
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 302
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Jest to gra do przeprowadzenia w pomieszczeniu, odpowiednia na deszczową pogodę.
+
+Gracze trzymają koc na kolanach lub na stole. W środku kładzie się miękkie piórko. Może grać tylu, ilu zmieści się w pobliżu. Mogą być podzieleni na drużyny, po dwóch lub czterech, albo każdy na własną rękę. Na sygnał „Start!” każdy stara się zdmuchnąć piórko z koca po stronie przeciwnika, aby zdobyć jeden punkt dla siebie.
+
+Partia zwykle najlepiej gra się do siedmiu, jedenastu lub trzynastu punktów.
+
+### English — source text
+
+This is an in-door, wet-weather game.
+
+The players hold a blanket on the knees or on the table. A soft feather is put in the middle. As many may play as can get near. They may be in sides, two or four or each for himself. At the signal, "Go!" each tries to blow the feather off the blanket at the enemy's side, and so count one for himself.
+
+A game is usually best out of seven, eleven, or thirteen.
+
+## bsh-017 — Walka kogutów / Cock-Fighting
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 302–303
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Weź dwie solidne pałki, każda długości dwóch stóp (nadają się kije od miotły). Na końcu każdej z nich umocuj kulkę ze szmatki. To są ostrogi. Zrób ring o średnicy ośmiu stóp. Dwaj rywale kucają, każdy z pałką przełożoną za kolanami, rękami splecionymi przed kolanami, a ramionami pod końcami ostróg.
+
+Teraz zbliżają się; każdy stara się przewrócić przeciwnika, sprawić, by stracił ostrogi, lub wypchnąć go poza ring – każde z tych działań kończy rundę i daje jeden punkt zwycięzcy. Jeśli obaj upadną, stracą ostrogę lub wyjdą poza ring jednocześnie, jest remis. Walka toczy się do siedmiu, jedenastu lub trzynastu rund.
+
+### English — source text
+
+Get two stout sticks, each two feet long (broomsticks will do). Pad each of these on the end with a ball of rag. These are the spurs. Make an eight-foot ring. The two rivals are on their hunkers, each with a stick through behind his knees, his hands clasped in front of the knees, and the arms under the ends of the spurs.
+
+Now they close; each aiming to upset the other, to make him lose his spurs, or to put him out of the ring, any of which ends that round and scores one for the victor. If both fall, or lose a spur, or go out together, it is a draw. Battle is for seven, eleven, or thirteen rounds.
+
+## bsh-018 — Przeciąganie ręczne / Hand-Wrestling
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 303
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Jest to gra z jiu-jitsu, wprowadzona przez dr. L. H. Gulicka. Dwaj zawodnicy stają palec prawej stopy przy palcu prawej stopy przeciwnika, każdy trzymając się prawą dłonią, lewe stopy w rozkroku, lewa ręka wolna. Na słowo „Start!” każdy próbuje wytrącić przeciwnika z równowagi: to znaczy zmusić go do uniesienia lub przesunięcia jednej ze stóp. Uniesienie lub przesunięcie stopy kończy rundę.
+
+Walki rozgrywane są do najlepszego wyniku z pięciu, siedmiu, jedenastu lub trzynastu rund.
+
+### English — source text
+
+This is a jiujitsu game, introduced by Dr. L. H. Gulick. The two contestants stand right toe to right toe, each right hand clasped, left feet braced, left hand free. At the word, "Go!" each tries to unbalance the other: that is, make him lift or move one of his feet. A lift or a shift ends the round.
+
+Battles are for best out of five, seven, eleven, or thirteen rounds.
+
+## bsh-019 — Przeciąganie borsuka / Badger-Pulling
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 303
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Dwaj zawodnicy, na rękach i kolanach, stają naprzeciwko siebie.
+
+Mocny pas lub rzemień zapinany jest w jedną dużą pętlę, która przechodzi wokół głowy każdego z nich: to znaczy, krzyżuje się na karku. W połowie drogi między nimi znajduje się linia graniczna. Ten, kto przeciągnie przeciwnika za tę linię, wygrywa.
+
+Zawodnik może w każdej chwili zakończyć pojedynek, opuszczając głowę tak, aby rzemień zsunął się; jednak liczy się to jako jeden punkt przeciwko niemu.
+
+Gra toczy się do pięciu, siedmiu, jedenastu lub trzynastu punktów.
+
+### English — source text
+
+The two contestants, on hands and knees, face each other.
+
+A strong belt or strap is buckled into one great loop that passes round the head of each: that is, crosses his nape. Half-way between them is a dead line. The one who pulls the other over this line is winner.
+
+The contestant can at any time end the bout by lowering his head so the strap slips off; but this counts one against him.
+
+Game is best out of five, seven, eleven, or thirteen points.
+
+## bsh-020 — Trucizna / Poison
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 303
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+To starożytna gra. Na ziemi rysuje się koło o średnicy około trzech stóp. Gracze, trzymając się za ręce, tworzą pierścień wokół niego i starają się zmusić jednego z uczestników do wejścia do trującego koła. Może on tego uniknąć, robiąc unik w bok, przeskakując nad nim lub wciągając do niego innego chłopaka.
+
+Ten, kto pierwszy popełni błąd, zostaje "nim" na ten czas lub na następną grę.
+
+### English — source text
+
+This is an ancient game. A circle about three feet across is drawn on the ground. The players, holding hands, make a ring around this, and try to make one of the number step into the poison circle. He can evade it by side-stepping, by jumping over, or by dragging another fellow into it.
+
+First to make the misstep is "it" for the time or for next game.
+
+## bsh-021 — Czapko-Piłka / Hat-Ball
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 303–304
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Gdy w 1907 roku przebywałem wśród Indian Czipewian nad Wielkim Jeziorem Niewolniczym, zyskałem popularność wśród młodych mężczyzn, a także chłopców, ucząc ich starej gry w czapko-piłkę.
+
+Gracze (około tuzina) ustawiają swoje czapki w rzędzie przy domu, płocie lub kłodzie (wgłębieniami do góry). Martwa linia jest wyznaczona dziesięć stóp od czapek; wszyscy muszą stać poza nią. Ten, kto jest "tym", zaczyna rzucając miękką piłką do jednej z czapek. Jeśli nie trafi w czapkę, do jego własnej wkładany jest żeton, i próbuje ponownie. Gdy tylko wrzuci piłkę do czapki, jej właściciel biegnie po piłkę; wszyscy pozostali uciekają. Właściciel nie może przekroczyć martwej linii, ale musi rzucić piłką w kogoś. Jeśli trafi, żeton trafia do czapki tej osoby; jeśli nie, żeton trafia do jego własnej.
+
+Gdy tylko ktoś zbierze pięć żetonów, wygrywa nagrodę pocieszenia: to znaczy, musi oprzeć dłoń stabilnie o ścianę, a każdy gracz ma pięć rzutów piłką, stojąc na martwej linii.
+
+### English — source text
+
+When I was among the Chepewyan Indians of Great Slave Lake, in 1907, I made myself popular with the young men, as well as boys, by teaching them the old game of hat-ball.
+
+The players (about a dozen) put their hats in a row near a house, fence, or log (hollows up). A dead line is drawn ten feet from the hats; all must stand outside of that. The one who is "it" begins by throwing a soft ball into one of the hats. If he misses the hat, a chip is put into his own, and he tries over. As soon as he drops the ball into a hat, the owner runs to get the ball; all the rest run away. The owner must not follow beyond the dead line, but must throw the ball at some one. If he hits him, a chip goes into that person's hat; if not, a chip goes into his own.
+
+As soon as some one has five chips, he wins the booby prize: that is, he must hold his hand out steady against the wall, and each player has five shots at it with the ball, as he stands on the dead line.
+
+## bsh-022 — Kaczka na skale / Duck-on-a-Rock
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 304
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+To stara, dobra gra dziadkowa.
+
+Każdy gracz ma duży, gładki, okrągławy kamień, około pięciu lub sześciu cali średnicy. To jego kaczka. Zachowuje ją na stałe.
+
+Skała do palców to każdy niski głaz, blok, pień, garb lub pagórek na płaskim terenie. Martwa linia jest narysowana przez skałę, a druga równoległa, piętnaście stóp dalej, jako linia strzału.
+
+Ten, kto jest "tym", czyli "stróżem", umieszcza swoją kaczkę na skale. Pozostali stoją na linii strzału i rzucają swoimi kaczkami w jego. Nie mogą ich podnosić ani dotykać rękami, gdy znajdują się poza martwą linią. Jeśli ktoś to zrobi, stróż może go dotknąć (chyba że zdąży wrócić na linię strzału) i wysłać go do pełnienia obowiązków stróża przy skale.
+
+Mogą jednak podprowadzać swoje kaczki nogami aż do martwej linii, ale nie dalej, a następnie wypatrywać okazji, by umknąć z powrotem na linię strzału, gdzie są bezpieczni przez cały czas.
+
+Jeśli kaczka zostanie strącona przez kogoś w uczciwym strzale, stróż jest bezradny, dopóki jej nie umieści z powrotem. W tym czasie większość graczy zdążyła już odzyskać swoje kaczki i bezpiecznie wrócić na linię strzału.
+
+### English — source text
+
+This is a good old grandfather game.
+
+Each player has a large, smooth, roundish stone, about five or six inches through. This is his duck. He keeps it permanently.
+
+Toe rock is any low bowlder, block, stump, bump, or hillock on level ground. A dead line is drawn through the rock, and another parallel, fifteen feet away, for a firing line.
+
+The fellow who is "it," or "keeper," perches his duck on the rock. The others stand at the firing line and throw their ducks at his. They must not pick them up or touch them with their hands when they are beyond the dead line. If one does, then the keeper can tag him (unless he reaches the firing line), and send him to do duty as keeper at the rock.
+
+But they can coax their ducks with their feet, up to the dead line, not beyond, then watch for a chance to dodge back to the firing line, where they are safe at all times.
+
+If the duck is knocked off by anyone in fair firing, the keeper is powerless till he has replaced it. Meantime, most of the players have secured their ducks and got back safely to the firing line.
+
+## bsh-023 — Krykiet przydrożny / Road-side Cribbage
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 304–305
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+To gra, w którą często gramy w pociągu, aby przyjemnie spędzić czas.
+
+Czasami jedna drużyna zajmuje prawą stronę drogi, przy tamtejszych oknach, a druga lewą. Czasami wszyscy gracze siedzą po tej samej stronie.
+
+Gra polega na tym, że kto pierwszy zauważy ustalone wcześniej rzeczy, zdobywa określoną liczbę punktów.
+
+A zatem: Wrona lub krowa daje 1 punkt
+Kot 2
+Jastrząb 3
+Sowa 4
+Owca 5
+Koza 6
+Koń 7
+
+Zwycięzcą jest ten, kto pierwszy zdobędzie dwadzieścia pięć lub pięćdziesiąt punktów, zgodnie z ustaleniami.
+
+Podczas pieszej wędrówki naturalnie wybiera się inne rzeczy na punkty, takie jak określone drzewa, kwiaty itp.
+
+### English — source text
+
+This is a game we often play in the train, to pass the time pleasantly.
+
+Sometimes one party takes the right side of the road, with the windows there, and the other the left. Sometimes all players sit on the same side.
+
+The game is, whoever is first to see certain things agreed on scores so many points.
+
+Thus: A crow or a cow counts 1 A cat 2 A hawk 3 An owl 4 A sheep 5 A goat 6 A horse 7
+
+The winner is the one who first gets twenty-five or fifty points, as agreed.
+
+When afoot, one naturally takes other things for points, as certain trees, flowers, etc.
+
+## bsh-024 — Zaznaczanie strzałki kredą / Chalk the Arrow
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 312
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Gra ta jest zazwyczaj rozgrywana na ulicach miasta, gdzie jeden gracz biegnie, starając się pozostać niewidocznym dla pozostałych, którzy go ścigają. Uciekający ma czas, by zniknąć za pierwszym rogiem, zanim inni ruszą za nim, a na każdym zakręcie, który mija, zaznacza (kredą) strzałkę wskazującą kierunek, w którym się udał. Ścigający podążają za strzałkami, a ten, kto pierwszy go dostrzeże, zostaje uciekającym w następnej rundzie.
+
+Można również grać w taki sposób, że biegnie dowolna liczba osób, a ściga tylko jedna, przy czym ten, kto zostanie schwytany, staje się "nim" w kolejnej rundzie.
+
+### English — source text
+
+This is usually played in the city streets, one player running and trying to keep out of sight of the others who follow. The runner is given time to disappear around the first corner before the others start after him, and at every corner he turns he marks (with chalk) an arrow pointing in the direction he takes. Those pursuing follow by the arrow, the first one seeing him being the runner for the next time.
+
+This may also be played by having any number run and only one follow, the first becoming "it" for the next time.
+
+## bsh-025 — Gra w zbijaka / Dodge Ball
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 312–313
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Dowolna liczba graczy dzieli się na dwie równe grupy: połowa tworzy koło, a druga połowa stoi wewnątrz pierścienia (w środku), zwrócona twarzą na zewnątrz. Zadaniem tych w środku jest unikanie piłki, którą rzucają gracze z koła, starając się trafić tych w środku i wyeliminować ich. Za każdym razem, gdy gracz zostanie trafiony, jest „wyeliminowany” i dołącza do graczy tworzących koło. Teraz ma szansę rzucać do tych, którzy pozostali w środku. Takie rozwiązanie sprawia, że wszyscy biorący udział są zajęci. Jednocześnie wyeliminowany jest tylko jeden gracz. Gra toczy się dalej, aż w końcu pozostanie tylko jeden. On zostaje okrzyknięty królem. W kolejnej rundzie gracze zamieniają się miejscami, tzn. ci, którzy byli w środku, teraz tworzą koło.
+
+Uwaga: Jeśli piłka odbije się od ziemi przed trafieniem, trafienie nie jest zaliczane.
+
+### English — source text
+
+Of any number of players, half of that number form a circle, while the other half stand inside of the ring (centre) facing outward. Now, the game for those in the centre is to dodge the ball which is thrown by any of those forming the circle with the intention of striking the centre ones out. Every time a member is struck he is dead, and takes his place among those of the circle. Now he has a chance to throw at those remaining in the centre. This arrangement keeps all taking part busy. Only one is out at a time. This being kept up until finally only one is left. He is hailed the king. For next round, players exchange places, i. e., those who were in the centre now form the circle.
+
+Note: If the touch is preceded by a bound of the ball it does not count.
+
+## bsh-026 — Baza więźnia / Prisoner's Base
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 313
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Na obu końcach placu zabaw wyznaczane są cele, a gracze dzieleni są na dwie równe drużyny, zajmujące te cele. Około dziesięciu kroków na prawo od każdego celu znajduje się więzienie. Gracz rusza w stronę przeciwnego celu, gdy ktoś z tamtej drużyny wyrusza, by go złapać. On się wycofuje, a ktoś z jego strony biegnie mu na ratunek, próbując złapać ścigającego – który z kolei jest wspierany przez kogoś ze swojej strony, i tak dalej. Każdy gracz może złapać każdego z przeciwnej drużyny, kto przebywa poza celem dłużej niż on. Każdy złapany gracz jest odprowadzany do więzienia przez swojego łapacza i musi tam pozostać, dopóki nie zostanie uwolniony przez kogoś ze swojej drużyny, kto dotknie go ręką. Ten, kto to zrobi, podlega złapaniu jak każdy inny gracz.
+
+### English — source text
+
+Goals are marked off at both ends of the playground, the players divided into two equal divisions, occupying the two goals. About ten paces to the right of each goal is a prison. A player advances toward the opposite goal, when one from that goal starts out to catch him. He retreats, and one from his side runs to his rescue by trying to catch the pursuer--who in turn is succored by one from his side, and so on. Every player may catch anyone from the opposite side who has been out of goal longer than he has. Any player caught is conducted to the prison by his captor and must remain there until rescued by some one from his side, who touches him with the hand. The one who does this is subject to being caught like any other player.
+
+## bsh-027 — Rzucanie włócznią / Throwing the Spear
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 313–314
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Gra ta jest starą grecką i perską rozrywką. „Rzuć włócznią i mów prawdę” – to narodowe motto Persów, które możemy z powodzeniem naśladować.
+
+Potrzebny sprzęt to kilka lekkich włóczni oraz tarcza do łucznictwa. Włócznie powinny mieć od pięciu do sześciu stóp długości; grot powinien być zakończony stalowym ostrzem z tuleją, w którą wkłada się drewniany trzonek, mocowany małymi śrubami przechodzącymi przez otwory w bokach metalu, a następnie w drewno. Drewno, na około stopę powyżej zadziora, powinno mieć około trzech czwartych cala średnicy, a od tego miejsca stopniowo zwężać się do około ćwierć cala grubości przy końcu włóczni.
+
+Niektóre włócznie są wyposażone w pióra, jak strzała, ale nie są one konieczne do uzyskania dobrego rzutu i szybko ulegają zniszczeniu przy ciągłym upadaniu na ziemię. Może posłużyć każda zwykła tarcza. Może to być tarcza do łucznictwa, worek wypełniony słomą lub darniowy wał.
+
+Celem konkursu jest trafienie w tarczę z określonej linii, linii strzału. Ten, kto najwięcej razy spośród sześciu rzutów trafi najbliżej środka tarczy, zostaje okrzyknięty zwycięzcą.
+
+Najlepsza postawa do rzucania to lewa noga wysunięta do przodu, noga idealnie prosta, ciało mocno odchylone do tyłu, ciężar ciała spoczywający na prawej nodze. Teraz wyciągnij lewą rękę do przodu, w linii z ramieniem i nad lewą nogą; włócznię trzymaj poziomo w prawej ręce, chwytając ją za środek ciężkości palcem wskazującym i kciukiem. Cofnij prawą rękę do tyłu, aż dłoń znajdzie się za prawym ramieniem.
+
+Teraz, lekko unosząc grot włóczni, wykonaj rzut, przesuwając prawą rękę do przodu, a za nią prawą stronę ciała, prawą nogę do przodu, a lewą rękę do tyłu. Możesz uważać się za szczęściarza, jeśli choć raz trafisz w tarczę w pierwszych kilku próbach, ale praktyka czyni cuda. Odległość powinna być ustalona wspólnie, ale pięćdziesiąt stóp dla chłopca piętnastoletniego i sto stóp dla dorosłego okaże się mniej więcej odpowiednie.
+
+„Rzucanie oszczepem” to inna odmiana tej rozrywki. Oszczep ma od czterech do pięciu stóp długości, trzy czwarte cala grubości i jest wyposażony w zadzior, nieco cięższy niż koniec włóczni. „Celem gry” jest rzucenie oszczepu jak najdalej, ale nie w tarczę; zamiast tego oszczep musi wbić się w ziemię.
+
+Rzucając oszczepem, trzymaj go w prawej ręce, lewa noga i ręka są wysunięte do przodu; zadzior i ręka powinny być w tym momencie z tyłu. Następnie, opisując półkole ręką nad prawym ramieniem i mocno odchylając się do tyłu, wyrzuć broń jak najdalej do przodu.
+
+### English — source text
+
+The game is an old Greek and Persian pastime. "Throw the spear and speak the truth," was a national maxim of the Persians that we may copy with advantage.
+
+The apparatus required is some light spears and an archery target. The spears should vary from five to six feet in length; the point should be shod with a steel tip, having a socket into which the wooden handle is fitted, and made fast by small screws passing through holes in the sides of the metal, and then into the wood itself. The wood, for about a foot above the barb, should be about three quarters of an inch in diameter, and from thence gradually taper to about a quarter of an inch in thickness until the end of the spear is reached.
+
+Some spears are fitted with feathers, like an arrow, but these are not necessary to obtain a good throw, and soon get dismantled in continually falling upon the ground. Any ordinary target will serve. It may be an archery target, a sack full of straw, or a sod bank.
+
+The object of the contest is to hit the target from a given mark, the firing line. Whoever throws nearest to the centre of the target the greatest number of times out of six shots is hailed the winner.
+
+The best form for throwing is with the left foot forward, the leg perfectly straight, body well back, its weight resting on the right leg. Now extend the left arm forward, in a line with the shoulder, and over the left leg; poise the spear horizontally in the right hand, holding at the centre of gravity by the forefinger and thumb. Bring the right arm backward until the hand is behind the right shoulder.
+
+Now, inclining the point of the spear slightly upward, make your cast, bringing the right arm forward, followed by the right side of the body, the right leg forward and the left arm backward. Count yourself fortunate if you even hit the target in the first few attempts, but practice will make a wonderful difference. The distance should be mutually agreed upon, but fifty feet for a boy of fifteen and one hundred feet for an adult will be found about right.
+
+To "throw the javelin" is another phase of this pastime. The javelin is four to five feet in length, three quarters of an inch in thickness, and fitted with a barbed end, slightly heavier than the spear end. The "object of the game" is to throw the javelin as far as possible but not at a target; instead, the javelin must stick into the ground.
+
+In throwing the javelin, hold it in the right hand, the left leg and hand being advanced; the barb and arm at this point should be at the rear. Then, describing a semicircle with the arm over the right shoulder, and leaning well to the rear, hurl the weapon as far as possible forward.
+
+## bsh-032 — Podążaj za przewodnikiem / Follow My Leader
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 315–316
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Przy dużej liczbie chłopców można z tego zrobić bardzo efektywne przedstawienie, łatwe do wykonania truchtem i z okazjonalnym "podnoszeniem kolan" przy akompaniamencie muzycznym. Można je również wykonywać nocą, gdy każdy chłopiec niesie chińską latarenkę na szczycie swojej laski. Jeśli odbywa się w budynku, wszystkie światła oczywiście byłyby przygaszone. Typowym błędem jest zbyt długie utrzymywanie ćwiczenia, aż zmęczy ono zarówno publiczność, jak i wykonawców.
+
+### English — source text
+
+With a large number of boys this can be made a very effective display, and is easy to do at a jog trot, and occasional "knee-up" with musical accompaniment. It also can be done at night, each boy carrying a Chinese lantern on top of his staff. If in a building all lights, of course, would be turned down. A usual fault is that the exercise is kept on too long, till it wearies both audience and performers.
+
+## bsh-035 — Sztuki improwizowane / Unprepared Plays
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 316–317
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Podaj fabułę krótkiej, prostej sztuki i przydziel każdemu graczowi jego rolę, wraz z zarysem tego, co ma robić i mówić, a następnie pozwól im ją odegrać, wymyślając potrzebne dialogi na bieżąco.
+
+Rozwija to zdolność wyobraźni i ekspresji na tematy utrwalone w pamięci i jest cennym środkiem edukacyjnym.
+
+Przed rozpoczęciem odgrywania sztuki w ten sposób warto być nieco mniej ambitnym i sprawić, by dwóch lub trzech graczy przeprowadziło jedynie rozmowę na zadane tematy, prowadzącą do określonego punktu, używając własnych słów i wyobraźni.
+
+### English — source text
+
+Give the plot of a short, simple, play and assign to each player his part, with an outline of what he has to do and say, and then let them act it, making up the required conversation as they go along.
+
+This develops the power of imagination and expression on points kept in the mind, and is a valuable means of education.
+
+It is well before starting to act a play in this way to be a little less ambitious, and to make two or three players merely carry out a conversation on given topics leading up to a given point, using their own words and imaginations in doing so.
+
+## bsh-036 — Poszukiwanie skarbu / The Treasure Hunt
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 317
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Poszukiwanie skarbu wymaga spostrzegawczości i umiejętności tropienia, a praktycznie dowolna liczba uczestników może wziąć w nim udział.
+
+Poniżej przedstawiono kilka sposobów przeprowadzenia tej gry.
+
+1. Skarb jest ukryty, a harcerze wiedzą, czym jest skarb; otrzymują pierwszą wskazówkę, a na jej podstawie można odnaleźć wszystkie kolejne. Takie wskazówki mogą być (a) zapisane na słupku bramy: "Idź na zachód i zbadaj trzecią bramę po północnej stronie strumienia"; (b) na tej bramie znak harcerski wskazujący na tablicę ogłoszeń, na której napisano: "Skręć na południe południowy-wschód od słupa telegraficznego nr 28" itd. Wskazówki powinny być sformułowane w taki sposób, aby wymagały pewnej umiejętności ich zrozumienia, a różne punkty powinny być trudno dostępne z jednego miejsca. Ta metoda może być wykorzystana jako konkurs drużynowy, rozpoczynając start drużyn w dziesięciominutowych odstępach, a przy jednej konkretnej wskazówce mogą być różne polecenia dla każdej drużyny, aby uniemożliwić drużynom z tyłu podążanie za pierwszą.
+
+2. Wskazówki mogą być kawałkami kolorowego drewna przywiązanymi do bram, żywopłotów itp. w odstępach około trzech jardów, prowadzącymi w określonym kierunku, a gdy te wskazówki się kończą, powinno być wiadomo, że skarb jest ukryty w odległości tylu a tylu stóp. Aby zapobiec sprowadzeniu tej gry do zwykłej zabawy w "chodzenie za przewodnikiem", można rozłożyć kilka ścieżek prowadzących do tego samego punktu, a fałszywe tropy mogą prowadzić z powrotem do punktu wyjścia.
+
+3. Każdy zawodnik lub drużyna może otrzymać opis drogi – każdy być może nieco inny; opis powinien wymagać odwiedzenia każdego miejsca po kolei i uniemożliwiać "skracanie" drogi w następujący sposób: "Idź do najwyższego drzewa w pewnym polu, stamtąd przejdź sto jardów na północ, a następnie idź prosto w kierunku wieży kościelnej, która będzie po twojej lewej stronie" itd. Wszystkie opisy powinny prowadzić równie długą drogą do określonego miejsca, w którym ukryty jest skarb. Ten, kto dotrze tam pierwszy, nie powinien dać innym znać, że to właśnie to miejsce, ale powinien szukać skarbu w możliwie najbardziej swobodny sposób.
+
+### English — source text
+
+The treasure hunt needs observation and skill in tracking, and practically any number can take part in it.
+
+Several ways of playing the game are given below.
+
+1. The treasure is hidden and the scouts know what the treasure is; they are given the first clew, and from this all the others can be traced. Such clews might be (a) written on a gate post: "Go west and examine third gate on north side of stream"; (b) on that gate, scout's sign pointing to notice board on which is written, "Strike south by south-east telegraph post, No. 28," and so on. The clews should be so worded as to need some skill to understand, and the various points should be difficult of access from one another. This method might be used as a patrol competition, starting off patrols at ten-minute intervals, and at one particular clew there might be different orders for each patrol, to prevent the patrols behind from following the first.
+
+2. The clews may be bits of colored wood tied to gates, hedges, etc., at about three-yard intervals, leading in a certain direction, and when these clews come to the end it should be known that the treasure is hidden within so many feet. To prevent this degenerating into a mere game of follow my leader, several tracks might be laid working up to the same point, and false tracks could be laid, which only lead back again to the original.
+
+3. Each competitor or patrol might be given a description of the way--each perhaps of a slightly different way; the description should make it necessary to go to each spot in turn; and prevent any "cutting" in the following way: "Go to the tallest tree in a certain field, from there go one hundred yards north, and then walk straight toward a church tower which will be on your left," etc. All the descriptions should lead by an equal journey to a certain spot where the treasure is hidden. The first to arrive at that spot should not let the others know it is the spot, but should search for the treasure in as casual a manner as possible.
+
+## bsh-037 — Błędny ognik / Will-o'-the-Wisp
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 317–318
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Gra ta powinna odbywać się w terenie nocą. Dwóch harcowników wyrusza w określonym kierunku z zapaloną latarnią typu bull's-eye. Po upływie dwóch minut patrol lub drużyna rozpoczyna pościg.
+
+Niosący latarnię musi pokazywać światło przynajmniej co minutę, ukrywając je przez resztę czasu. Dwaj harcownicy zmieniają się w noszeniu światła i mogą odciążać się w trudnościach, ale każdy z nich może zostać schwytany. Harcownik bez światła często może wmieszać się w grupę ścigających, nie będąc rozpoznanym, i odciążyć swego towarzysza, gdy ten jest mocno naciskany. Powinni ustalić między sobą określone okrzyki lub sygnały.
+
+### English — source text
+
+This game should take place across country at night. Two scouts set off in a given direction with a lighted bull's-eye lantern. After two minutes have passed the patrol or troop starts in pursuit.
+
+The lantern bearer must show his light at least every minute concealing it for the rest of the time. The two scouts take turns in carrying the light, and so may relieve each other in difficulties, but either may be captured. The scout without the light can often mingle with the pursuers without being recognized and relieve his friend when he is being hard pressed. They should arrange certain calls or signals between themselves.
+
+## bsh-038 — Wyspa Skarbów / Treasure Island
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 318
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Wiadomo, że skarb jest ukryty na pewnej wyspie lub fragmencie brzegu, który został oznaczony, a człowiek, który go ukrył, pozostawia mapę ze wskazówkami do jego odnalezienia (kompas, kierunki, znaki pływów itp.). Mapa ta jest ukryta gdzieś w pobliżu miejsca lądowania; patrole przychodzą kolejno, aby jej szukać – muszą przepłynąć łodzią z określonej odległości, wylądować, odnaleźć mapę, a w końcu odkryć skarb. Powinni uważać, aby nie pozostawiać śladów stóp itp. w pobliżu skarbu, ponieważ wtedy patrole, które przybędą po nich, łatwo go znajdą. Mapę i skarb należy ukryć na nowo dla kolejnego patrolu, gdy zostaną odnalezione. Wygrywa patrol, który wróci na miejsce startu ze skarbem w najkrótszym czasie. (Gra może być rozgrywana na rzece, gdzie patrole muszą przepłynąć łodzią na drugi brzeg, aby odnaleźć skarb.)
+
+### English — source text
+
+A treasure is known to be hidden upon a certain island or bit of shore marked off, and the man who hid it leaves a map with clews for finding it (compass, directions, tide marks, etc.). This map is hidden somewhere near the landing-place; the patrols come in turn to look for it--they have to row from a certain distance, land, find the map, and finally discover the treasure. They should be careful to leave no foot tracks, etc., near the treasure, because then the patrols that follow them will easily find it. The map and treasure are to be hidden afresh for the next patrol when they have been found. The patrol wins which returns to the starting place with the treasure in the shortest time. (This can be played on the river, the patrols having to row across the river to find the treasure.)
+
+## bsh-039 — Turniej Konia i Jeźdźca / Horse and Rider Tourney
+
+Source: Ernest Thompson Seton, Boy Scouts Handbook: The Games (1911); https://www.gutenberg.org/ebooks/29558
+Kinds: game; printed pages: 318
+
+### Polski — tłumaczenie automatyczne (mistral-large-2512, bez weryfikacji człowieka)
+
+Aby zagrać w tę grę, potrzebny jest miękki, aksamitny kawałek trawy, a jeśli gra odbywa się w pomieszczeniu, w sali gimnastycznej, należy pokryć podłogę standardowymi matami gimnastycznymi. Do gry potrzeba czterech chłopców, dwóch będących końmi, a dwóch jeźdźcami. Jeźdźcy dosiadają swoich koni i z wielką ostrożnością ruszają na siebie, starając się dobrze chwycić przeciwnika w taki sposób, aby zmusić go do zsunięcia się z wierzchowca. Można to osiągnąć albo przez ściągnięcie go z konia, albo przez spowodowanie, że koń i jeździec stracą równowagę i upadną. Z tej gry można czerpać wiele radości, a chłopcy po krótkiej praktyce stają się bardzo zręczni.
+
+### English — source text
+
+In playing this game it is necessary to have a soft, velvety piece of grass, or if in doors, in the gymnasium, cover the floor with regular gymnasium mats. It requires four boys to play the game, two being horses and the other two riders. The riders mount their horses and dash at each other with great caution, striving to get a good hold of each other in such a way as to compel the opponent to dismount. This can be done either by dragging him from his mount or by making the horse and rider lose their balance so as to throw them off their feet. A great deal of sport can be gotten out of this game, and boys become very skilful after a little practice.
+
 ## hwp-001 — Czytanie mapy w terenie / Reading a Map in the Field
 
 Source: Zygmunt Wyrobek, Harcerz w polu: zabawy i gry terenowe (1946); https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0

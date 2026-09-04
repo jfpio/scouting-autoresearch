@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "bsh-1911-seton-games",
+  "sourceUrl": "https://www.gutenberg.org/ebooks/29558",
+  "downloadUrl": "https://www.gutenberg.org/cache/epub/29558/pg29558.txt",
+  "sourceSha256": "f6ba6ea041a93d91c060b64bbc39b7361bab94085466b1ad39d27512f48b4791",
+  "parserVersion": "gutenberg-text-paragraphs-v1",
+  "transcriptionEvidence": {
+    "sourceStatement": "Project Gutenberg identifies printed page numbers in braces, illustration descriptions in indented brackets and italics between underscores.",
+    "sourceLocation": "Project Gutenberg transcriber's note before the pinned UTF-8 text.",
+    "internalEditionEvidence": "The title page identifies Doubleday, Page & Company and 1911; Chapter VIII identifies The Games as by Ernest Thompson Seton and begins on printed page 291.",
+    "deterministicNormalization": [
+      "omit Project Gutenberg header, footer, license and digital packaging",
+      "omit bracketed illustration descriptions",
+      "remove printed page markers after using them for provenance",
+      "join hard-wrapped lines and collapse whitespace within source paragraphs",
+      "omit the repeated standalone activity heading"
+    ],
+    "lexicalModernization": false
+  },
+  "selection": {
+    "scope": "Individually bounded games within The Games on printed pages 291-319, subject to component attribution and cross-corpus duplicate checks.",
+    "excludedGroups": [
+      {
+        "label": "Baden-Powell-attributed range",
+        "reason": "The handbook explicitly says the games from Lion Hunting through Hare and Hounds are from General Baden-Powell.",
+        "examples": [
+          "Lion Hunting",
+          "Plant Race",
+          "Flag Raiding",
+          "Kim's Game",
+          "Hare and Hounds"
+        ]
+      },
+      {
+        "label": "Daniel Carter Beard contribution",
+        "reason": "The heading explicitly credits Daniel Carter Beard rather than Seton.",
+        "examples": [
+          "Mumbly Peg"
+        ]
+      },
+      {
+        "label": "Exact and near duplicates",
+        "reason": "Existing Scouting for Boys records are preferred when the text is the same; material variants require an explicit relation.",
+        "examples": [
+          "Arctic Expedition",
+          "Dragging Race",
+          "Far and Near",
+          "Fire-lighting Race",
+          "Mountain Scouting",
+          "Knight Errantry"
+        ]
+      },
+      {
+        "label": "Other handbook material",
+        "reason": "The approved component ends before Outdoor Athletic Standards and excludes illustrations, captions, advertisements and other chapters.",
+        "examples": [
+          "Outdoor Athletic Standards"
+        ]
+      }
+    ]
+  },
+  "activityCount": 33,
+  "activities": [
+    {
+      "id": "bsh-001",
+      "title": "Deer Hunting",
+      "startBlock": 2144,
+      "endBlockExclusive": 2160,
+      "printedPages": [
+        291,
+        292,
+        293
+      ],
+      "sourceBlockSha256": "85ecef9434056f92c2f6bb0ec046a543f7c666d5b63328dbc00a2255f5c46281"
+    },
+    {
+      "id": "bsh-002",
+      "title": "The Bear Hunt",
+      "startBlock": 2160,
+      "endBlockExclusive": 2169,
+      "printedPages": [
+        293,
+        294
+      ],
+      "sourceBlockSha256": "5f30fa040dde1dfb91657bede60d6229b01585277171abeccc134e3e1001fc31"
+    },
+    {
+      "id": "bsh-003",
+      "title": "Spearing the Great Sturgeon",
+      "startBlock": 2169,
+      "endBlockExclusive": 2188,
+      "printedPages": [
+        295,
+        296
+      ],
+      "sourceBlockSha256": "f1eeefc1995fd67b41200892261c9a80b6dc551309967d86d995a3321437bec6"
+    },
+    {
+      "id": "bsh-004",
+      "title": "Tilting In The Water",
+      "startBlock": 2188,
+      "endBlockExclusive": 2194,
+      "printedPages": [
+        296,
+        297
+      ],
+      "sourceBlockSha256": "d49cffd4188b11cf50c15e85138f5fcb95dd8d97fe31189d425fa7b142a4a8f6"
+    },
+    {
+      "id": "bsh-005",
+      "title": "Canoe Tag",
+      "startBlock": 2194,
+      "endBlockExclusive": 2197,
+      "printedPages": [
+        297,
+        298
+      ],
+      "sourceBlockSha256": "cd5f4eae6ac1340c9a49d8ab836a5bf0c20228d9f24742c06056f2ea0701a43c"
+    },
+    {
+      "id": "bsh-006",
+      "title": "Scouting",
+      "startBlock": 2197,
+      "endBlockExclusive": 2205,
+      "printedPages": [
+        298
+      ],
+      "sourceBlockSha256": "365b3786a037fca678e7d1274d2e812933a55df772ca5ea76276730966b7f6a2"
+    },
+    {
+      "id": "bsh-007",
+      "title": "The Game of Quicksight",
+      "startBlock": 2205,
+      "endBlockExclusive": 2208,
+      "printedPages": [
+        298,
+        299
+      ],
+      "sourceBlockSha256": "ee2f50aafec252a5b57fffddf4ec9a7a2e9ee01a0bf94f1fdd27e3c3f279fe0b"
+    },
+    {
+      "id": "bsh-008",
+      "title": "Farsight, or Spot the Rabbit",
+      "startBlock": 2208,
+      "endBlockExclusive": 2210,
+      "printedPages": [
+        299
+      ],
+      "sourceBlockSha256": "0e9ce52208ffdedc0cacc88c38f521a0811207289f3e7dad71c17f7f4ed26135"
+    },
+    {
+      "id": "bsh-009",
+      "title": "Pole-star",
+      "startBlock": 2210,
+      "endBlockExclusive": 2214,
+      "printedPages": [
+        299,
+        300
+      ],
+      "sourceBlockSha256": "265545c47875410816fa3607e0075f62c55969544e4b562d4d69ed73cfab1aa7"
+    },
+    {
+      "id": "bsh-010",
+      "title": "Rabbit Hunt",
+      "startBlock": 2214,
+      "endBlockExclusive": 2223,
+      "printedPages": [
+        300
+      ],
+      "sourceBlockSha256": "5e79b047e42af736fe9be5e7cc9c6328ddc5805d51c08bbed91fee334a161493"
+    },
+    {
+      "id": "bsh-011",
+      "title": "Hostile Spy",
+      "startBlock": 2223,
+      "endBlockExclusive": 2225,
+      "printedPages": [
+        300,
+        301
+      ],
+      "sourceBlockSha256": "82a8298fa829ab1ab33c65093164d3b3d57f09d6c51e129a780a8a915306c7b8"
+    },
+    {
+      "id": "bsh-012",
+      "title": "The Man-Hunt",
+      "startBlock": 2225,
+      "endBlockExclusive": 2233,
+      "printedPages": [
+        301
+      ],
+      "sourceBlockSha256": "f4280515d62bf1890f1d85b935b4e1f09ae5b091a9fb080cd4b9230a0a81f3e5"
+    },
+    {
+      "id": "bsh-013",
+      "title": "Hunt the Coon",
+      "startBlock": 2233,
+      "endBlockExclusive": 2240,
+      "printedPages": [
+        301,
+        302
+      ],
+      "sourceBlockSha256": "07729dd2e99eeab75b544820c36d5e5d29bef25e0f0057e4c1201a58c991ab82"
+    },
+    {
+      "id": "bsh-014",
+      "title": "Spear Fights",
+      "startBlock": 2240,
+      "endBlockExclusive": 2243,
+      "printedPages": [
+        302
+      ],
+      "sourceBlockSha256": "40e8568ac10b94cbe60a32cd7e7326e70c00a3fcec1531b6ad678f4eaff7b571"
+    },
+    {
+      "id": "bsh-015",
+      "title": "Navajo Feather Dance",
+      "startBlock": 2243,
+      "endBlockExclusive": 2245,
+      "printedPages": [
+        302
+      ],
+      "sourceBlockSha256": "3ad077983c12e4283b7e46e0ec8afae6dce9036d4359250d03e504a11097890f"
+    },
+    {
+      "id": "bsh-016",
+      "title": "Feather Football or Feather Blow",
+      "startBlock": 2245,
+      "endBlockExclusive": 2249,
+      "printedPages": [
+        302
+      ],
+      "sourceBlockSha256": "578e8e3d79de3a4d1029b7e04a5d105a5c4c9e8d8fce995d2d3018df30e3f82d"
+    },
+    {
+      "id": "bsh-017",
+      "title": "Cock-Fighting",
+      "startBlock": 2249,
+      "endBlockExclusive": 2252,
+      "printedPages": [
+        302,
+        303
+      ],
+      "sourceBlockSha256": "6c98b74b6d28be788942f636dbf87b6d8926c4f19412e874d967d620e3aafd67"
+    },
+    {
+      "id": "bsh-018",
+      "title": "Hand-Wrestling",
+      "startBlock": 2252,
+      "endBlockExclusive": 2255,
+      "printedPages": [
+        303
+      ],
+      "sourceBlockSha256": "22a6929249f4c002d2ac39e121303ed8bff1d5f5a09ed1ae1c209681c9422d97"
+    },
+    {
+      "id": "bsh-019",
+      "title": "Badger-Pulling",
+      "startBlock": 2255,
+      "endBlockExclusive": 2260,
+      "printedPages": [
+        303
+      ],
+      "sourceBlockSha256": "131312f64d230261528d21ef8c44be64d368caefa55932fb48968ead33e6c8ea"
+    },
+    {
+      "id": "bsh-020",
+      "title": "Poison",
+      "startBlock": 2260,
+      "endBlockExclusive": 2263,
+      "printedPages": [
+        303
+      ],
+      "sourceBlockSha256": "54b61aa4a7a3846e038cc6adf77cb3550f9b9e82ee4d657b0bd21cdd650c53c5"
+    },
+    {
+      "id": "bsh-021",
+      "title": "Hat-Ball",
+      "startBlock": 2263,
+      "endBlockExclusive": 2267,
+      "printedPages": [
+        303,
+        304
+      ],
+      "sourceBlockSha256": "77f12694c617bcd98a22e1945a027e9f1525fa728797b84ba379d58c34f6eb20"
+    },
+    {
+      "id": "bsh-022",
+      "title": "Duck-on-a-Rock",
+      "startBlock": 2267,
+      "endBlockExclusive": 2274,
+      "printedPages": [
+        304
+      ],
+      "sourceBlockSha256": "6314e78f1b4b08f3c7f0fc0711209ac00feb1012254a5c09c0b49a3e4b8a359e"
+    },
+    {
+      "id": "bsh-023",
+      "title": "Road-side Cribbage",
+      "startBlock": 2274,
+      "endBlockExclusive": 2281,
+      "printedPages": [
+        304,
+        305
+      ],
+      "sourceBlockSha256": "596ab6d0e5caa48113a2a6d35559a80619c6172fb7ea7ebca86193ae10031fb7"
+    },
+    {
+      "id": "bsh-024",
+      "title": "Chalk the Arrow",
+      "startBlock": 2366,
+      "endBlockExclusive": 2369,
+      "printedPages": [
+        312
+      ],
+      "sourceBlockSha256": "0c96e492e77ab18c37af7c6901826d32fc3761373fa6934751f6b587415774c4"
+    },
+    {
+      "id": "bsh-025",
+      "title": "Dodge Ball",
+      "startBlock": 2369,
+      "endBlockExclusive": 2372,
+      "printedPages": [
+        312,
+        313
+      ],
+      "sourceBlockSha256": "fa4138d02a7b40ca44ef9a66bea551c216c17e7a3053b1d621ac83d8e8edd0a1"
+    },
+    {
+      "id": "bsh-026",
+      "title": "Prisoner's Base",
+      "startBlock": 2372,
+      "endBlockExclusive": 2374,
+      "printedPages": [
+        313
+      ],
+      "sourceBlockSha256": "e76304d3905d09336904a5db1471056767eed0c41dceb34d6fce6391378570a1"
+    },
+    {
+      "id": "bsh-027",
+      "title": "Throwing the Spear",
+      "startBlock": 2374,
+      "endBlockExclusive": 2383,
+      "printedPages": [
+        313,
+        314
+      ],
+      "sourceBlockSha256": "cf038672c4bd20a04bcc7e8d7d5a3754f4c3e6d2fd0ed5ceaa3676eb2c01317a"
+    },
+    {
+      "id": "bsh-032",
+      "title": "Follow My Leader",
+      "startBlock": 2396,
+      "endBlockExclusive": 2398,
+      "printedPages": [
+        315,
+        316
+      ],
+      "sourceBlockSha256": "60cee26882a4b3c87455d45f341737f95497c195798605dc8b17d3212e870dcc"
+    },
+    {
+      "id": "bsh-035",
+      "title": "Unprepared Plays",
+      "startBlock": 2404,
+      "endBlockExclusive": 2408,
+      "printedPages": [
+        316,
+        317
+      ],
+      "sourceBlockSha256": "515dd94a45996b62fcf6d67ba2a89445e171bd3dff026a419fe598e4b4784b57"
+    },
+    {
+      "id": "bsh-036",
+      "title": "The Treasure Hunt",
+      "startBlock": 2408,
+      "endBlockExclusive": 2414,
+      "printedPages": [
+        317
+      ],
+      "sourceBlockSha256": "c18503b11a79ba05f6c9d9729874dbe54db7c6a974a05873cfa505d1977f0602"
+    },
+    {
+      "id": "bsh-037",
+      "title": "Will-o'-the-Wisp",
+      "startBlock": 2414,
+      "endBlockExclusive": 2417,
+      "printedPages": [
+        317,
+        318
+      ],
+      "sourceBlockSha256": "9f8f76ffe207cfbd21097336c346611c4c96abdfc2ee6df0ff6f0a51d471481c"
+    },
+    {
+      "id": "bsh-038",
+      "title": "Treasure Island",
+      "startBlock": 2417,
+      "endBlockExclusive": 2419,
+      "printedPages": [
+        318
+      ],
+      "sourceBlockSha256": "34900f8ea2f0ef07b5e8cb52b930cf05d276b53e5b7e28809b7cbe4e3a809de1"
+    },
+    {
+      "id": "bsh-039",
+      "title": "Horse and Rider Tourney",
+      "startBlock": 2419,
+      "endBlockExclusive": 2421,
+      "printedPages": [
+        318
+      ],
+      "sourceBlockSha256": "3346aa51685baa2b5442823d0fcd18e363803dac08ac23f96dad9024cc808cdb"
+    }
+  ],
+  "deduplication": {
+    "exactBodyMatches": [],
+    "nearDuplicateThreshold": 0.45,
+    "nearDuplicateCandidates": []
+  },
+  "reviewRequired": true,
+  "wholeSourceCopiedToRepository": false
+}
