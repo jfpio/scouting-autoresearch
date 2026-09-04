@@ -1,0 +1,28 @@
+schemaVersion: 1
+policy:
+  keepSeparateRecords: true
+  bidirectionalLinks: true
+  humanApprovalRequired: true
+  exposeAlgorithmicCandidates: false
+relations:
+  - id: similar-bsh-037-hwp-041
+    relationType: highly-similar-variant
+    activityIds: [bsh-037, hwp-041]
+    status: human-approved
+    humanDecision:
+      approvedBy: repository-owner
+      approvedAt: "2026-09-04"
+      basis: >-
+        Owner instructed that this identified pair should remain as separate source records
+        while each activity page explicitly links to the other as a highly similar game.
+    evidence:
+      report: data/reports/near-duplicates.json
+      algorithmVersion: tfidf-word-unigram-bigram-cosine-v1
+      tfidfCosine: 0.23061245
+    notes:
+      pl: >-
+        Oba warianty opisują nocny pościg za harcerzami przekazującymi sobie latarkę i
+        pokazującymi światło w ustalonych odstępach.
+      en: >-
+        Both variants describe a night pursuit of scouts who pass a lantern between them
+        and reveal its light at fixed intervals.
