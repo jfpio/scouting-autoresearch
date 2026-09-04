@@ -119,3 +119,27 @@ collections:
       i regionalnych bibliotek cyfrowych, ale nie nadaje praw do materiałów docelowych.
       Do czasu decyzji właściciela wolno pobierać wyłącznie metadane stron. Pliki, pełny
       tekst, obrazy i automatyczne przechodzenie do serwisów docelowych pozostają wyłączone.
+  - id: archiwum-harcerskie
+    name: Archiwum Harcerskie
+    baseUrl: https://archiwumharcerskie.pl/
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 5
+    trustScope: archival-metadata-discovery
+    reviewRecord: vault/reviews/inbox/collection-archiwum-harcerskie.md
+    metadataApiUrl: https://archiwumharcerskie.pl/api.php
+    robotsTxt:
+      url: https://archiwumharcerskie.pl/robots.txt
+      checkedAt: "2026-09-04"
+      status: not-found-404
+    termsOfUse:
+      checkedAt: "2026-09-04"
+      status: all-rights-reserved-and-configured-license-page-missing
+      legalPage: https://archiwumharcerskie.pl/index.php?title=Archiwum:Informacje_prawne
+      configuredLicensePage: https://archiwumharcerskie.pl/index.php?title=Archiwum:Warunki_korzystania_z_archiwaliów
+    notes: >-
+      Oficjalna strona prawna zastrzega prawa do całego serwisu i wyłącza GFDL oraz CC.
+      Skonfigurowana strona warunków korzystania z archiwaliów obecnie nie istnieje. Do
+      czasu decyzji właściciela wolno pobierać wyłącznie metadane stron; API, pliki, pełny
+      tekst i obrazy pozostają wyłączone. Domena publiczna utworu nie znosi osobnych
+      warunków serwisu ani praw do opisu, reprodukcji i innych składników.
