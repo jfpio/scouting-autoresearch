@@ -81,3 +81,17 @@ collections:
     allowedMethods: [metadata-only]
     rateLimitPerMinute: 5
     notes: Każda domena i kolekcja wymaga osobnego wpisu przed pobieraniem.
+  - id: gallica-bnf
+    name: Gallica / Bibliothèque nationale de France
+    baseUrl: https://gallica.bnf.fr/
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 5
+    attribution: Source gallica.bnf.fr / Bibliothèque nationale de France
+    termsUrl: https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica
+    notes: >-
+      Metadane BnF są dostępne na otwartej licencji z podaniem źródła i daty pobrania.
+      Gallica zezwala na bezpłatne ponowne użycie treści niekomercyjne z atrybucją, ale
+      użycie komercyjne wymaga odpłatnej licencji. Pobranie dokumentu pozostaje wyłączone
+      do czasu zatwierdzenia przez właściciela konkretnego zakresu, warunków i sposobu
+      użycia; oznaczenie public domain nie obejmuje automatycznie osobnych wkładów.
