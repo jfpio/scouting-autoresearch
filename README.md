@@ -219,6 +219,10 @@ Zatwierdzona relacja `bsh-037`–`hwp-041` jest w obu kierunkach najbliższym s�
 w embeddingach V3. Trustworthiness projekcji przy `k=10` wynosi 0,72618405, a najniższa
 korelacja rangowa odległości między dodatkowymi ziarnami wynosi 0,81821257.
 
+Dwujęzyczna strona `/map/` pokazuje wyłącznie punkty, filtr źródła i zatwierdzone relacje.
+Ma równoważną listę linków oraz obsługę klawiatury. Nie publikuje kandydatur algorytmicznych;
+filtry kategorii i skali uczestników pozostają wyłączone do decyzji człowieka.
+
 Kod obsługuje też przepis `activity-context-v2`, który przed skróceniem kontekstu usuwa
 techniczną stopkę źródłową oraz adresy URL z Markdown, zachowując tekst widoczny odnośników.
 Zmiana `recipeVersion` jest jawna i celowo unieważnia wcześniejsze cache’e. Wszystkie 202

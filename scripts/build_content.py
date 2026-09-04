@@ -340,6 +340,36 @@ def sources_page(locale: str, sources: dict[str, dict]) -> str:
     return "\n".join(lines)
 
 
+def semantic_map_page(locale: str) -> str:
+    is_pl = locale == "pl"
+    title = "Mapa semantyczna gier" if is_pl else "Semantic map of games"
+    description = (
+        "Eksploracyjna mapa podobieństwa 199 historycznych gier z filtrem źródła i dostępną listą."
+        if is_pl
+        else "An exploratory similarity map of 199 historical games with a source filter and accessible list."
+    )
+    component_path = (
+        "../../components/SemanticMap.astro"
+        if is_pl
+        else "../../../components/SemanticMap.astro"
+    )
+    caveat = (
+        "> **Jak czytać mapę:** bliskie punkty mają podobny tekst według embeddingów, ale ich położenie nie jest kategorią ani dowodem wspólnego pochodzenia. Filtry kategorii i liczby uczestników pojawią się dopiero po ręcznym zatwierdzeniu modelu danych. Mapa nie publikuje niezatwierdzonych kandydatur relacji."
+        if is_pl
+        else "> **How to read the map:** nearby points have similar text according to the embeddings, but position is neither a category nor evidence of common historical origin. Category and participant-count filters will appear only after manual approval of the data model. The map does not publish unreviewed relation candidates."
+    )
+    return (
+        "---\n"
+        f"title: {yaml_scalar(title)}\n"
+        f"description: {yaml_scalar(description)}\n"
+        "template: splash\n"
+        "---\n\n"
+        f"import SemanticMap from '{component_path}';\n\n"
+        f"# {title}\n\n{description}\n\n{caveat}\n\n"
+        f'<SemanticMap locale="{locale}" />\n'
+    )
+
+
 def about_page(locale: str) -> str:
     is_pl = locale == "pl"
     title = "O projekcie" if is_pl else "About"
@@ -376,12 +406,14 @@ def write_docs(polish: list[dict], english: list[dict], sources: dict[str, dict]
     (DOCS / "index.mdx").write_text(explorer_page("pl", home=True, **page_args), encoding="utf-8")
     (DOCS / "all.mdx").write_text(explorer_page("pl", **page_args), encoding="utf-8")
     (DOCS / "games.mdx").write_text(explorer_page("pl", kind="game", **page_args), encoding="utf-8")
+    (DOCS / "map.mdx").write_text(semantic_map_page("pl"), encoding="utf-8")
     (DOCS / "trials.mdx").write_text(explorer_page("pl", kind="trial", **page_args), encoding="utf-8")
     (DOCS / "sources.md").write_text(sources_page("pl", sources), encoding="utf-8")
     (DOCS / "about.md").write_text(about_page("pl"), encoding="utf-8")
     (DOCS / "en" / "index.mdx").write_text(explorer_page("en", home=True, **page_args), encoding="utf-8")
     (DOCS / "en" / "all.mdx").write_text(explorer_page("en", **page_args), encoding="utf-8")
     (DOCS / "en" / "games.mdx").write_text(explorer_page("en", kind="game", **page_args), encoding="utf-8")
+    (DOCS / "en" / "map.mdx").write_text(semantic_map_page("en"), encoding="utf-8")
     (DOCS / "en" / "trials.mdx").write_text(explorer_page("en", kind="trial", **page_args), encoding="utf-8")
     (DOCS / "en" / "sources.md").write_text(sources_page("en", sources), encoding="utf-8")
     (DOCS / "en" / "about.md").write_text(about_page("en"), encoding="utf-8")
@@ -429,6 +461,8 @@ def write_exports(polish: list[dict], english: list[dict], sources: dict[str, di
         "",
         "- [Polish JSON](https://jfpio.github.io/scouting-autoresearch/data/activities.pl.json)",
         "- [English JSON](https://jfpio.github.io/scouting-autoresearch/data/activities.en.json)",
+        "- [Semantic map — Polish](https://jfpio.github.io/scouting-autoresearch/map/)",
+        "- [Semantic map — English](https://jfpio.github.io/scouting-autoresearch/en/map/)",
         "- [Polish JSONL](https://jfpio.github.io/scouting-autoresearch/data/activities.pl.jsonl)",
         "- [English JSONL](https://jfpio.github.io/scouting-autoresearch/data/activities.en.jsonl)",
         "- [Sources](https://jfpio.github.io/scouting-autoresearch/data/sources.json)",

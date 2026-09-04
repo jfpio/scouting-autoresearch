@@ -43,6 +43,7 @@ export default defineConfig({
             { slug: 'index' },
             { slug: 'all' },
             { slug: 'games' },
+            { slug: 'map' },
             { slug: 'trials' },
             { slug: 'sources' },
             { slug: 'about' },
