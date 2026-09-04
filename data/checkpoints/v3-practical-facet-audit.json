@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-practical-facet-audit",
+  "status": "human-review-required",
+  "auditId": "v3-practical-facet-lexical-signals-v1",
+  "configHash": "0b54c19f8c605940eab77161d50814eddeace246abf0471d93aa636347a6d120",
+  "corpusDigest": "3918efb8d941180d7df070b18b77f329c2de4560080f24c4cd96a28b11a2c0bd",
+  "gameCount": 199,
+  "dimensionCount": 12,
+  "reportHash": "c1bbc4f84126d665cd1de8a3d8309b95d4e4dedd6f71b5a3554daf322bf48637",
+  "reportPath": "data/reports/v3-practical-facet-audit.json",
+  "humanReviewRequired": true,
+  "productionFieldsWritten": [],
+  "externalApiRequests": 0,
+  "referenceCostUsd": 0,
+  "nextStep": "human-review-facet-samples-and-search-value-before-schema-or-filter-changes"
+}
