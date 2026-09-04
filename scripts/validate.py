@@ -11,6 +11,8 @@ from pathlib import Path
 
 from audit_taxonomy_inputs import REPORT_PATH as TAXONOMY_INPUT_AUDIT_PATH
 from audit_taxonomy_inputs import build_quality_report
+from analyze_duplicates import REPORT_PATH as NEAR_DUPLICATE_REPORT_PATH
+from analyze_duplicates import build_report as build_duplicate_report
 from analyze_taxonomy import REPORT_PATH as TAXONOMY_ANALYSIS_PATH
 from analyze_taxonomy import build_analysis, load_usage
 from common import GENERATED, ROOT, VAULT, load_markdown, read_json, source_hash
@@ -435,6 +437,33 @@ def main() -> None:
     errors.extend(editorial_review_errors)
     errors.extend(validate_protected_source_policy())
 
+    near_duplicate_candidate_count = 0
+    require(NEAR_DUPLICATE_REPORT_PATH.is_file(), "Near-duplicate report is missing", errors)
+    if NEAR_DUPLICATE_REPORT_PATH.is_file():
+        near_duplicate_report = read_json(NEAR_DUPLICATE_REPORT_PATH)
+        expected_duplicate_report = build_duplicate_report()
+        require(
+            near_duplicate_report == expected_duplicate_report,
+            "Near-duplicate report is stale or nondeterministic",
+            errors,
+        )
+        require(
+            near_duplicate_report.get("proposalOnly") is True,
+            "Near-duplicate report is not proposal-only",
+            errors,
+        )
+        require(
+            near_duplicate_report.get("reviewRequired") is True,
+            "Near-duplicate report lacks human review",
+            errors,
+        )
+        require(
+            near_duplicate_report.get("automaticMerges") == [],
+            "Near-duplicate report contains automatic merges",
+            errors,
+        )
+        near_duplicate_candidate_count = near_duplicate_report.get("candidateCount", 0)
+
     taxonomy_config = load_config()
     embedding_config = taxonomy_config["embedding"]
     taxonomy_items = activity_items(taxonomy_config)
@@ -623,7 +652,8 @@ def main() -> None:
         f"{len(embedding_paths)} taxonomy embeddings, {candidate_count} source candidate "
         f"record(s), {collection_review_count} collection review record(s), "
         f"{editorial_review_count} editorial review record(s) "
-        f"({accepted_editorial_review_count} accepted), bilingual exports and docs."
+        f"({accepted_editorial_review_count} accepted), {near_duplicate_candidate_count} "
+        f"near-duplicate candidate(s), bilingual exports and docs."
     )
 
 
