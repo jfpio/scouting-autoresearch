@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "semantic-map-v3-embeddings",
+  "status": "source-complete",
+  "sourceId": "bsh-1911-seton-games",
+  "lastBatchId": "20260904T200130139072Z",
+  "lastCompletedAt": "2026-09-04T20:01:30.139072+00:00",
+  "lastBatchActivityCount": 32,
+  "lastBatchPromptTokens": 17269,
+  "lastBatchBilledCostUsd": null,
+  "lastBatchReferenceCostUsd": 0.0017269,
+  "cachedActivities": 33,
+  "totalActivities": 199,
+  "completedSourceIds": [
+    "bsh-1911-seton-games"
+  ],
+  "nextSourceId": "hwp-1946",
+  "modelRequested": "mistral-embed-2312",
+  "model": "mistral-embed-2312",
+  "dimensions": 1024,
+  "recipeVersion": "bilingual-game-context-v1",
+  "corpusDigest": "6c6323caf28ac7dc8fdf1ff80411c4b7821a884d0ee73860b9524d75c0022c95",
+  "billingMode": "education-credit",
+  "referenceCostUsd": 0.0018247,
+  "maxTotalReferenceCostUsd": 10.0
+}

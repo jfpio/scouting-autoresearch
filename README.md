@@ -185,6 +185,24 @@ python scripts/audit_v3_participants.py
 python scripts/audit_v3_participants.py --check
 ```
 
+Embeddingi mapy semantycznej mają osobny przepis, cache, ledger, raport i checkpoint od V1.
+Wejście łączy tytuł oraz ograniczony kontekst źródłowy z tytułem i krótszym kontekstem w
+drugim języku. Przed każdym requestem pipeline sprawdza dokładny model w `/v1/models`, nie
+łączy książek w jednej partii i egzekwuje łączny limit kosztu referencyjnego 10 USD.
+
+```bash
+python scripts/embed_semantic_map.py --source-id bsh-1911-seton-games --limit 1
+python scripts/embed_semantic_map.py --source-id bsh-1911-seton-games --limit 1 --execute
+python scripts/embed_semantic_map.py --source-id bsh-1911-seton-games --limit 50 --execute
+```
+
+Pierwsze polecenie jest dry-runem, drugie najmniejszym requestem smoke, a trzecie kończy
+bieżące źródło. Po `429` proces zapisuje `nextRetryAt` i kończy się bez oczekiwania na węźle
+logowania. Źródło można commitować dopiero, gdy wszystkie jego gry mają aktualny cache.
+Pierwsza jednostka, 33 gry Setona, jest kompletna; dwa requesty zużyły łącznie 18 247 tokenów
+wejściowych, co odpowiada kosztowi referencyjnemu 0,0018247 USD. API nie zwróciło kwoty
+faktycznie rozliczonej z kredytów Education.
+
 Kod obsługuje też przepis `activity-context-v2`, który przed skróceniem kontekstu usuwa
 techniczną stopkę źródłową oraz adresy URL z Markdown, zachowując tekst widoczny odnośników.
 Zmiana `recipeVersion` jest jawna i celowo unieważnia wcześniejsze cache’e. Wszystkie 202
