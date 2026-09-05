@@ -270,7 +270,11 @@ def fetch_artifact(
             if error.code == 429 or 500 <= error.code <= 599
             else None
         )
-        reason = "transient-http-error" if retry_at else "permanent-http-error"
+        reason = (
+            f"transient-http-{error.code}"
+            if retry_at
+            else f"permanent-http-{error.code}"
+        )
         raise GallicaFetchError(reason, diagnostics, retry_at) from error
     except (urllib.error.URLError, TimeoutError) as error:
         raise GallicaFetchError(

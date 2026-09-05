@@ -6,7 +6,7 @@
   "digitalEditionIdentifier": "bpt6k3373518k",
   "status": "retry-pending",
   "reason": "transient-http-429",
-  "nextRetryAt": "2026-09-05T08:08:39+02:00",
+  "nextRetryAt": "2026-09-05T07:09:26.608843+00:00",
   "accessDecisionPath": "vault/reviews/inbox/candidate-jacques-sevin-chamarande-gallica.md",
   "allowedMethod": "documented-download",
   "useMode": "noncommercial-research-and-publication",
@@ -126,13 +126,21 @@
           "rateLimitHeaders": {}
         },
         "nextRetryAt": "2026-09-05T08:08:39+02:00"
+      },
+      {
+        "attempt": 2,
+        "attemptedAt": "2026-09-05T06:09:26.804008+00:00",
+        "reason": "transient-http-429",
+        "providerDiagnostics": {
+          "httpStatus": 429,
+          "headers": {}
+        },
+        "nextRetryAt": "2026-09-05T07:09:26.608843+00:00"
       }
     ],
     "providerDiagnostics": {
       "httpStatus": 429,
-      "retryAfter": null,
-      "requestId": null,
-      "rateLimitHeaders": {}
+      "headers": {}
     }
   },
   "scratchRelativeDirectory": "scouting-autoresearch/sources/chamarande-1934",

@@ -170,6 +170,27 @@ class GallicaTests(unittest.TestCase):
                 fetch_artifact(ITEM, "pdf", output)
             self.assertFalse(output.exists())
 
+    def test_fetch_error_reason_contains_the_http_status(self):
+        error = urllib.error.HTTPError(
+            artifact_url(ITEM, "pdf"),
+            429,
+            "do not persist this",
+            {},
+            io.BytesIO(b"{}"),
+        )
+        with tempfile.TemporaryDirectory() as directory, patch.dict(
+            os.environ, {"SCRATCH": directory}
+        ), patch("gallica.urllib.request.urlopen", side_effect=error):
+            output = Path(directory) / "scouting-autoresearch" / "source.pdf"
+            with self.assertRaises(GallicaFetchError) as raised:
+                fetch_artifact(
+                    ITEM,
+                    "pdf",
+                    output,
+                    now=datetime(2026, 9, 5, tzinfo=UTC),
+                )
+        self.assertEqual(raised.exception.reason, "transient-http-429")
+
     def test_429_diagnostics_are_allowlisted_and_use_retry_after(self):
         headers = {
             "Retry-After": "120",
