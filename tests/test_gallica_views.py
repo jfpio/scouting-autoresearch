@@ -13,10 +13,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from gallica import GallicaFetchError, artifact_url, load_approved_item
 from gallica_views import (
     completed_views,
+    known_view_entry,
     next_pending_view,
     pagination_views,
     record_view_error,
     record_view_success,
+    reusable_cached_view,
     valid_cached_view,
 )
 
@@ -84,6 +86,38 @@ class GallicaViewTests(unittest.TestCase):
             path.write_bytes(b"not-jpeg")
             self.assertFalse(valid_cached_view(path))
 
+    def test_only_checkpointed_cache_is_reusable(self):
+        with tempfile.TemporaryDirectory() as directory, patch.dict(
+            os.environ, {"SCRATCH": directory}
+        ):
+            self.pagination(directory)
+            source = (
+                Path(directory)
+                / "scouting-autoresearch"
+                / "sources"
+                / SOURCE_ID
+            )
+            unrecorded = source / "f1-1200.jpg"
+            unrecorded.write_bytes(JPEG + b"unrecorded")
+            recorded = source / "f2-1200.jpg"
+            recorded.write_bytes(JPEG + b"recorded")
+            digest = hashlib.sha256(recorded.read_bytes()).hexdigest()
+            checkpoint = {
+                "downloadedViewSmoke": [
+                    {
+                        "view": "f2",
+                        "sha256": digest,
+                        "retrievedAt": "2026-09-05T07:00:00+00:00",
+                    }
+                ]
+            }
+            self.assertIsNone(known_view_entry(checkpoint, 1))
+            self.assertFalse(reusable_cached_view(checkpoint, SOURCE_ID, 1))
+            self.assertEqual(known_view_entry(checkpoint, 2)["sha256"], digest)
+            self.assertTrue(reusable_cached_view(checkpoint, SOURCE_ID, 2))
+            recorded.write_bytes(JPEG + b"changed")
+            self.assertFalse(reusable_cached_view(checkpoint, SOURCE_ID, 2))
+
     def test_next_view_and_success_checkpoint_are_resumable(self):
         item = load_approved_item(SOURCE_ID)
         with tempfile.TemporaryDirectory() as directory, patch.dict(
@@ -116,6 +150,44 @@ class GallicaViewTests(unittest.TestCase):
             self.assertEqual(stored["status"], "views-fetched")
             self.assertEqual(stored["viewFetch"]["completedViews"], 3)
             self.assertIsNone(next_pending_view(stored, SOURCE_ID, 3))
+
+    def test_reused_smoke_view_preserves_original_retrieval_time(self):
+        item = load_approved_item(SOURCE_ID)
+        with tempfile.TemporaryDirectory() as directory, patch.dict(
+            os.environ, {"SCRATCH": directory}
+        ):
+            self.pagination(directory, count=20)
+            checkpoint = self.checkpoint(directory)
+            payload = json.loads(checkpoint.read_text(encoding="utf-8"))
+            payload["downloadedViewSmoke"] = [
+                {
+                    "view": "f13",
+                    "sha256": hashlib.sha256(JPEG).hexdigest(),
+                    "retrievedAt": "2026-09-05T07:06:30+02:00",
+                }
+            ]
+            checkpoint.write_text(json.dumps(payload), encoding="utf-8")
+            output = (
+                Path(directory)
+                / "scouting-autoresearch"
+                / "sources"
+                / SOURCE_ID
+                / "f13-1200.jpg"
+            )
+            output.write_bytes(JPEG)
+            result = {
+                "url": artifact_url(item, "view", 13),
+                "path": str(output),
+                "sha256": hashlib.sha256(JPEG).hexdigest(),
+                "bytes": len(JPEG),
+                "reused": True,
+            }
+            record_view_success(checkpoint, SOURCE_ID, 20, 13, result)
+            stored = json.loads(checkpoint.read_text(encoding="utf-8"))
+            self.assertEqual(
+                stored["viewFetch"]["items"][0]["retrievedAt"],
+                "2026-09-05T07:06:30+02:00",
+            )
 
     def test_view_error_has_its_own_retry_history(self):
         with tempfile.TemporaryDirectory() as directory:

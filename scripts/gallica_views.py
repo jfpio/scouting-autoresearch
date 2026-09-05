@@ -65,6 +65,36 @@ def valid_cached_view(path: Path, expected_sha256: str | None = None) -> bool:
     return expected_sha256 is None or digest == expected_sha256
 
 
+def known_view_entry(checkpoint: dict[str, Any], view: int) -> dict[str, Any] | None:
+    candidates = list((checkpoint.get("viewFetch") or {}).get("items", []))
+    candidates.extend(checkpoint.get("downloadedViewSmoke") or [])
+    for entry in candidates:
+        if not isinstance(entry, dict):
+            continue
+        recorded_view = entry.get("view")
+        if isinstance(recorded_view, str) and recorded_view == f"f{view}":
+            recorded_view = view
+        if recorded_view != view:
+            continue
+        digest = entry.get("sha256")
+        if (
+            isinstance(digest, str)
+            and len(digest) == 64
+            and all(character in "0123456789abcdef" for character in digest)
+        ):
+            return entry
+    return None
+
+
+def reusable_cached_view(checkpoint: dict[str, Any], source_id: str, view: int) -> bool:
+    item = load_approved_item(source_id)
+    known = known_view_entry(checkpoint, view)
+    return bool(
+        known
+        and valid_cached_view(default_output(item, "view", view), known["sha256"])
+    )
+
+
 def completed_views(checkpoint: dict[str, Any], source_id: str) -> set[int]:
     item = load_approved_item(source_id)
     completed: set[int] = set()
@@ -93,6 +123,7 @@ def record_view_success(
     checkpoint = read_json(checkpoint_path)
     if checkpoint.get("sourceId") != source_id:
         raise RuntimeError("Gallica view result sourceId differs from checkpoint")
+    prior = known_view_entry(checkpoint, view)
     state = checkpoint.setdefault("viewFetch", {})
     items = [
         entry
@@ -111,7 +142,8 @@ def record_view_success(
             ),
             "sha256": result["sha256"],
             "bytes": result["bytes"],
-            "retrievedAt": result.get("retrievedAt"),
+            "retrievedAt": result.get("retrievedAt")
+            or (prior or {}).get("retrievedAt"),
             "reused": result["reused"],
         }
     )
@@ -202,7 +234,9 @@ def main() -> None:
         print(json.dumps({"status": "complete", "sourceId": args.source_id, "totalViews": count}))
         return
     output = default_output(item, "view", view)
-    needs_network = not output.exists()
+    known = known_view_entry(checkpoint, view)
+    expected_sha256 = known.get("sha256") if known else None
+    needs_network = not reusable_cached_view(checkpoint, args.source_id, view)
     now = datetime.now(UTC)
     retry_at = active_cooldown(checkpoint, now)
     plan: dict[str, Any] = {
@@ -232,7 +266,15 @@ def main() -> None:
                 f"Gallica request interval is active; nextAllowedAt={next_allowed.isoformat()}"
             )
     try:
-        result = fetch_artifact(item, "view", output, view=view, now=now)
+        result = fetch_artifact(
+            item,
+            "view",
+            output,
+            view=view,
+            expected_sha256=expected_sha256,
+            refresh=needs_network and output.exists(),
+            now=now,
+        )
     except GallicaFetchError as error:
         record_view_error(checkpoint_path, error, view)
         suffix = f"; nextRetryAt={error.retry_at.isoformat()}" if error.retry_at else ""
