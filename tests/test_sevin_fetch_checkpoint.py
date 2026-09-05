@@ -47,6 +47,29 @@ class SevinFetchCheckpointTests(unittest.TestCase):
         self.assertEqual(len(checkpoint["downloadedViewSmoke"]), 3)
         self.assertTrue(all(len(item["sha256"]) == 64 for item in checkpoint["downloadedViewSmoke"]))
 
+    def test_printed_pagination_is_complete_but_not_in_view_order(self):
+        integrity = self.checkpoint["paginationIntegrity"]
+        self.assertEqual(
+            integrity["paginationSha256"],
+            self.checkpoint["pagination"]["sha256"],
+        )
+        self.assertEqual(integrity["totalViews"], self.checkpoint["pagination"]["viewCount"])
+        self.assertEqual(
+            integrity["numericPrintedPages"],
+            {
+                "minimum": 9,
+                "maximum": 141,
+                "count": 133,
+                "duplicates": [],
+                "missingWithinRange": [],
+            },
+        )
+        self.assertEqual(
+            [item["toPrintedPage"] for item in integrity["outOfOrderPrintedPageTransitions"]],
+            [49, 33, 65],
+        )
+        self.assertIn("printed page", integrity["textSequencingRule"])
+
     def test_ocr_is_pinned_and_costed(self):
         smoke = self.checkpoint["ocrSmoke"]
         self.assertEqual(smoke["status"], "complete")

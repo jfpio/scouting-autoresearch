@@ -28,6 +28,39 @@
     "hasContent": false,
     "hasToc": false
   },
+  "paginationIntegrity": {
+    "status": "verified-from-pinned-pagination",
+    "paginationSha256": "48989b68bd51b00725dbf336f5fbfcbff3d3fe38fc4585078665b8c4daf74277",
+    "totalViews": 188,
+    "numericPrintedPages": {
+      "minimum": 9,
+      "maximum": 141,
+      "count": 133,
+      "duplicates": [],
+      "missingWithinRange": []
+    },
+    "outOfOrderPrintedPageTransitions": [
+      {
+        "fromView": 46,
+        "fromPrintedPage": 32,
+        "toView": 49,
+        "toPrintedPage": 49
+      },
+      {
+        "fromView": 64,
+        "fromPrintedPage": 64,
+        "toView": 67,
+        "toPrintedPage": 33
+      },
+      {
+        "fromView": 84,
+        "fromPrintedPage": 48,
+        "toView": 87,
+        "toPrintedPage": 65
+      }
+    ],
+    "textSequencingRule": "Order numeric prose by printed page label; retain Gallica view numbers as provenance."
+  },
   "downloadedViewSmoke": [
     {
       "view": "f13",
