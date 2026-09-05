@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "gallica-fetch-and-ocr",
+  "sourceId": "chamarande-1934",
+  "collectionId": "gallica-bnf",
+  "digitalEditionIdentifier": "bpt6k3373518k",
+  "status": "retry-pending",
+  "reason": "transient-http-429",
+  "nextRetryAt": "2026-09-05T08:08:39+02:00",
+  "accessDecisionPath": "vault/reviews/inbox/candidate-jacques-sevin-chamarande-gallica.md",
+  "allowedMethod": "documented-download",
+  "useMode": "noncommercial-research-and-publication",
+  "requiredAttribution": "Source gallica.bnf.fr / Bibliothèque nationale de France",
+  "approvedComponent": "original French prose explicitly attributable to Jacques Sevin in the 1934 edition",
+  "excludedComponents": [
+    "music",
+    "plates, illustrations and color cover",
+    "later editions and editorial apparatus",
+    "Gallica digital packaging",
+    "directly revenue-generating reuse without a separate Gallica commercial license"
+  ],
+  "pagination": {
+    "url": "https://gallica.bnf.fr/services/Pagination?ark=bpt6k3373518k",
+    "retrievedAt": "2026-09-05T07:06:06+02:00",
+    "sha256": "48989b68bd51b00725dbf336f5fbfcbff3d3fe38fc4585078665b8c4daf74277",
+    "bytes": 29821,
+    "viewCount": 188,
+    "hasContent": false,
+    "hasToc": false
+  },
+  "downloadedViewSmoke": [
+    {
+      "view": "f13",
+      "role": "title-page",
+      "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f13/full/1200,/0/native.jpg",
+      "retrievedAt": "2026-09-05T07:06:30+02:00",
+      "sha256": "ed0983b8a704e5408c1018442314022a10876d7cf1de4cfa51281244c460e0ce",
+      "bytes": 193437
+    },
+    {
+      "view": "f19",
+      "role": "first-prose-page-printed-9",
+      "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f19/full/1200,/0/native.jpg",
+      "retrievedAt": "2026-09-05T07:06:31+02:00",
+      "sha256": "4cf368be8ddb1eef67aaf874c463c10d593c2856485a8b02a39bb03cfefc0ebc",
+      "bytes": 283523
+    },
+    {
+      "view": "f29",
+      "role": "representative-prose-page-printed-17",
+      "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f29/full/1200,/0/native.jpg",
+      "retrievedAt": "2026-09-05T07:06:31+02:00",
+      "sha256": "ab2827ed1ff6c94978948909cf21e4d1f57d64c53a43dd4028eaa8ae81cc9e5a",
+      "bytes": 313833
+    }
+  ],
+  "ocrSmoke": {
+    "status": "complete",
+    "provider": "mistral",
+    "endpoint": "/v1/ocr",
+    "modelRequested": "mistral-ocr-4-1",
+    "model": "mistral-ocr-4-1",
+    "modelAccessVerifiedAt": "2026-09-05T07:07:30+02:00",
+    "view": "f19",
+    "sourceImageSha256": "4cf368be8ddb1eef67aaf874c463c10d593c2856485a8b02a39bb03cfefc0ebc",
+    "responseSha256": "fdc38e095d2dc1567b313b66a24a620a883701205235670bfab609ba5b2a9eca",
+    "completedAt": "2026-09-05T07:07:56+02:00",
+    "httpStatus": 200,
+    "pagesProcessed": 1,
+    "markdownCharacters": 1257,
+    "averagePageConfidence": 0.9810232027811656,
+    "includeBlocks": true,
+    "confidenceScoresGranularity": "page",
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "referencePricing": {
+      "model": "mistral-ocr-4-1",
+      "mode": "standard",
+      "usdPer1000Pages": 4.0,
+      "retrievedAt": "2026-09-05",
+      "url": "https://docs.mistral.ai/models/ocr-4-1"
+    },
+    "referenceCostUsd": 0.004
+  },
+  "fullDocument": {
+    "url": "https://gallica.bnf.fr/ark:/12148/bpt6k3373518k.pdf",
+    "status": "retry-pending",
+    "persisted": false,
+    "providerDiagnostics": {
+      "httpStatus": 429,
+      "retryAfter": null,
+      "requestId": null,
+      "rateLimitHeaders": {}
+    }
+  },
+  "scratchRelativeDirectory": "scouting-autoresearch/sources/chamarande-1934",
+  "sourceFilesCommittedToRepository": 0,
+  "fullTextCommittedToRepository": false,
+  "nextStep": "After nextRetryAt, download the full PDF once, verify its hash and inspect page-level component boundaries before OCR."
+}
