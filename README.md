@@ -328,6 +328,22 @@ python scripts/gallica_views.py --source-id chamarande-1934
 python scripts/gallica_views.py --source-id chamarande-1934 --execute
 ```
 
+Po zapisaniu i zweryfikowaniu wszystkich 188 widoków ich inspekcja graficzna odbywa się na
+węźle CPU, nie na login node. Zadanie sprawdza komplet plików i przypięty hash paginacji, po
+czym tworzy w scratch dwa arkusze: w kolejności widoków Gallici oraz według numerów stron
+drukowanych. Drugi wariant jest konieczny, ponieważ składki książki nie są zeskanowane w
+ciągłej kolejności stron:
+
+```bash
+mkdir -p "$SCRATCH/scouting-autoresearch/logs"
+sbatch jobs/helios/chamarande-contact-sheets.slurm
+```
+
+Wyniki trafiają pod
+`$SCRATCH/scouting-autoresearch/runs/chamarande-1934/iiif-contact-full/<job-id>/` i służą
+wyłącznie do zaproponowania zakresów stron. Nie zatwierdzają automatycznie autorstwa ani
+uruchomienia OCR-u.
+
 Zatwierdzone lokalne obrazy stron można przekazać do Mistral OCR przez drugi adapter,
 również domyślnie działający jako dry-run:
 

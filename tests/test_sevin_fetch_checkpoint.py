@@ -109,6 +109,21 @@ class SevinFetchCheckpointTests(unittest.TestCase):
         )
         self.assertEqual(ordering["sourceFilesCommittedToRepository"], 0)
 
+    def test_full_contact_sheet_job_is_reproducible_and_user_portable(self):
+        path = ROOT / "jobs" / "helios" / "chamarande-contact-sheets.slurm"
+        text = path.read_text(encoding="utf-8")
+        self.assertTrue(text.startswith("#!/bin/bash -l\n"))
+        self.assertIn("#SBATCH --partition=plgrid", text)
+        self.assertIn("#SBATCH --account=plgcredibleai2026-cpu", text)
+        self.assertIn("/plgrid/%u/scouting-autoresearch/logs/", text)
+        self.assertNotIn("plgjfpio", text)
+        self.assertIn("expected_view_count=188", text)
+        self.assertIn(self.checkpoint["pagination"]["sha256"], text)
+        self.assertIn("contact-sheet-view-order.jpg", text)
+        self.assertIn("contact-sheet-printed-order.jpg", text)
+        self.assertIn('rm -rf -- "${temporary_dir}"', text)
+        self.assertIn('b"<!DOCTYPE"', text)
+
     def test_reuse_scope_remains_component_limited(self):
         checkpoint = self.checkpoint
         self.assertIn("Jacques Sevin", checkpoint["approvedComponent"])
