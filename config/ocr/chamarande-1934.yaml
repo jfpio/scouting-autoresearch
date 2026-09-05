@@ -2,6 +2,7 @@ schemaVersion: 1
 sourceId: chamarande-1934
 model: mistral-ocr-4-1
 request:
+  recipeVersion: mistral-ocr-image-v1
   includeBlocks: true
   confidenceScoresGranularity: page
 execution:

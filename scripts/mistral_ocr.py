@@ -37,6 +37,7 @@ class OCRConfig:
     execution_ready: bool
     approved_view_ranges: tuple[tuple[int, int], ...]
     input_directory_under_scratch: str
+    recipe_version: str
     include_blocks: bool
     confidence_granularity: str
     billing_mode: str
@@ -90,6 +91,9 @@ def load_config(path: Path) -> OCRConfig:
         raise RuntimeError("OCR reference price must be positive")
     if request.get("confidenceScoresGranularity") != "page":
         raise RuntimeError("OCR confidence granularity must be page")
+    recipe_version = str(request.get("recipeVersion") or "")
+    if not recipe_version:
+        raise RuntimeError("OCR recipeVersion is required")
     ranges = execution.get("approvedViewRanges")
     if not isinstance(ranges, list) or any(
         not isinstance(item, list)
@@ -114,6 +118,7 @@ def load_config(path: Path) -> OCRConfig:
         execution_ready=execution.get("executionReady") is True,
         approved_view_ranges=tuple((item[0], item[1]) for item in ranges),
         input_directory_under_scratch=input_directory,
+        recipe_version=recipe_version,
         include_blocks=request.get("includeBlocks") is True,
         confidence_granularity="page",
         billing_mode="education-credit",
@@ -201,12 +206,26 @@ def approved_views(config: OCRConfig) -> set[int]:
     }
 
 
+def request_identity(config: OCRConfig) -> str:
+    canonical = json.dumps(
+        {
+            "model": config.model,
+            "recipeVersion": config.recipe_version,
+            "includeBlocks": config.include_blocks,
+            "confidenceScoresGranularity": config.confidence_granularity,
+        },
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(canonical).hexdigest()
+
+
 def default_output(config: OCRConfig, image: Path, digest: str) -> Path:
     return (
         Path(os.environ["SCRATCH"])
         / config.results_under_scratch
         / config.source_id
-        / f"{image.stem}-{digest[:12]}.json"
+        / f"{image.stem}-{digest[:12]}-{request_identity(config)[:12]}.json"
     )
 
 
@@ -288,9 +307,17 @@ def validate_response(payload: dict[str, Any], model: str) -> dict[str, Any]:
     }
 
 
-def completed_item(checkpoint: dict[str, Any], digest: str) -> dict[str, Any] | None:
+def completed_item(
+    checkpoint: dict[str, Any], digest: str, config: OCRConfig
+) -> dict[str, Any] | None:
+    identity = request_identity(config)
     for item in (checkpoint.get("ocrRun") or {}).get("items", []):
-        if item.get("sourceImageSha256") != digest or item.get("status") != "complete":
+        if (
+            item.get("sourceImageSha256") != digest
+            or item.get("status") != "complete"
+            or item.get("requestIdentity") != identity
+            or item.get("model") != config.model
+        ):
             continue
         relative = item.get("scratchRelativePath")
         if relative:
@@ -354,6 +381,9 @@ def record_success(
         "status": "complete",
         "sourceImage": image.name,
         "sourceImageSha256": digest,
+        "model": config.model,
+        "recipeVersion": config.recipe_version,
+        "requestIdentity": request_identity(config),
         "scratchRelativePath": str(
             output.resolve().relative_to(Path(os.environ["SCRATCH"]).resolve())
         ),
@@ -479,7 +509,7 @@ def main() -> None:
         seen_digests.add(digest)
         if approved_view(image, config) is None:
             unapproved.append(image.name)
-        prior = completed_item(checkpoint, digest)
+        prior = completed_item(checkpoint, digest, config)
         if prior:
             reused.append(prior)
         else:

@@ -25,6 +25,7 @@ from mistral_ocr import (
     finalize_run,
     load_config,
     record_success,
+    request_identity,
     request_json,
     validate_image,
     validate_response,
@@ -43,7 +44,11 @@ class MistralOCRTests(unittest.TestCase):
                     "schemaVersion": 1,
                     "sourceId": "chamarande-1934",
                     "model": "mistral-ocr-4-1",
-                    "request": {"includeBlocks": True, "confidenceScoresGranularity": "page"},
+                    "request": {
+                        "recipeVersion": "mistral-ocr-image-v1",
+                        "includeBlocks": True,
+                        "confidenceScoresGranularity": "page",
+                    },
                     "execution": {
                         "requireExplicitExecute": True,
                         "executionReady": True,
@@ -74,6 +79,7 @@ class MistralOCRTests(unittest.TestCase):
             config = load_config(path)
             self.assertEqual(config.model, "mistral-ocr-4-1")
             self.assertEqual(config.approved_view_ranges, ((19, 29),))
+            self.assertEqual(len(request_identity(config)), 64)
             payload = yaml.safe_load(path.read_text(encoding="utf-8"))
             payload["execution"]["maxReferenceCostUsd"] = 11
             path.write_text(yaml.safe_dump(payload), encoding="utf-8")
@@ -188,9 +194,23 @@ class MistralOCRTests(unittest.TestCase):
             self.assertEqual(stored["ocrRun"]["billingMode"], "education-credit")
             self.assertIsNone(stored["ocrRun"]["billedCostUsd"])
             self.assertEqual(stored["ocrRun"]["usage"]["referenceCostUsd"], 0.004)
-            self.assertEqual(completed_item(stored, digest), item)
+            self.assertEqual(completed_item(stored, digest, config), item)
             output.write_bytes(b"changed")
-            self.assertIsNone(completed_item(stored, digest))
+            self.assertIsNone(completed_item(stored, digest, config))
+
+    def test_cache_identity_changes_with_the_model_or_request_recipe(self):
+        from dataclasses import replace
+
+        with tempfile.TemporaryDirectory() as directory:
+            config = load_config(self.config(directory))
+            self.assertNotEqual(
+                request_identity(config),
+                request_identity(replace(config, model="mistral-ocr-future")),
+            )
+            self.assertNotEqual(
+                request_identity(config),
+                request_identity(replace(config, include_blocks=False)),
+            )
 
     def test_run_is_complete_only_when_every_approved_view_is_recorded(self):
         with tempfile.TemporaryDirectory() as directory, patch.dict(
