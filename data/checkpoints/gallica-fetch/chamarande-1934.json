@@ -82,6 +82,34 @@
     },
     "referenceCostUsd": 0.004
   },
+  "pdfInspectionToolSmoke": {
+    "status": "complete",
+    "scheduler": "slurm",
+    "jobId": "21970208",
+    "jobName": "scout-sevin-pdf",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "architecture": "x86_64",
+    "node": "x1001c0s1b0n3",
+    "requestedCpus": 1,
+    "requestedMemory": "2G",
+    "elapsed": "00:00:02",
+    "exitCode": "0:0",
+    "startedAt": "2026-09-05T07:31:25+02:00",
+    "completedAt": "2026-09-05T07:31:27+02:00",
+    "modules": [
+      "GCC/14.3.0",
+      "poppler/25.12.0",
+      "ImageMagick/7.1.2-7"
+    ],
+    "toolsVerified": [
+      "pdfinfo 25.12.0",
+      "pdftoppm 25.12.0",
+      "ImageMagick 7.1.2-7"
+    ],
+    "gitRevision": "41eb8a2086102d4190266bf40d00405890f8da52",
+    "sourceFilesCommittedToRepository": 0
+  },
   "fullDocument": {
     "url": "https://gallica.bnf.fr/ark:/12148/bpt6k3373518k.pdf",
     "status": "retry-pending",
