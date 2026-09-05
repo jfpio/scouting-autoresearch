@@ -35,6 +35,30 @@ class SevinAlternativeAccessTests(unittest.TestCase):
         self.assertEqual(self.search["sourceFilesDownloaded"], 0)
         self.assertEqual(self.metadata["discovery"]["sourceFilesDownloaded"], 0)
 
+    def test_owner_approved_only_controlled_noncommercial_download(self):
+        decision = self.rights["accessDecision"]
+        self.assertEqual(decision["status"], "human-approved-for-controlled-download")
+        self.assertEqual(decision["date"], "2026-09-05")
+        self.assertEqual(decision["approvedBy"], "repository-owner")
+        self.assertEqual(decision["useMode"], "noncommercial-research-and-publication")
+        self.assertEqual(
+            decision["requiredAttribution"],
+            "Source gallica.bnf.fr / Bibliothèque nationale de France",
+        )
+        self.assertTrue(any("original French prose" in item for item in decision["approvedScope"]))
+        self.assertTrue(any("music" in item for item in decision["excludes"]))
+
+    def test_registry_approval_is_limited_to_this_item(self):
+        import yaml
+
+        registry_path = ROOT / "config" / "source-registry.yaml"
+        registry = yaml.safe_load(registry_path.read_text(encoding="utf-8"))
+        gallica = next(item for item in registry["collections"] if item["id"] == "gallica-bnf")
+        self.assertEqual(gallica["status"], "approved-per-item")
+        self.assertIn("documented-download", gallica["allowedMethods"])
+        self.assertEqual(len(gallica["itemApprovals"]), 1)
+        self.assertEqual(gallica["itemApprovals"][0]["identifier"], "bpt6k3373518k")
+
     def test_searches_use_only_registered_metadata_or_link_methods(self):
         queries = self.search["queries"]
         self.assertEqual(len(queries), 6)

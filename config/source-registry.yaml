@@ -89,17 +89,39 @@ collections:
   - id: gallica-bnf
     name: Gallica / Bibliothèque nationale de France
     baseUrl: https://gallica.bnf.fr/
-    status: candidate
-    allowedMethods: [metadata-only]
+    status: approved-per-item
+    allowedMethods: [metadata-only, documented-download]
     rateLimitPerMinute: 5
     attribution: Source gallica.bnf.fr / Bibliothèque nationale de France
     termsUrl: https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica
+    itemApprovals:
+      - identifier: bpt6k3373518k
+        sourceId: chamarande-1934
+        canonicalUrl: https://gallica.bnf.fr/ark:/12148/bpt6k3373518k
+        useMode: noncommercial-research-and-publication
+        requiredAttribution: Source gallica.bnf.fr / Bibliothèque nationale de France
+        approvedScope:
+          - documented download to temporary scratch storage for extraction and verification
+          - original French prose explicitly attributable to Jacques Sevin in the 1934 edition
+        excludes:
+          - music until its authorship and rights are established separately
+          - plates, illustrations and color cover until their authorship and rights are established separately
+          - later editions, introductions, selections, annotations and editorial apparatus
+          - Gallica site, database, viewer and digital packaging
+          - directly revenue-generating reuse without a separate Gallica commercial license
+        humanDecision:
+          date: "2026-09-05"
+          approvedBy: repository-owner
+          basis: >-
+            The owner confirmed that the project is non-profit and approved noncommercial
+            download and reuse under Gallica's attribution condition for this item and scope.
     notes: >-
       Metadane BnF są dostępne na otwartej licencji z podaniem źródła i daty pobrania.
       Gallica zezwala na bezpłatne ponowne użycie treści niekomercyjne z atrybucją, ale
-      użycie komercyjne wymaga odpłatnej licencji. Pobranie dokumentu pozostaje wyłączone
-      do czasu zatwierdzenia przez właściciela konkretnego zakresu, warunków i sposobu
-      użycia; oznaczenie public domain nie obejmuje automatycznie osobnych wkładów.
+      użycie komercyjne wymaga odpłatnej licencji. Udokumentowane pobieranie jest dozwolone
+      wyłącznie dla obiektów wymienionych w itemApprovals i w zapisanym tam zakresie; nie
+      jest to zgoda zbiorcza dla Gallici. Oznaczenie public domain nie obejmuje automatycznie
+      osobnych wkładów.
   - id: historyczna-slaska-zhp
     name: Komisja Historyczna Chorągwi Śląskiej ZHP
     baseUrl: https://historyczna.slaska.zhp.pl/

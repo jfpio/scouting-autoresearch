@@ -30,12 +30,13 @@ subjects:
   - id: jacques-sevin
     name: Jacques Sevin
     referenceUrl: https://en.wikipedia.org/wiki/Jacques_Sevin
-    status: rights-review
+    status: approved-for-controlled-download
     priority: 1
     activeSourceId: chamarande-1934
     checkpoint: vault/reviews/inbox/candidate-jacques-sevin-chamarande-gallica.md
     rightsNote: >-
       BnF/Gallica oznacza edycję Chamarande z 1934 r. jako domaine public, a Jacques Sevin
-      zmarł w 1951 r. Pełny tekst, tłumaczenie i pobranie pozostają zablokowane do decyzji
-      właściciela o niekomercyjnym użyciu z atrybucją oraz zakresie wykluczającym muzykę,
-      plansze, okładkę i inne osobne wkłady.
+      zmarł w 1951 r. Właściciel 5 września 2026 r. zatwierdził niekomercyjne,
+      udokumentowane pobranie z atrybucją Gallici oraz zakres ograniczony do prozy Sevina.
+      Muzyka, plansze, ilustracje, okładka i inne osobne wkłady pozostają wyłączone;
+      przed ekstrakcją trzeba potwierdzić autorstwo na poziomie stron.
