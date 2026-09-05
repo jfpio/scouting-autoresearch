@@ -110,6 +110,39 @@
     "gitRevision": "41eb8a2086102d4190266bf40d00405890f8da52",
     "sourceFilesCommittedToRepository": 0
   },
+  "iiifContactSheetSmoke": {
+    "status": "complete",
+    "scheduler": "slurm",
+    "jobId": "21973150",
+    "jobName": "scout-sevin-iiif",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "architecture": "x86_64",
+    "node": "x1001c0s2b0n2",
+    "requestedCpus": 1,
+    "requestedMemory": "2G",
+    "maxRss": "143512K",
+    "elapsed": "00:00:02",
+    "exitCode": "0:0",
+    "startedAt": "2026-09-05T08:20:04+02:00",
+    "completedAt": "2026-09-05T08:20:06+02:00",
+    "modules": [
+      "GCCcore/14.3.0",
+      "ImageMagick/7.1.2-7"
+    ],
+    "tool": "ImageMagick 7.1.2-7",
+    "inputViews": [
+      "f13",
+      "f19",
+      "f29"
+    ],
+    "renderedPages": 3,
+    "outputDimensions": "684x337",
+    "outputSha256": "296169e4d6851921c08715242d7d7aabb6d645529306e714698069f263c236ca",
+    "resultPathUnderScratch": "scouting-autoresearch/runs/chamarande-1934/iiif-contact-smoke/21973150/contact-smoke.jpg",
+    "gitRevision": "d371d54af5d8548b587bd74ede92c064db150f67",
+    "sourceFilesCommittedToRepository": 0
+  },
   "fullDocument": {
     "url": "https://gallica.bnf.fr/ark:/12148/bpt6k3373518k.pdf",
     "status": "retry-pending",
