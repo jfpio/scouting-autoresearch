@@ -303,6 +303,62 @@ Wynik jest wyłącznie rekordem odkrywania. Oznaczenie praw z RDF nadal wymaga z
 zatwierdzonej reguły kolekcji, ustalenia autorstwa właściwego składnika oraz zachowania
 osobnej bramki dla konkretnej edycji i jej wkładów.
 
+Adapter `scripts/gallica.py` pobiera tylko obiekt mający dokładne `itemApproval` w rejestrze.
+Adresy paginacji, widoku IIIF i PDF-u wyprowadza z zatwierdzonego identyfikatora, nie pozwala
+zapisać wyniku poza `$SCRATCH/scouting-autoresearch/`, ogranicza rozmiar odpowiedzi,
+sprawdza typ i sygnaturę pliku oraz zapisuje go atomowo. Stan dostawcy w scratch wymusza
+minimalny odstęp wynikający z `rateLimitPerMinute` bez usypiania procesu. Bez `--execute` wykonuje tylko
+dry-run. Dla pełnego dokumentu respektuje `nextRetryAt` checkpointu, po `429` lub `5xx`
+zapisuje wyłącznie bezpieczną diagnostykę i termin podany przez dostawcę albo godzinny
+fallback. Przykład:
+
+```bash
+python scripts/gallica.py --source-id chamarande-1934 --artifact pdf
+python scripts/gallica.py --source-id chamarande-1934 --artifact pdf --execute
+```
+
+Jeżeli udokumentowany endpoint pełnego PDF pozostaje ograniczony przez dostawcę, fallback
+`scripts/gallica_views.py` wybiera jeden brakujący widok IIIF na uruchomienie. Nie omija
+cooldownu ani limitu kolekcji, nie zmienia dostawcy i po każdym sukcesie zapisuje hash oraz
+postęp w checkpointcie. Dzięki temu Goal Mode może wznawiać pobieranie bez procesu śpiącego
+na login node:
+
+```bash
+python scripts/gallica_views.py --source-id chamarande-1934
+python scripts/gallica_views.py --source-id chamarande-1934 --execute
+```
+
+Po zapisaniu i zweryfikowaniu wszystkich 188 widoków ich inspekcja graficzna odbywa się na
+węźle CPU, nie na login node. Zadanie sprawdza komplet plików i przypięty hash paginacji, po
+czym tworzy w scratch dwa arkusze: w kolejności widoków Gallici oraz według numerów stron
+drukowanych. Drugi wariant jest konieczny, ponieważ składki książki nie są zeskanowane w
+ciągłej kolejności stron:
+
+```bash
+mkdir -p "$SCRATCH/scouting-autoresearch/logs"
+sbatch jobs/helios/chamarande-contact-sheets.slurm
+```
+
+Wyniki trafiają pod
+`$SCRATCH/scouting-autoresearch/runs/chamarande-1934/iiif-contact-full/<job-id>/` i służą
+wyłącznie do zaproponowania zakresów stron. Nie zatwierdzają automatycznie autorstwa ani
+uruchomienia OCR-u.
+
+Zatwierdzone lokalne obrazy stron można przekazać do Mistral OCR przez drugi adapter,
+również domyślnie działający jako dry-run:
+
+```bash
+python scripts/mistral_ocr.py \
+  --config config/ocr/chamarande-1934.yaml \
+  --image "$SCRATCH/scouting-autoresearch/sources/chamarande-1934/f19-1200.jpg"
+```
+
+`--execute` najpierw sprawdza dokładny model przez `/v1/models`, a potem przetwarza obrazy
+sekwencyjnie. Surowe odpowiedzi zostają w scratch; śledzony checkpoint zapisuje hashe,
+liczbę stron, bezpieczne dane retry, rozliczenie `education-credit` i egzekwowany limit
+kosztu referencyjnego. Produkcyjne wykonanie pozostaje zablokowane przez `executionReady`
+do czasu ustalenia i wpisania zakresów widoków zawierających wyłącznie zatwierdzoną prozę.
+
 ## Licencje i bezpieczeństwo
 
 Kod: MIT. Projektowe metadane i tłumaczenia: domyślnie CC BY 4.0 w zakresie posiadanych

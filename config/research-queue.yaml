@@ -30,7 +30,7 @@ subjects:
   - id: jacques-sevin
     name: Jacques Sevin
     referenceUrl: https://en.wikipedia.org/wiki/Jacques_Sevin
-    status: fetch-retry-pending
+    status: page-scope-review-pending
     priority: 1
     activeSourceId: chamarande-1934
     checkpoint: data/checkpoints/gallica-fetch/chamarande-1934.json

@@ -4,9 +4,7 @@
   "sourceId": "chamarande-1934",
   "collectionId": "gallica-bnf",
   "digitalEditionIdentifier": "bpt6k3373518k",
-  "status": "retry-pending",
-  "reason": "transient-http-429",
-  "nextRetryAt": "2026-09-05T08:08:39+02:00",
+  "status": "page-scope-review-pending",
   "accessDecisionPath": "vault/reviews/inbox/candidate-jacques-sevin-chamarande-gallica.md",
   "allowedMethod": "documented-download",
   "useMode": "noncommercial-research-and-publication",
@@ -27,6 +25,39 @@
     "viewCount": 188,
     "hasContent": false,
     "hasToc": false
+  },
+  "paginationIntegrity": {
+    "status": "verified-from-pinned-pagination",
+    "paginationSha256": "48989b68bd51b00725dbf336f5fbfcbff3d3fe38fc4585078665b8c4daf74277",
+    "totalViews": 188,
+    "numericPrintedPages": {
+      "minimum": 9,
+      "maximum": 141,
+      "count": 133,
+      "duplicates": [],
+      "missingWithinRange": []
+    },
+    "outOfOrderPrintedPageTransitions": [
+      {
+        "fromView": 46,
+        "fromPrintedPage": 32,
+        "toView": 49,
+        "toPrintedPage": 49
+      },
+      {
+        "fromView": 64,
+        "fromPrintedPage": 64,
+        "toView": 67,
+        "toPrintedPage": 33
+      },
+      {
+        "fromView": 84,
+        "fromPrintedPage": 48,
+        "toView": 87,
+        "toPrintedPage": 65
+      }
+    ],
+    "textSequencingRule": "Order numeric prose by printed page label; retain Gallica view numbers as provenance."
   },
   "downloadedViewSmoke": [
     {
@@ -82,19 +113,2108 @@
     },
     "referenceCostUsd": 0.004
   },
+  "pdfInspectionToolSmoke": {
+    "status": "complete",
+    "scheduler": "slurm",
+    "jobId": "21970208",
+    "jobName": "scout-sevin-pdf",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "architecture": "x86_64",
+    "node": "x1001c0s1b0n3",
+    "requestedCpus": 1,
+    "requestedMemory": "2G",
+    "elapsed": "00:00:02",
+    "exitCode": "0:0",
+    "startedAt": "2026-09-05T07:31:25+02:00",
+    "completedAt": "2026-09-05T07:31:27+02:00",
+    "modules": [
+      "GCC/14.3.0",
+      "poppler/25.12.0",
+      "ImageMagick/7.1.2-7"
+    ],
+    "toolsVerified": [
+      "pdfinfo 25.12.0",
+      "pdftoppm 25.12.0",
+      "ImageMagick 7.1.2-7"
+    ],
+    "gitRevision": "41eb8a2086102d4190266bf40d00405890f8da52",
+    "sourceFilesCommittedToRepository": 0
+  },
+  "iiifContactSheetSmoke": {
+    "status": "complete",
+    "scheduler": "slurm",
+    "jobId": "21973150",
+    "jobName": "scout-sevin-iiif",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "architecture": "x86_64",
+    "node": "x1001c0s2b0n2",
+    "requestedCpus": 1,
+    "requestedMemory": "2G",
+    "maxRss": "143512K",
+    "elapsed": "00:00:02",
+    "exitCode": "0:0",
+    "startedAt": "2026-09-05T08:20:04+02:00",
+    "completedAt": "2026-09-05T08:20:06+02:00",
+    "modules": [
+      "GCCcore/14.3.0",
+      "ImageMagick/7.1.2-7"
+    ],
+    "tool": "ImageMagick 7.1.2-7",
+    "inputViews": [
+      "f13",
+      "f19",
+      "f29"
+    ],
+    "renderedPages": 3,
+    "outputDimensions": "684x337",
+    "outputSha256": "296169e4d6851921c08715242d7d7aabb6d645529306e714698069f263c236ca",
+    "resultPathUnderScratch": "scouting-autoresearch/runs/chamarande-1934/iiif-contact-smoke/21973150/contact-smoke.jpg",
+    "gitRevision": "d371d54af5d8548b587bd74ede92c064db150f67",
+    "sourceFilesCommittedToRepository": 0
+  },
+  "iiifOrderingSmoke": {
+    "status": "complete",
+    "scheduler": "slurm",
+    "jobId": "21974376",
+    "jobName": "scout-sevin-order",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "architecture": "x86_64",
+    "node": "x1001c0s2b0n2",
+    "requestedCpus": 1,
+    "requestedMemory": "2G",
+    "maxRss": "50448K",
+    "elapsed": "00:00:02",
+    "exitCode": "0:0",
+    "startedAt": "2026-09-05T08:40:28+02:00",
+    "completedAt": "2026-09-05T08:40:30+02:00",
+    "modules": [
+      "GCCcore/14.3.0",
+      "ImageMagick/7.1.2-7"
+    ],
+    "tool": "ImageMagick 7.1.2-7",
+    "inputViews": [
+      "f13",
+      "f19",
+      "f29"
+    ],
+    "outputs": [
+      {
+        "order": "gallica-view",
+        "dimensions": "684x337",
+        "sha256": "b0dd31e0d0ba60a8e2598b2c80101a8fb3cc44bfc9fa49dd75bb005101f0495b",
+        "resultPathUnderScratch": "scouting-autoresearch/runs/chamarande-1934/iiif-order-smoke/21974376/contact-smoke-view-order.jpg"
+      },
+      {
+        "order": "numeric-printed-page",
+        "dimensions": "456x337",
+        "sha256": "a8c7fee517e813a0b0cbcef4759dbcad2c103cdba471d2f1e6315841205bd102",
+        "resultPathUnderScratch": "scouting-autoresearch/runs/chamarande-1934/iiif-order-smoke/21974376/contact-smoke-printed-order.jpg"
+      }
+    ],
+    "gitRevision": "6abe740673d11b097f7660d31d96a581b1521408",
+    "sourceFilesCommittedToRepository": 0
+  },
   "fullDocument": {
     "url": "https://gallica.bnf.fr/ark:/12148/bpt6k3373518k.pdf",
     "status": "retry-pending",
     "persisted": false,
+    "attempts": [
+      {
+        "attempt": 1,
+        "attemptedAt": "2026-09-05T07:08:39+02:00",
+        "reason": "transient-http-429",
+        "providerDiagnostics": {
+          "httpStatus": 429,
+          "retryAfter": null,
+          "requestId": null,
+          "rateLimitHeaders": {}
+        },
+        "nextRetryAt": "2026-09-05T08:08:39+02:00"
+      },
+      {
+        "attempt": 2,
+        "attemptedAt": "2026-09-05T06:09:26.804008+00:00",
+        "reason": "transient-http-429",
+        "providerDiagnostics": {
+          "httpStatus": 429,
+          "headers": {}
+        },
+        "nextRetryAt": "2026-09-05T07:09:26.608843+00:00"
+      }
+    ],
     "providerDiagnostics": {
       "httpStatus": 429,
-      "retryAfter": null,
-      "requestId": null,
-      "rateLimitHeaders": {}
+      "headers": {}
     }
   },
   "scratchRelativeDirectory": "scouting-autoresearch/sources/chamarande-1934",
   "sourceFilesCommittedToRepository": 0,
   "fullTextCommittedToRepository": false,
-  "nextStep": "After nextRetryAt, download the full PDF once, verify its hash and inspect page-level component boundaries before OCR."
+  "nextStep": "Obtain human approval for vault/reviews/inbox/chamarande-1934-prose-scope.md before copying any proposed ranges into the OCR configuration; keep executionReady false until then.",
+  "viewFetch": {
+    "strategy": "iiif-view-fallback-after-two-pdf-429s",
+    "status": "complete",
+    "totalViews": 188,
+    "completedViews": 188,
+    "retrievedBytes": 55797764,
+    "reusedViews": [13, 19, 29],
+    "failedViewAttempts": 0,
+    "items": [
+      {
+        "view": 1,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f1/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f1-1200.jpg",
+        "sha256": "9ef7010380bf4b6aff2d10720f7e037b793a4bb978c7e3627902a38b9041c9a4",
+        "bytes": 401891,
+        "retrievedAt": "2026-09-05T07:09:46.704502+00:00",
+        "reused": false
+      },
+      {
+        "view": 2,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f2/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f2-1200.jpg",
+        "sha256": "99e8b513327e942c61c5fc17ab0c9f29fc51ab87674ddc864349d32f8cb9f6c5",
+        "bytes": 545421,
+        "retrievedAt": "2026-09-05T07:10:17.770545+00:00",
+        "reused": false
+      },
+      {
+        "view": 3,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f3/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f3-1200.jpg",
+        "sha256": "baa6c70fd2a76dcfeade11af4b2171b3e382fbe4c80973ed427dcddcc4599325",
+        "bytes": 517786,
+        "retrievedAt": "2026-09-05T07:10:32.928754+00:00",
+        "reused": false
+      },
+      {
+        "view": 4,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f4/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f4-1200.jpg",
+        "sha256": "7597903ba41644cc78542837b0503ca5b1eff5f924bb09dcb48320c3163ef112",
+        "bytes": 150623,
+        "retrievedAt": "2026-09-05T07:10:47.770721+00:00",
+        "reused": false
+      },
+      {
+        "view": 5,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f5/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f5-1200.jpg",
+        "sha256": "1157dbcc5fae61f49ee4bc0b98bc0547610279c3ca70a152295ba35c9784d5f3",
+        "bytes": 192378,
+        "retrievedAt": "2026-09-05T07:11:02.463899+00:00",
+        "reused": false
+      },
+      {
+        "view": 6,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f6/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f6-1200.jpg",
+        "sha256": "d4ef3dbbdf5078741e57d6cb6fcc6b4ba75f03cdf7bcfef82e4ad34ffaa20808",
+        "bytes": 174007,
+        "retrievedAt": "2026-09-05T07:11:17.518620+00:00",
+        "reused": false
+      },
+      {
+        "view": 7,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f7/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f7-1200.jpg",
+        "sha256": "21395fb7933870c56af15dbc114aba0d820b5c0c244f1156daa25fe7bcc751ca",
+        "bytes": 403916,
+        "retrievedAt": "2026-09-05T07:11:32.065364+00:00",
+        "reused": false
+      },
+      {
+        "view": 8,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f8/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f8-1200.jpg",
+        "sha256": "d130d36ef36b17501d49195c44433ebbe617507c36f3a0148dc34b6a61a24ee9",
+        "bytes": 97283,
+        "retrievedAt": "2026-09-05T07:11:46.545401+00:00",
+        "reused": false
+      },
+      {
+        "view": 9,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f9/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f9-1200.jpg",
+        "sha256": "de5cde962f65297d255427fd453f01fb565f738332e7743742225c46bf0e1b06",
+        "bytes": 162905,
+        "retrievedAt": "2026-09-05T07:12:00.873780+00:00",
+        "reused": false
+      },
+      {
+        "view": 10,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f10/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f10-1200.jpg",
+        "sha256": "f0c4a00a298244c7d943e8407d80eb9027cbaaf1b7850aec1008e224494e0539",
+        "bytes": 153452,
+        "retrievedAt": "2026-09-05T07:12:16.834968+00:00",
+        "reused": false
+      },
+      {
+        "view": 11,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f11/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f11-1200.jpg",
+        "sha256": "0a24de08e4e8ecd9ec05dbbadbd822d8128b3d4ab6ca71ad99987d5e37a54ff9",
+        "bytes": 207625,
+        "retrievedAt": "2026-09-05T07:12:31.254290+00:00",
+        "reused": false
+      },
+      {
+        "view": 12,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f12/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f12-1200.jpg",
+        "sha256": "f1325ff81295b9006564aa38a585f7cb423157bc89dd8ef8befa1c13be68e199",
+        "bytes": 129727,
+        "retrievedAt": "2026-09-05T07:12:47.068322+00:00",
+        "reused": false
+      },
+      {
+        "view": 13,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f13/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f13-1200.jpg",
+        "sha256": "ed0983b8a704e5408c1018442314022a10876d7cf1de4cfa51281244c460e0ce",
+        "bytes": 193437,
+        "retrievedAt": "2026-09-05T07:06:30+02:00",
+        "reused": true
+      },
+      {
+        "view": 14,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f14/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f14-1200.jpg",
+        "sha256": "024f9bbadb96c70e399a936f35c140de00cc7ee215cecc0c8c3d197d254cd757",
+        "bytes": 157576,
+        "retrievedAt": "2026-09-05T07:13:02.024137+00:00",
+        "reused": false
+      },
+      {
+        "view": 15,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f15/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f15-1200.jpg",
+        "sha256": "489a8dfbad869b5cf1bde05e50e737ac7235d3ce43443157748a1de321302c05",
+        "bytes": 196700,
+        "retrievedAt": "2026-09-05T07:13:30.488895+00:00",
+        "reused": false
+      },
+      {
+        "view": 16,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f16/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f16-1200.jpg",
+        "sha256": "5c9545bd0c4f3f0126b6ea7eb68e1443a9778113c8dc5502dac80dcb1028dfc2",
+        "bytes": 141587,
+        "retrievedAt": "2026-09-05T07:13:46.415681+00:00",
+        "reused": false
+      },
+      {
+        "view": 17,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f17/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f17-1200.jpg",
+        "sha256": "3a12d1f5f01c4f0061d71db6b5f1c2c0b8dfb6a740fbfe56cc22bd01ba7c651c",
+        "bytes": 147046,
+        "retrievedAt": "2026-09-05T07:14:01.680866+00:00",
+        "reused": false
+      },
+      {
+        "view": 18,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f18/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f18-1200.jpg",
+        "sha256": "68c155ad39ced6d33146223cd1596ac1490b73e91996cac9b6082bdefd625d37",
+        "bytes": 293703,
+        "retrievedAt": "2026-09-05T07:14:19.369552+00:00",
+        "reused": false
+      },
+      {
+        "view": 19,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f19/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f19-1200.jpg",
+        "sha256": "4cf368be8ddb1eef67aaf874c463c10d593c2856485a8b02a39bb03cfefc0ebc",
+        "bytes": 283523,
+        "retrievedAt": "2026-09-05T07:06:31+02:00",
+        "reused": true
+      },
+      {
+        "view": 20,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f20/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f20-1200.jpg",
+        "sha256": "533593c1bae673cf464cb7a4fc6ad22fe51b5a0f5606815163c66c80f998dd77",
+        "bytes": 339069,
+        "retrievedAt": "2026-09-05T07:14:49.808250+00:00",
+        "reused": false
+      },
+      {
+        "view": 21,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f21/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f21-1200.jpg",
+        "sha256": "3f81230a4013d203353043867f4067580ce6b7b041279cea5be1e244d2f6139d",
+        "bytes": 350008,
+        "retrievedAt": "2026-09-05T07:15:04.842095+00:00",
+        "reused": false
+      },
+      {
+        "view": 22,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f22/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f22-1200.jpg",
+        "sha256": "77eaa944a7127a830c7384b39304a06bbeeaba86f784677b749182bc19421da2",
+        "bytes": 313815,
+        "retrievedAt": "2026-09-05T07:15:19.654022+00:00",
+        "reused": false
+      },
+      {
+        "view": 23,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f23/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f23-1200.jpg",
+        "sha256": "85bdffc6d827901523066a42c47f8ffc12c725755288d0b496528a821bd860d0",
+        "bytes": 332686,
+        "retrievedAt": "2026-09-05T07:15:41.804820+00:00",
+        "reused": false
+      },
+      {
+        "view": 24,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f24/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f24-1200.jpg",
+        "sha256": "5b1896508cd2e6eab23d82e2d98869255e0ef3d6505e5dbc14b89e1990210a42",
+        "bytes": 309343,
+        "retrievedAt": "2026-09-05T07:15:58.450948+00:00",
+        "reused": false
+      },
+      {
+        "view": 25,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f25/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f25-1200.jpg",
+        "sha256": "2f25248d15df6a1a40293e765a0c172cc4bb1de3b4a163257c489ce90e9ac551",
+        "bytes": 327120,
+        "retrievedAt": "2026-09-05T07:16:13.263133+00:00",
+        "reused": false
+      },
+      {
+        "view": 26,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f26/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f26-1200.jpg",
+        "sha256": "6307bd342462b139e6aadf353424b6ef5a125638653bb20104c105aac9c4870c",
+        "bytes": 343692,
+        "retrievedAt": "2026-09-05T07:16:27.739550+00:00",
+        "reused": false
+      },
+      {
+        "view": 27,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f27/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f27-1200.jpg",
+        "sha256": "eeec0ea303ac137ce5e7ca5ac2fdba8998481558fef7630eb908033de9dfee2c",
+        "bytes": 299230,
+        "retrievedAt": "2026-09-05T07:16:52.142205+00:00",
+        "reused": false
+      },
+      {
+        "view": 28,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f28/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f28-1200.jpg",
+        "sha256": "ad2fa0d4b9fbcd6aad3cf108c9845dd86f52cbe5787147c353378bf79a11ca56",
+        "bytes": 139315,
+        "retrievedAt": "2026-09-05T07:17:07.833857+00:00",
+        "reused": false
+      },
+      {
+        "view": 29,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f29/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f29-1200.jpg",
+        "sha256": "ab2827ed1ff6c94978948909cf21e4d1f57d64c53a43dd4028eaa8ae81cc9e5a",
+        "bytes": 313833,
+        "retrievedAt": "2026-09-05T07:06:31+02:00",
+        "reused": true
+      },
+      {
+        "view": 30,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f30/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f30-1200.jpg",
+        "sha256": "5bd200054cbb1545d516e3a8c2ce1a4ad0ba33e83404148060784816a71e3ada",
+        "bytes": 277341,
+        "retrievedAt": "2026-09-05T07:17:24.522455+00:00",
+        "reused": false
+      },
+      {
+        "view": 31,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f31/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f31-1200.jpg",
+        "sha256": "3c327b57346d5e3605006be881c528cf4ae5b591e6747e54650f1a4556e090cf",
+        "bytes": 317816,
+        "retrievedAt": "2026-09-05T07:17:46.925996+00:00",
+        "reused": false
+      },
+      {
+        "view": 32,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f32/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f32-1200.jpg",
+        "sha256": "fd296e8fb88377215091ae76d2fa5c8286ddf4b135796b4cd2d5324b9c3c769e",
+        "bytes": 366929,
+        "retrievedAt": "2026-09-05T07:18:02.714834+00:00",
+        "reused": false
+      },
+      {
+        "view": 33,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f33/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f33-1200.jpg",
+        "sha256": "3f081092644b0398ad99ff5db77e043f2536eec1550a2fb1d6d2f4d5be7dc974",
+        "bytes": 341636,
+        "retrievedAt": "2026-09-05T07:18:17.415264+00:00",
+        "reused": false
+      },
+      {
+        "view": 34,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f34/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f34-1200.jpg",
+        "sha256": "85496413037b0711aaddaf409dbb5ffc9a7edc2524c01dbbdfa90ed993ec24d4",
+        "bytes": 339335,
+        "retrievedAt": "2026-09-05T07:18:31.682372+00:00",
+        "reused": false
+      },
+      {
+        "view": 35,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f35/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f35-1200.jpg",
+        "sha256": "52a9d127802342ec56c5726a2c8e1180f7492de34d24fbe29c53f42bc18b5f2f",
+        "bytes": 292270,
+        "retrievedAt": "2026-09-05T07:18:58.427698+00:00",
+        "reused": false
+      },
+      {
+        "view": 36,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f36/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f36-1200.jpg",
+        "sha256": "c43bac502e83021480e48c9e195d84047e4a24b0a782a7f88f62a10ba5a92288",
+        "bytes": 342196,
+        "retrievedAt": "2026-09-05T07:19:35.798029+00:00",
+        "reused": false
+      },
+      {
+        "view": 37,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f37/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f37-1200.jpg",
+        "sha256": "bf4b66b5bcf6ec4b121f7efe572be19223ed86b154118cf3b623baac73eb1456",
+        "bytes": 345057,
+        "retrievedAt": "2026-09-05T07:19:50.393281+00:00",
+        "reused": false
+      },
+      {
+        "view": 38,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f38/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f38-1200.jpg",
+        "sha256": "d4e6b98fff0233e9e785be99bb6551aa121916c9527e5cc2a397c145158ece57",
+        "bytes": 123504,
+        "retrievedAt": "2026-09-05T07:20:04.961223+00:00",
+        "reused": false
+      },
+      {
+        "view": 39,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f39/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f39-1200.jpg",
+        "sha256": "eeedea789ee5e2b058f04e9401c978c99c91adad2b22350323bbc989228af2b9",
+        "bytes": 322019,
+        "retrievedAt": "2026-09-05T07:20:19.116329+00:00",
+        "reused": false
+      },
+      {
+        "view": 40,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f40/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f40-1200.jpg",
+        "sha256": "5454f76d0efe535c0011a6db6f22451d7d6fd60aa0b47a795c813796cb82d030",
+        "bytes": 320469,
+        "retrievedAt": "2026-09-05T07:20:43.259576+00:00",
+        "reused": false
+      },
+      {
+        "view": 41,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f41/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f41-1200.jpg",
+        "sha256": "1168e427d7f55ad7273e240b1286fa9f12329f22275b4487c48dcdfe4f8f2804",
+        "bytes": 336338,
+        "retrievedAt": "2026-09-05T07:20:57.911550+00:00",
+        "reused": false
+      },
+      {
+        "view": 42,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f42/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f42-1200.jpg",
+        "sha256": "84b5f0a23147c8e7643ea87cb9ff356b2e55c72a9a00ba1f208c1a5680654e96",
+        "bytes": 345154,
+        "retrievedAt": "2026-09-05T07:21:12.458623+00:00",
+        "reused": false
+      },
+      {
+        "view": 43,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f43/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f43-1200.jpg",
+        "sha256": "3f8aa0bc7281160eb9c7a83231fdc49f0b5d79c6040953a69d64182dcd1d8928",
+        "bytes": 343479,
+        "retrievedAt": "2026-09-05T07:21:27.285802+00:00",
+        "reused": false
+      },
+      {
+        "view": 44,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f44/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f44-1200.jpg",
+        "sha256": "0d27214d50d2cf7375547a932fea7b854f65ec6a48156d722b60473a34ee7db1",
+        "bytes": 260858,
+        "retrievedAt": "2026-09-05T07:21:50.436946+00:00",
+        "reused": false
+      },
+      {
+        "view": 45,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f45/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f45-1200.jpg",
+        "sha256": "f45142b0bc225cd3cba414a02fa01536b50965b8055cd564f2b84fb3f27b3e86",
+        "bytes": 297788,
+        "retrievedAt": "2026-09-05T07:22:07.501072+00:00",
+        "reused": false
+      },
+      {
+        "view": 46,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f46/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f46-1200.jpg",
+        "sha256": "58371de09ca974b2a2c8f2edf858dd2fabad22475f6b7e846c377736c0be2253",
+        "bytes": 284641,
+        "retrievedAt": "2026-09-05T07:22:22.395665+00:00",
+        "reused": false
+      },
+      {
+        "view": 47,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f47/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f47-1200.jpg",
+        "sha256": "55639e33313b87d281df0b143641a5216fdfa669dbc577700e69a2ded0a38da8",
+        "bytes": 336086,
+        "retrievedAt": "2026-09-05T07:22:36.883780+00:00",
+        "reused": false
+      },
+      {
+        "view": 48,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f48/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f48-1200.jpg",
+        "sha256": "73e950d90f4a76bac5f8507993ae4a767e56a68cbe051cac65d8341d9b5d463e",
+        "bytes": 127062,
+        "retrievedAt": "2026-09-05T07:23:01.466063+00:00",
+        "reused": false
+      },
+      {
+        "view": 49,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f49/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f49-1200.jpg",
+        "sha256": "7e58917a902c3f78496e3102953bb4ac8e4719d5b0b395b1fb916758eabdab80",
+        "bytes": 345177,
+        "retrievedAt": "2026-09-05T07:23:16.302260+00:00",
+        "reused": false
+      },
+      {
+        "view": 50,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f50/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f50-1200.jpg",
+        "sha256": "49d752fc5ae92e1bf75eceb28763199e8f974d8a82cdccaede6be8692f6b7692",
+        "bytes": 295516,
+        "retrievedAt": "2026-09-05T07:23:31.132423+00:00",
+        "reused": false
+      },
+      {
+        "view": 51,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f51/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f51-1200.jpg",
+        "sha256": "6bb698252c1c04abea7fd023973ac9a0adfd69e38f7bd392b3dc7352d969cae3",
+        "bytes": 363514,
+        "retrievedAt": "2026-09-05T07:23:46.328577+00:00",
+        "reused": false
+      },
+      {
+        "view": 52,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f52/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f52-1200.jpg",
+        "sha256": "a7a8597eb4c8e1d22028027a108e4e23c4a7966502105a4ab28e6197b6a12f07",
+        "bytes": 338463,
+        "retrievedAt": "2026-09-05T07:24:10.421947+00:00",
+        "reused": false
+      },
+      {
+        "view": 53,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f53/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f53-1200.jpg",
+        "sha256": "a70353c8f42d8b96c22720d6aa5208ff80608cf1c824579dd8c6180ef2502adb",
+        "bytes": 348690,
+        "retrievedAt": "2026-09-05T07:24:26.951126+00:00",
+        "reused": false
+      },
+      {
+        "view": 54,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f54/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f54-1200.jpg",
+        "sha256": "79a727dd86843ef0f48a930961265b6bf3df30cd9e27b1a5f10ebaade40dd461",
+        "bytes": 307592,
+        "retrievedAt": "2026-09-05T07:24:41.911244+00:00",
+        "reused": false
+      },
+      {
+        "view": 55,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f55/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f55-1200.jpg",
+        "sha256": "73f50abe4d0c0ece9e15a7b3d64eb023d0eb5d207eee8fadf4cb5fc905b44bc7",
+        "bytes": 342720,
+        "retrievedAt": "2026-09-05T07:24:56.846184+00:00",
+        "reused": false
+      },
+      {
+        "view": 56,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f56/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f56-1200.jpg",
+        "sha256": "1d573445642f4f6f7fd96e98b57da652cfefaf60f41a1b3dc341aaecb98c5d7a",
+        "bytes": 305237,
+        "retrievedAt": "2026-09-05T07:25:20.051244+00:00",
+        "reused": false
+      },
+      {
+        "view": 57,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f57/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f57-1200.jpg",
+        "sha256": "e4d9bf778de6a84d17450c82b06d1778467192a7ea06add00cecf45f867191c8",
+        "bytes": 355566,
+        "retrievedAt": "2026-09-05T07:25:39.191025+00:00",
+        "reused": false
+      },
+      {
+        "view": 58,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f58/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f58-1200.jpg",
+        "sha256": "cdfa9c5b7830b8ed3f76435ce5430235305a1eb868801617c54af83c31743990",
+        "bytes": 321232,
+        "retrievedAt": "2026-09-05T07:25:53.863718+00:00",
+        "reused": false
+      },
+      {
+        "view": 59,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f59/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f59-1200.jpg",
+        "sha256": "4d26ed9d048c69adf92846efecbe886b1dd40db76694050793bb61f4f4bde01b",
+        "bytes": 355791,
+        "retrievedAt": "2026-09-05T07:26:08.792326+00:00",
+        "reused": false
+      },
+      {
+        "view": 60,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f60/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f60-1200.jpg",
+        "sha256": "6eda37ad57943a3f8303c543bbe0618bcefd96f88581ff66267e87ee17e14fcd",
+        "bytes": 337090,
+        "retrievedAt": "2026-09-05T07:26:42.157740+00:00",
+        "reused": false
+      },
+      {
+        "view": 61,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f61/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f61-1200.jpg",
+        "sha256": "809f328da53a43598f85cbf68cfd84e51f4bed55d1600e1fb62af95c2c9bc1ba",
+        "bytes": 336546,
+        "retrievedAt": "2026-09-05T07:26:56.829141+00:00",
+        "reused": false
+      },
+      {
+        "view": 62,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f62/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f62-1200.jpg",
+        "sha256": "518f01861eb3a44c7e1baca03e247e7d8acd15e76b23e63ae8b00ab2992aa402",
+        "bytes": 321977,
+        "retrievedAt": "2026-09-05T07:27:13.144339+00:00",
+        "reused": false
+      },
+      {
+        "view": 63,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f63/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f63-1200.jpg",
+        "sha256": "9f1b8ef60fd4bcd572d6e7c46c7e65ecb10727f098cd8149a08ffd24e0733b34",
+        "bytes": 355866,
+        "retrievedAt": "2026-09-05T07:27:28.419978+00:00",
+        "reused": false
+      },
+      {
+        "view": 64,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f64/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f64-1200.jpg",
+        "sha256": "aecb0500fa58567ea79698276418948cd6cf10dcc336468ad26c9429f7659d5c",
+        "bytes": 334269,
+        "retrievedAt": "2026-09-05T07:27:50.537034+00:00",
+        "reused": false
+      },
+      {
+        "view": 65,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f65/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f65-1200.jpg",
+        "sha256": "7868c4bd59fb49170b6704362272687d5d8b244f4d12e63779091df3a6ac44de",
+        "bytes": 364372,
+        "retrievedAt": "2026-09-05T07:28:07.420487+00:00",
+        "reused": false
+      },
+      {
+        "view": 66,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f66/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f66-1200.jpg",
+        "sha256": "30d1f861eee33b0b812ba8160290120f3f68152c99a5dda40b317d884cb272ae",
+        "bytes": 125520,
+        "retrievedAt": "2026-09-05T07:28:22.170951+00:00",
+        "reused": false
+      },
+      {
+        "view": 67,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f67/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f67-1200.jpg",
+        "sha256": "977dfd43f23bb5753fa7ed5ccec4c90401f685a80919227b2cdda1e9a3dbc223",
+        "bytes": 324399,
+        "retrievedAt": "2026-09-05T07:28:37.289550+00:00",
+        "reused": false
+      },
+      {
+        "view": 68,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f68/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f68-1200.jpg",
+        "sha256": "90cc5c56b117caedf6bbdbb2882b09075a4c022e5f76b60dda0704da8f914430",
+        "bytes": 300951,
+        "retrievedAt": "2026-09-05T07:29:01.062060+00:00",
+        "reused": false
+      },
+      {
+        "view": 69,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f69/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f69-1200.jpg",
+        "sha256": "ef4c1c7e8fa6d51d3309bfa3febdd414609c7b9736c21e8c640fe228095de5fe",
+        "bytes": 305484,
+        "retrievedAt": "2026-09-05T07:29:15.774752+00:00",
+        "reused": false
+      },
+      {
+        "view": 70,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f70/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f70-1200.jpg",
+        "sha256": "4c33fd24365af675ff532ff06b87badc523a700ecb5f947c91025d2932d37d3d",
+        "bytes": 273480,
+        "retrievedAt": "2026-09-05T07:29:30.243424+00:00",
+        "reused": false
+      },
+      {
+        "view": 71,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f71/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f71-1200.jpg",
+        "sha256": "6866b2503b93dccfdda3eb0276066af268c635b6f48c1c59e4937eaeb37769d1",
+        "bytes": 343024,
+        "retrievedAt": "2026-09-05T07:29:45.210773+00:00",
+        "reused": false
+      },
+      {
+        "view": 72,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f72/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f72-1200.jpg",
+        "sha256": "65d391174fc408ecb711d2e985fd13194117cacbaffeff714f17ee321ebeebf5",
+        "bytes": 286255,
+        "retrievedAt": "2026-09-05T07:30:07.416422+00:00",
+        "reused": false
+      },
+      {
+        "view": 73,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f73/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f73-1200.jpg",
+        "sha256": "612d3b0a44629c07cf19b7e62eee2440e9063d731dc31cc5468b4f800b68913c",
+        "bytes": 296796,
+        "retrievedAt": "2026-09-05T07:30:22.277030+00:00",
+        "reused": false
+      },
+      {
+        "view": 74,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f74/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f74-1200.jpg",
+        "sha256": "ffcffd36a0a5ec5859e0c3613961a71c865cfad2601d8810f185bbfbcdb96841",
+        "bytes": 336670,
+        "retrievedAt": "2026-09-05T07:30:38.362535+00:00",
+        "reused": false
+      },
+      {
+        "view": 75,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f75/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f75-1200.jpg",
+        "sha256": "235fc1b7d50537a61e04a3e6aba15933cfcb437f16c57539aabd31dcd1fc7306",
+        "bytes": 304291,
+        "retrievedAt": "2026-09-05T07:30:53.079764+00:00",
+        "reused": false
+      },
+      {
+        "view": 76,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f76/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f76-1200.jpg",
+        "sha256": "7f0a7806d5a5ba82ee85eb4bf4012df162039eed12dc1c40373982729ec71e5f",
+        "bytes": 125494,
+        "retrievedAt": "2026-09-05T07:31:19.785425+00:00",
+        "reused": false
+      },
+      {
+        "view": 77,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f77/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f77-1200.jpg",
+        "sha256": "4b1888bf7a6bb4c01a5a711233206ff39e11f503db38bd7d79350071c6132d01",
+        "bytes": 332775,
+        "retrievedAt": "2026-09-05T07:31:36.781521+00:00",
+        "reused": false
+      },
+      {
+        "view": 78,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f78/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f78-1200.jpg",
+        "sha256": "3bc4fbfe56c72adabde001a06f9f7d2e06b0931bf02638760cbdc1c8d71402ff",
+        "bytes": 313645,
+        "retrievedAt": "2026-09-05T07:31:51.430844+00:00",
+        "reused": false
+      },
+      {
+        "view": 79,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f79/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f79-1200.jpg",
+        "sha256": "bf7c0fc2b0d4c10c98aa29ec5d362d7a9ffbf65bea690372211aea8f7a3bf48b",
+        "bytes": 352343,
+        "retrievedAt": "2026-09-05T07:32:06.352435+00:00",
+        "reused": false
+      },
+      {
+        "view": 80,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f80/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f80-1200.jpg",
+        "sha256": "1dfad732a9ac1f97125e853573b92b7ce8aea4501ee327c361030b8565144e6e",
+        "bytes": 338522,
+        "retrievedAt": "2026-09-05T07:32:28.719144+00:00",
+        "reused": false
+      },
+      {
+        "view": 81,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f81/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f81-1200.jpg",
+        "sha256": "58047e08c5fbb42487fad7fccf02e759219150d7ef8f020e7f6aa34962d0d707",
+        "bytes": 327462,
+        "retrievedAt": "2026-09-05T07:32:43.589153+00:00",
+        "reused": false
+      },
+      {
+        "view": 82,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f82/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f82-1200.jpg",
+        "sha256": "7dfeb17a636cf0fe66ef060dc185bccd2323ff7be0eb58d49904e227125aa5ee",
+        "bytes": 197940,
+        "retrievedAt": "2026-09-05T07:32:58.530499+00:00",
+        "reused": false
+      },
+      {
+        "view": 83,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f83/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f83-1200.jpg",
+        "sha256": "0bcc35ce74fb400a49a31b68676531ccb82205b0dcd7be16ed3e742538c2ac3a",
+        "bytes": 266962,
+        "retrievedAt": "2026-09-05T07:33:13.036674+00:00",
+        "reused": false
+      },
+      {
+        "view": 84,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f84/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f84-1200.jpg",
+        "sha256": "45fc0acd33bd9fe8cabb2bb69314bc75e8858fb592458aa11fdb5386c4e1fb7b",
+        "bytes": 358597,
+        "retrievedAt": "2026-09-05T07:33:38.134405+00:00",
+        "reused": false
+      },
+      {
+        "view": 85,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f85/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f85-1200.jpg",
+        "sha256": "e09e26b2b2adfdfe1bb42e1eeda96315620170ed6d4e5da100babc2fad09ced0",
+        "bytes": 351897,
+        "retrievedAt": "2026-09-05T07:33:53.260610+00:00",
+        "reused": false
+      },
+      {
+        "view": 86,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f86/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f86-1200.jpg",
+        "sha256": "47d8dcf95832d7218c38019c94334c83b078465908cdb8e602bc005c60b34222",
+        "bytes": 146071,
+        "retrievedAt": "2026-09-05T07:34:07.990065+00:00",
+        "reused": false
+      },
+      {
+        "view": 87,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f87/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f87-1200.jpg",
+        "sha256": "ca860c1d35d37e8ab85a7eb135e0df22b1795ef35965a53134c8ad7661301ce4",
+        "bytes": 341878,
+        "retrievedAt": "2026-09-05T07:34:22.402757+00:00",
+        "reused": false
+      },
+      {
+        "view": 88,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f88/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f88-1200.jpg",
+        "sha256": "b7a379c1e6aefdfebd57556d17c0db6471a9dbdc756ae90a27ae4d9d8d7feaf3",
+        "bytes": 332166,
+        "retrievedAt": "2026-09-05T07:34:49.964710+00:00",
+        "reused": false
+      },
+      {
+        "view": 89,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f89/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f89-1200.jpg",
+        "sha256": "eb24f7fc73f23fb1432c63074f3867c6da4b5a9c09b60f198a4624233781cbd6",
+        "bytes": 347756,
+        "retrievedAt": "2026-09-05T07:35:08.722542+00:00",
+        "reused": false
+      },
+      {
+        "view": 90,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f90/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f90-1200.jpg",
+        "sha256": "0c2339af5dda0b870a07eb5cb1115d7301b0a2648ab72722616f43a25aead707",
+        "bytes": 325290,
+        "retrievedAt": "2026-09-05T07:35:23.611491+00:00",
+        "reused": false
+      },
+      {
+        "view": 91,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f91/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f91-1200.jpg",
+        "sha256": "e4a0adf65ea289ddcadbd9206f31984f002543525c93c6ab11b937365351ce48",
+        "bytes": 350495,
+        "retrievedAt": "2026-09-05T07:35:46.866151+00:00",
+        "reused": false
+      },
+      {
+        "view": 92,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f92/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f92-1200.jpg",
+        "sha256": "198e89cc27eeca832fe5fae1b0cb0c5a5f9cb946c20816100f359210bd25f4d6",
+        "bytes": 347876,
+        "retrievedAt": "2026-09-05T07:36:12.646899+00:00",
+        "reused": false
+      },
+      {
+        "view": 93,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f93/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f93-1200.jpg",
+        "sha256": "a4e6a7d46fa9e962f94b898d0717b564a96d4cc0414db3c6358fde3c17696680",
+        "bytes": 335698,
+        "retrievedAt": "2026-09-05T07:36:27.664314+00:00",
+        "reused": false
+      },
+      {
+        "view": 94,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f94/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f94-1200.jpg",
+        "sha256": "b5dd08a6f1f01fe9aa854cde7c9adcb8667868d27b4697bfb303577a8b6dc897",
+        "bytes": 339867,
+        "retrievedAt": "2026-09-05T07:36:42.808641+00:00",
+        "reused": false
+      },
+      {
+        "view": 95,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f95/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f95-1200.jpg",
+        "sha256": "57cf0b5a6466c8e612e10dcd2945b91760e821b7715fa943bdd3d807bb602156",
+        "bytes": 325151,
+        "retrievedAt": "2026-09-05T07:36:57.507720+00:00",
+        "reused": false
+      },
+      {
+        "view": 96,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f96/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f96-1200.jpg",
+        "sha256": "5f854430cbc4e2adc693d48275eab9dac46d91bebe2b2df11de1c904cf11d2d9",
+        "bytes": 140873,
+        "retrievedAt": "2026-09-05T07:37:19.429871+00:00",
+        "reused": false
+      },
+      {
+        "view": 97,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f97/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f97-1200.jpg",
+        "sha256": "b75ab3148c7f8540a17622aeb4f08d13a91a5de950a6492ebdf64d4e3b40c812",
+        "bytes": 350325,
+        "retrievedAt": "2026-09-05T07:37:33.769787+00:00",
+        "reused": false
+      },
+      {
+        "view": 98,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f98/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f98-1200.jpg",
+        "sha256": "663ed8da6bd33536d401bc24148a00000ca3d14acd07e0c03c8e0060e16e4a70",
+        "bytes": 326717,
+        "retrievedAt": "2026-09-05T07:37:48.757391+00:00",
+        "reused": false
+      },
+      {
+        "view": 99,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f99/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f99-1200.jpg",
+        "sha256": "eb17b705609160ec1e798a4125e81bc515ea850bf63ecd70330dcc2768eb73e8",
+        "bytes": 334105,
+        "retrievedAt": "2026-09-05T07:38:03.317041+00:00",
+        "reused": false
+      },
+      {
+        "view": 100,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f100/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f100-1200.jpg",
+        "sha256": "5caf47ae477b14b598498862c7add967d1c23d3f1766a9fbc5bb688fa98b10f6",
+        "bytes": 304135,
+        "retrievedAt": "2026-09-05T07:38:26.336039+00:00",
+        "reused": false
+      },
+      {
+        "view": 101,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f101/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f101-1200.jpg",
+        "sha256": "3fdeba1127a228c8ce843509be6dfbff955d23f1898146b65d0058f7cc0456b9",
+        "bytes": 330012,
+        "retrievedAt": "2026-09-05T07:38:43.880862+00:00",
+        "reused": false
+      },
+      {
+        "view": 102,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f102/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f102-1200.jpg",
+        "sha256": "f9e49221188f203a64c0511486e01fa5aa1c954fda43a2aa3537c26cea4eb4cf",
+        "bytes": 353746,
+        "retrievedAt": "2026-09-05T07:38:59.498961+00:00",
+        "reused": false
+      },
+      {
+        "view": 103,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f103/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f103-1200.jpg",
+        "sha256": "8f986881b0742ea3afd9b05c34663cc19eb88073eb950f88f3db7802f8189f22",
+        "bytes": 353352,
+        "retrievedAt": "2026-09-05T07:39:14.190747+00:00",
+        "reused": false
+      },
+      {
+        "view": 104,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f104/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f104-1200.jpg",
+        "sha256": "f8cb99d5b6faa3a4d06e78f2e4f48825d60795546287cb0afc3beb4961327ac2",
+        "bytes": 360279,
+        "retrievedAt": "2026-09-05T07:39:36.398763+00:00",
+        "reused": false
+      },
+      {
+        "view": 105,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f105/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f105-1200.jpg",
+        "sha256": "02d820c50ad222d3ba35c95a5471379864ca1948d75297ef576efe47475dc00d",
+        "bytes": 350646,
+        "retrievedAt": "2026-09-05T07:39:51.119735+00:00",
+        "reused": false
+      },
+      {
+        "view": 106,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f106/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f106-1200.jpg",
+        "sha256": "e37475411020208c4942d65eeb65a3d4c78273e714093ea10cde9380b7680f60",
+        "bytes": 134522,
+        "retrievedAt": "2026-09-05T07:40:07.595251+00:00",
+        "reused": false
+      },
+      {
+        "view": 107,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f107/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f107-1200.jpg",
+        "sha256": "b6b13e7e9bf1319c9bae5dd617bab35bb9b78b41ee230356b5d77fd470a9c35b",
+        "bytes": 321780,
+        "retrievedAt": "2026-09-05T07:40:22.229320+00:00",
+        "reused": false
+      },
+      {
+        "view": 108,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f108/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f108-1200.jpg",
+        "sha256": "a2b0200db11a5f1b671c531c693b200091c84f377d314f80ece27e61350c2b19",
+        "bytes": 163031,
+        "retrievedAt": "2026-09-05T07:40:47.794971+00:00",
+        "reused": false
+      },
+      {
+        "view": 109,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f109/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f109-1200.jpg",
+        "sha256": "34c7146706c0a24d73e4ff0f896c31453eedb9327f7bf326ca91af75e95a2ed1",
+        "bytes": 262811,
+        "retrievedAt": "2026-09-05T07:41:02.589427+00:00",
+        "reused": false
+      },
+      {
+        "view": 110,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f110/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f110-1200.jpg",
+        "sha256": "9a0c7ef94c6d60a828a450bf7a02103f875214a755902333593c705ce8bd4949",
+        "bytes": 152496,
+        "retrievedAt": "2026-09-05T07:41:17.501359+00:00",
+        "reused": false
+      },
+      {
+        "view": 111,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f111/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f111-1200.jpg",
+        "sha256": "2724e1fbdeb11010c26b13f93c5f3f02ddb1a26180dbb87e7ee098e78617ec21",
+        "bytes": 300369,
+        "retrievedAt": "2026-09-05T07:41:32.541636+00:00",
+        "reused": false
+      },
+      {
+        "view": 112,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f112/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f112-1200.jpg",
+        "sha256": "b199f9b977d44c80f58c9a3faf9d1740029978918b18578ecbd68bc40943c310",
+        "bytes": 342937,
+        "retrievedAt": "2026-09-05T07:41:55.644366+00:00",
+        "reused": false
+      },
+      {
+        "view": 113,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f113/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f113-1200.jpg",
+        "sha256": "9cf089b1cd35f5e005e6d5291dd86c1097f08825e1557ed3818ad5513664121f",
+        "bytes": 360094,
+        "retrievedAt": "2026-09-05T07:42:14.611570+00:00",
+        "reused": false
+      },
+      {
+        "view": 114,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f114/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f114-1200.jpg",
+        "sha256": "a58196321cee1959ebfa72474af7ff1481a70f735ead7bdff7680767a758fe04",
+        "bytes": 336486,
+        "retrievedAt": "2026-09-05T07:42:31.309602+00:00",
+        "reused": false
+      },
+      {
+        "view": 115,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f115/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f115-1200.jpg",
+        "sha256": "d75384e803514bc79a6d70183231d0dcc4cea44686d21e67042fb4a77cb3043d",
+        "bytes": 376342,
+        "retrievedAt": "2026-09-05T07:42:46.355443+00:00",
+        "reused": false
+      },
+      {
+        "view": 116,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f116/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f116-1200.jpg",
+        "sha256": "a7684bdd8e0e2543034d70d05c2a34872b5fa8900efb6885ead78dff7054bbcc",
+        "bytes": 120702,
+        "retrievedAt": "2026-09-05T07:43:10.853085+00:00",
+        "reused": false
+      },
+      {
+        "view": 117,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f117/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f117-1200.jpg",
+        "sha256": "c6af1f95871d6d8251138f019247bd349f28499d0b1d7176a71722f55c3b293c",
+        "bytes": 347864,
+        "retrievedAt": "2026-09-05T07:43:25.464245+00:00",
+        "reused": false
+      },
+      {
+        "view": 118,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f118/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f118-1200.jpg",
+        "sha256": "746e215eac09747dedae2a78147b6ae196843667b3f9d4441b2bab3a9a0e61a0",
+        "bytes": 342891,
+        "retrievedAt": "2026-09-05T07:43:41.937049+00:00",
+        "reused": false
+      },
+      {
+        "view": 119,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f119/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f119-1200.jpg",
+        "sha256": "245401003a72e1f26416c1702e639c890970f9819709acdf9aa01295e239330a",
+        "bytes": 356694,
+        "retrievedAt": "2026-09-05T07:43:57.601029+00:00",
+        "reused": false
+      },
+      {
+        "view": 120,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f120/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f120-1200.jpg",
+        "sha256": "7557029106047e6c474770fdfdd3c2fc2f3c01b66b16ce3cf7184eb6ba67ba0d",
+        "bytes": 329978,
+        "retrievedAt": "2026-09-05T07:44:22.986576+00:00",
+        "reused": false
+      },
+      {
+        "view": 121,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f121/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f121-1200.jpg",
+        "sha256": "1f608be4f7545e68b887484dd44481547ba9cff7a9b2c775cd574e59bd384d04",
+        "bytes": 361566,
+        "retrievedAt": "2026-09-05T07:44:41.575644+00:00",
+        "reused": false
+      },
+      {
+        "view": 122,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f122/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f122-1200.jpg",
+        "sha256": "31d8d01e68e25e4da055d790621453141bbbbf10373877e6a511c6b16390404c",
+        "bytes": 352637,
+        "retrievedAt": "2026-09-05T07:44:56.954052+00:00",
+        "reused": false
+      },
+      {
+        "view": 123,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f123/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f123-1200.jpg",
+        "sha256": "f4fadac9080a7912c5fd23c796416938378055657e32e0c42b562f79012fdd1e",
+        "bytes": 321715,
+        "retrievedAt": "2026-09-05T07:45:12.068755+00:00",
+        "reused": false
+      },
+      {
+        "view": 124,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f124/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f124-1200.jpg",
+        "sha256": "0df8df931e2b72947972bfd221234eadc3944ca23ef7d3ae9a40835c9d8de844",
+        "bytes": 170297,
+        "retrievedAt": "2026-09-05T07:45:38.282674+00:00",
+        "reused": false
+      },
+      {
+        "view": 125,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f125/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f125-1200.jpg",
+        "sha256": "71f8a834cdddf8052e13cb73c288c75c50dc354c3c34062dad7be2647607d60e",
+        "bytes": 239718,
+        "retrievedAt": "2026-09-05T07:45:55.716064+00:00",
+        "reused": false
+      },
+      {
+        "view": 126,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f126/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f126-1200.jpg",
+        "sha256": "3d8252d72aa31715de9b26f269659d3b4ac3415e1bb4b7b65c4da975c82c7f44",
+        "bytes": 133268,
+        "retrievedAt": "2026-09-05T07:46:10.838685+00:00",
+        "reused": false
+      },
+      {
+        "view": 127,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f127/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f127-1200.jpg",
+        "sha256": "9cbef85feb049494f0d6c3a8fd4929fc8ea95a89e4b78391118a6b52e4b64af3",
+        "bytes": 313622,
+        "retrievedAt": "2026-09-05T07:46:27.136592+00:00",
+        "reused": false
+      },
+      {
+        "view": 128,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f128/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f128-1200.jpg",
+        "sha256": "be3e13ac5b5c25a3c564bc94a7bea1475000f2acc63ff0aa41fd3b24bc179ae9",
+        "bytes": 334665,
+        "retrievedAt": "2026-09-05T07:46:50.074215+00:00",
+        "reused": false
+      },
+      {
+        "view": 129,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f129/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f129-1200.jpg",
+        "sha256": "2c072c5056d8385ce565f448c1721125525b4df7a5a3242515fc29415c430162",
+        "bytes": 376620,
+        "retrievedAt": "2026-09-05T07:47:06.211705+00:00",
+        "reused": false
+      },
+      {
+        "view": 130,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f130/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f130-1200.jpg",
+        "sha256": "60f860f4f2ec178a258c9c2f6a76fb557bf51a864d2492ef0ffdc6ba46e4aacd",
+        "bytes": 365560,
+        "retrievedAt": "2026-09-05T07:47:22.682224+00:00",
+        "reused": false
+      },
+      {
+        "view": 131,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f131/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f131-1200.jpg",
+        "sha256": "b31a52c9411618f7d408e70b4a1bed45639af282429268144ea36084e5e414af",
+        "bytes": 365507,
+        "retrievedAt": "2026-09-05T07:47:38.558395+00:00",
+        "reused": false
+      },
+      {
+        "view": 132,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f132/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f132-1200.jpg",
+        "sha256": "4e12943c90132f240e434b631d786ba4fe72ceee5edef59c77337070f0ee5eea",
+        "bytes": 337672,
+        "retrievedAt": "2026-09-05T07:48:03.610874+00:00",
+        "reused": false
+      },
+      {
+        "view": 133,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f133/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f133-1200.jpg",
+        "sha256": "7ad4ccf584eb9f946f18dd2d627bbf70659e8240b2a31040a508873e323ccf30",
+        "bytes": 351286,
+        "retrievedAt": "2026-09-05T07:48:18.300979+00:00",
+        "reused": false
+      },
+      {
+        "view": 134,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f134/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f134-1200.jpg",
+        "sha256": "c0e6dbb79f84a5cd6fd2eb8d11f02be4943ec8bb639048871f752b4643d4e2e5",
+        "bytes": 335786,
+        "retrievedAt": "2026-09-05T07:48:33.726098+00:00",
+        "reused": false
+      },
+      {
+        "view": 135,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f135/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f135-1200.jpg",
+        "sha256": "5b08b687b92c52e8e1924c14370c9e0836e0310713616ecc0dd27669ef78ea88",
+        "bytes": 372909,
+        "retrievedAt": "2026-09-05T07:48:49.047194+00:00",
+        "reused": false
+      },
+      {
+        "view": 136,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f136/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f136-1200.jpg",
+        "sha256": "6d706ea7d44d2733d61f548afebe485b0e7a75f1490005119d1b5880f0cdd048",
+        "bytes": 122654,
+        "retrievedAt": "2026-09-05T07:49:13.773223+00:00",
+        "reused": false
+      },
+      {
+        "view": 137,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f137/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f137-1200.jpg",
+        "sha256": "2a7cd13af30b0087a168f45a2d1188edda2f6defb2ba0b5f838a2f7d16d84433",
+        "bytes": 350378,
+        "retrievedAt": "2026-09-05T07:49:28.337921+00:00",
+        "reused": false
+      },
+      {
+        "view": 138,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f138/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f138-1200.jpg",
+        "sha256": "0b291f27bc36015ce44a6c6ff113fe7c9a2d82a874df569e233bb4a39ea3ce70",
+        "bytes": 345684,
+        "retrievedAt": "2026-09-05T07:49:47.657834+00:00",
+        "reused": false
+      },
+      {
+        "view": 139,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f139/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f139-1200.jpg",
+        "sha256": "1eddaa5b951d41badb1aac192258dafa7f89e1cf4a2e9ea5dbe889792e193d5e",
+        "bytes": 374276,
+        "retrievedAt": "2026-09-05T07:50:10.850258+00:00",
+        "reused": false
+      },
+      {
+        "view": 140,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f140/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f140-1200.jpg",
+        "sha256": "3c402aa33fe29e3130a273e87d1b176fe2f34be11a64726b3c45fb1077f0fc32",
+        "bytes": 237285,
+        "retrievedAt": "2026-09-05T07:50:37.074630+00:00",
+        "reused": false
+      },
+      {
+        "view": 141,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f141/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f141-1200.jpg",
+        "sha256": "7254f60068959a0de42498e6bb94c47261d5229f5c8d037dfbc4b1d9a3853f48",
+        "bytes": 306087,
+        "retrievedAt": "2026-09-05T07:50:53.791365+00:00",
+        "reused": false
+      },
+      {
+        "view": 142,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f142/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f142-1200.jpg",
+        "sha256": "4aa83052402c76d91c7e6300b1d48c1212b39c37d6ba413e22a5ed546dfa7e27",
+        "bytes": 352976,
+        "retrievedAt": "2026-09-05T07:51:11.827464+00:00",
+        "reused": false
+      },
+      {
+        "view": 143,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f143/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f143-1200.jpg",
+        "sha256": "8a190ac620c395a0a2b26befa9220a7b9433baf59356f2dc4dabb5b35e80c188",
+        "bytes": 362924,
+        "retrievedAt": "2026-09-05T07:51:36.357716+00:00",
+        "reused": false
+      },
+      {
+        "view": 144,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f144/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f144-1200.jpg",
+        "sha256": "9640dfd569c424badd51b72561c248294715b2b2dffd191f6716cb590059d9eb",
+        "bytes": 291949,
+        "retrievedAt": "2026-09-05T07:52:08.735893+00:00",
+        "reused": false
+      },
+      {
+        "view": 145,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f145/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f145-1200.jpg",
+        "sha256": "67a4d7631ed1194a44a5ff23a9ed4881ec8301b79f3ee89455d0c8c68c45f1a3",
+        "bytes": 345283,
+        "retrievedAt": "2026-09-05T07:52:24.129660+00:00",
+        "reused": false
+      },
+      {
+        "view": 146,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f146/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f146-1200.jpg",
+        "sha256": "16a1178ca315796331aee9182c34f52521d8bb3ba7b4806b995820a35516f824",
+        "bytes": 141920,
+        "retrievedAt": "2026-09-05T07:52:39.820300+00:00",
+        "reused": false
+      },
+      {
+        "view": 147,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f147/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f147-1200.jpg",
+        "sha256": "8ce4963240621bc6f94d5cca45e17a1e27370980b3fc6dcdddcbce44cfbc6e89",
+        "bytes": 352784,
+        "retrievedAt": "2026-09-05T07:52:54.574348+00:00",
+        "reused": false
+      },
+      {
+        "view": 148,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f148/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f148-1200.jpg",
+        "sha256": "30b48cae38e9987d0a7057cb180eef757c9d1d0a6540f243ccfc9b93fa625309",
+        "bytes": 345068,
+        "retrievedAt": "2026-09-05T07:53:19.292612+00:00",
+        "reused": false
+      },
+      {
+        "view": 149,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f149/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f149-1200.jpg",
+        "sha256": "38029f5bd0040fc1700574318206683c1b31a21e0df18335834d4299eef7d317",
+        "bytes": 356826,
+        "retrievedAt": "2026-09-05T07:53:34.687017+00:00",
+        "reused": false
+      },
+      {
+        "view": 150,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f150/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f150-1200.jpg",
+        "sha256": "a9725cf98d7eec5244d01f362b7d8af1a0726a1c6afec2e42d98b24ac6127c11",
+        "bytes": 343933,
+        "retrievedAt": "2026-09-05T07:53:50.034595+00:00",
+        "reused": false
+      },
+      {
+        "view": 151,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f151/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f151-1200.jpg",
+        "sha256": "5001945290b513c247f4cdf9593d0bd587a98277b81f68bb5e55263cf23a311c",
+        "bytes": 359868,
+        "retrievedAt": "2026-09-05T07:54:05.018013+00:00",
+        "reused": false
+      },
+      {
+        "view": 152,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f152/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f152-1200.jpg",
+        "sha256": "c7aa8b8a9635a4d7eacab25b03fa3b2ad054c8611b2f9be3d318eb1b3de07e48",
+        "bytes": 362220,
+        "retrievedAt": "2026-09-05T07:54:33.773020+00:00",
+        "reused": false
+      },
+      {
+        "view": 153,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f153/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f153-1200.jpg",
+        "sha256": "6e0326377d52b89e45b89ac89382ecf0a956a8e0cb09abf338e1c466edad333b",
+        "bytes": 346159,
+        "retrievedAt": "2026-09-05T07:54:54.423623+00:00",
+        "reused": false
+      },
+      {
+        "view": 154,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f154/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f154-1200.jpg",
+        "sha256": "81f51e128a8b4fb75633bbd9093b4d75a6f7ca54cf0558ffbab680d2d32c7310",
+        "bytes": 348646,
+        "retrievedAt": "2026-09-05T07:55:09.677782+00:00",
+        "reused": false
+      },
+      {
+        "view": 155,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f155/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f155-1200.jpg",
+        "sha256": "cc508ade2270a64b9c18a4b5224d8928a75d42f84039717847e1c359b5496666",
+        "bytes": 366814,
+        "retrievedAt": "2026-09-05T07:55:24.462673+00:00",
+        "reused": false
+      },
+      {
+        "view": 156,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f156/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f156-1200.jpg",
+        "sha256": "b10439f4cbf27ed6704f4e56a28a06dbd401e005c91d3e4d2830181851747136",
+        "bytes": 128503,
+        "retrievedAt": "2026-09-05T07:55:48.320909+00:00",
+        "reused": false
+      },
+      {
+        "view": 157,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f157/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f157-1200.jpg",
+        "sha256": "74dfa7a1ddedae1f40df736e6f6bddc91624e6439562b3d06c699ce63b31ecff",
+        "bytes": 334463,
+        "retrievedAt": "2026-09-05T07:56:03.313353+00:00",
+        "reused": false
+      },
+      {
+        "view": 158,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f158/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f158-1200.jpg",
+        "sha256": "15dd140251e8e8e166306c07a9a575ac10355ac385e5a19fc69f74937c8b304c",
+        "bytes": 265274,
+        "retrievedAt": "2026-09-05T07:56:18.549309+00:00",
+        "reused": false
+      },
+      {
+        "view": 159,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f159/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f159-1200.jpg",
+        "sha256": "c736d2d143535934b3b0c14bc19114eac2821e2199b59b553b717644bbd8fa0b",
+        "bytes": 300852,
+        "retrievedAt": "2026-09-05T07:56:33.076773+00:00",
+        "reused": false
+      },
+      {
+        "view": 160,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f160/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f160-1200.jpg",
+        "sha256": "49f9c43742f5db498cc3703560739cad3a62f883c321e359a3bf16998026304b",
+        "bytes": 324749,
+        "retrievedAt": "2026-09-05T07:56:55.995474+00:00",
+        "reused": false
+      },
+      {
+        "view": 161,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f161/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f161-1200.jpg",
+        "sha256": "0e6d4522dcb1a96d4a043c6f945050016d0d8c9aca8ee38f41b7f414b6ff5555",
+        "bytes": 343372,
+        "retrievedAt": "2026-09-05T07:57:11.192493+00:00",
+        "reused": false
+      },
+      {
+        "view": 162,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f162/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f162-1200.jpg",
+        "sha256": "6966199a6acef1aaa07c5ac4b658865a93d8cd76327171f9042112440363f8c7",
+        "bytes": 330913,
+        "retrievedAt": "2026-09-05T07:57:27.997124+00:00",
+        "reused": false
+      },
+      {
+        "view": 163,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f163/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f163-1200.jpg",
+        "sha256": "4427fba4acd5422051cd64b001edffd791941ff8d956e5e31b3d62b5b164d2ef",
+        "bytes": 384002,
+        "retrievedAt": "2026-09-05T07:57:42.923575+00:00",
+        "reused": false
+      },
+      {
+        "view": 164,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f164/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f164-1200.jpg",
+        "sha256": "d6c36965e5264f2e60220eb53d271e0c6cc1e8541aa7f2e95f77819e3da6dafe",
+        "bytes": 333370,
+        "retrievedAt": "2026-09-05T07:58:06.644489+00:00",
+        "reused": false
+      },
+      {
+        "view": 165,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f165/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f165-1200.jpg",
+        "sha256": "20da7eae41d49bc2a9efb585e65b0efbd53e343e3e62de657b523db7d3c5d0ed",
+        "bytes": 367449,
+        "retrievedAt": "2026-09-05T07:58:21.310808+00:00",
+        "reused": false
+      },
+      {
+        "view": 166,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f166/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f166-1200.jpg",
+        "sha256": "94c6e89d861809bc7be7a1591a3e74a04bd9e9f9bd90548789051b2f6ef2ccb2",
+        "bytes": 314809,
+        "retrievedAt": "2026-09-05T07:58:36.485872+00:00",
+        "reused": false
+      },
+      {
+        "view": 167,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f167/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f167-1200.jpg",
+        "sha256": "31154728801d846146d4efcd547ea100ec4bedc072656eb7ce8dc21a5b88d68d",
+        "bytes": 344188,
+        "retrievedAt": "2026-09-05T07:58:52.533694+00:00",
+        "reused": false
+      },
+      {
+        "view": 168,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f168/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f168-1200.jpg",
+        "sha256": "b0fc7bf6856a893c64e13be1cbda4cebe21814186a9f2e6787f5d5ac70865a7e",
+        "bytes": 305221,
+        "retrievedAt": "2026-09-05T07:59:14.453226+00:00",
+        "reused": false
+      },
+      {
+        "view": 169,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f169/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f169-1200.jpg",
+        "sha256": "59f686b972d602d8c7bd253e6dda98514725a2ae09514855bf273ca83bd3f09c",
+        "bytes": 346330,
+        "retrievedAt": "2026-09-05T07:59:32.456452+00:00",
+        "reused": false
+      },
+      {
+        "view": 170,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f170/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f170-1200.jpg",
+        "sha256": "9f2d57a76098854266f74fade87ce1cbcdc908ee4dd99c65182854c746401f5b",
+        "bytes": 347150,
+        "retrievedAt": "2026-09-05T07:59:49.370654+00:00",
+        "reused": false
+      },
+      {
+        "view": 171,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f171/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f171-1200.jpg",
+        "sha256": "183314e06a6846bcd72083b1f87bd4744ef55a67fcda9a2f31ca61664f040fbb",
+        "bytes": 272549,
+        "retrievedAt": "2026-09-05T08:00:09.050218+00:00",
+        "reused": false
+      },
+      {
+        "view": 172,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f172/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f172-1200.jpg",
+        "sha256": "6c6ac9293969d4bb3dd4bf5225a9f1801fe26009bcf3f0e93c29d58646410d78",
+        "bytes": 156623,
+        "retrievedAt": "2026-09-05T08:00:33.518578+00:00",
+        "reused": false
+      },
+      {
+        "view": 173,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f173/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f173-1200.jpg",
+        "sha256": "a08286aab022cc28673b5e35f31be64c91bddecafd2cc63d40b1ee54290bdd71",
+        "bytes": 278465,
+        "retrievedAt": "2026-09-05T08:00:48.173222+00:00",
+        "reused": false
+      },
+      {
+        "view": 174,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f174/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f174-1200.jpg",
+        "sha256": "26606efe8124135029204c929d0e77f4ba3da763b2e1eb14e0965333246062ac",
+        "bytes": 162731,
+        "retrievedAt": "2026-09-05T08:01:03.500480+00:00",
+        "reused": false
+      },
+      {
+        "view": 175,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f175/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f175-1200.jpg",
+        "sha256": "7d6a03053c0d26afed159fd2c3ba0632661241469ba5c909b77ff77760f7737e",
+        "bytes": 263598,
+        "retrievedAt": "2026-09-05T08:01:18.689196+00:00",
+        "reused": false
+      },
+      {
+        "view": 176,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f176/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f176-1200.jpg",
+        "sha256": "7938651cfb087c893f47de3144bbe4ab62413955e53ccfaa43d54cbd7fdeed34",
+        "bytes": 184364,
+        "retrievedAt": "2026-09-05T08:01:42.316458+00:00",
+        "reused": false
+      },
+      {
+        "view": 177,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f177/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f177-1200.jpg",
+        "sha256": "7e6a1ce930f6a260e770a3b2d18efb7870e2c0ae98764722502be6c3917df99d",
+        "bytes": 224834,
+        "retrievedAt": "2026-09-05T08:01:57.944507+00:00",
+        "reused": false
+      },
+      {
+        "view": 178,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f178/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f178-1200.jpg",
+        "sha256": "14f93220284f3dad66cd533392d6f7009812135b8a52aa049d60b8f9b56e9dbe",
+        "bytes": 160911,
+        "retrievedAt": "2026-09-05T08:02:15.284400+00:00",
+        "reused": false
+      },
+      {
+        "view": 179,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f179/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f179-1200.jpg",
+        "sha256": "751cbb2d92f14144aae45ea7796e7e2feca446d00fa56560b3d4fb55735cbb76",
+        "bytes": 190898,
+        "retrievedAt": "2026-09-05T08:02:30.575311+00:00",
+        "reused": false
+      },
+      {
+        "view": 180,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f180/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f180-1200.jpg",
+        "sha256": "d5ce249b340c5d6a86ff1ff3c079a4bc539bdf4cd940769fafae53a2d706d75e",
+        "bytes": 143913,
+        "retrievedAt": "2026-09-05T08:02:53.918262+00:00",
+        "reused": false
+      },
+      {
+        "view": 181,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f181/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f181-1200.jpg",
+        "sha256": "9da5ee36e30173be8aeba8a4ac01153b701648c9a3c439f0570852cb26dcc598",
+        "bytes": 116790,
+        "retrievedAt": "2026-09-05T08:03:08.554703+00:00",
+        "reused": false
+      },
+      {
+        "view": 182,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f182/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f182-1200.jpg",
+        "sha256": "873cbcb4cd87d9e58b3624b6b3a94a5716a3b72de16b4be6e6e057209f48a724",
+        "bytes": 144861,
+        "retrievedAt": "2026-09-05T08:03:23.163148+00:00",
+        "reused": false
+      },
+      {
+        "view": 183,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f183/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f183-1200.jpg",
+        "sha256": "01e9174aa6c5da9ba2925d640b3141fa29544a443e17789b44d0928527075332",
+        "bytes": 201446,
+        "retrievedAt": "2026-09-05T08:03:38.194712+00:00",
+        "reused": false
+      },
+      {
+        "view": 184,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f184/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f184-1200.jpg",
+        "sha256": "63cf2b11d72a0b8597eb5e2c08828d25aeb0df717538af48a8bd1c79bb6c4ee6",
+        "bytes": 159765,
+        "retrievedAt": "2026-09-05T08:04:04.829207+00:00",
+        "reused": false
+      },
+      {
+        "view": 185,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f185/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f185-1200.jpg",
+        "sha256": "c632b6658d7b580f71929c190ea0ab6c2ca6b80a9d77634b5226799ab608d570",
+        "bytes": 173237,
+        "retrievedAt": "2026-09-05T08:04:19.607598+00:00",
+        "reused": false
+      },
+      {
+        "view": 186,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f186/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f186-1200.jpg",
+        "sha256": "cb2bde9445fd0ff7f3af797931d1b244a8cdc898fc70ece386eff76bd2735caa",
+        "bytes": 519158,
+        "retrievedAt": "2026-09-05T08:04:34.521440+00:00",
+        "reused": false
+      },
+      {
+        "view": 187,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f187/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f187-1200.jpg",
+        "sha256": "8d53dbeece0a1e5b12ca126c0e1a58d031d9ee8e52ec826b46b30231d2573836",
+        "bytes": 537378,
+        "retrievedAt": "2026-09-05T08:04:50.178085+00:00",
+        "reused": false
+      },
+      {
+        "view": 188,
+        "status": "complete",
+        "url": "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k3373518k/f188/full/1200,/0/native.jpg",
+        "scratchRelativePath": "scouting-autoresearch/sources/chamarande-1934/f188-1200.jpg",
+        "sha256": "615b93a9bbdd62435821b0800a4cf9bb60d3040229d8d7b7165ea4e5e9ff34ad",
+        "bytes": 412801,
+        "retrievedAt": "2026-09-05T08:05:11.925704+00:00",
+        "reused": false
+      }
+    ],
+    "completedAt": "2026-09-05T08:05:13.160153+00:00"
+  },
+  "iiifFullContactSheets": {
+    "status": "complete",
+    "scheduler": "slurm",
+    "jobId": "21977902",
+    "jobName": "scout-sevin-contact",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "architecture": "x86_64",
+    "node": "x1001c0s2b0n2",
+    "requestedCpus": 1,
+    "requestedMemory": "2G",
+    "maxRss": "604228K",
+    "elapsed": "00:00:30",
+    "exitCode": "0:0",
+    "startedAt": "2026-09-05T10:05:47+02:00",
+    "completedAt": "2026-09-05T10:06:17+02:00",
+    "modules": [
+      "GCCcore/14.3.0",
+      "ImageMagick/7.1.2-7"
+    ],
+    "script": "jobs/helios/chamarande-contact-sheets.slurm",
+    "exactCommand": "sbatch jobs/helios/chamarande-contact-sheets.slurm",
+    "gitRevision": "fa9a28cad3269eee6dac2c2c921c32f385a68019",
+    "inputViews": 188,
+    "numericPrintedPages": 133,
+    "paginationSha256": "48989b68bd51b00725dbf336f5fbfcbff3d3fe38fc4585078665b8c4daf74277",
+    "outputs": [
+      {
+        "order": "gallica-view",
+        "resultPathUnderScratch": "scouting-autoresearch/runs/chamarande-1934/iiif-contact-full/21977902/contact-sheet-view-order.jpg",
+        "dimensions": "2280x6403",
+        "bytes": 4045751,
+        "sha256": "1add67f59d63dc75c01d04be389e61c6338c227b7c0a226a17f052d75dc446d9"
+      },
+      {
+        "order": "numeric-printed-page",
+        "resultPathUnderScratch": "scouting-autoresearch/runs/chamarande-1934/iiif-contact-full/21977902/contact-sheet-printed-order.jpg",
+        "dimensions": "2280x4718",
+        "bytes": 3255938,
+        "sha256": "09684f92770a924b79c7611f037f84f6ed0471e37a79f9204ac997a9dc82efb9"
+      }
+    ],
+    "sourceFilesCommittedToRepository": 0
+  },
+  "componentScopeReview": {
+    "status": "human-review-pending",
+    "reviewPath": "vault/reviews/inbox/chamarande-1934-prose-scope.md",
+    "proposedViewCount": 113,
+    "proposedViewRanges": [
+      [19, 26],
+      [29, 36],
+      [39, 46],
+      [49, 64],
+      [67, 70],
+      [83, 84],
+      [87, 94],
+      [97, 104],
+      [107, 107],
+      [109, 109],
+      [111, 114],
+      [117, 123],
+      [127, 134],
+      [137, 144],
+      [147, 154],
+      [157, 170]
+    ],
+    "mixedPageBlockReviewRequired": true,
+    "ocrExecutionReady": false,
+    "humanApproved": false
+  },
+  "fetchStrategy": "iiif-view-fallback-after-two-pdf-429s"
 }
