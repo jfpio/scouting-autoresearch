@@ -317,6 +317,21 @@ python scripts/gallica.py --source-id chamarande-1934 --artifact pdf
 python scripts/gallica.py --source-id chamarande-1934 --artifact pdf --execute
 ```
 
+Zatwierdzone lokalne obrazy stron można przekazać do Mistral OCR przez drugi adapter,
+również domyślnie działający jako dry-run:
+
+```bash
+python scripts/mistral_ocr.py \
+  --config config/ocr/chamarande-1934.yaml \
+  --image "$SCRATCH/scouting-autoresearch/sources/chamarande-1934/f19-1200.jpg"
+```
+
+`--execute` najpierw sprawdza dokładny model przez `/v1/models`, a potem przetwarza obrazy
+sekwencyjnie. Surowe odpowiedzi zostają w scratch; śledzony checkpoint zapisuje hashe,
+liczbę stron, bezpieczne dane retry, rozliczenie `education-credit` i egzekwowany limit
+kosztu referencyjnego. Produkcyjne wykonanie pozostaje zablokowane przez `executionReady`
+do czasu ustalenia i wpisania zakresów widoków zawierających wyłącznie zatwierdzoną prozę.
+
 ## Licencje i bezpieczeństwo
 
 Kod: MIT. Projektowe metadane i tłumaczenia: domyślnie CC BY 4.0 w zakresie posiadanych
