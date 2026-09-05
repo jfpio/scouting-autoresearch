@@ -19,8 +19,10 @@ from mistral_ocr import (
     OCRError,
     active_cooldown,
     approved_view,
+    assert_source_input,
     completed_item,
     ensure_exact_model,
+    finalize_run,
     load_config,
     record_success,
     request_json,
@@ -46,6 +48,7 @@ class MistralOCRTests(unittest.TestCase):
                         "requireExplicitExecute": True,
                         "executionReady": True,
                         "approvedViewRanges": [[19, 29]],
+                        "inputDirectoryUnderScratch": "scouting-autoresearch/sources/chamarande-1934",
                         "requireExactModelAccessCheck": True,
                         "sequentialRequests": True,
                         "billingMode": "education-credit",
@@ -87,15 +90,27 @@ class MistralOCRTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory, patch.dict(
             os.environ, {"SCRATCH": directory}
         ):
-            image = Path(directory) / "scouting-autoresearch" / "page.jpg"
-            image.parent.mkdir()
+            image = (
+                Path(directory)
+                / "scouting-autoresearch"
+                / "sources"
+                / "chamarande-1934"
+                / "page.jpg"
+            )
+            image.parent.mkdir(parents=True)
             image.write_bytes(JPEG)
             data, media_type, digest = validate_image(image)
             self.assertEqual(data, JPEG)
             self.assertEqual(media_type, "image/jpeg")
             self.assertEqual(digest, hashlib.sha256(JPEG).hexdigest())
-            self.assertEqual(approved_view(image.with_name("f19-page.jpg"), load_config(self.config(directory))), 19)
-            self.assertIsNone(approved_view(image.with_name("f30-page.jpg"), load_config(self.config(directory))))
+            config = load_config(self.config(directory))
+            assert_source_input(image, config)
+            with self.assertRaisesRegex(RuntimeError, "configured source directory"):
+                assert_source_input(
+                    Path(directory) / "scouting-autoresearch" / "other.jpg", config
+                )
+            self.assertEqual(approved_view(image.with_name("f19-page.jpg"), config), 19)
+            self.assertIsNone(approved_view(image.with_name("f30-page.jpg"), config))
             outside = Path(directory) / "outside.jpg"
             outside.write_bytes(JPEG)
             with self.assertRaisesRegex(RuntimeError, "must remain under"):
@@ -145,9 +160,9 @@ class MistralOCRTests(unittest.TestCase):
         ):
             config = load_config(self.config(directory))
             root = Path(directory) / "scouting-autoresearch"
-            image = root / "page.jpg"
+            image = root / "sources" / "chamarande-1934" / "f19-page.jpg"
             output = root / "ocr" / "response.json"
-            image.parent.mkdir()
+            image.parent.mkdir(parents=True)
             image.write_bytes(JPEG)
             output.parent.mkdir(parents=True)
             response = b'{"model":"mistral-ocr-4-1"}\n'
@@ -176,6 +191,32 @@ class MistralOCRTests(unittest.TestCase):
             self.assertEqual(completed_item(stored, digest), item)
             output.write_bytes(b"changed")
             self.assertIsNone(completed_item(stored, digest))
+
+    def test_run_is_complete_only_when_every_approved_view_is_recorded(self):
+        with tempfile.TemporaryDirectory() as directory, patch.dict(
+            os.environ, {"SCRATCH": directory}
+        ):
+            config = load_config(self.config(directory))
+            checkpoint = Path(directory) / "checkpoint.json"
+            items = [
+                {"status": "complete", "sourceImage": f"f{view}-page.jpg"}
+                for view in range(19, 29)
+            ]
+            checkpoint.write_text(
+                json.dumps({"sourceId": config.source_id, "ocrRun": {"items": items}}),
+                encoding="utf-8",
+            )
+            now = datetime(2026, 9, 5, tzinfo=UTC)
+            self.assertFalse(finalize_run(checkpoint, config, now))
+            payload = json.loads(checkpoint.read_text(encoding="utf-8"))
+            payload["ocrRun"]["items"].append(
+                {"status": "complete", "sourceImage": "f29-page.jpg"}
+            )
+            checkpoint.write_text(json.dumps(payload), encoding="utf-8")
+            self.assertTrue(finalize_run(checkpoint, config, now))
+            finished = json.loads(checkpoint.read_text(encoding="utf-8"))
+            self.assertEqual(finished["ocrRun"]["status"], "complete")
+            self.assertEqual(finished["ocrRun"]["completedApprovedViewCount"], 11)
 
     def test_cost_accounting_includes_the_prior_smoke(self):
         from mistral_ocr import reference_cost

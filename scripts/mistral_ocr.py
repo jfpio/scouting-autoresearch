@@ -36,6 +36,7 @@ class OCRConfig:
     model: str
     execution_ready: bool
     approved_view_ranges: tuple[tuple[int, int], ...]
+    input_directory_under_scratch: str
     include_blocks: bool
     confidence_granularity: str
     billing_mode: str
@@ -99,6 +100,11 @@ def load_config(path: Path) -> OCRConfig:
         for item in ranges
     ):
         raise RuntimeError("OCR approvedViewRanges must contain inclusive [start, end] pairs")
+    if execution.get("executionReady") is True and not ranges:
+        raise RuntimeError("Ready OCR config must contain at least one approved view range")
+    input_directory = str(execution.get("inputDirectoryUnderScratch") or "")
+    if input_directory != f"scouting-autoresearch/sources/{source_id}":
+        raise RuntimeError("OCR input directory must match the configured source")
     results = str(execution.get("resultsUnderScratch") or "")
     if not results.startswith("scouting-autoresearch/"):
         raise RuntimeError("OCR results must be under SCRATCH/scouting-autoresearch")
@@ -107,6 +113,7 @@ def load_config(path: Path) -> OCRConfig:
         model=model,
         execution_ready=execution.get("executionReady") is True,
         approved_view_ranges=tuple((item[0], item[1]) for item in ranges),
+        input_directory_under_scratch=input_directory,
         include_blocks=request.get("includeBlocks") is True,
         confidence_granularity="page",
         billing_mode="education-credit",
@@ -168,12 +175,30 @@ def validate_image(path: Path) -> tuple[bytes, str, str]:
     return data, media_type, hashlib.sha256(data).hexdigest()
 
 
+def assert_source_input(path: Path, config: OCRConfig) -> None:
+    expected = (
+        Path(os.environ["SCRATCH"]) / config.input_directory_under_scratch
+    ).resolve()
+    try:
+        path.resolve().relative_to(expected)
+    except ValueError as error:
+        raise RuntimeError("OCR input must be inside the configured source directory") from error
+
+
 def approved_view(image: Path, config: OCRConfig) -> int | None:
     match = re.match(r"^f(\d+)-", image.name)
     if not match:
         return None
     view = int(match.group(1))
     return view if any(start <= view <= end for start, end in config.approved_view_ranges) else None
+
+
+def approved_views(config: OCRConfig) -> set[int]:
+    return {
+        view
+        for start, end in config.approved_view_ranges
+        for view in range(start, end + 1)
+    }
 
 
 def default_output(config: OCRConfig, image: Path, digest: str) -> Path:
@@ -371,12 +396,36 @@ def record_success(
     return item
 
 
+def finalize_run(checkpoint_path: Path, config: OCRConfig, completed_at: datetime) -> bool:
+    checkpoint = read_json(checkpoint_path)
+    run = checkpoint.setdefault("ocrRun", {})
+    expected = approved_views(config)
+    completed = {
+        view
+        for item in run.get("items", [])
+        if item.get("status") == "complete"
+        and (view := approved_view(Path(str(item.get("sourceImage") or "")), config))
+        is not None
+    }
+    run["approvedViewCount"] = len(expected)
+    run["completedApprovedViewCount"] = len(completed)
+    is_complete = bool(expected) and completed >= expected
+    run["status"] = "complete" if is_complete else "in-progress"
+    if is_complete:
+        run["completedAt"] = completed_at.astimezone(UTC).isoformat()
+    else:
+        run.pop("completedAt", None)
+    write_json(checkpoint_path, checkpoint)
+    return is_complete
+
+
 def ocr_image(
     image: Path,
     output: Path,
     config: OCRConfig,
     api_key: str,
 ) -> tuple[bytes, dict[str, Any], str]:
+    assert_source_input(image, config)
     data, media_type, digest = validate_image(image)
     payload = {
         "model": config.model,
@@ -421,8 +470,13 @@ def main() -> None:
     prepared: list[tuple[Path, str, Path]] = []
     reused: list[dict[str, Any]] = []
     unapproved: list[str] = []
+    seen_digests: set[str] = set()
     for image in args.image:
+        assert_source_input(image, config)
         _, _, digest = validate_image(image)
+        if digest in seen_digests:
+            raise SystemExit(f"Duplicate OCR input: {image.name}")
+        seen_digests.add(digest)
         if approved_view(image, config) is None:
             unapproved.append(image.name)
         prior = completed_item(checkpoint, digest)
@@ -449,6 +503,7 @@ def main() -> None:
         "executionReady": config.execution_ready,
         "inputsApproved": not unapproved,
         "unapprovedInputs": unapproved,
+        "approvedViewCount": len(approved_views(config)),
     }
     if retry_at:
         plan["nextRetryAt"] = retry_at.isoformat()
@@ -490,6 +545,9 @@ def main() -> None:
                     datetime.now(UTC),
                 )
             )
+        plan["sourceComplete"] = finalize_run(
+            checkpoint_path, config, datetime.now(UTC)
+        )
     except OCRError as error:
         record_error(checkpoint_path, error)
         suffix = f"; nextRetryAt={error.retry_at.isoformat()}" if error.retry_at else ""
