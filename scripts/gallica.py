@@ -354,6 +354,7 @@ def record_pdf_success(
     item: ApprovedItem,
 ) -> None:
     checkpoint = read_json(checkpoint_path)
+    prior_attempts = (checkpoint.get("fullDocument") or {}).get("attempts", [])
     scratch = os.environ.get("SCRATCH")
     if not scratch:
         raise RuntimeError("SCRATCH is not set")
@@ -373,6 +374,7 @@ def record_pdf_success(
         "contentType": result.get("contentType", "application/pdf"),
         "retrievedAt": result.get("retrievedAt"),
         "reused": result["reused"],
+        "attempts": prior_attempts,
     }
     checkpoint["nextStep"] = (
         "Inspect page-level component boundaries and select only prose explicitly attributable "
@@ -384,9 +386,22 @@ def record_pdf_success(
 def record_fetch_error(
     checkpoint_path: Path,
     error: GallicaFetchError,
+    observed_at: datetime | None = None,
 ) -> None:
     checkpoint = read_json(checkpoint_path)
     full_document = checkpoint.get("fullDocument") or {}
+    attempts = full_document.setdefault("attempts", [])
+    attempts.append(
+        {
+            "attempt": len(attempts) + 1,
+            "attemptedAt": (observed_at or datetime.now(UTC)).astimezone(UTC).isoformat(),
+            "reason": error.reason,
+            "providerDiagnostics": error.diagnostics,
+            "nextRetryAt": error.retry_at.astimezone(UTC).isoformat()
+            if error.retry_at
+            else None,
+        }
+    )
     full_document.update(
         {
             "status": "retry-pending" if error.retry_at else "failed",

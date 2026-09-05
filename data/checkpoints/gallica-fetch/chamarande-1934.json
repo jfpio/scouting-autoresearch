@@ -114,6 +114,20 @@
     "url": "https://gallica.bnf.fr/ark:/12148/bpt6k3373518k.pdf",
     "status": "retry-pending",
     "persisted": false,
+    "attempts": [
+      {
+        "attempt": 1,
+        "attemptedAt": "2026-09-05T07:08:39+02:00",
+        "reason": "transient-http-429",
+        "providerDiagnostics": {
+          "httpStatus": 429,
+          "retryAfter": null,
+          "requestId": null,
+          "rateLimitHeaders": {}
+        },
+        "nextRetryAt": "2026-09-05T08:08:39+02:00"
+      }
+    ],
     "providerDiagnostics": {
       "httpStatus": 429,
       "retryAfter": null,

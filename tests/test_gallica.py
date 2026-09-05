@@ -211,10 +211,19 @@ class GallicaTests(unittest.TestCase):
                 {"httpStatus": 429, "headers": {}},
                 datetime(2026, 9, 5, 7, tzinfo=UTC),
             )
-            record_fetch_error(checkpoint, failure)
+            record_fetch_error(
+                checkpoint,
+                failure,
+                datetime(2026, 9, 5, 6, tzinfo=UTC),
+            )
             failed = json.loads(checkpoint.read_text(encoding="utf-8"))
             self.assertEqual(failed["status"], "retry-pending")
             self.assertEqual(failed["nextRetryAt"], "2026-09-05T07:00:00+00:00")
+            self.assertEqual(failed["fullDocument"]["attempts"][0]["attempt"], 1)
+            self.assertEqual(
+                failed["fullDocument"]["attempts"][0]["providerDiagnostics"],
+                {"httpStatus": 429, "headers": {}},
+            )
 
             output = (
                 Path(directory)
@@ -237,6 +246,7 @@ class GallicaTests(unittest.TestCase):
             self.assertEqual(succeeded["status"], "fetched")
             self.assertNotIn("nextRetryAt", succeeded)
             self.assertEqual(succeeded["fullDocument"]["sha256"], "a" * 64)
+            self.assertEqual(succeeded["fullDocument"]["attempts"][0]["attempt"], 1)
 
     def test_active_cooldown_only_blocks_future_retry(self):
         now = datetime(2026, 9, 5, 6, tzinfo=UTC)
