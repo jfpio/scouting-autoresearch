@@ -181,6 +181,15 @@ class MistralOCRTests(unittest.TestCase):
         summary = validate_response(response, "mistral-ocr-4-1")
         self.assertEqual(summary["pagesProcessed"], 1)
         self.assertAlmostEqual(summary["averagePageConfidence"], 0.95)
+        response["pages"][0]["confidence_scores"] = {
+            "average_page_confidence_score": 0.981,
+            "minimum_page_confidence_score": 0.25,
+            "word_confidence_scores": [],
+        }
+        self.assertEqual(
+            validate_response(response, "mistral-ocr-4-1")["averagePageConfidence"],
+            0.981,
+        )
         with self.assertRaisesRegex(OCRError, "unexpected-model"):
             validate_response({**response, "model": "other"}, "mistral-ocr-4-1")
 

@@ -297,7 +297,15 @@ def ensure_exact_model(api_key: str, model: str) -> None:
 def page_confidence(page: dict[str, Any]) -> float | None:
     scores = page.get("confidence_scores")
     if isinstance(scores, dict):
-        values = [float(value) for value in scores.values() if isinstance(value, (int, float))]
+        average = scores.get("average_page_confidence_score")
+        if isinstance(average, (int, float)):
+            return float(average)
+        words = scores.get("word_confidence_scores")
+        values = (
+            [float(value) for value in words if isinstance(value, (int, float))]
+            if isinstance(words, list)
+            else []
+        )
     elif isinstance(scores, list):
         values = [float(value) for value in scores if isinstance(value, (int, float))]
     else:
