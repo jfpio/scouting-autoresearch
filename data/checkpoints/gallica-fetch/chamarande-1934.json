@@ -179,5 +179,5 @@
   "scratchRelativeDirectory": "scouting-autoresearch/sources/chamarande-1934",
   "sourceFilesCommittedToRepository": 0,
   "fullTextCommittedToRepository": false,
-  "nextStep": "After nextRetryAt, download the full PDF once, verify its hash and inspect page-level component boundaries before OCR."
+  "nextStep": "After nextRetryAt, fetch the next missing Gallica IIIF view with scripts/gallica_views.py; do not retry the full PDF endpoint while the documented per-view fallback is in progress."
 }
