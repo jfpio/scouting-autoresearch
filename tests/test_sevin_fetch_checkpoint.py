@@ -90,6 +90,25 @@ class SevinFetchCheckpointTests(unittest.TestCase):
         self.assertTrue(smoke["resultPathUnderScratch"].startswith("scouting-autoresearch/"))
         self.assertEqual(smoke["sourceFilesCommittedToRepository"], 0)
 
+        ordering = self.checkpoint["iiifOrderingSmoke"]
+        self.assertEqual(ordering["status"], "complete")
+        self.assertEqual(ordering["scheduler"], "slurm")
+        self.assertEqual(ordering["architecture"], "x86_64")
+        self.assertEqual(
+            [output["order"] for output in ordering["outputs"]],
+            ["gallica-view", "numeric-printed-page"],
+        )
+        self.assertTrue(
+            all(len(output["sha256"]) == 64 for output in ordering["outputs"])
+        )
+        self.assertTrue(
+            all(
+                output["resultPathUnderScratch"].startswith("scouting-autoresearch/")
+                for output in ordering["outputs"]
+            )
+        )
+        self.assertEqual(ordering["sourceFilesCommittedToRepository"], 0)
+
     def test_reuse_scope_remains_component_limited(self):
         checkpoint = self.checkpoint
         self.assertIn("Jacques Sevin", checkpoint["approvedComponent"])

@@ -176,6 +176,49 @@
     "gitRevision": "d371d54af5d8548b587bd74ede92c064db150f67",
     "sourceFilesCommittedToRepository": 0
   },
+  "iiifOrderingSmoke": {
+    "status": "complete",
+    "scheduler": "slurm",
+    "jobId": "21974376",
+    "jobName": "scout-sevin-order",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "architecture": "x86_64",
+    "node": "x1001c0s2b0n2",
+    "requestedCpus": 1,
+    "requestedMemory": "2G",
+    "maxRss": "50448K",
+    "elapsed": "00:00:02",
+    "exitCode": "0:0",
+    "startedAt": "2026-09-05T08:40:28+02:00",
+    "completedAt": "2026-09-05T08:40:30+02:00",
+    "modules": [
+      "GCCcore/14.3.0",
+      "ImageMagick/7.1.2-7"
+    ],
+    "tool": "ImageMagick 7.1.2-7",
+    "inputViews": [
+      "f13",
+      "f19",
+      "f29"
+    ],
+    "outputs": [
+      {
+        "order": "gallica-view",
+        "dimensions": "684x337",
+        "sha256": "b0dd31e0d0ba60a8e2598b2c80101a8fb3cc44bfc9fa49dd75bb005101f0495b",
+        "resultPathUnderScratch": "scouting-autoresearch/runs/chamarande-1934/iiif-order-smoke/21974376/contact-smoke-view-order.jpg"
+      },
+      {
+        "order": "numeric-printed-page",
+        "dimensions": "456x337",
+        "sha256": "a8c7fee517e813a0b0cbcef4759dbcad2c103cdba471d2f1e6315841205bd102",
+        "resultPathUnderScratch": "scouting-autoresearch/runs/chamarande-1934/iiif-order-smoke/21974376/contact-smoke-printed-order.jpg"
+      }
+    ],
+    "gitRevision": "6abe740673d11b097f7660d31d96a581b1521408",
+    "sourceFilesCommittedToRepository": 0
+  },
   "fullDocument": {
     "url": "https://gallica.bnf.fr/ark:/12148/bpt6k3373518k.pdf",
     "status": "retry-pending",
