@@ -317,6 +317,17 @@ python scripts/gallica.py --source-id chamarande-1934 --artifact pdf
 python scripts/gallica.py --source-id chamarande-1934 --artifact pdf --execute
 ```
 
+Jeżeli udokumentowany endpoint pełnego PDF pozostaje ograniczony przez dostawcę, fallback
+`scripts/gallica_views.py` wybiera jeden brakujący widok IIIF na uruchomienie. Nie omija
+cooldownu ani limitu kolekcji, nie zmienia dostawcy i po każdym sukcesie zapisuje hash oraz
+postęp w checkpointcie. Dzięki temu Goal Mode może wznawiać pobieranie bez procesu śpiącego
+na login node:
+
+```bash
+python scripts/gallica_views.py --source-id chamarande-1934
+python scripts/gallica_views.py --source-id chamarande-1934 --execute
+```
+
 Zatwierdzone lokalne obrazy stron można przekazać do Mistral OCR przez drugi adapter,
 również domyślnie działający jako dry-run:
 
