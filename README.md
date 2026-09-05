@@ -303,6 +303,20 @@ Wynik jest wyłącznie rekordem odkrywania. Oznaczenie praw z RDF nadal wymaga z
 zatwierdzonej reguły kolekcji, ustalenia autorstwa właściwego składnika oraz zachowania
 osobnej bramki dla konkretnej edycji i jej wkładów.
 
+Adapter `scripts/gallica.py` pobiera tylko obiekt mający dokładne `itemApproval` w rejestrze.
+Adresy paginacji, widoku IIIF i PDF-u wyprowadza z zatwierdzonego identyfikatora, nie pozwala
+zapisać wyniku poza `$SCRATCH/scouting-autoresearch/`, ogranicza rozmiar odpowiedzi,
+sprawdza typ i sygnaturę pliku oraz zapisuje go atomowo. Stan dostawcy w scratch wymusza
+minimalny odstęp wynikający z `rateLimitPerMinute` bez usypiania procesu. Bez `--execute` wykonuje tylko
+dry-run. Dla pełnego dokumentu respektuje `nextRetryAt` checkpointu, po `429` lub `5xx`
+zapisuje wyłącznie bezpieczną diagnostykę i termin podany przez dostawcę albo godzinny
+fallback. Przykład:
+
+```bash
+python scripts/gallica.py --source-id chamarande-1934 --artifact pdf
+python scripts/gallica.py --source-id chamarande-1934 --artifact pdf --execute
+```
+
 ## Licencje i bezpieczeństwo
 
 Kod: MIT. Projektowe metadane i tłumaczenia: domyślnie CC BY 4.0 w zakresie posiadanych
