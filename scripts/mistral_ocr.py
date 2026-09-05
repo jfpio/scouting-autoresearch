@@ -16,6 +16,7 @@ from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 import yaml
 
@@ -28,6 +29,11 @@ MODELS_API_URL = "https://api.mistral.ai/v1/models"
 DEFAULT_CHECKPOINT_DIR = ROOT / "data" / "checkpoints" / "gallica-fetch"
 MAX_IMAGE_BYTES = 20 * 1024 * 1024
 TRANSIENT_HTTP_CODES = {408, 429, 500, 502, 503, 504}
+EXPECTED_API_HOST = "api.mistral.ai"
+MAX_RESPONSE_BYTES = {
+    MODELS_API_URL: 4 * 1024 * 1024,
+    OCR_API_URL: 64 * 1024 * 1024,
+}
 
 
 @dataclass(frozen=True)
@@ -230,6 +236,9 @@ def default_output(config: OCRConfig, image: Path, digest: str) -> Path:
 
 
 def request_json(url: str, payload: dict[str, Any] | None, api_key: str) -> dict[str, Any]:
+    parsed_url = urlparse(url)
+    if parsed_url.scheme != "https" or parsed_url.hostname != EXPECTED_API_HOST:
+        raise RuntimeError("Mistral request URL is outside the expected API host")
     body = json.dumps(payload).encode("utf-8") if payload is not None else None
     headers = {"Authorization": f"Bearer {api_key}", "Accept": "application/json"}
     if body is not None:
@@ -238,7 +247,14 @@ def request_json(url: str, payload: dict[str, Any] | None, api_key: str) -> dict
     observed_at = datetime.now(UTC)
     try:
         with urllib.request.urlopen(request, timeout=600) as response:
-            result = json.loads(response.read().decode("utf-8"))
+            final = urlparse(response.geturl())
+            if final.scheme != "https" or final.hostname != EXPECTED_API_HOST:
+                raise OCRError("provider-redirected-outside-expected-host", {})
+            limit = MAX_RESPONSE_BYTES.get(url, 4 * 1024 * 1024)
+            response_bytes = response.read(limit + 1)
+            if len(response_bytes) > limit:
+                raise OCRError("provider-response-too-large", {"limitBytes": limit})
+            result = json.loads(response_bytes.decode("utf-8"))
     except urllib.error.HTTPError as error:
         diagnostics = safe_http_diagnostics(error)
         retry_at = (
@@ -267,6 +283,8 @@ def request_json(url: str, payload: dict[str, Any] | None, api_key: str) -> dict
 def ensure_exact_model(api_key: str, model: str) -> None:
     payload = request_json(MODELS_API_URL, None, api_key)
     models = payload.get("data")
+    if not isinstance(models, list):
+        raise OCRError("invalid-model-list-response", {"responseShape": "missing-data-list"})
     available = {
         item.get("id")
         for item in models or []

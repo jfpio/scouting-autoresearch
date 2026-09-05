@@ -35,6 +35,24 @@ from mistral_ocr import (
 JPEG = b"\xff\xd8\xff\xe0test-image"
 
 
+class FakeResponse:
+    def __init__(self, payload: dict, url: str = "https://api.mistral.ai/v1/ocr"):
+        self.data = json.dumps(payload).encode("utf-8")
+        self.url = url
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        return False
+
+    def read(self, size: int = -1):
+        return self.data if size < 0 else self.data[:size]
+
+    def geturl(self):
+        return self.url
+
+
 class MistralOCRTests(unittest.TestCase):
     def config(self, directory: str) -> Path:
         path = Path(directory) / "ocr.yaml"
@@ -147,6 +165,12 @@ class MistralOCRTests(unittest.TestCase):
         serialized = json.dumps(raised.exception.diagnostics)
         self.assertNotIn("cookie", serialized.lower())
         self.assertNotIn("private", serialized.lower())
+
+    def test_response_redirect_outside_mistral_is_rejected(self):
+        response = FakeResponse({}, "https://example.test/response")
+        with patch("mistral_ocr.urllib.request.urlopen", return_value=response):
+            with self.assertRaisesRegex(OCRError, "redirected-outside"):
+                request_json("https://api.mistral.ai/v1/ocr", {}, "secret-key")
 
     def test_response_requires_exact_model_one_page_and_markdown(self):
         response = {
