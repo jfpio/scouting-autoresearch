@@ -62,13 +62,29 @@ rightsReview:
     classification: noncommercial-reuse-free-with-attribution
     requiredAttribution: Source gallica.bnf.fr / Bibliothèque nationale de France
     commercialReuse: paid-license-required
+  accessDecision:
+    status: human-approved-for-controlled-download
+    date: "2026-09-05"
+    approvedBy: repository-owner
+    useMode: noncommercial-research-and-publication
+    requiredAttribution: Source gallica.bnf.fr / Bibliothèque nationale de France
+    approvedScope:
+      - documented download to temporary scratch storage for extraction and verification
+      - original French prose explicitly attributable to Jacques Sevin in the 1934 edition
+    excludes:
+      - music until its authorship and rights are established separately
+      - plates, illustrations and color cover until their authorship and rights are established separately
+      - later editions, introductions, selections, annotations and editorial apparatus
+      - Gallica site, database, viewer and digital packaging
+      - directly revenue-generating reuse without a separate Gallica commercial license
+    basis: >-
+      The repository owner confirmed that the project is non-profit and approved
+      noncommercial download and reuse under Gallica's attribution condition for this
+      item and scope.
   unresolved:
     - >-
-      The repository owner must approve Gallica as a documented-download collection for
-      this public-domain item and accept its noncommercial reuse and attribution terms.
-    - >-
-      The repository owner must approve the proposed prose-only scope; page-level
-      attribution must still be checked after download before any extraction.
+      Page-level attribution must still be checked after download before prose is extracted;
+      components not explicitly attributable to Jacques Sevin remain excluded.
     - >-
       Any directly revenue-generating publication would require a separate Gallica
       commercial-reuse license and must not inherit this decision.
@@ -241,10 +257,10 @@ zatwierdzenia konkretnego zakresu wymaganego przez repozytorium.
 
 Gallica pozwala na bezpłatne użycie niekomercyjne treści z zachowaniem wskazanej atrybucji,
 natomiast użycie bezpośrednio generujące przychód wymaga odpłatnej licencji. Dlatego przed
-pobraniem właściciel powinien potwierdzić, że publikacja korpusu jest niekomercyjna i
-zaakceptować obowiązek atrybucji. Decyzja powinna objąć wyłącznie prozę Sevina. Muzyka,
-plansze, ilustracje, okładka, późniejsze opracowania oraz cyfrowa warstwa Gallici pozostają
-wyłączone, dopóki nie zostaną ocenione osobno.
+pobraniem właściciel potwierdził 5 września 2026 r., że projekt jest non-profit, zaakceptował
+niekomercyjny sposób wykorzystania i obowiązek atrybucji Gallici. Zgoda obejmuje wyłącznie
+prozę Sevina. Muzyka, plansze, ilustracje, okładka, późniejsze opracowania oraz cyfrowa warstwa
+Gallici pozostają wyłączone, dopóki nie zostaną ocenione osobno.
 
 Po zatwierdzeniu pierwszym krokiem będzie małe, udokumentowane pobranie do katalogu scratch,
 kontrola stron tytułowych i spisu treści oraz ocena, czy książka rzeczywiście zawiera
