@@ -59,6 +59,33 @@ class SevinAlternativeAccessTests(unittest.TestCase):
         self.assertEqual(len(gallica["itemApprovals"]), 1)
         self.assertEqual(gallica["itemApprovals"][0]["identifier"], "bpt6k3373518k")
 
+    def test_gallica_material_is_excluded_from_the_default_commercial_license(self):
+        import yaml
+
+        registry_path = ROOT / "config" / "source-registry.yaml"
+        registry = yaml.safe_load(registry_path.read_text(encoding="utf-8"))
+        gallica = next(item for item in registry["collections"] if item["id"] == "gallica-bnf")
+        licensing = gallica["itemApprovals"][0]["downstreamLicensing"]
+        self.assertEqual(licensing["projectMetadata"], "CC-BY-4.0")
+        self.assertEqual(
+            licensing["sourceTextAndTranscription"],
+            "gallica-noncommercial-reuse-terms",
+        )
+        self.assertEqual(
+            licensing["projectTranslation"],
+            "CC-BY-NC-4.0-and-gallica-noncommercial-reuse-terms",
+        )
+        self.assertEqual(licensing["commercialReuse"], "separate-bnf-license-required")
+
+        policy = (ROOT / "DATA-LICENSE.md").read_text(encoding="utf-8")
+        self.assertIn("bpt6k3373518k", policy)
+        self.assertIn("CC BY-NC 4.0", policy)
+        self.assertIn("Source gallica.bnf.fr / Bibliothèque nationale de France", policy)
+
+        software_license = (ROOT / "LICENSE").read_text(encoding="utf-8")
+        self.assertIn("applies only to the software code", software_license)
+        self.assertIn("DATA-LICENSE.md", software_license)
+
     def test_searches_use_only_registered_metadata_or_link_methods(self):
         queries = self.search["queries"]
         self.assertEqual(len(queries), 6)

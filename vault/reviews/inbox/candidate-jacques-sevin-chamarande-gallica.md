@@ -81,6 +81,12 @@ rightsReview:
       The repository owner confirmed that the project is non-profit and approved
       noncommercial download and reuse under Gallica's attribution condition for this
       item and scope.
+    downstreamLicensing:
+      projectMetadata: CC-BY-4.0
+      sourceTextAndTranscription: gallica-noncommercial-reuse-terms
+      projectTranslation: CC-BY-NC-4.0-and-gallica-noncommercial-reuse-terms
+      commercialReuse: separate-bnf-license-required
+      policyDocument: DATA-LICENSE.md
   unresolved:
     - >-
       Page-level attribution must still be checked after download before prose is extracted;
