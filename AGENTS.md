@@ -115,6 +115,13 @@
 - Nie loguj sekretów, tokenów, pełnych nagłówków żądań ani zawartości plików `.env`.
 - Klucz Mistral czytaj tylko ze środowiska albo `~/.secrets/mistral.env`.
 - Zewnętrzne pobieranie musi być ograniczone do zatwierdzonego wpisu w rejestrze źródeł.
+- Dla obiektu Gallici `bpt6k3373518k` nie stosuj zbiorczej CC BY 4.0 do obrazu, OCR-u,
+  transkrypcji ani istotnych fragmentów odtworzonych z reprodukcji. Zachowaj warunki
+  niekomercyjnego wykorzystania Gallici i wymaganą atrybucję. Wkład projektu w tłumaczenia
+  pochodzące z tej transkrypcji oznacz CC BY-NC 4.0 w zakresie praw projektu oraz jako
+  podlegający dodatkowo warunkom Gallici. Metadane projektowe pozostają domyślnie CC BY 4.0.
+  Nie przedstawiaj tego wyjątku jako ograniczenia samej prozy Sevina będącej w domenie
+  publicznej; szczegóły określa `DATA-LICENSE.md` i wpis per-item w rejestrze.
 - `Azymut ZHR` jest zaufany do odkrywania i oceny jakości materiałów, ale nie daje zbiorczej
   zgody na kopiowanie treści; dla każdego artykułu zachowaj autora, datę i kanoniczny URL
   oraz osobno ustal dozwolony zakres wykorzystania.

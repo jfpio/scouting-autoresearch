@@ -378,7 +378,7 @@ def about_page(locale: str) -> str:
 
 Wersje w języku innym niż źródłowy są tłumaczeniami automatycznymi i nie są weryfikowane przez człowieka. Każdy rekord prowadzi do tekstu źródłowego i wydania cyfrowego oraz zachowuje autora, oryginalny tytuł książki, rok i strony. Brakujące dane pozostają nieznane — nie dopowiadamy wieku, czasu, sprzętu ani ryzyka.
 
-Kod projektu jest udostępniony na licencji MIT. Projektowe metadane i tłumaczenia są udostępniane na CC BY 4.0 wyłącznie w zakresie posiadanych praw; importowane teksty zachowują indywidualne oznaczenia praw.
+Kod projektu jest udostępniony na licencji MIT. Projektowe metadane i tłumaczenia są domyślnie udostępniane na CC BY 4.0 wyłącznie w zakresie posiadanych praw; importowane teksty zachowują indywidualne oznaczenia praw i warunki źródła. Materiał odtworzony z reprodukcji Gallici oraz oparte na nim tłumaczenia są wyjątkiem niekomercyjnym opisanym w [licencjach danych](https://github.com/jfpio/scouting-autoresearch/blob/main/DATA-LICENSE.md).
 
 ## Następny etap
 
@@ -388,7 +388,7 @@ V2 prowadzi kontrolowany proces pozyskiwania dzieł Roberta Baden-Powella, Ernes
 
 Versions in a language other than the source are automatic translations and are not verified by a person. Every record links to its source text and digital edition while preserving the author, original book title, year, and page references. Missing facts remain unknown: the project does not invent ages, duration, equipment, or risk levels.
 
-The project code is MIT-licensed. Project metadata and translations are offered under CC BY 4.0 only to the extent that the project owns the relevant rights; imported texts retain their record-level rights statements.
+The project code is MIT-licensed. Project metadata and translations are offered under CC BY 4.0 by default, only to the extent that the project owns the relevant rights; imported texts retain their record-level rights statements and source terms. Material transcribed from Gallica reproductions and translations based on it are a noncommercial exception described in the [data licensing policy](https://github.com/jfpio/scouting-autoresearch/blob/main/DATA-LICENSE.md).
 
 ## Next stage
 

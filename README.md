@@ -305,9 +305,10 @@ osobnej bramki dla konkretnej edycji i jej wkładów.
 
 ## Licencje i bezpieczeństwo
 
-Kod: MIT. Projektowe metadane i tłumaczenia: CC BY 4.0 w zakresie posiadanych praw.
-Importowane teksty zachowują status przypisany konkretnemu rekordowi; szczegóły zawiera
-[DATA-LICENSE.md](DATA-LICENSE.md).
+Kod: MIT. Projektowe metadane i tłumaczenia: domyślnie CC BY 4.0 w zakresie posiadanych
+praw. Importowane teksty zachowują status i warunki przypisane konkretnemu rekordowi.
+Materiał odtworzony z reprodukcji Gallici oraz oparte na nim tłumaczenia stanowią jawny
+wyjątek niekomercyjny; szczegóły zawiera [DATA-LICENSE.md](DATA-LICENSE.md).
 
 Dla Project Gutenberg obowiązuje zatwierdzona przez właściciela reguła: oznaczenie konkretnego
 eBooka `Public domain in the USA` wraz z udokumentowanym upływem 70 pełnych lat od śmierci
