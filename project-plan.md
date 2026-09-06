@@ -257,6 +257,10 @@ review participant scale → version input recipe → embed every game
   Dopiero człowiek wybiera z tej listy filtry produkcyjne; pozostałe mogą zostać metadanymi,
   fasetami eksperymentalnymi albo elementami mapy semantycznej. Każde pole zachowuje podstawę
   `source-stated`, `human-reviewed` albo `unknown` i nie jest uzupełniane samym modelem.
+  Pierwszy audyt leksykalny porównuje 12 wymiarów na wszystkich 199 grach, raportuje osobno
+  pokrycie, sygnały wielu wartości, obciążenie zimnym odczytem i zdolność rozkładu sygnałów do
+  różnicowania korpusu. Nie utożsamia tych proxy z trafnością ani wartością dla użytkownika;
+  próbki precyzji i rubryka wartości pozostają bramką decyzji człowieka.
 - Każda gra otrzymuje jeden wektor z wersjonowanego, ograniczonego do kontekstu modelu
   wejścia. Przepis zachowuje tytuł i treść w języku źródłowym oraz dodaje tytuł i krótki
   kontekst w drugim języku, aby mapa nie dzieliła się wyłącznie według języka. Hash wejścia
@@ -267,6 +271,9 @@ review participant scale → version input recipe → embed every game
 - Najbliżsi sąsiedzi są propozycjami eksploracyjnymi. Tylko relacje zatwierdzone przez
   człowieka mogą pojawić się jako trwałe linki „bardzo podobna gra”; na mapie zatwierdzone
   relacje i sugestie algorytmu muszą wyglądać inaczej.
+  Dopóki polityka zabrania publicznej ekspozycji kandydatur, pełna kolejka sąsiadów pozostaje
+  w dwujęzycznym pakiecie recenzenckim niewłączanym do publicznej strony. Publiczny widok nie
+  może wyprzedzić decyzji człowieka tylko po to, aby spełnić wymaganie prezentacyjne.
 - Projekcja dwuwymiarowa używa przypiętej wersji algorytmu i zależności, jawnego ziarna oraz
   hasha pełnego korpusu. Współrzędne są pomocą nawigacyjną, nie kategorią ani twierdzeniem o
   historycznym pochodzeniu; dodanie źródeł może zmienić układ całej mapy.
