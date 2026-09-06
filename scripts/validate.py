@@ -53,7 +53,7 @@ from embed_semantic_map import corpus_digest as semantic_map_corpus_digest
 from embed_semantic_map import load_batches as load_semantic_map_batches
 from embed_semantic_map import load_config as load_semantic_map_config
 from evaluate_translation_models import load_evaluation_config
-from translate import MAX_OUTPUT_TOKENS, MIN_OUTPUT_TOKENS
+from translate import MAX_OUTPUT_TOKENS, MIN_OUTPUT_TOKENS, translation_targets
 from propose_taxonomy import (
     PROPOSAL_PATH as TAXONOMY_PROPOSAL_PATH,
     REPORT_PATH as TAXONOMY_MAPPING_PROPOSAL_PATH,
@@ -74,6 +74,16 @@ SEMANTIC_MAP_ANALYSIS_PATH = ROOT / "data" / "reports" / "semantic-map-v3-analys
 def require(condition: bool, message: str, errors: list[str]) -> None:
     if not condition:
         errors.append(message)
+
+
+def source_translation_policies(source: dict[str, Any]) -> list[dict[str, Any]]:
+    policies = source.get("translationPolicies") or {}
+    if policies:
+        if not isinstance(policies, dict):
+            return []
+        return [policy for policy in policies.values() if isinstance(policy, dict)]
+    policy = source.get("translationPolicy") or {}
+    return [policy] if isinstance(policy, dict) and policy else []
 
 
 def repository_files() -> tuple[list[Path], list[Path]]:
@@ -199,7 +209,7 @@ def main() -> None:
         )
         require(metadata.get("sourceHash") == source_hash(metadata.get("title", ""), body), f"Bad source hash in {path.name}", errors)
         require(bool(metadata.get("printedPages")), f"Missing printed pages in {path.name}", errors)
-        require(metadata.get("originalLanguage") in {"pl", "en"}, f"Unsupported source language in {path.name}", errors)
+        require(metadata.get("originalLanguage") in {"pl", "en", "fr"}, f"Unsupported source language in {path.name}", errors)
         require(bool(metadata.get("sourceRevision") or metadata.get("sourceCommit")), f"Missing source revision in {path.name}", errors)
         require(bool(metadata.get("facsimileUrl") or metadata.get("pdfPages")), f"Missing page-level source link in {path.name}", errors)
         require(metadata.get("safetyStatus") == "historical-unreviewed", f"Unexpected safety status in {path.name}", errors)
@@ -275,14 +285,20 @@ def main() -> None:
                 errors,
             )
 
-    translation_ids: set[str] = set()
-    translation_metadata: dict[str, dict] = {}
+    translation_keys: set[tuple[str, str]] = set()
+    translation_metadata: dict[tuple[str, str], dict] = {}
     for path in translation_paths:
         metadata, body = load_markdown(path)
         activity_id = metadata.get("activityId")
-        require(activity_id not in translation_ids, f"Duplicate translation for {activity_id}", errors)
-        translation_ids.add(activity_id)
-        translation_metadata[activity_id] = metadata
+        target_locale = metadata.get("locale")
+        translation_key = (str(activity_id), str(target_locale))
+        require(
+            translation_key not in translation_keys,
+            f"Duplicate translation for {activity_id}/{target_locale}",
+            errors,
+        )
+        translation_keys.add(translation_key)
+        translation_metadata[translation_key] = metadata
         original_path = VAULT / "activities" / f"{activity_id}.md"
         require(original_path.exists(), f"Translation without original: {path.name}", errors)
         if original_path.exists():
@@ -294,10 +310,19 @@ def main() -> None:
                 f"Translation invented or dropped traits: {path.name}",
                 errors,
             )
-            expected_locale = "en" if original.get("originalLanguage") == "pl" else "pl"
-            require(metadata.get("locale") == expected_locale, f"Wrong target locale in {path.name}", errors)
-            require(path.parent.name == expected_locale, f"Translation is in the wrong directory: {path}", errors)
-            translation_policy = sources[original["sourceId"]].get("translationPolicy") or {}
+            try:
+                expected_locales = set(translation_targets(original.get("originalLanguage")))
+            except ValueError:
+                expected_locales = set()
+            require(target_locale in expected_locales, f"Wrong target locale in {path.name}", errors)
+            require(path.parent.name == target_locale, f"Translation is in the wrong directory: {path}", errors)
+            source = sources[original["sourceId"]]
+            policies = source.get("translationPolicies") or {}
+            translation_policy = (
+                policies.get(target_locale) or {}
+                if isinstance(policies, dict) and policies
+                else source.get("translationPolicy") or {}
+            )
             if translation_policy:
                 require(
                     metadata.get("locale") == translation_policy.get("targetLocale"),
@@ -354,12 +379,28 @@ def main() -> None:
             source_urls = set(re.findall(r"https?://[^\s)]+", original_body))
             translated_urls = set(re.findall(r"https?://[^\s)]+", body))
             require(source_urls.issubset(translated_urls), f"Translation dropped a URL or image: {path.name}", errors)
-    require(translation_ids == actual_ids, "Source and translation record IDs differ", errors)
-
-    for source_id, source in sources.items():
-        policy = source.get("translationPolicy") or {}
-        if not policy:
+    expected_translation_keys: set[tuple[str, str]] = set()
+    for activity_id, metadata in activity_metadata.items():
+        try:
+            expected_translation_keys.update(
+                (activity_id, locale)
+                for locale in translation_targets(metadata.get("originalLanguage"))
+            )
+        except ValueError:
             continue
+    require(
+        translation_keys == expected_translation_keys,
+        "Source and translation record/locale pairs differ",
+        errors,
+    )
+
+    translation_policy_rows = [
+        (source_id, source, policy)
+        for source_id, source in sources.items()
+        for policy in source_translation_policies(source)
+    ]
+    for source_id, source, policy in translation_policy_rows:
+        target_locale = str(policy.get("targetLocale"))
         evaluation = policy.get("modelEvaluation")
         if evaluation:
             evaluation_path = (ROOT / str(evaluation)).resolve()
@@ -380,6 +421,12 @@ def main() -> None:
                         errors,
                     )
                     require(
+                        evaluation_config.get("targetLocale", target_locale)
+                        == target_locale,
+                        f"Source {source_id} translation evaluation targets another locale",
+                        errors,
+                    )
+                    require(
                         evaluation_config.get("productionCandidate") == policy.get("modelRequested"),
                         f"Source {source_id} production model differs from its evaluation",
                         errors,
@@ -391,6 +438,11 @@ def main() -> None:
         report = read_json(report_path)
         expected_ids = sorted(activities_by_source.get(source_id, []))
         require(report.get("sourceId") == source_id, f"Source {source_id} translation report has the wrong source", errors)
+        require(
+            report.get("targetLocale") == target_locale,
+            f"Source {source_id} translation report has the wrong target locale",
+            errors,
+        )
         require(report.get("status") == "complete", f"Source {source_id} translation report is incomplete", errors)
         require(report.get("selectedActivityIds") == expected_ids, f"Source {source_id} translation selection is stale", errors)
         require(report.get("completedActivityIds") == expected_ids, f"Source {source_id} translation completion is stale", errors)
@@ -401,16 +453,29 @@ def main() -> None:
             errors,
         )
         expected_prompt_tokens = sum(
-            int((translation_metadata.get(activity_id, {}).get("usage") or {}).get("promptTokens", 0))
+            int(
+                (
+                    translation_metadata.get((activity_id, target_locale), {}).get("usage")
+                    or {}
+                ).get("promptTokens", 0)
+            )
             for activity_id in expected_ids
         )
         expected_completion_tokens = sum(
-            int((translation_metadata.get(activity_id, {}).get("usage") or {}).get("completionTokens", 0))
+            int(
+                (
+                    translation_metadata.get((activity_id, target_locale), {}).get("usage")
+                    or {}
+                ).get("completionTokens", 0)
+            )
             for activity_id in expected_ids
         )
         expected_request_max_output_tokens = sum(
             int(
-                (translation_metadata.get(activity_id, {}).get("usage") or {}).get(
+                (
+                    translation_metadata.get((activity_id, target_locale), {}).get("usage")
+                    or {}
+                ).get(
                     "requestMaxOutputTokens", 0
                 )
             )
@@ -418,7 +483,12 @@ def main() -> None:
         )
         expected_reference_cost = round(
             sum(
-                float((translation_metadata.get(activity_id, {}).get("usage") or {}).get("referenceCostUsd", 0))
+                float(
+                    (
+                        translation_metadata.get((activity_id, target_locale), {}).get("usage")
+                        or {}
+                    ).get("referenceCostUsd", 0)
+                )
                 for activity_id in expected_ids
             ),
             8,
@@ -428,9 +498,10 @@ def main() -> None:
         require(report_usage.get("completionTokens") == expected_completion_tokens, f"Source {source_id} completion-token total is stale", errors)
         if policy.get("requestBudgetRequired"):
             for activity_id in expected_ids:
-                budget = (translation_metadata.get(activity_id, {}).get("usage") or {}).get(
-                    "requestMaxOutputTokens"
-                )
+                budget = (
+                    translation_metadata.get((activity_id, target_locale), {}).get("usage")
+                    or {}
+                ).get("requestMaxOutputTokens")
                 require(
                     isinstance(budget, int) and MIN_OUTPUT_TOKENS <= budget <= MAX_OUTPUT_TOKENS,
                     f"Translation {activity_id} lacks a valid requested output-token budget",

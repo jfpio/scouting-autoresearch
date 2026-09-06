@@ -15,10 +15,14 @@ from embed_semantic_map import (
     canonical_hash,
     load_config,
     source_selection,
+    translation_locale,
 )
 
 
 class SemanticMapEmbeddingTests(unittest.TestCase):
+    def test_french_activities_use_the_polish_parallel_layer(self):
+        self.assertEqual(translation_locale("fr"), "pl")
+
     def test_recipe_contains_both_languages_and_bounds_clean_context(self):
         embedding = {
             "sourceContextCharacters": 20,

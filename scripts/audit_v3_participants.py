@@ -130,7 +130,7 @@ def build_report(config: dict[str, Any], records: list[dict[str, Any]]) -> dict[
     activity_ids = [record["activityId"] for record in records]
     if len(activity_ids) != len(set(activity_ids)):
         raise ValueError("V3 participant-audit corpus contains duplicate activity IDs")
-    if any(record.get("originalLanguage") not in {"pl", "en"} for record in records):
+    if any(record.get("originalLanguage") not in {"pl", "en", "fr"} for record in records):
         raise ValueError("V3 participant-audit corpus contains an unsupported source language")
 
     corpus_evidence = [
@@ -149,7 +149,7 @@ def build_report(config: dict[str, Any], records: list[dict[str, Any]]) -> dict[
             locale = record["originalLanguage"]
             matched_pattern_ids = [
                 entry["id"]
-                for entry in scale["patterns"][locale]
+                for entry in scale["patterns"].get(locale, [])
                 if re.search(entry["regex"], record["body"], flags=re.IGNORECASE)
             ]
             if not matched_pattern_ids:
@@ -187,7 +187,9 @@ def build_report(config: dict[str, Any], records: list[dict[str, Any]]) -> dict[
     for record in records:
         matched_pattern_ids = [
             entry["id"]
-            for entry in config["numericParticipantPatterns"][record["originalLanguage"]]
+            for entry in config["numericParticipantPatterns"].get(
+                record["originalLanguage"], []
+            )
             if re.search(entry["regex"], record["body"], flags=re.IGNORECASE)
         ]
         if matched_pattern_ids:
@@ -216,6 +218,15 @@ def build_report(config: dict[str, Any], records: list[dict[str, Any]]) -> dict[
             "activityIds": activity_ids,
             "sourceCounts": dict(sorted(source_counts.items())),
             "languageCounts": dict(sorted(language_counts.items())),
+        },
+        "method": {
+            "sourceTextOnly": True,
+            "lexicalSignalsOnly": True,
+            "absenceIsNotNegativeEvidence": True,
+            "patternLocales": ["pl", "en"],
+            "languagesWithoutPatterns": sorted(
+                set(language_counts) - {"pl", "en"}
+            ),
         },
         "lexicalSignalCoverage": {
             "activitiesWithAnySignal": len(any_signal_ids),

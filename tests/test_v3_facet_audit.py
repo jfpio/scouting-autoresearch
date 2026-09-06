@@ -101,6 +101,27 @@ class V3FacetAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "empty pl regex"):
             build_report(config, self.records)
 
+    def test_french_records_are_reported_without_guessing_lexical_patterns(self):
+        records = self.records + [
+            {
+                "activityId": "cha-001",
+                "sourceId": "chamarande-1934",
+                "sourceHash": "sha256:french",
+                "originalLanguage": "fr",
+                "title": "Jeu de nuit",
+                "body": "Deux patrouilles poursuivent un joueur avec une lampe.",
+            }
+        ]
+        report = build_report(self.config, records)
+        self.assertEqual(report["method"]["languagesWithoutPatterns"], ["fr"])
+        for dimension in report["dimensions"]:
+            signaled = {
+                activity_id
+                for value in dimension["values"]
+                for activity_id in value["activityIds"]
+            }
+            self.assertNotIn("cha-001", signaled)
+
     def test_checkpoint_is_deterministic_and_human_gated(self):
         checkpoint = build_checkpoint(self.report)
         self.assertEqual(

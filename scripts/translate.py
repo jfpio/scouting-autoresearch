@@ -62,6 +62,23 @@ grammatically masculine Polish forms and never expand them into paired feminine-
 If the source record contains no girl or girls, do not use any Polish word beginning with harcerk-.
 Preserve paragraph breaks with JSON newline escapes; never replace them with visible symbols such as ⏎.
 Output valid JSON only.""",
+    ("fr", "pl"): """Tłumacz historyczne francuskie teksty skautowe na jasny, wierny język polski.
+Zwróć jeden obiekt JSON zawierający dokładnie klucze: title, body, traits, section.
+Zachowaj strukturę Markdown, listy, wyróżnienia, adresy obrazów, HTML, liczby i odwołania
+źródłowe. Możesz tłumaczyć tekst alternatywny obrazów, ale nigdy nie zmieniaj URL. Zachowaj
+historyczny sens i ton; nie modernizuj instrukcji, nie dodawaj porad bezpieczeństwa, nie
+streszczaj, nie cenzuruj i nie dopowiadaj brakujących faktów. Tłumacz traits jako krótkie
+frazy rzeczownikowe w tej samej kolejności i liczbie; dla pustej listy zwróć pustą listę.
+Zachowaj każdą cyfrę, liczbę i jednostkę bez przeliczeń oraz zachowaj podziały akapitów.
+Zwróć wyłącznie poprawny JSON.""",
+    ("fr", "en"): """Translate historical French scouting texts into clear, faithful English.
+Return one JSON object with exactly these keys: title, body, traits, section.
+Preserve Markdown structure, lists, emphasis, image URLs, HTML, numbers, and source references.
+Translate image alt text when useful, but never alter a URL. Preserve the historical meaning and
+tone; do not modernize instructions, add safety advice, summarize, censor, or invent missing facts.
+Translate traits as short noun phrases in exactly the same order and count; return an empty array
+when traits is empty. Preserve every numeral and unit without conversion and preserve paragraph
+breaks. Output valid JSON only.""",
 }
 
 
@@ -110,6 +127,7 @@ def translation_fidelity_checks(
     metadata: dict[str, Any],
     body: str,
     translated: dict[str, Any],
+    target_locale: str | None = None,
 ) -> dict[str, Any]:
     source_urls = Counter(re.findall(r"https?://[^\s)]+", body))
     translated_urls = Counter(re.findall(r"https?://[^\s)]+", translated["body"]))
@@ -129,7 +147,19 @@ def translation_fidelity_checks(
         return Counter(normalized)
 
     source_locale = str(metadata.get("originalLanguage") or "en")
-    target_locale = translation_target(source_locale)
+    target_locale = translation_target(source_locale, target_locale)
+    female_scout_patterns = {
+        "en": r"\bgirls?\b|\bfemale scouts?\b",
+        "fr": r"\b(?:filles?|éclaireuses?|scoutes?)\b",
+        "pl": r"\bharcerk\w*\b",
+    }
+    source_mentions_female_scout = bool(
+        re.search(
+            female_scout_patterns.get(source_locale, r"(?!x)x"),
+            body,
+            flags=re.IGNORECASE,
+        )
+    )
     source_numbers = normalized_numbers(body, source_locale)
     translated_numbers = normalized_numbers(translated["body"], target_locale)
     body_ratio = len(translated["body"].strip()) / max(1, len(body.strip()))
@@ -153,7 +183,8 @@ def translation_fidelity_checks(
             translated["body"],
             flags=re.IGNORECASE,
         ),
-        "noInventedFemaleScout": bool(re.search(r"\bgirls?\b", body, flags=re.IGNORECASE))
+        "noInventedFemaleScout": target_locale != "pl"
+        or source_mentions_female_scout
         or not re.search(r"\bharcerk", translated["body"], flags=re.IGNORECASE),
         "bodyLengthRatioWithinBounds": 0.55 <= body_ratio <= 1.8,
     }
@@ -296,10 +327,10 @@ def translation_output_token_budget(user_payload: dict[str, Any]) -> int:
 
 
 def request_reference_cost_upper_bound(
-    metadata: dict[str, Any], body: str, model: str
+    metadata: dict[str, Any], body: str, model: str, target_locale: str | None = None
 ) -> float:
     source_locale = str(metadata["originalLanguage"])
-    target_locale = translation_target(source_locale)
+    target_locale = translation_target(source_locale, target_locale)
     user_payload = {
         "id": metadata["id"],
         "title": metadata["title"],
@@ -328,13 +359,16 @@ def enforce_reference_cost_limit(
     metadata: dict[str, Any],
     body: str,
     model: str,
+    target_locale: str | None = None,
 ) -> None:
     if policy.get("enforceReferenceCostLimit") is not True:
         return
     limit = float(policy.get("maxReferenceCostUsd", 0))
     if not 0 < limit <= 10:
         raise ValueError("Translation reference-cost limit must be within (0, 10] USD")
-    projected = spent_usd + 2 * request_reference_cost_upper_bound(metadata, body, model)
+    projected = spent_usd + 2 * request_reference_cost_upper_bound(
+        metadata, body, model, target_locale
+    )
     if projected > limit:
         raise ValueError(
             f"Translation reference-cost limit would be exceeded: {projected:.8f} > {limit:.2f} USD"
@@ -441,7 +475,9 @@ def request_translation(
         raise ValueError("Mistral response lacks the actual model identifier")
     translated = parse_json_content(choice["message"]["content"])
     billing_mode = str(
-        source_translation_policy(str(metadata["sourceId"])).get("billingMode")
+        source_translation_policy(
+            str(metadata["sourceId"]), target_locale
+        ).get("billingMode")
         or DEFAULT_BILLING_MODE
     )
     return translated, actual_model, usage_record(
@@ -510,32 +546,69 @@ def current_translation(
     return True
 
 
-def translation_target(source_locale: str) -> str:
-    if source_locale == "pl":
-        return "en"
-    if source_locale == "en":
-        return "pl"
-    raise ValueError(f"Unsupported source language: {source_locale}")
+def translation_targets(source_locale: str) -> tuple[str, ...]:
+    targets = {
+        "pl": ("en",),
+        "en": ("pl",),
+        "fr": ("pl", "en"),
+    }
+    try:
+        return targets[source_locale]
+    except KeyError as error:
+        raise ValueError(f"Unsupported source language: {source_locale}") from error
+
+
+def translation_target(source_locale: str, requested_locale: str | None = None) -> str:
+    targets = translation_targets(source_locale)
+    if requested_locale is not None:
+        if requested_locale not in targets:
+            raise ValueError(
+                f"Unsupported translation direction: {source_locale}->{requested_locale}"
+            )
+        return requested_locale
+    if len(targets) != 1:
+        raise ValueError(
+            f"Source language {source_locale} has multiple targets; specify one of {targets}"
+        )
+    return targets[0]
 
 
 @cache
-def source_translation_policy(source_id: str) -> dict[str, Any]:
+def source_translation_policy(
+    source_id: str, target_locale: str | None = None
+) -> dict[str, Any]:
     source_path = VAULT / "sources" / f"{source_id}.md"
     if not source_path.exists():
         return {}
     metadata, _ = load_markdown(source_path)
-    policy = metadata.get("translationPolicy") or {}
+    policies = metadata.get("translationPolicies") or {}
+    if policies:
+        if not isinstance(policies, dict):
+            raise ValueError(f"Source {source_id} has invalid translation policies")
+        if target_locale is None:
+            raise ValueError(
+                f"Source {source_id} has per-locale policies; target locale is required"
+            )
+        policy = policies.get(target_locale) or {}
+        if not policy:
+            raise ValueError(
+                f"Source {source_id} lacks a translation policy for {target_locale}"
+            )
+    else:
+        policy = metadata.get("translationPolicy") or {}
     if not isinstance(policy, dict):
         raise ValueError(f"Source {source_id} has an invalid translation policy")
     return policy
 
 
-def translation_requirements(metadata: dict[str, Any], model: str) -> dict[str, Any]:
+def translation_requirements(
+    metadata: dict[str, Any], model: str, target_locale: str | None = None
+) -> dict[str, Any]:
     source_locale = metadata["originalLanguage"]
-    target_locale = translation_target(source_locale)
+    target_locale = translation_target(source_locale, target_locale)
     expected_prompt = prompt_version(source_locale, target_locale)
     source_id = metadata["sourceId"]
-    policy = source_translation_policy(source_id)
+    policy = source_translation_policy(source_id, target_locale)
     if policy:
         if policy.get("targetLocale") != target_locale:
             raise ValueError(f"Source {source_id} translation target differs from its policy")
@@ -564,8 +637,13 @@ def translation_requirements(metadata: dict[str, Any], model: str) -> dict[str, 
     }
 
 
-def resolved_translation_model(metadata: dict[str, Any], explicit_model: str | None) -> str:
-    policy = source_translation_policy(metadata["sourceId"])
+def resolved_translation_model(
+    metadata: dict[str, Any],
+    explicit_model: str | None,
+    target_locale: str | None = None,
+) -> str:
+    target_locale = translation_target(metadata["originalLanguage"], target_locale)
+    policy = source_translation_policy(metadata["sourceId"], target_locale)
     policy_model = policy.get("modelRequested")
     if explicit_model and policy_model and explicit_model != policy_model:
         raise ValueError(
@@ -578,11 +656,12 @@ def translate_one(
     api_key: str,
     model: str,
     path: Path,
+    target_locale: str | None = None,
 ) -> tuple[str, str | None, dict[str, Any] | None]:
     metadata, body = load_markdown(path)
     activity_id = metadata["id"]
     source_locale = metadata["originalLanguage"]
-    requirements = translation_requirements(metadata, model)
+    requirements = translation_requirements(metadata, model, target_locale)
     target_locale = requirements["targetLocale"]
     expected_hash = source_hash(metadata["title"], body)
     output_path = VAULT / "translations" / target_locale / f"{activity_id}.md"
@@ -607,7 +686,7 @@ def translate_one(
         source_locale,
         target_locale,
     )
-    fidelity = translation_fidelity_checks(metadata, body, translated)
+    fidelity = translation_fidelity_checks(metadata, body, translated, target_locale)
     if not fidelity["automaticPass"]:
         failed = sorted(key for key, value in fidelity.items() if isinstance(value, bool) and not value)
         exact_numeric_tokens = re.findall(
@@ -631,7 +710,9 @@ def translate_one(
             target_locale,
             fidelity_feedback=feedback,
         )
-        corrected_fidelity = translation_fidelity_checks(metadata, body, corrected)
+        corrected_fidelity = translation_fidelity_checks(
+            metadata, body, corrected, target_locale
+        )
         if not corrected_fidelity["automaticPass"]:
             corrected_failed = sorted(
                 key
@@ -707,7 +788,9 @@ def error_report_path(source_id: str, source_locale: str, target_locale: str) ->
     return REPORT_DIR / f"{source_id}-translation-{source_locale}-{target_locale}-errors.json"
 
 
-def translation_state(paths: list[Path], model: str) -> dict[str, Any]:
+def translation_state(
+    paths: list[Path], model: str, target_locale: str | None = None
+) -> dict[str, Any]:
     selected_ids: list[str] = []
     completed_ids: list[str] = []
     actual_models: set[str] = set()
@@ -719,14 +802,14 @@ def translation_state(paths: list[Path], model: str) -> dict[str, Any]:
         metadata, body = load_markdown(path)
         activity_id = metadata["id"]
         selected_ids.append(activity_id)
-        requirements = translation_requirements(metadata, model)
-        target_locale = requirements["targetLocale"]
-        output = VAULT / "translations" / target_locale / f"{activity_id}.md"
+        requirements = translation_requirements(metadata, model, target_locale)
+        effective_target = requirements["targetLocale"]
+        output = VAULT / "translations" / effective_target / f"{activity_id}.md"
         expected_hash = source_hash(metadata["title"], body)
         if not current_translation(
             output,
             expected_hash,
-            expected_locale=target_locale,
+            expected_locale=effective_target,
             expected_model=requirements["expectedModel"],
             expected_prompt=requirements["expectedPrompt"],
             expected_reasoning_mode=requirements["expectedReasoningMode"],
@@ -747,7 +830,12 @@ def translation_state(paths: list[Path], model: str) -> dict[str, Any]:
     completed = set(completed_ids)
     pricing = model_pricing(model)
     first_metadata, _ = load_markdown(paths[0])
-    policy = source_translation_policy(str(first_metadata["sourceId"]))
+    effective_target = translation_target(
+        str(first_metadata["originalLanguage"]), target_locale
+    )
+    policy = source_translation_policy(
+        str(first_metadata["sourceId"]), effective_target
+    )
     billing_mode = str(policy.get("billingMode") or DEFAULT_BILLING_MODE)
     return {
         "selectedActivityIds": selected_ids,
@@ -816,7 +904,7 @@ def write_checkpoint(
     next_retry_at: datetime | None = None,
     provider_error: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    current_state = state or translation_state(paths, model)
+    current_state = state or translation_state(paths, model, target_locale)
     payload = {
         "schemaVersion": 1,
         "pipeline": "machine-translation",
@@ -827,7 +915,9 @@ def write_checkpoint(
         "promptVersion": prompt_version(source_locale, target_locale),
         **current_state,
     }
-    reasoning_mode = source_translation_policy(source_id).get("reasoningMode")
+    reasoning_mode = source_translation_policy(source_id, target_locale).get(
+        "reasoningMode"
+    )
     if reasoning_mode:
         payload["reasoningMode"] = reasoning_mode
     if reason:
@@ -859,6 +949,7 @@ def main() -> None:
     parser.add_argument("--limit", type=int)
     parser.add_argument("--ids", nargs="*")
     parser.add_argument("--source-id")
+    parser.add_argument("--target-locale", choices=("pl", "en"))
     args = parser.parse_args()
     paths = sorted((VAULT / "activities").glob("*.md"))
     if args.ids:
@@ -876,14 +967,21 @@ def main() -> None:
     for path in paths:
         metadata, _ = load_markdown(path)
         source_locale = metadata["originalLanguage"]
-        target_locale = translation_target(source_locale)
         try:
-            model = resolved_translation_model(metadata, args.model)
+            targets = translation_targets(source_locale)
+            if args.target_locale:
+                targets = (
+                    translation_target(source_locale, args.target_locale),
+                )
+            for target_locale in targets:
+                model = resolved_translation_model(
+                    metadata, args.model, target_locale
+                )
+                source_groups.setdefault(
+                    (metadata["sourceId"], source_locale, target_locale, model), []
+                ).append(path)
         except ValueError as error:
             raise SystemExit(str(error)) from error
-        source_groups.setdefault(
-            (metadata["sourceId"], source_locale, target_locale, model), []
-        ).append(path)
     # Determine stale groups without crossing an atomic source boundary.
     stale_groups: dict[tuple[str, str, str, str], list[Path]] = {}
     for group, group_paths in source_groups.items():
@@ -892,7 +990,7 @@ def main() -> None:
         for path in group_paths:
             metadata, body = load_markdown(path)
             try:
-                requirements = translation_requirements(metadata, model)
+                requirements = translation_requirements(metadata, model, group[2])
             except ValueError as error:
                 raise SystemExit(str(error)) from error
             output = VAULT / "translations" / requirements["targetLocale"] / path.name
@@ -912,8 +1010,13 @@ def main() -> None:
         if pending:
             stale_groups[group] = group_paths
     if len(stale_groups) > 1:
-        sources = ", ".join(sorted(group[0] for group in stale_groups))
-        raise SystemExit(f"Missing translations span multiple sources ({sources}); rerun with --source-id")
+        groups = ", ".join(
+            sorted(f"{group[0]}:{group[1]}->{group[2]}" for group in stale_groups)
+        )
+        raise SystemExit(
+            f"Missing translations span multiple source/direction groups ({groups}); "
+            "rerun with --source-id and --target-locale"
+        )
     if not stale_groups:
         print(f"Translations current: {len(paths)}/{len(paths)}")
         return
@@ -924,7 +1027,7 @@ def main() -> None:
         raise SystemExit(f"Provider cooldown is active; nextRetryAt={retry_at.isoformat()}")
     api_key = load_secret()
     errors: list[dict[str, str]] = []
-    state = translation_state(paths, model)
+    state = translation_state(paths, model, target_locale)
     try:
         ensure_models_available(api_key, {model})
     except TransientTranslationError as error:
@@ -972,13 +1075,16 @@ def main() -> None:
         try:
             metadata, body = load_markdown(path)
             enforce_reference_cost_limit(
-                source_translation_policy(source_id),
+                source_translation_policy(source_id, target_locale),
                 float(state["usage"]["referenceCostUsd"]),
                 metadata,
                 body,
                 model,
+                target_locale,
             )
-            activity_id, actual_model, usage = translate_one(api_key, model, path)
+            activity_id, actual_model, usage = translate_one(
+                api_key, model, path, target_locale
+            )
             advance_translation_state(state, activity_id, actual_model, usage)
             write_checkpoint(
                 state_path,

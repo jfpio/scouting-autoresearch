@@ -243,11 +243,14 @@ def main() -> None:
             if record.get("translationStatus") == "machine-translation":
                 if any(phrase not in text for phrase in phrases):
                     metric_errors.append(f"{path.relative_to(DIST)}: missing translation disclosure")
-                source_path = (
-                    f"/scouting-autoresearch/en/activities/{record['id']}/"
-                    if record.get("originalLanguage") == "en"
-                    else f"/scouting-autoresearch/activities/{record['id']}/"
-                )
+                if record.get("originalLanguage") == "fr":
+                    source_path = 'id="source-text"'
+                else:
+                    source_path = (
+                        f"/scouting-autoresearch/en/activities/{record['id']}/"
+                        if record.get("originalLanguage") == "en"
+                        else f"/scouting-autoresearch/activities/{record['id']}/"
+                    )
                 if source_path not in text:
                     metric_errors.append(f"{path.relative_to(DIST)}: missing source-text link")
             elif any(phrase in text for phrase in phrases):

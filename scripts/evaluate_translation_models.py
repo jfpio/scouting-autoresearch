@@ -63,6 +63,9 @@ def load_evaluation_config(path: Path) -> dict[str, Any]:
         raise ValueError("Translation model evaluation must require explicit execution")
     if config.get("reasoningMode") != "disabled":
         raise ValueError("Translation model evaluation must keep production reasoning disabled")
+    target_locale = config.get("targetLocale")
+    if target_locale is not None and target_locale not in {"pl", "en"}:
+        raise ValueError("Translation model evaluation has an unsupported target locale")
     if execution.get("billingMode") != "education-credit":
         raise ValueError("Translation model evaluation must record Education credit billing")
     if execution.get("enforceReferenceCostLimit") is not True:
@@ -79,9 +82,10 @@ def translation_quality_checks(
     metadata: dict[str, Any],
     body: str,
     translated: dict[str, Any],
+    target_locale: str | None = None,
 ) -> dict[str, Any]:
     return {
-        **translation_fidelity_checks(metadata, body, translated),
+        **translation_fidelity_checks(metadata, body, translated, target_locale),
         "humanReviewRequired": True,
     }
 
@@ -154,6 +158,7 @@ def summary_payload(
         "pipeline": "translation-model-evaluation",
         "evaluationId": config["id"],
         "sourceId": config["sourceId"],
+        "targetLocale": config.get("targetLocale"),
         "status": status,
         "configHash": config_hash,
         "productionCandidate": config["productionCandidate"],
@@ -191,11 +196,13 @@ def main() -> None:
     config = load_evaluation_config(args.config)
     records = activity_records(config)
     source_locale = records[0][1]["originalLanguage"]
-    target_locale = translation_target(source_locale)
+    target_locale = translation_target(source_locale, config.get("targetLocale"))
     config_hash = sha256_bytes(args.config.read_bytes())
     plan = {
         "evaluationId": config["id"],
         "sourceId": config["sourceId"],
+        "sourceLocale": source_locale,
+        "targetLocale": target_locale,
         "models": config["candidates"],
         "activityIds": config["activityIds"],
         "requests": len(config["candidates"]) * len(records),
@@ -266,7 +273,7 @@ def main() -> None:
                 float(item["usage"]["referenceCostUsd"]) for item in results
             )
             projected_usd = spent_usd + request_reference_cost_upper_bound(
-                metadata, body, str(model)
+                metadata, body, str(model), target_locale
             )
             cost_limit = float(config["execution"]["maxReferenceCostUsd"])
             if projected_usd > cost_limit:
@@ -322,7 +329,9 @@ def main() -> None:
                     "promptVersion": prompt_version(source_locale, target_locale),
                     "reasoningMode": "disabled",
                     "usage": usage,
-                    "checks": translation_quality_checks(metadata, body, translated),
+                    "checks": translation_quality_checks(
+                        metadata, body, translated, target_locale
+                    ),
                     "translation": translated,
                 }
             )

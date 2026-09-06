@@ -35,7 +35,10 @@ from translate import (
     parse_json_content,
     retry_at_from_headers,
     safe_http_diagnostics,
+    translation_fidelity_checks,
     translation_output_token_budget,
+    translation_target,
+    translation_targets,
     usage_record,
 )
 
@@ -132,6 +135,29 @@ class PipelineTests(unittest.TestCase):
             translation_output_token_budget({"body": "x" * 100_000}),
             MAX_OUTPUT_TOKENS,
         )
+
+    def test_french_source_requires_an_explicit_supported_target(self):
+        self.assertEqual(translation_targets("fr"), ("pl", "en"))
+        self.assertEqual(translation_target("fr", "pl"), "pl")
+        self.assertEqual(translation_target("fr", "en"), "en")
+        with self.assertRaisesRegex(ValueError, "multiple targets"):
+            translation_target("fr")
+        with self.assertRaisesRegex(ValueError, "fr->fr"):
+            translation_target("fr", "fr")
+
+    def test_french_feminine_scout_terms_are_not_flagged_as_invented(self):
+        checks = translation_fidelity_checks(
+            {"originalLanguage": "fr", "traits": []},
+            "Deux éclaireuses commencent le jeu.",
+            {
+                "title": "Gra harcerek",
+                "section": "Gry",
+                "traits": [],
+                "body": "Dwie harcerki rozpoczynają grę.",
+            },
+            "pl",
+        )
+        self.assertTrue(checks["noInventedFemaleScout"])
 
     def test_translation_http_diagnostics_are_allowlisted(self):
         error = urllib.error.HTTPError(
@@ -354,6 +380,110 @@ class PipelineTests(unittest.TestCase):
         self.assertIn("[Digital edition]", rendered)
         self.assertIn("[Source record]", rendered)
         self.assertIn("[p. 52]", rendered)
+
+    def test_french_source_is_embedded_on_both_translation_pages(self):
+        record = {
+            "id": "cha-001",
+            "kinds": ["game"],
+            "sourceId": "chamarande-1934",
+            "author": "Jacques Sevin",
+            "sourceTitle": "Chamarande",
+            "sourceActivityTitle": "Jeu de piste",
+            "sourceText": "Texte source français.",
+            "year": 1934,
+            "printedPages": [10],
+            "pdfPages": [],
+            "sourceUrl": "https://gallica.bnf.fr/ark:/12148/bpt6k3373518k",
+            "digitalEditionUrl": "https://gallica.bnf.fr/ark:/12148/bpt6k3373518k",
+            "facsimileUrl": "https://gallica.bnf.fr/ark:/12148/bpt6k3373518k/f10.item",
+            "transcriptionStatus": "ocr-corrected",
+            "safetyStatus": "historical-unreviewed",
+            "originalLanguage": "fr",
+            "locale": "pl",
+            "title": "Gra tropicielska",
+            "body": "Polskie tłumaczenie.",
+            "summary": "Polskie tłumaczenie.",
+            "traits": [],
+            "translationStatus": "machine-translation",
+            "translationModel": "mistral-large-2512",
+        }
+        polish = activity_page(record, locale="pl")
+        english = activity_page(
+            {
+                **record,
+                "locale": "en",
+                "title": "Tracking game",
+                "body": "English translation.",
+                "summary": "English translation.",
+            },
+            locale="en",
+        )
+        self.assertIn('href="#source-text"', polish)
+        self.assertIn("Przeczytaj tekst źródłowy po francusku", polish)
+        self.assertIn('<span id="source-text"></span>', polish)
+        self.assertIn("Francuski tekst źródłowy", polish)
+        self.assertIn("Texte source français.", polish)
+        self.assertIn("Read the source French transcription", english)
+        self.assertIn("French source text", english)
+        self.assertIn("Texte source français.", english)
+
+    def test_load_records_pairs_a_french_source_with_two_translations(self):
+        with tempfile.TemporaryDirectory() as directory:
+            vault = Path(directory)
+            source = {
+                "id": "source-fr",
+                "author": "Auteur",
+                "title": "Livre",
+                "year": 1934,
+                "publisher": "Éditeur",
+            }
+            activity = {
+                "id": "fr-001",
+                "kinds": ["game"],
+                "sourceId": "source-fr",
+                "originalLanguage": "fr",
+                "title": "Titre source",
+                "traits": [],
+                "section": "Section",
+                "printedPages": [1],
+                "sourceUrl": "https://example.test/source",
+                "digitalEditionUrl": "https://example.test/text",
+                "facsimileUrl": "https://example.test/text#page=1",
+                "sourceRevision": "sha256:source",
+                "sourceHash": "hash",
+                "rightsStatus": "public-domain",
+                "transcriptionStatus": "ocr-corrected",
+                "safetyStatus": "historical-unreviewed",
+            }
+            translations = {
+                "pl": ("Tytuł", "Polskie tłumaczenie."),
+                "en": ("Title", "English translation."),
+            }
+            dump_markdown(vault / "sources" / "source-fr.md", source, "Source.")
+            dump_markdown(vault / "activities" / "fr-001.md", activity, "Texte français.")
+            for locale, (title, body) in translations.items():
+                dump_markdown(
+                    vault / "translations" / locale / "fr-001.md",
+                    {
+                        "activityId": "fr-001",
+                        "locale": locale,
+                        "title": title,
+                        "traits": [],
+                        "section": "Section",
+                        "model": "mistral-large-2512",
+                        "promptVersion": f"translation-fr-{locale}-v1",
+                        "generatedAt": "2026-09-06",
+                        "sourceHash": "hash",
+                        "status": "machine-translation",
+                    },
+                    body,
+                )
+            with patch("build_content.VAULT", vault):
+                polish, english, _ = load_records(include_similarities=False)
+            self.assertEqual(polish[0]["sourceText"], "Texte français.")
+            self.assertEqual(english[0]["sourceText"], "Texte français.")
+            self.assertEqual(polish[0]["translationStatus"], "machine-translation")
+            self.assertEqual(english[0]["translationStatus"], "machine-translation")
 
     def test_load_records_pairs_an_english_source_with_its_polish_translation(self):
         with tempfile.TemporaryDirectory() as directory:

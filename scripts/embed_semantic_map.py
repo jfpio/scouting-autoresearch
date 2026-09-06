@@ -131,6 +131,8 @@ def translation_locale(source_locale: str) -> str:
         return "en"
     if source_locale == "en":
         return "pl"
+    if source_locale == "fr":
+        return "pl"
     raise ValueError(f"Unsupported semantic-map source language: {source_locale}")
 
 

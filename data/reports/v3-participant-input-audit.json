@@ -229,6 +229,16 @@
       "pl": 117
     }
   },
+  "method": {
+    "sourceTextOnly": true,
+    "lexicalSignalsOnly": true,
+    "absenceIsNotNegativeEvidence": true,
+    "patternLocales": [
+      "pl",
+      "en"
+    ],
+    "languagesWithoutPatterns": []
+  },
   "lexicalSignalCoverage": {
     "activitiesWithAnySignal": 141,
     "activityIdsWithAnySignal": [

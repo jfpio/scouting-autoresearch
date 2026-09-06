@@ -232,6 +232,11 @@
     "textScope": "source-title-and-source-body-without-provenance-footer",
     "lexicalSignalsOnly": true,
     "absenceIsNotNegativeEvidence": true,
+    "patternLocales": [
+      "pl",
+      "en"
+    ],
+    "languagesWithoutPatterns": [],
     "multiValueSignalsAreNotNecessarilyConflicts": true,
     "searchDifferentiationIsNotObservedUserValue": true,
     "humanSearchValueRubric": {
