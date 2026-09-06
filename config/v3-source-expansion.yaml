@@ -190,6 +190,14 @@ sourceUnits:
       artifactType: zip
       url: https://www.pbc.rzeszow.pl/Content/10620/zip/
       alternativeRequired: permitted-non-zip-artifact-or-human-supplied-file
+    alternativeCandidate:
+      status: discovered-awaiting-owner-approval
+      method: direct-djvu-from-official-reader
+      artifactType: djvu
+      url: https://www.pbc.rzeszow.pl/Content/10620/DjVu/harce_zimowe.djvu
+      discoveryUrl: https://www.pbc.rzeszow.pl/dlibra/publication/edition/10620/content
+      robotsDecision: direct-djvu-path-not-disallowed
+      reviewRecord: vault/reviews/inbox/pbc-direct-djvu-alternatives.md
   - id: pawelek-young-troop-1919
     order: 6
     language: pl
@@ -239,6 +247,14 @@ sourceUnits:
       artifactType: zip
       url: https://www.pbc.rzeszow.pl/Content/10606/zip/
       alternativeRequired: permitted-non-zip-artifact-or-human-supplied-file
+    alternativeCandidate:
+      status: discovered-awaiting-owner-approval
+      method: direct-djvu-from-official-reader
+      artifactType: djvu
+      url: https://www.pbc.rzeszow.pl/Content/10606/DjVu/metodyka_harcow.djvu
+      discoveryUrl: https://www.pbc.rzeszow.pl/dlibra/publication/edition/10606/content
+      robotsDecision: direct-djvu-path-not-disallowed
+      reviewRecord: vault/reviews/inbox/pbc-direct-djvu-alternatives.md
   - id: piasecki-schreiber-polish-scoutcraft-1917
     order: 9
     language: pl

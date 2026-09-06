@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-pdf-game-discovery",
+  "status": "complete",
+  "sourceId": "piasecki-movement-games-1922",
+  "range": "p114-123",
+  "pageStart": 114,
+  "pageEnd": 123,
+  "sourceSha256": "4f5379ad1a683a7f9f741f4a12b26f2ffffa97820f2f90b7145e8ff8e98ee51f",
+  "inputHash": "c12041941cc249d5cd530b296f83efe6d84c00bf7e545b6ca44be01298ab8706",
+  "modelRequested": "mistral-large-2512",
+  "model": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "promptVersion": "v3-pdf-game-line-locators-v4",
+  "generatedAt": "2026-09-06T18:59:11.152865+00:00",
+  "games": [
+    {
+      "title": "Wąż",
+      "pageStart": 114,
+      "pageEnd": 114,
+      "startLine": "p0114-l0005",
+      "endLine": "p0114-l0010",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0114-l0003",
+      "section": "",
+      "notes": "Rules describe a line formation where the first player attempts to catch the last, with role rotation upon success."
+    },
+    {
+      "title": "Wilk i gąski",
+      "pageStart": 115,
+      "pageEnd": 115,
+      "startLine": "p0115-l0002",
+      "endLine": "p0115-l0015",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0114-l0025",
+      "section": "",
+      "notes": "Rules outline a chasing game with roles of 'wilk' (wolf) and 'gąski' (geese), including dialogue and role-switching mechanics."
+    },
+    {
+      "title": "Płótno",
+      "pageStart": 116,
+      "pageEnd": 116,
+      "startLine": "p0116-l0002",
+      "endLine": "p0116-l0020",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0115-l0027",
+      "section": "",
+      "notes": "Rules describe a game with roles like 'gospodynia' (hostess), 'złodziej' (thief), and 'płótno' (cloth), involving theft, counting, and role-based dialogue."
+    },
+    {
+      "title": "Ptaki (Farby)",
+      "pageStart": 116,
+      "pageEnd": 117,
+      "startLine": "p0116-l0024",
+      "endLine": "p0117-l0021",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0116-l0022",
+      "section": "",
+      "notes": "Rules describe a tag-like game with roles such as 'ptasznik' (birdkeeper) and 'kupiec' (merchant), including chasing mechanics and optional team-based endings."
+    },
+    {
+      "title": "Fabjan",
+      "pageStart": 117,
+      "pageEnd": 118,
+      "startLine": "p0117-l0031",
+      "endLine": "p0118-l0015",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0117-l0026",
+      "section": "",
+      "notes": "Rules outline a chasing game with roles like 'Fabjan' and 'starszy' (elder), involving dialogue, role-switching, and animal-themed naming."
+    },
+    {
+      "title": "Wójt i kuropatwy",
+      "pageStart": 118,
+      "pageEnd": 118,
+      "startLine": "p0118-l0020",
+      "endLine": "p0118-l0032",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0118-l0017",
+      "section": "",
+      "notes": "Rules describe a game with a seated line formation, dialogue, and a chasing mechanic where the 'wójt' (mayor) is pursued and roles rotate."
+    },
+    {
+      "title": "Żóraw",
+      "pageStart": 119,
+      "pageEnd": 119,
+      "startLine": "p0119-l0008",
+      "endLine": "p0119-l0023",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0119-l0005",
+      "section": "",
+      "notes": "Rules describe a circle-based game with a 'żóraw' (crane) guarding caps, involving singing, stealing, and tagging mechanics."
+    },
+    {
+      "title": "Czarny lud",
+      "pageStart": 119,
+      "pageEnd": 120,
+      "startLine": "p0119-l0029",
+      "endLine": "p0120-l0021",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0119-l0025",
+      "section": "",
+      "notes": "Rules outline a tag-based game with a 'czarny lud' (black folk) chasing others across a defined field, with captured players joining the chaser."
+    },
+    {
+      "title": "Na granicy",
+      "pageStart": 121,
+      "pageEnd": 121,
+      "startLine": "p0121-l0002",
+      "endLine": "p0121-l0031",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0120-l0023",
+      "section": "",
+      "notes": "Rules describe a team-based game with a 'król' (king) and two opposing groups crossing a 'pas graniczny' (border zone), involving tagging and role rotation."
+    },
+    {
+      "title": "Wójt",
+      "pageStart": 122,
+      "pageEnd": 122,
+      "startLine": "p0122-l0007",
+      "endLine": "p0122-l0010",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0122-l0003",
+      "section": "",
+      "notes": "Rules describe a simplified tag game with a 'wójt' (mayor) chasing others across a border zone, with role-switching upon capture."
+    },
+    {
+      "title": "Lis fantowy",
+      "pageStart": 122,
+      "pageEnd": 122,
+      "startLine": "p0122-l0018",
+      "endLine": "p0122-l0032",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0122-l0012",
+      "section": "",
+      "notes": "Rules outline a chasing game with a 'lis' (fox) and 'psy' (dogs), involving stealing an object, tagging, and forfeits (fanty)."
+    },
+    {
+      "title": "Plinje",
+      "pageStart": 123,
+      "pageEnd": 123,
+      "startLine": "p0123-l0023",
+      "endLine": "p0123-l0035",
+      "printedAttribution": "explicitly-credited",
+      "attributionEvidenceLine": "p0123-l0012",
+      "section": "",
+      "notes": "Rules describe a team-based game with defined field boundaries, 'szranki' (lists), and 'więzienia' (prisons), attributed to Gołębiowski's description."
+    }
+  ],
+  "usage": {
+    "promptTokens": 8587,
+    "completionTokens": 1753,
+    "requestMaxOutputTokens": 4370,
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "inputPriceUsdPerMillionTokens": 0.5,
+    "outputPriceUsdPerMillionTokens": 1.5,
+    "referenceCostUsd": 0.006923,
+    "priceSource": "https://docs.mistral.ai/inference/pricing",
+    "priceAccessedOn": "2026-09-04"
+  }
+}

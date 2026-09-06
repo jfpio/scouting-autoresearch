@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-pdf-game-discovery",
+  "status": "complete",
+  "sourceId": "piasecki-movement-games-1922",
+  "range": "p123-132",
+  "pageStart": 123,
+  "pageEnd": 132,
+  "sourceSha256": "4f5379ad1a683a7f9f741f4a12b26f2ffffa97820f2f90b7145e8ff8e98ee51f",
+  "inputHash": "7821385d6868135384d75c578a4595d1cc80a9389a5d9d9621e018461131003e",
+  "modelRequested": "mistral-large-2512",
+  "model": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "promptVersion": "v3-pdf-game-line-locators-v4",
+  "generatedAt": "2026-09-06T18:59:18.184419+00:00",
+  "games": [
+    {
+      "title": "Plinje",
+      "pageStart": 123,
+      "pageEnd": 127,
+      "startLine": "p0123-l0002",
+      "endLine": "p0127-l0034",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0123-l0012",
+      "section": "80",
+      "notes": "Includes alternate names: Obóz, Gonitwa o więźnie, Captivus, Król, Król klaskany. Simplified variant described as Plinie bez odsieczy or Plinki."
+    },
+    {
+      "title": "Polowanie",
+      "pageStart": 128,
+      "pageEnd": 129,
+      "startLine": "p0128-l0003",
+      "endLine": "p0129-l0004",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0128-l0004",
+      "section": "81",
+      "notes": "Also referred to as Zające i charty or bieg na przełaj."
+    },
+    {
+      "title": "Bieg rozstawny (Wici)",
+      "pageStart": 129,
+      "pageEnd": 130,
+      "startLine": "p0129-l0005",
+      "endLine": "p0130-l0019",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "82",
+      "notes": "Two variants described: one on a large roadway and one on a school field."
+    },
+    {
+      "title": "Żaby i bocian",
+      "pageStart": 131,
+      "pageEnd": 131,
+      "startLine": "p0131-l0002",
+      "endLine": "p0131-l0023",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0131-l0003",
+      "section": "83",
+      "notes": ""
+    },
+    {
+      "title": "Klasy",
+      "pageStart": 132,
+      "pageEnd": 132,
+      "startLine": "p0132-l0002",
+      "endLine": "p0132-l0033",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "84",
+      "notes": "Variant described: Klasy proste."
+    }
+  ],
+  "usage": {
+    "promptTokens": 7806,
+    "completionTokens": 643,
+    "requestMaxOutputTokens": 4075,
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "inputPriceUsdPerMillionTokens": 0.5,
+    "outputPriceUsdPerMillionTokens": 1.5,
+    "referenceCostUsd": 0.0048675,
+    "priceSource": "https://docs.mistral.ai/inference/pricing",
+    "priceAccessedOn": "2026-09-04"
+  }
+}

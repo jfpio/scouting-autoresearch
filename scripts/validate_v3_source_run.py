@@ -323,6 +323,8 @@ def v3_source_run_errors(
                 "acquired",
                 "ocr-pending",
                 "ocr-in-progress",
+                "awaiting-artifact-approval",
+                "awaiting-component-review",
                 "extracting",
                 "translating",
                 "imported",

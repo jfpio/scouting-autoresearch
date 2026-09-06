@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-pdf-game-discovery",
+  "status": "complete",
+  "sourceId": "piasecki-movement-games-1922",
+  "range": "p069-078",
+  "pageStart": 69,
+  "pageEnd": 78,
+  "sourceSha256": "4f5379ad1a683a7f9f741f4a12b26f2ffffa97820f2f90b7145e8ff8e98ee51f",
+  "inputHash": "b321424b91253be79954d5295de49764ad2b75d2c0e2b84b912d0eac4dfcfb59",
+  "modelRequested": "mistral-large-2512",
+  "model": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "promptVersion": "v3-pdf-game-line-locators-v3",
+  "generatedAt": "2026-09-06T18:56:58.398684+00:00",
+  "games": [
+    {
+      "title": "Zelman",
+      "pageStart": 70,
+      "pageEnd": 71,
+      "startLine": "p0070-l0007",
+      "endLine": "p0071-l0026",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0070-l0007",
+      "section": "",
+      "notes": ""
+    },
+    {
+      "title": "O groduszek",
+      "pageStart": 71,
+      "pageEnd": 72,
+      "startLine": "p0071-l0028",
+      "endLine": "p0072-l0021",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0071-l0028",
+      "section": "",
+      "notes": ""
+    },
+    {
+      "title": "Nawlekanie igły",
+      "pageStart": 73,
+      "pageEnd": 73,
+      "startLine": "p0073-l0001",
+      "endLine": "p0073-l0021",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0073-l0001",
+      "section": "",
+      "notes": ""
+    },
+    {
+      "title": "Ojciec Wirgiljusz",
+      "pageStart": 73,
+      "pageEnd": 74,
+      "startLine": "p0073-l0022",
+      "endLine": "p0074-l0015",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0073-l0022",
+      "section": "",
+      "notes": ""
+    },
+    {
+      "title": "Rzemiosła (Muzykant)",
+      "pageStart": 74,
+      "pageEnd": 75,
+      "startLine": "p0074-l0024",
+      "endLine": "p0075-l0017",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0074-l0024",
+      "section": "",
+      "notes": ""
+    },
+    {
+      "title": "Mak",
+      "pageStart": 75,
+      "pageEnd": 76,
+      "startLine": "p0075-l0018",
+      "endLine": "p0076-l0031",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0075-l0018",
+      "section": "",
+      "notes": ""
+    },
+    {
+      "title": "Królewna",
+      "pageStart": 77,
+      "pageEnd": 77,
+      "startLine": "p0077-l0002",
+      "endLine": "p0077-l0013",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0077-l0002",
+      "section": "",
+      "notes": ""
+    },
+    {
+      "title": "Wybór",
+      "pageStart": 78,
+      "pageEnd": 78,
+      "startLine": "p0078-l0008",
+      "endLine": "p0078-l0030",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "p0078-l0008",
+      "section": "",
+      "notes": ""
+    }
+  ],
+  "usage": {
+    "promptTokens": 7350,
+    "completionTokens": 891,
+    "requestMaxOutputTokens": 3560,
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "inputPriceUsdPerMillionTokens": 0.5,
+    "outputPriceUsdPerMillionTokens": 1.5,
+    "referenceCostUsd": 0.0050115,
+    "priceSource": "https://docs.mistral.ai/inference/pricing",
+    "priceAccessedOn": "2026-09-04"
+  }
+}

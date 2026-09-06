@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-pdf-game-discovery",
+  "status": "invalid-response-cost-reservation",
+  "reason": "The first v1 smoke response failed exact-quote validation before usage was persisted.",
+  "responseContentStored": false,
+  "sourceId": "piasecki-movement-games-1922",
+  "range": "p060-069",
+  "modelRequested": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "promptVersion": "v3-pdf-game-locators-v1",
+  "attemptedAt": "2026-09-06",
+  "usage": null,
+  "reservedReferenceCostUsd": 0.025,
+  "reservationBasis": "Conservative amount above the request upper-bound estimate; billed usage was unavailable after the local validation exception.",
+  "billingMode": "education-credit",
+  "billedCostUsd": null
+}

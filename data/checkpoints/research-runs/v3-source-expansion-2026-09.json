@@ -32,8 +32,8 @@
     },
     "acquisitionPreparation": {
       "status": "human-approved-execution-pending",
-      "contentDownloadsPerformed": 4,
-      "sourceUnitsWithCompletedAcquisition": 4,
+      "contentDownloadsPerformed": 5,
+      "sourceUnitsWithCompletedAcquisition": 5,
       "regionalDirectArtifactLinksDiscovered": 7,
       "directArtifactCandidatesActionableAfterApproval": 4,
       "automatedFetchBlockedByRobots": 2,
@@ -79,14 +79,14 @@
     }
   ],
   "sourceUnits": [
-    {"id": "jasinski-field-games-1938", "status": "not-started"},
-    {"id": "mojmir-scout-games-1912", "status": "not-started"},
+    {"id": "jasinski-field-games-1938", "status": "acquired", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/jasinski-field-games-1938.json"},
+    {"id": "mojmir-scout-games-1912", "status": "acquiring"},
     {"id": "dabrowski-indoor-games-1934", "status": "not-started"},
-    {"id": "piasecki-movement-games-1922", "status": "acquired", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-movement-games-1922.json"},
-    {"id": "dabrowski-winter-games-1935", "status": "not-started"},
+    {"id": "piasecki-movement-games-1922", "status": "awaiting-component-review", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-movement-games-1922.json", "candidateReport": "data/reports/piasecki-movement-games-1922-candidates.json", "candidateCount": 133, "importedActivityCount": 0},
+    {"id": "dabrowski-winter-games-1935", "status": "awaiting-artifact-approval", "alternativeReview": "vault/reviews/inbox/pbc-direct-djvu-alternatives.md"},
     {"id": "pawelek-young-troop-1919", "status": "ocr-pending", "inspectionCheckpoint": "data/checkpoints/source-inspection/pawelek-young-troop-1919.json"},
     {"id": "zwolakowska-cub-pack-1945", "status": "not-started"},
-    {"id": "sedlaczek-fieldcraft-method-1935", "status": "not-started"},
+    {"id": "sedlaczek-fieldcraft-method-1935", "status": "awaiting-artifact-approval", "alternativeReview": "vault/reviews/inbox/pbc-direct-djvu-alternatives.md"},
     {"id": "piasecki-schreiber-polish-scoutcraft-1917", "status": "acquired", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-schreiber-polish-scoutcraft-1917.json"},
     {"id": "sedlaczek-scout-school-1921", "status": "acquired", "inspectionCheckpoint": "data/checkpoints/source-inspection/sedlaczek-scout-school-1921.json"},
     {"id": "chamarande-1934", "status": "zero-yield", "ocrCheckpoint": "data/checkpoints/gallica-fetch/chamarande-1934.json", "extractionReport": "data/reports/chamarande-1934-extraction.json", "candidateCount": 0, "importedActivityCount": 0, "referenceCostUsd": 0.456, "terminalReason": "The approved prose contains programme-level mentions of games but no self-contained game rules."}

@@ -55,6 +55,19 @@ class V3SourceAcquisitionTests(unittest.TestCase):
         self.assertIn("/plgrid/%u/scouting-autoresearch/logs/", job)
         self.assertNotIn("plgjfpio", job)
 
+    def test_contact_sheet_job_is_small_cpu_work_in_scratch(self):
+        job = (
+            Path(__file__).resolve().parents[1]
+            / "jobs"
+            / "helios"
+            / "v3-polona-contact-sheet.slurm"
+        ).read_text(encoding="utf-8")
+        self.assertIn("#SBATCH --account=plgcredibleai2026-cpu", job)
+        self.assertIn("#SBATCH --cpus-per-task=1", job)
+        self.assertIn("#SBATCH --mem=2G", job)
+        self.assertIn('${SCRATCH}/scouting-autoresearch/runs/${SOURCE_ID}', job)
+        self.assertIn("ImageMagick/7.1.2-7", job)
+
 
 if __name__ == "__main__":
     unittest.main()
