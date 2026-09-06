@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "semantic-map-v3-embeddings",
+  "batchId": "20260904T200122504115Z",
+  "generatedAt": "2026-09-04T20:01:22.504115+00:00",
+  "sourceId": "bsh-1911-seton-games",
+  "modelRequested": "mistral-embed-2312",
+  "model": "mistral-embed-2312",
+  "dimensions": 1024,
+  "recipeVersion": "bilingual-game-context-v1",
+  "billingMode": "education-credit",
+  "modelAccess": {
+    "checked": true,
+    "modelId": "mistral-embed-2312"
+  },
+  "referencePriceUsdPerMillionInputTokens": 0.1,
+  "referencePriceSource": "https://docs.mistral.ai/models/mistral-embed-23-12",
+  "referencePriceAccessedOn": "2026-09-04",
+  "activityIds": [
+    "bsh-001"
+  ],
+  "usage": {
+    "promptTokens": 978,
+    "billedCostUsd": null,
+    "referenceCostUsd": 9.78e-05
+  }
+}
