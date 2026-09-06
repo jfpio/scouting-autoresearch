@@ -40,6 +40,29 @@ class V3SourceRunTests(unittest.TestCase):
         manifest["scope"]["productionKinds"].append("exercise")
         self.assertTrue(any("production kinds" in error for error in self.errors(manifest)))
 
+    def test_rejects_stale_piasecki_edition_metadata(self):
+        manifest = copy.deepcopy(self.manifest)
+        unit = next(
+            item
+            for item in manifest["sourceUnits"]
+            if item["id"] == "piasecki-movement-games-1922"
+        )
+        unit["year"] = 1920
+        self.assertTrue(
+            any("movement-games edition metadata" in error for error in self.errors(manifest))
+        )
+
+    def test_rejects_missing_polish_acquisition_gate(self):
+        manifest = copy.deepcopy(self.manifest)
+        manifest["humanGates"] = [
+            gate
+            for gate in manifest["humanGates"]
+            if gate["id"] != "polish-source-acquisition-and-rights"
+        ]
+        self.assertTrue(
+            any("acquisition gate" in error for error in self.errors(manifest))
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

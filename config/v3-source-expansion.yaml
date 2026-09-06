@@ -62,7 +62,7 @@ translationPolicy:
   directions:
     pl: [en]
     fr: [pl, en]
-  frenchPipelineSupportStatus: implementation-required-before-chamarande-import
+  frenchPipelineSupportStatus: implemented-and-validated-on-helios
 humanGates:
   - id: historyczna-directory-access
     status: pending
@@ -72,6 +72,10 @@ humanGates:
     status: pending
     reviewRecord: vault/reviews/inbox/chamarande-1934-prose-scope.md
     proposedViewCount: 113
+  - id: polish-source-acquisition-and-rights
+    status: pending
+    reviewRecord: vault/reviews/inbox/v3-polish-sources-acquisition.md
+    decision: temporary-download-and-named-public-domain-prose-only
   - id: per-item-rights-and-component-authorship
     status: pending-during-run
     decision: batch-for-human-review-before-full-text-publication
@@ -105,22 +109,22 @@ sourceUnits:
     title: Gry i zabawy w izbie harcerskiej
     year: 1934
     discoveryCollectionId: historyczna-slaska-zhp
-    targetCollectionId: national-libraries
-    accessStatus: dedicated-collection-registration-required
+    targetCollectionId: pbc-rzeszow
+    accessStatus: per-item-review-required
     targetDomain: www.pbc.rzeszow.pl
-    url: https://www.pbc.rzeszow.pl/dlibra/publication/11501/edition/10568/content?ref=aHR0cHM6Ly93d3cucGJjLnJ6ZXN6b3cucGwvZGxpYnJhL3Jlc3VsdHM_cT1oYXJjZXJzdHdvJmFjdGlvbj1TaW1wbGVTZWFyY2hBY3Rpb24mdHlwZT0tNiZwPTA
-  - id: piasecki-schreiber-movement-games-1920
+    url: https://www.pbc.rzeszow.pl/dlibra/publication/11501/edition/10568
+  - id: piasecki-movement-games-1922
     order: 4
     language: pl
-    authorStatement: Eugeniusz Piasecki i Mieczysław Schreiber
-    title: Zabawy i gry ruchowe dla dzieci i młodzieży
-    edition: wydanie 3
-    year: 1920
+    authorStatement: Eugeniusz Piasecki
+    title: Zabawy i gry ruchowe dzieci i młodzieży
+    edition: wydanie 3 poprawione i rozszerzone
+    year: 1922
     discoveryCollectionId: historyczna-slaska-zhp
-    targetCollectionId: national-libraries
-    accessStatus: dedicated-collection-registration-required
+    targetCollectionId: kpbc
+    accessStatus: per-item-review-required
     targetDomain: kpbc.umk.pl
-    url: http://kpbc.umk.pl/Content/193867/Magazyn_265_06_HD_008.pdf
+    url: https://kpbc.umk.pl/dlibra/publication/183639/edition/193867
   - id: dabrowski-winter-games-1935
     order: 5
     language: pl
@@ -128,10 +132,10 @@ sourceUnits:
     title: Harce zimowe w polu
     year: 1935
     discoveryCollectionId: historyczna-slaska-zhp
-    targetCollectionId: national-libraries
-    accessStatus: dedicated-collection-registration-required
+    targetCollectionId: pbc-rzeszow
+    accessStatus: per-item-review-required
     targetDomain: www.pbc.rzeszow.pl
-    url: https://www.pbc.rzeszow.pl/dlibra/publication/11554/edition/10620/content?ref=aHR0cHM6Ly93d3cucGJjLnJ6ZXN6b3cucGwvZGxpYnJhL3Jlc3VsdHM_cT1oYXJjZXJzdHdvJmFjdGlvbj1TaW1wbGVTZWFyY2hBY3Rpb24mdHlwZT0tNiZwPTA
+    url: https://www.pbc.rzeszow.pl/dlibra/publication/11554/edition/10620
   - id: pawelek-young-troop-1919
     order: 6
     language: pl
@@ -139,10 +143,10 @@ sourceUnits:
     title: Młoda drużyna
     year: 1919
     discoveryCollectionId: historyczna-slaska-zhp
-    targetCollectionId: national-libraries
-    accessStatus: dedicated-collection-registration-required
+    targetCollectionId: pbc-bialystok
+    accessStatus: per-item-review-required
     targetDomain: pbc.biaman.pl
-    url: http://pbc.biaman.pl/dlibra/docmetadata?id=28922&from=&dirids=1&ver_id=&lp=9&QI=
+    url: https://pbc.biaman.pl/dlibra/publication/29783/edition/28922
   - id: zwolakowska-cub-pack-1945
     order: 7
     language: pl
@@ -160,10 +164,10 @@ sourceUnits:
     title: Metodyka harców w przykładach
     year: 1935
     discoveryCollectionId: historyczna-slaska-zhp
-    targetCollectionId: national-libraries
-    accessStatus: dedicated-collection-registration-required
+    targetCollectionId: pbc-rzeszow
+    accessStatus: per-item-review-required
     targetDomain: www.pbc.rzeszow.pl
-    url: https://www.pbc.rzeszow.pl/dlibra/show-content/publication/edition/10606?id=10606
+    url: https://www.pbc.rzeszow.pl/dlibra/publication/11539/edition/10606
   - id: piasecki-schreiber-polish-scoutcraft-1917
     order: 9
     language: pl
@@ -172,10 +176,10 @@ sourceUnits:
     edition: wydanie 2
     year: 1917
     discoveryCollectionId: historyczna-slaska-zhp
-    targetCollectionId: national-libraries
-    accessStatus: dedicated-collection-registration-required
-    targetDomain: pbc.biaman.pl
-    url: http://pbc.biaman.pl/dlibra/docmetadata?id=21542&from=publication
+    targetCollectionId: wbc
+    accessStatus: per-item-review-required
+    targetDomain: www.wbc.poznan.pl
+    url: https://www.wbc.poznan.pl/publication/515207/edition/440525/
   - id: sedlaczek-scout-school-1921
     order: 10
     language: pl
@@ -183,10 +187,10 @@ sourceUnits:
     title: Szkoła harcerza
     year: 1921
     discoveryCollectionId: historyczna-slaska-zhp
-    targetCollectionId: national-libraries
-    accessStatus: dedicated-collection-registration-required
+    targetCollectionId: sbc
+    accessStatus: per-item-review-required
     targetDomain: www.sbc.org.pl
-    url: https://www.sbc.org.pl/dlibra/publication/68754/edition/64835/content
+    url: https://www.sbc.org.pl/dlibra/publication/68754/edition/64835
   - id: chamarande-1934
     order: 11
     language: fr

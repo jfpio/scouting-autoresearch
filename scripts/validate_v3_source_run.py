@@ -21,7 +21,7 @@ EXPECTED_SOURCE_IDS = {
     "jasinski-field-games-1938",
     "mojmir-scout-games-1912",
     "dabrowski-indoor-games-1934",
-    "piasecki-schreiber-movement-games-1920",
+    "piasecki-movement-games-1922",
     "dabrowski-winter-games-1935",
     "pawelek-young-troop-1919",
     "zwolakowska-cub-pack-1945",
@@ -103,9 +103,47 @@ def v3_source_run_errors(
         path_value = chamarande.get(field)
         require(bool(path_value) and (ROOT / str(path_value)).is_file(), f"Chamarande lacks {field}")
 
+    movement_games = next(
+        (unit for unit in units if unit.get("id") == "piasecki-movement-games-1922"), {}
+    )
+    require(
+        movement_games.get("authorStatement") == "Eugeniusz Piasecki"
+        and movement_games.get("year") == 1922
+        and movement_games.get("edition") == "wydanie 3 poprawione i rozszerzone"
+        and movement_games.get("targetCollectionId") == "kpbc",
+        "Piasecki movement-games edition metadata is stale",
+    )
+    young_troop = next(
+        (unit for unit in units if unit.get("id") == "pawelek-young-troop-1919"), {}
+    )
+    require(
+        "/publication/29783/edition/28922" in str(young_troop.get("url", "")),
+        "Młoda drużyna points to a stale publication ID",
+    )
+    polish_scoutcraft = next(
+        (
+            unit
+            for unit in units
+            if unit.get("id") == "piasecki-schreiber-polish-scoutcraft-1917"
+        ),
+        {},
+    )
+    require(
+        polish_scoutcraft.get("targetCollectionId") == "wbc"
+        and "/publication/515207/edition/440525" in str(polish_scoutcraft.get("url", "")),
+        "Harce młodzieży polskiej does not point to the pinned open WBC edition",
+    )
+
     gates = {gate.get("id"): gate for gate in manifest.get("humanGates", [])}
     require(gates.get("historyczna-directory-access", {}).get("status") == "pending", "Historyczna access gate is not pending")
     require(gates.get("chamarande-ocr-page-scope", {}).get("proposedViewCount") == 113, "Chamarande OCR gate does not pin 113 views")
+    polish_gate = gates.get("polish-source-acquisition-and-rights", {})
+    require(polish_gate.get("status") == "pending", "Polish source acquisition gate is not pending")
+    polish_review = polish_gate.get("reviewRecord")
+    require(
+        bool(polish_review) and (ROOT / str(polish_review)).is_file(),
+        "Polish source acquisition gate lacks its review record",
+    )
 
     active_run = queue.get("activeRun") or {}
     require(active_run.get("id") == run_id, "Research queue does not point to the V3 source run")

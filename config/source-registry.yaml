@@ -86,6 +86,51 @@ collections:
     allowedMethods: [metadata-only]
     rateLimitPerMinute: 5
     notes: Każda domena i kolekcja wymaga osobnego wpisu przed pobieraniem.
+  - id: pbc-rzeszow
+    name: Podkarpacka Biblioteka Cyfrowa
+    baseUrl: https://www.pbc.rzeszow.pl/
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 5
+    notes: >-
+      Wpis kolekcji umożliwia research metadanych. Pobranie konkretnego pliku lub pełnego
+      tekstu wymaga zapisanej decyzji per-item o prawach, składnikach i warunkach serwisu.
+  - id: kpbc
+    name: Kujawsko-Pomorska Biblioteka Cyfrowa
+    baseUrl: https://kpbc.umk.pl/
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 5
+    notes: >-
+      Wpis kolekcji umożliwia research metadanych. Pobranie konkretnego pliku lub pełnego
+      tekstu wymaga zapisanej decyzji per-item o prawach, składnikach i warunkach serwisu.
+  - id: pbc-bialystok
+    name: Podlaska Biblioteka Cyfrowa
+    baseUrl: https://pbc.biaman.pl/
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 5
+    notes: >-
+      Wpis kolekcji umożliwia research metadanych. Pobranie konkretnego pliku lub pełnego
+      tekstu wymaga zapisanej decyzji per-item o prawach, składnikach i warunkach serwisu.
+  - id: wbc
+    name: Wielkopolska Biblioteka Cyfrowa
+    baseUrl: https://www.wbc.poznan.pl/
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 5
+    notes: >-
+      Wpis kolekcji umożliwia research metadanych. Pobranie konkretnego pliku lub pełnego
+      tekstu wymaga zapisanej decyzji per-item o prawach, składnikach i warunkach serwisu.
+  - id: sbc
+    name: Śląska Biblioteka Cyfrowa
+    baseUrl: https://www.sbc.org.pl/
+    status: candidate
+    allowedMethods: [metadata-only]
+    rateLimitPerMinute: 5
+    notes: >-
+      Wpis kolekcji umożliwia research metadanych. Pobranie konkretnego pliku lub pełnego
+      tekstu wymaga zapisanej decyzji per-item o prawach, składnikach i warunkach serwisu.
   - id: gallica-bnf
     name: Gallica / Bibliothèque nationale de France
     baseUrl: https://gallica.bnf.fr/

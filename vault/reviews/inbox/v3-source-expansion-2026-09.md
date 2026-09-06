@@ -14,6 +14,8 @@ pendingHumanDecisions:
     reviewRecord: vault/reviews/inbox/collection-historyczna-slaska.md
   - id: chamarande-ocr-page-scope
     reviewRecord: vault/reviews/inbox/chamarande-1934-prose-scope.md
+  - id: polish-source-acquisition-and-rights
+    reviewRecord: vault/reviews/inbox/v3-polish-sources-acquisition.md
 ---
 
 # V3-R1 — rozszerzenie korpusu przed mapą semantyczną
@@ -43,7 +45,9 @@ pull requestem. Pośrednie PR-y per książka są wyłączone.
 2. Zatwierdzić lub skorygować proponowany 113-widokowy zakres OCR *Chamarande*, wraz z
    wyłączeniem cudzych i anonimowych bloków, muzyki, ilustracji, fotografii i aparatu
    redakcyjnego.
-3. W toku runu przed publikacją pełnego tekstu przedstawić zbiorczo do kontroli ustalone
+3. Zatwierdzić udokumentowane pobranie polskich obiektów do scratch oraz wstępny zakres
+   domeny publicznej nazwanych autorów, opisany w osobnym pakiecie nabycia.
+4. W toku runu przed publikacją pełnego tekstu przedstawić zbiorczo do kontroli ustalone
    wydania, autorstwo poszczególnych składników i decyzje prawne dla polskich książek.
 
 ## Gotowe formuły decyzji
@@ -57,5 +61,9 @@ pull requestem. Pośrednie PR-y per książka są wyłączone.
 > cudzych i anonimowych bloków oraz wszystkich osobnych składników niewchodzących w
 > zatwierdzony zakres prozy Jacques’a Sevina.
 
-Samo zatwierdzenie tych dwóch bramek nie zatwierdza wynikowych aktywności ani końcowej
+> Zatwierdzam formułę decyzji z `vault/reviews/inbox/v3-polish-sources-acquisition.md`,
+> obejmującą tymczasowe pobranie dziesięciu obiektów, własną prozę wymienionych autorów oraz
+> wyłączenie nieustalonych i osobno chronionych składników.
+
+Samo zatwierdzenie tych trzech bramek nie zatwierdza wynikowych aktywności ani końcowej
 publikacji. Te decyzje pozostają widoczne w jednym raporcie i końcowym PR-ze V3-R1.
