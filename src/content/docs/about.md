@@ -9,7 +9,7 @@ Scouting Autoresearch porządkuje historyczne gry, próby i ćwiczenia harcerski
 
 Wersje w języku innym niż źródłowy są tłumaczeniami automatycznymi i nie są weryfikowane przez człowieka. Każdy rekord prowadzi do tekstu źródłowego i wydania cyfrowego oraz zachowuje autora, oryginalny tytuł książki, rok i strony. Brakujące dane pozostają nieznane — nie dopowiadamy wieku, czasu, sprzętu ani ryzyka.
 
-Kod projektu jest udostępniony na licencji MIT. Projektowe metadane i tłumaczenia są udostępniane na CC BY 4.0 wyłącznie w zakresie posiadanych praw; importowane teksty zachowują indywidualne oznaczenia praw.
+Kod projektu jest udostępniony na licencji MIT. Projektowe metadane i tłumaczenia są domyślnie udostępniane na CC BY 4.0 wyłącznie w zakresie posiadanych praw; importowane teksty zachowują indywidualne oznaczenia praw i warunki źródła. Materiał odtworzony z reprodukcji Gallici oraz oparte na nim tłumaczenia są wyjątkiem niekomercyjnym opisanym w [licencjach danych](https://github.com/jfpio/scouting-autoresearch/blob/main/DATA-LICENSE.md).
 
 ## Następny etap
 

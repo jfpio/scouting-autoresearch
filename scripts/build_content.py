@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any
 
 from common import GENERATED, PUBLIC_DATA, ROOT, VAULT, load_markdown, write_json
+from similar_activities import add_similarity_links
 
 
 DOCS = ROOT / "src" / "content" / "docs"
@@ -80,7 +81,7 @@ def translated_record(metadata: dict, body: str, common: dict, locale: str) -> d
     return record
 
 
-def load_records() -> tuple[list[dict], list[dict], dict[str, dict]]:
+def load_records(*, include_similarities: bool = True) -> tuple[list[dict], list[dict], dict[str, dict]]:
     sources = load_sources()
     polish: list[dict] = []
     english: list[dict] = []
@@ -129,7 +130,12 @@ def load_records() -> tuple[list[dict], list[dict], dict[str, dict]]:
         translated = translated_record(translation, translated_body, common, target_locale)
         (polish if original_locale == "pl" else english).append(original)
         (polish if target_locale == "pl" else english).append(translated)
-    return sorted(polish, key=lambda item: item["id"]), sorted(english, key=lambda item: item["id"]), sources
+    polish = sorted(polish, key=lambda item: item["id"])
+    english = sorted(english, key=lambda item: item["id"])
+    if include_similarities:
+        add_similarity_links(polish, "pl")
+        add_similarity_links(english, "en")
+    return polish, english, sources
 
 
 def frontmatter(record: dict, *, locale: str) -> str:
@@ -214,11 +220,33 @@ def activity_page(record: dict, *, locale: str) -> str:
     facsimile_url = record.get("facsimileUrl")
     if not facsimile_url and record.get("pdfUrl") and record["pdfPages"]:
         facsimile_url = f"{record['pdfUrl']}#page={record['pdfPages'][0]}"
+    similar = ""
+    if record.get("similarActivities"):
+        similar_heading = "Bardzo podobne gry" if is_pl else "Highly similar games"
+        similar_intro = (
+            "Ta aktywność ma zatwierdzone powiązanie z innym historycznym wariantem. "
+            "Rekordy pozostają osobne, aby zachować tekst i pochodzenie każdego źródła."
+            if is_pl
+            else "This activity has an approved link to another historical variant. "
+            "The records remain separate to preserve each source text and provenance."
+        )
+        similar_items = "".join(
+            "<li>"
+            f'<a href="{html.escape(item["url"])}">{html.escape(item["title"])}</a>'
+            f' — {html.escape(item["author"])}, <cite>{html.escape(item["sourceTitle"])}</cite> '
+            f'({item["year"]}). {html.escape(item["note"])}</li>'
+            for item in record["similarActivities"]
+        )
+        similar = (
+            f'<div class="similar-notice"><strong>{similar_heading}.</strong> '
+            f"{similar_intro}<ul>{similar_items}</ul></div>\n\n"
+        )
     return (
         frontmatter(record, locale=locale)
         + "\n\n"
         + machine
         + f'<div class="safety-notice"><strong>{"Uwaga bezpieczeństwa." if is_pl else "Safety note."}</strong> {warning}</div>\n\n'
+        + similar
         + f"## {labels['meta']}\n\n"
         + f"- **{labels['type']}:** {kinds}\n"
         + f"- **{labels['traits']}:** {traits}\n"
@@ -312,6 +340,36 @@ def sources_page(locale: str, sources: dict[str, dict]) -> str:
     return "\n".join(lines)
 
 
+def semantic_map_page(locale: str) -> str:
+    is_pl = locale == "pl"
+    title = "Mapa semantyczna gier" if is_pl else "Semantic map of games"
+    description = (
+        "Eksploracyjna mapa podobieństwa 199 historycznych gier z filtrem źródła i dostępną listą."
+        if is_pl
+        else "An exploratory similarity map of 199 historical games with a source filter and accessible list."
+    )
+    component_path = (
+        "../../components/SemanticMap.astro"
+        if is_pl
+        else "../../../components/SemanticMap.astro"
+    )
+    caveat = (
+        "> **Jak czytać mapę:** bliskie punkty mają podobny tekst według embeddingów, ale ich położenie nie jest kategorią ani dowodem wspólnego pochodzenia. Filtry kategorii i liczby uczestników pojawią się dopiero po ręcznym zatwierdzeniu modelu danych. Mapa nie publikuje niezatwierdzonych kandydatur relacji."
+        if is_pl
+        else "> **How to read the map:** nearby points have similar text according to the embeddings, but position is neither a category nor evidence of common historical origin. Category and participant-count filters will appear only after manual approval of the data model. The map does not publish unreviewed relation candidates."
+    )
+    return (
+        "---\n"
+        f"title: {yaml_scalar(title)}\n"
+        f"description: {yaml_scalar(description)}\n"
+        "template: splash\n"
+        "---\n\n"
+        f"import SemanticMap from '{component_path}';\n\n"
+        f"# {title}\n\n{description}\n\n{caveat}\n\n"
+        f'<SemanticMap locale="{locale}" />\n'
+    )
+
+
 def about_page(locale: str) -> str:
     is_pl = locale == "pl"
     title = "O projekcie" if is_pl else "About"
@@ -320,7 +378,7 @@ def about_page(locale: str) -> str:
 
 Wersje w języku innym niż źródłowy są tłumaczeniami automatycznymi i nie są weryfikowane przez człowieka. Każdy rekord prowadzi do tekstu źródłowego i wydania cyfrowego oraz zachowuje autora, oryginalny tytuł książki, rok i strony. Brakujące dane pozostają nieznane — nie dopowiadamy wieku, czasu, sprzętu ani ryzyka.
 
-Kod projektu jest udostępniony na licencji MIT. Projektowe metadane i tłumaczenia są udostępniane na CC BY 4.0 wyłącznie w zakresie posiadanych praw; importowane teksty zachowują indywidualne oznaczenia praw.
+Kod projektu jest udostępniony na licencji MIT. Projektowe metadane i tłumaczenia są domyślnie udostępniane na CC BY 4.0 wyłącznie w zakresie posiadanych praw; importowane teksty zachowują indywidualne oznaczenia praw i warunki źródła. Materiał odtworzony z reprodukcji Gallici oraz oparte na nim tłumaczenia są wyjątkiem niekomercyjnym opisanym w [licencjach danych](https://github.com/jfpio/scouting-autoresearch/blob/main/DATA-LICENSE.md).
 
 ## Następny etap
 
@@ -330,7 +388,7 @@ V2 prowadzi kontrolowany proces pozyskiwania dzieł Roberta Baden-Powella, Ernes
 
 Versions in a language other than the source are automatic translations and are not verified by a person. Every record links to its source text and digital edition while preserving the author, original book title, year, and page references. Missing facts remain unknown: the project does not invent ages, duration, equipment, or risk levels.
 
-The project code is MIT-licensed. Project metadata and translations are offered under CC BY 4.0 only to the extent that the project owns the relevant rights; imported texts retain their record-level rights statements.
+The project code is MIT-licensed. Project metadata and translations are offered under CC BY 4.0 by default, only to the extent that the project owns the relevant rights; imported texts retain their record-level rights statements and source terms. Material transcribed from Gallica reproductions and translations based on it are a noncommercial exception described in the [data licensing policy](https://github.com/jfpio/scouting-autoresearch/blob/main/DATA-LICENSE.md).
 
 ## Next stage
 
@@ -348,12 +406,14 @@ def write_docs(polish: list[dict], english: list[dict], sources: dict[str, dict]
     (DOCS / "index.mdx").write_text(explorer_page("pl", home=True, **page_args), encoding="utf-8")
     (DOCS / "all.mdx").write_text(explorer_page("pl", **page_args), encoding="utf-8")
     (DOCS / "games.mdx").write_text(explorer_page("pl", kind="game", **page_args), encoding="utf-8")
+    (DOCS / "map.mdx").write_text(semantic_map_page("pl"), encoding="utf-8")
     (DOCS / "trials.mdx").write_text(explorer_page("pl", kind="trial", **page_args), encoding="utf-8")
     (DOCS / "sources.md").write_text(sources_page("pl", sources), encoding="utf-8")
     (DOCS / "about.md").write_text(about_page("pl"), encoding="utf-8")
     (DOCS / "en" / "index.mdx").write_text(explorer_page("en", home=True, **page_args), encoding="utf-8")
     (DOCS / "en" / "all.mdx").write_text(explorer_page("en", **page_args), encoding="utf-8")
     (DOCS / "en" / "games.mdx").write_text(explorer_page("en", kind="game", **page_args), encoding="utf-8")
+    (DOCS / "en" / "map.mdx").write_text(semantic_map_page("en"), encoding="utf-8")
     (DOCS / "en" / "trials.mdx").write_text(explorer_page("en", kind="trial", **page_args), encoding="utf-8")
     (DOCS / "en" / "sources.md").write_text(sources_page("en", sources), encoding="utf-8")
     (DOCS / "en" / "about.md").write_text(about_page("en"), encoding="utf-8")
@@ -401,6 +461,8 @@ def write_exports(polish: list[dict], english: list[dict], sources: dict[str, di
         "",
         "- [Polish JSON](https://jfpio.github.io/scouting-autoresearch/data/activities.pl.json)",
         "- [English JSON](https://jfpio.github.io/scouting-autoresearch/data/activities.en.json)",
+        "- [Semantic map — Polish](https://jfpio.github.io/scouting-autoresearch/map/)",
+        "- [Semantic map — English](https://jfpio.github.io/scouting-autoresearch/en/map/)",
         "- [Polish JSONL](https://jfpio.github.io/scouting-autoresearch/data/activities.pl.jsonl)",
         "- [English JSONL](https://jfpio.github.io/scouting-autoresearch/data/activities.en.jsonl)",
         "- [Sources](https://jfpio.github.io/scouting-autoresearch/data/sources.json)",
