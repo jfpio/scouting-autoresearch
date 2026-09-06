@@ -98,6 +98,43 @@ i nie zatwierdza publikacji. Zmiana tekstu źródłowego powoduje błąd walidac
 oceny. Ręcznie zaakceptowane rekordy zachowują osobę, datę i uzasadnienie, a ich rekomendacje
 nie modyfikują automatycznie tekstu historycznego, tłumaczeń, praw ani eksportów.
 
+## Bliskie warianty
+
+`scripts/analyze_duplicates.py` porównuje aktywności z różnych książek w jednym języku,
+korzystając z tekstu źródłowego albo aktualnego tłumaczenia angielskiego. Deterministyczny
+TF-IDF na słowach i parach słów tworzy wyłącznie krótką listę kandydatów do ręcznej oceny.
+Stopki proweniencji i URL-e nie wpływają na wynik, raport jest przypięty do hashy tekstów,
+a algorytm nigdy nie scala ani nie usuwa rekordów automatycznie.
+
+```bash
+python scripts/analyze_duplicates.py
+python scripts/analyze_duplicates.py --check
+```
+
+## Pilotaż Setona
+
+Rozdział gier Setona pełni rolę pierwszej małej jednostki pilotażowej. Raport
+`data/reports/bsh-1911-seton-games-pilot.json` wylicza zakres, koszt katalogowy, wyniki
+automatycznych kontroli i znane czasy wyłącznie z przypiętych artefaktów. Nie uzupełnia
+brakujących pomiarów szacunkiem: pełny czas pipeline'u i czas ręcznej recenzji pozostają
+`not-recorded`. Pięć formularzy w `vault/reviews/editorial/inbox/` odpowiada wcześniejszej
+próbie porównawczej modeli. Dopóki człowiek nie oceni tych rekordów i nie poda czasu,
+raport ma status oczekujący i nie pozwala uznać pilota za podstawę skalowania.
+
+```bash
+python scripts/build_pilot_report.py
+python scripts/build_pilot_report.py --check
+```
+
+## Materiały chronione
+
+Materiały chronione i te o nierozstrzygniętych prawach są domyślnie zapisywane jako
+`link-only`: fakty bibliograficzne, identyfikator, kanoniczny URL i własna notatka, bez tekstu,
+OCR-u, skanu, obrazu lub tłumaczenia. Repozytorium nie przyjmuje liczbowego limitu cytatu jako
+automatycznej bezpiecznej reguły. Każdy cytat wymaga osobnej decyzji człowieka, wskazanego celu,
+uzasadnienia zakresu, pełnej atrybucji i precyzyjnej lokalizacji. Szczegóły oraz źródła prawne
+są w `vault/policies/protected-sources.md`.
+
 ## Taksonomia V1
 
 Przed wywołaniem API skrypt pokazuje plan partii, koszt referencyjny i granicę źródła:
@@ -134,6 +171,78 @@ jawne mapowania oparte wyłącznie na zastanych działach i polach redakcyjnych.
 raportu z oznaczeniami `proposalOnly` i `reviewRequired`; nie zmienia `vault/taxonomy/`,
 filtrów ani eksportów przed decyzją człowieka.
 
+## Audyt skali uczestników V3
+
+Pierwszy krok V3 mierzy, w ilu tekstach gier występują jawne sygnały skali uczestników oraz
+wzmianki o liczbie osób. Raport leksykalny nie jest klasyfikacją: nie zapisuje
+`participantScales`, nie wyprowadza `minParticipants` ani `maxParticipants` i nie zmienia
+produkcyjnych filtrów. Wielokrotne trafienie jest oczekiwane, bo źródło może opisywać kilka
+wariantów albo różne role w tej samej grze. Wynik oraz checkpoint są deterministyczne i
+wymagają decyzji człowieka przed zmianą schematu.
+
+```bash
+python scripts/audit_v3_participants.py
+python scripts/audit_v3_participants.py --check
+```
+
+Embeddingi mapy semantycznej mają osobny przepis, cache, ledger, raport i checkpoint od V1.
+Wejście łączy tytuł oraz ograniczony kontekst źródłowy z tytułem i krótszym kontekstem w
+drugim języku. Przed każdym requestem pipeline sprawdza dokładny model w `/v1/models`, nie
+łączy książek w jednej partii i egzekwuje łączny limit kosztu referencyjnego 10 USD.
+
+```bash
+python scripts/embed_semantic_map.py --source-id bsh-1911-seton-games --limit 1
+python scripts/embed_semantic_map.py --source-id bsh-1911-seton-games --limit 1 --execute
+python scripts/embed_semantic_map.py --source-id bsh-1911-seton-games --limit 50 --execute
+```
+
+Pierwsze polecenie jest dry-runem, drugie najmniejszym requestem smoke, a trzecie kończy
+bieżące źródło. Po `429` proces zapisuje `nextRetryAt` i kończy się bez oczekiwania na węźle
+logowania. Źródło można commitować dopiero, gdy wszystkie jego gry mają aktualny cache.
+Wszystkie 199 gier z trzech źródeł ma aktualne embeddingi V3. Sześć requestów zużyło łącznie
+149 629 tokenów wejściowych, co odpowiada kosztowi referencyjnemu 0,0149629 USD. API nie
+zwróciło kwoty faktycznie rozliczonej z kredytów Education.
+
+Przypięty `umap-learn` wylicza na węźle CPU pozycje 2D, dziesięciu najbliższych sąsiadów
+każdej gry i wzajemne pary między różnymi źródłami do ręcznej oceny. Raport jest wyłącznie
+propozycją: kandydatury algorytmiczne nie trafiają do produkcyjnych relacji, a zatwierdzone
+relacje są nakładane jako osobna warstwa. Trzy dodatkowe ziarna mierzą stabilność układu;
+współrzędne służą do nawigacji, nie są kategorią ani dowodem pochodzenia historycznego.
+
+```bash
+python scripts/analyze_semantic_map.py
+python scripts/analyze_semantic_map.py --check
+python scripts/analyze_semantic_map.py --check --portable
+python scripts/audit_v3_facets.py
+python scripts/audit_v3_facets.py --check
+python scripts/build_semantic_review_packet.py
+python scripts/build_semantic_review_packet.py --check
+```
+
+Pełny `--check` jest kontrolą odtwarzalności w przypiętym środowisku Heliosa. Wariant
+`--portable`, używany w CI, nadal porównuje dokładnie hashe korpusu, sąsiadów cosinusowych,
+kandydatury i zatwierdzone relacje, ale pomija współrzędne i metryki projekcji UMAP, które
+mogą różnić się między implementacjami CPU mimo tych samych wersji bibliotek i ziaren.
+
+Audyt praktycznych faset V3 działa bez API i nie zapisuje kategorii do aktywności. Dla 12
+wymiarów podaje pokrycie jawnych sygnałów w tekstach źródłowych, rekordy z sygnałami wielu
+wartości, obciążenie ręcznego odczytu oraz proxy różnicowania korpusu. Wartość wyszukiwawcza
+i precyzja próbek pozostają jawnie nieocenioną decyzją człowieka.
+
+Pakiet recenzencki mapy materializuje wszystkie wzajemne, międzyźródłowe kandydatury z
+raportu analizy wraz z dwujęzycznymi tytułami, krótkimi fragmentami, wynikiem cosinusowym i
+rangami w obu kierunkach. Nie jest częścią publicznej strony i nie zapisuje relacji. Każda z
+30 par pozostaje `pending` do osobnej decyzji człowieka.
+
+Dla bieżącego korpusu raport zawiera 199 punktów i 30 niezatwierdzonych par do przeglądu.
+Zatwierdzona relacja `bsh-037`–`hwp-041` jest w obu kierunkach najbliższym sąsiadem również
+w embeddingach V3. Trustworthiness projekcji przy `k=10` wynosi 0,72618405, a najniższa
+korelacja rangowa odległości między dodatkowymi ziarnami wynosi 0,81821257.
+
+Dwujęzyczna strona `/map/` pokazuje wyłącznie punkty, filtr źródła i zatwierdzone relacje.
+Ma równoważną listę linków oraz obsługę klawiatury. Nie publikuje kandydatur algorytmicznych;
+filtry kategorii i skali uczestników pozostają wyłączone do decyzji człowieka.
+
 Kod obsługuje też przepis `activity-context-v2`, który przed skróceniem kontekstu usuwa
 techniczną stopkę źródłową oraz adresy URL z Markdown, zachowując tekst widoczny odnośników.
 Zmiana `recipeVersion` jest jawna i celowo unieważnia wcześniejsze cache’e. Wszystkie 202
@@ -164,6 +273,8 @@ Pełny kierunek rozwoju opisuje [project-plan.md](project-plan.md).
   wersjonowanej, dwujęzycznej taksonomii. Oryginalne określenia źródłowe pozostają bez zmian.
 - **V2:** wyłącznie eksploracja, ocena i pozyskiwanie nowych książek oraz źródeł polskich
   i zagranicznych; korzysta z modelu danych i taksonomii wypracowanych w V0–V1.
+- **V3:** embeddingi wszystkich gier, mapa semantyczna oraz jawne, ręcznie zatwierdzane
+  fasety praktyczne; pierwszy audyt mierzy sygnały skali uczestników bez klasyfikowania gier.
 
 Autoresearch prowadzi Codex w Goal Mode. Wiążące zasady pracy agenta znajdują się w
 [`AGENTS.md`](AGENTS.md); `project-plan.md` opisuje kierunek produktu. Stan operacji zapisują
@@ -192,11 +303,68 @@ Wynik jest wyłącznie rekordem odkrywania. Oznaczenie praw z RDF nadal wymaga z
 zatwierdzonej reguły kolekcji, ustalenia autorstwa właściwego składnika oraz zachowania
 osobnej bramki dla konkretnej edycji i jej wkładów.
 
+Adapter `scripts/gallica.py` pobiera tylko obiekt mający dokładne `itemApproval` w rejestrze.
+Adresy paginacji, widoku IIIF i PDF-u wyprowadza z zatwierdzonego identyfikatora, nie pozwala
+zapisać wyniku poza `$SCRATCH/scouting-autoresearch/`, ogranicza rozmiar odpowiedzi,
+sprawdza typ i sygnaturę pliku oraz zapisuje go atomowo. Stan dostawcy w scratch wymusza
+minimalny odstęp wynikający z `rateLimitPerMinute` bez usypiania procesu. Bez `--execute` wykonuje tylko
+dry-run. Dla pełnego dokumentu respektuje `nextRetryAt` checkpointu, po `429` lub `5xx`
+zapisuje wyłącznie bezpieczną diagnostykę i termin podany przez dostawcę albo godzinny
+fallback. Przykład:
+
+```bash
+python scripts/gallica.py --source-id chamarande-1934 --artifact pdf
+python scripts/gallica.py --source-id chamarande-1934 --artifact pdf --execute
+```
+
+Jeżeli udokumentowany endpoint pełnego PDF pozostaje ograniczony przez dostawcę, fallback
+`scripts/gallica_views.py` wybiera jeden brakujący widok IIIF na uruchomienie. Nie omija
+cooldownu ani limitu kolekcji, nie zmienia dostawcy i po każdym sukcesie zapisuje hash oraz
+postęp w checkpointcie. Dzięki temu Goal Mode może wznawiać pobieranie bez procesu śpiącego
+na login node:
+
+```bash
+python scripts/gallica_views.py --source-id chamarande-1934
+python scripts/gallica_views.py --source-id chamarande-1934 --execute
+```
+
+Po zapisaniu i zweryfikowaniu wszystkich 188 widoków ich inspekcja graficzna odbywa się na
+węźle CPU, nie na login node. Zadanie sprawdza komplet plików i przypięty hash paginacji, po
+czym tworzy w scratch dwa arkusze: w kolejności widoków Gallici oraz według numerów stron
+drukowanych. Drugi wariant jest konieczny, ponieważ składki książki nie są zeskanowane w
+ciągłej kolejności stron:
+
+```bash
+mkdir -p "$SCRATCH/scouting-autoresearch/logs"
+sbatch jobs/helios/chamarande-contact-sheets.slurm
+```
+
+Wyniki trafiają pod
+`$SCRATCH/scouting-autoresearch/runs/chamarande-1934/iiif-contact-full/<job-id>/` i służą
+wyłącznie do zaproponowania zakresów stron. Nie zatwierdzają automatycznie autorstwa ani
+uruchomienia OCR-u.
+
+Zatwierdzone lokalne obrazy stron można przekazać do Mistral OCR przez drugi adapter,
+również domyślnie działający jako dry-run:
+
+```bash
+python scripts/mistral_ocr.py \
+  --config config/ocr/chamarande-1934.yaml \
+  --image "$SCRATCH/scouting-autoresearch/sources/chamarande-1934/f19-1200.jpg"
+```
+
+`--execute` najpierw sprawdza dokładny model przez `/v1/models`, a potem przetwarza obrazy
+sekwencyjnie. Surowe odpowiedzi zostają w scratch; śledzony checkpoint zapisuje hashe,
+liczbę stron, bezpieczne dane retry, rozliczenie `education-credit` i egzekwowany limit
+kosztu referencyjnego. Produkcyjne wykonanie pozostaje zablokowane przez `executionReady`
+do czasu ustalenia i wpisania zakresów widoków zawierających wyłącznie zatwierdzoną prozę.
+
 ## Licencje i bezpieczeństwo
 
-Kod: MIT. Projektowe metadane i tłumaczenia: CC BY 4.0 w zakresie posiadanych praw.
-Importowane teksty zachowują status przypisany konkretnemu rekordowi; szczegóły zawiera
-[DATA-LICENSE.md](DATA-LICENSE.md).
+Kod: MIT. Projektowe metadane i tłumaczenia: domyślnie CC BY 4.0 w zakresie posiadanych
+praw. Importowane teksty zachowują status i warunki przypisane konkretnemu rekordowi.
+Materiał odtworzony z reprodukcji Gallici oraz oparte na nim tłumaczenia stanowią jawny
+wyjątek niekomercyjny; szczegóły zawiera [DATA-LICENSE.md](DATA-LICENSE.md).
 
 Dla Project Gutenberg obowiązuje zatwierdzona przez właściciela reguła: oznaczenie konkretnego
 eBooka `Public domain in the USA` wraz z udokumentowanym upływem 70 pełnych lat od śmierci
