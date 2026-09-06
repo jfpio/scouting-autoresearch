@@ -10,6 +10,7 @@ collections:
     baseUrl: https://polona.pl/
     status: approved-per-item
     allowedMethods: [record-metadata, documented-download]
+    acquisitionAdapter: scripts/acquire_v3_sources.py
     rateLimitPerMinute: 10
     metadataUrlTemplate: https://polona.pl/api/library-object-query/digital-objects/{uuid}
     oldIdResolverUrlTemplate: https://polona.pl/api/library-object-query/digital-objects/new-id/{oldId}
@@ -114,6 +115,7 @@ collections:
     baseUrl: https://kpbc.umk.pl/
     status: approved-per-item
     allowedMethods: [metadata-only, documented-download]
+    acquisitionAdapter: scripts/acquire_v3_sources.py
     rateLimitPerMinute: 5
     reviewRecord: vault/reviews/accepted/v3-regional-library-access.md
     robotsTxt:
@@ -133,6 +135,7 @@ collections:
     baseUrl: https://pbc.biaman.pl/
     status: approved-per-item
     allowedMethods: [metadata-only, documented-download]
+    acquisitionAdapter: scripts/acquire_v3_sources.py
     rateLimitPerMinute: 5
     reviewRecord: vault/reviews/accepted/v3-regional-library-access.md
     robotsTxt:
@@ -151,6 +154,7 @@ collections:
     baseUrl: https://www.wbc.poznan.pl/
     status: approved-per-item
     allowedMethods: [metadata-only, documented-download]
+    acquisitionAdapter: scripts/acquire_v3_sources.py
     rateLimitPerMinute: 5
     reviewRecord: vault/reviews/accepted/v3-regional-library-access.md
     robotsTxt:
@@ -169,6 +173,7 @@ collections:
     baseUrl: https://www.sbc.org.pl/
     status: approved-per-item
     allowedMethods: [metadata-only, documented-download]
+    acquisitionAdapter: scripts/acquire_v3_sources.py
     rateLimitPerMinute: 5
     reviewRecord: vault/reviews/accepted/v3-regional-library-access.md
     robotsTxt:

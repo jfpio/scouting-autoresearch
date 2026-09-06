@@ -303,6 +303,21 @@ Wynik jest wyłącznie rekordem odkrywania. Oznaczenie praw z RDF nadal wymaga z
 zatwierdzonej reguły kolekcji, ustalenia autorstwa właściwego składnika oraz zachowania
 osobnej bramki dla konkretnej edycji i jej wkładów.
 
+Zatwierdzone jednostki polskie V3-R1 pobiera `scripts/acquire_v3_sources.py`. Adapter
+ponownie rozwiązuje rekord biblioteczny, ogranicza przekierowania do wpisanego hosta,
+sprawdza rozmiar i sygnaturę pliku oraz zapisuje surowe PDF-y, obrazy IIIF i metadane
+wyłącznie w `$SCRATCH/scouting-autoresearch/sources/`. Checkpoint z hashami pozostaje w
+repozytorium. Zablokowane przez `robots.txt` ZIP-y PBC Rzeszów są odrzucane przed wykonaniem.
+
+```bash
+python scripts/acquire_v3_sources.py --source-id jasinski-field-games-1938
+sbatch --export=ALL,SOURCE_ID=jasinski-field-games-1938,LIMIT=1 \
+  jobs/helios/v3-acquire-source.slurm
+```
+
+Pierwsze polecenie jest dry-runem. `LIMIT=1` stanowi smoke test jednego widoku Polony;
+pełny przebieg na węźle CPU pomija ten parametr i respektuje limit kolekcji.
+
 Adapter `scripts/gallica.py` pobiera tylko obiekt mający dokładne `itemApproval` w rejestrze.
 Adresy paginacji, widoku IIIF i PDF-u wyprowadza z zatwierdzonego identyfikatora, nie pozwala
 zapisać wyniku poza `$SCRATCH/scouting-autoresearch/`, ogranicza rozmiar odpowiedzi,
@@ -356,8 +371,8 @@ python scripts/mistral_ocr.py \
 `--execute` najpierw sprawdza dokładny model przez `/v1/models`, a potem przetwarza obrazy
 sekwencyjnie. Surowe odpowiedzi zostają w scratch; śledzony checkpoint zapisuje hashe,
 liczbę stron, bezpieczne dane retry, rozliczenie `education-credit` i egzekwowany limit
-kosztu referencyjnego. Produkcyjne wykonanie pozostaje zablokowane przez `executionReady`
-do czasu ustalenia i wpisania zakresów widoków zawierających wyłącznie zatwierdzoną prozę.
+kosztu referencyjnego. Produkcyjne wykonanie jest możliwe tylko dla zatwierdzonych zakresów
+widoków; pozostałe obrazy oraz wyłączone bloki nie mogą wejść do publikowanego korpusu.
 
 ## Licencje i bezpieczeństwo
 
