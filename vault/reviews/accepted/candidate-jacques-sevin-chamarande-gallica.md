@@ -1,10 +1,10 @@
 ---
 id: source-candidate-jacques-sevin-chamarande-gallica-bpt6k3373518k
 recordType: source-candidate
-status: rights-review
+status: accepted
 createdAt: "2026-09-04"
-reviewRequired: true
-publicationBlocked: true
+reviewRequired: false
+publicationBlocked: false
 subjectId: jacques-sevin
 sourceType: bibliographic-metadata
 title: Chamarande
@@ -34,16 +34,16 @@ digitalEdition:
     shelfmark: 8-V-51412
   editionIdentityStatus: identified
 rightsReview:
-  status: human-review-required
-  humanApproved: false
-  proposedRightsStatus: public-domain
+  status: human-approved
+  humanApproved: true
+  rightsStatus: public-domain
   jurisdiction: Poland under the harmonized European Union term framework
   catalogClaim: domaine-public-and-public-domain
-  proposedScope:
+  approvedScope:
     - original French prose explicitly attributable to Jacques Sevin in the 1934 edition
-  fullTextEligible: false
+  fullTextEligible: true
   imagesEligible: false
-  translationEligible: false
+  translationEligible: true
   calculation:
     relevantAuthors:
       - name: Jacques Sevin
@@ -62,6 +62,14 @@ rightsReview:
     classification: noncommercial-reuse-free-with-attribution
     requiredAttribution: Source gallica.bnf.fr / Bibliothèque nationale de France
     commercialReuse: paid-license-required
+  humanDecision:
+    date: "2026-09-06"
+    approvedBy: repository-owner
+    basis: >-
+      The owner approved the classification of Jacques Sevin's original prose as public
+      domain in Poland and the European Union, while retaining Gallica's noncommercial
+      reuse and attribution conditions for the reproduction, transcription and project
+      translations.
   accessDecision:
     status: human-approved-for-controlled-download
     date: "2026-09-05"
@@ -258,8 +266,8 @@ publiczną.
 
 BnF podaje pełną datę śmierci Sevina: 19 lipca 1951 r. Przy okresie życia autora i 70 pełnych
 lat prawa do jego tekstu wygasły 31 grudnia 2021 r.; tekst jest w domenie publicznej w Polsce
-i UE od 1 stycznia 2022 r. To obliczenie wspiera proponowaną decyzję, ale nie zastępuje
-zatwierdzenia konkretnego zakresu wymaganego przez repozytorium.
+i UE od 1 stycznia 2022 r. Właściciel repozytorium zatwierdził 6 września 2026 r. tę
+kwalifikację dla oryginalnej prozy wyraźnie przypisanej Sevinowi.
 
 Gallica pozwala na bezpłatne użycie niekomercyjne treści z zachowaniem wskazanej atrybucji,
 natomiast użycie bezpośrednio generujące przychód wymaga odpłatnej licencji. Dlatego przed
@@ -268,10 +276,9 @@ niekomercyjny sposób wykorzystania i obowiązek atrybucji Gallici. Zgoda obejmu
 prozę Sevina. Muzyka, plansze, ilustracje, okładka, późniejsze opracowania oraz cyfrowa warstwa
 Gallici pozostają wyłączone, dopóki nie zostaną ocenione osobno.
 
-Po zatwierdzeniu pierwszym krokiem będzie małe, udokumentowane pobranie do katalogu scratch,
-kontrola stron tytułowych i spisu treści oraz ocena, czy książka rzeczywiście zawiera
-samodzielne gry lub próby warte ekstrakcji. Sam tytuł i tematyczna przydatność nie są jeszcze
-dowodem, że znajdzie się w niej materiał do importu.
+Zatwierdzenie praw nie zatwierdza zakresu stron. Materiał został pobrany do katalogu scratch,
+a osobna propozycja zakresu OCR pozostaje w recenzji. Dopóki właściciel nie zatwierdzi tego
+zakresu, konfiguracja OCR pozostaje wyłączona i żaden tekst nie może trafić do korpusu.
 
 ## Poszukiwanie alternatywnego egzemplarza
 

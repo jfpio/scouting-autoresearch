@@ -209,6 +209,16 @@ class SevinFetchCheckpointTests(unittest.TestCase):
         self.assertIn("music", checkpoint["excludedComponents"])
         self.assertIn("Source gallica.bnf.fr", checkpoint["requiredAttribution"])
 
+    def test_rights_are_approved_but_page_scope_remains_human_gated(self):
+        decision = self.checkpoint["rightsDecision"]
+        self.assertEqual(decision["status"], "human-approved")
+        self.assertEqual(decision["date"], "2026-09-06")
+        self.assertEqual(decision["rightsStatus"], "public-domain")
+        self.assertEqual(decision["jurisdictions"], ["PL", "EU"])
+        self.assertTrue(decision["pageScopeStillRequiresHumanApproval"])
+        self.assertFalse(self.checkpoint["componentScopeReview"]["humanApproved"])
+        self.assertFalse(self.checkpoint["componentScopeReview"]["ocrExecutionReady"])
+
 
 if __name__ == "__main__":
     unittest.main()

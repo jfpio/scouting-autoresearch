@@ -14,19 +14,20 @@ class SevinAlternativeAccessTests(unittest.TestCase):
             ROOT
             / "vault"
             / "reviews"
-            / "inbox"
+            / "accepted"
             / "candidate-jacques-sevin-chamarande-gallica.md"
         )
         cls.metadata, cls.body = load_markdown(cls.path)
         cls.rights = cls.metadata["rightsReview"]
         cls.search = cls.rights["alternativeAccessResearch"]
 
-    def test_negative_search_does_not_change_rights_or_download_state(self):
-        self.assertEqual(self.metadata["status"], "rights-review")
-        self.assertTrue(self.metadata["publicationBlocked"])
-        self.assertFalse(self.rights["humanApproved"])
-        self.assertFalse(self.rights["fullTextEligible"])
-        self.assertFalse(self.rights["translationEligible"])
+    def test_negative_search_does_not_replace_the_recorded_human_rights_decision(self):
+        self.assertEqual(self.metadata["status"], "accepted")
+        self.assertFalse(self.metadata["publicationBlocked"])
+        self.assertTrue(self.rights["humanApproved"])
+        self.assertEqual(self.rights["rightsStatus"], "public-domain")
+        self.assertTrue(self.rights["fullTextEligible"])
+        self.assertTrue(self.rights["translationEligible"])
         self.assertEqual(
             self.search["status"],
             "no-equivalent-digital-edition-found-in-approved-metadata-searches",
@@ -34,6 +35,14 @@ class SevinAlternativeAccessTests(unittest.TestCase):
         self.assertEqual(self.search["interpretation"], "negative-search-result-not-proof-of-absence")
         self.assertEqual(self.search["sourceFilesDownloaded"], 0)
         self.assertEqual(self.metadata["discovery"]["sourceFilesDownloaded"], 0)
+
+    def test_owner_approved_public_domain_scope_separately_from_page_scope(self):
+        decision = self.rights["humanDecision"]
+        self.assertEqual(self.rights["status"], "human-approved")
+        self.assertEqual(decision["date"], "2026-09-06")
+        self.assertEqual(decision["approvedBy"], "repository-owner")
+        self.assertTrue(any("original French prose" in item for item in self.rights["approvedScope"]))
+        self.assertFalse(self.rights["imagesEligible"])
 
     def test_owner_approved_only_controlled_noncommercial_download(self):
         decision = self.rights["accessDecision"]

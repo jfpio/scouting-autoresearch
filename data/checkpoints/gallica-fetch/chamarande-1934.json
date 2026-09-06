@@ -5,7 +5,20 @@
   "collectionId": "gallica-bnf",
   "digitalEditionIdentifier": "bpt6k3373518k",
   "status": "page-scope-review-pending",
-  "accessDecisionPath": "vault/reviews/inbox/candidate-jacques-sevin-chamarande-gallica.md",
+  "accessDecisionPath": "vault/reviews/accepted/candidate-jacques-sevin-chamarande-gallica.md",
+  "rightsDecision": {
+    "status": "human-approved",
+    "date": "2026-09-06",
+    "approvedBy": "repository-owner",
+    "rightsStatus": "public-domain",
+    "jurisdictions": [
+      "PL",
+      "EU"
+    ],
+    "approvedComponent": "original French prose explicitly attributable to Jacques Sevin in the 1934 edition",
+    "reviewPath": "vault/reviews/accepted/candidate-jacques-sevin-chamarande-gallica.md",
+    "pageScopeStillRequiresHumanApproval": true
+  },
   "allowedMethod": "documented-download",
   "useMode": "noncommercial-research-and-publication",
   "requiredAttribution": "Source gallica.bnf.fr / Bibliothèque nationale de France",

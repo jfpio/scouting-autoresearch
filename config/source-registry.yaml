@@ -115,6 +115,17 @@ collections:
           basis: >-
             The owner confirmed that the project is non-profit and approved noncommercial
             download and reuse under Gallica's attribution condition for this item and scope.
+        rightsDecision:
+          date: "2026-09-06"
+          approvedBy: repository-owner
+          rightsStatus: public-domain
+          jurisdiction: [PL, EU]
+          approvedScope:
+            - original French prose explicitly attributable to Jacques Sevin in the 1934 edition
+          basis: >-
+            The owner approved the life-plus-70 classification of Sevin's original prose
+            while retaining Gallica's noncommercial reuse and attribution conditions for
+            the reproduction, transcription and project translations.
         downstreamLicensing:
           projectMetadata: CC-BY-4.0
           sourceTextAndTranscription: gallica-noncommercial-reuse-terms
