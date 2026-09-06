@@ -22,6 +22,8 @@ const basePath = locale === 'en' ? '/scouting-autoresearch/en/activities/' : '/s
 const labels = isPl
   ? { search: 'Szukaj w tytule, treści i cechach', placeholder: 'np. ogień, tropienie, cierpliwość', kind: 'Rodzaj', allKinds: 'Wszystkie rodzaje', game: 'Gra', trial: 'Próba', trait: 'Cecha', allTraits: 'Wszystkie cechy', author: 'Autor', allAuthors: 'Wszyscy autorzy', book: 'Książka', allBooks: 'Wszystkie książki', year: 'Rok', allYears: 'Wszystkie lata', section: 'Dział', allSections: 'Wszystkie działy', clear: 'Wyczyść filtry', results: 'aktywności', noResults: 'Brak aktywności pasujących do filtrów.', machine: 'Tłumaczenie automatyczne', original: 'Tekst źródłowy', safety: 'Wymaga współczesnej oceny ryzyka', read: 'Czytaj' }
   : { search: 'Search titles, text, and traits', placeholder: 'e.g. fire, tracking, patience', kind: 'Type', allKinds: 'All types', game: 'Game', trial: 'Trial', trait: 'Trait', allTraits: 'All traits', author: 'Author', allAuthors: 'All authors', book: 'Book', allBooks: 'All books', year: 'Year', allYears: 'All years', section: 'Section', allSections: 'All sections', clear: 'Clear filters', results: 'activities', noResults: 'No activities match these filters.', machine: 'Automatic translation', original: 'Source text', safety: 'Modern risk assessment required', read: 'Read' };
+const kindLabel = (value) => labels[value] || value;
+const kinds = [...new Set(activities.flatMap((item) => item.kinds))].sort((a, b) => kindLabel(a).localeCompare(kindLabel(b), locale));
 ---
 
 <section class="activity-explorer" data-explorer data-locale={locale}>
@@ -34,7 +36,7 @@ const labels = isPl
       <button type="button" class="clear-filters" data-clear>{labels.clear}</button>
     </div>
     <div class="filter-grid">
-      {!kind && <label><span>{labels.kind}</span><select data-filter="kind"><option value="">{labels.allKinds}</option><option value="game">{labels.game}</option><option value="trial">{labels.trial}</option></select></label>}
+      {!kind && <label><span>{labels.kind}</span><select data-filter="kind"><option value="">{labels.allKinds}</option>{kinds.map((value) => <option value={value}>{kindLabel(value)}</option>)}</select></label>}
       <label><span>{labels.trait}</span><select data-filter="trait"><option value="">{labels.allTraits}</option>{traits.map((value) => <option value={value}>{value}</option>)}</select></label>
       <label><span>{labels.author}</span><select data-filter="author"><option value="">{labels.allAuthors}</option>{authors.map((value) => <option value={value}>{value}</option>)}</select></label>
       <label><span>{labels.book}</span><select data-filter="book"><option value="">{labels.allBooks}</option>{books.map((value) => <option value={value}>{value}</option>)}</select></label>
@@ -58,7 +60,7 @@ const labels = isPl
         data-section={item.section}
       >
         <div class="card-topline">
-          <span class={`kind-badge kind-${item.kinds[0]}`}>{item.kinds.map((value) => value === 'game' ? labels.game : labels.trial).join(' · ')}</span>
+          <span class={`kind-badge kind-${item.kinds[0]}`}>{item.kinds.map(kindLabel).join(' · ')}</span>
           <span class="activity-id">{item.id}</span>
         </div>
         <h2><a href={`${basePath}${item.id}/`}>{item.title}</a></h2>
@@ -66,7 +68,7 @@ const labels = isPl
         <p class="card-preview">{item.summary}</p>
         <p class="source-line"><strong>{item.author}</strong> · <cite>{item.sourceTitle}</cite> · {item.year}</p>
         <div class="card-footer">
-          <span>{locale === 'en' ? labels.machine : labels.original}</span>
+          <span>{item.translationStatus === 'machine-translation' ? labels.machine : labels.original}</span>
           <a href={`${basePath}${item.id}/`}>{labels.read} →</a>
         </div>
       </article>

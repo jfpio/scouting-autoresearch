@@ -183,9 +183,10 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
                 )
             )
 
-    def test_retry_never_precedes_twelve_hours(self):
+    def test_retry_uses_provider_value_or_one_hour_fallback(self):
         now = datetime(2026, 9, 2, tzinfo=UTC)
-        self.assertEqual(retry_at(now, "60"), now + timedelta(hours=12))
+        self.assertEqual(retry_at(now, None), now + timedelta(hours=1))
+        self.assertEqual(retry_at(now, "60"), now + timedelta(seconds=60))
         self.assertEqual(retry_at(now, str(13 * 60 * 60)), now + timedelta(hours=13))
 
     def test_retry_checkpoint_preserves_embedding_identity(self):
@@ -194,8 +195,7 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
             checkpoint_path.write_text(
                 json.dumps(
                     {
-                        "status": "daily-limit-reached",
-                        "nextCycleAt": "obsolete",
+                        "status": "source-batch-complete",
                         "repository": {"lastPushedCommit": "abc"},
                     }
                 ),
@@ -216,22 +216,21 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
                 )
             checkpoint = json.loads(checkpoint_path.read_text(encoding="utf-8"))
             self.assertEqual(checkpoint["status"], "retry-pending")
-            self.assertEqual(checkpoint["nextRetryAt"], "2026-09-03T12:00:00+00:00")
-            self.assertNotIn("nextCycleAt", checkpoint)
+            self.assertEqual(checkpoint["nextRetryAt"], "2026-09-03T01:00:00+00:00")
             self.assertEqual(checkpoint["repository"], {"lastPushedCommit": "abc"})
             self.assertEqual(
                 {key: checkpoint[key] for key in identity},
                 identity,
             )
 
-    def test_checkpoint_merge_preserves_provenance_and_removes_stale_fields(self):
+    def test_checkpoint_merge_preserves_provenance(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "checkpoint.json"
             path.write_text(
                 json.dumps(
                     {
-                        "status": "daily-limit-reached",
-                        "nextCycleAt": "obsolete",
+                        "status": "retry-pending",
+                        "nextRetryAt": "2026-09-03T12:00:00+00:00",
                         "repository": {"lastPushedCommit": "abc"},
                     }
                 ),
@@ -239,20 +238,16 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
             )
             checkpoint = update_checkpoint(
                 {"status": "source-batch-complete", "nextActivityId": "hwp-051"},
-                remove_keys=("nextCycleAt",),
+                remove_keys=("nextRetryAt",),
                 path=path,
             )
             self.assertEqual(checkpoint["repository"], {"lastPushedCommit": "abc"})
-            self.assertNotIn("nextCycleAt", checkpoint)
+            self.assertNotIn("nextRetryAt", checkpoint)
             self.assertEqual(json.loads(path.read_text(encoding="utf-8")), checkpoint)
 
-    def test_reference_cost_falls_back_for_legacy_ledgers(self):
+    def test_reference_cost_falls_back_to_prompt_token_estimate(self):
         batch = {"usage": {"promptTokens": 250}}
         self.assertEqual(batch_reference_cost(batch, 0.2), 0.00005)
-
-    def test_reference_cost_preserves_recorded_legacy_estimate(self):
-        batch = {"usage": {"promptTokens": 100, "estimatedCostUsd": 1.25}}
-        self.assertEqual(batch_reference_cost(batch, 99.0), 1.25)
 
     def test_batch_usage_is_grouped_by_recipe_without_hiding_superseded_cost(self):
         batches = [

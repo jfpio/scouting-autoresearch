@@ -1,16 +1,39 @@
 #!/usr/bin/env python3
-"""Acceptance checks for the committed V0 corpus and generated site."""
+"""Acceptance checks for the committed multilingual corpus and generated site."""
 
 from __future__ import annotations
 
 import json
+import math
+import os
 import re
+from datetime import date
 from pathlib import Path
 
 from audit_taxonomy_inputs import REPORT_PATH as TAXONOMY_INPUT_AUDIT_PATH
 from audit_taxonomy_inputs import build_quality_report
+from audit_v3_participants import CHECKPOINT_PATH as V3_PARTICIPANT_CHECKPOINT_PATH
+from audit_v3_participants import REPORT_PATH as V3_PARTICIPANT_REPORT_PATH
+from audit_v3_participants import build_checkpoint as build_v3_participant_checkpoint
+from audit_v3_participants import build_report as build_v3_participant_report
+from audit_v3_participants import load_config as load_v3_participant_config
+from audit_v3_participants import load_game_records as load_v3_game_records
+from audit_v3_facets import CHECKPOINT_PATH as V3_FACET_CHECKPOINT_PATH
+from audit_v3_facets import REPORT_PATH as V3_FACET_REPORT_PATH
+from audit_v3_facets import build_checkpoint as build_v3_facet_checkpoint
+from audit_v3_facets import build_report as build_v3_facet_report
+from audit_v3_facets import load_config as load_v3_facet_config
+from audit_v3_facets import load_game_records as load_v3_facet_records
+from analyze_duplicates import REPORT_PATH as NEAR_DUPLICATE_REPORT_PATH
+from analyze_duplicates import build_report as build_duplicate_report
 from analyze_taxonomy import REPORT_PATH as TAXONOMY_ANALYSIS_PATH
 from analyze_taxonomy import build_analysis, load_usage
+from build_pilot_report import build_report as build_pilot_report
+from build_pilot_report import load_config as load_pilot_config
+from build_semantic_review_packet import build_checkpoint as build_semantic_review_checkpoint
+from build_semantic_review_packet import build_markdown as build_semantic_review_markdown
+from build_semantic_review_packet import build_report as build_semantic_review_report
+from build_semantic_review_packet import load_config as load_semantic_review_config
 from common import GENERATED, ROOT, VAULT, load_markdown, read_json, source_hash
 from embed_taxonomy import REPORT_PATH as TAXONOMY_PROGRESS_PATH
 from embed_taxonomy import (
@@ -20,12 +43,31 @@ from embed_taxonomy import (
     input_hash,
     load_config,
 )
+from embed_semantic_map import CHECKPOINT_PATH as SEMANTIC_MAP_CHECKPOINT_PATH
+from embed_semantic_map import REPORT_PATH as SEMANTIC_MAP_PROGRESS_PATH
+from embed_semantic_map import activity_items as semantic_map_items
+from embed_semantic_map import build_progress_report as build_semantic_map_progress
+from embed_semantic_map import cache_is_current as semantic_map_cache_is_current
+from embed_semantic_map import canonical_hash as semantic_map_hash
+from embed_semantic_map import corpus_digest as semantic_map_corpus_digest
+from embed_semantic_map import load_batches as load_semantic_map_batches
+from embed_semantic_map import load_config as load_semantic_map_config
+from evaluate_translation_models import load_evaluation_config
+from translate import MAX_OUTPUT_TOKENS, MIN_OUTPUT_TOKENS
 from propose_taxonomy import (
     PROPOSAL_PATH as TAXONOMY_PROPOSAL_PATH,
     REPORT_PATH as TAXONOMY_MAPPING_PROPOSAL_PATH,
     build_proposal_report,
 )
 from validate_candidates import validate_candidates
+from validate_collection_reviews import validate_collection_reviews
+from validate_editorial_reviews import validate_editorial_reviews
+from validate_protected_source_policy import validate_protected_source_policy
+from similar_activities import load_config as load_similarity_config
+from similar_activities import validate_similar_activity_relations
+
+
+SEMANTIC_MAP_ANALYSIS_PATH = ROOT / "data" / "reports" / "semantic-map-v3-analysis.json"
 
 
 def require(condition: bool, message: str, errors: list[str]) -> None:
@@ -33,22 +75,105 @@ def require(condition: bool, message: str, errors: list[str]) -> None:
         errors.append(message)
 
 
+def repository_files() -> tuple[list[Path], list[Path]]:
+    files: list[Path] = []
+    nested_git: list[Path] = []
+    skipped = {"node_modules", ".venv", ".git", "dist", ".astro", "__pycache__"}
+    for current, directories, names in os.walk(ROOT):
+        current_path = Path(current)
+        for directory in directories:
+            candidate = current_path / directory
+            if directory == ".git" and candidate != ROOT / ".git":
+                nested_git.append(candidate)
+        directories[:] = [directory for directory in directories if directory not in skipped]
+        files.extend(current_path / name for name in names)
+    return files, nested_git
+
+
 def main() -> None:
     errors: list[str] = []
     activity_paths = sorted((VAULT / "activities").glob("*.md"))
-    translation_paths = sorted((VAULT / "translations" / "en").glob("*.md"))
-    require(len(activity_paths) == 202, f"Expected 202 activities, found {len(activity_paths)}", errors)
-    require(len(translation_paths) == 202, f"Expected 202 English translations, found {len(translation_paths)}", errors)
+    translation_paths = sorted(
+        path for path in (VAULT / "translations").glob("*/*.md") if path.name != "README.md"
+    )
 
     sources = {}
     for path in (VAULT / "sources").glob("*.md"):
         metadata, _ = load_markdown(path)
         sources[metadata["id"]] = metadata
         require(metadata.get("rightsStatus") == "public-domain", f"Source {path.stem} is not public-domain", errors)
-        for key in ("author", "title", "year", "sourceUrl", "rightsEvidenceUrl", "digitalEditionUrl", "pdfUrl"):
+        for key in ("author", "title", "year", "sourceUrl", "rightsEvidenceUrl", "digitalEditionUrl"):
             require(bool(metadata.get(key)), f"Source {path.stem} lacks {key}", errors)
+        require(
+            bool(metadata.get("pdfUrl") or metadata.get("textUrl")),
+            f"Source {path.stem} lacks a reusable digital text or PDF URL",
+            errors,
+        )
+        if metadata.get("approvalPolicyId") == "project-gutenberg-pd-usa-plus-life-70":
+            evidence = metadata.get("rightsEvidence") or {}
+            authors = evidence.get("relevantAuthors") or []
+            require(
+                evidence.get("catalogClaim") == "Public domain in the USA",
+                f"Source {path.stem} lacks the exact Gutenberg public-domain claim",
+                errors,
+            )
+            require(bool(evidence.get("catalogUrl")), f"Source {path.stem} lacks the Gutenberg claim URL", errors)
+            require(bool(authors), f"Source {path.stem} lacks relevant authors for the life-plus-70 rule", errors)
+            death_dates = []
+            for author in authors:
+                try:
+                    death_dates.append(date.fromisoformat(author.get("deathDate", "")))
+                except (TypeError, ValueError):
+                    require(False, f"Source {path.stem} has an invalid author death date", errors)
+                require(bool(author.get("name")), f"Source {path.stem} has an unnamed relevant author", errors)
+                require(bool(author.get("evidenceUrl")), f"Source {path.stem} lacks death-date evidence", errors)
+            if death_dates:
+                last_death_year = max(value.year for value in death_dates)
+                expected_end = date(last_death_year + 70, 12, 31).isoformat()
+                expected_start = date(last_death_year + 71, 1, 1)
+                require(
+                    evidence.get("protectionEnded") == expected_end,
+                    f"Source {path.stem} has an incorrect life-plus-70 end date",
+                    errors,
+                )
+                require(
+                    evidence.get("publicDomainFrom") == expected_start.isoformat(),
+                    f"Source {path.stem} has an incorrect public-domain start date",
+                    errors,
+                )
+                require(
+                    expected_start <= date.today(),
+                    f"Source {path.stem} has not completed 70 full calendar years after the last author death",
+                    errors,
+                )
+            review_record = ROOT / str(metadata.get("rightsReviewRecord", ""))
+            require(
+                bool(metadata.get("rightsReviewRecord")) and review_record.exists(),
+                f"Source {path.stem} lacks its accepted rights-review record",
+                errors,
+            )
+            if review_record.is_file():
+                review, _ = load_markdown(review_record)
+                processing = review.get("processing") or {}
+                require(
+                    review.get("rightsReview", {}).get("approvalPolicyId")
+                    == metadata.get("approvalPolicyId"),
+                    f"Source {path.stem} and its rights review use different policies",
+                    errors,
+                )
+                require(
+                    processing.get("sourceId") == path.stem,
+                    f"Source {path.stem} and its processing record use different IDs",
+                    errors,
+                )
+                require(
+                    processing.get("sourceSha256")
+                    == str(metadata.get("sourceRevision", "")).removeprefix("sha256:"),
+                    f"Source {path.stem} and its processing record use different revisions",
+                    errors,
+                )
 
-    expected_ids = {f"hwp-{number:03d}" for number in range(1, 118)} | {f"pw-{number:03d}" for number in range(1, 86)}
+    v0_ids = {f"hwp-{number:03d}" for number in range(1, 118)} | {f"pw-{number:03d}" for number in range(1, 86)}
     actual_ids: set[str] = set()
     activity_metadata: dict[str, dict] = {}
     for path in activity_paths:
@@ -60,17 +185,103 @@ def main() -> None:
         require(metadata.get("sourceId") in sources, f"Unknown source in {path.name}", errors)
         require(metadata.get("rightsStatus") == "public-domain", f"Non-public full text in {path.name}", errors)
         require(bool(body.strip()), f"Empty body in {path.name}", errors)
+        kinds = metadata.get("kinds") or []
+        require(
+            isinstance(kinds, list) and bool(kinds) and len(kinds) == len(set(kinds)),
+            f"Missing or duplicate activity kinds in {path.name}",
+            errors,
+        )
+        require(
+            set(kinds).issubset({"game", "trial"}),
+            f"Unapproved production activity kind in {path.name}: {kinds}",
+            errors,
+        )
         require(metadata.get("sourceHash") == source_hash(metadata.get("title", ""), body), f"Bad source hash in {path.name}", errors)
         require(bool(metadata.get("printedPages")), f"Missing printed pages in {path.name}", errors)
-        require(bool(metadata.get("pdfPages")), f"Missing PDF pages in {path.name}", errors)
+        require(metadata.get("originalLanguage") in {"pl", "en"}, f"Unsupported source language in {path.name}", errors)
+        require(bool(metadata.get("sourceRevision") or metadata.get("sourceCommit")), f"Missing source revision in {path.name}", errors)
+        require(bool(metadata.get("facsimileUrl") or metadata.get("pdfPages")), f"Missing page-level source link in {path.name}", errors)
         require(metadata.get("safetyStatus") == "historical-unreviewed", f"Unexpected safety status in {path.name}", errors)
-    require(actual_ids == expected_ids, f"Activity IDs differ: missing={sorted(expected_ids - actual_ids)}, extra={sorted(actual_ids - expected_ids)}", errors)
+    require(v0_ids.issubset(actual_ids), f"V0 activity IDs are missing: {sorted(v0_ids - actual_ids)}", errors)
+
+    activities_by_source: dict[str, list[str]] = {}
+    for activity_id, metadata in activity_metadata.items():
+        activities_by_source.setdefault(metadata["sourceId"], []).append(activity_id)
+    for source_id, source in sources.items():
+        report_value = source.get("extractionReport")
+        if not report_value:
+            continue
+        report_path = ROOT / report_value
+        require(report_path.exists(), f"Source {source_id} extraction report is missing", errors)
+        if not report_path.exists():
+            continue
+        report = read_json(report_path)
+        source_ids = sorted(activities_by_source.get(source_id, []))
+        report_items = report.get("activities") or []
+        report_ids = sorted(item.get("id") for item in report_items)
+        require(report.get("sourceId") == source_id, f"Source {source_id} extraction report has the wrong source", errors)
+        require(report.get("activityCount") == len(source_ids), f"Source {source_id} extraction count is stale", errors)
+        require(report_ids == source_ids, f"Source {source_id} extraction report IDs differ from the corpus", errors)
+        require(report.get("wholeSourceCopiedToRepository") is False, f"Source {source_id} report claims a whole-source copy", errors)
+        require(not (report.get("deduplication") or {}).get("exactBodyMatches"), f"Source {source_id} has exact duplicate bodies", errors)
+        revision = str(source.get("sourceRevision", "")).removeprefix("sha256:")
+        require(report.get("sourceSha256") == revision, f"Source {source_id} extraction revision is stale", errors)
+        transcription_evidence = report.get("transcriptionEvidence") or {}
+        require(
+            bool(transcription_evidence.get("sourceStatement")),
+            f"Source {source_id} extraction report lacks the source transcription statement",
+            errors,
+        )
+        require(
+            bool(transcription_evidence.get("sourceLocation")),
+            f"Source {source_id} extraction report lacks the transcription-statement location",
+            errors,
+        )
+        require(
+            bool(transcription_evidence.get("deterministicNormalization")),
+            f"Source {source_id} extraction report lacks deterministic normalization rules",
+            errors,
+        )
+        require(
+            transcription_evidence.get("lexicalModernization") is False,
+            f"Source {source_id} extraction report does not prohibit lexical modernization",
+            errors,
+        )
+        review_record = ROOT / str(source.get("rightsReviewRecord", ""))
+        if review_record.is_file():
+            review, _ = load_markdown(review_record)
+            processing = review.get("processing") or {}
+            require(
+                processing.get("extractionReport") == report_value,
+                f"Source {source_id} review points to a different extraction report",
+                errors,
+            )
+            require(
+                processing.get("parserVersion") == report.get("parserVersion"),
+                f"Source {source_id} review has a stale parser version",
+                errors,
+            )
+            require(
+                processing.get("importedActivityCount") == len(source_ids),
+                f"Source {source_id} review has a stale imported-activity count",
+                errors,
+            )
+        for item in report_items:
+            metadata = activity_metadata.get(item.get("id"), {})
+            require(
+                item.get("sourceBlockSha256") == metadata.get("sourceBlockSha256"),
+                f"Source block evidence differs for {item.get('id')}",
+                errors,
+            )
 
     translation_ids: set[str] = set()
+    translation_metadata: dict[str, dict] = {}
     for path in translation_paths:
         metadata, body = load_markdown(path)
         activity_id = metadata.get("activityId")
+        require(activity_id not in translation_ids, f"Duplicate translation for {activity_id}", errors)
         translation_ids.add(activity_id)
+        translation_metadata[activity_id] = metadata
         original_path = VAULT / "activities" / f"{activity_id}.md"
         require(original_path.exists(), f"Translation without original: {path.name}", errors)
         if original_path.exists():
@@ -82,6 +293,58 @@ def main() -> None:
                 f"Translation invented or dropped traits: {path.name}",
                 errors,
             )
+            expected_locale = "en" if original.get("originalLanguage") == "pl" else "pl"
+            require(metadata.get("locale") == expected_locale, f"Wrong target locale in {path.name}", errors)
+            require(path.parent.name == expected_locale, f"Translation is in the wrong directory: {path}", errors)
+            translation_policy = sources[original["sourceId"]].get("translationPolicy") or {}
+            if translation_policy:
+                require(
+                    metadata.get("locale") == translation_policy.get("targetLocale"),
+                    f"Translation target differs from source policy: {path.name}",
+                    errors,
+                )
+                require(
+                    metadata.get("modelRequested") == translation_policy.get("modelRequested"),
+                    f"Translation requested model differs from source policy: {path.name}",
+                    errors,
+                )
+                require(
+                    metadata.get("promptVersion") == translation_policy.get("promptVersion"),
+                    f"Translation prompt differs from source policy: {path.name}",
+                    errors,
+                )
+                if translation_policy.get("reasoningMode"):
+                    require(
+                        metadata.get("reasoningMode") == translation_policy.get("reasoningMode"),
+                        f"Translation reasoning mode differs from source policy: {path.name}",
+                        errors,
+                    )
+                if translation_policy.get("usageRequired"):
+                    usage = metadata.get("usage") or {}
+                    billing_mode = translation_policy.get("billingMode")
+                    require(
+                        isinstance(usage.get("promptTokens"), int) and usage["promptTokens"] > 0,
+                        f"Translation lacks prompt-token usage: {path.name}",
+                        errors,
+                    )
+                    require(
+                        isinstance(usage.get("completionTokens"), int) and usage["completionTokens"] > 0,
+                        f"Translation lacks completion-token usage: {path.name}",
+                        errors,
+                    )
+                    require(usage.get("billingMode") == billing_mode, f"Translation billing mode differs from source policy: {path.name}", errors)
+                    if billing_mode == "experimental-no-charge":
+                        require(usage.get("billedCostUsd") == 0, f"Experimental translation has a nonzero billed cost: {path.name}", errors)
+                    elif billing_mode == "education-credit":
+                        require(usage.get("billedCostUsd") is None, f"Education-credit translation claims a known billed cost: {path.name}", errors)
+                    require(
+                        isinstance(usage.get("referenceCostUsd"), (int, float))
+                        and usage["referenceCostUsd"] >= 0,
+                        f"Translation lacks reference cost: {path.name}",
+                        errors,
+                    )
+                    require(bool(usage.get("priceSource")), f"Translation lacks a price source: {path.name}", errors)
+                    require(bool(usage.get("priceAccessedOn")), f"Translation lacks a price access date: {path.name}", errors)
         require(metadata.get("status") == "machine-translation", f"Bad translation status: {path.name}", errors)
         for key in ("model", "modelRequested", "promptVersion", "generatedAt", "title", "section"):
             require(bool(metadata.get(key)), f"Translation {path.name} lacks {key}", errors)
@@ -90,26 +353,746 @@ def main() -> None:
             source_urls = set(re.findall(r"https?://[^\s)]+", original_body))
             translated_urls = set(re.findall(r"https?://[^\s)]+", body))
             require(source_urls.issubset(translated_urls), f"Translation dropped a URL or image: {path.name}", errors)
-    require(translation_ids == expected_ids, "English and Polish record IDs differ", errors)
-    models = {load_markdown(path)[0].get("model") for path in translation_paths}
-    require(models == {"mistral-medium-2604"}, f"Unexpected translation model set: {sorted(models)}", errors)
+    require(translation_ids == actual_ids, "Source and translation record IDs differ", errors)
+
+    for source_id, source in sources.items():
+        policy = source.get("translationPolicy") or {}
+        if not policy:
+            continue
+        evaluation = policy.get("modelEvaluation")
+        if evaluation:
+            evaluation_path = (ROOT / str(evaluation)).resolve()
+            require(
+                evaluation_path.is_relative_to(ROOT.resolve()) and evaluation_path.is_file(),
+                f"Source {source_id} translation evaluation config is missing",
+                errors,
+            )
+            if evaluation_path.is_file():
+                try:
+                    evaluation_config = load_evaluation_config(evaluation_path)
+                except (OSError, ValueError) as error:
+                    require(False, f"Source {source_id} has an invalid translation evaluation: {error}", errors)
+                else:
+                    require(
+                        evaluation_config.get("sourceId") == source_id,
+                        f"Source {source_id} translation evaluation targets another source",
+                        errors,
+                    )
+                    require(
+                        evaluation_config.get("productionCandidate") == policy.get("modelRequested"),
+                        f"Source {source_id} production model differs from its evaluation",
+                        errors,
+                    )
+        report_path = ROOT / str(policy.get("report", ""))
+        require(bool(policy.get("report")) and report_path.exists(), f"Source {source_id} translation report is missing", errors)
+        if not report_path.is_file():
+            continue
+        report = read_json(report_path)
+        expected_ids = sorted(activities_by_source.get(source_id, []))
+        require(report.get("sourceId") == source_id, f"Source {source_id} translation report has the wrong source", errors)
+        require(report.get("status") == "complete", f"Source {source_id} translation report is incomplete", errors)
+        require(report.get("selectedActivityIds") == expected_ids, f"Source {source_id} translation selection is stale", errors)
+        require(report.get("completedActivityIds") == expected_ids, f"Source {source_id} translation completion is stale", errors)
+        require(report.get("pendingActivityIds") == [], f"Source {source_id} translation report has pending records", errors)
+        require(
+            report.get("modelRequested") == policy.get("modelRequested"),
+            f"Source {source_id} translation report uses the wrong requested model",
+            errors,
+        )
+        expected_prompt_tokens = sum(
+            int((translation_metadata.get(activity_id, {}).get("usage") or {}).get("promptTokens", 0))
+            for activity_id in expected_ids
+        )
+        expected_completion_tokens = sum(
+            int((translation_metadata.get(activity_id, {}).get("usage") or {}).get("completionTokens", 0))
+            for activity_id in expected_ids
+        )
+        expected_request_max_output_tokens = sum(
+            int(
+                (translation_metadata.get(activity_id, {}).get("usage") or {}).get(
+                    "requestMaxOutputTokens", 0
+                )
+            )
+            for activity_id in expected_ids
+        )
+        expected_reference_cost = round(
+            sum(
+                float((translation_metadata.get(activity_id, {}).get("usage") or {}).get("referenceCostUsd", 0))
+                for activity_id in expected_ids
+            ),
+            8,
+        )
+        report_usage = report.get("usage") or {}
+        require(report_usage.get("promptTokens") == expected_prompt_tokens, f"Source {source_id} prompt-token total is stale", errors)
+        require(report_usage.get("completionTokens") == expected_completion_tokens, f"Source {source_id} completion-token total is stale", errors)
+        if policy.get("requestBudgetRequired"):
+            for activity_id in expected_ids:
+                budget = (translation_metadata.get(activity_id, {}).get("usage") or {}).get(
+                    "requestMaxOutputTokens"
+                )
+                require(
+                    isinstance(budget, int) and MIN_OUTPUT_TOKENS <= budget <= MAX_OUTPUT_TOKENS,
+                    f"Translation {activity_id} lacks a valid requested output-token budget",
+                    errors,
+                )
+            require(
+                report_usage.get("requestMaxOutputTokens") == expected_request_max_output_tokens,
+                f"Source {source_id} requested output-token total is stale",
+                errors,
+            )
+        require(report_usage.get("billingMode") == policy.get("billingMode"), f"Source {source_id} reports the wrong translation billing mode", errors)
+        if policy.get("billingMode") == "experimental-no-charge":
+            require(report_usage.get("billedCostUsd") == 0, f"Source {source_id} reports a nonzero billed translation cost", errors)
+        elif policy.get("billingMode") == "education-credit":
+            require(report_usage.get("billedCostUsd") is None, f"Source {source_id} claims a known billed translation cost", errors)
+            require(report_usage.get("referenceCostLimitEnforced") is True, f"Source {source_id} does not report an enforced cost limit", errors)
+            require(report_usage.get("maxReferenceCostUsd") == policy.get("maxReferenceCostUsd"), f"Source {source_id} reports the wrong cost limit", errors)
+        require(report_usage.get("referenceCostUsd") == expected_reference_cost, f"Source {source_id} reference cost is stale", errors)
 
     exploration_paths = sorted((VAULT / "exploration").rglob("idea-*.md"))
     require(len(exploration_paths) >= 2, "Expected seeded taxonomy and activity-kind exploration notes", errors)
     for path in exploration_paths:
         metadata, body = load_markdown(path)
-        require(metadata.get("proposalType") in {"taxonomy", "activity-kind"}, f"Bad proposal type in {path}", errors)
+        require(
+            metadata.get("proposalType") in {"taxonomy", "activity-kind", "filter-facets"},
+            f"Bad proposal type in {path}",
+            errors,
+        )
         require(metadata.get("status") == "proposed", f"Exploration note is not proposed: {path}", errors)
         require(metadata.get("sourceType") == "editorial-hypothesis", f"Exploration note lacks hypothesis marker: {path}", errors)
         require(metadata.get("reviewRequired") is True, f"Exploration note lacks human review gate: {path}", errors)
         require(set((metadata.get("labels") or {}).keys()) == {"pl", "en"}, f"Exploration note lacks bilingual labels: {path}", errors)
+        for activity_id in metadata.get("evidenceActivityIds") or []:
+            require(
+                activity_id in activity_metadata,
+                f"Exploration note references an unknown activity {activity_id}: {path}",
+                errors,
+            )
+        for source_id in metadata.get("relatedSourceIds") or []:
+            require(
+                source_id in sources,
+                f"Exploration note references an unknown source {source_id}: {path}",
+                errors,
+            )
         require(bool(body.strip()), f"Empty exploration note: {path}", errors)
 
     candidate_count, candidate_validation_errors = validate_candidates()
     errors.extend(candidate_validation_errors)
+    collection_review_count, collection_review_errors = validate_collection_reviews()
+    errors.extend(collection_review_errors)
+    editorial_review_count, accepted_editorial_review_count, editorial_review_errors = (
+        validate_editorial_reviews()
+    )
+    errors.extend(editorial_review_errors)
+    errors.extend(validate_protected_source_policy())
+
+    pilot_count = 0
+    for pilot_config_path in sorted((ROOT / "config" / "pilots").glob("*.yaml")):
+        pilot_config = load_pilot_config(pilot_config_path)
+        pilot_report_path = ROOT / pilot_config["reportPath"]
+        require(pilot_report_path.is_file(), f"Pilot report is missing: {pilot_report_path}", errors)
+        if not pilot_report_path.is_file():
+            continue
+        pilot_report = read_json(pilot_report_path)
+        expected_pilot_report = build_pilot_report(pilot_config)
+        require(
+            pilot_report == expected_pilot_report,
+            f"Pilot report is stale or nondeterministic: {pilot_report_path}",
+            errors,
+        )
+        require(
+            (pilot_report.get("conclusions") or {}).get("costMeasured") is True,
+            f"Pilot does not measure cost: {pilot_report_path}",
+            errors,
+        )
+        if pilot_report.get("status") != "complete":
+            require(
+                (pilot_report.get("conclusions") or {}).get("safeToScaleFromThisPilot") is False,
+                f"Incomplete pilot claims it is safe to scale: {pilot_report_path}",
+                errors,
+            )
+        pilot_count += 1
+
+    near_duplicate_candidate_count = 0
+    require(NEAR_DUPLICATE_REPORT_PATH.is_file(), "Near-duplicate report is missing", errors)
+    if NEAR_DUPLICATE_REPORT_PATH.is_file():
+        near_duplicate_report = read_json(NEAR_DUPLICATE_REPORT_PATH)
+        expected_duplicate_report = build_duplicate_report()
+        require(
+            near_duplicate_report == expected_duplicate_report,
+            "Near-duplicate report is stale or nondeterministic",
+            errors,
+        )
+        require(
+            near_duplicate_report.get("proposalOnly") is True,
+            "Near-duplicate report is not proposal-only",
+            errors,
+        )
+        require(
+            near_duplicate_report.get("reviewRequired") is True,
+            "Near-duplicate report lacks human review",
+            errors,
+        )
+        require(
+            near_duplicate_report.get("automaticMerges") == [],
+            "Near-duplicate report contains automatic merges",
+            errors,
+        )
+        near_duplicate_candidate_count = near_duplicate_report.get("candidateCount", 0)
+
+    similar_relation_count, similar_relation_errors = validate_similar_activity_relations()
+    errors.extend(similar_relation_errors)
+    expected_similarity_links: set[tuple[str, str]] = set()
+    for relation in load_similarity_config().get("relations") or []:
+        activity_ids = relation.get("activityIds") or []
+        if len(activity_ids) == 2:
+            expected_similarity_links.update(
+                {(activity_ids[0], activity_ids[1]), (activity_ids[1], activity_ids[0])}
+            )
+
+    require(V3_PARTICIPANT_REPORT_PATH.is_file(), "V3 participant audit report is missing", errors)
+    require(
+        V3_PARTICIPANT_CHECKPOINT_PATH.is_file(),
+        "V3 participant audit checkpoint is missing",
+        errors,
+    )
+    if V3_PARTICIPANT_REPORT_PATH.is_file() and V3_PARTICIPANT_CHECKPOINT_PATH.is_file():
+        expected_v3_participant_report = build_v3_participant_report(
+            load_v3_participant_config(), load_v3_game_records()
+        )
+        actual_v3_participant_report = read_json(V3_PARTICIPANT_REPORT_PATH)
+        require(
+            actual_v3_participant_report == expected_v3_participant_report,
+            "V3 participant audit report is stale or nondeterministic",
+            errors,
+        )
+        require(
+            read_json(V3_PARTICIPANT_CHECKPOINT_PATH)
+            == build_v3_participant_checkpoint(expected_v3_participant_report),
+            "V3 participant audit checkpoint is stale or nondeterministic",
+            errors,
+        )
+        require(
+            actual_v3_participant_report.get("productionFieldsWritten") == [],
+            "V3 participant audit claims a production-field change",
+            errors,
+        )
+        require(
+            (actual_v3_participant_report.get("execution") or {}).get(
+                "externalApiRequests"
+            )
+            == 0,
+            "V3 participant audit unexpectedly used an external API",
+            errors,
+        )
+
+    require(V3_FACET_REPORT_PATH.is_file(), "V3 practical-facet audit report is missing", errors)
+    require(
+        V3_FACET_CHECKPOINT_PATH.is_file(),
+        "V3 practical-facet audit checkpoint is missing",
+        errors,
+    )
+    if V3_FACET_REPORT_PATH.is_file() and V3_FACET_CHECKPOINT_PATH.is_file():
+        expected_v3_facet_report = build_v3_facet_report(
+            load_v3_facet_config(), load_v3_facet_records()
+        )
+        actual_v3_facet_report = read_json(V3_FACET_REPORT_PATH)
+        require(
+            actual_v3_facet_report == expected_v3_facet_report,
+            "V3 practical-facet audit report is stale or nondeterministic",
+            errors,
+        )
+        require(
+            read_json(V3_FACET_CHECKPOINT_PATH)
+            == build_v3_facet_checkpoint(expected_v3_facet_report),
+            "V3 practical-facet audit checkpoint is stale or nondeterministic",
+            errors,
+        )
+        require(
+            actual_v3_facet_report.get("productionFieldsWritten") == [],
+            "V3 practical-facet audit claims a production-field change",
+            errors,
+        )
+        require(
+            (actual_v3_facet_report.get("execution") or {}).get("externalApiRequests")
+            == 0,
+            "V3 practical-facet audit unexpectedly used an external API",
+            errors,
+        )
+        require(
+            all(
+                (dimension.get("humanSearchValueAssessment") or {}).get("status")
+                == "human-rating-required"
+                for dimension in actual_v3_facet_report.get("dimensions") or []
+            ),
+            "V3 practical-facet audit claims an automated user-value decision",
+            errors,
+        )
+
+    semantic_config = load_semantic_map_config()
+    semantic_items = semantic_map_items(semantic_config)
+    semantic_items_by_id = {item["id"]: item for item in semantic_items}
+    semantic_embedding = semantic_config["embedding"]
+    semantic_cache_paths = sorted((ROOT / "data" / "embeddings" / "v3").glob("*.json"))
+    semantic_cached_ids: set[str] = set()
+    semantic_batch_ids_by_activity: dict[str, str] = {}
+    for path in semantic_cache_paths:
+        payload = read_json(path)
+        activity_id = payload.get("activityId")
+        require(activity_id == path.stem, f"V3 embedding ID/path mismatch: {path}", errors)
+        require(activity_id in semantic_items_by_id, f"V3 embedding lacks a game: {path}", errors)
+        require(activity_id not in semantic_cached_ids, f"Duplicate V3 embedding: {activity_id}", errors)
+        semantic_cached_ids.add(activity_id)
+        if activity_id in semantic_items_by_id:
+            require(
+                semantic_map_cache_is_current(
+                    path, semantic_items_by_id[activity_id], semantic_embedding
+                ),
+                f"Stale or invalid V3 embedding: {path.name}",
+                errors,
+            )
+        batch_id = payload.get("batchId")
+        require(bool(batch_id), f"V3 embedding lacks a batch ID: {path.name}", errors)
+        if isinstance(activity_id, str) and isinstance(batch_id, str):
+            semantic_batch_ids_by_activity[activity_id] = batch_id
+
+    semantic_batches = load_semantic_map_batches()
+    semantic_batch_by_id: dict[str, dict] = {}
+    for batch in semantic_batches:
+        batch_id = batch.get("batchId")
+        require(bool(batch_id), "V3 embedding batch lacks an ID", errors)
+        require(batch_id not in semantic_batch_by_id, f"Duplicate V3 batch ID: {batch_id}", errors)
+        if isinstance(batch_id, str):
+            semantic_batch_by_id[batch_id] = batch
+        require(
+            batch.get("pipeline") == "semantic-map-v3-embeddings",
+            f"V3 batch {batch_id} has the wrong pipeline",
+            errors,
+        )
+        require(
+            "items" not in batch,
+            f"V3 batch {batch_id} still contains recoverable vector payloads",
+            errors,
+        )
+        require(
+            batch.get("billingMode") == "education-credit",
+            f"V3 batch {batch_id} has the wrong billing mode",
+            errors,
+        )
+        require(
+            (batch.get("usage") or {}).get("billedCostUsd") is None,
+            f"V3 batch {batch_id} claims a known billed cost",
+            errors,
+        )
+        require(
+            batch.get("modelRequested") == semantic_embedding["model"],
+            f"V3 batch {batch_id} uses the wrong requested model",
+            errors,
+        )
+        require(
+            batch.get("recipeVersion") == semantic_embedding["recipeVersion"],
+            f"V3 batch {batch_id} uses the wrong recipe",
+            errors,
+        )
+        require(
+            (batch.get("modelAccess") or {}).get("checked") is True
+            and (batch.get("modelAccess") or {}).get("modelId")
+            == semantic_embedding["model"],
+            f"V3 batch {batch_id} lacks the exact model-access check",
+            errors,
+        )
+        batch_activity_ids = batch.get("activityIds") or []
+        require(
+            len(batch_activity_ids) == len(set(batch_activity_ids)),
+            f"V3 batch {batch_id} repeats activity IDs",
+            errors,
+        )
+        require(
+            len(batch_activity_ids) <= int(semantic_config["execution"]["maxDocumentsPerRequest"]),
+            f"V3 batch {batch_id} exceeds the request document limit",
+            errors,
+        )
+        require(
+            all(
+                activity_id in semantic_items_by_id
+                and semantic_items_by_id[activity_id]["sourceId"] == batch.get("sourceId")
+                for activity_id in batch_activity_ids
+            ),
+            f"V3 batch {batch_id} crosses source boundaries or has unknown games",
+            errors,
+        )
+        for activity_id in batch_activity_ids:
+            require(
+                activity_id in semantic_batch_ids_by_activity,
+                f"V3 batch {batch_id} lacks cache {activity_id}",
+                errors,
+            )
+            if activity_id in semantic_batch_ids_by_activity:
+                require(
+                    semantic_batch_ids_by_activity[activity_id] == batch_id,
+                    f"V3 batch/cache mismatch for {activity_id}",
+                    errors,
+                )
+
+    for activity_id, batch_id in semantic_batch_ids_by_activity.items():
+        require(batch_id in semantic_batch_by_id, f"V3 cache {activity_id} lacks its batch ledger", errors)
+        if batch_id in semantic_batch_by_id:
+            require(
+                activity_id in (semantic_batch_by_id[batch_id].get("activityIds") or []),
+                f"V3 cache {activity_id} is absent from batch {batch_id}",
+                errors,
+            )
+
+    for source_id in semantic_config["corpus"]["sourceOrder"]:
+        source_ids = {
+            item["id"] for item in semantic_items if item["sourceId"] == source_id
+        }
+        source_cached_ids = source_ids & semantic_cached_ids
+        require(
+            not source_cached_ids or source_cached_ids == source_ids,
+            f"V3 committed cache is partial for source {source_id}",
+            errors,
+        )
+
+    semantic_state_exists = bool(
+        semantic_cache_paths
+        or semantic_batches
+        or SEMANTIC_MAP_PROGRESS_PATH.exists()
+        or SEMANTIC_MAP_CHECKPOINT_PATH.exists()
+    )
+    if semantic_state_exists:
+        require(SEMANTIC_MAP_PROGRESS_PATH.is_file(), "V3 embedding progress report is missing", errors)
+        require(SEMANTIC_MAP_CHECKPOINT_PATH.is_file(), "V3 embedding checkpoint is missing", errors)
+    if SEMANTIC_MAP_PROGRESS_PATH.is_file():
+        semantic_report = read_json(SEMANTIC_MAP_PROGRESS_PATH)
+        expected_semantic_report = build_semantic_map_progress(
+            semantic_config,
+            semantic_items,
+            semantic_batches,
+            generated_at=semantic_report.get("generatedAt"),
+        )
+        require(
+            semantic_report == expected_semantic_report,
+            "V3 embedding progress report is stale or nondeterministic",
+            errors,
+        )
+        require(
+            semantic_report.get("cacheNamespace") == "data/embeddings/v3",
+            "V3 embedding report reuses the V1 cache namespace",
+            errors,
+        )
+        require(
+            (semantic_report.get("costAccounting") or {}).get("billingMode")
+            == "education-credit",
+            "V3 embedding report has the wrong billing mode",
+            errors,
+        )
+        require(
+            (semantic_report.get("usage") or {}).get("referenceCostUsd", 0)
+            <= float(semantic_config["execution"]["maxTotalReferenceCostUsd"]),
+            "V3 embedding reference cost exceeds 10 USD",
+            errors,
+        )
+        require(
+            (semantic_report.get("usage") or {}).get("billedCostUsd") is None,
+            "V3 embedding report claims a known billed cost",
+            errors,
+        )
+    if SEMANTIC_MAP_CHECKPOINT_PATH.is_file():
+        semantic_checkpoint = read_json(SEMANTIC_MAP_CHECKPOINT_PATH)
+        require(
+            semantic_checkpoint.get("pipeline") == "semantic-map-v3-embeddings",
+            "V3 embedding checkpoint has the wrong pipeline",
+            errors,
+        )
+        require(
+            semantic_checkpoint.get("cachedActivities") == len(semantic_cached_ids),
+            "V3 embedding checkpoint has a stale cache count",
+            errors,
+        )
+        require(
+            semantic_checkpoint.get("billingMode") == "education-credit",
+            "V3 embedding checkpoint has the wrong billing mode",
+            errors,
+        )
+
+    semantic_analysis_count = 0
+    semantic_candidate_count = 0
+    if semantic_cached_ids == set(semantic_items_by_id):
+        require(
+            SEMANTIC_MAP_ANALYSIS_PATH.is_file(),
+            "Complete V3 embeddings lack a semantic-map analysis report",
+            errors,
+        )
+    if SEMANTIC_MAP_ANALYSIS_PATH.is_file():
+        semantic_analysis = read_json(SEMANTIC_MAP_ANALYSIS_PATH)
+        require(
+            semantic_analysis.get("pipeline") == "semantic-map-v3-analysis",
+            "V3 semantic-map analysis has the wrong pipeline",
+            errors,
+        )
+        require(
+            semantic_analysis.get("status") == "proposal-only"
+            and semantic_analysis.get("proposalOnly") is True
+            and semantic_analysis.get("reviewRequired") is True,
+            "V3 semantic-map analysis bypasses the human-review gate",
+            errors,
+        )
+        require(
+            semantic_analysis.get("projectionIsNavigationalOnly") is True,
+            "V3 projection is not marked as navigational only",
+            errors,
+        )
+        require(
+            semantic_analysis.get("productionRelationsWritten") == [],
+            "V3 semantic analysis claims production relation changes",
+            errors,
+        )
+        semantic_corpus = semantic_analysis.get("corpus") or {}
+        require(
+            semantic_corpus.get("activities") == len(semantic_items)
+            and semantic_corpus.get("corpusDigest")
+            == semantic_map_corpus_digest(semantic_items),
+            "V3 semantic analysis has stale corpus metadata",
+            errors,
+        )
+        if SEMANTIC_MAP_PROGRESS_PATH.is_file():
+            require(
+                semantic_corpus.get("embeddingProgressDigest")
+                == semantic_map_hash(read_json(SEMANTIC_MAP_PROGRESS_PATH)),
+                "V3 semantic analysis is detached from embedding progress",
+                errors,
+            )
+        analysis_parameters = semantic_analysis.get("parameters") or {}
+        require(
+            all(
+                analysis_parameters.get(key) == value
+                for key, value in (semantic_config.get("analysis") or {}).items()
+                if key not in {"algorithmVersion", "status"}
+            ),
+            "V3 semantic analysis parameters differ from configuration",
+            errors,
+        )
+        implementation = semantic_analysis.get("implementation") or {}
+        require(
+            implementation.get("algorithmVersion")
+            == (semantic_config.get("analysis") or {}).get("algorithmVersion")
+            and implementation.get("umapLearn")
+            == str((semantic_config.get("analysis") or {}).get("projectionVersion"))
+            and implementation.get("threads") == 1,
+            "V3 semantic analysis implementation is not pinned",
+            errors,
+        )
+
+        points = semantic_analysis.get("points") or []
+        point_ids = [point.get("activityId") for point in points]
+        semantic_analysis_count = len(points)
+        require(
+            len(point_ids) == len(set(point_ids))
+            and set(point_ids) == set(semantic_items_by_id),
+            "V3 semantic-map points differ from the game corpus",
+            errors,
+        )
+        for point in points:
+            activity_id = point.get("activityId")
+            item = semantic_items_by_id.get(activity_id)
+            require(
+                item is not None
+                and point.get("sourceId") == item["sourceId"]
+                and point.get("sourceHash") == item["sourceHash"]
+                and point.get("inputHash") == item["inputHash"],
+                f"V3 semantic-map point is stale: {activity_id}",
+                errors,
+            )
+            require(
+                all(
+                    isinstance(point.get(axis), (int, float))
+                    and math.isfinite(float(point[axis]))
+                    for axis in ("x", "y")
+                ),
+                f"V3 semantic-map point has invalid coordinates: {activity_id}",
+                errors,
+            )
+
+        nearest = semantic_analysis.get("nearestNeighbors") or []
+        nearest_ids = [record.get("activityId") for record in nearest]
+        neighbor_count = int(
+            (semantic_config.get("analysis") or {}).get("nearestNeighborCount", 0)
+        )
+        require(
+            len(nearest_ids) == len(set(nearest_ids))
+            and set(nearest_ids) == set(semantic_items_by_id),
+            "V3 nearest-neighbour records differ from the game corpus",
+            errors,
+        )
+        for record in nearest:
+            activity_id = record.get("activityId")
+            neighbors = record.get("neighbors") or []
+            neighbor_ids = [neighbor.get("activityId") for neighbor in neighbors]
+            require(
+                len(neighbors) == neighbor_count
+                and len(neighbor_ids) == len(set(neighbor_ids))
+                and activity_id not in neighbor_ids
+                and set(neighbor_ids).issubset(set(semantic_items_by_id)),
+                f"V3 nearest neighbours are invalid for {activity_id}",
+                errors,
+            )
+            neighbor_sort_keys = [
+                (-float(neighbor.get("cosineSimilarity", -2)), str(neighbor.get("activityId")))
+                for neighbor in neighbors
+            ]
+            require(
+                neighbor_sort_keys == sorted(neighbor_sort_keys)
+                and all(
+                    -1 <= float(neighbor.get("cosineSimilarity", -2)) <= 1
+                    for neighbor in neighbors
+                ),
+                f"V3 nearest neighbours are unsorted or invalid for {activity_id}",
+                errors,
+            )
+
+        relation_pairs = {
+            frozenset(relation.get("activityIds") or [])
+            for relation in load_similarity_config().get("relations") or []
+            if relation.get("status") == "human-approved"
+        }
+        overlays = semantic_analysis.get("approvedRelationOverlays") or []
+        overlay_pairs = {
+            frozenset(overlay.get("activityIds") or []) for overlay in overlays
+        }
+        require(
+            overlay_pairs == relation_pairs
+            and all(overlay.get("status") == "human-approved" for overlay in overlays),
+            "V3 map does not overlay exactly the approved similar-game relations",
+            errors,
+        )
+
+        candidates = semantic_analysis.get("algorithmicCandidates") or []
+        semantic_candidate_count = len(candidates)
+        candidate_pairs = [
+            frozenset(candidate.get("activityIds") or []) for candidate in candidates
+        ]
+        require(
+            len(candidate_pairs) == len(set(candidate_pairs))
+            and len(candidates)
+            <= int((semantic_config.get("analysis") or {}).get("candidatePairLimit", 0)),
+            "V3 semantic candidates repeat or exceed the configured limit",
+            errors,
+        )
+        for candidate, pair in zip(candidates, candidate_pairs, strict=True):
+            activity_ids = candidate.get("activityIds") or []
+            require(
+                len(pair) == 2
+                and pair not in relation_pairs
+                and all(activity_id in semantic_items_by_id for activity_id in activity_ids)
+                and len({semantic_items_by_id[activity_id]["sourceId"] for activity_id in activity_ids})
+                == 2
+                and candidate.get("status") == "algorithmic-candidate"
+                and candidate.get("reviewRequired") is True
+                and candidate.get("productionRelation") is False,
+                f"Invalid unreviewed V3 semantic candidate: {activity_ids}",
+                errors,
+            )
+        quality = semantic_analysis.get("quality") or {}
+        require(
+            all(
+                isinstance(quality.get(key), (int, float))
+                and 0 <= float(quality[key]) <= 1
+                for key in (
+                    "trustworthinessAtK",
+                    "crossSourceDirectedNeighborRate",
+                    "minimumMeanNeighborRetentionAtK",
+                )
+            )
+            and isinstance(
+                quality.get("minimumSpearmanPairwiseDistanceCorrelation"),
+                (int, float),
+            )
+            and -1
+            <= float(quality.get("minimumSpearmanPairwiseDistanceCorrelation", -2))
+            <= 1,
+            "V3 semantic-map quality metrics are invalid",
+            errors,
+        )
+
+    semantic_review_config = load_semantic_review_config()
+    semantic_review_report_path = ROOT / semantic_review_config["reportPath"]
+    semantic_review_note_path = ROOT / semantic_review_config["reviewNotePath"]
+    semantic_review_checkpoint_path = ROOT / semantic_review_config["checkpointPath"]
+    require(
+        semantic_review_report_path.is_file(),
+        "V3 semantic review packet report is missing",
+        errors,
+    )
+    require(
+        semantic_review_note_path.is_file(),
+        "V3 semantic review packet note is missing",
+        errors,
+    )
+    require(
+        semantic_review_checkpoint_path.is_file(),
+        "V3 semantic review packet checkpoint is missing",
+        errors,
+    )
+    if (
+        semantic_review_report_path.is_file()
+        and semantic_review_note_path.is_file()
+        and semantic_review_checkpoint_path.is_file()
+    ):
+        expected_semantic_review_report = build_semantic_review_report(
+            semantic_review_config
+        )
+        expected_semantic_review_note = build_semantic_review_markdown(
+            expected_semantic_review_report
+        )
+        actual_semantic_review_report = read_json(semantic_review_report_path)
+        require(
+            actual_semantic_review_report == expected_semantic_review_report,
+            "V3 semantic review packet report is stale or nondeterministic",
+            errors,
+        )
+        require(
+            semantic_review_note_path.read_text(encoding="utf-8")
+            == expected_semantic_review_note,
+            "V3 semantic review packet note is stale or nondeterministic",
+            errors,
+        )
+        require(
+            read_json(semantic_review_checkpoint_path)
+            == build_semantic_review_checkpoint(
+                semantic_review_config,
+                expected_semantic_review_report,
+                expected_semantic_review_note,
+            ),
+            "V3 semantic review packet checkpoint is stale or nondeterministic",
+            errors,
+        )
+        require(
+            (actual_semantic_review_report.get("selection") or {}).get(
+                "candidateCount"
+            )
+            == semantic_candidate_count,
+            "V3 semantic review packet omits analysis candidates",
+            errors,
+        )
+        require(
+            actual_semantic_review_report.get("publicSiteExposure") is False
+            and actual_semantic_review_report.get("productionRelationsWritten") == []
+            and all(
+                candidate.get("status") == "human-review-required"
+                and candidate.get("productionRelation") is False
+                and (candidate.get("humanDecision") or {}).get("status") == "pending"
+                for candidate in actual_semantic_review_report.get("candidates") or []
+            ),
+            "V3 semantic review packet bypasses the human decision gate",
+            errors,
+        )
 
     taxonomy_config = load_config()
     embedding_config = taxonomy_config["embedding"]
+    taxonomy_items = activity_items(taxonomy_config)
+    taxonomy_ids = {item["id"] for item in taxonomy_items}
+    taxonomy_activity_paths = [path for path in activity_paths if path.stem in taxonomy_ids]
     embedding_paths = sorted((ROOT / "data" / "embeddings" / "v1").glob("*.json"))
     embedded_ids: set[str] = set()
     for path in embedding_paths:
@@ -144,7 +1127,7 @@ def main() -> None:
             progress = read_json(TAXONOMY_PROGRESS_PATH)
             expected_progress = build_progress_report(
                 taxonomy_config,
-                activity_items(taxonomy_config),
+                taxonomy_items,
                 generated_at=progress.get("generatedAt"),
             )
             require(
@@ -156,7 +1139,7 @@ def main() -> None:
         if TAXONOMY_INPUT_AUDIT_PATH.exists():
             input_audit = read_json(TAXONOMY_INPUT_AUDIT_PATH)
             expected_input_audit = build_quality_report(
-                [load_markdown(path) for path in activity_paths],
+                [load_markdown(path) for path in taxonomy_activity_paths],
                 [read_json(path) for path in embedding_paths],
                 embedding_config=embedding_config,
             )
@@ -180,7 +1163,7 @@ def main() -> None:
             analysis = read_json(TAXONOMY_ANALYSIS_PATH)
             expected_analysis = build_analysis(
                 [read_json(path) for path in embedding_paths],
-                all_activity_ids=sorted(actual_ids),
+                all_activity_ids=sorted(taxonomy_ids),
                 parameters=taxonomy_config["analysis"],
                 usage=load_usage(),
             )
@@ -208,7 +1191,7 @@ def main() -> None:
         if TAXONOMY_MAPPING_PROPOSAL_PATH.exists() and TAXONOMY_ANALYSIS_PATH.exists():
             mapping_proposal = read_json(TAXONOMY_MAPPING_PROPOSAL_PATH)
             expected_mapping_proposal = build_proposal_report(
-                [activity_metadata[activity_id] for activity_id in sorted(activity_metadata)],
+                [activity_metadata[activity_id] for activity_id in sorted(taxonomy_ids)],
                 proposal,
                 read_json(TAXONOMY_ANALYSIS_PATH),
             )
@@ -231,13 +1214,14 @@ def main() -> None:
             require(len(category_ids) == len(set(category_ids)), "Taxonomy proposal category IDs repeat", errors)
             mappings = mapping_proposal.get("mappings", [])
             require(
-                {mapping.get("activityId") for mapping in mappings} == actual_ids,
+                {mapping.get("activityId") for mapping in mappings} == taxonomy_ids,
                 "Taxonomy proposal mapping IDs differ from the corpus",
                 errors,
             )
             source_traits = {
                 activity_id: metadata.get("traits", [])
                 for activity_id, metadata in activity_metadata.items()
+                if activity_id in taxonomy_ids
             }
             for mapping in mappings:
                 require(
@@ -258,28 +1242,37 @@ def main() -> None:
         require(jsonl_path.exists(), f"Missing {jsonl_path}", errors)
         if json_path.exists():
             records = read_json(json_path)
-            require(len(records) == 202, f"{locale} export has {len(records)} records", errors)
+            require(len(records) == len(activity_paths), f"{locale} export has {len(records)} records", errors)
+            actual_similarity_links = {
+                (record.get("id"), related.get("activityId"))
+                for record in records
+                for related in record.get("similarActivities", [])
+            }
+            require(
+                actual_similarity_links == expected_similarity_links,
+                f"{locale} export has stale or asymmetric similar-activity links",
+                errors,
+            )
             for record in records:
-                for key in ("author", "sourceTitle", "year", "sourceId", "printedPages", "pdfPages", "sourceCommit"):
+                for key in ("author", "sourceTitle", "year", "sourceId", "printedPages", "sourceRevision"):
                     require(bool(record.get(key)), f"{locale}/{record.get('id')} lacks {key}", errors)
         if jsonl_path.exists():
             lines = [line for line in jsonl_path.read_text(encoding="utf-8").splitlines() if line.strip()]
-            require(len(lines) == 202, f"{locale} JSONL has {len(lines)} lines", errors)
+            require(len(lines) == len(activity_paths), f"{locale} JSONL has {len(lines)} lines", errors)
 
     docs = list((ROOT / "src" / "content" / "docs").rglob("*.md")) + list((ROOT / "src" / "content" / "docs").rglob("*.mdx"))
-    require(len(docs) == 418, f"Expected 418 generated docs, found {len(docs)}", errors)
+    expected_docs = 16 + 2 * len(activity_paths)
+    require(len(docs) == expected_docs, f"Expected {expected_docs} generated docs, found {len(docs)}", errors)
     for path in docs:
         text = path.read_text(encoding="utf-8")
         require(text.startswith("---\n"), f"Missing frontmatter in {path}", errors)
         require("/harcerz-w-polu/book/" not in text or "https://jfpio.github.io/harcerz-w-polu/book/" in text, f"Broken relative source asset in {path}", errors)
 
-    forbidden_files = [path for path in ROOT.rglob("*") if path.is_file() and (path.suffix.lower() == ".pdf" or path.name == ".env")]
+    repo_files, nested_git = repository_files()
+    forbidden_files = [path for path in repo_files if path.suffix.lower() == ".pdf" or path.name == ".env"]
     require(not forbidden_files, f"Forbidden files committed locally: {forbidden_files}", errors)
-    nested_git = [path for path in ROOT.rglob(".git") if path != ROOT / ".git"]
     require(not nested_git, f"Nested repositories found: {nested_git}", errors)
-    for path in ROOT.rglob("*"):
-        if not path.is_file() or any(part in {"node_modules", ".venv", ".git"} for part in path.parts):
-            continue
+    for path in repo_files:
         text = path.read_text(encoding="utf-8", errors="ignore")
         require(not re.search(r"MISTRAL_API_KEY[ \t]*=[ \t]*[^\s#]+", text), f"Possible Mistral secret in {path}", errors)
 
@@ -289,9 +1282,15 @@ def main() -> None:
             print(f"- {error}")
         raise SystemExit(1)
     print(
-        "Validation passed: 202 activities, 202 translations, 2 public-domain sources, "
+        f"Validation passed: {len(activity_paths)} activities, {len(translation_paths)} translations, {len(sources)} public-domain sources, "
         f"{len(embedding_paths)} taxonomy embeddings, {candidate_count} source candidate "
-        "record(s), bilingual exports and docs."
+        f"record(s), {collection_review_count} collection review record(s), "
+        f"{editorial_review_count} editorial review record(s) "
+        f"({accepted_editorial_review_count} accepted), {near_duplicate_candidate_count} "
+        f"near-duplicate candidate(s), {pilot_count} measured pilot(s), bilingual exports and docs."
+        f" {similar_relation_count} approved similar-game relation(s); V3 participant and practical-facet audits are current; "
+        f"{len(semantic_cached_ids)} semantic-map embedding(s); {semantic_analysis_count} map point(s), "
+        f"{semantic_candidate_count} unreviewed semantic candidate pair(s) in a review packet."
     )
 
 

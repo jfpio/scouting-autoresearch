@@ -1,0 +1,37 @@
+schemaVersion: 1
+id: bsh-1911-large-vs-small-v1
+sourceId: bsh-1911-seton-games
+status: complete-retain-production-candidate
+productionCandidate: mistral-large-2512
+candidates:
+  - mistral-large-2512
+  - mistral-small-2603
+reasoningMode: disabled
+activityIds:
+  - bsh-001
+  - bsh-003
+  - bsh-007
+  - bsh-023
+  - bsh-039
+sampleRationale:
+  bsh-001: longest record with scoring, quantities, safety constraints and archaic wording
+  bsh-003: long water game with equipment, roles, measurements and ordered rules
+  bsh-007: compact memory game where every number and role matters
+  bsh-023: short scoring game with a dense numeric list
+  bsh-039: physical team game with role relationships and safety wording
+criteria:
+  - complete-meaning
+  - no-summary-or-modernization
+  - numbers-and-units-preserved
+  - markdown-and-urls-preserved
+  - natural-polish
+execution:
+  maxActivities: 5
+  maxModels: 2
+  sequentialRequests: true
+  requireExplicitExecute: true
+  continueOnAutomaticPass: true
+  billingMode: education-credit
+  enforceReferenceCostLimit: true
+  maxReferenceCostUsd: 10
+  resultsUnderScratch: scouting-autoresearch/model-evaluations

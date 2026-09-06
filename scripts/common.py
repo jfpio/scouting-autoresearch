@@ -32,7 +32,9 @@ def dump_markdown(path: Path, metadata: dict[str, Any], body: str) -> None:
         default_flow_style=False,
         width=1000,
     ).strip()
-    path.write_text(f"---\n{frontmatter}\n---\n\n{body.strip()}\n", encoding="utf-8")
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(f"---\n{frontmatter}\n---\n\n{body.strip()}\n", encoding="utf-8")
+    temporary.replace(path)
 
 
 def load_markdown(path: Path) -> tuple[dict[str, Any], str]:
@@ -55,4 +57,6 @@ def read_json(path: Path) -> Any:
 
 def write_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    temporary.replace(path)

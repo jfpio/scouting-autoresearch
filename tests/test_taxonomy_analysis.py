@@ -106,11 +106,16 @@ class TaxonomyAnalysisTests(unittest.TestCase):
         self.assertEqual(first["analysisHash"], second["analysisHash"])
         self.assertEqual(first, second)
 
-    def test_analysis_checkpoint_preserves_cycle_state(self):
+    def test_analysis_checkpoint_preserves_embedding_retry_state(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "checkpoint.json"
             path.write_text(
-                json.dumps({"status": "daily-limit-reached", "nextCycleAt": "tomorrow"}),
+                json.dumps(
+                    {
+                        "status": "retry-pending",
+                        "nextRetryAt": "2026-09-03T12:00:00+00:00",
+                    }
+                ),
                 encoding="utf-8",
             )
             write_analysis_checkpoint(
@@ -124,8 +129,8 @@ class TaxonomyAnalysisTests(unittest.TestCase):
                 path,
             )
             checkpoint = json.loads(path.read_text(encoding="utf-8"))
-            self.assertEqual(checkpoint["status"], "daily-limit-reached")
-            self.assertEqual(checkpoint["nextCycleAt"], "tomorrow")
+            self.assertEqual(checkpoint["status"], "retry-pending")
+            self.assertEqual(checkpoint["nextRetryAt"], "2026-09-03T12:00:00+00:00")
             self.assertEqual(checkpoint["analysis"]["analysisHash"], "abc")
 
 
