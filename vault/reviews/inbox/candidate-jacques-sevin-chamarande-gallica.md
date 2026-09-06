@@ -62,16 +62,119 @@ rightsReview:
     classification: noncommercial-reuse-free-with-attribution
     requiredAttribution: Source gallica.bnf.fr / Bibliothèque nationale de France
     commercialReuse: paid-license-required
+  accessDecision:
+    status: human-approved-for-controlled-download
+    date: "2026-09-05"
+    approvedBy: repository-owner
+    useMode: noncommercial-research-and-publication
+    requiredAttribution: Source gallica.bnf.fr / Bibliothèque nationale de France
+    approvedScope:
+      - documented download to temporary scratch storage for extraction and verification
+      - original French prose explicitly attributable to Jacques Sevin in the 1934 edition
+    excludes:
+      - music until its authorship and rights are established separately
+      - plates, illustrations and color cover until their authorship and rights are established separately
+      - later editions, introductions, selections, annotations and editorial apparatus
+      - Gallica site, database, viewer and digital packaging
+      - directly revenue-generating reuse without a separate Gallica commercial license
+    basis: >-
+      The repository owner confirmed that the project is non-profit and approved
+      noncommercial download and reuse under Gallica's attribution condition for this
+      item and scope.
+    downstreamLicensing:
+      projectMetadata: CC-BY-4.0
+      sourceTextAndTranscription: gallica-noncommercial-reuse-terms
+      projectTranslation: CC-BY-NC-4.0-and-gallica-noncommercial-reuse-terms
+      commercialReuse: separate-bnf-license-required
+      policyDocument: DATA-LICENSE.md
   unresolved:
     - >-
-      The repository owner must approve Gallica as a documented-download collection for
-      this public-domain item and accept its noncommercial reuse and attribution terms.
-    - >-
-      The repository owner must approve the proposed prose-only scope; page-level
-      attribution must still be checked after download before any extraction.
+      Page-level attribution must still be checked after download before prose is extracted;
+      components not explicitly attributable to Jacques Sevin remain excluded.
     - >-
       Any directly revenue-generating publication would require a separate Gallica
       commercial-reuse license and must not inherit this decision.
+  alternativeAccessResearch:
+    checkedAt: "2026-09-04"
+    status: no-equivalent-digital-edition-found-in-approved-metadata-searches
+    interpretation: negative-search-result-not-proof-of-absence
+    sourceFilesDownloaded: 0
+    queries:
+      - collectionId: internet-archive
+        method: metadata-only
+        endpoint: https://archive.org/advancedsearch.php
+        parameters:
+          q: 'title:(Chamarande) AND creator:(Jacques Sevin)'
+          fields: [identifier, title, creator, date, year, collection, mediatype]
+          rows: 20
+          output: json
+        result:
+          numFound: 0
+      - collectionId: internet-archive
+        method: metadata-only
+        endpoint: https://archive.org/advancedsearch.php
+        parameters:
+          q: 'title:(Chamarande)'
+          fields: [identifier, title, creator, date, year, collection, mediatype]
+          rows: 50
+          output: json
+        result:
+          numFound: 5
+          relevantToEdition: 0
+          note: Results concerned the place or surname Chamarande, not Sevin's book.
+      - collectionId: internet-archive
+        method: metadata-only
+        endpoint: https://archive.org/advancedsearch.php
+        parameters:
+          q: 'creator:("Sevin, Jacques" OR "Jacques Sevin") AND mediatype:texts'
+          fields: [identifier, title, creator, date, year, collection, mediatype]
+          rows: 50
+          output: json
+        result:
+          numFound: 1
+          relevantToEdition: 0
+          returnedIdentifier: lechansonsdescou00jacq
+          returnedTitle: le chansons de scounts de france
+          returnedYear: 1936
+          accessClass: printdisabled-inlibrary
+          note: The only creator match is a different songbook and was not opened or downloaded.
+      - collectionId: wikisource
+        method: metadata-only
+        endpoint: https://fr.wikisource.org/w/api.php
+        parameters:
+          action: query
+          list: search
+          srsearch: '"Chamarande" "Jacques Sevin"'
+          srnamespace: '0|106'
+          srlimit: 20
+          format: json
+          formatversion: 2
+        result:
+          totalHits: 0
+      - collectionId: scoutscan-the-dump
+        method: link-discovery
+        endpoint: https://thedump.scoutscan.com/nonfict.html
+        parameters:
+          literalTerms: [Sevin, Chamarande]
+        result:
+          matchingEntries: 0
+      - collectionId: project-gutenberg
+        method: metadata-only
+        endpoint: https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv
+        catalogDocumentation: https://www.gutenberg.org/ebooks/offline_catalogs.html
+        parameters:
+          literalTerms: [Jacques Sevin, 'Sevin, Jacques', Chamarande]
+        result:
+          matchingRows: 0
+          catalogLastModifiedAtCheck: "2026-08-30T21:32:16Z"
+          contentLengthAtCheck: 21196613
+          persistedCatalogFile: false
+    conclusion: >-
+      The approved metadata and link-discovery searches, including the official Project
+      Gutenberg offline catalog, did not identify the 1934 Chamarande edition outside
+      Gallica. They therefore do not remove the existing Gallica reuse-terms decision gate.
+      The searches may be repeated if the indexed collections change, but a missing result
+      must not be treated as proof that no other copy exists.
 provenanceEvidence:
   - id: bnf-chamarande-catalog
     url: https://catalogue.bnf.fr/ark:/12148/cb313585549
@@ -117,10 +220,28 @@ provenanceEvidence:
     url: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32006L0116
     supports:
       - European-Union-life-plus-70-protection-term
+  - id: internet-archive-chamarande-metadata-searches
+    url: https://archive.org/advancedsearch.php
+    supports:
+      - no-Chamarande-1934-match-in-three-recorded-metadata-queries-at-check-date
+      - one-different-Sevin-songbook-result-not-opened-or-downloaded
+  - id: french-wikisource-chamarande-search
+    url: https://fr.wikisource.org/w/api.php
+    supports:
+      - no-title-or-author-match-in-recorded-page-and-index-namespace-query-at-check-date
+  - id: scoutscan-nonfiction-directory-search
+    url: https://thedump.scoutscan.com/nonfict.html
+    supports:
+      - no-Sevin-or-Chamarande-entry-in-directory-at-check-date
+  - id: project-gutenberg-offline-catalog-search
+    url: https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv
+    supports:
+      - no-Jacques-Sevin-or-Chamarande-row-in-official-catalog-at-check-date
+      - catalog-response-metadata-and-literal-search-terms
 discovery:
   discoveredAt: "2026-09-04"
   metadataRetrievedAt: "2026-09-04"
-  metadataPagesInspected: 6
+  metadataPagesInspected: 12
   sourceFilesDownloaded: 0
   fullTextCopied: false
   repositoryContentAdded: metadata-only
@@ -142,12 +263,30 @@ zatwierdzenia konkretnego zakresu wymaganego przez repozytorium.
 
 Gallica pozwala na bezpłatne użycie niekomercyjne treści z zachowaniem wskazanej atrybucji,
 natomiast użycie bezpośrednio generujące przychód wymaga odpłatnej licencji. Dlatego przed
-pobraniem właściciel powinien potwierdzić, że publikacja korpusu jest niekomercyjna i
-zaakceptować obowiązek atrybucji. Decyzja powinna objąć wyłącznie prozę Sevina. Muzyka,
-plansze, ilustracje, okładka, późniejsze opracowania oraz cyfrowa warstwa Gallici pozostają
-wyłączone, dopóki nie zostaną ocenione osobno.
+pobraniem właściciel potwierdził 5 września 2026 r., że projekt jest non-profit, zaakceptował
+niekomercyjny sposób wykorzystania i obowiązek atrybucji Gallici. Zgoda obejmuje wyłącznie
+prozę Sevina. Muzyka, plansze, ilustracje, okładka, późniejsze opracowania oraz cyfrowa warstwa
+Gallici pozostają wyłączone, dopóki nie zostaną ocenione osobno.
 
 Po zatwierdzeniu pierwszym krokiem będzie małe, udokumentowane pobranie do katalogu scratch,
 kontrola stron tytułowych i spisu treści oraz ocena, czy książka rzeczywiście zawiera
 samodzielne gry lub próby warte ekstrakcji. Sam tytuł i tematyczna przydatność nie są jeszcze
 dowodem, że znajdzie się w niej materiał do importu.
+
+## Poszukiwanie alternatywnego egzemplarza
+
+Żeby nie zatrzymywać analizy na warunkach jednej biblioteki, sprawdzono dozwolonymi metodami
+metadane Internet Archive, francuskiego Wikisource, katalog linków The Dump / Scoutscan oraz
+oficjalny katalog offline Project Gutenberg.
+Trzy zapytania Internet Archive nie zwróciły edycji *Chamarande*: wyszukiwanie dokładnego
+tytułu i autora dało zero wyników, pięć wyników samego tytułu dotyczyło miejscowości albo
+nazwiska, a jedynym trafieniem dla autora był inny, niedostępny swobodnie śpiewnik z 1936 r.
+Wikisource i katalog Scoutscan również nie zwróciły dopasowania. W oficjalnym feedzie CSV
+Project Gutenberg nie było wiersza zawierającego nazwisko Jacques’a Sevina ani tytuł
+*Chamarande*. Feed został przeszukany strumieniowo i nie zapisano jego kopii w repozytorium
+ani w scratch.
+
+To jest udokumentowany wynik negatywny na dzień sprawdzenia, a nie dowód nieistnienia innego
+skanu. Nie pobrano żadnego pliku ani treści. Ponieważ nie znaleziono równoważnego egzemplarza
+o mniej ograniczających warunkach dostępu, nadal obowiązuje bramka dotycząca warunków Gallici
+i zakresu wyłącznie prozy Sevina.

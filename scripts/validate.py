@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import math
 import os
 import re
 from datetime import date
@@ -17,12 +18,22 @@ from audit_v3_participants import build_checkpoint as build_v3_participant_check
 from audit_v3_participants import build_report as build_v3_participant_report
 from audit_v3_participants import load_config as load_v3_participant_config
 from audit_v3_participants import load_game_records as load_v3_game_records
+from audit_v3_facets import CHECKPOINT_PATH as V3_FACET_CHECKPOINT_PATH
+from audit_v3_facets import REPORT_PATH as V3_FACET_REPORT_PATH
+from audit_v3_facets import build_checkpoint as build_v3_facet_checkpoint
+from audit_v3_facets import build_report as build_v3_facet_report
+from audit_v3_facets import load_config as load_v3_facet_config
+from audit_v3_facets import load_game_records as load_v3_facet_records
 from analyze_duplicates import REPORT_PATH as NEAR_DUPLICATE_REPORT_PATH
 from analyze_duplicates import build_report as build_duplicate_report
 from analyze_taxonomy import REPORT_PATH as TAXONOMY_ANALYSIS_PATH
 from analyze_taxonomy import build_analysis, load_usage
 from build_pilot_report import build_report as build_pilot_report
 from build_pilot_report import load_config as load_pilot_config
+from build_semantic_review_packet import build_checkpoint as build_semantic_review_checkpoint
+from build_semantic_review_packet import build_markdown as build_semantic_review_markdown
+from build_semantic_review_packet import build_report as build_semantic_review_report
+from build_semantic_review_packet import load_config as load_semantic_review_config
 from common import GENERATED, ROOT, VAULT, load_markdown, read_json, source_hash
 from embed_taxonomy import REPORT_PATH as TAXONOMY_PROGRESS_PATH
 from embed_taxonomy import (
@@ -37,6 +48,8 @@ from embed_semantic_map import REPORT_PATH as SEMANTIC_MAP_PROGRESS_PATH
 from embed_semantic_map import activity_items as semantic_map_items
 from embed_semantic_map import build_progress_report as build_semantic_map_progress
 from embed_semantic_map import cache_is_current as semantic_map_cache_is_current
+from embed_semantic_map import canonical_hash as semantic_map_hash
+from embed_semantic_map import corpus_digest as semantic_map_corpus_digest
 from embed_semantic_map import load_batches as load_semantic_map_batches
 from embed_semantic_map import load_config as load_semantic_map_config
 from evaluate_translation_models import load_evaluation_config
@@ -52,6 +65,9 @@ from validate_editorial_reviews import validate_editorial_reviews
 from validate_protected_source_policy import validate_protected_source_policy
 from similar_activities import load_config as load_similarity_config
 from similar_activities import validate_similar_activity_relations
+
+
+SEMANTIC_MAP_ANALYSIS_PATH = ROOT / "data" / "reports" / "semantic-map-v3-analysis.json"
 
 
 def require(condition: bool, message: str, errors: list[str]) -> None:
@@ -550,6 +566,68 @@ def main() -> None:
             "V3 participant audit report is stale or nondeterministic",
             errors,
         )
+        require(
+            read_json(V3_PARTICIPANT_CHECKPOINT_PATH)
+            == build_v3_participant_checkpoint(expected_v3_participant_report),
+            "V3 participant audit checkpoint is stale or nondeterministic",
+            errors,
+        )
+        require(
+            actual_v3_participant_report.get("productionFieldsWritten") == [],
+            "V3 participant audit claims a production-field change",
+            errors,
+        )
+        require(
+            (actual_v3_participant_report.get("execution") or {}).get(
+                "externalApiRequests"
+            )
+            == 0,
+            "V3 participant audit unexpectedly used an external API",
+            errors,
+        )
+
+    require(V3_FACET_REPORT_PATH.is_file(), "V3 practical-facet audit report is missing", errors)
+    require(
+        V3_FACET_CHECKPOINT_PATH.is_file(),
+        "V3 practical-facet audit checkpoint is missing",
+        errors,
+    )
+    if V3_FACET_REPORT_PATH.is_file() and V3_FACET_CHECKPOINT_PATH.is_file():
+        expected_v3_facet_report = build_v3_facet_report(
+            load_v3_facet_config(), load_v3_facet_records()
+        )
+        actual_v3_facet_report = read_json(V3_FACET_REPORT_PATH)
+        require(
+            actual_v3_facet_report == expected_v3_facet_report,
+            "V3 practical-facet audit report is stale or nondeterministic",
+            errors,
+        )
+        require(
+            read_json(V3_FACET_CHECKPOINT_PATH)
+            == build_v3_facet_checkpoint(expected_v3_facet_report),
+            "V3 practical-facet audit checkpoint is stale or nondeterministic",
+            errors,
+        )
+        require(
+            actual_v3_facet_report.get("productionFieldsWritten") == [],
+            "V3 practical-facet audit claims a production-field change",
+            errors,
+        )
+        require(
+            (actual_v3_facet_report.get("execution") or {}).get("externalApiRequests")
+            == 0,
+            "V3 practical-facet audit unexpectedly used an external API",
+            errors,
+        )
+        require(
+            all(
+                (dimension.get("humanSearchValueAssessment") or {}).get("status")
+                == "human-rating-required"
+                for dimension in actual_v3_facet_report.get("dimensions") or []
+            ),
+            "V3 practical-facet audit claims an automated user-value decision",
+            errors,
+        )
 
     semantic_config = load_semantic_map_config()
     semantic_items = semantic_map_items(semantic_config)
@@ -737,20 +815,276 @@ def main() -> None:
             "V3 embedding checkpoint has the wrong billing mode",
             errors,
         )
+
+    semantic_analysis_count = 0
+    semantic_candidate_count = 0
+    if semantic_cached_ids == set(semantic_items_by_id):
         require(
-            read_json(V3_PARTICIPANT_CHECKPOINT_PATH)
-            == build_v3_participant_checkpoint(expected_v3_participant_report),
-            "V3 participant audit checkpoint is stale or nondeterministic",
+            SEMANTIC_MAP_ANALYSIS_PATH.is_file(),
+            "Complete V3 embeddings lack a semantic-map analysis report",
+            errors,
+        )
+    if SEMANTIC_MAP_ANALYSIS_PATH.is_file():
+        semantic_analysis = read_json(SEMANTIC_MAP_ANALYSIS_PATH)
+        require(
+            semantic_analysis.get("pipeline") == "semantic-map-v3-analysis",
+            "V3 semantic-map analysis has the wrong pipeline",
             errors,
         )
         require(
-            actual_v3_participant_report.get("productionFieldsWritten") == [],
-            "V3 participant audit claims a production-field change",
+            semantic_analysis.get("status") == "proposal-only"
+            and semantic_analysis.get("proposalOnly") is True
+            and semantic_analysis.get("reviewRequired") is True,
+            "V3 semantic-map analysis bypasses the human-review gate",
             errors,
         )
         require(
-            (actual_v3_participant_report.get("execution") or {}).get("externalApiRequests") == 0,
-            "V3 participant audit unexpectedly used an external API",
+            semantic_analysis.get("projectionIsNavigationalOnly") is True,
+            "V3 projection is not marked as navigational only",
+            errors,
+        )
+        require(
+            semantic_analysis.get("productionRelationsWritten") == [],
+            "V3 semantic analysis claims production relation changes",
+            errors,
+        )
+        semantic_corpus = semantic_analysis.get("corpus") or {}
+        require(
+            semantic_corpus.get("activities") == len(semantic_items)
+            and semantic_corpus.get("corpusDigest")
+            == semantic_map_corpus_digest(semantic_items),
+            "V3 semantic analysis has stale corpus metadata",
+            errors,
+        )
+        if SEMANTIC_MAP_PROGRESS_PATH.is_file():
+            require(
+                semantic_corpus.get("embeddingProgressDigest")
+                == semantic_map_hash(read_json(SEMANTIC_MAP_PROGRESS_PATH)),
+                "V3 semantic analysis is detached from embedding progress",
+                errors,
+            )
+        analysis_parameters = semantic_analysis.get("parameters") or {}
+        require(
+            all(
+                analysis_parameters.get(key) == value
+                for key, value in (semantic_config.get("analysis") or {}).items()
+                if key not in {"algorithmVersion", "status"}
+            ),
+            "V3 semantic analysis parameters differ from configuration",
+            errors,
+        )
+        implementation = semantic_analysis.get("implementation") or {}
+        require(
+            implementation.get("algorithmVersion")
+            == (semantic_config.get("analysis") or {}).get("algorithmVersion")
+            and implementation.get("umapLearn")
+            == str((semantic_config.get("analysis") or {}).get("projectionVersion"))
+            and implementation.get("threads") == 1,
+            "V3 semantic analysis implementation is not pinned",
+            errors,
+        )
+
+        points = semantic_analysis.get("points") or []
+        point_ids = [point.get("activityId") for point in points]
+        semantic_analysis_count = len(points)
+        require(
+            len(point_ids) == len(set(point_ids))
+            and set(point_ids) == set(semantic_items_by_id),
+            "V3 semantic-map points differ from the game corpus",
+            errors,
+        )
+        for point in points:
+            activity_id = point.get("activityId")
+            item = semantic_items_by_id.get(activity_id)
+            require(
+                item is not None
+                and point.get("sourceId") == item["sourceId"]
+                and point.get("sourceHash") == item["sourceHash"]
+                and point.get("inputHash") == item["inputHash"],
+                f"V3 semantic-map point is stale: {activity_id}",
+                errors,
+            )
+            require(
+                all(
+                    isinstance(point.get(axis), (int, float))
+                    and math.isfinite(float(point[axis]))
+                    for axis in ("x", "y")
+                ),
+                f"V3 semantic-map point has invalid coordinates: {activity_id}",
+                errors,
+            )
+
+        nearest = semantic_analysis.get("nearestNeighbors") or []
+        nearest_ids = [record.get("activityId") for record in nearest]
+        neighbor_count = int(
+            (semantic_config.get("analysis") or {}).get("nearestNeighborCount", 0)
+        )
+        require(
+            len(nearest_ids) == len(set(nearest_ids))
+            and set(nearest_ids) == set(semantic_items_by_id),
+            "V3 nearest-neighbour records differ from the game corpus",
+            errors,
+        )
+        for record in nearest:
+            activity_id = record.get("activityId")
+            neighbors = record.get("neighbors") or []
+            neighbor_ids = [neighbor.get("activityId") for neighbor in neighbors]
+            require(
+                len(neighbors) == neighbor_count
+                and len(neighbor_ids) == len(set(neighbor_ids))
+                and activity_id not in neighbor_ids
+                and set(neighbor_ids).issubset(set(semantic_items_by_id)),
+                f"V3 nearest neighbours are invalid for {activity_id}",
+                errors,
+            )
+            neighbor_sort_keys = [
+                (-float(neighbor.get("cosineSimilarity", -2)), str(neighbor.get("activityId")))
+                for neighbor in neighbors
+            ]
+            require(
+                neighbor_sort_keys == sorted(neighbor_sort_keys)
+                and all(
+                    -1 <= float(neighbor.get("cosineSimilarity", -2)) <= 1
+                    for neighbor in neighbors
+                ),
+                f"V3 nearest neighbours are unsorted or invalid for {activity_id}",
+                errors,
+            )
+
+        relation_pairs = {
+            frozenset(relation.get("activityIds") or [])
+            for relation in load_similarity_config().get("relations") or []
+            if relation.get("status") == "human-approved"
+        }
+        overlays = semantic_analysis.get("approvedRelationOverlays") or []
+        overlay_pairs = {
+            frozenset(overlay.get("activityIds") or []) for overlay in overlays
+        }
+        require(
+            overlay_pairs == relation_pairs
+            and all(overlay.get("status") == "human-approved" for overlay in overlays),
+            "V3 map does not overlay exactly the approved similar-game relations",
+            errors,
+        )
+
+        candidates = semantic_analysis.get("algorithmicCandidates") or []
+        semantic_candidate_count = len(candidates)
+        candidate_pairs = [
+            frozenset(candidate.get("activityIds") or []) for candidate in candidates
+        ]
+        require(
+            len(candidate_pairs) == len(set(candidate_pairs))
+            and len(candidates)
+            <= int((semantic_config.get("analysis") or {}).get("candidatePairLimit", 0)),
+            "V3 semantic candidates repeat or exceed the configured limit",
+            errors,
+        )
+        for candidate, pair in zip(candidates, candidate_pairs, strict=True):
+            activity_ids = candidate.get("activityIds") or []
+            require(
+                len(pair) == 2
+                and pair not in relation_pairs
+                and all(activity_id in semantic_items_by_id for activity_id in activity_ids)
+                and len({semantic_items_by_id[activity_id]["sourceId"] for activity_id in activity_ids})
+                == 2
+                and candidate.get("status") == "algorithmic-candidate"
+                and candidate.get("reviewRequired") is True
+                and candidate.get("productionRelation") is False,
+                f"Invalid unreviewed V3 semantic candidate: {activity_ids}",
+                errors,
+            )
+        quality = semantic_analysis.get("quality") or {}
+        require(
+            all(
+                isinstance(quality.get(key), (int, float))
+                and 0 <= float(quality[key]) <= 1
+                for key in (
+                    "trustworthinessAtK",
+                    "crossSourceDirectedNeighborRate",
+                    "minimumMeanNeighborRetentionAtK",
+                )
+            )
+            and isinstance(
+                quality.get("minimumSpearmanPairwiseDistanceCorrelation"),
+                (int, float),
+            )
+            and -1
+            <= float(quality.get("minimumSpearmanPairwiseDistanceCorrelation", -2))
+            <= 1,
+            "V3 semantic-map quality metrics are invalid",
+            errors,
+        )
+
+    semantic_review_config = load_semantic_review_config()
+    semantic_review_report_path = ROOT / semantic_review_config["reportPath"]
+    semantic_review_note_path = ROOT / semantic_review_config["reviewNotePath"]
+    semantic_review_checkpoint_path = ROOT / semantic_review_config["checkpointPath"]
+    require(
+        semantic_review_report_path.is_file(),
+        "V3 semantic review packet report is missing",
+        errors,
+    )
+    require(
+        semantic_review_note_path.is_file(),
+        "V3 semantic review packet note is missing",
+        errors,
+    )
+    require(
+        semantic_review_checkpoint_path.is_file(),
+        "V3 semantic review packet checkpoint is missing",
+        errors,
+    )
+    if (
+        semantic_review_report_path.is_file()
+        and semantic_review_note_path.is_file()
+        and semantic_review_checkpoint_path.is_file()
+    ):
+        expected_semantic_review_report = build_semantic_review_report(
+            semantic_review_config
+        )
+        expected_semantic_review_note = build_semantic_review_markdown(
+            expected_semantic_review_report
+        )
+        actual_semantic_review_report = read_json(semantic_review_report_path)
+        require(
+            actual_semantic_review_report == expected_semantic_review_report,
+            "V3 semantic review packet report is stale or nondeterministic",
+            errors,
+        )
+        require(
+            semantic_review_note_path.read_text(encoding="utf-8")
+            == expected_semantic_review_note,
+            "V3 semantic review packet note is stale or nondeterministic",
+            errors,
+        )
+        require(
+            read_json(semantic_review_checkpoint_path)
+            == build_semantic_review_checkpoint(
+                semantic_review_config,
+                expected_semantic_review_report,
+                expected_semantic_review_note,
+            ),
+            "V3 semantic review packet checkpoint is stale or nondeterministic",
+            errors,
+        )
+        require(
+            (actual_semantic_review_report.get("selection") or {}).get(
+                "candidateCount"
+            )
+            == semantic_candidate_count,
+            "V3 semantic review packet omits analysis candidates",
+            errors,
+        )
+        require(
+            actual_semantic_review_report.get("publicSiteExposure") is False
+            and actual_semantic_review_report.get("productionRelationsWritten") == []
+            and all(
+                candidate.get("status") == "human-review-required"
+                and candidate.get("productionRelation") is False
+                and (candidate.get("humanDecision") or {}).get("status") == "pending"
+                for candidate in actual_semantic_review_report.get("candidates") or []
+            ),
+            "V3 semantic review packet bypasses the human decision gate",
             errors,
         )
 
@@ -927,7 +1261,7 @@ def main() -> None:
             require(len(lines) == len(activity_paths), f"{locale} JSONL has {len(lines)} lines", errors)
 
     docs = list((ROOT / "src" / "content" / "docs").rglob("*.md")) + list((ROOT / "src" / "content" / "docs").rglob("*.mdx"))
-    expected_docs = 14 + 2 * len(activity_paths)
+    expected_docs = 16 + 2 * len(activity_paths)
     require(len(docs) == expected_docs, f"Expected {expected_docs} generated docs, found {len(docs)}", errors)
     for path in docs:
         text = path.read_text(encoding="utf-8")
@@ -954,8 +1288,9 @@ def main() -> None:
         f"{editorial_review_count} editorial review record(s) "
         f"({accepted_editorial_review_count} accepted), {near_duplicate_candidate_count} "
         f"near-duplicate candidate(s), {pilot_count} measured pilot(s), bilingual exports and docs."
-        f" {similar_relation_count} approved similar-game relation(s); V3 participant audit is current; "
-        f"{len(semantic_cached_ids)} semantic-map embedding(s)."
+        f" {similar_relation_count} approved similar-game relation(s); V3 participant and practical-facet audits are current; "
+        f"{len(semantic_cached_ids)} semantic-map embedding(s); {semantic_analysis_count} map point(s), "
+        f"{semantic_candidate_count} unreviewed semantic candidate pair(s) in a review packet."
     )
 
 

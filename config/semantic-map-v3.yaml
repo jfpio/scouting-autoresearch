@@ -22,8 +22,18 @@ execution:
   maxTotalReferenceCostUsd: 10
   requireExactModelAccessCheck: true
 analysis:
+  algorithmVersion: semantic-map-v3-umap-cosine-v1
   nearestNeighborCount: 10
+  candidatePairLimit: 50
+  distanceMetric: cosine
   projectionAlgorithm: umap
-  projectionVersion: pending-pinned-implementation
+  projectionLibrary: umap-learn
+  projectionVersion: 0.5.12
+  projectionDimensions: 2
+  projectionNeighbors: 15
+  projectionMinDistance: 0.1
+  projectionSpread: 1.0
   randomSeed: 20260904
-  status: not-started
+  stabilitySeeds: [20260905, 20260906, 20260907]
+  stabilityNeighborCount: 10
+  status: generated-proposal

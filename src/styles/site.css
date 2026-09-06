@@ -17,6 +17,10 @@
   --rule: #ccb494;
   --forest: #315844;
   --brown: #815726;
+  --map-seton: #326a73;
+  --map-hwp: #9a4f32;
+  --map-sfb: #4d6939;
+  --map-approved: #8a4f91;
 }
 
 :root[data-theme='dark'] {
@@ -30,6 +34,10 @@
   --rule: #6c5134;
   --forest: #8fbea1;
   --brown: #d5ad78;
+  --map-seton: #73bdc9;
+  --map-hwp: #e39a78;
+  --map-sfb: #a5cc82;
+  --map-approved: #d5a0dd;
 }
 
 body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: var(--paper); color: var(--ink); }

@@ -84,6 +84,43 @@ Do porównania pod względem pokrycia, jednoznaczności, kosztu redakcji i warto
 sprawdzenia, czy wymiary środowiska, kontaktu, pory dnia i mechaniki wnoszą informację inną
 niż skala uczestników. Żadna z tych kandydatur nie jest jeszcze produkcyjną kategorią.
 
+## Audyt korpusu
+
+Wersjonowany audyt `v3-practical-facet-lexical-signals-v1` objął wszystkie 199 gier z trzech
+źródeł. Nie klasyfikuje gier: mierzy wyłącznie, w ilu tekstach źródłowych występują jawne
+sygnały leksykalne, ile rekordów ma sygnały kilku wartości i ile wymagałoby czytania bez
+takiej podpowiedzi. Wynik znajduje się w
+`data/reports/v3-practical-facet-audit.json`, a stan wznowienia w
+`data/checkpoints/v3-practical-facet-audit.json`.
+
+| Wymiar | Gry z sygnałem | Sygnały wielu wartości | Bez sygnału |
+| --- | ---: | ---: | ---: |
+| sposób interakcji | 127 (63,8%) | 25 | 72 |
+| dominująca mechanika | 166 (83,4%) | 103 | 33 |
+| przestrzeń i teren | 81 (40,7%) | 20 | 118 |
+| wymagana powierzchnia | 52 (26,1%) | 0 | 147 |
+| ruch i intensywność | 107 (53,8%) | 17 | 92 |
+| czas i przygotowanie | 54 (27,1%) | 7 | 145 |
+| sprzęt i materiały | 120 (60,3%) | 27 | 79 |
+| światło, pogoda i sezon | 34 (17,1%) | 2 | 165 |
+| kontakt fizyczny i ryzyko | 53 (26,6%) | 5 | 146 |
+| hałas i cisza | 53 (26,6%) | 3 | 146 |
+| rola prowadzącego | 30 (15,1%) | 3 | 169 |
+| wiek, dostępność i wymagania | 62 (31,2%) | 2 | 137 |
+
+Mechanika ma wysokie pokrycie, lecz 103 gry sygnalizują więcej niż jedną wartość, więc lepiej
+traktować ją jako wielowartościowy tag niż pojedynczy filtr. Sprzęt, ruch, teren i sposób
+interakcji mają dość sygnałów, by przeprowadzić próbę ręcznej precyzji. Niskie pokrycie pory,
+pogody, roli prowadzącego i wymagań wstępnych oznacza, że ich brak nie może być interpretowany
+jako brak ograniczenia. Dla wcześniejszej umiejętności nie znaleziono żadnego wystarczająco
+jawnego sygnału; ten kandydat wymaga innej metody albo rezygnacji.
+
+Rozkład sygnałów jest tylko proxy zdolności fasety do różnicowania korpusu. Nie mierzy realnej
+wartości dla drużynowego. Raport pozostawia trzy oceny w skali 0–2 — wpływ na wykonalność,
+częstość użycia przy decyzji i zrozumiałość etykiet — do uzupełnienia przez człowieka. Nie
+podaje fikcyjnego czasu ani kosztu redakcji; zamiast tego raportuje liczbę rekordów do
+weryfikacji, zimnego odczytu i rozstrzygnięcia sygnałów wielu wartości.
+
 ## Relacja do istniejącego modelu
 
 Proponowane fasety opisują warunki przeprowadzenia gry. Taksonomia V1 opisuje przede wszystkim
@@ -92,5 +129,6 @@ mogą się uzupełniać, ale nie powinny być automatycznie utożsamiane.
 
 ## Decyzja
 
-Do uzupełnienia przez człowieka: zaakceptować, poprawić albo odrzucić definicje skali; wskazać
-reprezentatywną próbę do ręcznej oceny; następnie wybrać pozostałe fasety warte osobnego audytu.
+Do uzupełnienia przez człowieka: zaakceptować, poprawić albo odrzucić definicje skali; ocenić
+przygotowane próbki trafień i uzupełnić rubrykę wartości wyszukiwawczej; następnie wybrać
+fasety, dla których warto projektować pola produkcyjne.
