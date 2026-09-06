@@ -1,10 +1,17 @@
 ---
 id: v3-regional-library-access-2026-09-06
 recordType: source-collection-batch-review
-status: access-review
+status: accepted
 createdAt: "2026-09-06"
-reviewRequired: true
-humanApproved: false
+reviewRequired: false
+humanApproved: true
+humanDecision:
+  status: approved
+  approvedBy: repository-owner
+  reviewedAt: "2026-09-06"
+  scope: >-
+    Per-item downloads from Polona and permitted direct PDFs, with canonical records,
+    attribution and scratch-only storage. PBC Rzeszów ZIP endpoints remain prohibited.
 runId: v3-source-expansion-2026-09
 collectionIds:
   - pbc-rzeszow

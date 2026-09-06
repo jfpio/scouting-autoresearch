@@ -4,7 +4,7 @@
   "sourceId": "chamarande-1934",
   "collectionId": "gallica-bnf",
   "digitalEditionIdentifier": "bpt6k3373518k",
-  "status": "page-scope-review-pending",
+  "status": "ocr-ready",
   "accessDecisionPath": "vault/reviews/accepted/candidate-jacques-sevin-chamarande-gallica.md",
   "rightsDecision": {
     "status": "human-approved",
@@ -17,7 +17,7 @@
     ],
     "approvedComponent": "original French prose explicitly attributable to Jacques Sevin in the 1934 edition",
     "reviewPath": "vault/reviews/accepted/candidate-jacques-sevin-chamarande-gallica.md",
-    "pageScopeStillRequiresHumanApproval": true
+    "pageScopeStillRequiresHumanApproval": false
   },
   "allowedMethod": "documented-download",
   "useMode": "noncommercial-research-and-publication",
@@ -266,7 +266,7 @@
   "scratchRelativeDirectory": "scouting-autoresearch/sources/chamarande-1934",
   "sourceFilesCommittedToRepository": 0,
   "fullTextCommittedToRepository": false,
-  "nextStep": "Obtain human approval for vault/reviews/inbox/chamarande-1934-prose-scope.md before copying any proposed ranges into the OCR configuration; keep executionReady false until then.",
+  "nextStep": "Run the approved 113-view OCR scope and keep excluded blocks and raw responses in scratch.",
   "viewFetch": {
     "strategy": "iiif-view-fallback-after-two-pdf-429s",
     "status": "complete",
@@ -2204,8 +2204,10 @@
     "sourceFilesCommittedToRepository": 0
   },
   "componentScopeReview": {
-    "status": "human-review-pending",
-    "reviewPath": "vault/reviews/inbox/chamarande-1934-prose-scope.md",
+    "status": "human-approved",
+    "date": "2026-09-06",
+    "approvedBy": "repository-owner",
+    "reviewPath": "vault/reviews/accepted/chamarande-1934-prose-scope.md",
     "proposedViewCount": 113,
     "proposedViewRanges": [
       [19, 26],
@@ -2226,8 +2228,9 @@
       [157, 170]
     ],
     "mixedPageBlockReviewRequired": true,
-    "ocrExecutionReady": false,
-    "humanApproved": false
+    "ocrExecutionReady": true,
+    "humanApproved": true,
+    "excludedBlocksStillRequireTechnicalEnforcement": true
   },
   "fetchStrategy": "iiif-view-fallback-after-two-pdf-429s"
 }

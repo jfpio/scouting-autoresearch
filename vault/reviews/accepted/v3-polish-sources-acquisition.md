@@ -1,11 +1,11 @@
 ---
 id: v3-polish-sources-acquisition
 recordType: source-acquisition-batch
-status: proposed
+status: accepted
 createdAt: "2026-09-06"
-reviewRequired: true
-publicationBlocked: true
-humanApproved: false
+reviewRequired: false
+publicationBlocked: false
+humanApproved: true
 runId: v3-source-expansion-2026-09
 manifest: config/v3-source-expansion.yaml
 sourceUnitCount: 10
@@ -20,10 +20,15 @@ excludedUntilSeparatelyEstablished:
   - separately-credited-forewords-introductions-and-quoted-works
   - digital-library-site-database-and-packaging
 humanDecision:
-  status: pending
-  approvedBy: null
-  reviewedAt: null
-  notes: null
+  status: approved
+  approvedBy: repository-owner
+  reviewedAt: "2026-09-06"
+  notes: >-
+    Zatwierdzono tymczasowe pobranie do scratch obiektów Polony i dozwolonych
+    bezpośrednich PDF-ów, własną prozę wskazanych autorów w domenie publicznej oraz
+    wyłączenie nieustalonych i osobno chronionych składników. Dla dwóch rekordów PBC
+    Rzeszów zatwierdzono wyłącznie dalsze szukanie dozwolonych alternatyw; automatyczne
+    ZIP-y blokowane przez robots.txt pozostają zabronione.
 ---
 
 # V3-R1 — polskie źródła: nabycie i bramka prawna
@@ -36,7 +41,7 @@ Zatwierdzenie poniższej propozycji pozwoli pobrać dziesięć wskazanych obiekt
 tymczasowego katalogu w `$SCRATCH`, ustalić mapę składników i przetwarzać tekst. Nie obejmie
 automatycznie ilustracji, fotografii, okładek, nut, tekstów pieśni ani cudzych lub anonimowych
 wkładów. Szczegółowa kontrola `robots.txt` i warunków pięciu bibliotek regionalnych znajduje
-się w `vault/reviews/inbox/v3-regional-library-access.md`; trzy ZIP-y PBC Rzeszów są wyłączone
+się w `vault/reviews/accepted/v3-regional-library-access.md`; trzy ZIP-y PBC Rzeszów są wyłączone
 z automatycznego pobierania. Pełny tekst trafi do korpusu dopiero z dowodem na poziomie
 rekordu i strony.
 

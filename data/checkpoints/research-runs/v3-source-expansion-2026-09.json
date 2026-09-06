@@ -3,7 +3,7 @@
   "pipeline": "v3-source-expansion",
   "runId": "v3-source-expansion-2026-09",
   "milestone": "V3-R1",
-  "status": "human-gates-pending",
+  "status": "active",
   "manifestPath": "config/v3-source-expansion.yaml",
   "reviewRecord": "vault/reviews/inbox/v3-source-expansion-2026-09.md",
   "reportPath": "data/reports/v3-source-expansion-2026-09.json",
@@ -20,8 +20,8 @@
       "reasoningMode": "disabled"
     },
     "metadataAndRightsResearch": {
-      "status": "complete-awaiting-human-decision",
-      "reviewRecord": "vault/reviews/inbox/v3-polish-sources-acquisition.md",
+      "status": "human-approved",
+      "reviewRecord": "vault/reviews/accepted/v3-polish-sources-acquisition.md",
       "corrections": [
         "Piasecki movement-games edition corrected from 1920 coauthored to 1922 Piasecki-only",
         "Młoda drużyna URL corrected to publication 29783 edition 28922",
@@ -31,7 +31,7 @@
       ]
     },
     "acquisitionPreparation": {
-      "status": "complete-awaiting-human-decision",
+      "status": "human-approved-execution-pending",
       "contentDownloadsPerformed": 0,
       "regionalDirectArtifactLinksDiscovered": 7,
       "directArtifactCandidatesActionableAfterApproval": 4,
@@ -40,7 +40,7 @@
       "polonaRecordsRequiringPost-approvalResolution": 4,
       "preFetchedGallicaSources": 1,
       "rawArtifactsStorage": "scratch-only",
-      "executionAdapterStatus": "intentionally-not-implemented-before-access-approval"
+      "executionAdapterStatus": "approved-for-implementation"
     },
     "heliosSiteSmoke": {
       "status": "passed",
@@ -55,15 +55,21 @@
   "humanGates": [
     {
       "id": "historyczna-directory-access",
-      "status": "pending"
+      "status": "approved",
+      "approvedAt": "2026-09-06",
+      "approvedBy": "repository-owner"
     },
     {
       "id": "chamarande-ocr-page-scope",
-      "status": "pending"
+      "status": "approved",
+      "approvedAt": "2026-09-06",
+      "approvedBy": "repository-owner"
     },
     {
       "id": "polish-source-acquisition-and-rights",
-      "status": "pending"
+      "status": "approved",
+      "approvedAt": "2026-09-06",
+      "approvedBy": "repository-owner"
     },
     {
       "id": "per-item-rights-and-component-authorship",
@@ -83,6 +89,6 @@
     {"id": "sedlaczek-scout-school-1921", "status": "not-started"},
     {"id": "chamarande-1934", "status": "not-started"}
   ],
-  "nextStep": "record the three pending human decisions, then acquire and inspect the approved source scopes",
+  "nextStep": "implement the approved acquisition adapters, then acquire and inspect each source unit",
   "pullRequestOpened": false
 }

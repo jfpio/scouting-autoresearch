@@ -104,11 +104,11 @@ class MistralOCRTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "between 0 and 10"):
                 load_config(path)
 
-    def test_repository_config_stays_blocked_until_page_boundaries_are_recorded(self):
+    def test_repository_config_uses_the_human_approved_page_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         config = load_config(root / "config" / "ocr" / "chamarande-1934.yaml")
-        self.assertFalse(config.execution_ready)
-        self.assertEqual(config.approved_view_ranges, ())
+        self.assertTrue(config.execution_ready)
+        self.assertEqual(sum(end - start + 1 for start, end in config.approved_view_ranges), 113)
 
     def test_images_must_be_valid_and_under_project_scratch(self):
         with tempfile.TemporaryDirectory() as directory, patch.dict(

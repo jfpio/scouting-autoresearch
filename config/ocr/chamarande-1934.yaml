@@ -6,8 +6,24 @@ request:
   includeBlocks: true
   confidenceScoresGranularity: page
 execution:
-  executionReady: false
-  approvedViewRanges: []
+  executionReady: true
+  approvedViewRanges:
+    - [19, 26]
+    - [29, 36]
+    - [39, 46]
+    - [49, 64]
+    - [67, 70]
+    - [83, 84]
+    - [87, 94]
+    - [97, 104]
+    - [107, 107]
+    - [109, 109]
+    - [111, 114]
+    - [117, 123]
+    - [127, 134]
+    - [137, 144]
+    - [147, 154]
+    - [157, 170]
   inputDirectoryUnderScratch: scouting-autoresearch/sources/chamarande-1934
   requireExplicitExecute: true
   requireExactModelAccessCheck: true

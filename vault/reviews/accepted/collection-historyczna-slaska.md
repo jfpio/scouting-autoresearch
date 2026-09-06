@@ -1,14 +1,20 @@
 ---
 id: collection-review-historyczna-slaska-2026-09-04
 recordType: source-collection-review
-status: access-review
+status: accepted
 createdAt: "2026-09-04"
-reviewRequired: true
+reviewRequired: false
 collectionId: historyczna-slaska-zhp
 canonicalUrl: https://historyczna.slaska.zhp.pl/?page_id=210
 accessReview:
-  status: human-review-required
-  humanApproved: false
+  status: human-approved
+  humanApproved: true
+  humanDecision:
+    date: "2026-09-06"
+    approvedBy: repository-owner
+    basis: >-
+      Właściciel zatwierdził użycie Repetytorium wyłącznie do metadanych i odkrywania
+      linków, bez kopiowania treści i bez zbiorczej presumpcji prawnej.
   recommendation: approve-for-page-metadata-and-link-discovery-only
   trustScope: bibliographic-link-directory
   currentRegistryStatus: candidate
@@ -36,8 +42,8 @@ termsOfUse:
     zachowywać podstawowe metadane bibliograficzne i odnośniki, lecz nie kopiować opisów,
     artykułów, plików ani obrazów bez odrębnej podstawy prawnej.
 reuseDecision:
-  pageMetadataAllowed: false
-  linkDiscoveryAllowed: false
+  pageMetadataAllowed: true
+  linkDiscoveryAllowed: true
   fullTextAllowed: false
   directFileDownloadAllowed: false
   imagesAllowed: false
@@ -45,10 +51,7 @@ reuseDecision:
   externalTargetRule: >-
     Każda domena docelowa musi najpierw mieć własny wpis w rejestrze, a konkretny dokument
     musi zachować kanoniczny rekord instytucji i przejść niezależną ocenę praw.
-unresolved:
-  - >-
-    Właściciel repozytorium musi zatwierdzić użycie wyłącznie do metadanych stron i
-    odkrywania linków, bez kopiowania treści oraz bez zbiorczej presumpcji prawnej.
+unresolved: []
 provenanceEvidence:
   - id: historyczna-repetytorium
     url: https://historyczna.slaska.zhp.pl/?page_id=210

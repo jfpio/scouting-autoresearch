@@ -1,7 +1,7 @@
 schemaVersion: 1
 runId: v3-source-expansion-2026-09
 milestone: V3-R1
-status: prepared-human-gates-pending
+status: active
 baseline:
   activityCount: 284
   gameCount: 199
@@ -55,7 +55,12 @@ costPolicy:
   billedCostUsd: null
   requireVersionedCatalogPrice: true
 acquisitionPreparation:
-  contentDownloadsApproved: false
+  contentDownloadsApproved: true
+  humanDecision:
+    approvedBy: repository-owner
+    approvedAt: "2026-09-06"
+    scope: approved-manifest-items-and-explicitly-permitted-artifacts-only
+    robotsBlockedZipDownloadsApproved: false
   proposedArtifactLinksAreUntrustedMetadata: true
   resolveAgainAfterHumanApproval: true
   requireRegisteredHttpsHost: true
@@ -76,16 +81,22 @@ translationPolicy:
   frenchPipelineSupportStatus: implemented-and-validated-on-helios
 humanGates:
   - id: historyczna-directory-access
-    status: pending
-    reviewRecord: vault/reviews/inbox/collection-historyczna-slaska.md
+    status: approved
+    approvedAt: "2026-09-06"
+    approvedBy: repository-owner
+    reviewRecord: vault/reviews/accepted/collection-historyczna-slaska.md
     decision: page-metadata-and-link-discovery-only
   - id: chamarande-ocr-page-scope
-    status: pending
-    reviewRecord: vault/reviews/inbox/chamarande-1934-prose-scope.md
+    status: approved
+    approvedAt: "2026-09-06"
+    approvedBy: repository-owner
+    reviewRecord: vault/reviews/accepted/chamarande-1934-prose-scope.md
     proposedViewCount: 113
   - id: polish-source-acquisition-and-rights
-    status: pending
-    reviewRecord: vault/reviews/inbox/v3-polish-sources-acquisition.md
+    status: approved
+    approvedAt: "2026-09-06"
+    approvedBy: repository-owner
+    reviewRecord: vault/reviews/accepted/v3-polish-sources-acquisition.md
     decision: temporary-download-and-named-public-domain-prose-only
   - id: per-item-rights-and-component-authorship
     status: pending-during-run
@@ -100,10 +111,10 @@ sourceUnits:
     year: 1938
     discoveryCollectionId: historyczna-slaska-zhp
     targetCollectionId: polona
-    accessStatus: per-item-review-required
+    accessStatus: approved-for-controlled-acquisition
     url: https://polona.pl/preview/b1600bcb-668f-4daf-a37b-81fade26971f
     proposedAcquisition:
-      status: resolve-after-human-gate
+      status: approved-resolve-before-fetch
       method: polona-uuid-record
       oldId: 84911369
       uuid: b1600bcb-668f-4daf-a37b-81fade26971f
@@ -117,10 +128,10 @@ sourceUnits:
     year: 1912
     discoveryCollectionId: historyczna-slaska-zhp
     targetCollectionId: polona
-    accessStatus: per-item-review-required
+    accessStatus: approved-for-controlled-acquisition
     url: https://polona.pl/preview/71788615-5b35-4973-88c0-f6e1550be578
     proposedAcquisition:
-      status: resolve-after-human-gate
+      status: approved-resolve-before-fetch
       method: polona-uuid-record
       oldId: 18447858
       uuid: 71788615-5b35-4973-88c0-f6e1550be578
@@ -133,10 +144,10 @@ sourceUnits:
     year: 1934
     discoveryCollectionId: historyczna-slaska-zhp
     targetCollectionId: polona
-    accessStatus: per-item-review-required
+    accessStatus: approved-for-controlled-acquisition
     url: https://polona.pl/preview/f8a00528-6a07-4916-9a76-c1e094e317da
     proposedAcquisition:
-      status: resolve-after-human-gate
+      status: approved-resolve-before-fetch
       method: polona-uuid-record
       oldId: 75868950
       uuid: f8a00528-6a07-4916-9a76-c1e094e317da
@@ -154,11 +165,11 @@ sourceUnits:
     year: 1922
     discoveryCollectionId: historyczna-slaska-zhp
     targetCollectionId: kpbc
-    accessStatus: per-item-review-required
+    accessStatus: approved-for-controlled-acquisition
     targetDomain: kpbc.umk.pl
     url: https://kpbc.umk.pl/dlibra/publication/183639/edition/193867
     proposedAcquisition:
-      status: human-approval-required
+      status: approved-resolve-before-fetch
       method: direct-artifact-link-from-metadata-page
       artifactType: pdf
       url: https://kpbc.umk.pl/Content/193867/PDF/Magazyn_265_06_HD_008.pdf
@@ -170,7 +181,7 @@ sourceUnits:
     year: 1935
     discoveryCollectionId: historyczna-slaska-zhp
     targetCollectionId: pbc-rzeszow
-    accessStatus: per-item-review-required
+    accessStatus: blocked-by-robots-alternative-search-approved
     targetDomain: www.pbc.rzeszow.pl
     url: https://www.pbc.rzeszow.pl/dlibra/publication/11554/edition/10620
     proposedAcquisition:
@@ -187,11 +198,11 @@ sourceUnits:
     year: 1919
     discoveryCollectionId: historyczna-slaska-zhp
     targetCollectionId: pbc-bialystok
-    accessStatus: per-item-review-required
+    accessStatus: approved-for-controlled-acquisition
     targetDomain: pbc.biaman.pl
     url: https://pbc.biaman.pl/dlibra/publication/29783/edition/28922
     proposedAcquisition:
-      status: human-approval-required
+      status: approved-resolve-before-fetch
       method: direct-artifact-link-from-metadata-page
       artifactType: pdf
       url: https://pbc.biaman.pl/Content/28922/PDF/Mloda%20druzyna.pdf
@@ -203,10 +214,10 @@ sourceUnits:
     year: 1945
     discoveryCollectionId: historyczna-slaska-zhp
     targetCollectionId: polona
-    accessStatus: component-authorship-and-per-item-review-required
+    accessStatus: approved-for-acquisition-component-authorship-pending
     url: https://polona.pl/preview/3f71abd7-af13-4f31-9b48-cab79f380362
     proposedAcquisition:
-      status: resolve-after-human-gate
+      status: approved-resolve-before-fetch
       method: polona-uuid-record
       oldId: 92884617
       uuid: 3f71abd7-af13-4f31-9b48-cab79f380362
@@ -219,7 +230,7 @@ sourceUnits:
     year: 1935
     discoveryCollectionId: historyczna-slaska-zhp
     targetCollectionId: pbc-rzeszow
-    accessStatus: per-item-review-required
+    accessStatus: blocked-by-robots-alternative-search-approved
     targetDomain: www.pbc.rzeszow.pl
     url: https://www.pbc.rzeszow.pl/dlibra/publication/11539/edition/10606
     proposedAcquisition:
@@ -237,11 +248,11 @@ sourceUnits:
     year: 1917
     discoveryCollectionId: historyczna-slaska-zhp
     targetCollectionId: wbc
-    accessStatus: per-item-review-required
+    accessStatus: approved-for-controlled-acquisition
     targetDomain: www.wbc.poznan.pl
     url: https://www.wbc.poznan.pl/publication/515207/edition/440525/
     proposedAcquisition:
-      status: human-approval-required
+      status: approved-resolve-before-fetch
       method: direct-artifact-link-from-metadata-page
       artifactType: pdf
       url: https://www.wbc.poznan.pl/Content/440525/PDF/515207.pdf
@@ -253,11 +264,11 @@ sourceUnits:
     year: 1921
     discoveryCollectionId: historyczna-slaska-zhp
     targetCollectionId: sbc
-    accessStatus: per-item-review-required
+    accessStatus: approved-for-controlled-acquisition
     targetDomain: www.sbc.org.pl
     url: https://www.sbc.org.pl/dlibra/publication/68754/edition/64835
     proposedAcquisition:
-      status: human-approval-required
+      status: approved-resolve-before-fetch
       method: direct-artifact-link-from-metadata-page
       artifactType: pdf
       url: https://www.sbc.org.pl/Content/64835/PDF/64835.pdf
@@ -269,13 +280,13 @@ sourceUnits:
     year: 1934
     discoveryCollectionId: gallica-bnf
     targetCollectionId: gallica-bnf
-    accessStatus: item-approved-page-scope-pending
+    accessStatus: approved-for-113-view-ocr
     url: https://gallica.bnf.fr/ark:/12148/bpt6k3373518k
     itemIdentifier: bpt6k3373518k
     rightsReviewRecord: vault/reviews/accepted/candidate-jacques-sevin-chamarande-gallica.md
-    pageScopeReviewRecord: vault/reviews/inbox/chamarande-1934-prose-scope.md
+    pageScopeReviewRecord: vault/reviews/accepted/chamarande-1934-prose-scope.md
     proposedAcquisition:
-      status: page-scope-human-approval-required
+      status: approved-views-present-in-scratch
       method: pre-fetched-iiif-views
       completedViews: 188
       artifactType: jpeg-views

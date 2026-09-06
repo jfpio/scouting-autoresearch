@@ -1,7 +1,7 @@
 ---
 id: v3-source-expansion-2026-09
 recordType: research-run-review
-status: prepared-human-gates-pending
+status: active
 createdAt: "2026-09-06"
 reviewRequired: true
 manifest: config/v3-source-expansion.yaml
@@ -9,13 +9,15 @@ milestone: V3-R1
 sourceUnitCount: 11
 pullRequestPolicy: one-at-end-of-run
 reportPath: data/reports/v3-source-expansion-2026-09.json
-pendingHumanDecisions:
+approvedHumanDecisions:
   - id: historyczna-directory-access
-    reviewRecord: vault/reviews/inbox/collection-historyczna-slaska.md
+    reviewRecord: vault/reviews/accepted/collection-historyczna-slaska.md
   - id: chamarande-ocr-page-scope
-    reviewRecord: vault/reviews/inbox/chamarande-1934-prose-scope.md
+    reviewRecord: vault/reviews/accepted/chamarande-1934-prose-scope.md
   - id: polish-source-acquisition-and-rights
-    reviewRecord: vault/reviews/inbox/v3-polish-sources-acquisition.md
+    reviewRecord: vault/reviews/accepted/v3-polish-sources-acquisition.md
+approvedAt: "2026-09-06"
+approvedBy: repository-owner
 ---
 
 # V3-R1 — rozszerzenie korpusu przed mapą semantyczną
@@ -37,17 +39,17 @@ pull requestem. Pośrednie PR-y per książka są wyłączone.
   powiększonym zbiorze gier.
 - Raport musi wykazać również źródła bez uzysku, pominięte rekordy oraz przyczyny blokad.
 
-## Bramki przed wykonaniem
+## Zatwierdzone bramki wykonania
 
-1. Zatwierdzić użycie katalogu Komisji Historycznej Chorągwi Śląskiej wyłącznie do metadanych
+1. Zatwierdzono użycie katalogu Komisji Historycznej Chorągwi Śląskiej wyłącznie do metadanych
    strony i odkrywania linków. Nie jest to zgoda na kopiowanie treści ani zbiorcza decyzja o
    prawach książek.
-2. Zatwierdzić lub skorygować proponowany 113-widokowy zakres OCR *Chamarande*, wraz z
+2. Zatwierdzono proponowany 113-widokowy zakres OCR *Chamarande*, wraz z
    wyłączeniem cudzych i anonimowych bloków, muzyki, ilustracji, fotografii i aparatu
    redakcyjnego.
-3. Zatwierdzić udokumentowane pobranie polskich obiektów do scratch oraz wstępny zakres
+3. Zatwierdzono udokumentowane pobranie polskich obiektów do scratch oraz wstępny zakres
    domeny publicznej nazwanych autorów, opisany w osobnym pakiecie nabycia.
-4. W toku runu przed publikacją pełnego tekstu przedstawić zbiorczo do kontroli ustalone
+4. W toku runu przed publikacją pełnego tekstu należy przedstawić zbiorczo do kontroli ustalone
    wydania, autorstwo poszczególnych składników i decyzje prawne dla polskich książek.
 
 ## Gotowe formuły decyzji
@@ -57,14 +59,14 @@ pull requestem. Pośrednie PR-y per książka są wyłączone.
 > kopiowania treści, automatycznego pobierania plików ani zbiorczej presumpcji prawnej.
 
 > Zatwierdzam proponowany zakres 113 widoków OCR *Chamarande* opisany w
-> `vault/reviews/inbox/chamarande-1934-prose-scope.md`, z obowiązkiem wyłączenia wskazanych
+> `vault/reviews/accepted/chamarande-1934-prose-scope.md`, z obowiązkiem wyłączenia wskazanych
 > cudzych i anonimowych bloków oraz wszystkich osobnych składników niewchodzących w
 > zatwierdzony zakres prozy Jacques’a Sevina.
 
-> Zatwierdzam formułę decyzji z `vault/reviews/inbox/v3-polish-sources-acquisition.md`,
+> Zatwierdzam formułę decyzji z `vault/reviews/accepted/v3-polish-sources-acquisition.md`,
 > obejmującą tymczasowe pobranie dziesięciu obiektów, własną prozę wymienionych autorów oraz
 > wyłączenie nieustalonych i osobno chronionych składników. Zatwierdzam również zakres
-> dostępu z `vault/reviews/inbox/v3-regional-library-access.md`, w tym pobrania per-item z
+> dostępu z `vault/reviews/accepted/v3-regional-library-access.md`, w tym pobrania per-item z
 > Polony i dozwolonych bezpośrednich PDF-ów oraz zakaz automatycznego pobierania trzech
 > ZIP-ów PBC Rzeszów blokowanych przez `robots.txt`.
 

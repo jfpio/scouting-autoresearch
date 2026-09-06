@@ -1,11 +1,11 @@
 ---
 id: chamarande-1934-prose-scope
 recordType: source-component-scope
-status: proposed
+status: accepted
 createdAt: "2026-09-05"
-reviewRequired: true
-publicationBlocked: true
-humanApproved: false
+reviewRequired: false
+publicationBlocked: false
+humanApproved: true
 subjectId: jacques-sevin
 sourceId: chamarande-1934
 collectionId: gallica-bnf
@@ -37,7 +37,7 @@ inspection:
         sha256: 09684f92770a924b79c7611f037f84f6ed0471e37a79f9204ac997a9dc82efb9
 proposedOcrScope:
   purpose: segment-and-extract-only-jacques-sevin-prose
-  executionReady: false
+  executionReady: true
   proposedViewRanges:
     - [19, 26]
     - [29, 36]
@@ -123,11 +123,29 @@ excludedScope:
     - text explicitly attributed to another author or an anonymous contributor
     - later editorial apparatus and Gallica digital packaging
 humanDecision:
-  status: pending
-  approvedBy: null
-  reviewedAt: null
-  approvedViewRanges: []
-  notes: null
+  status: approved
+  approvedBy: repository-owner
+  reviewedAt: "2026-09-06"
+  approvedViewRanges:
+    - [19, 26]
+    - [29, 36]
+    - [39, 46]
+    - [49, 64]
+    - [67, 70]
+    - [83, 84]
+    - [87, 94]
+    - [97, 104]
+    - [107, 107]
+    - [109, 109]
+    - [111, 114]
+    - [117, 123]
+    - [127, 134]
+    - [137, 144]
+    - [147, 154]
+    - [157, 170]
+  notes: >-
+    Właściciel zatwierdził 113 widoków OCR wraz z opisanymi wyłączeniami całych stron i
+    bloków. Zgoda nie obejmuje automatycznej publikacji wyniku OCR ani cudzych składników.
 ---
 
 # Proponowany zakres prozy w *Chamarande* (1934)
@@ -144,8 +162,6 @@ listy innych osób. Strony 37–38 są dalszym ciągiem anonimowego listu, a str
 list Baden-Powella. Końcowe strony 135–141 nie są prozą Sevina kwalifikującą się do tego
 pipeline’u.
 
-Ten rekord jest propozycją, nie zgodą. Do czasu decyzji właściciela
-`config/ocr/chamarande-1934.yaml` zachowuje `executionReady: false` i puste
-`approvedViewRanges`. Zatwierdzenie zakresu pozwoli jedynie na sekwencyjny OCR 113 obrazów
-do scratch oraz późniejszą recenzję bloków. Nie zatwierdzi automatycznie transkrypcji,
-aktywności, tłumaczeń ani publikacji.
+Właściciel zatwierdził ten zakres 6 września 2026 r. Zgoda pozwala na sekwencyjny OCR 113
+obrazów do scratch oraz późniejszą recenzję bloków. Nie zatwierdza automatycznie
+transkrypcji, aktywności, tłumaczeń ani publikacji.

@@ -66,11 +66,11 @@ class V3SourceRunTests(unittest.TestCase):
             any("acquisition gate" in error for error in self.errors(manifest))
         )
 
-    def test_rejects_a_proposed_download_that_claims_approval(self):
+    def test_rejects_an_active_run_without_download_approval(self):
         manifest = copy.deepcopy(self.manifest)
-        manifest["acquisitionPreparation"]["contentDownloadsApproved"] = True
+        manifest["acquisitionPreparation"]["contentDownloadsApproved"] = False
         self.assertTrue(
-            any("content downloads are approved" in error for error in self.errors(manifest))
+            any("lacks owner approval" in error for error in self.errors(manifest))
         )
 
     def test_rejects_an_artifact_candidate_on_another_host(self):
@@ -92,7 +92,7 @@ class V3SourceRunTests(unittest.TestCase):
             for item in manifest["sourceUnits"]
             if item["id"] == "dabrowski-winter-games-1935"
         )
-        unit["proposedAcquisition"]["status"] = "human-approval-required"
+        unit["proposedAcquisition"]["status"] = "approved-resolve-before-fetch"
         self.assertTrue(
             any("robots-blocked PBC artifact" in error for error in self.errors(manifest))
         )

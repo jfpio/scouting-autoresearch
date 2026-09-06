@@ -52,7 +52,7 @@ def v3_source_run_errors(
     require(manifest.get("schemaVersion") == 1, "V3 source manifest has a bad schema version")
     run_id = manifest.get("runId")
     require(run_id == "v3-source-expansion-2026-09", "V3 source manifest has an unexpected run ID")
-    require(manifest.get("status") == "prepared-human-gates-pending", "V3 source run hides pending gates")
+    require(manifest.get("status") in {"active", "complete"}, "V3 source run is not active or complete")
 
     scope = manifest.get("scope") or {}
     require(scope.get("productionKinds") == ["game"], "V3 source run silently expands production kinds")
@@ -80,8 +80,15 @@ def v3_source_run_errors(
 
     acquisition_preparation = manifest.get("acquisitionPreparation") or {}
     require(
-        acquisition_preparation.get("contentDownloadsApproved") is False,
-        "Prepared V3 run claims that content downloads are approved",
+        acquisition_preparation.get("contentDownloadsApproved") is True,
+        "Active V3 run lacks owner approval for scoped content downloads",
+    )
+    acquisition_decision = acquisition_preparation.get("humanDecision") or {}
+    require(
+        acquisition_decision.get("approvedBy") == "repository-owner"
+        and acquisition_decision.get("approvedAt") == "2026-09-06"
+        and acquisition_decision.get("robotsBlockedZipDownloadsApproved") is False,
+        "Active V3 run lacks a bounded owner acquisition decision",
     )
     require(
         acquisition_preparation.get("proposedArtifactLinksAreUntrustedMetadata") is True,
@@ -141,15 +148,15 @@ def v3_source_run_errors(
         == "blocks-content-zip-endpoints",
         "PBC Rzeszów registry does not preserve its robots ZIP exclusion",
     )
-    regional_review_path = ROOT / "vault" / "reviews" / "inbox" / "v3-regional-library-access.md"
+    regional_review_path = ROOT / "vault" / "reviews" / "accepted" / "v3-regional-library-access.md"
     if regional_review_path.is_file():
         regional_review, regional_review_body = load_markdown(regional_review_path)
         require(
             regional_review.get("recordType") == "source-collection-batch-review"
-            and regional_review.get("status") == "access-review"
-            and regional_review.get("reviewRequired") is True
-            and regional_review.get("humanApproved") is False,
-            "Regional access review does not preserve its pending human gate",
+            and regional_review.get("status") == "accepted"
+            and regional_review.get("reviewRequired") is False
+            and regional_review.get("humanApproved") is True,
+            "Regional access review does not preserve the owner approval",
         )
         require(
             set(regional_review.get("collectionIds") or []) == regional_collection_ids
@@ -183,8 +190,8 @@ def v3_source_run_errors(
                 str((collections.get(unit.get("targetCollectionId")) or {}).get("baseUrl") or "")
             ).hostname
             require(
-                proposed.get("status") == "human-approval-required",
-                f"{unit_id}: direct artifact candidate bypasses human approval",
+                proposed.get("status") == "approved-resolve-before-fetch",
+                f"{unit_id}: direct artifact candidate lacks scoped approval",
             )
             require(
                 proposed.get("artifactType") in {"pdf", "zip"},
@@ -212,7 +219,7 @@ def v3_source_run_errors(
         elif method == "polona-uuid-record":
             uuid = str(proposed.get("uuid") or "")
             require(
-                proposed.get("status") == "resolve-after-human-gate"
+                proposed.get("status") == "approved-resolve-before-fetch"
                 and proposed.get("artifactType") == "unresolved"
                 and isinstance(proposed.get("oldId"), int)
                 and proposed.get("oldId") > 0
@@ -224,7 +231,7 @@ def v3_source_run_errors(
         elif method == "pre-fetched-iiif-views":
             require(
                 unit_id == "chamarande-1934"
-                and proposed.get("status") == "page-scope-human-approval-required"
+                and proposed.get("status") == "approved-views-present-in-scratch"
                 and proposed.get("completedViews") == 188
                 and proposed.get("artifactType") == "jpeg-views",
                 "Chamarande acquisition preparation is inconsistent",
@@ -280,10 +287,11 @@ def v3_source_run_errors(
     )
 
     gates = {gate.get("id"): gate for gate in manifest.get("humanGates", [])}
-    require(gates.get("historyczna-directory-access", {}).get("status") == "pending", "Historyczna access gate is not pending")
+    require(gates.get("historyczna-directory-access", {}).get("status") == "approved", "Historyczna access gate is not approved")
+    require(gates.get("chamarande-ocr-page-scope", {}).get("status") == "approved", "Chamarande OCR gate is not approved")
     require(gates.get("chamarande-ocr-page-scope", {}).get("proposedViewCount") == 113, "Chamarande OCR gate does not pin 113 views")
     polish_gate = gates.get("polish-source-acquisition-and-rights", {})
-    require(polish_gate.get("status") == "pending", "Polish source acquisition gate is not pending")
+    require(polish_gate.get("status") == "approved", "Polish source acquisition gate is not approved")
     polish_review = polish_gate.get("reviewRecord")
     require(
         bool(polish_review) and (ROOT / str(polish_review)).is_file(),
@@ -304,11 +312,27 @@ def v3_source_run_errors(
     checkpoint_units = checkpoint.get("sourceUnits") or []
     checkpoint_ids = [unit.get("id") for unit in checkpoint_units]
     require(checkpoint.get("runId") == run_id, "V3 run checkpoint has the wrong run ID")
-    require(checkpoint.get("status") == "human-gates-pending", "V3 run checkpoint hides pending gates")
+    require(checkpoint.get("status") in {"active", "complete"}, "V3 run checkpoint is not active or complete")
     require(checkpoint_ids == ids, "V3 run checkpoint source order differs from the manifest")
     require(
-        all(unit.get("status") == "not-started" for unit in checkpoint_units),
-        "Prepared V3 checkpoint contains a source that has already started",
+        all(
+            unit.get("status")
+            in {
+                "not-started",
+                "acquiring",
+                "acquired",
+                "ocr-pending",
+                "ocr-in-progress",
+                "extracting",
+                "translating",
+                "imported",
+                "zero-yield",
+                "skipped-with-reason",
+                "blocked-with-reason",
+            }
+            for unit in checkpoint_units
+        ),
+        "V3 checkpoint contains an unknown source-unit status",
     )
     require(checkpoint.get("pullRequestOpened") is False, "Prepared V3 checkpoint claims an open PR")
     checkpoint_acquisition = (checkpoint.get("preparation") or {}).get(

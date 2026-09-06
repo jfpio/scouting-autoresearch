@@ -97,7 +97,7 @@ collections:
     status: candidate
     allowedMethods: [metadata-only]
     rateLimitPerMinute: 5
-    reviewRecord: vault/reviews/inbox/v3-regional-library-access.md
+    reviewRecord: vault/reviews/accepted/v3-regional-library-access.md
     robotsTxt:
       url: https://www.pbc.rzeszow.pl/robots.txt
       checkedAt: "2026-09-06"
@@ -112,10 +112,10 @@ collections:
   - id: kpbc
     name: Kujawsko-Pomorska Biblioteka Cyfrowa
     baseUrl: https://kpbc.umk.pl/
-    status: candidate
-    allowedMethods: [metadata-only]
+    status: approved-per-item
+    allowedMethods: [metadata-only, documented-download]
     rateLimitPerMinute: 5
-    reviewRecord: vault/reviews/inbox/v3-regional-library-access.md
+    reviewRecord: vault/reviews/accepted/v3-regional-library-access.md
     robotsTxt:
       url: https://kpbc.umk.pl/robots.txt
       checkedAt: "2026-09-06"
@@ -131,10 +131,10 @@ collections:
   - id: pbc-bialystok
     name: Podlaska Biblioteka Cyfrowa
     baseUrl: https://pbc.biaman.pl/
-    status: candidate
-    allowedMethods: [metadata-only]
+    status: approved-per-item
+    allowedMethods: [metadata-only, documented-download]
     rateLimitPerMinute: 5
-    reviewRecord: vault/reviews/inbox/v3-regional-library-access.md
+    reviewRecord: vault/reviews/accepted/v3-regional-library-access.md
     robotsTxt:
       url: https://pbc.biaman.pl/robots.txt
       checkedAt: "2026-09-06"
@@ -149,10 +149,10 @@ collections:
   - id: wbc
     name: Wielkopolska Biblioteka Cyfrowa
     baseUrl: https://www.wbc.poznan.pl/
-    status: candidate
-    allowedMethods: [metadata-only]
+    status: approved-per-item
+    allowedMethods: [metadata-only, documented-download]
     rateLimitPerMinute: 5
-    reviewRecord: vault/reviews/inbox/v3-regional-library-access.md
+    reviewRecord: vault/reviews/accepted/v3-regional-library-access.md
     robotsTxt:
       url: https://www.wbc.poznan.pl/robots.txt
       checkedAt: "2026-09-06"
@@ -167,10 +167,10 @@ collections:
   - id: sbc
     name: Śląska Biblioteka Cyfrowa
     baseUrl: https://www.sbc.org.pl/
-    status: candidate
-    allowedMethods: [metadata-only]
+    status: approved-per-item
+    allowedMethods: [metadata-only, documented-download]
     rateLimitPerMinute: 5
-    reviewRecord: vault/reviews/inbox/v3-regional-library-access.md
+    reviewRecord: vault/reviews/accepted/v3-regional-library-access.md
     robotsTxt:
       url: https://www.sbc.org.pl/robots.txt
       checkedAt: "2026-09-06"
@@ -237,11 +237,11 @@ collections:
   - id: historyczna-slaska-zhp
     name: Komisja Historyczna Chorągwi Śląskiej ZHP
     baseUrl: https://historyczna.slaska.zhp.pl/
-    status: candidate
-    allowedMethods: [metadata-only]
+    status: approved-per-item
+    allowedMethods: [page-metadata, link-discovery]
     rateLimitPerMinute: 5
     trustScope: bibliographic-link-directory
-    reviewRecord: vault/reviews/inbox/collection-historyczna-slaska.md
+    reviewRecord: vault/reviews/accepted/collection-historyczna-slaska.md
     robotsTxt:
       url: https://historyczna.slaska.zhp.pl/robots.txt
       checkedAt: "2026-09-04"
@@ -256,8 +256,8 @@ collections:
     notes: >-
       Repetytorium jest użytecznym indeksem bibliograficznym kierującym głównie do Polony
       i regionalnych bibliotek cyfrowych, ale nie nadaje praw do materiałów docelowych.
-      Do czasu decyzji właściciela wolno pobierać wyłącznie metadane stron. Pliki, pełny
-      tekst, obrazy i automatyczne przechodzenie do serwisów docelowych pozostają wyłączone.
+      Właściciel zatwierdził metadane stron i odkrywanie linków. Pliki, pełny tekst, obrazy
+      i automatyczne przechodzenie do niezarejestrowanych serwisów pozostają wyłączone.
   - id: archiwum-harcerskie
     name: Archiwum Harcerskie
     baseUrl: https://archiwumharcerskie.pl/
