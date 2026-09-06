@@ -63,7 +63,10 @@ pull requestem. Pośrednie PR-y per książka są wyłączone.
 
 > Zatwierdzam formułę decyzji z `vault/reviews/inbox/v3-polish-sources-acquisition.md`,
 > obejmującą tymczasowe pobranie dziesięciu obiektów, własną prozę wymienionych autorów oraz
-> wyłączenie nieustalonych i osobno chronionych składników.
+> wyłączenie nieustalonych i osobno chronionych składników. Zatwierdzam również zakres
+> dostępu z `vault/reviews/inbox/v3-regional-library-access.md`, w tym pobrania per-item z
+> Polony i dozwolonych bezpośrednich PDF-ów oraz zakaz automatycznego pobierania trzech
+> ZIP-ów PBC Rzeszów blokowanych przez `robots.txt`.
 
 Samo zatwierdzenie tych trzech bramek nie zatwierdza wynikowych aktywności ani końcowej
 publikacji. Te decyzje pozostają widoczne w jednym raporcie i końcowym PR-ze V3-R1.

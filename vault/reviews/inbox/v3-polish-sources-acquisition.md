@@ -35,7 +35,10 @@ składników, które po inspekcji da się przypisać osobie objętej zatwierdzon
 Zatwierdzenie poniższej propozycji pozwoli pobrać dziesięć wskazanych obiektów wyłącznie do
 tymczasowego katalogu w `$SCRATCH`, ustalić mapę składników i przetwarzać tekst. Nie obejmie
 automatycznie ilustracji, fotografii, okładek, nut, tekstów pieśni ani cudzych lub anonimowych
-wkładów. Pełny tekst trafi do korpusu dopiero z dowodem na poziomie rekordu i strony.
+wkładów. Szczegółowa kontrola `robots.txt` i warunków pięciu bibliotek regionalnych znajduje
+się w `vault/reviews/inbox/v3-regional-library-access.md`; trzy ZIP-y PBC Rzeszów są wyłączone
+z automatycznego pobierania. Pełny tekst trafi do korpusu dopiero z dowodem na poziomie
+rekordu i strony.
 
 ## Ocena pozycji
 
@@ -149,3 +152,7 @@ wkładów. Pełny tekst trafi do korpusu dopiero z dowodem na poziomie rekordu i
 > okładek, muzyki, tekstów pieśni, anonimowych wkładów ani wkładów innych osób. Dla *W
 > gromadzie zuchów* zatwierdzam wyłącznie pobranie i sporządzenie mapy autorstwa; publikacja
 > poszczególnych składników wymaga ustalenia ich autora i osobnej podstawy prawnej.
+> Zatwierdzam zakres dostępu opisany w `v3-regional-library-access.md`: pobrania per-item z
+> Polony i dozwolonych bezpośrednich PDF-ów, z zachowaniem kanonicznych rekordów i
+> atrybucji, oraz dalsze poszukiwanie alternatyw dla PBC Rzeszów. Nie zatwierdzam
+> automatycznego pobierania trzech ZIP-ów blokowanych przez `robots.txt`.

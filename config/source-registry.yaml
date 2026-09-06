@@ -92,24 +92,52 @@ collections:
     status: candidate
     allowedMethods: [metadata-only]
     rateLimitPerMinute: 5
+    reviewRecord: vault/reviews/inbox/v3-regional-library-access.md
+    robotsTxt:
+      url: https://www.pbc.rzeszow.pl/robots.txt
+      checkedAt: "2026-09-06"
+      decision: blocks-content-zip-endpoints
+    termsOfUse:
+      checkedAt: "2026-09-06"
+      status: no-public-reuse-policy-found-on-linked-policy-page
     notes: >-
       Wpis kolekcji umożliwia research metadanych. Pobranie konkretnego pliku lub pełnego
       tekstu wymaga zapisanej decyzji per-item o prawach, składnikach i warunkach serwisu.
+      Nie automatyzuj odnośników /Content/*/zip*, które robots.txt jawnie blokuje.
   - id: kpbc
     name: Kujawsko-Pomorska Biblioteka Cyfrowa
     baseUrl: https://kpbc.umk.pl/
     status: candidate
     allowedMethods: [metadata-only]
     rateLimitPerMinute: 5
+    reviewRecord: vault/reviews/inbox/v3-regional-library-access.md
+    robotsTxt:
+      url: https://kpbc.umk.pl/robots.txt
+      checkedAt: "2026-09-06"
+      decision: direct-pdf-path-not-disallowed
+    termsOfUse:
+      url: https://kpbc.umk.pl/dlibra/text?id=polityka
+      checkedAt: "2026-09-06"
+      status: public-domain-copy-reuse-allowed-with-bibliographic-address
     notes: >-
       Wpis kolekcji umożliwia research metadanych. Pobranie konkretnego pliku lub pełnego
       tekstu wymaga zapisanej decyzji per-item o prawach, składnikach i warunkach serwisu.
+      Polityka KPBC wymaga zachowania dokładnego adresu bibliograficznego wykorzystanej kopii.
   - id: pbc-bialystok
     name: Podlaska Biblioteka Cyfrowa
     baseUrl: https://pbc.biaman.pl/
     status: candidate
     allowedMethods: [metadata-only]
     rateLimitPerMinute: 5
+    reviewRecord: vault/reviews/inbox/v3-regional-library-access.md
+    robotsTxt:
+      url: https://pbc.biaman.pl/robots.txt
+      checkedAt: "2026-09-06"
+      decision: direct-pdf-path-not-disallowed
+    termsOfUse:
+      url: https://pbc.biaman.pl/dlibra/text?id=polityka
+      checkedAt: "2026-09-06"
+      status: unresolved-timeout
     notes: >-
       Wpis kolekcji umożliwia research metadanych. Pobranie konkretnego pliku lub pełnego
       tekstu wymaga zapisanej decyzji per-item o prawach, składnikach i warunkach serwisu.
@@ -119,6 +147,15 @@ collections:
     status: candidate
     allowedMethods: [metadata-only]
     rateLimitPerMinute: 5
+    reviewRecord: vault/reviews/inbox/v3-regional-library-access.md
+    robotsTxt:
+      url: https://www.wbc.poznan.pl/robots.txt
+      checkedAt: "2026-09-06"
+      decision: direct-pdf-path-not-disallowed
+    termsOfUse:
+      url: https://www.wbc.poznan.pl/dlibra/text?id=polityka
+      checkedAt: "2026-09-06"
+      status: unresolved-provider-high-load
     notes: >-
       Wpis kolekcji umożliwia research metadanych. Pobranie konkretnego pliku lub pełnego
       tekstu wymaga zapisanej decyzji per-item o prawach, składnikach i warunkach serwisu.
@@ -128,6 +165,14 @@ collections:
     status: candidate
     allowedMethods: [metadata-only]
     rateLimitPerMinute: 5
+    reviewRecord: vault/reviews/inbox/v3-regional-library-access.md
+    robotsTxt:
+      url: https://www.sbc.org.pl/robots.txt
+      checkedAt: "2026-09-06"
+      decision: direct-pdf-path-not-disallowed
+    termsOfUse:
+      checkedAt: "2026-09-06"
+      status: no-public-reuse-policy-found-on-inspected-pages
     notes: >-
       Wpis kolekcji umożliwia research metadanych. Pobranie konkretnego pliku lub pełnego
       tekstu wymaga zapisanej decyzji per-item o prawach, składnikach i warunkach serwisu.

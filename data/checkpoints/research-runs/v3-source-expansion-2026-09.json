@@ -31,7 +31,9 @@
     "acquisitionPreparation": {
       "status": "complete-awaiting-human-decision",
       "contentDownloadsPerformed": 0,
-      "directArtifactCandidates": 7,
+      "directArtifactLinksDiscovered": 7,
+      "directArtifactCandidatesActionableAfterApproval": 4,
+      "automatedFetchBlockedByRobots": 3,
       "polonaRecordsRequiringPost-approvalResolution": 3,
       "preFetchedGallicaSources": 1,
       "rawArtifactsStorage": "scratch-only",

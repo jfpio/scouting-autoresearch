@@ -62,6 +62,10 @@ acquisitionPreparation:
   requireSignatureAndSizeValidation: true
   rawArtifactsStorage: scratch-only
   repositorySourceFilesAllowed: false
+  automatedFetchBlockedByRobotsSourceUnits:
+    - dabrowski-indoor-games-1934
+    - dabrowski-winter-games-1935
+    - sedlaczek-fieldcraft-method-1935
 translationPolicy:
   reasoningMode: disabled
   versionedModelPerSource: true
@@ -132,10 +136,11 @@ sourceUnits:
     targetDomain: www.pbc.rzeszow.pl
     url: https://www.pbc.rzeszow.pl/dlibra/publication/11501/edition/10568
     proposedAcquisition:
-      status: human-approval-required
-      method: direct-artifact-link-from-metadata-page
+      status: blocked-by-robots
+      method: zip-link-blocked-by-robots
       artifactType: zip
       url: https://www.pbc.rzeszow.pl/Content/10568/zip/
+      alternativeRequired: permitted-non-zip-artifact-or-human-supplied-file
   - id: piasecki-movement-games-1922
     order: 4
     language: pl
@@ -165,10 +170,11 @@ sourceUnits:
     targetDomain: www.pbc.rzeszow.pl
     url: https://www.pbc.rzeszow.pl/dlibra/publication/11554/edition/10620
     proposedAcquisition:
-      status: human-approval-required
-      method: direct-artifact-link-from-metadata-page
+      status: blocked-by-robots
+      method: zip-link-blocked-by-robots
       artifactType: zip
       url: https://www.pbc.rzeszow.pl/Content/10620/zip/
+      alternativeRequired: permitted-non-zip-artifact-or-human-supplied-file
   - id: pawelek-young-troop-1919
     order: 6
     language: pl
@@ -212,10 +218,11 @@ sourceUnits:
     targetDomain: www.pbc.rzeszow.pl
     url: https://www.pbc.rzeszow.pl/dlibra/publication/11539/edition/10606
     proposedAcquisition:
-      status: human-approval-required
-      method: direct-artifact-link-from-metadata-page
+      status: blocked-by-robots
+      method: zip-link-blocked-by-robots
       artifactType: zip
       url: https://www.pbc.rzeszow.pl/Content/10606/zip/
+      alternativeRequired: permitted-non-zip-artifact-or-human-supplied-file
   - id: piasecki-schreiber-polish-scoutcraft-1917
     order: 9
     language: pl

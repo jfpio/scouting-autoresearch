@@ -17,9 +17,12 @@ class V3SourceRunTests(unittest.TestCase):
         self.queue = load_yaml(QUEUE_PATH)
         self.checkpoint = json.loads(CHECKPOINT_PATH.read_text(encoding="utf-8"))
 
-    def errors(self, manifest=None):
+    def errors(self, manifest=None, registry=None):
         return v3_source_run_errors(
-            manifest or self.manifest, self.registry, self.queue, self.checkpoint
+            manifest or self.manifest,
+            registry or self.registry,
+            self.queue,
+            self.checkpoint,
         )
 
     def test_repository_manifest_passes(self):
@@ -75,11 +78,33 @@ class V3SourceRunTests(unittest.TestCase):
         unit = next(
             item
             for item in manifest["sourceUnits"]
-            if item["id"] == "dabrowski-indoor-games-1934"
+            if item["id"] == "piasecki-movement-games-1922"
         )
         unit["proposedAcquisition"]["url"] = "https://untrusted.example/source.zip"
         self.assertTrue(
             any("outside the registered HTTPS host" in error for error in self.errors(manifest))
+        )
+
+    def test_rejects_enabling_a_robots_blocked_zip(self):
+        manifest = copy.deepcopy(self.manifest)
+        unit = next(
+            item
+            for item in manifest["sourceUnits"]
+            if item["id"] == "dabrowski-indoor-games-1934"
+        )
+        unit["proposedAcquisition"]["status"] = "human-approval-required"
+        self.assertTrue(
+            any("robots-blocked PBC artifact" in error for error in self.errors(manifest))
+        )
+
+    def test_rejects_removing_the_pbc_robots_exclusion(self):
+        registry = copy.deepcopy(self.registry)
+        collection = next(
+            item for item in registry["collections"] if item["id"] == "pbc-rzeszow"
+        )
+        collection["robotsTxt"]["decision"] = "download-allowed"
+        self.assertTrue(
+            any("robots ZIP exclusion" in error for error in self.errors(registry=registry))
         )
 
 

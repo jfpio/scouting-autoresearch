@@ -10,7 +10,7 @@ from urllib.parse import urlparse
 
 import yaml
 
-from common import ROOT
+from common import ROOT, load_markdown
 
 
 MANIFEST_PATH = ROOT / "config" / "v3-source-expansion.yaml"
@@ -101,6 +101,15 @@ def v3_source_run_errors(
         and acquisition_preparation.get("repositorySourceFilesAllowed") is False,
         "Prepared V3 run may persist source files in the repository",
     )
+    require(
+        set(acquisition_preparation.get("automatedFetchBlockedByRobotsSourceUnits") or [])
+        == {
+            "dabrowski-indoor-games-1934",
+            "dabrowski-winter-games-1935",
+            "sedlaczek-fieldcraft-method-1935",
+        },
+        "Prepared V3 run does not preserve the PBC Rzeszów robots exclusions",
+    )
 
     units = manifest.get("sourceUnits") or []
     ids = [unit.get("id") for unit in units]
@@ -112,6 +121,48 @@ def v3_source_run_errors(
     require(sum(unit.get("language") == "fr" for unit in units) == 1, "V3 source manifest needs one French-language unit")
 
     collections = {item.get("id"): item for item in registry.get("collections", [])}
+    regional_collection_ids = {"pbc-rzeszow", "kpbc", "pbc-bialystok", "wbc", "sbc"}
+    for collection_id in regional_collection_ids:
+        collection = collections.get(collection_id) or {}
+        review_record = collection.get("reviewRecord")
+        require(
+            bool(review_record) and (ROOT / str(review_record)).is_file(),
+            f"{collection_id}: regional access review is missing",
+        )
+        require(
+            (collection.get("robotsTxt") or {}).get("checkedAt") == "2026-09-06",
+            f"{collection_id}: robots review is missing or stale",
+        )
+        require(
+            bool((collection.get("termsOfUse") or {}).get("status")),
+            f"{collection_id}: terms review is missing",
+        )
+    require(
+        (collections.get("pbc-rzeszow", {}).get("robotsTxt") or {}).get("decision")
+        == "blocks-content-zip-endpoints",
+        "PBC Rzeszów registry does not preserve its robots ZIP exclusion",
+    )
+    regional_review_path = ROOT / "vault" / "reviews" / "inbox" / "v3-regional-library-access.md"
+    if regional_review_path.is_file():
+        regional_review, regional_review_body = load_markdown(regional_review_path)
+        require(
+            regional_review.get("recordType") == "source-collection-batch-review"
+            and regional_review.get("status") == "access-review"
+            and regional_review.get("reviewRequired") is True
+            and regional_review.get("humanApproved") is False,
+            "Regional access review does not preserve its pending human gate",
+        )
+        require(
+            set(regional_review.get("collectionIds") or []) == regional_collection_ids
+            and regional_review.get("sourceFilesDownloaded") == 0
+            and regional_review.get("repositoryContentAdded") == "metadata-only",
+            "Regional access review overstates its inspected scope",
+        )
+        require(
+            "/Content/*/zip*" in regional_review_body
+            and "nie wolno automatycznie pobierać trzech ZIP-ów" in regional_review_body,
+            "Regional access review omits the PBC Rzeszów robots restriction",
+        )
     acquisition_method_counts: dict[str, int] = {}
     for unit in units:
         unit_id = unit.get("id") or "<missing-id>"
@@ -144,6 +195,21 @@ def v3_source_run_errors(
                 parsed_artifact.scheme == "https" and parsed_artifact.hostname == expected_host,
                 f"{unit_id}: direct artifact candidate is outside the registered HTTPS host",
             )
+        elif method == "zip-link-blocked-by-robots":
+            artifact_url = str(proposed.get("url") or "")
+            parsed_artifact = urlparse(artifact_url)
+            require(
+                unit.get("targetCollectionId") == "pbc-rzeszow"
+                and proposed.get("status") == "blocked-by-robots"
+                and proposed.get("artifactType") == "zip"
+                and parsed_artifact.scheme == "https"
+                and parsed_artifact.hostname == "www.pbc.rzeszow.pl"
+                and "/Content/" in parsed_artifact.path
+                and "/zip/" in parsed_artifact.path
+                and proposed.get("alternativeRequired")
+                == "permitted-non-zip-artifact-or-human-supplied-file",
+                f"{unit_id}: robots-blocked PBC artifact is not safely represented",
+            )
         elif method == "polona-old-id-record":
             require(
                 proposed.get("status") == "resolve-after-human-gate"
@@ -166,7 +232,8 @@ def v3_source_run_errors(
     require(
         acquisition_method_counts
         == {
-            "direct-artifact-link-from-metadata-page": 7,
+            "direct-artifact-link-from-metadata-page": 4,
+            "zip-link-blocked-by-robots": 3,
             "polona-old-id-record": 3,
             "pre-fetched-iiif-views": 1,
         },
@@ -247,7 +314,9 @@ def v3_source_run_errors(
     ) or {}
     require(
         checkpoint_acquisition.get("contentDownloadsPerformed") == 0
-        and checkpoint_acquisition.get("directArtifactCandidates") == 7
+        and checkpoint_acquisition.get("directArtifactLinksDiscovered") == 7
+        and checkpoint_acquisition.get("directArtifactCandidatesActionableAfterApproval") == 4
+        and checkpoint_acquisition.get("automatedFetchBlockedByRobots") == 3
         and checkpoint_acquisition.get("polonaRecordsRequiringPost-approvalResolution") == 3
         and checkpoint_acquisition.get("preFetchedGallicaSources") == 1,
         "V3 acquisition-preparation checkpoint is stale",
