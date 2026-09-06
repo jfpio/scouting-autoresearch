@@ -5,6 +5,11 @@ dist/
 .venv/
 .DS_Store
 data/checkpoints/
+!data/checkpoints/
+data/checkpoints/*
+!data/checkpoints/research-runs/
+data/checkpoints/research-runs/*
+!data/checkpoints/research-runs/v3-source-expansion-2026-09.json
 *.log
 __pycache__/
 *.py[cod]

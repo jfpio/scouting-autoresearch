@@ -63,6 +63,7 @@ from validate_candidates import validate_candidates
 from validate_collection_reviews import validate_collection_reviews
 from validate_editorial_reviews import validate_editorial_reviews
 from validate_protected_source_policy import validate_protected_source_policy
+from validate_v3_source_run import validate_v3_source_run
 from similar_activities import load_config as load_similarity_config
 from similar_activities import validate_similar_activity_relations
 
@@ -485,6 +486,8 @@ def main() -> None:
     )
     errors.extend(editorial_review_errors)
     errors.extend(validate_protected_source_policy())
+    v3_source_unit_count, v3_source_run_errors = validate_v3_source_run()
+    errors.extend(v3_source_run_errors)
 
     pilot_count = 0
     for pilot_config_path in sorted((ROOT / "config" / "pilots").glob("*.yaml")):
@@ -1288,6 +1291,7 @@ def main() -> None:
         f"{editorial_review_count} editorial review record(s) "
         f"({accepted_editorial_review_count} accepted), {near_duplicate_candidate_count} "
         f"near-duplicate candidate(s), {pilot_count} measured pilot(s), bilingual exports and docs."
+        f" V3-R1 has {v3_source_unit_count} pinned source unit(s) and one final PR;"
         f" {similar_relation_count} approved similar-game relation(s); V3 participant and practical-facet audits are current; "
         f"{len(semantic_cached_ids)} semantic-map embedding(s); {semantic_analysis_count} map point(s), "
         f"{semantic_candidate_count} unreviewed semantic candidate pair(s) in a review packet."

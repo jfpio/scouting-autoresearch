@@ -223,6 +223,50 @@ każdą aktywność zawierającą rodzaj `game`; próby pozostają poza zakresem
 decyzja nie rozszerzy mapy. V3 nie zastępuje taksonomii V1, tekstu źródłowego ani ręcznie
 zatwierdzonych relacji między wariantami.
 
+### Etap V3-R1 — rozszerzenie korpusu
+
+Pierwszy run V3 rozszerza korpus przed ponownym zbudowaniem embeddingów i mapy. Jego
+kanoniczny manifest to `config/v3-source-expansion.yaml`. Obejmuje jedenaście jednostek:
+
+1. Jan Jasiński, *Gry i ćwiczenia terenowe*, wyd. 2, 1938;
+2. Herman Mojmir, *Ćwiczenia i zabawy skautowe*, 1912;
+3. Juliusz Dąbrowski, *Gry i zabawy w izbie harcerskiej*, 1934;
+4. Eugeniusz Piasecki i Mieczysław Schreiber, *Zabawy i gry ruchowe dla dzieci i
+   młodzieży*, wyd. 3, 1920;
+5. Juliusz Dąbrowski, *Harce zimowe w polu*, 1935;
+6. Alojzy Pawełek, *Młoda drużyna*, 1919;
+7. praca zbiorowa pod redakcją Jadwigi Zwolakowskiej, *W gromadzie zuchów*, 1945;
+8. Stanisław Sedlaczek, *Metodyka harców w przykładach*, 1935;
+9. Eugeniusz Piasecki i Mieczysław Schreiber, *Harce młodzieży polskiej*, wyd. 2, 1917;
+10. Stanisław Sedlaczek, *Szkoła harcerza*, 1921;
+11. Jacques Sevin, *Chamarande*, 1934.
+
+Pozycje są kandydaturami do zbadania, a nie obietnicą importu ani wspólną decyzją prawną.
+Katalog Komisji Historycznej Chorągwi Śląskiej służy wyłącznie do odkrycia pierwszych
+dziesięciu tytułów. Każdy docelowy obiekt biblioteczny przechodzi osobno kontrolę dostępu,
+edycji, autorstwa składników i praw. Regionalna biblioteka musi mieć własny wpis w rejestrze
+przed pobraniem pliku. Dla *Chamarande* obowiązują zatwierdzone warunki Gallici, a OCR może
+ruszyć dopiero po zatwierdzeniu proponowanego zakresu widoków i wyłączeń bloków.
+
+Run przetwarza źródła jako osobne, wznawialne jednostki, ale kończy się jednym raportem i
+jednym PR-em. Raport podaje dla każdego tytułu: sprawdzone wydanie i autorów składników,
+decyzję prawną i dostępową, zakres stron, liczbę kandydatów, liczbę importów, brak uzysku lub
+powód pominięcia, duplikaty i podobne warianty, modele, tokeny, koszt oraz wyniki walidacji.
+Brak kwalifikujących się gier jest pełnoprawnym, udokumentowanym wynikiem źródła.
+
+Do produkcji w tym runie trafiają wyłącznie samodzielne rekordy rodzaju `game`. Ćwiczenia,
+programy zbiórek i inne potencjalne rodzaje aktywności są wykazywane w raporcie i mogą
+zasilić `vault/exploration/`, ale nie rozszerzają po cichu schematu produkcyjnego. Teksty
+polskie otrzymują tłumaczenie angielskie. Francuski tekst źródłowy *Chamarande* zostaje
+zachowany i wymaga warstw polskiej oraz angielskiej; dlatego przed jego importem generator,
+walidator i pipeline tłumaczeń muszą jawnie obsłużyć `originalLanguage: fr`. Każde źródło
+przechodzi mały smoke test przypiętego modelu przed pełnym tłumaczeniem.
+
+Po zamknięciu jedenastu jednostek należy ponownie wykonać audyt skal uczestników i faset,
+utworzyć embeddingi dla dokładnie całego powiększonego zbioru gier oraz przebudować mapę i
+pakiet kandydatur podobnych wariantów. Dopiero te wyniki wraz z raportem źródłowym składają
+się na końcowy PR etapu V3-R1.
+
 Pipeline V3:
 
 ```text
@@ -286,6 +330,9 @@ review participant scale → version input recipe → embed every game
 
 ### Kryteria V3
 
+- manifest V3-R1 zawiera dokładnie dziesięć wskazanych polskich książek i *Chamarande*, a
+  każda pozycja kończy run jawnym statusem i uzasadnieniem,
+- V3-R1 ma jeden raport zbiorczy i jeden PR zamiast osobnych PR-ów per książka,
 - zbiór identyfikatorów embeddingów jest dokładnie równy zbiorowi aktywności rodzaju `game`,
 - nie ma współdzielonego ani cicho ponownie użytego cache między V1 i V3,
 - każdy wektor i projekcja są odtwarzalne z przypiętej konfiguracji oraz hashy wejścia,

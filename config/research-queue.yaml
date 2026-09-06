@@ -1,4 +1,14 @@
 schemaVersion: 1
+activeRun:
+  id: v3-source-expansion-2026-09
+  milestone: V3-R1
+  status: prepared-human-gates-pending
+  manifest: config/v3-source-expansion.yaml
+  checkpoint: data/checkpoints/research-runs/v3-source-expansion-2026-09.json
+  reviewRecord: vault/reviews/inbox/v3-source-expansion-2026-09.md
+  report: data/reports/v3-source-expansion-2026-09.json
+  sourceUnitCount: 11
+  pullRequestPolicy: one-at-end-of-run
 subjects:
   - id: robert-baden-powell
     name: Robert Baden-Powell

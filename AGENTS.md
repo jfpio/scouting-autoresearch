@@ -129,15 +129,12 @@
 ## Zmiany i publikacja
 
 - Nigdy nie zapisuj bezpośrednio do `main`. Każda automatyczna zmiana idzie przez pull request.
-- Traktuj każdą kompletnie przetworzoną książkę lub samodzielną jednostkę źródłową jako
-  atomowy checkpoint: dokończ generowanie i walidację, utwórz osobny commit i natychmiast
-  wypchnij go na zdalną gałąź przed rozpoczęciem następnego źródła. Nie trzymaj kilku
-  ukończonych źródeł wyłącznie lokalnie.
-- Po wznowieniu Goal Mode zaczynaj od ostatniego wypchniętego commita i checkpointu. Każdy
-  pull request ma jednoznacznie wskazywać obejmowane książki lub jednostki źródłowe; kolejne
-  poprawne commity mogą aktualizować ten sam otwarty PR tylko wtedy, gdy dotyczą tego samego
-  źródła.
-- Agent może proponować źródła, prawa, mapowania i tłumaczenia, lecz ich nie zatwierdza.
+- Wieloźródłowy etap opisany wersjonowanym manifestem prowadź na jednej gałęzi i zakończ
+  jednym zbiorczym pull requestem. Nie otwieraj pośredniego PR-a dla każdej książki,
+  ekstrakcji, tłumaczenia ani innego podzadania, chyba że właściciel jawnie o to poprosi.
+- W trakcie takiego etapu zapisuj checkpointy pozwalające wznowić każdą jednostkę źródłową.
+  Otwórz PR, gdy wszystkie pozycje manifestu mają jawny wynik końcowy: zaimportowano, brak
+  kwalifikujących się rekordów, pominięto albo zablokowano z podaną przyczyną.
 - PR musi zawierać listę źródeł, decyzje prawne do kontroli, liczbę rekordów, koszt, model,
   wyniki walidacji, duplikaty i wszystkie nierozstrzygnięte problemy.
 - Zachowuj polski lub obcy tekst źródłowy bez modernizacji; korekty OCR muszą być odtwarzalne.

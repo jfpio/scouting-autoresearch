@@ -1,0 +1,202 @@
+schemaVersion: 1
+runId: v3-source-expansion-2026-09
+milestone: V3-R1
+status: prepared-human-gates-pending
+baseline:
+  activityCount: 284
+  gameCount: 199
+  sourceCount: 4
+scope:
+  productionKinds: [game]
+  otherActivityKinds: report-and-exploration-only
+  polishSourceUnits: 10
+  totalSourceUnits: 11
+  discoveryCollectionId: historyczna-slaska-zhp
+workflow:
+  - discover-and-pin-edition
+  - review-access-and-rights-per-component
+  - fetch-approved-scope
+  - ocr-or-extract
+  - normalize-without-modernizing
+  - extract-game-candidates
+  - exclude-exact-duplicates-and-propose-close-variants
+  - translate-after-model-smoke-test
+  - validate-source-unit
+  - rebuild-v3-audits-embeddings-map-and-review-packet
+runPolicy:
+  branch: codex/autoresearch-2026-09-06-v3-sources
+  sourceCheckpointsRequired: true
+  runCheckpointPath: data/checkpoints/research-runs/v3-source-expansion-2026-09.json
+  intermediatePullRequests: false
+  pullRequestCount: 1
+  openPullRequestWhen: all-source-units-have-terminal-status
+  terminalStatuses:
+    - imported
+    - zero-yield
+    - skipped-with-reason
+    - blocked-with-reason
+  zeroYieldIsValid: true
+  reportPath: data/reports/v3-source-expansion-2026-09.json
+  requiredReportSections:
+    - source-outcomes
+    - access-and-rights-decisions
+    - editions-and-component-authorship
+    - page-scopes
+    - candidate-and-import-counts
+    - exclusions-and-zero-yield-reasons
+    - exact-duplicates-and-close-variant-candidates
+    - ocr-and-translation-models
+    - token-usage-and-reference-cost
+    - validation-results
+    - unresolved-issues
+costPolicy:
+  billingMode: education-credit
+  referenceCostLimitUsd: 10.0
+  billedCostUsd: null
+  requireVersionedCatalogPrice: true
+translationPolicy:
+  reasoningMode: disabled
+  versionedModelPerSource: true
+  modelAccessCheckRequired: true
+  representativeSmokeTestRequired: true
+  directions:
+    pl: [en]
+    fr: [pl, en]
+  frenchPipelineSupportStatus: implementation-required-before-chamarande-import
+humanGates:
+  - id: historyczna-directory-access
+    status: pending
+    reviewRecord: vault/reviews/inbox/collection-historyczna-slaska.md
+    decision: page-metadata-and-link-discovery-only
+  - id: chamarande-ocr-page-scope
+    status: pending
+    reviewRecord: vault/reviews/inbox/chamarande-1934-prose-scope.md
+    proposedViewCount: 113
+  - id: per-item-rights-and-component-authorship
+    status: pending-during-run
+    decision: batch-for-human-review-before-full-text-publication
+sourceUnits:
+  - id: jasinski-field-games-1938
+    order: 1
+    language: pl
+    authorStatement: Jan Jasiński
+    title: Gry i ćwiczenia terenowe (Harce terenowe)
+    edition: wydanie 2 poprawione i rozszerzone
+    year: 1938
+    discoveryCollectionId: historyczna-slaska-zhp
+    targetCollectionId: polona
+    accessStatus: per-item-review-required
+    url: https://polona.pl/item/gry-i-cwiczenia-terenowe-harce-terenowe-dla-organizacyj-mlodziezy-hufcow-przyspos,ODQ5MTEzNjk/#info:metadata
+  - id: mojmir-scout-games-1912
+    order: 2
+    language: pl
+    authorStatement: Herman Mojmir
+    title: Ćwiczenia i zabawy skautowe
+    edition: pierwsze wskazane wydanie
+    year: 1912
+    discoveryCollectionId: historyczna-slaska-zhp
+    targetCollectionId: polona
+    accessStatus: per-item-review-required
+    url: https://polona.pl/item/cwiczenia-i-zabawy-skautowe,MTg0NDc4NTg/4/#info:metadata
+  - id: dabrowski-indoor-games-1934
+    order: 3
+    language: pl
+    authorStatement: Juliusz Dąbrowski
+    title: Gry i zabawy w izbie harcerskiej
+    year: 1934
+    discoveryCollectionId: historyczna-slaska-zhp
+    targetCollectionId: national-libraries
+    accessStatus: dedicated-collection-registration-required
+    targetDomain: www.pbc.rzeszow.pl
+    url: https://www.pbc.rzeszow.pl/dlibra/publication/11501/edition/10568/content?ref=aHR0cHM6Ly93d3cucGJjLnJ6ZXN6b3cucGwvZGxpYnJhL3Jlc3VsdHM_cT1oYXJjZXJzdHdvJmFjdGlvbj1TaW1wbGVTZWFyY2hBY3Rpb24mdHlwZT0tNiZwPTA
+  - id: piasecki-schreiber-movement-games-1920
+    order: 4
+    language: pl
+    authorStatement: Eugeniusz Piasecki i Mieczysław Schreiber
+    title: Zabawy i gry ruchowe dla dzieci i młodzieży
+    edition: wydanie 3
+    year: 1920
+    discoveryCollectionId: historyczna-slaska-zhp
+    targetCollectionId: national-libraries
+    accessStatus: dedicated-collection-registration-required
+    targetDomain: kpbc.umk.pl
+    url: http://kpbc.umk.pl/Content/193867/Magazyn_265_06_HD_008.pdf
+  - id: dabrowski-winter-games-1935
+    order: 5
+    language: pl
+    authorStatement: Juliusz Dąbrowski
+    title: Harce zimowe w polu
+    year: 1935
+    discoveryCollectionId: historyczna-slaska-zhp
+    targetCollectionId: national-libraries
+    accessStatus: dedicated-collection-registration-required
+    targetDomain: www.pbc.rzeszow.pl
+    url: https://www.pbc.rzeszow.pl/dlibra/publication/11554/edition/10620/content?ref=aHR0cHM6Ly93d3cucGJjLnJ6ZXN6b3cucGwvZGxpYnJhL3Jlc3VsdHM_cT1oYXJjZXJzdHdvJmFjdGlvbj1TaW1wbGVTZWFyY2hBY3Rpb24mdHlwZT0tNiZwPTA
+  - id: pawelek-young-troop-1919
+    order: 6
+    language: pl
+    authorStatement: Alojzy Pawełek
+    title: Młoda drużyna
+    year: 1919
+    discoveryCollectionId: historyczna-slaska-zhp
+    targetCollectionId: national-libraries
+    accessStatus: dedicated-collection-registration-required
+    targetDomain: pbc.biaman.pl
+    url: http://pbc.biaman.pl/dlibra/docmetadata?id=28922&from=&dirids=1&ver_id=&lp=9&QI=
+  - id: zwolakowska-cub-pack-1945
+    order: 7
+    language: pl
+    authorStatement: praca zbiorowa pod redakcją Jadwigi Zwolakowskiej
+    title: W gromadzie zuchów
+    year: 1945
+    discoveryCollectionId: historyczna-slaska-zhp
+    targetCollectionId: polona
+    accessStatus: component-authorship-and-per-item-review-required
+    url: https://polona.pl/item/w-gromadzie-zuchow-praca-zbiorowa,OTI4ODQ2MTc/#info:metadata
+  - id: sedlaczek-fieldcraft-method-1935
+    order: 8
+    language: pl
+    authorStatement: Stanisław Sedlaczek
+    title: Metodyka harców w przykładach
+    year: 1935
+    discoveryCollectionId: historyczna-slaska-zhp
+    targetCollectionId: national-libraries
+    accessStatus: dedicated-collection-registration-required
+    targetDomain: www.pbc.rzeszow.pl
+    url: https://www.pbc.rzeszow.pl/dlibra/show-content/publication/edition/10606?id=10606
+  - id: piasecki-schreiber-polish-scoutcraft-1917
+    order: 9
+    language: pl
+    authorStatement: Eugeniusz Piasecki i Mieczysław Schreiber
+    title: Harce młodzieży polskiej
+    edition: wydanie 2
+    year: 1917
+    discoveryCollectionId: historyczna-slaska-zhp
+    targetCollectionId: national-libraries
+    accessStatus: dedicated-collection-registration-required
+    targetDomain: pbc.biaman.pl
+    url: http://pbc.biaman.pl/dlibra/docmetadata?id=21542&from=publication
+  - id: sedlaczek-scout-school-1921
+    order: 10
+    language: pl
+    authorStatement: Stanisław Sedlaczek
+    title: Szkoła harcerza
+    year: 1921
+    discoveryCollectionId: historyczna-slaska-zhp
+    targetCollectionId: national-libraries
+    accessStatus: dedicated-collection-registration-required
+    targetDomain: www.sbc.org.pl
+    url: https://www.sbc.org.pl/dlibra/publication/68754/edition/64835/content
+  - id: chamarande-1934
+    order: 11
+    language: fr
+    authorStatement: Jacques Sevin
+    title: Chamarande
+    year: 1934
+    discoveryCollectionId: gallica-bnf
+    targetCollectionId: gallica-bnf
+    accessStatus: item-approved-page-scope-pending
+    url: https://gallica.bnf.fr/ark:/12148/bpt6k3373518k
+    itemIdentifier: bpt6k3373518k
+    rightsReviewRecord: vault/reviews/accepted/candidate-jacques-sevin-chamarande-gallica.md
+    pageScopeReviewRecord: vault/reviews/inbox/chamarande-1934-prose-scope.md
