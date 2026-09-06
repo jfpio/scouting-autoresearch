@@ -183,9 +183,10 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
                 )
             )
 
-    def test_retry_never_precedes_twelve_hours(self):
+    def test_retry_uses_provider_value_or_one_hour_fallback(self):
         now = datetime(2026, 9, 2, tzinfo=UTC)
-        self.assertEqual(retry_at(now, "60"), now + timedelta(hours=12))
+        self.assertEqual(retry_at(now, None), now + timedelta(hours=1))
+        self.assertEqual(retry_at(now, "60"), now + timedelta(seconds=60))
         self.assertEqual(retry_at(now, str(13 * 60 * 60)), now + timedelta(hours=13))
 
     def test_retry_checkpoint_preserves_embedding_identity(self):
@@ -215,7 +216,7 @@ class TaxonomyEmbeddingTests(unittest.TestCase):
                 )
             checkpoint = json.loads(checkpoint_path.read_text(encoding="utf-8"))
             self.assertEqual(checkpoint["status"], "retry-pending")
-            self.assertEqual(checkpoint["nextRetryAt"], "2026-09-03T12:00:00+00:00")
+            self.assertEqual(checkpoint["nextRetryAt"], "2026-09-03T01:00:00+00:00")
             self.assertEqual(checkpoint["repository"], {"lastPushedCommit": "abc"})
             self.assertEqual(
                 {key: checkpoint[key] for key in identity},
