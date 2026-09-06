@@ -5,6 +5,7 @@ wyniknąć podczas lektury źródeł, ale nie są jeszcze częścią zatwierdzon
 
 - `taxonomy/` — pomysły na kategorie i podkategorie cech, ich synonimy oraz granice,
 - `activity-kinds/` — pomysły na rodzaje aktywności inne niż gra i próba,
+- `filters/` — proponowane fasety wyszukiwania i ich granice, zanim trafią do modelu danych,
 - `templates/` — szablon nowej propozycji.
 
 Status `proposed` oznacza hipotezę redakcyjną. Agent może ją dopisać i zebrać przykłady,
