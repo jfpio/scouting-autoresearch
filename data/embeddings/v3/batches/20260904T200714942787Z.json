@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "semantic-map-v3-embeddings",
+  "batchId": "20260904T200714942787Z",
+  "generatedAt": "2026-09-04T20:07:14.942787+00:00",
+  "sourceId": "hwp-1946",
+  "modelRequested": "mistral-embed-2312",
+  "model": "mistral-embed-2312",
+  "dimensions": 1024,
+  "recipeVersion": "bilingual-game-context-v1",
+  "billingMode": "education-credit",
+  "modelAccess": {
+    "checked": true,
+    "modelId": "mistral-embed-2312"
+  },
+  "referencePriceUsdPerMillionInputTokens": 0.1,
+  "referencePriceSource": "https://docs.mistral.ai/models/mistral-embed-23-12",
+  "referencePriceAccessedOn": "2026-09-04",
+  "activityIds": [
+    "hwp-101",
+    "hwp-102",
+    "hwp-103",
+    "hwp-104",
+    "hwp-105",
+    "hwp-106",
+    "hwp-107",
+    "hwp-108",
+    "hwp-109",
+    "hwp-110",
+    "hwp-111",
+    "hwp-112",
+    "hwp-113",
+    "hwp-114",
+    "hwp-115",
+    "hwp-116",
+    "hwp-117"
+  ],
+  "usage": {
+    "promptTokens": 20843,
+    "billedCostUsd": null,
+    "referenceCostUsd": 0.0020843
+  }
+}
