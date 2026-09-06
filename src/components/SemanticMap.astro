@@ -1,0 +1,227 @@
+---
+import activitiesPl from '../../data/generated/activities.pl.json';
+import activitiesEn from '../../data/generated/activities.en.json';
+import analysis from '../../data/reports/semantic-map-v3-analysis.json';
+
+interface Props {
+  locale?: 'pl' | 'en';
+}
+
+const { locale = 'pl' } = Astro.props;
+const isPl = locale === 'pl';
+const activities = locale === 'en' ? activitiesEn : activitiesPl;
+const activityById = new Map(activities.map((activity) => [activity.id, activity]));
+const labels = isPl
+  ? {
+      source: 'Źródło',
+      allSources: 'Wszystkie trzy źródła',
+      search: 'Szukaj gry',
+      placeholder: 'Tytuł lub identyfikator',
+      count: 'widocznych gier',
+      empty: 'Brak gier pasujących do filtrów.',
+      mapTitle: 'Semantyczna mapa historycznych gier harcerskich',
+      mapDescription: 'Każdy punkt prowadzi do strony gry. Położenie pokazuje podobieństwo tekstu, a linia łączy wyłącznie warianty zatwierdzone przez człowieka.',
+      listTitle: 'Dostępna lista punktów mapy',
+      approvedTitle: 'Zatwierdzone powiązanie wariantów',
+      approvedText: 'Linia na mapie oznacza wyłącznie tę ręcznie zatwierdzoną relację. Pozostałe podobieństwa nie są publikowane jako relacje.',
+    }
+  : {
+      source: 'Source',
+      allSources: 'All three sources',
+      search: 'Search games',
+      placeholder: 'Title or identifier',
+      count: 'visible games',
+      empty: 'No games match the filters.',
+      mapTitle: 'Semantic map of historical scouting games',
+      mapDescription: 'Every point links to a game page. Position represents textual similarity, while the line connects only variants approved by a person.',
+      listTitle: 'Accessible list of map points',
+      approvedTitle: 'Approved variant link',
+      approvedText: 'The map line represents only this human-approved relation. Other similarities are not published as relations.',
+    };
+const sourceLabels = new Map([
+  ['bsh-1911-seton-games', 'E. T. Seton — Boy Scouts Handbook (1911)'],
+  ['hwp-1946', 'Z. Wyrobek — Harcerz w polu (1946)'],
+  ['sfb-1908', 'R. Baden-Powell — Scouting for Boys (1908)'],
+]);
+const sourceOrder = ['bsh-1911-seton-games', 'hwp-1946', 'sfb-1908'];
+const basePath = locale === 'en' ? '/scouting-autoresearch/en/activities/' : '/scouting-autoresearch/activities/';
+const rawPoints = analysis.points.map((point) => {
+  const activity = activityById.get(point.activityId);
+  if (!activity) throw new Error(`Semantic-map activity is missing: ${point.activityId}`);
+  return { ...point, title: activity.title, sourceTitle: activity.sourceTitle, author: activity.author, year: activity.year };
+});
+const xs = rawPoints.map((point) => point.x);
+const ys = rawPoints.map((point) => point.y);
+const bounds = { minX: Math.min(...xs), maxX: Math.max(...xs), minY: Math.min(...ys), maxY: Math.max(...ys) };
+const width = 1000;
+const height = 650;
+const padding = 28;
+const scale = (value, minimum, maximum, outputMinimum, outputMaximum) =>
+  outputMinimum + ((value - minimum) / (maximum - minimum || 1)) * (outputMaximum - outputMinimum);
+const points = rawPoints.map((point) => ({
+  ...point,
+  cx: scale(point.x, bounds.minX, bounds.maxX, padding, width - padding),
+  cy: scale(point.y, bounds.minY, bounds.maxY, height - padding, padding),
+}));
+const pointById = new Map(points.map((point) => [point.activityId, point]));
+const approvedRelations = analysis.approvedRelationOverlays.map((relation) => {
+  const [leftId, rightId] = relation.activityIds;
+  const left = pointById.get(leftId);
+  const right = pointById.get(rightId);
+  if (!left || !right) throw new Error(`Semantic-map relation is outside the map: ${relation.relationId}`);
+  return { ...relation, left, right };
+});
+const sortedPoints = [...points].sort((left, right) => left.title.localeCompare(right.title, locale));
+---
+
+<section class="semantic-map" data-semantic-map>
+  <div class="map-controls">
+    <label>
+      <span>{labels.search}</span>
+      <input type="search" data-map-query placeholder={labels.placeholder} autocomplete="off" />
+    </label>
+    <label>
+      <span>{labels.source}</span>
+      <select data-map-source>
+        <option value="">{labels.allSources}</option>
+        {sourceOrder.map((sourceId) => <option value={sourceId}>{sourceLabels.get(sourceId)}</option>)}
+      </select>
+    </label>
+    <p class="map-count" aria-live="polite"><strong data-map-count>{points.length}</strong> {labels.count}</p>
+  </div>
+
+  <ul class="map-legend" aria-label={labels.source}>
+    {sourceOrder.map((sourceId) => (
+      <li><span class={`legend-mark source-${sourceId}`} aria-hidden="true"></span>{sourceLabels.get(sourceId)}</li>
+    ))}
+    <li><span class="legend-line" aria-hidden="true"></span>{labels.approvedTitle}</li>
+  </ul>
+
+  <div class="map-plot">
+    <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-labelledby="semantic-map-title semantic-map-description">
+      <title id="semantic-map-title">{labels.mapTitle}</title>
+      <desc id="semantic-map-description">{labels.mapDescription}</desc>
+      <g class="approved-relations">
+        {approvedRelations.map((relation) => (
+          <line
+            x1={relation.left.cx}
+            y1={relation.left.cy}
+            x2={relation.right.cx}
+            y2={relation.right.cy}
+            data-map-relation
+            data-left-source={relation.left.sourceId}
+            data-right-source={relation.right.sourceId}
+          />
+        ))}
+      </g>
+      <g class="map-points">
+        {points.map((point) => (
+          <a
+            class={`map-point source-${point.sourceId}`}
+            href={`${basePath}${point.activityId}/`}
+            aria-label={`${point.title}, ${sourceLabels.get(point.sourceId)}, ${point.activityId}`}
+            data-map-point
+            data-source={point.sourceId}
+            data-search={`${point.activityId} ${point.title}`}
+          >
+            <circle class="map-hit" cx={point.cx} cy={point.cy} r="10" />
+            {point.sourceId === 'bsh-1911-seton-games' && <circle class="map-mark" cx={point.cx} cy={point.cy} r="4.8" />}
+            {point.sourceId === 'hwp-1946' && <rect class="map-mark" x={point.cx - 4.5} y={point.cy - 4.5} width="9" height="9" rx="1" />}
+            {point.sourceId === 'sfb-1908' && <path class="map-mark" d={`M ${point.cx} ${point.cy - 6} L ${point.cx + 6} ${point.cy} L ${point.cx} ${point.cy + 6} L ${point.cx - 6} ${point.cy} Z`} />}
+          </a>
+        ))}
+      </g>
+    </svg>
+  </div>
+
+  {approvedRelations.map((relation) => (
+    <p class="approved-note">
+      <strong>{labels.approvedTitle}:</strong>{' '}
+      <a href={`${basePath}${relation.left.activityId}/`}>{relation.left.title}</a>{' — '}
+      <a href={`${basePath}${relation.right.activityId}/`}>{relation.right.title}</a>. {labels.approvedText}
+    </p>
+  ))}
+
+  <details class="map-list-disclosure">
+    <summary>{labels.listTitle}</summary>
+    <ul class="map-list" data-map-list>
+      {sortedPoints.map((point) => (
+        <li data-map-list-item data-source={point.sourceId} data-search={`${point.activityId} ${point.title}`}>
+          <a href={`${basePath}${point.activityId}/`}>{point.title}</a>
+          <span>{point.activityId} · {sourceLabels.get(point.sourceId)}</span>
+        </li>
+      ))}
+    </ul>
+    <p data-map-empty hidden>{labels.empty}</p>
+  </details>
+</section>
+
+<script>
+  const normalizeMapText = (value) => value.toLocaleLowerCase('pl').normalize('NFKD').replace(/\p{Diacritic}/gu, '');
+  document.querySelectorAll('[data-semantic-map]').forEach((map) => {
+    const query = map.querySelector('[data-map-query]');
+    const source = map.querySelector('[data-map-source]');
+    const count = map.querySelector('[data-map-count]');
+    const empty = map.querySelector('[data-map-empty]');
+    const points = [...map.querySelectorAll('[data-map-point]')];
+    const listItems = [...map.querySelectorAll('[data-map-list-item]')];
+    const relations = [...map.querySelectorAll('[data-map-relation]')];
+    const apply = () => {
+      const needle = normalizeMapText(query.value || '');
+      const selectedSource = source.value;
+      const matches = (item) =>
+        (!selectedSource || item.dataset.source === selectedSource)
+        && (!needle || normalizeMapText(item.dataset.search || '').includes(needle));
+      let visible = 0;
+      points.forEach((point) => {
+        const isVisible = matches(point);
+        point.toggleAttribute('hidden', !isVisible);
+        if (isVisible) visible += 1;
+      });
+      listItems.forEach((item) => { item.hidden = !matches(item); });
+      relations.forEach((relation) => {
+        let hideRelation = Boolean(selectedSource)
+          && (relation.dataset.leftSource !== selectedSource || relation.dataset.rightSource !== selectedSource);
+        if (needle) hideRelation = true;
+        relation.toggleAttribute('hidden', hideRelation);
+      });
+      count.textContent = String(visible);
+      empty.hidden = visible !== 0;
+    };
+    query.addEventListener('input', apply);
+    source.addEventListener('input', apply);
+    apply();
+  });
+</script>
+
+<style>
+  .semantic-map { margin-top: 1.25rem; }
+  .map-controls { display: grid; grid-template-columns: minmax(12rem, 1fr) minmax(16rem, 1.4fr) auto; align-items: end; gap: .75rem; padding: 1rem; border: 1px solid var(--rule); border-radius: .85rem; background: var(--paper-deep); }
+  .map-controls label { display: grid; gap: .28rem; color: var(--muted); font-size: .75rem; font-weight: 700; }
+  .map-controls input, .map-controls select { width: 100%; min-height: 2.5rem; padding: .45rem .65rem; border: 1px solid var(--rule); border-radius: .5rem; background: var(--paper); color: var(--ink); font-size: .9rem; }
+  .map-count { margin: 0; padding-bottom: .55rem; color: var(--muted); white-space: nowrap; }
+  .map-legend { display: flex; flex-wrap: wrap; gap: .55rem 1rem; margin: 1rem 0 .65rem; padding: 0; color: var(--muted); font-size: .78rem; list-style: none; }
+  .map-legend li { display: inline-flex; align-items: center; gap: .35rem; }
+  .legend-mark { width: .72rem; height: .72rem; border-radius: 50%; background: var(--map-source-color); }
+  .legend-mark.source-hwp-1946 { border-radius: .12rem; }
+  .legend-mark.source-sfb-1908 { border-radius: 0; transform: rotate(45deg) scale(.8); }
+  .legend-line { width: 1.5rem; border-top: 3px solid var(--map-approved); }
+  .map-plot { border: 1px solid var(--rule); border-radius: .85rem; background: radial-gradient(circle at 50% 40%, var(--paper), var(--paper-deep)); overflow: hidden; }
+  .map-plot svg { display: block; width: 100%; height: auto; min-height: 24rem; }
+  .map-point { color: var(--map-source-color); }
+  .map-hit { fill: transparent; }
+  .map-mark { fill: currentColor; stroke: var(--paper); stroke-width: 1.4; vector-effect: non-scaling-stroke; }
+  .map-point:hover .map-mark, .map-point:focus .map-mark { stroke: var(--ink); stroke-width: 3; }
+  .approved-relations line { stroke: var(--map-approved); stroke-width: 4; vector-effect: non-scaling-stroke; }
+  .source-bsh-1911-seton-games { --map-source-color: var(--map-seton); }
+  .source-hwp-1946 { --map-source-color: var(--map-hwp); }
+  .source-sfb-1908 { --map-source-color: var(--map-sfb); }
+  .approved-note { padding: .8rem 1rem; border-left: .25rem solid var(--map-approved); background: var(--paper-deep); }
+  .map-list-disclosure { margin-top: 1rem; }
+  .map-list-disclosure summary { cursor: pointer; font-weight: 700; }
+  .map-list { columns: 2; column-gap: 2rem; padding-left: 1.25rem; }
+  .map-list li { break-inside: avoid; margin-bottom: .55rem; }
+  .map-list span { display: block; color: var(--muted); font-size: .75rem; }
+  [hidden] { display: none !important; }
+  @media (max-width: 48rem) { .map-controls { grid-template-columns: 1fr; } .map-count { padding-bottom: 0; } .map-list { columns: 1; } .map-plot svg { min-height: 18rem; } }
+</style>
