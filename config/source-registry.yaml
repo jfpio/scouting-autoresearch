@@ -11,7 +11,12 @@ collections:
     status: approved-per-item
     allowedMethods: [record-metadata, documented-download]
     rateLimitPerMinute: 10
-    notes: Każdy obiekt wymaga zachowania własnego oznaczenia praw i URL rekordu.
+    metadataUrlTemplate: https://polona.pl/api/library-object-query/digital-objects/{uuid}
+    oldIdResolverUrlTemplate: https://polona.pl/api/library-object-query/digital-objects/new-id/{oldId}
+    notes: >-
+      Każdy obiekt wymaga zachowania własnego oznaczenia praw i URL rekordu. Stare numery
+      rozwiązuj do aktualnego UUID przez oficjalny endpoint metadanych; plik generuj lub
+      pobieraj dopiero po decyzji per-item.
   - id: azymut-zhr
     name: Azymut ZHR
     baseUrl: https://azymut.zhr.pl/

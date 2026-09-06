@@ -33,11 +33,14 @@ i sygnaturze pliku.
   `/Content/*/zip*` i `/zipContent`.
 - Podlinkowana strona `dlibra/text?id=polityka` wyświetliła domyślną stronę pomocy dotyczącą
   cookies; nie znaleziono na niej publicznych warunków ponownego użycia.
-- Decyzja techniczna: **nie wolno automatycznie pobierać trzech ZIP-ów**. Trzeba znaleźć
+- Decyzja techniczna: **nie wolno automatycznie pobierać trzech ZIP-ów**. Dla *Gier i zabaw
+  w izbie harcerskiej* znaleziono dokładne wydanie drugie z 1934 r. w Polonie pod UUID
+  `f8a00528-6a07-4916-9a76-c1e094e317da`. Dla dwóch pozostałych tytułów trzeba znaleźć
   dozwolony artefakt innego typu lub niezależny egzemplarz; alternatywnie właściciel może
   sam dostarczyć legalnie pobrany plik do scratch.
 
-Dotyczy: `dabrowski-indoor-games-1934`, `dabrowski-winter-games-1935` oraz
+Blokada ZIP dotyczy trzech rekordów PBC, ale alternatywa Polony usuwa ją z krytycznej ścieżki
+`dabrowski-indoor-games-1934`. Nadal blokuje `dabrowski-winter-games-1935` oraz
 `sedlaczek-fieldcraft-method-1935`.
 
 ### Kujawsko-Pomorska Biblioteka Cyfrowa

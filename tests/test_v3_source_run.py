@@ -90,7 +90,7 @@ class V3SourceRunTests(unittest.TestCase):
         unit = next(
             item
             for item in manifest["sourceUnits"]
-            if item["id"] == "dabrowski-indoor-games-1934"
+            if item["id"] == "dabrowski-winter-games-1935"
         )
         unit["proposedAcquisition"]["status"] = "human-approval-required"
         self.assertTrue(

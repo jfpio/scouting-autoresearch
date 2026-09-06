@@ -57,8 +57,11 @@ rekordu i strony.
 
 3. **Juliusz Dąbrowski, *Gry i zabawy w izbie harcerskiej*, wyd. 2, 1934.** Oficjalny rekord
    Podkarpackiej Biblioteki Cyfrowej podaje autora `1909–1940`, rok, drugie wydanie, format DjVu
-   oraz oznaczenie `Domena publiczna (public domain)`. Status: **proza Dąbrowskiego kwalifikuje
-   się warunkowo; grafika i cudze cytaty pozostają wyłączone**.
+   oraz oznaczenie `Domena publiczna (public domain)`. Ponieważ `robots.txt` blokuje zbiorczy
+   ZIP PBC, manifest został przełączony na dokładne wydanie drugie z 1934 r. w Polonie pod
+   UUID `f8a00528-6a07-4916-9a76-c1e094e317da`; oficjalne metadane Polony potwierdzają tytuł,
+   wydanie i imprint oraz oznaczają obiekt jako niechroniony. Status: **proza Dąbrowskiego
+   kwalifikuje się warunkowo; grafika i cudze cytaty pozostają wyłączone**.
 
 4. **Eugeniusz Piasecki, *Zabawy i gry ruchowe dzieci i młodzieży*, wyd. 3, 1922.** Pierwotny
    manifest błędnie przypisywał tę pozycję również Mieczysławowi Schreiberowi i datował na
@@ -119,6 +122,11 @@ rekordu i strony.
   https://www.pbc.rzeszow.pl/dlibra/publication/11501/edition/10568,
   https://www.pbc.rzeszow.pl/dlibra/publication/11554/edition/10620,
   https://www.pbc.rzeszow.pl/dlibra/publication/11539/edition/10606
+- Aktualne rekordy metadanych Polony używane w V3-R1:
+  https://polona.pl/api/library-object-query/digital-objects/b1600bcb-668f-4daf-a37b-81fade26971f,
+  https://polona.pl/api/library-object-query/digital-objects/71788615-5b35-4973-88c0-f6e1550be578,
+  https://polona.pl/api/library-object-query/digital-objects/f8a00528-6a07-4916-9a76-c1e094e317da,
+  https://polona.pl/api/library-object-query/digital-objects/3f71abd7-af13-4f31-9b48-cab79f380362
 - Piasecki 1922 w KPBC: https://kpbc.umk.pl/dlibra/publication/183639/edition/193867
 - Informacja AWF o domenie publicznej twórczości Piaseckiego:
   https://old.awf.poznan.pl/pl/biblioteka/4330-profesor-eugeniusz-piasecki-1872-1947-wybrane-publikacje-w-zbiorach-biblioteki-glownej-awf-w-poznaniu

@@ -25,16 +25,19 @@
       "corrections": [
         "Piasecki movement-games edition corrected from 1920 coauthored to 1922 Piasecki-only",
         "Młoda drużyna URL corrected to publication 29783 edition 28922",
-        "Harce młodzieży polskiej retargeted to open WBC edition 515207/440525"
+        "Harce młodzieży polskiej retargeted to open WBC edition 515207/440525",
+        "Four legacy Polona IDs resolved to current UUID records",
+        "Gry i zabawy w izbie harcerskiej retargeted from a robots-blocked PBC ZIP to the exact 1934 second edition in Polona"
       ]
     },
     "acquisitionPreparation": {
       "status": "complete-awaiting-human-decision",
       "contentDownloadsPerformed": 0,
-      "directArtifactLinksDiscovered": 7,
+      "regionalDirectArtifactLinksDiscovered": 7,
       "directArtifactCandidatesActionableAfterApproval": 4,
-      "automatedFetchBlockedByRobots": 3,
-      "polonaRecordsRequiringPost-approvalResolution": 3,
+      "automatedFetchBlockedByRobots": 2,
+      "robotsBlockedLinksWithPermittedAlternative": 1,
+      "polonaRecordsRequiringPost-approvalResolution": 4,
       "preFetchedGallicaSources": 1,
       "rawArtifactsStorage": "scratch-only",
       "executionAdapterStatus": "intentionally-not-implemented-before-access-approval"

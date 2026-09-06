@@ -104,7 +104,6 @@ def v3_source_run_errors(
     require(
         set(acquisition_preparation.get("automatedFetchBlockedByRobotsSourceUnits") or [])
         == {
-            "dabrowski-indoor-games-1934",
             "dabrowski-winter-games-1935",
             "sedlaczek-fieldcraft-method-1935",
         },
@@ -210,12 +209,15 @@ def v3_source_run_errors(
                 == "permitted-non-zip-artifact-or-human-supplied-file",
                 f"{unit_id}: robots-blocked PBC artifact is not safely represented",
             )
-        elif method == "polona-old-id-record":
+        elif method == "polona-uuid-record":
+            uuid = str(proposed.get("uuid") or "")
             require(
                 proposed.get("status") == "resolve-after-human-gate"
                 and proposed.get("artifactType") == "unresolved"
                 and isinstance(proposed.get("oldId"), int)
                 and proposed.get("oldId") > 0
+                and len(uuid) == 36
+                and str(unit.get("url") or "") == f"https://polona.pl/preview/{uuid}"
                 and not proposed.get("url"),
                 f"{unit_id}: Polona acquisition proposal is not safely unresolved",
             )
@@ -233,8 +235,8 @@ def v3_source_run_errors(
         acquisition_method_counts
         == {
             "direct-artifact-link-from-metadata-page": 4,
-            "zip-link-blocked-by-robots": 3,
-            "polona-old-id-record": 3,
+            "zip-link-blocked-by-robots": 2,
+            "polona-uuid-record": 4,
             "pre-fetched-iiif-views": 1,
         },
         "V3 acquisition preparation does not cover all eleven source units",
@@ -314,10 +316,11 @@ def v3_source_run_errors(
     ) or {}
     require(
         checkpoint_acquisition.get("contentDownloadsPerformed") == 0
-        and checkpoint_acquisition.get("directArtifactLinksDiscovered") == 7
+        and checkpoint_acquisition.get("regionalDirectArtifactLinksDiscovered") == 7
         and checkpoint_acquisition.get("directArtifactCandidatesActionableAfterApproval") == 4
-        and checkpoint_acquisition.get("automatedFetchBlockedByRobots") == 3
-        and checkpoint_acquisition.get("polonaRecordsRequiringPost-approvalResolution") == 3
+        and checkpoint_acquisition.get("automatedFetchBlockedByRobots") == 2
+        and checkpoint_acquisition.get("robotsBlockedLinksWithPermittedAlternative") == 1
+        and checkpoint_acquisition.get("polonaRecordsRequiringPost-approvalResolution") == 4
         and checkpoint_acquisition.get("preFetchedGallicaSources") == 1,
         "V3 acquisition-preparation checkpoint is stale",
     )
