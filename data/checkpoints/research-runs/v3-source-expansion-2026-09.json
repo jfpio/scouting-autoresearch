@@ -89,7 +89,7 @@
     {"id": "sedlaczek-fieldcraft-method-1935", "status": "not-started"},
     {"id": "piasecki-schreiber-polish-scoutcraft-1917", "status": "acquired", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-schreiber-polish-scoutcraft-1917.json"},
     {"id": "sedlaczek-scout-school-1921", "status": "acquired", "inspectionCheckpoint": "data/checkpoints/source-inspection/sedlaczek-scout-school-1921.json"},
-    {"id": "chamarande-1934", "status": "ocr-pending", "ocrCheckpoint": "data/checkpoints/gallica-fetch/chamarande-1934.json"}
+    {"id": "chamarande-1934", "status": "zero-yield", "ocrCheckpoint": "data/checkpoints/gallica-fetch/chamarande-1934.json", "extractionReport": "data/reports/chamarande-1934-extraction.json", "candidateCount": 0, "importedActivityCount": 0, "referenceCostUsd": 0.456, "terminalReason": "The approved prose contains programme-level mentions of games but no self-contained game rules."}
   ],
   "nextStep": "complete the sequential Polona acquisitions, OCR the image-only sources, and extract games from the three usable embedded-text PDFs",
   "pullRequestOpened": false
