@@ -28,6 +28,15 @@
         "Harce młodzieży polskiej retargeted to open WBC edition 515207/440525"
       ]
     },
+    "acquisitionPreparation": {
+      "status": "complete-awaiting-human-decision",
+      "contentDownloadsPerformed": 0,
+      "directArtifactCandidates": 7,
+      "polonaRecordsRequiringPost-approvalResolution": 3,
+      "preFetchedGallicaSources": 1,
+      "rawArtifactsStorage": "scratch-only",
+      "executionAdapterStatus": "intentionally-not-implemented-before-access-approval"
+    },
     "heliosSiteSmoke": {
       "status": "passed",
       "jobId": "22070124",

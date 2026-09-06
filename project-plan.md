@@ -231,8 +231,8 @@ kanoniczny manifest to `config/v3-source-expansion.yaml`. Obejmuje jedenaście j
 1. Jan Jasiński, *Gry i ćwiczenia terenowe*, wyd. 2, 1938;
 2. Herman Mojmir, *Ćwiczenia i zabawy skautowe*, 1912;
 3. Juliusz Dąbrowski, *Gry i zabawy w izbie harcerskiej*, 1934;
-4. Eugeniusz Piasecki i Mieczysław Schreiber, *Zabawy i gry ruchowe dla dzieci i
-   młodzieży*, wyd. 3, 1920;
+4. Eugeniusz Piasecki, *Zabawy i gry ruchowe dzieci i młodzieży*, wyd. 3 poprawione i
+   rozszerzone, 1922;
 5. Juliusz Dąbrowski, *Harce zimowe w polu*, 1935;
 6. Alojzy Pawełek, *Młoda drużyna*, 1919;
 7. praca zbiorowa pod redakcją Jadwigi Zwolakowskiej, *W gromadzie zuchów*, 1945;

@@ -54,6 +54,14 @@ costPolicy:
   referenceCostLimitUsd: 10.0
   billedCostUsd: null
   requireVersionedCatalogPrice: true
+acquisitionPreparation:
+  contentDownloadsApproved: false
+  proposedArtifactLinksAreUntrustedMetadata: true
+  resolveAgainAfterHumanApproval: true
+  requireRegisteredHttpsHost: true
+  requireSignatureAndSizeValidation: true
+  rawArtifactsStorage: scratch-only
+  repositorySourceFilesAllowed: false
 translationPolicy:
   reasoningMode: disabled
   versionedModelPerSource: true
@@ -91,6 +99,11 @@ sourceUnits:
     targetCollectionId: polona
     accessStatus: per-item-review-required
     url: https://polona.pl/item/gry-i-cwiczenia-terenowe-harce-terenowe-dla-organizacyj-mlodziezy-hufcow-przyspos,ODQ5MTEzNjk/#info:metadata
+    proposedAcquisition:
+      status: resolve-after-human-gate
+      method: polona-old-id-record
+      oldId: 84911369
+      artifactType: unresolved
   - id: mojmir-scout-games-1912
     order: 2
     language: pl
@@ -102,6 +115,11 @@ sourceUnits:
     targetCollectionId: polona
     accessStatus: per-item-review-required
     url: https://polona.pl/item/cwiczenia-i-zabawy-skautowe,MTg0NDc4NTg/4/#info:metadata
+    proposedAcquisition:
+      status: resolve-after-human-gate
+      method: polona-old-id-record
+      oldId: 18447858
+      artifactType: unresolved
   - id: dabrowski-indoor-games-1934
     order: 3
     language: pl
@@ -113,6 +131,11 @@ sourceUnits:
     accessStatus: per-item-review-required
     targetDomain: www.pbc.rzeszow.pl
     url: https://www.pbc.rzeszow.pl/dlibra/publication/11501/edition/10568
+    proposedAcquisition:
+      status: human-approval-required
+      method: direct-artifact-link-from-metadata-page
+      artifactType: zip
+      url: https://www.pbc.rzeszow.pl/Content/10568/zip/
   - id: piasecki-movement-games-1922
     order: 4
     language: pl
@@ -125,6 +148,11 @@ sourceUnits:
     accessStatus: per-item-review-required
     targetDomain: kpbc.umk.pl
     url: https://kpbc.umk.pl/dlibra/publication/183639/edition/193867
+    proposedAcquisition:
+      status: human-approval-required
+      method: direct-artifact-link-from-metadata-page
+      artifactType: pdf
+      url: https://kpbc.umk.pl/Content/193867/PDF/Magazyn_265_06_HD_008.pdf
   - id: dabrowski-winter-games-1935
     order: 5
     language: pl
@@ -136,6 +164,11 @@ sourceUnits:
     accessStatus: per-item-review-required
     targetDomain: www.pbc.rzeszow.pl
     url: https://www.pbc.rzeszow.pl/dlibra/publication/11554/edition/10620
+    proposedAcquisition:
+      status: human-approval-required
+      method: direct-artifact-link-from-metadata-page
+      artifactType: zip
+      url: https://www.pbc.rzeszow.pl/Content/10620/zip/
   - id: pawelek-young-troop-1919
     order: 6
     language: pl
@@ -147,6 +180,11 @@ sourceUnits:
     accessStatus: per-item-review-required
     targetDomain: pbc.biaman.pl
     url: https://pbc.biaman.pl/dlibra/publication/29783/edition/28922
+    proposedAcquisition:
+      status: human-approval-required
+      method: direct-artifact-link-from-metadata-page
+      artifactType: pdf
+      url: https://pbc.biaman.pl/Content/28922/PDF/Mloda%20druzyna.pdf
   - id: zwolakowska-cub-pack-1945
     order: 7
     language: pl
@@ -157,6 +195,11 @@ sourceUnits:
     targetCollectionId: polona
     accessStatus: component-authorship-and-per-item-review-required
     url: https://polona.pl/item/w-gromadzie-zuchow-praca-zbiorowa,OTI4ODQ2MTc/#info:metadata
+    proposedAcquisition:
+      status: resolve-after-human-gate
+      method: polona-old-id-record
+      oldId: 92884617
+      artifactType: unresolved
   - id: sedlaczek-fieldcraft-method-1935
     order: 8
     language: pl
@@ -168,6 +211,11 @@ sourceUnits:
     accessStatus: per-item-review-required
     targetDomain: www.pbc.rzeszow.pl
     url: https://www.pbc.rzeszow.pl/dlibra/publication/11539/edition/10606
+    proposedAcquisition:
+      status: human-approval-required
+      method: direct-artifact-link-from-metadata-page
+      artifactType: zip
+      url: https://www.pbc.rzeszow.pl/Content/10606/zip/
   - id: piasecki-schreiber-polish-scoutcraft-1917
     order: 9
     language: pl
@@ -180,6 +228,11 @@ sourceUnits:
     accessStatus: per-item-review-required
     targetDomain: www.wbc.poznan.pl
     url: https://www.wbc.poznan.pl/publication/515207/edition/440525/
+    proposedAcquisition:
+      status: human-approval-required
+      method: direct-artifact-link-from-metadata-page
+      artifactType: pdf
+      url: https://www.wbc.poznan.pl/Content/440525/PDF/515207.pdf
   - id: sedlaczek-scout-school-1921
     order: 10
     language: pl
@@ -191,6 +244,11 @@ sourceUnits:
     accessStatus: per-item-review-required
     targetDomain: www.sbc.org.pl
     url: https://www.sbc.org.pl/dlibra/publication/68754/edition/64835
+    proposedAcquisition:
+      status: human-approval-required
+      method: direct-artifact-link-from-metadata-page
+      artifactType: pdf
+      url: https://www.sbc.org.pl/Content/64835/PDF/64835.pdf
   - id: chamarande-1934
     order: 11
     language: fr
@@ -204,3 +262,8 @@ sourceUnits:
     itemIdentifier: bpt6k3373518k
     rightsReviewRecord: vault/reviews/accepted/candidate-jacques-sevin-chamarande-gallica.md
     pageScopeReviewRecord: vault/reviews/inbox/chamarande-1934-prose-scope.md
+    proposedAcquisition:
+      status: page-scope-human-approval-required
+      method: pre-fetched-iiif-views
+      completedViews: 188
+      artifactType: jpeg-views

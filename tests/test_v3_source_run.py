@@ -63,6 +63,25 @@ class V3SourceRunTests(unittest.TestCase):
             any("acquisition gate" in error for error in self.errors(manifest))
         )
 
+    def test_rejects_a_proposed_download_that_claims_approval(self):
+        manifest = copy.deepcopy(self.manifest)
+        manifest["acquisitionPreparation"]["contentDownloadsApproved"] = True
+        self.assertTrue(
+            any("content downloads are approved" in error for error in self.errors(manifest))
+        )
+
+    def test_rejects_an_artifact_candidate_on_another_host(self):
+        manifest = copy.deepcopy(self.manifest)
+        unit = next(
+            item
+            for item in manifest["sourceUnits"]
+            if item["id"] == "dabrowski-indoor-games-1934"
+        )
+        unit["proposedAcquisition"]["url"] = "https://untrusted.example/source.zip"
+        self.assertTrue(
+            any("outside the registered HTTPS host" in error for error in self.errors(manifest))
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

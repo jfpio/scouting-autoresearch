@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 import yaml
 
@@ -77,6 +78,30 @@ def v3_source_run_errors(
     require(translation.get("reasoningMode") == "disabled", "V3 translations must not enable reasoning")
     require(translation.get("directions") == {"pl": ["en"], "fr": ["pl", "en"]}, "V3 translation directions are incomplete")
 
+    acquisition_preparation = manifest.get("acquisitionPreparation") or {}
+    require(
+        acquisition_preparation.get("contentDownloadsApproved") is False,
+        "Prepared V3 run claims that content downloads are approved",
+    )
+    require(
+        acquisition_preparation.get("proposedArtifactLinksAreUntrustedMetadata") is True,
+        "Prepared V3 run treats proposed artifact links as trusted",
+    )
+    require(
+        acquisition_preparation.get("resolveAgainAfterHumanApproval") is True,
+        "Prepared V3 run would not resolve artifact links again after approval",
+    )
+    require(
+        acquisition_preparation.get("requireRegisteredHttpsHost") is True
+        and acquisition_preparation.get("requireSignatureAndSizeValidation") is True,
+        "Prepared V3 run lacks artifact safety checks",
+    )
+    require(
+        acquisition_preparation.get("rawArtifactsStorage") == "scratch-only"
+        and acquisition_preparation.get("repositorySourceFilesAllowed") is False,
+        "Prepared V3 run may persist source files in the repository",
+    )
+
     units = manifest.get("sourceUnits") or []
     ids = [unit.get("id") for unit in units]
     require(len(units) == 11, "V3 source manifest does not contain eleven units")
@@ -87,6 +112,7 @@ def v3_source_run_errors(
     require(sum(unit.get("language") == "fr" for unit in units) == 1, "V3 source manifest needs one French-language unit")
 
     collections = {item.get("id"): item for item in registry.get("collections", [])}
+    acquisition_method_counts: dict[str, int] = {}
     for unit in units:
         unit_id = unit.get("id") or "<missing-id>"
         require(bool(unit.get("title")), f"{unit_id}: missing title")
@@ -96,6 +122,56 @@ def v3_source_run_errors(
         require(unit.get("discoveryCollectionId") in collections, f"{unit_id}: unregistered discovery collection")
         require(unit.get("targetCollectionId") in collections, f"{unit_id}: unregistered target collection")
         require(bool(unit.get("accessStatus")), f"{unit_id}: missing access status")
+        proposed = unit.get("proposedAcquisition") or {}
+        method = proposed.get("method")
+        acquisition_method_counts[method] = acquisition_method_counts.get(method, 0) + 1
+        require(bool(method), f"{unit_id}: missing proposed acquisition method")
+        if method == "direct-artifact-link-from-metadata-page":
+            artifact_url = str(proposed.get("url") or "")
+            parsed_artifact = urlparse(artifact_url)
+            expected_host = unit.get("targetDomain") or urlparse(
+                str((collections.get(unit.get("targetCollectionId")) or {}).get("baseUrl") or "")
+            ).hostname
+            require(
+                proposed.get("status") == "human-approval-required",
+                f"{unit_id}: direct artifact candidate bypasses human approval",
+            )
+            require(
+                proposed.get("artifactType") in {"pdf", "zip"},
+                f"{unit_id}: direct artifact candidate has an unsupported type",
+            )
+            require(
+                parsed_artifact.scheme == "https" and parsed_artifact.hostname == expected_host,
+                f"{unit_id}: direct artifact candidate is outside the registered HTTPS host",
+            )
+        elif method == "polona-old-id-record":
+            require(
+                proposed.get("status") == "resolve-after-human-gate"
+                and proposed.get("artifactType") == "unresolved"
+                and isinstance(proposed.get("oldId"), int)
+                and proposed.get("oldId") > 0
+                and not proposed.get("url"),
+                f"{unit_id}: Polona acquisition proposal is not safely unresolved",
+            )
+        elif method == "pre-fetched-iiif-views":
+            require(
+                unit_id == "chamarande-1934"
+                and proposed.get("status") == "page-scope-human-approval-required"
+                and proposed.get("completedViews") == 188
+                and proposed.get("artifactType") == "jpeg-views",
+                "Chamarande acquisition preparation is inconsistent",
+            )
+        else:
+            require(False, f"{unit_id}: unsupported proposed acquisition method")
+    require(
+        acquisition_method_counts
+        == {
+            "direct-artifact-link-from-metadata-page": 7,
+            "polona-old-id-record": 3,
+            "pre-fetched-iiif-views": 1,
+        },
+        "V3 acquisition preparation does not cover all eleven source units",
+    )
 
     chamarande = next((unit for unit in units if unit.get("id") == "chamarande-1934"), {})
     require(chamarande.get("itemIdentifier") == "bpt6k3373518k", "Chamarande has a bad Gallica identifier")
@@ -166,6 +242,16 @@ def v3_source_run_errors(
         "Prepared V3 checkpoint contains a source that has already started",
     )
     require(checkpoint.get("pullRequestOpened") is False, "Prepared V3 checkpoint claims an open PR")
+    checkpoint_acquisition = (checkpoint.get("preparation") or {}).get(
+        "acquisitionPreparation"
+    ) or {}
+    require(
+        checkpoint_acquisition.get("contentDownloadsPerformed") == 0
+        and checkpoint_acquisition.get("directArtifactCandidates") == 7
+        and checkpoint_acquisition.get("polonaRecordsRequiringPost-approvalResolution") == 3
+        and checkpoint_acquisition.get("preFetchedGallicaSources") == 1,
+        "V3 acquisition-preparation checkpoint is stale",
+    )
     return errors
 
 
