@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-source-pdf-inspection",
+  "sourceId": "pawelek-young-troop-1919",
+  "status": "complete",
+  "classification": "image-ocr-required",
+  "sourcePdf": {
+    "scratchRelativePath": "scouting-autoresearch/sources/pawelek-young-troop-1919/source.pdf",
+    "sha256": "9c5eb912f3374ef4405dbae96c0b43851a69713c4faf8ce4c81fe6e9eae5aa41",
+    "bytes": 35286756
+  },
+  "pdf": {
+    "tagged": "no",
+    "pages": 118,
+    "encrypted": "no",
+    "pageSize": "355.2 x 500.4 pts",
+    "pdfVersion": "1.6"
+  },
+  "embeddedText": {
+    "scratchRelativePath": "scouting-autoresearch/inspection/pawelek-young-troop-1919/pdftotext-layout.txt",
+    "sha256": "e9742d96e576b5cb5b1829e8bf61c461fb1b66f596bd8ba27e89ef785309040f",
+    "bytes": 118,
+    "characters": 118,
+    "nonWhitespaceCharacters": 0,
+    "lines": 118,
+    "replacementCharacters": 0
+  },
+  "slurm": {
+    "jobId": "22076171",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "node": "x1001c0s3b0n0",
+    "architecture": "x86_64",
+    "gitRevision": "a35ff3365c018852b91bae2e5a86ddf871c46774"
+  },
+  "completedAt": "2026-09-06T18:27:33.294172+00:00",
+  "sourceFilesCommittedToRepository": 0
+}

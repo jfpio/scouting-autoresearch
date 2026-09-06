@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-source-acquisition",
+  "sourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+  "collectionId": "wbc",
+  "status": "complete",
+  "sourceFilesCommittedToRepository": 0,
+  "items": [
+    {
+      "kind": "pdf",
+      "status": "complete",
+      "url": "https://www.wbc.poznan.pl/Content/440525/PDF/515207.pdf",
+      "finalUrl": "https://www.wbc.poznan.pl/Content/440525/PDF/515207.pdf",
+      "scratchRelativePath": "scouting-autoresearch/sources/piasecki-schreiber-polish-scoutcraft-1917/source.pdf",
+      "bytes": 17609844,
+      "sha256": "d25eae2d2949f877fec6fe0ad77f2fba19ba4c4fc4aa459d9cd65a6193181128",
+      "contentType": "application/pdf",
+      "retrievedAt": "2026-09-06T18:23:33.310615+00:00"
+    }
+  ],
+  "method": "direct-artifact-link-from-metadata-page",
+  "recordResolution": {
+    "recordUrl": "https://www.wbc.poznan.pl/publication/515207/edition/440525/",
+    "recordFinalUrl": "https://www.wbc.poznan.pl/publication/515207/edition/440525/",
+    "recordContentType": "text/html",
+    "recordSha256": "821cb258256a9f4ba6eadb2b4c8aac4c85b43a5ae197068284d97dd2d145bcca",
+    "recordBytes": 182792,
+    "resolvedAt": "2026-09-06T18:23:33.045492+00:00"
+  },
+  "completedAt": "2026-09-06T18:23:33.300642+00:00",
+  "slurm": {
+    "jobId": "22076128",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "architecture": "x86_64",
+    "gitRevision": "fae417f0e9576c02cc36abafbdae04a60353e71a",
+    "requestedCpus": 1,
+    "requestedMemory": "2G",
+    "elapsed": "00:00:03",
+    "maxRss": "52788K",
+    "exitCode": "0:0"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-source-acquisition",
+  "sourceId": "sedlaczek-scout-school-1921",
+  "collectionId": "sbc",
+  "status": "complete",
+  "sourceFilesCommittedToRepository": 0,
+  "items": [
+    {
+      "kind": "pdf",
+      "status": "complete",
+      "url": "https://www.sbc.org.pl/Content/64835/PDF/64835.pdf",
+      "finalUrl": "https://www.sbc.org.pl/Content/64835/PDF/64835.pdf",
+      "scratchRelativePath": "scouting-autoresearch/sources/sedlaczek-scout-school-1921/source.pdf",
+      "bytes": 17602211,
+      "sha256": "59cfdfd261159903296525a07ee4db106afa1b424a281165cf686882dd982e12",
+      "contentType": "application/pdf",
+      "retrievedAt": "2026-09-06T18:23:50.414747+00:00"
+    }
+  ],
+  "method": "direct-artifact-link-from-metadata-page",
+  "recordResolution": {
+    "recordUrl": "https://www.sbc.org.pl/dlibra/publication/68754/edition/64835",
+    "recordFinalUrl": "https://www.sbc.org.pl/dlibra/publication/68754/edition/64835",
+    "recordContentType": "text/html",
+    "recordSha256": "cdd5bf85f97af8356ebd7211f17d274d3c8b294a0f1f6896309c5c3bb2c7dd1b",
+    "recordBytes": 108951,
+    "resolvedAt": "2026-09-06T18:23:34.704908+00:00"
+  },
+  "completedAt": "2026-09-06T18:23:50.404799+00:00",
+  "slurm": {
+    "jobId": "22076129",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "architecture": "x86_64",
+    "gitRevision": "fae417f0e9576c02cc36abafbdae04a60353e71a",
+    "requestedCpus": 1,
+    "requestedMemory": "2G",
+    "elapsed": "00:00:19",
+    "maxRss": "51752K",
+    "exitCode": "0:0"
+  }
+}

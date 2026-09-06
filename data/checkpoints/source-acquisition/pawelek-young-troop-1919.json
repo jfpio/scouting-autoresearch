@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-source-acquisition",
+  "sourceId": "pawelek-young-troop-1919",
+  "collectionId": "pbc-bialystok",
+  "status": "complete",
+  "sourceFilesCommittedToRepository": 0,
+  "items": [
+    {
+      "kind": "pdf",
+      "status": "complete",
+      "url": "https://pbc.biaman.pl/Content/28922/PDF/Mloda%20druzyna.pdf",
+      "finalUrl": "https://pbc.biaman.pl/Content/28922/PDF/Mloda%20druzyna.pdf",
+      "scratchRelativePath": "scouting-autoresearch/sources/pawelek-young-troop-1919/source.pdf",
+      "bytes": 35286756,
+      "sha256": "9c5eb912f3374ef4405dbae96c0b43851a69713c4faf8ce4c81fe6e9eae5aa41",
+      "contentType": "application/pdf",
+      "retrievedAt": "2026-09-06T18:23:40.760015+00:00"
+    }
+  ],
+  "method": "direct-artifact-link-from-metadata-page",
+  "recordResolution": {
+    "recordUrl": "https://pbc.biaman.pl/dlibra/publication/29783/edition/28922",
+    "recordFinalUrl": "https://pbc.biaman.pl/dlibra/publication/29783/edition/28922",
+    "recordContentType": "text/html",
+    "recordSha256": "bbd821b72b0a528e3d63b77e47194d75e8f8637b4319ce6eb838daee24d35459",
+    "recordBytes": 93473,
+    "resolvedAt": "2026-09-06T18:23:36.810184+00:00"
+  },
+  "completedAt": "2026-09-06T18:23:40.740310+00:00",
+  "slurm": {
+    "jobId": "22076127",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "architecture": "x86_64",
+    "gitRevision": "fae417f0e9576c02cc36abafbdae04a60353e71a",
+    "requestedCpus": 1,
+    "requestedMemory": "2G",
+    "elapsed": "00:00:10",
+    "maxRss": "86176K",
+    "exitCode": "0:0"
+  }
+}

@@ -10,6 +10,12 @@ data/checkpoints/*
 !data/checkpoints/research-runs/
 data/checkpoints/research-runs/*
 !data/checkpoints/research-runs/v3-source-expansion-2026-09.json
+!data/checkpoints/source-acquisition/
+data/checkpoints/source-acquisition/*
+!data/checkpoints/source-acquisition/*.json
+!data/checkpoints/source-inspection/
+data/checkpoints/source-inspection/*
+!data/checkpoints/source-inspection/*.json
 *.log
 __pycache__/
 *.py[cod]

@@ -339,12 +339,13 @@ def v3_source_run_errors(
         "acquisitionPreparation"
     ) or {}
     require(
-        checkpoint_acquisition.get("contentDownloadsPerformed") == 0
+        isinstance(checkpoint_acquisition.get("contentDownloadsPerformed"), int)
+        and 0 <= checkpoint_acquisition.get("contentDownloadsPerformed") <= 9
         and checkpoint_acquisition.get("regionalDirectArtifactLinksDiscovered") == 7
         and checkpoint_acquisition.get("directArtifactCandidatesActionableAfterApproval") == 4
         and checkpoint_acquisition.get("automatedFetchBlockedByRobots") == 2
         and checkpoint_acquisition.get("robotsBlockedLinksWithPermittedAlternative") == 1
-        and checkpoint_acquisition.get("polonaRecordsRequiringPost-approvalResolution") == 4
+        and 0 <= checkpoint_acquisition.get("polonaRecordsRequiringPost-approvalResolution", -1) <= 4
         and checkpoint_acquisition.get("preFetchedGallicaSources") == 1,
         "V3 acquisition-preparation checkpoint is stale",
     )

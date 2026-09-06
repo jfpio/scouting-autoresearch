@@ -32,15 +32,17 @@
     },
     "acquisitionPreparation": {
       "status": "human-approved-execution-pending",
-      "contentDownloadsPerformed": 0,
+      "contentDownloadsPerformed": 4,
+      "sourceUnitsWithCompletedAcquisition": 4,
       "regionalDirectArtifactLinksDiscovered": 7,
       "directArtifactCandidatesActionableAfterApproval": 4,
       "automatedFetchBlockedByRobots": 2,
       "robotsBlockedLinksWithPermittedAlternative": 1,
-      "polonaRecordsRequiringPost-approvalResolution": 4,
+      "polonaRecordsRequiringPost-approvalResolution": 3,
       "preFetchedGallicaSources": 1,
       "rawArtifactsStorage": "scratch-only",
-      "executionAdapterStatus": "approved-for-implementation"
+      "executionAdapterStatus": "implemented-and-smoke-tested",
+      "acquisitionSmokeJobId": "22076104"
     },
     "heliosSiteSmoke": {
       "status": "passed",
@@ -80,15 +82,15 @@
     {"id": "jasinski-field-games-1938", "status": "not-started"},
     {"id": "mojmir-scout-games-1912", "status": "not-started"},
     {"id": "dabrowski-indoor-games-1934", "status": "not-started"},
-    {"id": "piasecki-movement-games-1922", "status": "not-started"},
+    {"id": "piasecki-movement-games-1922", "status": "acquired", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-movement-games-1922.json"},
     {"id": "dabrowski-winter-games-1935", "status": "not-started"},
-    {"id": "pawelek-young-troop-1919", "status": "not-started"},
+    {"id": "pawelek-young-troop-1919", "status": "ocr-pending", "inspectionCheckpoint": "data/checkpoints/source-inspection/pawelek-young-troop-1919.json"},
     {"id": "zwolakowska-cub-pack-1945", "status": "not-started"},
     {"id": "sedlaczek-fieldcraft-method-1935", "status": "not-started"},
-    {"id": "piasecki-schreiber-polish-scoutcraft-1917", "status": "not-started"},
-    {"id": "sedlaczek-scout-school-1921", "status": "not-started"},
-    {"id": "chamarande-1934", "status": "not-started"}
+    {"id": "piasecki-schreiber-polish-scoutcraft-1917", "status": "acquired", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-schreiber-polish-scoutcraft-1917.json"},
+    {"id": "sedlaczek-scout-school-1921", "status": "acquired", "inspectionCheckpoint": "data/checkpoints/source-inspection/sedlaczek-scout-school-1921.json"},
+    {"id": "chamarande-1934", "status": "ocr-pending", "ocrCheckpoint": "data/checkpoints/gallica-fetch/chamarande-1934.json"}
   ],
-  "nextStep": "implement the approved acquisition adapters, then acquire and inspect each source unit",
+  "nextStep": "complete the sequential Polona acquisitions, OCR the image-only sources, and extract games from the three usable embedded-text PDFs",
   "pullRequestOpened": false
 }
