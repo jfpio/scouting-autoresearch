@@ -1,0 +1,118 @@
+schemaVersion: 1
+source:
+  id: bsh-1911-seton-games
+  activityPrefix: bsh
+  ebookId: "29558"
+  author: Ernest Thompson Seton
+  title: "Boy Scouts Handbook: The Games"
+  year: 1911
+  edition: First edition, Chapter VIII, The Games
+  publicationPlace: Garden City, New York
+  publisher: Doubleday, Page & Company for the Boy Scouts of America
+  originalLanguage: en
+  rightsStatus: public-domain
+  rightsStatement: >-
+    English text explicitly attributed to Ernest Thompson Seton on printed pages 291-319;
+    Project Gutenberg marks eBook 29558 Public domain in the USA, and the approved
+    life-plus-70 policy applies in Poland/EU.
+  rightsEvidenceUrl: https://www.gutenberg.org/ebooks/29558
+  sourceUrl: https://www.gutenberg.org/ebooks/29558
+  digitalEditionUrl: https://www.gutenberg.org/files/29558/29558-h/29558-h.htm
+  textUrl: https://www.gutenberg.org/cache/epub/29558/pg29558.txt
+  accessedOn: "2026-09-04"
+  approvalPolicyId: project-gutenberg-pd-usa-plus-life-70
+  rightsReviewRecord: vault/reviews/accepted/candidate-seton-boy-scouts-handbook-pg29558.md
+  extractionReport: data/reports/pg-29558-extraction.json
+  checkpoint: data/checkpoints/pg-29558-import.json
+  rightsEvidence:
+    catalogClaim: Public domain in the USA
+    catalogUrl: https://www.gutenberg.org/ebooks/29558
+    relevantAuthors:
+      - name: Ernest Thompson Seton
+        deathDate: "1946-10-23"
+        evidenceUrl: https://lccn.loc.gov/n79129037
+    protectionEnded: "2016-12-31"
+    publicDomainFrom: "2017-01-01"
+  translationPolicy:
+    targetLocale: pl
+    modelRequested: mistral-large-2512
+    reasoningMode: disabled
+    promptVersion: translation-en-pl-v6
+    usageRequired: true
+    requestBudgetRequired: true
+    billingMode: education-credit
+    enforceReferenceCostLimit: true
+    maxReferenceCostUsd: 10
+    modelEvaluation: config/translation-model-evaluations/bsh-1911-large-vs-small.yaml
+    report: data/reports/bsh-1911-seton-games-translation-en-pl.json
+    priceAccessedOn: "2026-09-04"
+download:
+  format: text
+  url: https://www.gutenberg.org/cache/epub/29558/pg29558.txt
+  sha256: f6ba6ea041a93d91c060b64bbc39b7361bab94085466b1ad39d27512f48b4791
+transcriptionEvidence:
+  sourceStatement: >-
+    Project Gutenberg identifies printed page numbers in braces, illustration descriptions
+    in indented brackets and italics between underscores.
+  sourceLocation: Project Gutenberg transcriber's note before the pinned UTF-8 text.
+  internalEditionEvidence: >-
+    The title page identifies Doubleday, Page & Company and 1911; Chapter VIII identifies
+    The Games as by Ernest Thompson Seton and begins on printed page 291.
+  deterministicNormalization:
+    - omit Project Gutenberg header, footer, license and digital packaging
+    - omit bracketed illustration descriptions
+    - remove printed page markers after using them for provenance
+    - join hard-wrapped lines and collapse whitespace within source paragraphs
+    - omit the repeated standalone activity heading
+  lexicalModernization: false
+selection:
+  scope: >-
+    Individually bounded games within The Games on printed pages 291-319, subject to
+    component attribution and cross-corpus duplicate checks.
+  excludedGroups:
+    - label: Baden-Powell-attributed range
+      reason: The handbook explicitly says the games from Lion Hunting through Hare and Hounds are from General Baden-Powell.
+      examples: [Lion Hunting, Plant Race, Flag Raiding, Kim's Game, Hare and Hounds]
+    - label: Daniel Carter Beard contribution
+      reason: The heading explicitly credits Daniel Carter Beard rather than Seton.
+      examples: [Mumbly Peg]
+    - label: Exact and near duplicates
+      reason: Existing Scouting for Boys records are preferred when the text is the same; material variants require an explicit relation.
+      examples: [Arctic Expedition, Dragging Race, Far and Near, Fire-lighting Race, Mountain Scouting, Knight Errantry]
+    - label: Other handbook material
+      reason: The approved component ends before Outdoor Athletic Standards and excludes illustrations, captions, advertisements and other chapters.
+      examples: [Outdoor Athletic Standards]
+activities:
+  - {id: bsh-001, title: Deer Hunting, section: The Games, start: {page: 291, text: Deer Hunting}, endBefore: {page: 293, text: The Bear Hunt}}
+  - {id: bsh-002, title: The Bear Hunt, section: The Games, start: {page: 293, text: The Bear Hunt}, endBefore: {page: 295, text: Spearing the Great Sturgeon}}
+  - {id: bsh-003, title: Spearing the Great Sturgeon, section: The Games, start: {page: 295, text: Spearing the Great Sturgeon}, endBefore: {page: 296, text: Tilting In The Water}}
+  - {id: bsh-004, title: Tilting In The Water, section: The Games, start: {page: 296, text: Tilting In The Water}, endBefore: {page: 297, text: Canoe Tag}}
+  - {id: bsh-005, title: Canoe Tag, section: The Games, start: {page: 297, text: Canoe Tag}, endBefore: {page: 298, text: Scouting}}
+  - {id: bsh-006, title: Scouting, section: The Games, start: {page: 298, text: Scouting}, endBefore: {page: 298, text: The Game of Quicksight}}
+  - {id: bsh-007, title: The Game of Quicksight, section: The Games, start: {page: 298, text: The Game of Quicksight}, endBefore: {page: 299, text: "Farsight, or Spot the Rabbit"}}
+  - {id: bsh-008, title: "Farsight, or Spot the Rabbit", section: The Games, start: {page: 299, text: "Farsight, or Spot the Rabbit"}, endBefore: {page: 299, text: Pole-star}}
+  - {id: bsh-009, title: Pole-star, section: The Games, start: {page: 299, text: Pole-star}, endBefore: {page: 300, text: Rabbit Hunt}}
+  - {id: bsh-010, title: Rabbit Hunt, section: The Games, start: {page: 300, text: Rabbit Hunt}, endBefore: {page: 300, text: Hostile Spy}}
+  - {id: bsh-011, title: Hostile Spy, section: The Games, start: {page: 300, text: Hostile Spy}, endBefore: {page: 301, text: The Man-Hunt}}
+  - {id: bsh-012, title: The Man-Hunt, section: The Games, start: {page: 301, text: The Man-Hunt}, endBefore: {page: 301, text: Hunt the Coon}}
+  - {id: bsh-013, title: Hunt the Coon, section: The Games, start: {page: 301, text: Hunt the Coon}, endBefore: {page: 302, text: Spear Fights}}
+  - {id: bsh-014, title: Spear Fights, section: The Games, start: {page: 302, text: Spear Fights}, endBefore: {page: 302, text: Navajo Feather Dance}}
+  - {id: bsh-015, title: Navajo Feather Dance, section: The Games, start: {page: 302, text: Navajo Feather Dance}, endBefore: {page: 302, text: Feather Football or Feather Blow}}
+  - {id: bsh-016, title: Feather Football or Feather Blow, section: The Games, start: {page: 302, text: Feather Football or Feather Blow}, endBefore: {page: 302, text: Cock-Fighting}}
+  - {id: bsh-017, title: Cock-Fighting, section: The Games, start: {page: 302, text: Cock-Fighting}, endBefore: {page: 303, text: Hand-Wrestling}}
+  - {id: bsh-018, title: Hand-Wrestling, section: The Games, start: {page: 303, text: Hand-Wrestling}, endBefore: {page: 303, text: Badger-Pulling}}
+  - {id: bsh-019, title: Badger-Pulling, section: The Games, start: {page: 303, text: Badger-Pulling}, endBefore: {page: 303, text: Poison}}
+  - {id: bsh-020, title: Poison, section: The Games, start: {page: 303, text: Poison}, endBefore: {page: 303, text: Hat-Ball}}
+  - {id: bsh-021, title: Hat-Ball, section: The Games, start: {page: 303, text: Hat-Ball}, endBefore: {page: 304, text: Duck-on-a-Rock}}
+  - {id: bsh-022, title: Duck-on-a-Rock, section: The Games, start: {page: 304, text: Duck-on-a-Rock}, endBefore: {page: 304, text: Road-side Cribbage}}
+  - {id: bsh-023, title: Road-side Cribbage, section: The Games, start: {page: 304, text: Road-side Cribbage}, endBefore: {page: 305, text: Lion Hunting}}
+  - {id: bsh-024, title: Chalk the Arrow, section: The Games, start: {page: 312, text: Chalk the Arrow}, endBefore: {page: 312, text: Dodge Ball}}
+  - {id: bsh-025, title: Dodge Ball, section: The Games, start: {page: 312, text: Dodge Ball}, endBefore: {page: 313, text: Prisoner's Base}}
+  - {id: bsh-026, title: Prisoner's Base, section: The Games, start: {page: 313, text: Prisoner's Base}, endBefore: {page: 313, text: Throwing the Spear}}
+  - {id: bsh-027, title: Throwing the Spear, section: The Games, start: {page: 313, text: Throwing the Spear}, endBefore: {page: 314, text: Arctic Expedition}}
+  - {id: bsh-032, title: Follow My Leader, section: The Games, start: {page: 315, text: Follow My Leader}, endBefore: {page: 316, text: Games in Path-finding}}
+  - {id: bsh-035, title: Unprepared Plays, section: The Games, start: {page: 316, text: Unprepared Plays}, endBefore: {page: 317, text: The Treasure Hunt}}
+  - {id: bsh-036, title: The Treasure Hunt, section: The Games, start: {page: 317, text: The Treasure Hunt}, endBefore: {page: 317, text: Will-o'-the-Wisp}}
+  - {id: bsh-037, title: Will-o'-the-Wisp, section: The Games, start: {page: 317, text: Will-o'-the-Wisp}, endBefore: {page: 318, text: Treasure Island}}
+  - {id: bsh-038, title: Treasure Island, section: The Games, start: {page: 318, text: Treasure Island}, endBefore: {page: 318, text: Horse and Rider Tourney}}
+  - {id: bsh-039, title: Horse and Rider Tourney, section: The Games, start: {page: 318, text: Horse and Rider Tourney}, endBefore: {page: 318, prefix: Mumbly Peg}}

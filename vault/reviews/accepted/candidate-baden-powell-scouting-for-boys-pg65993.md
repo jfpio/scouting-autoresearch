@@ -13,7 +13,7 @@ author:
 originalLanguage: en
 collectionId: project-gutenberg
 collectionStatusAtDiscovery: candidate
-allowedMethodUsed: metadata-only
+allowedMethodUsed: documented-download
 canonicalUrl: https://www.gutenberg.org/ebooks/65993
 digitalEdition:
   identifier: pg-65993
@@ -115,10 +115,147 @@ provenanceEvidence:
 discovery:
   discoveredAt: "2026-09-03"
   metadataPagesInspected: 7
-  sourceFilesDownloaded: 0
+  sourceFilesDownloaded: 2
   fullTextCopied: false
-  repositoryContentAdded: metadata-only
+  repositoryContentAdded: activity-excerpts
   estimatedCostUsd: 0
+processing:
+  sourceId: sfb-1908
+  sourceSha256: 46826e0cc47e2d923c36c699c68c91e106e49b4c46d6bcf1475a9924e1781634
+  parserVersion: gutenberg-html-blocks-v2
+  extractionReport: data/reports/pg-65993-extraction.json
+  importedActivityCount: 49
+  importedKinds: [game]
+  wholeSourceCopiedToRepository: false
+  imagesCopiedToRepository: false
+  excludedNonGameTitles: ["Debates, Trials, Etc.", "Scouts' War Dance"]
+  discoveryApi:
+    status: superseded-by-deterministic-curation
+    modelRequested: mistral-medium-2604
+    model: mistral-medium-2604
+    promptVersion: gutenberg-activity-locators-v1
+    successfulRequests: 1
+    transientRateLimits: 1
+    promptTokens: 24281
+    completionTokens: 5637
+    billingMode: experimental-no-charge
+    billedCostUsd: 0
+    referenceCostUsd: 0.078699
+    priceSource: https://docs.mistral.ai/inference/pricing
+    priceAccessedOn: "2026-09-03"
+  translation:
+    status: complete
+    productionCandidate: mistral-large-2512
+    evaluationConfig: config/translation-model-evaluation.yaml
+    evaluationActivityCount: 5
+    reasoningMode: disabled
+    modelDecisionApprovedBy: repository-owner
+    modelDecisionApprovedAt: "2026-09-04"
+    previousAttemptModel: mistral-medium-2604
+    previousAttemptCompletedActivities: 0
+    previousAttemptStatus: transient-http-429
+    resolvedBlocker: previous-api-key-tier-and-rate-limits
+    blockerObservedAt: "2026-09-04T14:53:48Z"
+    blockerResolvedAt: "2026-09-04"
+    blockerResolution: use-new-education-api-key-with-mistral-large-2512-without-reasoning
+    priorSmall4Attempt:
+      status: transient-http-429
+      attemptedAt: "2026-09-04T15:12:02Z"
+      supersededNextRetryAt: "2026-09-04T16:12:02.725081Z"
+      providerType: rate_limited
+      providerCode: "1300"
+      rateLimitRequestsPerMinute: 0
+      rateLimitRequestsRemaining: 0
+    priorMinistral14bEvaluation:
+      status: automatic-quality-checks-failed
+      attemptedOn: "2026-09-04"
+      modelRequested: ministral-14b-2512
+      evaluatedActivities: 5
+      automaticFailures: 5
+      referenceCostUsd: 0.000973
+    latestAttempt:
+      status: chat-completions-access-smoke-passed
+      attemptedOn: "2026-09-04"
+      modelRequested: mistral-large-2512
+    qualitySmokeV2:
+      evaluationId: sfb-1908-large-quality-v2
+      status: automatic-checks-passed
+      evaluatedActivities: 5
+      automaticFailures: 0
+      promptVersion: translation-en-pl-v2
+      promptTokens: 2522
+      completionTokens: 2385
+      referenceCostUsd: 0.0048385
+      humanReviewRequired: true
+    promptV3Reason: preserve-clock-notation-and-participant-terms-after-sfb-027-failure
+    promptV4Reason: prevent-inclusive-expansion-of-historical-masculine-participant-terms
+    promptV5Reason: reject-any-invented-female-scout-term-when-source-has-no-girl
+    promptV6Reason: preserve-word-versus-digit-number-representation-after-sfb-050-failure
+    qualitySmokeV6:
+      evaluationId: sfb-1908-large-quality-v6
+      status: automatic-checks-passed
+      evaluatedActivities: 5
+      automaticFailures: 0
+      referenceCostUsd: 0.005577
+      humanReviewRequired: true
+    productionRun:
+      status: complete
+      activityCount: 49
+      promptVersion: translation-en-pl-v6
+      promptTokens: 24896
+      completionTokens: 12742
+      referenceCostUsd: 0.031561
+      billingMode: education-credit
+      billedCostUsd: null
+      referenceCostLimitUsd: 10
+    largeVsMediumQualityV5:
+      status: retain-owner-approved-large
+      activityCountPerModel: 5
+      large:
+        automaticFailures: 0
+        promptTokens: 3025
+        completionTokens: 2345
+        referenceCostUsd: 0.00503
+        observedLanguageIssues:
+          - "Trzech zające"
+          - "każdemu z harcowników"
+      medium:
+        automaticFailures: 1
+        promptTokens: 3025
+        completionTokens: 2343
+        referenceCostUsd: 0.02211
+        observedLanguageIssues:
+          - merged-indented-score-table-lines
+          - "Trzy zające wyrusza się"
+          - "co najmniej dwóch patrolowych"
+    providerCode: "1910"
+    accessiblePinnedAlternativesObserved:
+      - mistral-medium-2604
+      - mistral-small-2603
+      - ministral-14b-2512
+    billingMode: education-credit
+    billedCostUsd: null
+    maxReferenceCostUsd: 10
+  buildValidation:
+    status: passed
+    generatedPolishRecords: 251
+    generatedEnglishRecords: 251
+    pagesBuilt: 516
+    unitTests: 59
+    internalLinksChecked: 14051
+    slurm:
+      initialSmokeJobId: "21945103"
+      initialSmokeFailureReason: node-20-below-astro-minimum
+      successfulSmokeJobId: "21945104"
+      buildJobId: "21945121"
+      partition: plgrid
+      account: plgcredibleai2026-cpu
+      nodeArchitecture: x86_64
+      python: "3.12.3"
+      node: "24.20.0"
+      astro: "7.2.9"
+      elapsed: "00:00:35"
+      maxRss: "1324332K"
 reviewRequired: false
 publicationBlocked: false
 ---
@@ -162,3 +299,16 @@ korpusu.
 Ilustracje pozostają wyłączone do czasu weryfikacji autorstwa każdego obrazu. Historyczne
 porady wymagają również współczesnego przeglądu bezpieczeństwa przed publikacją jako
 aktywności.
+
+## Ekstrakcja
+
+Z przypiętego hashem wydania HTML wybrano 49 jawnie opisanych gier z całej książki. Zakres
+obejmuje strony drukowane 52–375. Nie skopiowano książki, ilustracji ani warstwy Project
+Gutenberg; repozytorium zawiera wyłącznie rekordy aktywności i dowody ich położenia w źródle.
+
+Debaty i próbny proces oraz taniec wojenny pozostają poza korpusem, ponieważ źródło nie
+przedstawia ich jako gier, a dodatkowe rodzaje aktywności nadal wymagają decyzji redakcyjnej.
+Osobno pominięto gry przypisane Setonowi lub innym autorom oraz grupę, którą książka opisuje
+zbiorczo jako zapożyczoną z *Social—to Save*. Same nazwy popularnych sportów i odsyłacze bez
+samodzielnych reguł również nie tworzą rekordów aktywności. Szczegółowy zakres, hashe bloków
+i wynik deduplikacji zapisuje `data/reports/pg-65993-extraction.json`.

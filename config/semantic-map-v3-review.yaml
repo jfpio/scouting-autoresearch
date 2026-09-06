@@ -1,0 +1,19 @@
+schemaVersion: 1
+packetId: semantic-map-v3-pair-review-v1
+status: proposed
+analysisReport: data/reports/semantic-map-v3-analysis.json
+polishExport: data/generated/activities.pl.json
+englishExport: data/generated/activities.en.json
+similarityRegistry: config/similar-activities.yaml
+reportPath: data/reports/semantic-map-v3-review-packet.json
+reviewNotePath: vault/reviews/inbox/semantic-map-v3-pair-review.md
+checkpointPath: data/checkpoints/semantic-map-v3-review-packet.json
+candidateSelection: all-algorithmic-candidates-from-analysis
+maxSummaryCharacters: 360
+publicSiteExposure: false
+humanApprovalRequired: true
+productionRelationsWritten: []
+allowedOutcomes:
+  - approve-highly-similar-variant
+  - reject
+  - needs-research

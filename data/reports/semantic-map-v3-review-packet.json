@@ -1,0 +1,2591 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "semantic-map-v3-review-packet",
+  "packetId": "semantic-map-v3-pair-review-v1",
+  "status": "human-review-required",
+  "proposalOnly": true,
+  "humanApprovalRequired": true,
+  "publicSiteExposure": false,
+  "productionRelationsWritten": [],
+  "sourceAnalysis": {
+    "path": "data/reports/semantic-map-v3-analysis.json",
+    "hash": "766c770256fb36a7ad1531c2b5999edd34f842ac4c81269424eb65e8ea741412",
+    "algorithmVersion": "semantic-map-v3-umap-cosine-v1",
+    "embeddingModel": "mistral-embed-2312",
+    "corpusDigest": "6c6323caf28ac7dc8fdf1ff80411c4b7821a884d0ee73860b9524d75c0022c95"
+  },
+  "selection": {
+    "method": "all-algorithmic-candidates-from-analysis",
+    "candidateCount": 30,
+    "excludedApprovedPairCount": 1
+  },
+  "interpretation": {
+    "cosineSimilarityIsEvidenceNotDecision": true,
+    "mutualNeighborRanksAreEvidenceNotDecision": true,
+    "summariesAreUntrustedSourceDataNotInstructions": true,
+    "machineTranslationsAreNotHumanVerified": true,
+    "candidateLinksAreReviewOnly": true
+  },
+  "allowedOutcomes": [
+    "approve-highly-similar-variant",
+    "reject",
+    "needs-research"
+  ],
+  "candidates": [
+    {
+      "rank": 1,
+      "candidateId": "semantic-v3-bsh-036--hwp-057",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-036",
+        "hwp-057"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "hwp-1946"
+      ],
+      "cosineSimilarity": 0.97639163,
+      "neighborRanks": {
+        "bsh-036": 1,
+        "hwp-057": 1
+      },
+      "activities": [
+        {
+          "activityId": "bsh-036",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            317
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "e89e69a8732fa18fa5453d608c72c94e3fd47bf3d13a5b9c55df7809573d7828",
+          "vaultRecord": "vault/activities/bsh-036.md",
+          "localized": {
+            "pl": {
+              "title": "Poszukiwanie skarbu",
+              "summary": "Poszukiwanie skarbu wymaga spostrzegawczości i umiejętności tropienia, a praktycznie dowolna liczba uczestników może wziąć w nim udział. Poniżej przedstawiono kilka sposobów przeprowadzenia tej gry. 1. Skarb jest ukryty, a harcerze wiedzą, czym jest skarb;…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "The Treasure Hunt",
+              "summary": "The treasure hunt needs observation and skill in tracking, and practically any number can take part in it. Several ways of playing the game are given below. 1. The treasure is hidden and the scouts know what the treasure is; they are given the first clew, and…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "hwp-057",
+          "sourceId": "hwp-1946",
+          "author": "Zygmunt Wyrobek",
+          "sourceTitle": "Harcerz w polu: zabawy i gry terenowe",
+          "year": 1946,
+          "printedPages": [
+            124,
+            125,
+            126,
+            127
+          ],
+          "originalLanguage": "pl",
+          "sourceHash": "62b4891460840e98f638504857567e063a9d7271aac210db92f06b361efa595b",
+          "vaultRecord": "vault/activities/hwp-057.md",
+          "localized": {
+            "pl": {
+              "title": "Szukanie skarbu",
+              "summary": "a) Skarb — to scyzoryk, pudełko zapalek itp. przedmiot, dobrze schowany, który ma zastęp znaleźć według pewnych ukrytych, a kolejno wyszukiwanych wskazówek. Na trop wprowadza się zastęp przez podanie mu pierwszej i jedynej wskazówki. Np.: «Idź w kierunku…",
+              "translationStatus": "source-text"
+            },
+            "en": {
+              "title": "Treasure Hunt",
+              "summary": "a) The treasure — a pocketknife, a matchbox, or similar object — is well hidden, and the patrol must find it by following a series of hidden clues, discovered one after another. The patrol is set on the trail by being given the first and only clue. For…",
+              "translationStatus": "machine-translation"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 2,
+      "candidateId": "semantic-v3-bsh-006--sfb-020",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-006",
+        "sfb-020"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.97187425,
+      "neighborRanks": {
+        "bsh-006": 1,
+        "sfb-020": 1
+      },
+      "activities": [
+        {
+          "activityId": "bsh-006",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            298
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "805ca35157ec5242a4053f56f531c73813f81042d0aeddf6e2757ff79ecf9361",
+          "vaultRecord": "vault/activities/bsh-006.md",
+          "localized": {
+            "pl": {
+              "title": "Skauting",
+              "summary": "Skauci są wysyłani parami lub pojedynczo. Na mapie zaznacza się szereg punktów w równych odległościach od obozu, a skauci ciągną słomki, aby ustalić, dokąd każdy z nich pójdzie. Jeśli jedno miejsce jest wyraźnie trudniejsze, skaut otrzymuje sprawiedliwą…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Scouting",
+              "summary": "Scouts are sent out in pairs or singly. A number of points are marked on the map at equal distances from camp, and the scouts draw straws to see where each goes. If one place is obviously hard, the scout is allowed a fair number of points as handicap. All set…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-020",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            114
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "e9717c843ea8345046fbff03b39e2863dc5673a95bc526107eb5ddeb2736cc4d",
+          "vaultRecord": "vault/activities/sfb-020.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie skautowe",
+              "summary": "Jeden skaut dostaje czas, aby wyjść i ukryć się, pozostali zaś rozpoczynają poszukiwania. Wygrywa, jeśli nie zostanie odnaleziony lub jeśli zdoła wrócić do punktu wyjścia w określonym czasie, nie dotknięty przez nikogo.",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Scout Hunting",
+              "summary": "One scout is given time to go out and hide himself, the remainder then start to find him, he wins if he is not found, or if he can get back to the starting point within a given time without being touched.",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 3,
+      "candidateId": "semantic-v3-bsh-006--sfb-050",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-006",
+        "sfb-050"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.97037851,
+      "neighborRanks": {
+        "bsh-006": 2,
+        "sfb-050": 1
+      },
+      "activities": [
+        {
+          "activityId": "bsh-006",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            298
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "805ca35157ec5242a4053f56f531c73813f81042d0aeddf6e2757ff79ecf9361",
+          "vaultRecord": "vault/activities/bsh-006.md",
+          "localized": {
+            "pl": {
+              "title": "Skauting",
+              "summary": "Skauci są wysyłani parami lub pojedynczo. Na mapie zaznacza się szereg punktów w równych odległościach od obozu, a skauci ciągną słomki, aby ustalić, dokąd każdy z nich pójdzie. Jeśli jedno miejsce jest wyraźnie trudniejsze, skaut otrzymuje sprawiedliwą…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Scouting",
+              "summary": "Scouts are sent out in pairs or singly. A number of points are marked on the map at equal distances from camp, and the scouts draw straws to see where each goes. If one place is obviously hard, the scout is allowed a fair number of points as handicap. All set…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-050",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            374
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "b4797413dbafc388ba86b4627be3a75a6bf18e5752ed4e95029548072a2a1b5d",
+          "vaultRecord": "vault/activities/sfb-050.md",
+          "localized": {
+            "pl": {
+              "title": "Wyścig Skautowy",
+              "summary": "Instruktor ustawia trzech pojedynczych uczestników lub trzy grupy, każdą grupę ubraną możliwie odmiennie i niosącą różne przedmioty (takie jak kij, tobołek, papier itp.) w odległościach od 300 do 1 200 jardów od punktu startowego. Jeśli w okolicy znajdują się…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Scouting Race",
+              "summary": "Instructor stations three individuals or groups, each group differently clothed as far as possible, and carrying different articles (such as stick, bundle, paper, etc.) at distances from 300 to 1,200 yards from starting point. If there are other people about,…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 4,
+      "candidateId": "semantic-v3-hwp-030--sfb-020",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "hwp-030",
+        "sfb-020"
+      ],
+      "sourceIds": [
+        "hwp-1946",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.96597245,
+      "neighborRanks": {
+        "hwp-030": 1,
+        "sfb-020": 2
+      },
+      "activities": [
+        {
+          "activityId": "hwp-030",
+          "sourceId": "hwp-1946",
+          "author": "Zygmunt Wyrobek",
+          "sourceTitle": "Harcerz w polu: zabawy i gry terenowe",
+          "year": 1946,
+          "printedPages": [
+            89,
+            90
+          ],
+          "originalLanguage": "pl",
+          "sourceHash": "99b13b47d1f2003ca996cf09f3a9fd64401f90c8061c4353264cbf462ceb89ad",
+          "vaultRecord": "vault/activities/hwp-030.md",
+          "localized": {
+            "pl": {
+              "title": "Harcerskie łowy",
+              "summary": "W lesie szpilkowym znajduje się wielobok obwiedziony sznurkiem o średnicy kilkudziesięciu kroków. W wieloboku jest zwierzyna: kilkanaście figurek z tektury imitujących wiewiórkę, zająca, borsuka, dzięcioła, sojkę itp. a rozmieszczonych bądź po ziemi, bądź też…",
+              "translationStatus": "source-text"
+            },
+            "en": {
+              "title": "Scout Hunts",
+              "summary": "In a coniferous forest, there is a polygon enclosed by a rope with a diameter of several dozen paces. Inside the polygon, there is game: a dozen or so cardboard figures imitating a squirrel, hare, badger, woodpecker, jay, etc., placed either on the ground or…",
+              "translationStatus": "machine-translation"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-020",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            114
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "e9717c843ea8345046fbff03b39e2863dc5673a95bc526107eb5ddeb2736cc4d",
+          "vaultRecord": "vault/activities/sfb-020.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie skautowe",
+              "summary": "Jeden skaut dostaje czas, aby wyjść i ukryć się, pozostali zaś rozpoczynają poszukiwania. Wygrywa, jeśli nie zostanie odnaleziony lub jeśli zdoła wrócić do punktu wyjścia w określonym czasie, nie dotknięty przez nikogo.",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Scout Hunting",
+              "summary": "One scout is given time to go out and hide himself, the remainder then start to find him, he wins if he is not found, or if he can get back to the starting point within a given time without being touched.",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 5,
+      "candidateId": "semantic-v3-bsh-006--hwp-043",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-006",
+        "hwp-043"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "hwp-1946"
+      ],
+      "cosineSimilarity": 0.96534331,
+      "neighborRanks": {
+        "bsh-006": 3,
+        "hwp-043": 5
+      },
+      "activities": [
+        {
+          "activityId": "bsh-006",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            298
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "805ca35157ec5242a4053f56f531c73813f81042d0aeddf6e2757ff79ecf9361",
+          "vaultRecord": "vault/activities/bsh-006.md",
+          "localized": {
+            "pl": {
+              "title": "Skauting",
+              "summary": "Skauci są wysyłani parami lub pojedynczo. Na mapie zaznacza się szereg punktów w równych odległościach od obozu, a skauci ciągną słomki, aby ustalić, dokąd każdy z nich pójdzie. Jeśli jedno miejsce jest wyraźnie trudniejsze, skaut otrzymuje sprawiedliwą…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Scouting",
+              "summary": "Scouts are sent out in pairs or singly. A number of points are marked on the map at equal distances from camp, and the scouts draw straws to see where each goes. If one place is obviously hard, the scout is allowed a fair number of points as handicap. All set…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "hwp-043",
+          "sourceId": "hwp-1946",
+          "author": "Zygmunt Wyrobek",
+          "sourceTitle": "Harcerz w polu: zabawy i gry terenowe",
+          "year": 1946,
+          "printedPages": [
+            107,
+            108
+          ],
+          "originalLanguage": "pl",
+          "sourceHash": "c6541427fe916c89fca97f1a9e5017660634802671efc8b3cd6a71d1713b3b6b",
+          "vaultRecord": "vault/activities/hwp-043.md",
+          "localized": {
+            "pl": {
+              "title": "Wypatrywanie",
+              "summary": "Na terenie do 1.000 m w głąb, a kilkaset metrów wszerz, którego boczne granice ustalono, rozstawia się zastęp czerwonych. Jeden leży, klęczy lub stoi bliżej, drugi dalej, w jednym miejscu stoi jeden harcerz, w drugim dwóch razem itd. Odległość 100—200—300 m…",
+              "translationStatus": "source-text"
+            },
+            "en": {
+              "title": "Scouting",
+              "summary": "On a terrain extending up to 1,000 meters in depth and several hundred meters in width, with its lateral boundaries established, a patrol of reds is positioned. One lies, kneels, or stands closer, another farther away; in one spot stands a single scout, in…",
+              "translationStatus": "machine-translation"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 6,
+      "candidateId": "semantic-v3-bsh-006--sfb-004",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-006",
+        "sfb-004"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.96285626,
+      "neighborRanks": {
+        "bsh-006": 4,
+        "sfb-004": 1
+      },
+      "activities": [
+        {
+          "activityId": "bsh-006",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            298
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "805ca35157ec5242a4053f56f531c73813f81042d0aeddf6e2757ff79ecf9361",
+          "vaultRecord": "vault/activities/bsh-006.md",
+          "localized": {
+            "pl": {
+              "title": "Skauting",
+              "summary": "Skauci są wysyłani parami lub pojedynczo. Na mapie zaznacza się szereg punktów w równych odległościach od obozu, a skauci ciągną słomki, aby ustalić, dokąd każdy z nich pójdzie. Jeśli jedno miejsce jest wyraźnie trudniejsze, skaut otrzymuje sprawiedliwą…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Scouting",
+              "summary": "Scouts are sent out in pairs or singly. A number of points are marked on the map at equal distances from camp, and the scouts draw straws to see where each goes. If one place is obviously hard, the scout is allowed a fair number of points as handicap. All set…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-004",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            53
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "d423fea0369b5d95b58e0c5145dc2f2753f4d29c1166c8ca8520b4e25a4d49c6",
+          "vaultRecord": "vault/activities/sfb-004.md",
+          "localized": {
+            "pl": {
+              "title": "Skaut spotyka skauta",
+              "summary": "W mieście lub na wsi. Pojedynczych skautów, pełne patrole lub pary skautów należy rozmieścić w odległości około dwóch mil od siebie i skierować do pracy w kierunku siebie nawzajem, albo wzdłuż drogi, albo wyznaczając każdej stronie punkt orientacyjny, do…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Scout Meets Scout",
+              "summary": "In Town or Country. Single scouts, or complete patrols or pairs of scouts, to be taken out about two miles apart, and made to work towards each other, either alongside a road, or by giving each side a landmark to work to, such as a steep hill or big tree,…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 7,
+      "candidateId": "semantic-v3-bsh-012--sfb-003",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-012",
+        "sfb-003"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.96211099,
+      "neighborRanks": {
+        "bsh-012": 1,
+        "sfb-003": 1
+      },
+      "activities": [
+        {
+          "activityId": "bsh-012",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            301
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "52184210046188ee9629506ed17a088d11a0f527ea117b9354d5f95e403f02ad",
+          "vaultRecord": "vault/activities/bsh-012.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie na człowieka",
+              "summary": "Gra ta jest rozgrywana z jednym harcerzem i dziesięcioma lub więcej przeciwnikami, czyli ogarami, w zależności od terenu – więcej, gdy jest on nierówny lub zalesiony. Harcerz otrzymuje list zaadresowany do „Komendanta Wojskowego” (zazwyczaj pani domu, do…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "The Man-Hunt",
+              "summary": "This is played with a scout and ten or more hostiles, or hounds, according to the country, more when it is rough or wooded. The scout is given a letter addressed to the \"Military Commandant\" (usually the lady of the house that he gets to) of any given place a…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-003",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            52,
+            53
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "3cb700f70aa118b2b7f322e9537057a5d67389f871fd6c1a3691abacf8332210",
+          "vaultRecord": "vault/activities/sfb-003.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie na Syberyjczyka",
+              "summary": "Jeden harcerz jako uciekinier ucieka przez śnieg w dowolnym kierunku, jaki mu się podoba, aż znajdzie dobre miejsce do ukrycia się i tam się ukrywa. Pozostali, po daniu mu dwudziestominutowej przewagi lub więcej, ruszają jego śladem. Gdy zbliżają się do jego…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Siberian Man Hunt",
+              "summary": "One scout as fugitive runs away across the snow in any direction he may please until he finds a good hiding place, and there conceals himself. The remainder, after giving him twenty minutes' start or more, proceed to follow him by his tracks. As they approach…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 8,
+      "candidateId": "semantic-v3-bsh-006--sfb-023",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-006",
+        "sfb-023"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.95989561,
+      "neighborRanks": {
+        "bsh-006": 6,
+        "sfb-023": 2
+      },
+      "activities": [
+        {
+          "activityId": "bsh-006",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            298
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "805ca35157ec5242a4053f56f531c73813f81042d0aeddf6e2757ff79ecf9361",
+          "vaultRecord": "vault/activities/bsh-006.md",
+          "localized": {
+            "pl": {
+              "title": "Skauting",
+              "summary": "Skauci są wysyłani parami lub pojedynczo. Na mapie zaznacza się szereg punktów w równych odległościach od obozu, a skauci ciągną słomki, aby ustalić, dokąd każdy z nich pójdzie. Jeśli jedno miejsce jest wyraźnie trudniejsze, skaut otrzymuje sprawiedliwą…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Scouting",
+              "summary": "Scouts are sent out in pairs or singly. A number of points are marked on the map at equal distances from camp, and the scouts draw straws to see where each goes. If one place is obviously hard, the scout is allowed a fair number of points as handicap. All set…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-023",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            115
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "99ab65a4590f14081de2545645e413eb3cea9de87eeea5d3a79b5253076b1655",
+          "vaultRecord": "vault/activities/sfb-023.md",
+          "localized": {
+            "pl": {
+              "title": "Podchodzenie i składanie meldunku",
+              "summary": "Sędzia ustawia się na otwartej przestrzeni i wysyła każdego zwiadowcę lub parę zwiadowców w różnych kierunkach na odległość około pół mili. Gdy machnie flagą, co jest sygnałem do rozpoczęcia, wszyscy się ukrywają, a następnie przystępują do podchodzenia go,…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Stalking and Reporting",
+              "summary": "The umpire places himself out in the open and sends each scout or pair of scouts away in different directions about half a mile off. When he waves a flag, which is the signal to begin, they all hide and then proceed to stalk him, creeping up and watching all…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 9,
+      "candidateId": "semantic-v3-bsh-006--sfb-028",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-006",
+        "sfb-028"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.95787806,
+      "neighborRanks": {
+        "bsh-006": 8,
+        "sfb-028": 1
+      },
+      "activities": [
+        {
+          "activityId": "bsh-006",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            298
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "805ca35157ec5242a4053f56f531c73813f81042d0aeddf6e2757ff79ecf9361",
+          "vaultRecord": "vault/activities/bsh-006.md",
+          "localized": {
+            "pl": {
+              "title": "Skauting",
+              "summary": "Skauci są wysyłani parami lub pojedynczo. Na mapie zaznacza się szereg punktów w równych odległościach od obozu, a skauci ciągną słomki, aby ustalić, dokąd każdy z nich pójdzie. Jeśli jedno miejsce jest wyraźnie trudniejsze, skaut otrzymuje sprawiedliwą…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Scouting",
+              "summary": "Scouts are sent out in pairs or singly. A number of points are marked on the map at equal distances from camp, and the scouts draw straws to see where each goes. If one place is obviously hard, the scout is allowed a fair number of points as handicap. All set…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-028",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            196
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "df94378bf1b1bfeeb8218f53649251d00a9aae4560eb8b812be2a26bd2641fe8",
+          "vaultRecord": "vault/activities/sfb-028.md",
+          "localized": {
+            "pl": {
+              "title": "Gry w tropieniu",
+              "summary": "Instruktor zabiera patrol w szyku patrolowym do nieznanego miasta lub na skomplikowany teren nieznanej okolicy, z mapą rowerową. Następnie wydaje instrukcje dotyczące miejsca, do którego chce dotrzeć, i każdemu z harcowników po kolei pozwala prowadzić patrol,…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Games in Pathfinding",
+              "summary": "Instructor takes a patrol in patrolling formation into a strange town or into an intricate piece of strange country, with a cycling map. He then gives instructions as to where he wants to go to, makes each scout in turn lead the patrol, say for seven minutes…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 10,
+      "candidateId": "semantic-v3-hwp-050--sfb-016",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "hwp-050",
+        "sfb-016"
+      ],
+      "sourceIds": [
+        "hwp-1946",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.95775527,
+      "neighborRanks": {
+        "hwp-050": 4,
+        "sfb-016": 1
+      },
+      "activities": [
+        {
+          "activityId": "hwp-050",
+          "sourceId": "hwp-1946",
+          "author": "Zygmunt Wyrobek",
+          "sourceTitle": "Harcerz w polu: zabawy i gry terenowe",
+          "year": 1946,
+          "printedPages": [
+            116
+          ],
+          "originalLanguage": "pl",
+          "sourceHash": "4373d0a1ed28db78156c9be017798b308983ab574d88cff6ce0efb4bc6a6aa04",
+          "vaultRecord": "vault/activities/hwp-050.md",
+          "localized": {
+            "pl": {
+              "title": "Rozpoznawanie tropów",
+              "summary": "Na wilgotnym piasku lub świeżo narzuconej ziemi zastęp odbija stopy. Każdy oznacza swój ślad, po czym wszyscy obserwują wszystkie ślady przez kilka minut. Ostatecznie jeden harcerz odchodzi na bok, a jeden z pozostałych idzie kilkanaście kroków zostawiając…",
+              "translationStatus": "source-text"
+            },
+            "en": {
+              "title": "Recognizing Tracks",
+              "summary": "On damp sand or freshly turned earth, the patrol leaves footprints. Each marks their own track, after which everyone observes all the tracks for several minutes. Finally, one scout steps aside, and one of the remaining scouts walks a dozen or so steps,…",
+              "translationStatus": "machine-translation"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-016",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            99
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "0d3a39ed533b3322a34933daf20207c50247edae5afc3d9b89982fab3eae6c88",
+          "vaultRecord": "vault/activities/sfb-016.md",
+          "localized": {
+            "pl": {
+              "title": "Pamięć śladów",
+              "summary": "Poleć patrolowi usiąść z uniesionymi stopami, aby inni harcerze mogli je dokładnie obejrzeć. Daj harcerzom, powiedzmy, trzy minuty na zapamiętanie butów. Następnie, pozostawiając harcerzy w pomieszczeniu lub poza zasięgiem wzroku, niech jeden z patrolu…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Track Memory",
+              "summary": "Make a patrol sit with their feet up so that other scouts can study them. Give the scouts, say, three minutes to study the boots. Then leaving the scouts in a room or out of sight let one of the patrol make some footmarks in a good bit of ground. Call up the…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 11,
+      "candidateId": "semantic-v3-bsh-012--sfb-020",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-012",
+        "sfb-020"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.9565517,
+      "neighborRanks": {
+        "bsh-012": 2,
+        "sfb-020": 5
+      },
+      "activities": [
+        {
+          "activityId": "bsh-012",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            301
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "52184210046188ee9629506ed17a088d11a0f527ea117b9354d5f95e403f02ad",
+          "vaultRecord": "vault/activities/bsh-012.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie na człowieka",
+              "summary": "Gra ta jest rozgrywana z jednym harcerzem i dziesięcioma lub więcej przeciwnikami, czyli ogarami, w zależności od terenu – więcej, gdy jest on nierówny lub zalesiony. Harcerz otrzymuje list zaadresowany do „Komendanta Wojskowego” (zazwyczaj pani domu, do…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "The Man-Hunt",
+              "summary": "This is played with a scout and ten or more hostiles, or hounds, according to the country, more when it is rough or wooded. The scout is given a letter addressed to the \"Military Commandant\" (usually the lady of the house that he gets to) of any given place a…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-020",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            114
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "e9717c843ea8345046fbff03b39e2863dc5673a95bc526107eb5ddeb2736cc4d",
+          "vaultRecord": "vault/activities/sfb-020.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie skautowe",
+              "summary": "Jeden skaut dostaje czas, aby wyjść i ukryć się, pozostali zaś rozpoczynają poszukiwania. Wygrywa, jeśli nie zostanie odnaleziony lub jeśli zdoła wrócić do punktu wyjścia w określonym czasie, nie dotknięty przez nikogo.",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Scout Hunting",
+              "summary": "One scout is given time to go out and hide himself, the remainder then start to find him, he wins if he is not found, or if he can get back to the starting point within a given time without being touched.",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 12,
+      "candidateId": "semantic-v3-hwp-022--sfb-006",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "hwp-022",
+        "sfb-006"
+      ],
+      "sourceIds": [
+        "hwp-1946",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.95643157,
+      "neighborRanks": {
+        "hwp-022": 1,
+        "sfb-006": 1
+      },
+      "activities": [
+        {
+          "activityId": "hwp-022",
+          "sourceId": "hwp-1946",
+          "author": "Zygmunt Wyrobek",
+          "sourceTitle": "Harcerz w polu: zabawy i gry terenowe",
+          "year": 1946,
+          "printedPages": [
+            82,
+            83
+          ],
+          "originalLanguage": "pl",
+          "sourceHash": "2c414f1d4dea1da84bd4733602bf4008195dadcea57c0488a3b55fd75d967bc8",
+          "vaultRecord": "vault/activities/hwp-022.md",
+          "localized": {
+            "pl": {
+              "title": "Gra Kima w terenie",
+              "summary": "Wszyscy stoją tyłem do terenu, który będzie przedmiotem obserwacji. Oznacza się jego granice na prawo i na lewo wybitnymi, łatwo w oko wpadającymi przedmiotami. («Będziecie obserwować teren na lewo po tor kolejowy, na prawo po rzekę»). Teraz «w tył zwrot» i…",
+              "translationStatus": "source-text"
+            },
+            "en": {
+              "title": "Kim’s Game in the Field",
+              "summary": "Everyone stands with their back to the terrain that is to be observed. Its boundaries to the left and right are marked by prominent, easily noticeable objects. (\"You will observe the terrain from the railway line on the left to the river on the right.\") Now,…",
+              "translationStatus": "machine-translation"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-006",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            54,
+            55
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "4752292a7edd6268ad94abd5fdf2bc8e6cbd03ed98612de829268d7771cd6d73",
+          "vaultRecord": "vault/activities/sfb-006.md",
+          "localized": {
+            "pl": {
+              "title": "Gra Kima",
+              "summary": "Rozłóż na tacy, stole lub podłodze około dwudziestu lub trzydziestu drobnych przedmiotów, takich jak dwa lub trzy różne rodzaje guzików, ołówki, korki, szmatki, orzechy, kamienie, noże, sznurki, zdjęcia – cokolwiek znajdziesz – i przykryj je płachtą lub…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Kim's Game",
+              "summary": "Place about twenty or thirty small articles on a tray, or on the table or floor, such as two or three different kinds of buttons, pencils, corks, rags, nuts, stones, knives, string, photos—anything you can find—and cover them over with a cloth or coat. Make a…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 13,
+      "candidateId": "semantic-v3-hwp-039--sfb-030",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "hwp-039",
+        "sfb-030"
+      ],
+      "sourceIds": [
+        "hwp-1946",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.95622639,
+      "neighborRanks": {
+        "hwp-039": 1,
+        "sfb-030": 1
+      },
+      "activities": [
+        {
+          "activityId": "hwp-039",
+          "sourceId": "hwp-1946",
+          "author": "Zygmunt Wyrobek",
+          "sourceTitle": "Harcerz w polu: zabawy i gry terenowe",
+          "year": 1946,
+          "printedPages": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105
+          ],
+          "originalLanguage": "pl",
+          "sourceHash": "5568d67d0ad3fda6365ba4777fdd9267eb5d706b84222e7f63ea0a0ee5a7f280",
+          "vaultRecord": "vault/activities/hwp-039.md",
+          "localized": {
+            "pl": {
+              "title": "Ocenianie odległości",
+              "summary": "a) Odmierz przestrzeń 100 m (na szosie masz ją między dwoma kamieniami drogowymi) i każ całemu zastępowi przemierzyć ją krokami podwójnymi, tj. licząc przy każdym stąpnięciu lewą nogą. Po zrobieniu 66,5 takich kroków podwójnych powinien zastęp stanąć u mety.…",
+              "translationStatus": "source-text"
+            },
+            "en": {
+              "title": "Estimating Distances",
+              "summary": "a) Measure a space of 100 m (on a road, you have it between two roadside stones) and have the entire patrol walk it in double steps, i.e., counting each time the left foot steps. After taking 66.5 such double steps, the patrol should reach the finish line.…",
+              "translationStatus": "machine-translation"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-030",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            196,
+            197
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "606738aca1ccfe0690d0c38ea826cc83994e9684f464f90b8d29134d246da3af",
+          "vaultRecord": "vault/activities/sfb-030.md",
+          "localized": {
+            "pl": {
+              "title": "Ocenianie odległości",
+              "summary": "Weź patrol i rozstaw jego członków w różnych kierunkach oraz na różnych tłach, w zależności od koloru ich ubrania; następnie weź inny patrol, aby ocenił odległość do tych punktów. Dwóch zawodników wysyłanych jest po kolei do trzech różnych punktów. Przy…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Judging Distance",
+              "summary": "Take a patrol and station its members about in different directions and with different background, according to the colour of their clothes; then take another patrol to judge distance of these points. Two competitors are sent in turn to three different…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 14,
+      "candidateId": "semantic-v3-hwp-067--sfb-020",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "hwp-067",
+        "sfb-020"
+      ],
+      "sourceIds": [
+        "hwp-1946",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.95592449,
+      "neighborRanks": {
+        "hwp-067": 8,
+        "sfb-020": 7
+      },
+      "activities": [
+        {
+          "activityId": "hwp-067",
+          "sourceId": "hwp-1946",
+          "author": "Zygmunt Wyrobek",
+          "sourceTitle": "Harcerz w polu: zabawy i gry terenowe",
+          "year": 1946,
+          "printedPages": [
+            140
+          ],
+          "originalLanguage": "pl",
+          "sourceHash": "488b85ec4657627fef8d2e921eeca654ae2a4c2a90838489faf1b9cf778124de",
+          "vaultRecord": "vault/activities/hwp-067.md",
+          "localized": {
+            "pl": {
+              "title": "W chowanego",
+              "summary": "Tę samą, co poprzednio, cechę ma ćwiczenie, w którym jeden się chowa, a reszta go szuka, albo chowają się wszyscy z zastępu białych, a szukają czerwoni. Jedna partia ma wybitne odznaki. W tym celu należy dokładnie oznaczyć granice przestrzeni, gdzie wolno się…",
+              "translationStatus": "source-text"
+            },
+            "en": {
+              "title": "Hide and Seek",
+              "summary": "This exercise shares the same characteristic as the previous one: one person hides while the others search, or all the White Patrol hide while the Red Patrol search. One party must wear distinctive badges. It is essential to clearly mark the boundaries of the…",
+              "translationStatus": "machine-translation"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-020",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            114
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "e9717c843ea8345046fbff03b39e2863dc5673a95bc526107eb5ddeb2736cc4d",
+          "vaultRecord": "vault/activities/sfb-020.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie skautowe",
+              "summary": "Jeden skaut dostaje czas, aby wyjść i ukryć się, pozostali zaś rozpoczynają poszukiwania. Wygrywa, jeśli nie zostanie odnaleziony lub jeśli zdoła wrócić do punktu wyjścia w określonym czasie, nie dotknięty przez nikogo.",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Scout Hunting",
+              "summary": "One scout is given time to go out and hide himself, the remainder then start to find him, he wins if he is not found, or if he can get back to the starting point within a given time without being touched.",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 15,
+      "candidateId": "semantic-v3-hwp-087--sfb-018",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "hwp-087",
+        "sfb-018"
+      ],
+      "sourceIds": [
+        "hwp-1946",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.95527353,
+      "neighborRanks": {
+        "hwp-087": 3,
+        "sfb-018": 1
+      },
+      "activities": [
+        {
+          "activityId": "hwp-087",
+          "sourceId": "hwp-1946",
+          "author": "Zygmunt Wyrobek",
+          "sourceTitle": "Harcerz w polu: zabawy i gry terenowe",
+          "year": 1946,
+          "printedPages": [
+            168,
+            169,
+            170,
+            171
+          ],
+          "originalLanguage": "pl",
+          "sourceHash": "a97ff52d47e8d77ef70e2e4bda31475b913f7011d58b134a9d47b728a5e20b88",
+          "vaultRecord": "vault/activities/hwp-087.md",
+          "localized": {
+            "pl": {
+              "title": "Przez granicę",
+              "summary": "Gra oznaczona w książce gwiazdką: odpowiedniejsza dla starszych harcerzy. a) Nie każdy teren nadaje się do tego ćwiczenia. Musi to być teren falisty, gdzieniegdzie zarośnięty, pełen wyrw, krzaków, grup drzew itp., ma ułatwiać krycie się i podkradanie. Jego…",
+              "translationStatus": "source-text"
+            },
+            "en": {
+              "title": "Across the Border",
+              "summary": "Game marked with an asterisk in the book: more suitable for older scouts. a) Not every terrain is suitable for this exercise. It must be undulating, in places overgrown, full of hollows, bushes, clusters of trees, etc., to facilitate concealment and stealth.…",
+              "translationStatus": "machine-translation"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-018",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            100
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "780d59b56664b637491753f7b31f9fa7eadc6bc977113fc0f956d47532c8d7ce",
+          "vaultRecord": "vault/activities/sfb-018.md",
+          "localized": {
+            "pl": {
+              "title": "Przemytnicy przez granicę",
+              "summary": "„Granica” to pewien odcinek terenu o długości około czterystu jardów, najlepiej droga, szeroka ścieżka lub pas piasku, na którym łatwo dostrzec ślady stóp. Jedna patrol obserwuje granicę, wystawiając wartowników wzdłuż tej drogi, a rezerwę umieszczając dalej…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Smugglers Over the Border",
+              "summary": "The \"Border\" is a certain line of country about four hundred yards long, preferably a road or wide path or bit of sand, on which foot-tracks can easily be seen. One patrol watches the border with sentries posted along this road, with a reserve posted further…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 16,
+      "candidateId": "semantic-v3-hwp-047--sfb-016",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "hwp-047",
+        "sfb-016"
+      ],
+      "sourceIds": [
+        "hwp-1946",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.95303237,
+      "neighborRanks": {
+        "hwp-047": 9,
+        "sfb-016": 3
+      },
+      "activities": [
+        {
+          "activityId": "hwp-047",
+          "sourceId": "hwp-1946",
+          "author": "Zygmunt Wyrobek",
+          "sourceTitle": "Harcerz w polu: zabawy i gry terenowe",
+          "year": 1946,
+          "printedPages": [
+            113,
+            114
+          ],
+          "originalLanguage": "pl",
+          "sourceHash": "644e22908f3cfa2da1c4a0e1605457153e0870f623e5031c697201f264a6103a",
+          "vaultRecord": "vault/activities/hwp-047.md",
+          "localized": {
+            "pl": {
+              "title": "Szkic z pamięci",
+              "summary": "Gra oznaczona w książce gwiazdką: odpowiedniejsza dla starszych harcerzy. a) Oznacza się odcinek terenu, który ma posłużyć do ćwiczenia, wybitnymi granicami, np. lasem po lewej stronie, a rzeką po prawej. Zastęp obserwuje ten teren w skupieniu przez 15 minut…",
+              "translationStatus": "source-text"
+            },
+            "en": {
+              "title": "Sketch from Memory",
+              "summary": "Game marked with an asterisk in the book: more suitable for older scouts. a) A section of terrain to be used for the exercise is marked by prominent boundaries, e.g., a forest on the left and a river on the right. The patrol observes this terrain intently for…",
+              "translationStatus": "machine-translation"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-016",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            99
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "0d3a39ed533b3322a34933daf20207c50247edae5afc3d9b89982fab3eae6c88",
+          "vaultRecord": "vault/activities/sfb-016.md",
+          "localized": {
+            "pl": {
+              "title": "Pamięć śladów",
+              "summary": "Poleć patrolowi usiąść z uniesionymi stopami, aby inni harcerze mogli je dokładnie obejrzeć. Daj harcerzom, powiedzmy, trzy minuty na zapamiętanie butów. Następnie, pozostawiając harcerzy w pomieszczeniu lub poza zasięgiem wzroku, niech jeden z patrolu…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Track Memory",
+              "summary": "Make a patrol sit with their feet up so that other scouts can study them. Give the scouts, say, three minutes to study the boots. Then leaving the scouts in a room or out of sight let one of the patrol make some footmarks in a good bit of ground. Call up the…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 17,
+      "candidateId": "semantic-v3-hwp-084--sfb-002",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "hwp-084",
+        "sfb-002"
+      ],
+      "sourceIds": [
+        "hwp-1946",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.95202662,
+      "neighborRanks": {
+        "hwp-084": 2,
+        "sfb-002": 1
+      },
+      "activities": [
+        {
+          "activityId": "hwp-084",
+          "sourceId": "hwp-1946",
+          "author": "Zygmunt Wyrobek",
+          "sourceTitle": "Harcerz w polu: zabawy i gry terenowe",
+          "year": 1946,
+          "printedPages": [
+            162
+          ],
+          "originalLanguage": "pl",
+          "sourceHash": "e6b8599c6f46bd5f2887c3ba1bb98e45f921e7e254a02ba7a71aa77c93c39f0c",
+          "vaultRecord": "vault/activities/hwp-084.md",
+          "localized": {
+            "pl": {
+              "title": "Oblężenie twierdzy",
+              "summary": "Twierdza, to wał ze śniegu, może półkolisty, może zamknięty w koło — może to być bity mur ze śniegu, a mogą w nim być strzelnice. W twierdzy siedzą biali mając stos amunicji — kul śnieżnych. Tę twierdzę mają wyszukać czerwoni i zdobyć ją. Otrzymują wskazówki,…",
+              "translationStatus": "source-text"
+            },
+            "en": {
+              "title": "Siege of the Fortress",
+              "summary": "A fortress is a wall of snow, perhaps semicircular, perhaps closed in a circle—it may be a solid snow wall, and it may have loopholes. Inside the fortress, the Whites are stationed with a supply of ammunition—snowballs. The Reds must locate and capture this…",
+              "translationStatus": "machine-translation"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-002",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            52
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "592fd0eae2a861bc48cb80e24303a5cd0b356ad5d71de89cf33a8d10e6c2a11f",
+          "vaultRecord": "vault/activities/sfb-002.md",
+          "localized": {
+            "pl": {
+              "title": "Fort śnieżny",
+              "summary": "Fort śnieżny może być zbudowany przez jedną drużynę według własnych pomysłów na fortyfikacje, z otworami strzelniczymi itp. do obserwacji. Po zakończeniu budowy zostanie zaatakowany przez wrogie drużyny, używające śnieżek jako amunicji. Każdy harcerz trafiony…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Snow Fort",
+              "summary": "The snow fort may be built by one patrol according to their own ideas of fortification, with loop holes, etc., for looking out. When finished it will be attacked by hostile patrols, using snowballs as ammunition. Every scout struck by a snowball is counted…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 18,
+      "candidateId": "semantic-v3-bsh-012--sfb-024",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-012",
+        "sfb-024"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.94868151,
+      "neighborRanks": {
+        "bsh-012": 4,
+        "sfb-024": 3
+      },
+      "activities": [
+        {
+          "activityId": "bsh-012",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            301
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "52184210046188ee9629506ed17a088d11a0f527ea117b9354d5f95e403f02ad",
+          "vaultRecord": "vault/activities/bsh-012.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie na człowieka",
+              "summary": "Gra ta jest rozgrywana z jednym harcerzem i dziesięcioma lub więcej przeciwnikami, czyli ogarami, w zależności od terenu – więcej, gdy jest on nierówny lub zalesiony. Harcerz otrzymuje list zaadresowany do „Komendanta Wojskowego” (zazwyczaj pani domu, do…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "The Man-Hunt",
+              "summary": "This is played with a scout and ten or more hostiles, or hounds, according to the country, more when it is rough or wooded. The scout is given a letter addressed to the \"Military Commandant\" (usually the lady of the house that he gets to) of any given place a…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-024",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            134,
+            135
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "c7d5ae8eb2b1f62448677d5999bf9481d562ed68a62da12c9301dfe44da80271",
+          "vaultRecord": "vault/activities/sfb-024.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie na lwa",
+              "summary": "Lew jest reprezentowany przez jednego harcera, który wyrusza z żelaznymi tropicielami na stopach oraz kieszenią pełną ziarna kukurydzy lub grochu i sześcioma piłkami tenisowymi. Ma pół godziny przewagi, po czym patrol rusza za nim, śledząc jego trop, każdy…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Lion Hunting",
+              "summary": "A lion is represented by one scout who goes out with tracking irons on his feet, and a pocketful of corn or peas, and six tennis balls. He is allowed half an hour's start, and then the patrol go after him, following his spoor, each armed with one tennis ball…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 19,
+      "candidateId": "semantic-v3-bsh-001--sfb-024",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-001",
+        "sfb-024"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.9474838,
+      "neighborRanks": {
+        "bsh-001": 6,
+        "sfb-024": 4
+      },
+      "activities": [
+        {
+          "activityId": "bsh-001",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            291,
+            292,
+            293
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "3e4f959c8523952b3b3197d974064672c87596c795ac141b2cfb8cc5f802ee78",
+          "vaultRecord": "vault/activities/bsh-001.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie na jelenia",
+              "summary": "Polowanie na jelenia okazało się jedną z naszych najbardziej udanych gier. Jeleń to atrapa, najlepiej wykonana z ramy drucianej, na którą nawija się miękkie siano, aż osiągnie odpowiedni rozmiar i kształt, a następnie całość pokrywa się luźnym workiem…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Deer Hunting",
+              "summary": "The deer hunt has proved one of our most successful games. The deer is a dummy, best made with a wire frame, on which soft hay is wrapped till it is of proper size and shape, then all is covered with open burlap. A few touches of white and black make it very…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-024",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            134,
+            135
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "c7d5ae8eb2b1f62448677d5999bf9481d562ed68a62da12c9301dfe44da80271",
+          "vaultRecord": "vault/activities/sfb-024.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie na lwa",
+              "summary": "Lew jest reprezentowany przez jednego harcera, który wyrusza z żelaznymi tropicielami na stopach oraz kieszenią pełną ziarna kukurydzy lub grochu i sześcioma piłkami tenisowymi. Ma pół godziny przewagi, po czym patrol rusza za nim, śledząc jego trop, każdy…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Lion Hunting",
+              "summary": "A lion is represented by one scout who goes out with tracking irons on his feet, and a pocketful of corn or peas, and six tennis balls. He is allowed half an hour's start, and then the patrol go after him, following his spoor, each armed with one tennis ball…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 20,
+      "candidateId": "semantic-v3-bsh-010--sfb-024",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-010",
+        "sfb-024"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.94659297,
+      "neighborRanks": {
+        "bsh-010": 6,
+        "sfb-024": 5
+      },
+      "activities": [
+        {
+          "activityId": "bsh-010",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            300
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "dba934d4a0a78aeeb8a39a2a535ae2bb3d7a576291acf4481c1f76c733ddef31",
+          "vaultRecord": "vault/activities/bsh-010.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie na króliki",
+              "summary": "Gra w polowanie na króliki nadaje się dla dwóch myśliwych na ograniczonym terenie. Trzy małe worki z brązowego płótna żaglowego, każdy o wymiarach około osiem na dwanaście cali, są wypchane sianem. W dowolnym miejscu w lesie dwaj myśliwi stają w…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Rabbit Hunt",
+              "summary": "The game of rabbit hunting is suited for two hunters in limited grounds. Three little sacks of brown burlap, each about eight inches by twelve, are stuffed with hay. At any given place in the woods the two hunters stand in a ten-foot circle with their bows…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-024",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            134,
+            135
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "c7d5ae8eb2b1f62448677d5999bf9481d562ed68a62da12c9301dfe44da80271",
+          "vaultRecord": "vault/activities/sfb-024.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie na lwa",
+              "summary": "Lew jest reprezentowany przez jednego harcera, który wyrusza z żelaznymi tropicielami na stopach oraz kieszenią pełną ziarna kukurydzy lub grochu i sześcioma piłkami tenisowymi. Ma pół godziny przewagi, po czym patrol rusza za nim, śledząc jego trop, każdy…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Lion Hunting",
+              "summary": "A lion is represented by one scout who goes out with tracking irons on his feet, and a pocketful of corn or peas, and six tennis balls. He is allowed half an hour's start, and then the patrol go after him, following his spoor, each armed with one tennis ball…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 21,
+      "candidateId": "semantic-v3-bsh-027--sfb-046",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-027",
+        "sfb-046"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.945263,
+      "neighborRanks": {
+        "bsh-027": 1,
+        "sfb-046": 1
+      },
+      "activities": [
+        {
+          "activityId": "bsh-027",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            313,
+            314
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "7303a50ce5600e261ab81b03dc717900e4335e3d77c06aba32621a085a10d325",
+          "vaultRecord": "vault/activities/bsh-027.md",
+          "localized": {
+            "pl": {
+              "title": "Rzucanie włócznią",
+              "summary": "Gra ta jest starą grecką i perską rozrywką. „Rzuć włócznią i mów prawdę” – to narodowe motto Persów, które możemy z powodzeniem naśladować. Potrzebny sprzęt to kilka lekkich włóczni oraz tarcza do łucznictwa. Włócznie powinny mieć od pięciu do sześciu stóp…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Throwing the Spear",
+              "summary": "The game is an old Greek and Persian pastime. \"Throw the spear and speak the truth,\" was a national maxim of the Persians that we may copy with advantage. The apparatus required is some light spears and an archery target. The spears should vary from five to…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-046",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            368
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "b7a24ea92a8ac4991eb347460f6a634e6c1ffbbede1bfd8ae22df678836af2b7",
+          "vaultRecord": "vault/activities/sfb-046.md",
+          "localized": {
+            "pl": {
+              "title": "Rzucanie assegajem",
+              "summary": "Cel: cienki worek lekko wypchany słomą, arkusz tektury lub płótno naciągnięte na ramę. Assegaje wykonuje się z prętów, z obciążonymi końcami zaostrzonymi lub z żelaznymi grotami strzał na nich.",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Throwing the Assegai",
+              "summary": "Target, a thin sack, lightly stuffed with straw, or a sheet of cardboard, or canvas stretched on a frame. Assegais to be made of wands, with weighted ends sharpened, or with iron arrow-heads on them.",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 22,
+      "candidateId": "semantic-v3-bsh-002--sfb-024",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-002",
+        "sfb-024"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.942123,
+      "neighborRanks": {
+        "bsh-002": 5,
+        "sfb-024": 7
+      },
+      "activities": [
+        {
+          "activityId": "bsh-002",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            293,
+            294
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "516546961c61646a3f83b49e723c30a89d8007be1cd5ca2b420add4f44696ebd",
+          "vaultRecord": "vault/activities/bsh-002.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie na niedźwiedzia",
+              "summary": "W tę grę gra sześciu lub więcej chłopców. Każdy ma kij mniej więcej wielkości i kształtu kija do baseballa, ale wykonany ze słomy owiniętej wokół dwóch lub trzech witek i mocno zszytej w płótno żaglowe. -- Jeden duży chłopak zostaje wybrany na niedźwiedzia.…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "The Bear Hunt",
+              "summary": "This is played by half a dozen or more boys. Each has a club about the size and shape of a baseball club, but made of straw tied around two or three switches and tightly sewn up in burlap.--One big fellow is selected for the bear. He has a school bag tightly…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-024",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            134,
+            135
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "c7d5ae8eb2b1f62448677d5999bf9481d562ed68a62da12c9301dfe44da80271",
+          "vaultRecord": "vault/activities/sfb-024.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie na lwa",
+              "summary": "Lew jest reprezentowany przez jednego harcera, który wyrusza z żelaznymi tropicielami na stopach oraz kieszenią pełną ziarna kukurydzy lub grochu i sześcioma piłkami tenisowymi. Ma pół godziny przewagi, po czym patrol rusza za nim, śledząc jego trop, każdy…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Lion Hunting",
+              "summary": "A lion is represented by one scout who goes out with tracking irons on his feet, and a pocketful of corn or peas, and six tennis balls. He is allowed half an hour's start, and then the patrol go after him, following his spoor, each armed with one tennis ball…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 23,
+      "candidateId": "semantic-v3-hwp-064--sfb-026",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "hwp-064",
+        "sfb-026"
+      ],
+      "sourceIds": [
+        "hwp-1946",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.9408117,
+      "neighborRanks": {
+        "hwp-064": 10,
+        "sfb-026": 8
+      },
+      "activities": [
+        {
+          "activityId": "hwp-064",
+          "sourceId": "hwp-1946",
+          "author": "Zygmunt Wyrobek",
+          "sourceTitle": "Harcerz w polu: zabawy i gry terenowe",
+          "year": 1946,
+          "printedPages": [
+            134
+          ],
+          "originalLanguage": "pl",
+          "sourceHash": "09164aaafe1dd31db05728d456458e6aaf43fdd2e98c2877452ae4a9792e0b8b",
+          "vaultRecord": "vault/activities/hwp-064.md",
+          "localized": {
+            "pl": {
+              "title": "Pościg w ciemności",
+              "summary": "Na ograniczonej przestrzeni, oczywiście, nie otwartej, ma się ująć harcerza, który co minutę raz gwiżdże, raz zapala zapalkę na przeciąg 5 sekund. Pościg kieruje się więc i wzrokiem, i słuchem. Jeżeli w oznaczonym czasie zbiega się nie ujmie, inny obejmuje…",
+              "translationStatus": "source-text"
+            },
+            "en": {
+              "title": "Pursuit in the Dark",
+              "summary": "On a limited, enclosed space, one is to catch a Scout who, every minute, either whistles once or lights a match for a duration of 5 seconds. The pursuit is thus guided by both sight and hearing. If the pursuer does not catch the runner within the designated…",
+              "translationStatus": "machine-translation"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-026",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            182
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "95450ed34bb72261e46bfb18e562084730b44bdf711b8ac6c537b7a604009dee",
+          "vaultRecord": "vault/activities/sfb-026.md",
+          "localized": {
+            "pl": {
+              "title": "Patrolowanie nocne",
+              "summary": "Ćwicz skautów w słyszeniu i widzeniu nocą, wystawiając kilku wartowników, którzy muszą stać lub chodzić wokół, uzbrojeni w karabiny z nabojami ślepymi lub w gwizdki. Innych skautów należy wysłać jako wrogów, aby podkradali się i \"zabijali\" wartowników. Jeśli…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Night Patrolling",
+              "summary": "Practise scouts to hear and see by night by posting some sentries, who must stand or walk about, armed with rifles and blank cartridges, or with whistles. Other scouts should be sent out as enemies to stalk and kill them. If a sentry hears a sound he fires,…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 24,
+      "candidateId": "semantic-v3-bsh-013--sfb-024",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-013",
+        "sfb-024"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.93897216,
+      "neighborRanks": {
+        "bsh-013": 4,
+        "sfb-024": 8
+      },
+      "activities": [
+        {
+          "activityId": "bsh-013",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            301,
+            302
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "b836c0409e1bed25f5e45538638fcb1dfc4491460a4a9ecd601fabc8e3cdc9dd",
+          "vaultRecord": "vault/activities/bsh-013.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie na szopa",
+              "summary": "Jest to gra do przeprowadzenia w pomieszczeniu, oparta na znanej grze „Polowanie na naparstek”. Używamy małego szopa-zabawki; można go wykonać samodzielnie lub przerobić gotową zabawkę królika, dodając ogon i czarną maskę oraz przycinając uszy. Wszyscy gracze…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Hunt the Coon",
+              "summary": "This is an in-door game, founded on the familiar \"Hunt the Thimble.\" We use a little dummy coon; either make it or turn a ready-made toy rabbit into one by adding tail and black mask, and cropping the ears. All the players but one go out of the room. That one…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-024",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            134,
+            135
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "c7d5ae8eb2b1f62448677d5999bf9481d562ed68a62da12c9301dfe44da80271",
+          "vaultRecord": "vault/activities/sfb-024.md",
+          "localized": {
+            "pl": {
+              "title": "Polowanie na lwa",
+              "summary": "Lew jest reprezentowany przez jednego harcera, który wyrusza z żelaznymi tropicielami na stopach oraz kieszenią pełną ziarna kukurydzy lub grochu i sześcioma piłkami tenisowymi. Ma pół godziny przewagi, po czym patrol rusza za nim, śledząc jego trop, każdy…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Lion Hunting",
+              "summary": "A lion is represented by one scout who goes out with tracking irons on his feet, and a pocketful of corn or peas, and six tennis balls. He is allowed half an hour's start, and then the patrol go after him, following his spoor, each armed with one tennis ball…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 25,
+      "candidateId": "semantic-v3-bsh-008--sfb-012",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-008",
+        "sfb-012"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.93764273,
+      "neighborRanks": {
+        "bsh-008": 2,
+        "sfb-012": 4
+      },
+      "activities": [
+        {
+          "activityId": "bsh-008",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            299
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "a83ae66d68ca640387261e914d3c908b3e4c57c9252e64b2a7c7ee9b3dea2560",
+          "vaultRecord": "vault/activities/bsh-008.md",
+          "localized": {
+            "pl": {
+              "title": "Dalekowzroczność, czyli Zauważ Króliczka",
+              "summary": "Weź dwie sztywne białe tekturki lub bielone deseczki o wymiarach sześć na sześć cali. Na każdej z nich narysuj kontur króliczka, jeden dokładną kopią drugiego. Przygotuj dwadzieścia okrągłych czarnych wafelków lub plamek, każdy o średnicy pół cala. Niech…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Farsight, or Spot the Rabbit",
+              "summary": "Take two six-inch squares of stiff white pasteboard or whitened wood. On each of these draw an outline rabbit, one an exact duplicate of the other. Make twenty round black wafers or spots, each half an inch across. Let one player stick a few of these on one…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-012",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            85
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "e25bd0a69b9183a677807e10f2d62da395cb96f0f8501d80c962d0cf116e0888",
+          "vaultRecord": "vault/activities/sfb-012.md",
+          "localized": {
+            "pl": {
+              "title": "Wykrywanie szczegółu",
+              "summary": "(W pomieszczeniu – miasto lub wieś). Pokazać serię fotografii lub szkiców przedmiotów z okolicy, które powinny być znane wszystkim skautom, jeśli mają otwarte oczy – na przykład skrzyżowanie dróg, ciekawe okno, gargulec lub chorągiewka na wiatr, drzewo,…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Spotting the Spot",
+              "summary": "(Indoors—town or country). Show a series of photos or sketches of objects, in the neighbourhood such as would be known to all the scouts if they kept their eyes open—such, for instance, as cross-roads, curious window, gargoyle or weathercock, tree, reflection…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 26,
+      "candidateId": "semantic-v3-bsh-009--sfb-031",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-009",
+        "sfb-031"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.93403092,
+      "neighborRanks": {
+        "bsh-009": 2,
+        "sfb-031": 7
+      },
+      "activities": [
+        {
+          "activityId": "bsh-009",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            299,
+            300
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "1f5f13d62325a75bf84efaa807aa7489fd0c8e9acee94eb673cca64abbc7d62a",
+          "vaultRecord": "vault/activities/bsh-009.md",
+          "localized": {
+            "pl": {
+              "title": "Gwiazda Polarna",
+              "summary": "Każdy zawodnik otrzymuje w ciągu dnia długą, prostą żerdź i ma za zadanie ułożyć ją dokładnie w kierunku północ-południe. Przy tym może posłużyć się słońcem, mchem lub czymkolwiek innym, co znajdzie w naturze – z wyjątkiem kompasu. Kierunek sprawdzany jest za…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Pole-star",
+              "summary": "Each competitor is given a long straight stick in daytime, and told to lay it due north and south. In doing this he may guide himself by sun, moss, or anything he can find in nature--anything, indeed, except a compass. The direction is checked by a good…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-031",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            197
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "fc238dd47dca16aa4270676c5ec6b41bff4d5af35e99e9023665e032cb393754",
+          "vaultRecord": "vault/activities/sfb-031.md",
+          "localized": {
+            "pl": {
+              "title": "Znajdź północ",
+              "summary": "Harcerze ustawiają się w odległości trzydziestu jardów od siebie, a każdy kładzie swój kij na ziemi, wskazując to, co uważa za dokładną północ (lub południe), nie używając żadnego przyrządu. Sędzia porównuje każdy kij z kompasem; ten, kto trafi najbliżej,…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Find the North",
+              "summary": "Scouts are posted thirty yards apart, and each lays down his staff on the ground pointing to what he considers the exact north (or south), without using any instrument. The umpire compares each stick with the compass; the one who guesses nearest wins. This is…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 27,
+      "candidateId": "semantic-v3-bsh-009--sfb-029",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-009",
+        "sfb-029"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.93234922,
+      "neighborRanks": {
+        "bsh-009": 3,
+        "sfb-029": 3
+      },
+      "activities": [
+        {
+          "activityId": "bsh-009",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            299,
+            300
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "1f5f13d62325a75bf84efaa807aa7489fd0c8e9acee94eb673cca64abbc7d62a",
+          "vaultRecord": "vault/activities/bsh-009.md",
+          "localized": {
+            "pl": {
+              "title": "Gwiazda Polarna",
+              "summary": "Każdy zawodnik otrzymuje w ciągu dnia długą, prostą żerdź i ma za zadanie ułożyć ją dokładnie w kierunku północ-południe. Przy tym może posłużyć się słońcem, mchem lub czymkolwiek innym, co znajdzie w naturze – z wyjątkiem kompasu. Kierunek sprawdzany jest za…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Pole-star",
+              "summary": "Each competitor is given a long straight stick in daytime, and told to lay it due north and south. In doing this he may guide himself by sun, moss, or anything he can find in nature--anything, indeed, except a compass. The direction is checked by a good…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-029",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            196
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "3c3f8204d3a74772657c31bf5e1238ee6464183c6a11b4e3b5f42a4d02357836",
+          "vaultRecord": "vault/activities/sfb-029.md",
+          "localized": {
+            "pl": {
+              "title": "Obserwacja gwiazd",
+              "summary": "Wyprowadź chłopców na obserwacje w pogodne noce i rozstaw ich osobno, niech każdy odszuka Gwiazdę Polarną i Oriona itd., a następnie wskaże ci je, gdy będziesz obchodził posterunki.",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Star-gazing",
+              "summary": "Take out the scouts on clear nights and post them separately, and let each find the North Star and Orion, etc., and point them out to you as you come round.",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 28,
+      "candidateId": "semantic-v3-bsh-018--sfb-034",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-018",
+        "sfb-034"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.93152271,
+      "neighborRanks": {
+        "bsh-018": 1,
+        "sfb-034": 1
+      },
+      "activities": [
+        {
+          "activityId": "bsh-018",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            303
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "a656a2cab9468150dc102eb5f2bed0eccc6b26c64741c430b6c0c921e6dd05cd",
+          "vaultRecord": "vault/activities/bsh-018.md",
+          "localized": {
+            "pl": {
+              "title": "Przeciąganie ręczne",
+              "summary": "Jest to gra z jiu-jitsu, wprowadzona przez dr. L. H. Gulicka. Dwaj zawodnicy stają palec prawej stopy przy palcu prawej stopy przeciwnika, każdy trzymając się prawą dłonią, lewe stopy w rozkroku, lewa ręka wolna. Na słowo „Start!” każdy próbuje wytrącić…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Hand-Wrestling",
+              "summary": "This is a jiujitsu game, introduced by Dr. L. H. Gulick. The two contestants stand right toe to right toe, each right hand clasped, left feet braced, left hand free. At the word, \"Go!\" each tries to unbalance the other: that is, make him lift or move one of…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-034",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            219,
+            220
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "4353f75a0a801e730b80abe738106f84da3cc8b3c874ed009ce22c7c25b1d10b",
+          "vaultRecord": "vault/activities/sfb-034.md",
+          "localized": {
+            "pl": {
+              "title": "Pchanie nadgarstkiem",
+              "summary": "\"Pchanie nadgarstkiem\" wykonywane przez jednego człowieka. Stań z obiema rękami wyciągniętymi przed siebie mniej więcej na wysokości pasa, skrzyżuj nadgarstki tak, aby jedna dłoń miała kostki skierowane do góry, a druga do dołu. Ściśnij pięści. Teraz spraw,…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Wrist Pushing",
+              "summary": "\"Wrist Pushing\" by one man alone. Stand with both your arms to the front about level with the waist, cross your wrists so that one hand has knuckles up, the other knuckles down. Clench the fists. Now make the lower hand press upwards and make the upper hand…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 29,
+      "candidateId": "semantic-v3-bsh-007--sfb-006",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-007",
+        "sfb-006"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.91967262,
+      "neighborRanks": {
+        "bsh-007": 7,
+        "sfb-006": 6
+      },
+      "activities": [
+        {
+          "activityId": "bsh-007",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            298,
+            299
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "d488cc1bd1300ffff2e8497aee6ad8da1fb67a513d491109117249be4c504b39",
+          "vaultRecord": "vault/activities/bsh-007.md",
+          "localized": {
+            "pl": {
+              "title": "Gra w Szybki Wzrok",
+              "summary": "Wykonaj dwie tablice o boku około jednej stopy, podziel każdą na dwadzieścia pięć kwadratów; przygotuj dziesięć orzechów i dziesięć kamyków. Daj jednemu graczowi jedną tablicę, pięć orzechów i pięć kamyków. Umieszcza je na kwadratach w dowolnym układzie, jaki…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "The Game of Quicksight",
+              "summary": "Make two boards about a foot square, divide each into twenty-five squares; get ten nuts and ten pebbles. Give to one player one board, five nuts, and five pebbles. He places these on the squares in any pattern he fancies, and when ready the other player is…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-006",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            54,
+            55
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "4752292a7edd6268ad94abd5fdf2bc8e6cbd03ed98612de829268d7771cd6d73",
+          "vaultRecord": "vault/activities/sfb-006.md",
+          "localized": {
+            "pl": {
+              "title": "Gra Kima",
+              "summary": "Rozłóż na tacy, stole lub podłodze około dwudziestu lub trzydziestu drobnych przedmiotów, takich jak dwa lub trzy różne rodzaje guzików, ołówki, korki, szmatki, orzechy, kamienie, noże, sznurki, zdjęcia – cokolwiek znajdziesz – i przykryj je płachtą lub…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Kim's Game",
+              "summary": "Place about twenty or thirty small articles on a tray, or on the table or floor, such as two or three different kinds of buttons, pencils, corks, rags, nuts, stones, knives, string, photos—anything you can find—and cover them over with a cloth or coat. Make a…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    },
+    {
+      "rank": 30,
+      "candidateId": "semantic-v3-bsh-018--sfb-033",
+      "status": "human-review-required",
+      "reviewRequired": true,
+      "productionRelation": false,
+      "activityIds": [
+        "bsh-018",
+        "sfb-033"
+      ],
+      "sourceIds": [
+        "bsh-1911-seton-games",
+        "sfb-1908"
+      ],
+      "cosineSimilarity": 0.91247965,
+      "neighborRanks": {
+        "bsh-018": 3,
+        "sfb-033": 8
+      },
+      "activities": [
+        {
+          "activityId": "bsh-018",
+          "sourceId": "bsh-1911-seton-games",
+          "author": "Ernest Thompson Seton",
+          "sourceTitle": "Boy Scouts Handbook: The Games",
+          "year": 1911,
+          "printedPages": [
+            303
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "a656a2cab9468150dc102eb5f2bed0eccc6b26c64741c430b6c0c921e6dd05cd",
+          "vaultRecord": "vault/activities/bsh-018.md",
+          "localized": {
+            "pl": {
+              "title": "Przeciąganie ręczne",
+              "summary": "Jest to gra z jiu-jitsu, wprowadzona przez dr. L. H. Gulicka. Dwaj zawodnicy stają palec prawej stopy przy palcu prawej stopy przeciwnika, każdy trzymając się prawą dłonią, lewe stopy w rozkroku, lewa ręka wolna. Na słowo „Start!” każdy próbuje wytrącić…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "Hand-Wrestling",
+              "summary": "This is a jiujitsu game, introduced by Dr. L. H. Gulick. The two contestants stand right toe to right toe, each right hand clasped, left feet braced, left hand free. At the word, \"Go!\" each tries to unbalance the other: that is, make him lift or move one of…",
+              "translationStatus": "source-text"
+            }
+          }
+        },
+        {
+          "activityId": "sfb-033",
+          "sourceId": "sfb-1908",
+          "author": "Robert Baden-Powell",
+          "sourceTitle": "Scouting for Boys",
+          "year": 1908,
+          "printedPages": [
+            219
+          ],
+          "originalLanguage": "en",
+          "sourceHash": "02235f79034d8170fdd3c442c2439e104dd3c059c4195fa9a041c0ce52a1f0af",
+          "vaultRecord": "vault/activities/sfb-033.md",
+          "localized": {
+            "pl": {
+              "title": "Walka",
+              "summary": "Dwaj gracze stają naprzeciwko siebie w odległości około jednej jardy, wyciągają ramiona na boki, splatają palce obu dłoni i pochylają się ku sobie, aż ich klatki piersiowe się zetkną. Następnie odpychają się klatka piersiowa do klatki piersiowej i sprawdzają,…",
+              "translationStatus": "machine-translation"
+            },
+            "en": {
+              "title": "The Struggle",
+              "summary": "Two players face each other about a yard apart, stretch arms out sideways, lock fingers of both hands, and lean towards each other till their chests touch, push chest to chest, and see who can drive the other back to the wall of the room or on to a goal line.…",
+              "translationStatus": "source-text"
+            }
+          }
+        }
+      ],
+      "humanDecision": {
+        "status": "pending",
+        "allowedOutcomes": [
+          "approve-highly-similar-variant",
+          "reject",
+          "needs-research"
+        ],
+        "outcome": null,
+        "decidedBy": null,
+        "decidedAt": null,
+        "rationale": null
+      }
+    }
+  ],
+  "nextStep": "human-review-each-pair-before-writing-any-production-relation"
+}

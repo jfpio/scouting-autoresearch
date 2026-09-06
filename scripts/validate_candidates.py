@@ -192,10 +192,59 @@ def candidate_errors(
         and discovery.get("metadataPagesInspected") > 0,
         "discovery did not record inspected metadata pages",
     )
-    require(discovery.get("sourceFilesDownloaded") == 0, "discovery downloaded a source file")
-    require(discovery.get("fullTextCopied") is False, "discovery copied full text")
-    require(discovery.get("repositoryContentAdded") == "metadata-only", "discovery is not metadata-only")
-    require(discovery.get("estimatedCostUsd") == 0, "metadata-only discovery reports a cost")
+    if review_stage == "inbox" or method == "metadata-only":
+        require(discovery.get("sourceFilesDownloaded") == 0, "metadata-only discovery downloaded a source file")
+        require(discovery.get("fullTextCopied") is False, "metadata-only discovery copied full text")
+        require(discovery.get("repositoryContentAdded") == "metadata-only", "discovery is not metadata-only")
+        require(discovery.get("estimatedCostUsd") == 0, "metadata-only discovery reports a cost")
+    else:
+        require(
+            isinstance(discovery.get("sourceFilesDownloaded"), int)
+            and discovery.get("sourceFilesDownloaded") > 0,
+            "documented download lacks a downloaded-file count",
+        )
+        require(discovery.get("fullTextCopied") is False, "whole source file was copied into the repository")
+        require(
+            discovery.get("repositoryContentAdded") in {"activity-excerpts", "metadata-only"},
+            "documented download has an unsupported repository-content scope",
+        )
+        require(
+            isinstance(discovery.get("estimatedCostUsd"), (int, float))
+            and discovery.get("estimatedCostUsd") >= 0,
+            "documented download lacks a valid cost",
+        )
+    if discovery.get("repositoryContentAdded") == "activity-excerpts":
+        processing = metadata.get("processing") or {}
+        require(bool(processing.get("sourceId")), "activity excerpts lack a source ID")
+        require(
+            isinstance(processing.get("sourceSha256"), str)
+            and len(processing["sourceSha256"]) == 64,
+            "activity excerpts lack a pinned source SHA-256",
+        )
+        require(bool(processing.get("parserVersion")), "activity excerpts lack a parser version")
+        require(bool(processing.get("extractionReport")), "activity excerpts lack an extraction report")
+        require(
+            isinstance(processing.get("importedActivityCount"), int)
+            and processing["importedActivityCount"] > 0,
+            "activity excerpts lack a positive imported-activity count",
+        )
+        require(
+            processing.get("wholeSourceCopiedToRepository") is False,
+            "processing copied or failed to account for the whole source",
+        )
+        discovery_api = processing.get("discoveryApi")
+        if discovery_api:
+            require(bool(discovery_api.get("modelRequested")), "discovery API lacks requested model")
+            require(bool(discovery_api.get("promptVersion")), "discovery API lacks prompt version")
+            require(
+                discovery_api.get("billedCostUsd") == 0,
+                "experimental discovery API has a nonzero billed cost",
+            )
+            require(
+                isinstance(discovery_api.get("referenceCostUsd"), (int, float))
+                and discovery_api["referenceCostUsd"] >= 0,
+                "discovery API lacks a valid reference cost",
+            )
     return errors
 
 

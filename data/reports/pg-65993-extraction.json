@@ -1,0 +1,606 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "sfb-1908",
+  "sourceUrl": "https://www.gutenberg.org/ebooks/65993",
+  "downloadUrl": "https://www.gutenberg.org/files/65993/65993-h/65993-h.htm",
+  "sourceSha256": "46826e0cc47e2d923c36c699c68c91e106e49b4c46d6bcf1475a9924e1781634",
+  "parserVersion": "gutenberg-html-blocks-v2",
+  "transcriptionEvidence": {
+    "sourceStatement": "Archaic and colloquial spelling and punctuation was retained; missing or obscured punctuation was corrected.",
+    "sourceLocation": "Project Gutenberg transcriber's notes at the end of the pinned HTML.",
+    "internalEditionEvidence": "Six part title pages identify Horace Cox, London, 1908, with fortnightly issue statements where printed.",
+    "deterministicNormalization": [
+      "omit Project Gutenberg header, footer, license and digital packaging",
+      "omit illustrations, captions and footnotes",
+      "collapse HTML whitespace within source blocks",
+      "render source headings, table rows and display lines as Markdown",
+      "remove a duplicated activity heading only where the manifest and parsed small-caps label identify it"
+    ],
+    "lexicalModernization": false
+  },
+  "selection": {
+    "scope": "Explicitly described games in the verified 1908 text attributable to Baden-Powell.",
+    "excludedGroups": [
+      {
+        "label": "Seton-derived games",
+        "reason": "Separately attributed or expressly derived components require component-level review.",
+        "examples": [
+          "Bang the Bear",
+          "Whale Hunt",
+          "Old Spotty-face",
+          "Quick Sight",
+          "Spot the Thief",
+          "Track the Assassin",
+          "Spider and Fly"
+        ]
+      },
+      {
+        "label": "Other credited contributions",
+        "reason": "The accepted scope covers Baden-Powell's text, not contributions with another or unclear author.",
+        "examples": [
+          "Morgan's Game",
+          "Boom-a-tata",
+          "Wild Animal Play"
+        ]
+      },
+      {
+        "label": "Bare references and generic game lists",
+        "reason": "Names of ordinary sports and cross-references without standalone rules are not extractable activity records.",
+        "examples": [
+          "Hockey",
+          "Rounders",
+          "Football",
+          "Basket Ball",
+          "Boxing",
+          "Wrestling",
+          "Rowing",
+          "Skipping",
+          "Ju-jitsu",
+          "The Empire card game"
+        ]
+      },
+      {
+        "label": "Non-scouting games appendix",
+        "reason": "The book says an unspecified number were quoted from Social—to Save, so authorship is unresolved.",
+        "examples": [
+          "Nobody's Airship",
+          "Artists",
+          "Target Ball",
+          "Circle Ball",
+          "Counting the Words",
+          "Animated Portraits",
+          "To Fit",
+          "City Chains",
+          "A Memory Game",
+          "Post",
+          "Number Groups",
+          "Their Weight",
+          "Basket Ball"
+        ]
+      },
+      {
+        "label": "Non-game material",
+        "reason": "Practices, displays, plays, poems, songs, bibliographies and narrative text are outside this import's approved production kinds.",
+        "examples": [
+          "Debates, Trials, Etc.",
+          "Scouts' War Dance"
+        ]
+      }
+    ]
+  },
+  "activityCount": 49,
+  "activities": [
+    {
+      "id": "sfb-001",
+      "title": "Arctic Expedition",
+      "startBlock": 474,
+      "endBlockExclusive": 477,
+      "printedPages": [
+        52
+      ],
+      "sourceBlockSha256": "005839972189cb04e0977594ba414d86b92c5b6b0589ca5543f42e2e94e5653d"
+    },
+    {
+      "id": "sfb-002",
+      "title": "Snow Fort",
+      "startBlock": 477,
+      "endBlockExclusive": 479,
+      "printedPages": [
+        52
+      ],
+      "sourceBlockSha256": "2ee59f8f828e4cb5670ab8b6e18b478bde25f1422e6e2a20a11baa2a87f6a1be"
+    },
+    {
+      "id": "sfb-003",
+      "title": "Siberian Man Hunt",
+      "startBlock": 479,
+      "endBlockExclusive": 481,
+      "printedPages": [
+        52,
+        53
+      ],
+      "sourceBlockSha256": "33246b19e9de2a014af8c5130e7ef7d08c2471fdeb2cc5ba24b7078233bdf0e6"
+    },
+    {
+      "id": "sfb-004",
+      "title": "Scout Meets Scout",
+      "startBlock": 483,
+      "endBlockExclusive": 488,
+      "printedPages": [
+        53
+      ],
+      "sourceBlockSha256": "ad7bb6d87067a0247830823ad1065419319c63cfa4ea7a6fad1078299b04bbdf"
+    },
+    {
+      "id": "sfb-005",
+      "title": "Despatch Runners",
+      "startBlock": 488,
+      "endBlockExclusive": 491,
+      "printedPages": [
+        53,
+        54
+      ],
+      "sourceBlockSha256": "669e96633b0e4207e5158c4a4a1b9220ed8f6c251bfa3a485e1c9277f0726246"
+    },
+    {
+      "id": "sfb-006",
+      "title": "Kim's Game",
+      "startBlock": 491,
+      "endBlockExclusive": 510,
+      "printedPages": [
+        54,
+        55
+      ],
+      "sourceBlockSha256": "3dcecaa18cac1373c1aafb199ab5c5201f21a02c4376df75605f14cd7fe15cf6"
+    },
+    {
+      "id": "sfb-009",
+      "title": "Thimble Finding",
+      "startBlock": 913,
+      "endBlockExclusive": 918,
+      "printedPages": [
+        84
+      ],
+      "sourceBlockSha256": "297a0b0ab962d94d94a50fd287410c99e3a98d338659c1848e95579f70340263"
+    },
+    {
+      "id": "sfb-010",
+      "title": "Shop Window",
+      "startBlock": 918,
+      "endBlockExclusive": 920,
+      "printedPages": [
+        84,
+        85
+      ],
+      "sourceBlockSha256": "c44cf80c54b275aef02910fbaeb6384cc2b9ffc9791c70ebac268f63bc88efc0"
+    },
+    {
+      "id": "sfb-011",
+      "title": "Similar Game",
+      "startBlock": 920,
+      "endBlockExclusive": 923,
+      "printedPages": [
+        85
+      ],
+      "sourceBlockSha256": "830cdb2fa10b9e1a41f923445311e0d967251a7baed6428ae16ee106415909ee"
+    },
+    {
+      "id": "sfb-012",
+      "title": "Spotting the Spot",
+      "startBlock": 923,
+      "endBlockExclusive": 927,
+      "printedPages": [
+        85
+      ],
+      "sourceBlockSha256": "9a2f4a23eee6b4292c281ff59c9338850d9cbfc17c20dc55fcb3fabe6c113835"
+    },
+    {
+      "id": "sfb-013",
+      "title": "Follow the Trail",
+      "startBlock": 927,
+      "endBlockExclusive": 931,
+      "printedPages": [
+        85,
+        86
+      ],
+      "sourceBlockSha256": "5118fbc67fa3c08301ee8af8436e79f3e2488c5a8151cd8e8280c1cd1e0e7387"
+    },
+    {
+      "id": "sfb-014",
+      "title": "Scouts' Nose",
+      "startBlock": 931,
+      "endBlockExclusive": 933,
+      "printedPages": [
+        86
+      ],
+      "sourceBlockSha256": "4ab74f459bb0acefb1910b7d978745fb1483523c95562f2c81e25311fc014713"
+    },
+    {
+      "id": "sfb-015",
+      "title": "Far and Near",
+      "startBlock": 933,
+      "endBlockExclusive": 948,
+      "printedPages": [
+        86
+      ],
+      "sourceBlockSha256": "db9cb4e52cfc28ea2dec278d5fd3825974655fab997a377cf569917bdbd0ad88"
+    },
+    {
+      "id": "sfb-016",
+      "title": "Track Memory",
+      "startBlock": 1021,
+      "endBlockExclusive": 1023,
+      "printedPages": [
+        99
+      ],
+      "sourceBlockSha256": "1807b6599d17042b26777a855d6af9981f072d759dda605eafa61c24aa855bee"
+    },
+    {
+      "id": "sfb-017",
+      "title": "Track Drawing",
+      "startBlock": 1023,
+      "endBlockExclusive": 1025,
+      "printedPages": [
+        99
+      ],
+      "sourceBlockSha256": "fe095480377b68fc445ed8750dfe3f930f15d563259b25298a636640d0abd64f"
+    },
+    {
+      "id": "sfb-018",
+      "title": "Smugglers Over the Border",
+      "startBlock": 1030,
+      "endBlockExclusive": 1032,
+      "printedPages": [
+        100
+      ],
+      "sourceBlockSha256": "7d6fb295acf10f6cc1444a49030939b7fff2c9510b97f0d1e5675ba2bd3f7e85"
+    },
+    {
+      "id": "sfb-019",
+      "title": "Games and Competitions in Deduction",
+      "startBlock": 1088,
+      "endBlockExclusive": 1094,
+      "printedPages": [
+        107,
+        108
+      ],
+      "sourceBlockSha256": "733958668ef88610fc4dbe5d8a9d1a91ac9047f0a148a75e79318696e090a641"
+    },
+    {
+      "id": "sfb-020",
+      "title": "Scout Hunting",
+      "startBlock": 1138,
+      "endBlockExclusive": 1140,
+      "printedPages": [
+        114
+      ],
+      "sourceBlockSha256": "9cc8a3376f0face6090c1b1fbec54721a5161a71bfae0b90edc91e5cedef1443"
+    },
+    {
+      "id": "sfb-021",
+      "title": "Despatch Running",
+      "startBlock": 1140,
+      "endBlockExclusive": 1143,
+      "printedPages": [
+        114
+      ],
+      "sourceBlockSha256": "12a778d45425a54b30dca3a334ad1b1dea61d2ffb5d1e40267fb250a0ff12678"
+    },
+    {
+      "id": "sfb-022",
+      "title": "Stalking",
+      "startBlock": 1143,
+      "endBlockExclusive": 1148,
+      "printedPages": [
+        114,
+        115
+      ],
+      "sourceBlockSha256": "af9170f9869e4b8736ed1f6404f2de440e9137a9046a444c102090671374676b"
+    },
+    {
+      "id": "sfb-023",
+      "title": "Stalking and Reporting",
+      "startBlock": 1148,
+      "endBlockExclusive": 1150,
+      "printedPages": [
+        115
+      ],
+      "sourceBlockSha256": "6c84489c8479ea7f19c9c120465e99c35412172954e90156529e14da43153d7f"
+    },
+    {
+      "id": "sfb-024",
+      "title": "Lion Hunting",
+      "startBlock": 1333,
+      "endBlockExclusive": 1338,
+      "printedPages": [
+        134,
+        135
+      ],
+      "sourceBlockSha256": "b5e14269c6467429ce8c5758359fc1c204b089152df3fcb1c0982abb4606969e"
+    },
+    {
+      "id": "sfb-025",
+      "title": "Plant Race",
+      "startBlock": 1388,
+      "endBlockExclusive": 1390,
+      "printedPages": [
+        139
+      ],
+      "sourceBlockSha256": "68ccd817ce2c0989d38935c8a5ea681602fb2fa523de227ca691a58ba61c5cf1"
+    },
+    {
+      "id": "sfb-026",
+      "title": "Night Patrolling",
+      "startBlock": 1760,
+      "endBlockExclusive": 1762,
+      "printedPages": [
+        182
+      ],
+      "sourceBlockSha256": "375988007cd2a6acde7050140c33314ebeb75121a1bbbc9812e89442f2d7ea25"
+    },
+    {
+      "id": "sfb-027",
+      "title": "Mountain Scouting",
+      "startBlock": 1766,
+      "endBlockExclusive": 1768,
+      "printedPages": [
+        183,
+        184
+      ],
+      "sourceBlockSha256": "d15097339b37d2b1b53464b1fe5d090b18e75124c84321a84a32bec4e7439d3d"
+    },
+    {
+      "id": "sfb-028",
+      "title": "Games in Pathfinding",
+      "startBlock": 1831,
+      "endBlockExclusive": 1833,
+      "printedPages": [
+        196
+      ],
+      "sourceBlockSha256": "96d6f1d9b4d410c61fdc3f131a5b13679695a295a6dd5cebf473a4eb1280ebdc"
+    },
+    {
+      "id": "sfb-029",
+      "title": "Star-gazing",
+      "startBlock": 1833,
+      "endBlockExclusive": 1834,
+      "printedPages": [
+        196
+      ],
+      "sourceBlockSha256": "c15123f273796d0a4d10502a58534f76606bcf6e5198be946d415be8d2027c30"
+    },
+    {
+      "id": "sfb-030",
+      "title": "Judging Distance",
+      "startBlock": 1834,
+      "endBlockExclusive": 1835,
+      "printedPages": [
+        196,
+        197
+      ],
+      "sourceBlockSha256": "9f3256bed240d597c1e35bd2a6c062b2ad77184c5c0367f8387793e90f83a5fd"
+    },
+    {
+      "id": "sfb-031",
+      "title": "Find the North",
+      "startBlock": 1835,
+      "endBlockExclusive": 1836,
+      "printedPages": [
+        197
+      ],
+      "sourceBlockSha256": "7a2b201c73da0c6d762d4d308c211e436bb69bd615641c7ba201678bfc11f958"
+    },
+    {
+      "id": "sfb-032",
+      "title": "Dispatch Running",
+      "startBlock": 1912,
+      "endBlockExclusive": 1915,
+      "printedPages": [
+        205,
+        206
+      ],
+      "sourceBlockSha256": "091b2fb12e5d256cf1a6d8f2607da1f2c8338d12b2ab90504052df7b3997eb39"
+    },
+    {
+      "id": "sfb-033",
+      "title": "The Struggle",
+      "startBlock": 2069,
+      "endBlockExclusive": 2071,
+      "printedPages": [
+        219
+      ],
+      "sourceBlockSha256": "2aeaf5a2c7d6ba87c7598cae81eddc221c470c368030efc51aa287ee0b2752f1"
+    },
+    {
+      "id": "sfb-034",
+      "title": "Wrist Pushing",
+      "startBlock": 2071,
+      "endBlockExclusive": 2076,
+      "printedPages": [
+        219,
+        220
+      ],
+      "sourceBlockSha256": "27c59af0aa7be543976fa0835d02a25c9302dce6b00629c4db9506e439bc3b8a"
+    },
+    {
+      "id": "sfb-035",
+      "title": "Doctoring",
+      "startBlock": 2208,
+      "endBlockExclusive": 2209,
+      "printedPages": [
+        238
+      ],
+      "sourceBlockSha256": "478444f63cca21d08f1b7c575b2cf72dc2ec297e5a6d8671d157e2455d3be4ca"
+    },
+    {
+      "id": "sfb-036",
+      "title": "Knight Errantry",
+      "startBlock": 2315,
+      "endBlockExclusive": 2316,
+      "printedPages": [
+        250
+      ],
+      "sourceBlockSha256": "b2b4efa739c11882cd45a829f81f39120989ad7171d1e99c921edcfcd4c2004c"
+    },
+    {
+      "id": "sfb-037",
+      "title": "Risking Life",
+      "startBlock": 2385,
+      "endBlockExclusive": 2386,
+      "printedPages": [
+        258
+      ],
+      "sourceBlockSha256": "7f97ce32f49574536c49366af742b9abbd976be5e99820925005ab3e02b6cb2f"
+    },
+    {
+      "id": "sfb-038",
+      "title": "Bowmanship",
+      "startBlock": 2388,
+      "endBlockExclusive": 2389,
+      "printedPages": [
+        258
+      ],
+      "sourceBlockSha256": "7af37a055946e9140e6a892e849da2cf6581e2a49bf9a3ff391c811739360053"
+    },
+    {
+      "id": "sfb-039",
+      "title": "Longbowmanship",
+      "startBlock": 2389,
+      "endBlockExclusive": 2390,
+      "printedPages": [
+        258
+      ],
+      "sourceBlockSha256": "3302603b8dacfba69c9e25445a20427da413d542a45e3d7f18f4d73252c524bd"
+    },
+    {
+      "id": "sfb-040",
+      "title": "Quarter Staff Play",
+      "startBlock": 2390,
+      "endBlockExclusive": 2391,
+      "printedPages": [
+        258
+      ],
+      "sourceBlockSha256": "d2aa159587d6bffb8d9df95686bc9d918f55d976d4129e3a36f72fd8ca66be5b"
+    },
+    {
+      "id": "sfb-041",
+      "title": "Dragging Race",
+      "startBlock": 2799,
+      "endBlockExclusive": 2800,
+      "printedPages": [
+        308
+      ],
+      "sourceBlockSha256": "1424deb5d35f4b94e24007ee59f59c91cbe4e0e540a08459efe3283ce1838a62"
+    },
+    {
+      "id": "sfb-042",
+      "title": "Shoot Out",
+      "startBlock": 2948,
+      "endBlockExclusive": 2949,
+      "printedPages": [
+        325,
+        326
+      ],
+      "sourceBlockSha256": "3d1f529da35524682a15f0f86754bb0bfe03e7c5ddc346615de2c308d0b037ae"
+    },
+    {
+      "id": "sfb-043",
+      "title": "French and English, or Tug of War",
+      "startBlock": 2949,
+      "endBlockExclusive": 2950,
+      "printedPages": [
+        326
+      ],
+      "sourceBlockSha256": "040f397433339f014a88947c9ea941832417f11203229a4025a77159bb2cedd6"
+    },
+    {
+      "id": "sfb-044",
+      "title": "The Storming of Badajoz",
+      "startBlock": 2950,
+      "endBlockExclusive": 2952,
+      "printedPages": [
+        326
+      ],
+      "sourceBlockSha256": "f6d14a50afdfaa41877733c03c23728b0b45dc284d11e9d167124da188b52393"
+    },
+    {
+      "id": "sfb-045",
+      "title": "Relay Race",
+      "startBlock": 3314,
+      "endBlockExclusive": 3315,
+      "printedPages": [
+        367
+      ],
+      "sourceBlockSha256": "5f8dea2d4e38d29b320e1f47579ceba7410798f78aa15c9206ea623f114da7e2"
+    },
+    {
+      "id": "sfb-046",
+      "title": "Throwing the Assegai",
+      "startBlock": 3321,
+      "endBlockExclusive": 3323,
+      "printedPages": [
+        368
+      ],
+      "sourceBlockSha256": "13c806fa54830437f77feb937592f5ad4efd045b0e911a86e41cacb11d97daba"
+    },
+    {
+      "id": "sfb-047",
+      "title": "Flag Raiding",
+      "startBlock": 3326,
+      "endBlockExclusive": 3342,
+      "printedPages": [
+        368,
+        369
+      ],
+      "sourceBlockSha256": "8204086d9a52947d43a7894189c5e347ebc209821dee16392c551fef0356013e"
+    },
+    {
+      "id": "sfb-048",
+      "title": "Food",
+      "startBlock": 3350,
+      "endBlockExclusive": 3351,
+      "printedPages": [
+        370
+      ],
+      "sourceBlockSha256": "85b7ef9ffbaae56857dd2174a867012e65808e462ad581bc7da27d745adb61dd"
+    },
+    {
+      "id": "sfb-049",
+      "title": "Fire-lighting Race",
+      "startBlock": 3351,
+      "endBlockExclusive": 3352,
+      "printedPages": [
+        370
+      ],
+      "sourceBlockSha256": "6339500d8f881417ef04004de9bbb56d33102f5f3c8101e8dfc4b51e35752baa"
+    },
+    {
+      "id": "sfb-050",
+      "title": "Scouting Race",
+      "startBlock": 3373,
+      "endBlockExclusive": 3381,
+      "printedPages": [
+        374
+      ],
+      "sourceBlockSha256": "d5feef8db900598908cb9ae765690bed19ecf1ccac048a3368897271b1580822"
+    },
+    {
+      "id": "sfb-051",
+      "title": "On Trek",
+      "startBlock": 3381,
+      "endBlockExclusive": 3389,
+      "printedPages": [
+        374,
+        375
+      ],
+      "sourceBlockSha256": "788a3cfdc626ad9ee7b55f47b87fbc9961ad3492f7db35bfcd05e7828bf35be0"
+    }
+  ],
+  "deduplication": {
+    "exactBodyMatches": [],
+    "nearDuplicateThreshold": 0.45,
+    "nearDuplicateCandidates": []
+  },
+  "reviewRequired": true,
+  "wholeSourceCopiedToRepository": false
+}
