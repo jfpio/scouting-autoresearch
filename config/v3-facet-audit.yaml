@@ -1,0 +1,325 @@
+schemaVersion: 1
+auditId: v3-practical-facet-lexical-signals-v1
+status: proposed
+sourceType: editorial-hypothesis
+corpusKind: game
+signalsAreAssignments: false
+productionFieldsWritten: []
+humanReviewRequired: true
+samplePerValue: 3
+sampleWithoutSignal: 6
+searchValueRubric:
+  status: human-rating-required
+  scale: [0, 1, 2]
+  criteria:
+    - id: feasibility-impact
+      labels: {pl: wpływ na możliwość przeprowadzenia, en: feasibility impact}
+    - id: decision-frequency
+      labels: {pl: częstość użycia przy wyborze gry, en: decision frequency}
+    - id: label-clarity
+      labels: {pl: zrozumiałość etykiet, en: label clarity}
+dimensions:
+  - id: interaction-mode
+    labels: {pl: sposób interakcji, en: interaction mode}
+    intendedUse: exploration-facet
+    values:
+      - id: cooperative
+        labels: {pl: współpraca, en: cooperative}
+        patterns:
+          pl:
+            - {id: pl-cooperate, regex: '\b(?:współprac\w*|wspóln(?:ie|y|a|e)|pomaga(?:ć|ją|j)|pomocy towarzyszowi)\b'}
+          en:
+            - {id: en-cooperate, regex: '\b(?:co-operat\w*|cooperat\w*|work together|help(?:s|ed|ing)? (?:his|her|their|each other)|assist(?:s|ed|ing)?)\b'}
+      - id: competitive
+        labels: {pl: rywalizacja, en: competitive}
+        patterns:
+          pl:
+            - {id: pl-compete, regex: '\b(?:współzawod\w*|zawod\w*|wygrywa|wygrywają|zwycię\w*|przeciwko|punkty?)\b'}
+          en:
+            - {id: en-compete, regex: '\b(?:compete\w*|contest\w*|wins?|winner|against|points?|score)\b'}
+      - id: elimination
+        labels: {pl: eliminowanie uczestników, en: participant elimination}
+        patterns:
+          pl:
+            - {id: pl-elimination, regex: '\b(?:odpada\w*|wyklucz\w*|wyelimin\w*|zabity|zabici|wzięty do niewoli|jeń(?:cem|cy))\b'}
+          en:
+            - {id: en-elimination, regex: '\b(?:eliminat\w*|ruled out|put out of (?:the )?game|killed|captured|prisoner)\b'}
+
+  - id: dominant-mechanic
+    labels: {pl: dominująca mechanika, en: dominant mechanic}
+    intendedUse: exploration-facet
+    values:
+      - id: chase-capture
+        labels: {pl: pościg lub chwytanie, en: chase or capture}
+        patterns:
+          pl:
+            - {id: pl-chase, regex: '\b(?:pościg\w*|ściga\w*|schwy\w*|łapa\w*|osaczy\w*|niewoli)\b'}
+          en:
+            - {id: en-chase, regex: '\b(?:chase\w*|pursu\w*|catch(?:es|ing)?|captur\w*)\b'}
+      - id: stealth-hiding
+        labels: {pl: skradanie lub ukrywanie, en: stealth or hiding}
+        patterns:
+          pl:
+            - {id: pl-stealth, regex: '\b(?:skrada\w*|podkrada\w*|ukry\w*|chowa\w*|niepostrzeżenie)\b'}
+          en:
+            - {id: en-stealth, regex: '\b(?:stalk\w*|creep\w*|hid(?:e|es|ing|den)|conceal\w*|unobserved)\b'}
+      - id: observation-memory
+        labels: {pl: obserwacja lub pamięć, en: observation or memory}
+        patterns:
+          pl:
+            - {id: pl-observe, regex: '\b(?:obserw\w*|spostrz\w*|zapamię\w*|pamięci|rozpozn\w*)\b'}
+          en:
+            - {id: en-observe, regex: '\b(?:observ\w*|notice\w*|memory|remember\w*|recogniz\w*|spot(?:s|ted|ting)?)\b'}
+      - id: signaling-communication
+        labels: {pl: sygnalizacja lub komunikacja, en: signaling or communication}
+        patterns:
+          pl:
+            - {id: pl-signal, regex: '\b(?:sygnał\w*|sygnaliz\w*|znak(?:i|ów|ami)? porozumiewawcz\w*|meldun\w*|wiadomoś\w*)\b'}
+          en:
+            - {id: en-signal, regex: '\b(?:signal\w*|semaphore|message|dispatch|report(?:s|ed|ing)?|communicat\w*)\b'}
+      - id: search-tracking
+        labels: {pl: szukanie lub tropienie, en: search or tracking}
+        patterns:
+          pl:
+            - {id: pl-search, regex: '\b(?:szuka\w*|odszuka\w*|tropi\w*|ślad(?:y|ów|ami)?|wyśled\w*)\b'}
+          en:
+            - {id: en-search, regex: '\b(?:search\w*|track\w*|trail\w*|find(?:s|ing)?|hunt(?:s|ed|ing)?)\b'}
+      - id: relay-transport
+        labels: {pl: sztafeta lub transport, en: relay or transport}
+        patterns:
+          pl:
+            - {id: pl-relay, regex: '\b(?:sztafet\w*|przenos\w*|transport\w*|łańcuch\w*|podawa\w*)\b'}
+          en:
+            - {id: en-relay, regex: '\b(?:relay|carry(?:ing|ies|ied)?|transport\w*|pass(?:es|ed|ing)? .* from .* to)\b'}
+
+  - id: setting
+    labels: {pl: przestrzeń i teren, en: setting and terrain}
+    intendedUse: feasibility-filter
+    values:
+      - id: indoors
+        labels: {pl: wewnątrz, en: indoors}
+        patterns:
+          pl:
+            - {id: pl-indoors, regex: '\b(?:w pokoju|w izbie|w sali|wewnątrz|budynku)\b'}
+          en:
+            - {id: en-indoors, regex: '\b(?:indoors?|in (?:a|the) room|inside (?:a|the) (?:room|hall|building)|room or hall)\b'}
+      - id: outdoors
+        labels: {pl: na zewnątrz, en: outdoors}
+        patterns:
+          pl:
+            - {id: pl-outdoors, regex: '\b(?:w polu|na polu|na dworze|na zewnątrz|w terenie|terenow\w*)\b'}
+          en:
+            - {id: en-outdoors, regex: '\b(?:outdoors?|open country|across country|in the field|in camp)\b'}
+      - id: forest
+        labels: {pl: las, en: forest or woods}
+        patterns:
+          pl:
+            - {id: pl-forest, regex: '\b(?:las|lasu|lesie|leśn\w*)\b'}
+          en:
+            - {id: en-forest, regex: '\b(?:woods?|forest)\b'}
+      - id: water
+        labels: {pl: woda, en: water}
+        patterns:
+          pl:
+            - {id: pl-water, regex: '\b(?:w wodzie|na wodzie|rzek\w*|jezior\w*|łodzi\w*|kajak\w*)\b'}
+          en:
+            - {id: en-water, regex: '\b(?:in the water|on the water|river|lake|boats?|canoe|swim\w*)\b'}
+      - id: urban-built
+        labels: {pl: teren zabudowany, en: urban or built area}
+        patterns:
+          pl:
+            - {id: pl-urban, regex: '\b(?:ulic\w*|miast\w*|wsi|wieś|domów|budynk\w*)\b'}
+          en:
+            - {id: en-urban, regex: '\b(?:street|town|village|shops?|buildings?|city)\b'}
+
+  - id: area-demand
+    labels: {pl: wymagana powierzchnia, en: area demand}
+    intendedUse: feasibility-filter
+    values:
+      - id: bounded-small
+        labels: {pl: mały lub ograniczony obszar, en: small or bounded area}
+        patterns:
+          pl:
+            - {id: pl-bounded, regex: '\b(?:ograniczon\w* teren|mał\w* (?:teren|obszar)|w kole|krąg\w*|kilku kroków)\b'}
+          en:
+            - {id: en-bounded, regex: '\b(?:limited area|small (?:area|space)|within a circle|a few (?:feet|yards))\b'}
+      - id: extended
+        labels: {pl: rozległy obszar lub trasa, en: extended area or route}
+        patterns:
+          pl:
+            - {id: pl-extended, regex: '\b(?:obszern\w* teren|rozległ\w*|kilometr\w*|\bkm\b|dług\w* tras\w*|marsz\w*)\b'}
+          en:
+            - {id: en-extended, regex: '\b(?:large (?:area|space)|across country|miles? away|long distance|cross-country|march\w*)\b'}
+
+  - id: movement-intensity
+    labels: {pl: ruch i intensywność, en: movement and intensity}
+    intendedUse: feasibility-filter
+    values:
+      - id: running-vigorous
+        labels: {pl: bieg lub wysoka intensywność, en: running or vigorous}
+        patterns:
+          pl:
+            - {id: pl-running, regex: '\b(?:bieg(?:a|u|iem|ną|nie|owy)?|biegn\w*|wyścig\w*|pędz\w*|szybkość)\b'}
+          en:
+            - {id: en-running, regex: '\b(?:run(?:s|ning)?|race|racing|sprint\w*|vigorous\w*|speed)\b'}
+      - id: walking-moderate
+        labels: {pl: marsz lub umiarkowany ruch, en: walking or moderate movement}
+        patterns:
+          pl:
+            - {id: pl-walking, regex: '\b(?:marsz\w*|idzie|chodz\w*|krokiem|przechodzi\w*)\b'}
+          en:
+            - {id: en-walking, regex: '\b(?:walk(?:s|ed|ing)?|march(?:es|ed|ing)?|on foot)\b'}
+      - id: stationary
+        labels: {pl: bez przemieszczania, en: stationary}
+        patterns:
+          pl:
+            - {id: pl-stationary, regex: '\b(?:na miejscu|pozostać na swych miejscach|siedzi|stojąc|nieruchomo)\b'}
+          en:
+            - {id: en-stationary, regex: '\b(?:remain in (?:his|their) place|stand still|sit(?:s|ting)? still|stationary)\b'}
+
+  - id: duration-preparation
+    labels: {pl: czas i przygotowanie, en: duration and preparation}
+    intendedUse: feasibility-filter
+    values:
+      - id: explicit-duration
+        labels: {pl: jawnie określony czas, en: explicit duration}
+        patterns:
+          pl:
+            - {id: pl-duration, regex: '\b(?:[0-9]+|jedn(?:ą|ej)|dwie|dwóch|trzech|kilku) (?:sekund\w*|minut\w*|godzin\w*|dni)\b'}
+          en:
+            - {id: en-duration, regex: '\b(?:[0-9]+|one|two|three|several|half an?) (?:seconds?|minutes?|hours?|days?)\b'}
+      - id: advance-preparation
+        labels: {pl: przygotowanie z wyprzedzeniem, en: advance preparation}
+        patterns:
+          pl:
+            - {id: pl-prepare, regex: '\b(?:przygot\w*|przedtem|uprzednio|zawczasu|sporządzić wcześniej)\b'}
+          en:
+            - {id: en-prepare, regex: '\b(?:prepare\w*|beforehand|in advance|previously arranged|make .* before)\b'}
+
+  - id: equipment
+    labels: {pl: sprzęt i materiały, en: equipment and materials}
+    intendedUse: feasibility-filter
+    values:
+      - id: portable-items
+        labels: {pl: przedmioty przenośne, en: portable items}
+        patterns:
+          pl:
+            - {id: pl-equipment, regex: '\b(?:piłk\w*|lin\w*|sznur\w*|kij\w*|chorągiew\w*|gwizd\w*|latark\w*|kompas\w*|map\w*|kartk\w*|ołów\w*|opask\w*)\b'}
+          en:
+            - {id: en-equipment, regex: '\b(?:balls?|ropes?|cord|sticks?|staff|flags?|whistles?|lanterns?|compass|maps?|cards?|pencils?|handkerchief|blindfold)\b'}
+      - id: constructed-setup
+        labels: {pl: przygotowana konstrukcja lub stanowisko, en: constructed setup or station}
+        patterns:
+          pl:
+            - {id: pl-constructed, regex: '\b(?:zbud\w*|sporząd\w*|ustawić|stanowisk\w*|przeszkod\w*|wyznaczyć teren)\b'}
+          en:
+            - {id: en-constructed, regex: '\b(?:construct\w*|build\w*|set up|stations?|obstacle\w*|mark out)\b'}
+
+  - id: light-weather-season
+    labels: {pl: "światło, pogoda i sezon", en: "light, weather, and season"}
+    intendedUse: feasibility-filter
+    values:
+      - id: night-darkness
+        labels: {pl: noc lub ciemność, en: night or darkness}
+        patterns:
+          pl:
+            - {id: pl-night, regex: '\b(?:nocą|w nocy|nocn\w*|ciemnoś\w*|po ciemku|zmroku)\b'}
+          en:
+            - {id: en-night, regex: '\b(?:at night|by night|night-time|darkness|in the dark)\b'}
+      - id: reduced-vision
+        labels: {pl: ograniczona widoczność, en: reduced vision}
+        patterns:
+          pl:
+            - {id: pl-reduced-vision, regex: '\b(?:zawiązan\w* ocz\w*|zasłonięt\w* ocz\w*|bez użycia wzroku|we mgle|mgł\w*)\b'}
+          en:
+            - {id: en-reduced-vision, regex: '\b(?:blindfold\w*|eyes? (?:are )?(?:covered|bandaged)|without (?:using )?(?:his |their )?eyesight|fog)\b'}
+      - id: weather-season
+        labels: {pl: zależność od pogody lub sezonu, en: weather or season dependency}
+        patterns:
+          pl:
+            - {id: pl-weather, regex: '\b(?:deszcz\w*|śnieg\w*|zimą|zimow\w*|latem|wiatr\w*|mróz|pogod\w*)\b'}
+          en:
+            - {id: en-weather, regex: '\b(?:rain\w*|snow\w*|winter|summer|windy|frost|weather)\b'}
+
+  - id: physical-contact-risk
+    labels: {pl: kontakt fizyczny i ryzyko, en: physical contact and risk}
+    intendedUse: feasibility-filter
+    values:
+      - id: physical-contact
+        labels: {pl: kontakt fizyczny, en: physical contact}
+        patterns:
+          pl:
+            - {id: pl-contact, regex: '\b(?:dotkn\w*|chwy\w*|pcha\w*|ciągn\w*|mocowa\w*|siłowa\w*|szarpa\w*|zderz\w*)\b'}
+          en:
+            - {id: en-contact, regex: '\b(?:touch\w*|seize\w*|grasp\w*|push\w*|pull\w*|wrestl\w*|tug of war|collision)\b'}
+      - id: hazard-signal
+        labels: {pl: sygnał potencjalnego zagrożenia, en: potential hazard signal}
+        patterns:
+          pl:
+            - {id: pl-hazard, regex: '\b(?:ogień|ognisk\w*|strzel\w*|karabin\w*|w wodzie|na wodzie|wspin\w*|skok\w*|nóż|nożem|topor\w*)\b'}
+          en:
+            - {id: en-hazard, regex: '\b(?:fire|rifles?|shoot\w*|blank cartridges?|in the water|on the water|climb\w*|jump\w*|knives?|axes?|collision)\b'}
+
+  - id: sound-discipline
+    labels: {pl: hałas i cisza, en: noise and silence}
+    intendedUse: feasibility-filter
+    values:
+      - id: quiet-required
+        labels: {pl: wymagana cisza, en: quiet required}
+        patterns:
+          pl:
+            - {id: pl-quiet, regex: '\b(?:w ciszy|cicho|bezszelestnie|nie wydać dźwięku|milcze\w*)\b'}
+          en:
+            - {id: en-quiet, regex: '\b(?:in silence|silent\w*|quietly|without (?:a|making any) sound|stepping lightly)\b'}
+      - id: audible-signals
+        labels: {pl: sygnały dźwiękowe lub wołanie, en: audible signals or calling}
+        patterns:
+          pl:
+            - {id: pl-audible, regex: '\b(?:gwizd\w*|woła\w*|krzy\w*|okrzyk\w*|dźwięk\w*|głośno)\b'}
+          en:
+            - {id: en-audible, regex: '\b(?:whistle\w*|shout\w*|call(?:s|ed|ing)?|cry|cries|sound\w*|aloud)\b'}
+
+  - id: facilitator-role
+    labels: {pl: rola prowadzącego, en: facilitator role}
+    intendedUse: feasibility-filter
+    values:
+      - id: adjudicator
+        labels: {pl: sędzia lub arbiter, en: judge or referee}
+        patterns:
+          pl:
+            - {id: pl-adjudicator, regex: '\b(?:sędzi(?:a|ego|ą|owie|ów)|rozjemc\w*|arbiter)\b'}
+          en:
+            - {id: en-adjudicator, regex: '\b(?:umpire|referee|judge|adjudicat\w*)\b'}
+      - id: active-leader
+        labels: {pl: aktywny prowadzący, en: active leader}
+        patterns:
+          pl:
+            - {id: pl-leader, regex: '\b(?:prowadząc\w*|zastępowy (?:robi|daje|wyznacza|nakazuje|ustawia)|instruktor\w*)\b'}
+          en:
+            - {id: en-leader, regex: '\b(?:leader (?:places|gives|sends|orders|directs)|instructor|game leader)\b'}
+
+  - id: age-access-prerequisites
+    labels: {pl: "wiek, dostępność i wymagania wstępne", en: "age, access, and prerequisites"}
+    intendedUse: human-review-only
+    values:
+      - id: explicit-age
+        labels: {pl: jawna wskazówka wieku, en: explicit age cue}
+        patterns:
+          pl:
+            - {id: pl-age, regex: '\b(?:w wieku|wiekowi|młodsz\w* harcerz\w*|starsz\w* harcerz\w*|dla zuchów)\b'}
+          en:
+            - {id: en-age, regex: '\b(?:years? old|aged [0-9]+|younger scouts?|older scouts?|for cubs)\b'}
+      - id: sensory-mobility-demand
+        labels: {pl: szczególne wymaganie sensoryczne lub ruchowe, en: sensory or mobility demand}
+        patterns:
+          pl:
+            - {id: pl-access-demand, regex: '\b(?:zawiązan\w* ocz\w*|bez użycia wzroku|pływa\w*|przepłyn\w*|wspin\w*|biegn\w*)\b'}
+          en:
+            - {id: en-access-demand, regex: '\b(?:blindfold\w*|without (?:using )?(?:his |their )?eyesight|swim\w*|climb\w*|run(?:s|ning)?)\b'}
+      - id: prior-skill
+        labels: {pl: wymagana wcześniejsza umiejętność, en: prior skill required}
+        patterns:
+          pl:
+            - {id: pl-prerequisite, regex: '\b(?:musi umieć|muszą umieć|powinien umieć|znający|opanowa\w* wcześniej)\b'}
+          en:
+            - {id: en-prerequisite, regex: '\b(?:must know how to|should be able to|already know|previously practised|previously practiced)\b'}

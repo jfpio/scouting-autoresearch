@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "pilotId": "bsh-1911-seton-games-v1",
+  "sourceId": "bsh-1911-seton-games",
+  "status": "human-quality-and-timing-review-pending",
+  "evidence": {
+    "sourceReview": "vault/reviews/accepted/candidate-seton-boy-scouts-handbook-pg29558.md",
+    "extractionReport": "data/reports/pg-29558-extraction.json",
+    "translationReport": "data/reports/bsh-1911-seton-games-translation-en-pl.json",
+    "translationEvaluation": "config/translation-model-evaluations/bsh-1911-large-vs-small.yaml"
+  },
+  "scope": {
+    "curatedCandidates": 39,
+    "importedActivities": 33,
+    "excludedExistingVariants": 6,
+    "wholeSourceCopiedToRepository": false
+  },
+  "translation": {
+    "productionModel": "mistral-large-2512",
+    "productionActivities": 33,
+    "productionAutomaticFailures": 0,
+    "benchmarkSampleSize": 5,
+    "largeAutomaticFailures": 0,
+    "smallAutomaticFailures": 1,
+    "smallFailedActivityIds": [
+      "bsh-023"
+    ],
+    "reasoningMode": "disabled"
+  },
+  "cost": {
+    "currency": "USD",
+    "billingMode": "education-credit",
+    "benchmarkReferenceCost": 0.01027795,
+    "productionReferenceCost": 0.029179,
+    "totalReferenceCost": 0.03945695,
+    "billedCost": null,
+    "billedCostKnown": false
+  },
+  "time": {
+    "buildElapsed": "00:00:50",
+    "buildElapsedSeconds": 50,
+    "endToEndPipelineElapsed": null,
+    "endToEndMeasurementStatus": "not-recorded",
+    "humanReviewMinutes": null,
+    "humanReviewMeasurementStatus": "not-recorded"
+  },
+  "qualityReview": {
+    "sampleSize": 5,
+    "acceptedCount": 0,
+    "status": "human-review-pending",
+    "records": [
+      {
+        "activityId": "bsh-001",
+        "stage": "inbox",
+        "sourceHash": "3e4f959c8523952b3b3197d974064672c87596c795ac141b2cfb8cc5f802ee78",
+        "valueOutcome": "pending",
+        "safetyOutcome": "unassessed",
+        "publicationRecommendation": "unchanged",
+        "reviewDurationMinutes": null
+      },
+      {
+        "activityId": "bsh-003",
+        "stage": "inbox",
+        "sourceHash": "b360a3b368be4d8d340e8c77fff777397d14c150e8da06a3e4eacd8cbfa59a65",
+        "valueOutcome": "pending",
+        "safetyOutcome": "unassessed",
+        "publicationRecommendation": "unchanged",
+        "reviewDurationMinutes": null
+      },
+      {
+        "activityId": "bsh-007",
+        "stage": "inbox",
+        "sourceHash": "d488cc1bd1300ffff2e8497aee6ad8da1fb67a513d491109117249be4c504b39",
+        "valueOutcome": "pending",
+        "safetyOutcome": "unassessed",
+        "publicationRecommendation": "unchanged",
+        "reviewDurationMinutes": null
+      },
+      {
+        "activityId": "bsh-023",
+        "stage": "inbox",
+        "sourceHash": "1a3afd83c0b5b7d79c1c954a2fdf963698e18820a9a4a02ee20b760534f3064b",
+        "valueOutcome": "pending",
+        "safetyOutcome": "unassessed",
+        "publicationRecommendation": "unchanged",
+        "reviewDurationMinutes": null
+      },
+      {
+        "activityId": "bsh-039",
+        "stage": "inbox",
+        "sourceHash": "1aa77f8d681f1188c1f3b619723656ea41b9cfd697ced1d43ef1255c639c2caa",
+        "valueOutcome": "pending",
+        "safetyOutcome": "unassessed",
+        "publicationRecommendation": "unchanged",
+        "reviewDurationMinutes": null
+      }
+    ]
+  },
+  "conclusions": {
+    "costMeasured": true,
+    "automaticQualityChecksMeasured": true,
+    "humanQualityMeasured": false,
+    "humanReviewTimeMeasured": false,
+    "safeToScaleFromThisPilot": false,
+    "nextStep": "review-the-five-editorial-sample-records-and-record-duration"
+  }
+}
