@@ -1,0 +1,24 @@
+schemaVersion: 1
+sourceId: dabrowski-indoor-games-1934
+model: mistral-ocr-4-1
+request:
+  recipeVersion: mistral-ocr-image-v1
+  includeBlocks: true
+  confidenceScoresGranularity: page
+execution:
+  executionReady: true
+  approvedViewRanges:
+    - [5, 90]
+  inputDirectoryUnderScratch: scouting-autoresearch/sources/dabrowski-indoor-games-1934
+  requireExplicitExecute: true
+  requireExactModelAccessCheck: true
+  sequentialRequests: true
+  billingMode: education-credit
+  enforceReferenceCostLimit: true
+  maxReferenceCostUsd: 10
+  resultsUnderScratch: scouting-autoresearch/ocr
+pricing:
+  mode: standard
+  usdPer1000Pages: 4.0
+  source: https://docs.mistral.ai/models/ocr-4-1
+  accessedOn: 2026-09-05

@@ -110,6 +110,25 @@ class MistralOCRTests(unittest.TestCase):
         self.assertTrue(config.execution_ready)
         self.assertEqual(sum(end - start + 1 for start, end in config.approved_view_ranges), 113)
 
+    def test_repository_v3_polish_configs_use_inspected_game_page_boundaries(self):
+        root = Path(__file__).resolve().parents[1]
+        expected_counts = {
+            "jasinski-field-games-1938": 225,
+            "mojmir-scout-games-1912": 77,
+            "dabrowski-indoor-games-1934": 86,
+            "pawelek-young-troop-1919": 86,
+            "zwolakowska-cub-pack-1945": 32,
+        }
+        for source_id, expected_count in expected_counts.items():
+            with self.subTest(source_id=source_id):
+                config = load_config(root / "config" / "ocr" / f"{source_id}.yaml")
+                self.assertTrue(config.execution_ready)
+                self.assertEqual(config.source_id, source_id)
+                self.assertEqual(
+                    sum(end - start + 1 for start, end in config.approved_view_ranges),
+                    expected_count,
+                )
+
     def test_images_must_be_valid_and_under_project_scratch(self):
         with tempfile.TemporaryDirectory() as directory, patch.dict(
             os.environ, {"SCRATCH": directory}
@@ -134,7 +153,11 @@ class MistralOCRTests(unittest.TestCase):
                     Path(directory) / "scouting-autoresearch" / "other.jpg", config
                 )
             self.assertEqual(approved_view(image.with_name("f19-page.jpg"), config), 19)
+            self.assertEqual(approved_view(image.with_name("view-0019.jpg"), config), 19)
+            self.assertEqual(approved_view(image.with_name("view-0019.PNG"), config), 19)
             self.assertIsNone(approved_view(image.with_name("f30-page.jpg"), config))
+            self.assertIsNone(approved_view(image.with_name("view-0030.jpg"), config))
+            self.assertIsNone(approved_view(image.with_name("preview-0019.jpg"), config))
             outside = Path(directory) / "outside.jpg"
             outside.write_bytes(JPEG)
             with self.assertRaisesRegex(RuntimeError, "must remain under"):
@@ -263,7 +286,7 @@ class MistralOCRTests(unittest.TestCase):
             self.assertFalse(finalize_run(checkpoint, config, now))
             payload = json.loads(checkpoint.read_text(encoding="utf-8"))
             payload["ocrRun"]["items"].append(
-                {"status": "complete", "sourceImage": "f29-page.jpg"}
+                {"status": "complete", "sourceImage": "view-0029.jpg"}
             )
             checkpoint.write_text(json.dumps(payload), encoding="utf-8")
             self.assertTrue(finalize_run(checkpoint, config, now))

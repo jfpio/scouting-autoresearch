@@ -1,0 +1,25 @@
+schemaVersion: 1
+sourceId: pawelek-young-troop-1919
+model: mistral-ocr-4-1
+request:
+  recipeVersion: mistral-ocr-image-v1
+  includeBlocks: true
+  confidenceScoresGranularity: page
+execution:
+  executionReady: true
+  approvedViewRanges:
+    - [19, 101]
+    - [116, 118]
+  inputDirectoryUnderScratch: scouting-autoresearch/sources/pawelek-young-troop-1919
+  requireExplicitExecute: true
+  requireExactModelAccessCheck: true
+  sequentialRequests: true
+  billingMode: education-credit
+  enforceReferenceCostLimit: true
+  maxReferenceCostUsd: 10
+  resultsUnderScratch: scouting-autoresearch/ocr
+pricing:
+  mode: standard
+  usdPer1000Pages: 4.0
+  source: https://docs.mistral.ai/models/ocr-4-1
+  accessedOn: 2026-09-05

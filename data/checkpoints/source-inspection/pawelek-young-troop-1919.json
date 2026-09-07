@@ -33,6 +33,39 @@
     "architecture": "x86_64",
     "gitRevision": "a35ff3365c018852b91bae2e5a86ddf871c46774"
   },
+  "renderedViews": {
+    "status": "complete",
+    "pageCount": 118,
+    "scratchRelativeDirectory": "scouting-autoresearch/sources/pawelek-young-troop-1919/views",
+    "sourcePdfSha256": "9c5eb912f3374ef4405dbae96c0b43851a69713c4faf8ce4c81fe6e9eae5aa41",
+    "format": "JPEG",
+    "maximumDimensionPixels": 1600,
+    "smokeJobId": "22092933",
+    "fullJobId": "22092956",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "architecture": "x86_64"
+  },
+  "visualScopeReview": {
+    "status": "complete",
+    "reviewedAt": "2026-09-07",
+    "contactSheetJobId": "22092967",
+    "contactSheetScratchRelativePath": "scouting-autoresearch/runs/pawelek-young-troop-1919/contact-sheet/22092967/contact-sheet-view-order.jpg",
+    "contactSheetSha256": "21e973669091c556334d6977435db81f7beb14c4d94e731c75b1d4ae9e1456b7",
+    "approvedOcrViewRanges": [[19, 101], [116, 118]],
+    "approvedOcrViewCount": 86,
+    "scopeBasis": [
+      "views 19-89 contain the 26 structured meeting programmes and their named games",
+      "views 90-101 contain field, movement and city game sections",
+      "views 116-118 contain the table of contents needed to locate and verify entries"
+    ],
+    "excludedBlocks": [
+      "cover, title page, dedication and separately credited foreword",
+      "organization-only prose before the first structured meeting",
+      "non-game internal-life and report-template sections after the city games"
+    ],
+    "publicationGate": "per-item-rights-and-component-authorship"
+  },
   "completedAt": "2026-09-06T18:27:33.294172+00:00",
   "sourceFilesCommittedToRepository": 0
 }

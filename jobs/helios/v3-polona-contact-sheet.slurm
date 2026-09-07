@@ -21,6 +21,7 @@ fi
 repo="${SLURM_SUBMIT_DIR}"
 source_dir="${SCRATCH}/scouting-autoresearch/sources/${SOURCE_ID}/views"
 checkpoint="${repo}/data/checkpoints/source-acquisition/${SOURCE_ID}.json"
+inspection_checkpoint="${repo}/data/checkpoints/source-inspection/${SOURCE_ID}.json"
 run_root="${SCRATCH}/scouting-autoresearch/runs/${SOURCE_ID}"
 result_dir="${run_root}/contact-sheet/${SLURM_JOB_ID}"
 
@@ -29,7 +30,14 @@ if [[ ! -s "${checkpoint}" ]]; then
   exit 3
 fi
 status="$(jq -r '.status' "${checkpoint}")"
-expected="$(jq -r '.expectedImageCount' "${checkpoint}")"
+expected="$(jq -r '.expectedImageCount // empty' "${checkpoint}")"
+if [[ "${status}" == "complete" && ! "${expected}" =~ ^[1-9][0-9]*$ && -s "${inspection_checkpoint}" ]]; then
+  inspection_status="$(jq -r '.status' "${inspection_checkpoint}")"
+  inspection_classification="$(jq -r '.classification' "${inspection_checkpoint}")"
+  if [[ "${inspection_status}" == "complete" && "${inspection_classification}" == "image-ocr-required" ]]; then
+    expected="$(jq -r '.pdf.pages // empty' "${inspection_checkpoint}")"
+  fi
+fi
 if [[ "${status}" != "complete" || ! "${expected}" =~ ^[1-9][0-9]*$ ]]; then
   printf 'Acquisition is not complete: status=%s expected=%s\n' "${status}" "${expected}" >&2
   exit 4

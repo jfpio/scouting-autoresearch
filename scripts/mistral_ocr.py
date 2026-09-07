@@ -197,10 +197,10 @@ def assert_source_input(path: Path, config: OCRConfig) -> None:
 
 
 def approved_view(image: Path, config: OCRConfig) -> int | None:
-    match = re.match(r"^f(\d+)-", image.name)
+    match = re.match(r"^(?:f(\d+)-|view-(\d+)\.(?:jpe?g|png)$)", image.name, re.IGNORECASE)
     if not match:
         return None
-    view = int(match.group(1))
+    view = int(match.group(1) or match.group(2))
     return view if any(start <= view <= end for start, end in config.approved_view_ranges) else None
 
 
