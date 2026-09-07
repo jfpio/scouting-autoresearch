@@ -37,7 +37,7 @@ class V3FacetAuditTests(unittest.TestCase):
         return set(value["activityIds"])
 
     def test_report_covers_all_games_without_assigning_facets(self):
-        self.assertEqual(len(self.records), 199)
+        self.assertEqual(len(self.records), 914)
         self.assertEqual(
             self.report["corpus"]["activityIds"],
             sorted(record["activityId"] for record in self.records),
@@ -71,9 +71,17 @@ class V3FacetAuditTests(unittest.TestCase):
             self.assertIsNone(dimension["editorialCostProxy"]["estimatedMinutes"])
 
     def test_report_exposes_source_bias_and_non_user_value_proxies(self):
+        source_count = len({record["sourceId"] for record in self.records})
+        language_count = len(
+            {record["originalLanguage"] for record in self.records}
+        )
         for dimension in self.report["dimensions"]:
-            self.assertEqual(len(dimension["signalCoverage"]["bySource"]), 3)
-            self.assertEqual(len(dimension["signalCoverage"]["byLanguage"]), 2)
+            self.assertEqual(
+                len(dimension["signalCoverage"]["bySource"]), source_count
+            )
+            self.assertEqual(
+                len(dimension["signalCoverage"]["byLanguage"]), language_count
+            )
             self.assertIn(
                 "not-observed-user-value",
                 dimension["searchDifferentiationProxy"]["interpretation"],

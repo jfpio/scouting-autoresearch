@@ -44,8 +44,12 @@ class SemanticMapEmbeddingTests(unittest.TestCase):
     def test_current_corpus_contains_every_game_and_no_trial(self):
         config = load_config()
         items = activity_items(config)
-        self.assertEqual(len(items), 199)
-        self.assertEqual(len({item["id"] for item in items}), 199)
+        self.assertEqual(len(items), 914)
+        self.assertEqual(len({item["id"] for item in items}), len(items))
+        self.assertEqual(
+            {item["sourceId"] for item in items},
+            set(config["corpus"]["sourceOrder"]),
+        )
         self.assertNotIn("pw-001", {item["id"] for item in items})
         self.assertEqual(items[0]["sourceId"], "bsh-1911-seton-games")
         self.assertLessEqual(
