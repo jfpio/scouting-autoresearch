@@ -29,17 +29,22 @@ from translate import (
     PermanentTranslationError,
     available_model_ids,
     advance_translation_state,
+    advance_failed_translation_usage,
     combine_usage_records,
     current_translation,
     deterministic_translation_repairs,
     ensure_models_available,
     parse_json_content,
     protect_translation_body,
+    request_translation_preserving_paragraphs,
+    request_translation_in_chunks,
+    request_reference_cost_upper_bound,
     restore_translation_body,
     retry_at_from_headers,
     safe_http_diagnostics,
     translation_fidelity_checks,
     translation_output_token_budget,
+    translation_attempt_reference_cost_upper_bound,
     translation_target,
     translation_targets,
     usage_record,
@@ -108,6 +113,16 @@ class PipelineTests(unittest.TestCase):
                 reject_unprotected_digits=True,
             )
 
+    def test_translation_protected_tokens_reject_invented_outer_wrapper(self):
+        protected, replacements = protect_translation_body("Idź 3 kroki.")
+        wrapped = protected.replace("ZXQNUMAQXZ", "ZXQZXQNUMAQXZQXZ")
+        with self.assertRaisesRegex(ValueError, "malformed protected-token wrapper"):
+            restore_translation_body(
+                wrapped,
+                replacements,
+                reject_unprotected_digits=True,
+            )
+
     def test_translation_protected_tokens_preserve_superscript_footnotes(self):
         protected, replacements = protect_translation_body("Goniec¹ i łącznik².")
         self.assertNotIn("¹", protected)
@@ -116,6 +131,31 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(
             restore_translation_body(protected, replacements, reject_unprotected_digits=True),
             "Goniec¹ i łącznik².",
+        )
+
+    def test_translation_protected_tokens_preserve_roman_numerals(self):
+        protected, replacements = protect_translation_body("W wieku XVI, część V a.")
+        self.assertNotIn("XVI", protected)
+        self.assertNotRegex(protected, r"(?<!\w)V(?!\w)")
+        self.assertEqual(
+            restore_translation_body(protected, replacements, reject_unprotected_digits=True),
+            "W wieku XVI, część V a.",
+        )
+
+    def test_translation_retry_can_protect_paragraph_breaks(self):
+        source = "Pierwszy akapit.\n\nDrugi akapit."
+        protected, replacements = protect_translation_body(
+            source, protect_paragraph_breaks=True
+        )
+        self.assertRegex(protected, r"ZXQBR[A-Z]+QXZ")
+        self.assertEqual(
+            restore_translation_body(
+                protected.replace("Drugi", "\n\nDrugi"),
+                replacements,
+                reject_unprotected_digits=True,
+                normalize_unprotected_paragraph_breaks=True,
+            ),
+            source,
         )
 
     def test_translation_cooldown_uses_provider_value_or_one_hour_fallback(self):
@@ -174,6 +214,138 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(combined["requestMaxOutputTokensTotal"], 1152)
         self.assertIsNone(combined["billedCostUsd"])
 
+        nested = combine_usage_records([combined, first])
+        self.assertEqual(nested["requestAttempts"], 3)
+        self.assertEqual(nested["requestMaxOutputTokens"], 640)
+        self.assertEqual(nested["requestMaxOutputTokensTotal"], 1664)
+
+    def test_paragraph_retry_preserves_full_context_and_combines_usage(self):
+        metadata = {
+            "id": "a",
+            "sourceId": "test-source",
+            "title": "Tytuł",
+            "traits": [],
+            "section": "Gry",
+            "originalLanguage": "pl",
+        }
+        replies = [(
+            {"title": "Title", "traits": [], "section": "Games", "body": "First.\n\nSecond."},
+            "mistral-large-2512",
+            usage_record(
+                {"prompt_tokens": 100, "completion_tokens": 20},
+                request_max_output_tokens=512,
+            ),
+        )]
+        with patch("translate.request_translation", side_effect=replies) as request:
+            translated, actual_model, usage = request_translation_preserving_paragraphs(
+                "secret",
+                "mistral-large-2512",
+                "a",
+                metadata,
+                "Pierwszy.\n\nDrugi.",
+                "pl",
+                "en",
+                "translation-pl-en-v5",
+            )
+        self.assertEqual(request.call_count, 1)
+        self.assertEqual(request.call_args.args[4], "Pierwszy.\n\nDrugi.")
+        self.assertTrue(request.call_args.kwargs["protect_paragraph_breaks"])
+        self.assertEqual(translated["body"], "First.\n\nSecond.")
+        self.assertEqual(actual_model, "mistral-large-2512")
+        self.assertNotIn("requestAttempts", usage)
+
+    def test_oversized_translation_fallback_uses_multi_paragraph_chunks(self):
+        metadata = {
+            "id": "a",
+            "sourceId": "test-source",
+            "title": "Długa gra",
+            "traits": [],
+            "section": "Gry",
+            "originalLanguage": "pl",
+        }
+        body = f"{'A' * 3000}\n\n{'B' * 3000}\n\n{'C' * 100}"
+
+        def reply(*args, **kwargs):
+            chunk = args[4]
+            return (
+                {"title": "Long Game", "traits": [], "section": "Games", "body": chunk},
+                "mistral-large-2512",
+                usage_record(
+                    {"prompt_tokens": 100, "completion_tokens": 20},
+                    request_max_output_tokens=512,
+                ),
+            )
+
+        with patch("translate.request_translation", side_effect=reply) as request:
+            translated, actual_model, usage = request_translation_in_chunks(
+                "secret",
+                "mistral-large-2512",
+                "a",
+                metadata,
+                body,
+                "pl",
+                "en",
+                "translation-pl-en-v5",
+            )
+        self.assertEqual(request.call_count, 2)
+        self.assertEqual(translated["body"], body)
+        self.assertEqual(actual_model, "mistral-large-2512")
+        self.assertEqual(usage["requestAttempts"], 2)
+        self.assertTrue(
+            all(call.kwargs["protect_paragraph_breaks"] for call in request.call_args_list)
+        )
+
+    def test_translation_cost_reservation_covers_full_and_paragraph_retries(self):
+        metadata = {
+            "originalLanguage": "pl",
+            "id": "a",
+            "title": "Tytuł",
+            "traits": [],
+            "section": "Gry",
+        }
+        body = "Pierwszy.\n\nDrugi."
+        full = request_reference_cost_upper_bound(
+            metadata, body, "mistral-large-2512", "en"
+        )
+        self.assertEqual(
+            translation_attempt_reference_cost_upper_bound(
+                metadata, body, "mistral-large-2512", "en"
+            ),
+            round(6 * full, 8),
+        )
+
+    def test_failed_translation_usage_is_counted_without_marking_activity_complete(self):
+        state = {
+            "selectedActivityIds": ["a"],
+            "completedActivityIds": [],
+            "pendingActivityIds": ["a"],
+            "models": [],
+            "usage": {
+                "promptTokens": 0,
+                "completionTokens": 0,
+                "requestMaxOutputTokens": 0,
+                "referenceCostUsd": 0.0,
+                "billingMode": "education-credit",
+            },
+        }
+        usage = combine_usage_records(
+            [
+                usage_record(
+                    {"prompt_tokens": 100, "completion_tokens": 50},
+                    request_max_output_tokens=512,
+                ),
+                usage_record(
+                    {"prompt_tokens": 120, "completion_tokens": 60},
+                    request_max_output_tokens=640,
+                ),
+            ]
+        )
+        advance_failed_translation_usage(state, "mistral-large-2512", usage)
+        self.assertEqual(state["completedActivityIds"], [])
+        self.assertEqual(state["failedRequestUsage"]["requestAttempts"], 2)
+        self.assertEqual(state["usage"]["promptTokens"], 220)
+        self.assertEqual(state["usage"]["requestMaxOutputTokens"], 1152)
+
     def test_translation_output_budget_scales_and_is_bounded(self):
         self.assertEqual(translation_output_token_budget({"body": "short"}), MIN_OUTPUT_TOKENS)
         scaled = translation_output_token_budget({"body": "x" * 4000})
@@ -201,6 +373,15 @@ class PipelineTests(unittest.TestCase):
             repairs,
             ["reset-invented-empty-traits", "restore-source-digit:40:1"],
         )
+        protected_repaired, protected_repairs = deterministic_translation_repairs(
+            {"traits": []},
+            source,
+            translated,
+            "en",
+            repair_number_words=False,
+        )
+        self.assertEqual(protected_repaired["body"], translated["body"])
+        self.assertEqual(protected_repairs, ["reset-invented-empty-traits"])
 
     def test_french_source_requires_an_explicit_supported_target(self):
         self.assertEqual(translation_targets("fr"), ("pl", "en"))
@@ -224,6 +405,27 @@ class PipelineTests(unittest.TestCase):
             "pl",
         )
         self.assertTrue(checks["noInventedFemaleScout"])
+
+    def test_translation_url_fidelity_ignores_only_surrounding_punctuation(self):
+        metadata = {"originalLanguage": "pl", "traits": []}
+        source = "Zobacz [skan](https://example.test/item/123)."
+        translated = {
+            "title": "Scan",
+            "section": "Source",
+            "traits": [],
+            "body": "See the scan: https://example.test/item/123, now.",
+        }
+        self.assertTrue(
+            translation_fidelity_checks(metadata, source, translated, "en")[
+                "urlsPreserved"
+            ]
+        )
+        translated["body"] += " https://invented.test"
+        self.assertFalse(
+            translation_fidelity_checks(metadata, source, translated, "en")[
+                "urlsPreserved"
+            ]
+        )
 
     def test_translation_http_diagnostics_are_allowlisted(self):
         error = urllib.error.HTTPError(

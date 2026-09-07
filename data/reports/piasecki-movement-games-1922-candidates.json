@@ -5,7 +5,7 @@
   "authorStatement": "Eugeniusz Piasecki",
   "edition": "wydanie 3 poprawione i rozszerzone",
   "year": 1922,
-  "status": "candidate-inventory-complete-record-review-pending",
+  "status": "complete-imported",
   "sourceText": {
     "classification": "embedded-text-available",
     "sha256": "4f5379ad1a683a7f9f741f4a12b26f2ffffa97820f2f90b7145e8ff8e98ee51f",
@@ -48,13 +48,15 @@
     },
     "humanReviewRequiredBeforeFullTextPublication": false,
     "candidateCount": 133,
-    "importedActivityCount": 0,
+    "importedActivityCount": 117,
     "rightsScope": "Game prose in the KPBC object explicitly marked public domain; music, lyrics and illustrations remain outside the product scope.",
     "knownComponentExceptions": [
       "Games 1-30 combine rule prose with verse or song material requiring record-level separation because songs are outside the product scope.",
       "The preface separately credits Kazimierz Lutosławski with the description of game 103, Kręgle polskie.",
       "The preface states that some unclear descriptions were repeated verbatim and that the collection draws on printed and living traditions; retain quotation and attribution evidence as provenance per game."
-    ]
+    ],
+    "recordReviewRequired": false,
+    "musicOrLyricsOmittedCandidateCount": 32
   },
   "supplementalDiscovery": {
     "purpose": "supplemental model-assisted locator smoke tests; not authoritative extraction",
@@ -170,7 +172,7 @@
       "pdfPageEnd": 61,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "123b05b54753f3f506984dd0dc1939740be4b5bee4a47ab5a83d13b832b5485e",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -186,8 +188,9 @@
       "pdfPageEnd": 61,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "b37d1e1416449e47ac0dcac179a5693c71568cc0298928fd3f4b4c0df597f818",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": true
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "cross-reference-only variant of game 1 without a self-contained setup"
     },
     {
       "number": 3,
@@ -202,7 +205,7 @@
       "pdfPageEnd": 62,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "e0938026f76ad18e56c7f595f979d575972d938f8f875a59b0e3aa87a0aba0bd",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -218,7 +221,7 @@
       "pdfPageEnd": 63,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "0bbd1c5b79326e8e3d926c57d565e6cf884b202cf2d30062fcc0b23cc783814b",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -234,7 +237,7 @@
       "pdfPageEnd": 63,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "a7d9b9b4bed6a3ce7c77907560a72d47878d1c14c0b08da8100f79706b86ec6e",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -250,7 +253,7 @@
       "pdfPageEnd": 65,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "5d030dcaab946140a23dee0242b55f9a5e1a2bcb7346f24f915219e3eab47a7a",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -266,7 +269,7 @@
       "pdfPageEnd": 65,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "1c6713b6d895fe0ed8cff3fe1716739e0f64d4180795202ff7602f0312d30c18",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -282,7 +285,7 @@
       "pdfPageEnd": 66,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "cb807efb99d65b1b7056409530463cadc69856503630d99f99cf78419259add6",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -298,7 +301,7 @@
       "pdfPageEnd": 67,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "1006ea43e62959f2b3f4a28b62a77ff96a94ed20e7d4b19e174b5a4215ed2f79",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -314,7 +317,7 @@
       "pdfPageEnd": 68,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "058b2b05c6cd006d34752c843976d1645d6ff8a8e990c797d217d5f9b64a4397",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -330,7 +333,7 @@
       "pdfPageEnd": 70,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "016d1c85265bd8ed06dde86dd420dde0a576920b7adb26d52c366e9d8bb671a7",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -346,7 +349,7 @@
       "pdfPageEnd": 71,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "c86b7f0faf9874179758d139cac2c4b6774d49d563e4e6d8d4338311dbd9b70a",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -362,7 +365,7 @@
       "pdfPageEnd": 72,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "d8c4491cecbd33def4c0f30bb6eac79d660c2eea06ccd1434ffdcd57078bfe26",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -378,8 +381,8 @@
       "pdfPageEnd": 73,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "e55061c34a00f0cb9f3cb7e330171ac40dc8164056218c36301599eca52a7e05",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": true
+      "recordReviewStatus": "accepted-game",
+      "separateLyricsOrVerseReviewRequired": false
     },
     {
       "number": 15,
@@ -394,7 +397,7 @@
       "pdfPageEnd": 74,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "ff42da68b5a52f30b7917283be46b569da20b2af71d0beacdb8b61bd081359db",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -410,8 +413,9 @@
       "pdfPageEnd": 74,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "201f3459bb7846598f0fb5e6f77aeb8fe5d2984cd3ff320b3efd800e22c37f61",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": true
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "cross-reference-only variant of game 15 whose only supplied difference is a song outside this corpus scope"
     },
     {
       "number": 17,
@@ -426,8 +430,8 @@
       "pdfPageEnd": 75,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "e003cc5e31c13910fa32ce7dfffa0075c8ae2aaa3b41a914ef8f78ac976210e8",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": true
+      "recordReviewStatus": "accepted-game",
+      "separateLyricsOrVerseReviewRequired": false
     },
     {
       "number": 18,
@@ -442,8 +446,9 @@
       "pdfPageEnd": 77,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "c8c87a873deb115b386b974549032e25254ed9e231b36f9e10c48026bfafa965",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": true
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "song-dependent movement sequence without a self-contained procedure after lyrics are excluded"
     },
     {
       "number": 19,
@@ -458,7 +463,7 @@
       "pdfPageEnd": 78,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "0bd2288ad701254d6f9cff738831be1812e333e945f1df1f7763c009d8b6a1d7",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -474,8 +479,9 @@
       "pdfPageEnd": 79,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "5fba4ecaa4eb9af890c701dcaaf5214dab68c947ccc055fffcc83ec70000912c",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": true
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "song-dependent occupational movement sequence without a self-contained procedure after lyrics are excluded"
     },
     {
       "number": 21,
@@ -490,7 +496,7 @@
       "pdfPageEnd": 81,
       "section": "Zabawy i gry chodne",
       "sourceBlockSha256": "cb12a77e532c6d5f2435044c1e279451f141014bcc8275555908749b197a0724",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -506,7 +512,7 @@
       "pdfPageEnd": 84,
       "section": "Zabawy i gry taneczne",
       "sourceBlockSha256": "c3c3f01efd32140911ee281e1fb132521fdf69b75a42896b0806d3a56395621a",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -522,7 +528,7 @@
       "pdfPageEnd": 84,
       "section": "Zabawy i gry taneczne",
       "sourceBlockSha256": "81f6e3b6d7c73677eb9713c063389b02ad7044037801bf4f19fda3ca8f3bc0c1",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -538,8 +544,8 @@
       "pdfPageEnd": 85,
       "section": "Zabawy i gry taneczne",
       "sourceBlockSha256": "a8223a06582407e5cf2e8eea9e5a86e8e1780e47df615fd7d7ba9c636e82147a",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": true
+      "recordReviewStatus": "accepted-game",
+      "separateLyricsOrVerseReviewRequired": false
     },
     {
       "number": 25,
@@ -554,7 +560,7 @@
       "pdfPageEnd": 86,
       "section": "Zabawy i gry taneczne",
       "sourceBlockSha256": "5527e2295ee93f46b75547bac8e28da02e0f86f90e9962abb4d496fe143e0bb4",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -570,7 +576,7 @@
       "pdfPageEnd": 87,
       "section": "Zabawy i gry taneczne",
       "sourceBlockSha256": "926b0eb7f256a23daa4231fcbcdecab8c94e342823873ef54c355bfcee61a48d",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -586,7 +592,7 @@
       "pdfPageEnd": 88,
       "section": "Zabawy i gry taneczne",
       "sourceBlockSha256": "dac899bf18063e436d27e57297c898a69ee7070cfdf52904a917fb0da5929bb0",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -602,7 +608,7 @@
       "pdfPageEnd": 89,
       "section": "Zabawy i gry taneczne",
       "sourceBlockSha256": "876586d703fdd772c5091c1f200f32e222dc038a77e382c7a86a22c52620571a",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -618,7 +624,7 @@
       "pdfPageEnd": 90,
       "section": "Zabawy i gry taneczne",
       "sourceBlockSha256": "99c04b0b1c7f569d76b8a679d7da1b191c281a3ef9b9f8b21545c3ad06ca5754",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -634,7 +640,7 @@
       "pdfPageEnd": 92,
       "section": "Zabawy i gry taneczne",
       "sourceBlockSha256": "c9ae0352d0ce1ba0b562ddbe68e9e0f9d192495b8d8a50433ec7fea1ec529f4e",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": true
     },
     {
@@ -650,8 +656,8 @@
       "pdfPageEnd": 94,
       "section": "Gry bieżne",
       "sourceBlockSha256": "b25f1d1e5aa519dfcdb3d7796924bf5041035587219946d053a89b1e84c320da",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "accepted-game",
+      "separateLyricsOrVerseReviewRequired": true
     },
     {
       "number": 32,
@@ -666,8 +672,8 @@
       "pdfPageEnd": 95,
       "section": "Gry bieżne",
       "sourceBlockSha256": "b51806be35d8a84b058166d79431853bb594bf186fed378c7c281059cf1aea1a",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "accepted-game",
+      "separateLyricsOrVerseReviewRequired": true
     },
     {
       "number": 33,
@@ -682,7 +688,7 @@
       "pdfPageEnd": 96,
       "section": "Gry bieżne",
       "sourceBlockSha256": "407fba099facb8fabd6a1c07529a57844ed994998aa0067d37c6c8f2c8a05adf",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -698,7 +704,7 @@
       "pdfPageEnd": 97,
       "section": "Gry bieżne",
       "sourceBlockSha256": "d5d8e45f84ad7f914552ed34a8f09d609b3223da5dc59b007c60a023767e53ff",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -714,8 +720,8 @@
       "pdfPageEnd": 97,
       "section": "Gry bieżne",
       "sourceBlockSha256": "b37267d0a7872ad8289fcb51e8047a194b324ccab4208aa2e480f0c8abf733da",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "accepted-game",
+      "separateLyricsOrVerseReviewRequired": true
     },
     {
       "number": 36,
@@ -730,7 +736,7 @@
       "pdfPageEnd": 98,
       "section": "Gry bieżne",
       "sourceBlockSha256": "36fa2e100d1930cec77ea77ad09ebcafe169e9596c89dbb37e20db69bae0ae8d",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -746,7 +752,7 @@
       "pdfPageEnd": 98,
       "section": "Gry bieżne",
       "sourceBlockSha256": "b222b3c7beee22d0de204762dab1c1fd7b67bcc2f8566364a2fb560283551066",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -762,8 +768,9 @@
       "pdfPageEnd": 98,
       "section": "Gry bieżne",
       "sourceBlockSha256": "ecdfce25f068dfb143253e519871ec7808c034e46e1316015cb145c153f6d788",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "cross-reference-only variant of game 37 without a self-contained setup"
     },
     {
       "number": 39,
@@ -778,8 +785,9 @@
       "pdfPageEnd": 99,
       "section": "Gry bieżne",
       "sourceBlockSha256": "abcced8d912f8c9f26d23521ef460dbd93fc1affce217e23c97b82cdc2c68b8d",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "cross-reference-only variant of game 38 without a self-contained setup"
     },
     {
       "number": 40,
@@ -794,7 +802,7 @@
       "pdfPageEnd": 99,
       "section": "Gry bieżne",
       "sourceBlockSha256": "ae2819457012a0a78082d7d7c893eb00e9e85b64c3c553cfa102d153f4a58c1f",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -810,8 +818,9 @@
       "pdfPageEnd": 99,
       "section": "Gry bieżne",
       "sourceBlockSha256": "d00aba06ceef216308197e9bc5a896b7a390b88afbbb43217af07fcb0da7e075",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "cross-reference-only variant of game 40 without a self-contained setup"
     },
     {
       "number": 42,
@@ -826,7 +835,7 @@
       "pdfPageEnd": 100,
       "section": "Gry bieżne",
       "sourceBlockSha256": "bac0e4a27a5381030fc360cf128312dc5efa72b2b9990adb0b983e0f57d74590",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -842,8 +851,9 @@
       "pdfPageEnd": 100,
       "section": "Gry bieżne",
       "sourceBlockSha256": "c0a714bff6601e79870bfa0f85789a8bd61fdca98e67c5f24e4261a589717085",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "cross-reference-only variant of game 42 without a self-contained setup"
     },
     {
       "number": 44,
@@ -858,7 +868,7 @@
       "pdfPageEnd": 100,
       "section": "Gry bieżne",
       "sourceBlockSha256": "a51d6671fa4168a470ae974d35c690fe8a0b889af8e695fa79f43686a489d275",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -874,8 +884,9 @@
       "pdfPageEnd": 100,
       "section": "Gry bieżne",
       "sourceBlockSha256": "3dd6a759a0b7052ac3654760f244a9619a3d23d0d656486d1d614845ee91f50b",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "cross-reference-only variant of game 44 without a self-contained setup"
     },
     {
       "number": 46,
@@ -890,8 +901,9 @@
       "pdfPageEnd": 101,
       "section": "Gry bieżne",
       "sourceBlockSha256": "f9039a9db993d7dcb5562e45a004a2bc06720f44cf7dcd26680034453b0f6c8b",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "variant that imports its complete playing-area setup from game 45"
     },
     {
       "number": 47,
@@ -906,7 +918,7 @@
       "pdfPageEnd": 101,
       "section": "Gry bieżne",
       "sourceBlockSha256": "30cbf089468d71520825ee88a19a0232bf308d13210177e5fc1b1185b0bfdf0b",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -922,7 +934,7 @@
       "pdfPageEnd": 101,
       "section": "Gry bieżne",
       "sourceBlockSha256": "93b1b5c787e423cbb6f3ca6bb8444f9e407bc67884acebc9c7c6c4da0b349bc5",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -939,7 +951,7 @@
       "pdfPageEnd": 102,
       "section": "Gry bieżne",
       "sourceBlockSha256": "50bd9dff36f8faac8e4e34ae0c4bb23b65fdbde92632ab0e1be2b39bd04211d2",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -956,8 +968,8 @@
       "pdfPageEnd": 103,
       "section": "Gry bieżne",
       "sourceBlockSha256": "98998ec4d6265e55454c16b87237fa9685ca79b82a8d65a5f68e02f530fae813",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "accepted-game",
+      "separateLyricsOrVerseReviewRequired": true
     },
     {
       "number": 51,
@@ -972,7 +984,7 @@
       "pdfPageEnd": 104,
       "section": "Gry bieżne",
       "sourceBlockSha256": "4f319d55934ca2e1cf72b1d973b8614eb04bbbb383116755a771653962dbf05d",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -988,7 +1000,7 @@
       "pdfPageEnd": 104,
       "section": "Gry bieżne",
       "sourceBlockSha256": "f946e91de1827188e21d31e966ddc1807df825a369a689bbd355daaa66e1c8b4",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1004,8 +1016,9 @@
       "pdfPageEnd": 105,
       "section": "Gry bieżne",
       "sourceBlockSha256": "0630f84c6fecd7ed09267713f18fbcf833b34a6099acedc0476ee431dd2406ba",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "variant of the preceding blindfold game without a self-contained base procedure"
     },
     {
       "number": 54,
@@ -1020,7 +1033,7 @@
       "pdfPageEnd": 105,
       "section": "Gry bieżne",
       "sourceBlockSha256": "7614f535ef2cd903e1b7434ec458f3fde5ce704900f0e439ced8cb340f61cfcf",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1036,7 +1049,7 @@
       "pdfPageEnd": 106,
       "section": "Gry bieżne",
       "sourceBlockSha256": "916a09374be863a4f7c4dc1b7f69acac5810b099a4df98dcb9736da4c7972c1a",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1052,7 +1065,7 @@
       "pdfPageEnd": 106,
       "section": "Gry bieżne",
       "sourceBlockSha256": "c148bde993ed130c82eafd64a32e4bf3dd82a7830e09c848523088cccc180ac9",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1068,7 +1081,7 @@
       "pdfPageEnd": 107,
       "section": "Gry bieżne",
       "sourceBlockSha256": "398ec37464b7e565bf5aa6def9e868f999cac99c640d0d4472882a8d925c051f",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1084,8 +1097,9 @@
       "pdfPageEnd": 107,
       "section": "Gry bieżne",
       "sourceBlockSha256": "a37ffe350a2010be4a9f0902781bcaa226a240d3a174f67f12cbf53cf7252d6c",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "cross-reference-only tag variant without a self-contained procedure"
     },
     {
       "number": 59,
@@ -1100,7 +1114,7 @@
       "pdfPageEnd": 107,
       "section": "Gry bieżne",
       "sourceBlockSha256": "87c6c304f74b5ccf227c82c3db780780e4f23a63b30ea41686184cdbd9a6cbd8",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1116,7 +1130,7 @@
       "pdfPageEnd": 108,
       "section": "Gry bieżne",
       "sourceBlockSha256": "9628ac73ae08a355dd278da28675d89c3bd9bc24c223efaa03826509c803d2ef",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1132,7 +1146,7 @@
       "pdfPageEnd": 108,
       "section": "Gry bieżne",
       "sourceBlockSha256": "edca2ce1fae9a32a9f2dd18bc47fd7e66d74c2e5836c1b97915c9e32da5dc68d",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1148,7 +1162,7 @@
       "pdfPageEnd": 109,
       "section": "Gry bieżne",
       "sourceBlockSha256": "42199f2b925a33c9469959b3bafb354433a8e6e88e79a38c2433607e50cf3f10",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1164,8 +1178,8 @@
       "pdfPageEnd": 110,
       "section": "Gry bieżne",
       "sourceBlockSha256": "5cc3ff35e56003bcd05b59ffd4fa11d21c1a4b055fcb572d8b0af8af6022d257",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "accepted-game",
+      "separateLyricsOrVerseReviewRequired": true
     },
     {
       "number": 64,
@@ -1180,8 +1194,8 @@
       "pdfPageEnd": 111,
       "section": "Gry bieżne",
       "sourceBlockSha256": "cbf026d28b6f4966f7808dc8522b72d23755c1ded87ab8b53f1f12e69512016e",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "accepted-game",
+      "separateLyricsOrVerseReviewRequired": true
     },
     {
       "number": 65,
@@ -1196,7 +1210,7 @@
       "pdfPageEnd": 112,
       "section": "Gry bieżne",
       "sourceBlockSha256": "d191977090ab1cf9cdd07e4d5d01f231fc14c4eef5dd988ccc9e814275700c41",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1212,7 +1226,7 @@
       "pdfPageEnd": 113,
       "section": "Gry bieżne",
       "sourceBlockSha256": "ccaf68f19b14b39fce0c347938260c4334e75fd62edff0a1d3d0ba39aa2b853b",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1228,7 +1242,7 @@
       "pdfPageEnd": 113,
       "section": "Gry bieżne",
       "sourceBlockSha256": "38660703f44bb9ed0fa433b230640733e6c01a3afd3ecf8a5a1d8ad427ee76c9",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1244,8 +1258,9 @@
       "pdfPageEnd": 114,
       "section": "Gry bieżne",
       "sourceBlockSha256": "1cea6591b91e6703bcefb338dcf522fc0bac91e40b32acb797f6ed612d7c417c",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "variant defined only by its difference from game 67"
     },
     {
       "number": 69,
@@ -1260,8 +1275,8 @@
       "pdfPageEnd": 114,
       "section": "Gry bieżne",
       "sourceBlockSha256": "6f133358ad937f2c8e649b8e1b8deae9f12a3c677961836fe348bf97b6fef8a2",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "accepted-game",
+      "separateLyricsOrVerseReviewRequired": true
     },
     {
       "number": 70,
@@ -1276,7 +1291,7 @@
       "pdfPageEnd": 115,
       "section": "Gry bieżne",
       "sourceBlockSha256": "8d3659e520e40097ab75188f7823d3cc7adbb1c421827e6bb32f4875c8a86032",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1292,7 +1307,7 @@
       "pdfPageEnd": 116,
       "section": "Gry bieżne",
       "sourceBlockSha256": "a41a8ab24e18dfa6db0b41ed0bc1e053fbe4708a3158dc1fa653661f3e8c4623",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1308,7 +1323,7 @@
       "pdfPageEnd": 117,
       "section": "Gry bieżne",
       "sourceBlockSha256": "5fe5764d2c25a60580ec2c5e04e6fa83ca69dfb7dcf545215704bdfac0cfff40",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1324,7 +1339,7 @@
       "pdfPageEnd": 118,
       "section": "Gry bieżne",
       "sourceBlockSha256": "44a0f11edd648b6e214bec2396f48dfb45872558065fb0ea8b1f5fd4d47ccad3",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1340,7 +1355,7 @@
       "pdfPageEnd": 119,
       "section": "Gry bieżne",
       "sourceBlockSha256": "f952692fe10e33c9a5c0410ce439d03e16ca08318e4c92405f3c98377e449022",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1356,8 +1371,8 @@
       "pdfPageEnd": 119,
       "section": "Gry bieżne",
       "sourceBlockSha256": "64700be9808901cc5a44d96c52cda4948d83c19a8eef96af4ec28645da2e6954",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "accepted-game",
+      "separateLyricsOrVerseReviewRequired": true
     },
     {
       "number": 76,
@@ -1372,7 +1387,7 @@
       "pdfPageEnd": 120,
       "section": "Gry bieżne",
       "sourceBlockSha256": "e1dd3e1c54eb1f94486ff054ab915525db6169c4ae7fe5e28563d826f2aa3f88",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1388,7 +1403,7 @@
       "pdfPageEnd": 122,
       "section": "Gry bieżne",
       "sourceBlockSha256": "391a47103cf4bcf2ad905b56ca14670a4a684206acc7aee3d6ce17f984e93211",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1404,7 +1419,7 @@
       "pdfPageEnd": 122,
       "section": "Gry bieżne",
       "sourceBlockSha256": "41fb6492df6f45f1b5d9b03713c759daf9a12b763f0163715efdf18d6caf35f9",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1420,7 +1435,7 @@
       "pdfPageEnd": 123,
       "section": "Gry bieżne",
       "sourceBlockSha256": "4cea343faa21e9c7596de395cdf7a50e542e336e2f9d47d9cbebf4efdd539337",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1436,7 +1451,7 @@
       "pdfPageEnd": 128,
       "section": "Gry bieżne",
       "sourceBlockSha256": "29f5ead2b8c61bdf241b21a2491a890fb1014beb9c97c7c9534a96659c5ee770",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1452,7 +1467,7 @@
       "pdfPageEnd": 129,
       "section": "Gry bieżne",
       "sourceBlockSha256": "2a2139902f591bd85de4a8fedde44c72b56db3d75b3458e51c55d1ef922bd51d",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1468,7 +1483,7 @@
       "pdfPageEnd": 131,
       "section": "Gry bieżne",
       "sourceBlockSha256": "82c492f18641f82163bb815952ff97a47cf0bb52b66c0d91f2978876f6feb43a",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1484,7 +1499,7 @@
       "pdfPageEnd": 132,
       "section": "Gry skoczne",
       "sourceBlockSha256": "663b1a3590a799a015b45a8acbb16306619b6ca535f4079ca0de53f62425fc87",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1500,7 +1515,7 @@
       "pdfPageEnd": 134,
       "section": "Gry skoczne",
       "sourceBlockSha256": "621bf92c394a3fa860032f0e7e4169baf52377126dbcd9eb627f2370f310404f",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1516,8 +1531,8 @@
       "pdfPageEnd": 135,
       "section": "Gry skoczne",
       "sourceBlockSha256": "1a83ad8b1fe1a73c5a728bf4bfb7bbc133ac31ae277da8003dad10e65a0ea335",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "accepted-game",
+      "separateLyricsOrVerseReviewRequired": true
     },
     {
       "number": 86,
@@ -1532,7 +1547,7 @@
       "pdfPageEnd": 136,
       "section": "Gry skoczne",
       "sourceBlockSha256": "707e3b45240a2a429513eb201145c47c623ba11fb1bd6811cedacc0673399b91",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1548,7 +1563,7 @@
       "pdfPageEnd": 137,
       "section": "Gry kopne",
       "sourceBlockSha256": "c75d7333b7b2d7cddce4a425f57b18caf4e141d10ab496a9393a4a74c1a41c14",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1564,7 +1579,7 @@
       "pdfPageEnd": 137,
       "section": "Gry kopne",
       "sourceBlockSha256": "e75143894bc691b3acb1de182907d82f8b9a52b04e0d1508fd7470505c53b0da",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1580,7 +1595,7 @@
       "pdfPageEnd": 138,
       "section": "Gry kopne",
       "sourceBlockSha256": "7284a1cb7e499fccbdaada1fce6b0734d1de75f4afb21d34445cbbe1620b4617",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1596,7 +1611,7 @@
       "pdfPageEnd": 139,
       "section": "Gry kopne",
       "sourceBlockSha256": "6d481d45faac1f8d8840a970d8a55b2c6a1ed334e812643d81809b6fca9683b3",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1612,7 +1627,7 @@
       "pdfPageEnd": 163,
       "section": "Gry kopne",
       "sourceBlockSha256": "b0cb51b3b61d35e18e5ba492076abdc35d8487c11c12764023e9669574314a01",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1628,8 +1643,9 @@
       "pdfPageEnd": 167,
       "section": "Gry kopne",
       "sourceBlockSha256": "f06769997e96b0d309f0b47f80d099ef7733f4d246206b4d86d395acb9c528f3",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "variant expressed only as amendments to game 91 rather than a self-contained procedure"
     },
     {
       "number": 93,
@@ -1644,7 +1660,7 @@
       "pdfPageEnd": 169,
       "section": "Gry z mocowaniem",
       "sourceBlockSha256": "2b7e28a7cb77e7a4123ada3126567d0122d378f584f8121d2cac77890d6fc437",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1660,7 +1676,7 @@
       "pdfPageEnd": 169,
       "section": "Gry z mocowaniem",
       "sourceBlockSha256": "4a2fa61f839c5b12e7051f33d60f973142c07c5d0edb543ca5457e5dae2333e7",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1676,7 +1692,7 @@
       "pdfPageEnd": 171,
       "section": "Gry z mocowaniem",
       "sourceBlockSha256": "d6b72f5faa7c56104ce7cab8850fe25c781f6e5081e36629a25c65b511690165",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1692,7 +1708,7 @@
       "pdfPageEnd": 172,
       "section": "Gry rzutne",
       "sourceBlockSha256": "14d3786d481d221ffd165d156729013463047b64ae90e4437c047ca5158a175d",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1708,7 +1724,7 @@
       "pdfPageEnd": 174,
       "section": "Gry rzutne",
       "sourceBlockSha256": "a3045494b284917feee3820079cd20ec67751b6e908e101770615630c584a9f7",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1724,7 +1740,7 @@
       "pdfPageEnd": 175,
       "section": "Gry rzutne",
       "sourceBlockSha256": "3f506df6482bda54460791aa7bf6d7e2e6a64e15a971508a92970a8d3c5ab756",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1740,7 +1756,7 @@
       "pdfPageEnd": 175,
       "section": "Gry rzutne",
       "sourceBlockSha256": "c43e422b6f66f1f3b19e0bc5d66e43ae96082683b859a5b12bc663244bb8d13c",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1756,7 +1772,7 @@
       "pdfPageEnd": 176,
       "section": "Gry rzutne",
       "sourceBlockSha256": "fa95120751cc6dd7f6398399509233b6aa37ec1efc1bb8e614e6d20af8310dfc",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1772,7 +1788,7 @@
       "pdfPageEnd": 176,
       "section": "Gry rzutne",
       "sourceBlockSha256": "c15b32282b7b76b7c9c3c3ac1289b8d2a6cecf1f6041f9cbcdc73d8e41ead5bd",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1788,7 +1804,7 @@
       "pdfPageEnd": 177,
       "section": "Gry rzutne",
       "sourceBlockSha256": "24e5c765397135b3e3c9de3a59a1c7f1d54c6da866375621e7245556ade9ec19",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1804,7 +1820,7 @@
       "pdfPageEnd": 182,
       "section": "Gry rzutne",
       "sourceBlockSha256": "cfc75b6f8f0ccc13d096c00c93897d4d6b3240e1f0c98fec8438a99d938f86e6",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false,
       "separateContributorNamedInPreface": "Kazimierz Lutosławski"
     },
@@ -1821,7 +1837,7 @@
       "pdfPageEnd": 183,
       "section": "Gry rzutne",
       "sourceBlockSha256": "78dec100c38627ca9cc27061efc28d8f43ac80054716cd1beeed387aaebb38a3",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1837,7 +1853,7 @@
       "pdfPageEnd": 183,
       "section": "Gry rzutne",
       "sourceBlockSha256": "d189f2e79970bbf3bade357afbc6e70f597cb8fa9895f0c209ebd1d2510f2dbf",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1853,7 +1869,7 @@
       "pdfPageEnd": 186,
       "section": "Gry rzutne",
       "sourceBlockSha256": "d8688c3c7a8cdc948d682368e4456f9379f2f1b4187dca190e2b5a1cb4ad3888",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1869,7 +1885,7 @@
       "pdfPageEnd": 186,
       "section": "Gry rzutne",
       "sourceBlockSha256": "1b151a5a3769a4abcfca0161f650d59dfb171c599bfe9c923b0cfa6801312d40",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1885,7 +1901,7 @@
       "pdfPageEnd": 188,
       "section": "Gry rzutne",
       "sourceBlockSha256": "ee3a1bc8ac35ed4f138dfcc1441cf122dd9232bf4a5e898ef5048c0e1ea55f97",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1901,7 +1917,7 @@
       "pdfPageEnd": 189,
       "section": "Gry rzutne",
       "sourceBlockSha256": "b7b031798018ddeb9415a3cb9e48d749e93fc6315078b5027056942abbb8db85",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1917,7 +1933,7 @@
       "pdfPageEnd": 190,
       "section": "Gry rzutne",
       "sourceBlockSha256": "39d91206fbc4f4568b2074e2ab0f3527658cc01c85e077d86901e65bcdc4f9bd",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1933,7 +1949,7 @@
       "pdfPageEnd": 190,
       "section": "Gry rzutne",
       "sourceBlockSha256": "c1c9d5d63aa78272c9b640c8879157a07fd68c8f08097e8ef251999ddf3ddb8f",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1949,7 +1965,7 @@
       "pdfPageEnd": 192,
       "section": "Gry rzutne",
       "sourceBlockSha256": "2e203a370fd19aec175844c999087dcde8e4c9e4411ef62209adde1ca9cef2ec",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1965,7 +1981,7 @@
       "pdfPageEnd": 193,
       "section": "Gry rzutne",
       "sourceBlockSha256": "b82c500537b2474c15b5914b5f136796174344bab955d12881bb920d39a2553b",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1981,7 +1997,7 @@
       "pdfPageEnd": 194,
       "section": "Gry rzutne",
       "sourceBlockSha256": "661229a6ca991ace1d0b7f72b54f73d76e538e0e884267db9f0fb419b30c9a70",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -1997,7 +2013,7 @@
       "pdfPageEnd": 195,
       "section": "Gry rzutne",
       "sourceBlockSha256": "5c1abb1a40418b01b8a7e90e726ddd2013368af90d93afcaf98500ce82de532f",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2013,7 +2029,7 @@
       "pdfPageEnd": 195,
       "section": "Gry rzutne",
       "sourceBlockSha256": "feb7a888fdc5ae4ba351807daaec7e0c589c3c371a83873d167bc28cb6c28aba",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2029,7 +2045,7 @@
       "pdfPageEnd": 196,
       "section": "Gry rzutne",
       "sourceBlockSha256": "6b5f672940797575da2a6213e624399481ace914c4e2d00fb8bfe6ddfd65a712",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2045,7 +2061,7 @@
       "pdfPageEnd": 196,
       "section": "Gry rzutne",
       "sourceBlockSha256": "70d6f66a59862399f875163f6ecd57f07d46886b24780ed0e5394ad24b2e3aa9",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2061,7 +2077,7 @@
       "pdfPageEnd": 197,
       "section": "Gry rzutne",
       "sourceBlockSha256": "c01c69fdd3dfa04b8eac26f4757f63f924fdd78710a22f2c0625038b8eba8af3",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2077,7 +2093,7 @@
       "pdfPageEnd": 198,
       "section": "Gry rzutne",
       "sourceBlockSha256": "0cb88d36d0b2686abea5104623553f79ca7ce59ba798f7277f48699bbe3a8db0",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2093,7 +2109,7 @@
       "pdfPageEnd": 208,
       "section": "Gry rzutne",
       "sourceBlockSha256": "a5607b67ec70ffac3c36aa8d2c338453f040d2509df1f58fd2b7a395be79dbbf",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2109,7 +2125,7 @@
       "pdfPageEnd": 209,
       "section": "Gry z podbijaniem",
       "sourceBlockSha256": "12e9c5bc8e829217c7245e4931b921aa90f5e071af403579305ba37cf6b4067b",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2125,7 +2141,7 @@
       "pdfPageEnd": 210,
       "section": "Gry z podbijaniem",
       "sourceBlockSha256": "fa16e0398406a0626375e6066ba02ae0781f6ad359de5d3a5de9501f43c99d80",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2141,7 +2157,7 @@
       "pdfPageEnd": 212,
       "section": "Gry z podbijaniem",
       "sourceBlockSha256": "ae1cae016bb8ca0421ad405dbe4dab19838a3c93539ef58bb87b3f91e0d15a1b",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2157,7 +2173,7 @@
       "pdfPageEnd": 213,
       "section": "Gry z podbijaniem",
       "sourceBlockSha256": "590ca0aa21435ec526cd5c094976cdda4d7bba97f66f43256724921c36d7a032",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2173,8 +2189,9 @@
       "pdfPageEnd": 213,
       "section": "Gry z podbijaniem",
       "sourceBlockSha256": "4d68e22decb3a9eb68125801e6a53ac5760ae76f092c9e53faf93e84341f603b",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "variant defined as changes to game 124b rather than a self-contained procedure"
     },
     {
       "number": 127,
@@ -2189,7 +2206,7 @@
       "pdfPageEnd": 214,
       "section": "Gry z podbijaniem",
       "sourceBlockSha256": "d4c5bbd5b1956116be044bc43596f971af8e43000bd7b94faaa8a282219ae7ac",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2205,7 +2222,7 @@
       "pdfPageEnd": 215,
       "section": "Gry z podbijaniem",
       "sourceBlockSha256": "9d030facfa9bbf0c9497392933cf86bf93a42830d9f84f4f4c78338277c7d722",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2221,7 +2238,7 @@
       "pdfPageEnd": 216,
       "section": "Gry z podbijaniem",
       "sourceBlockSha256": "1bfcb6614f38621822920dc21a43ceaf5884e2b1c7530c572ddc51e748ad78f8",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2237,7 +2254,7 @@
       "pdfPageEnd": 219,
       "section": "Gry z podbijaniem",
       "sourceBlockSha256": "4efcb22bdcc55882e3d6c81146bafe7f29f020ede54b6ce59899d6a9ce858250",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2253,7 +2270,7 @@
       "pdfPageEnd": 228,
       "section": "Gry z podbijaniem",
       "sourceBlockSha256": "a60bdfcbb22fdfa597c84b2aabd0c43d715d2cf39984238a5a01f6268df65621",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     },
     {
@@ -2269,8 +2286,9 @@
       "pdfPageEnd": 229,
       "section": "Gry z podbijaniem",
       "sourceBlockSha256": "3f7e7f5188bb681811fe43c81063882bc3f79830f3bb32fd631ba078a008a59b",
-      "recordReviewStatus": "pending-agent-review",
-      "separateLyricsOrVerseReviewRequired": false
+      "recordReviewStatus": "rejected-not-game",
+      "separateLyricsOrVerseReviewRequired": false,
+      "recordReviewReason": "variant defined as amendments to game 131 rather than a self-contained procedure"
     },
     {
       "number": 133,
@@ -2285,7 +2303,7 @@
       "pdfPageEnd": 231,
       "section": "Gry z podbijaniem",
       "sourceBlockSha256": "4acddb89662d9d4cd73333433870b66d4d0604565f185fa2b9c0bb52a00ccb01",
-      "recordReviewStatus": "pending-agent-review",
+      "recordReviewStatus": "accepted-game",
       "separateLyricsOrVerseReviewRequired": false
     }
   ]

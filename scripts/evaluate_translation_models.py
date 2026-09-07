@@ -413,7 +413,12 @@ def main() -> None:
                 )
                 continue
             translated, repairs = deterministic_translation_repairs(
-                metadata, body, translated, target_locale
+                metadata,
+                body,
+                translated,
+                target_locale,
+                repair_number_words=evaluation_prompt
+                not in {"translation-pl-en-v4", "translation-pl-en-v5"},
             )
             results.append(
                 {

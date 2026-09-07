@@ -1,0 +1,2558 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "piasecki-movement-games-1922",
+  "sourceSha256": "4f5379ad1a683a7f9f741f4a12b26f2ffffa97820f2f90b7145e8ff8e98ee51f",
+  "parserVersion": "piasecki-1922-embedded-text-game-import-v2",
+  "reviewRequired": false,
+  "activityCount": 117,
+  "wholeSourceCopiedToRepository": false,
+  "selection": {
+    "candidateCount": 133,
+    "acceptedGameCount": 117,
+    "rejectedCount": 16,
+    "basis": "source-numbered entries with an executable procedure after music, lyrics, illustrations and following-section furniture are removed",
+    "rejectedCandidates": [
+      {
+        "candidateNumber": 2,
+        "reason": "cross-reference-only variant of game 1 without a self-contained setup"
+      },
+      {
+        "candidateNumber": 16,
+        "reason": "cross-reference-only variant of game 15 whose only supplied difference is a song outside this corpus scope"
+      },
+      {
+        "candidateNumber": 18,
+        "reason": "song-dependent movement sequence without a self-contained procedure after lyrics are excluded"
+      },
+      {
+        "candidateNumber": 20,
+        "reason": "song-dependent occupational movement sequence without a self-contained procedure after lyrics are excluded"
+      },
+      {
+        "candidateNumber": 38,
+        "reason": "cross-reference-only variant of game 37 without a self-contained setup"
+      },
+      {
+        "candidateNumber": 39,
+        "reason": "cross-reference-only variant of game 38 without a self-contained setup"
+      },
+      {
+        "candidateNumber": 41,
+        "reason": "cross-reference-only variant of game 40 without a self-contained setup"
+      },
+      {
+        "candidateNumber": 43,
+        "reason": "cross-reference-only variant of game 42 without a self-contained setup"
+      },
+      {
+        "candidateNumber": 45,
+        "reason": "cross-reference-only variant of game 44 without a self-contained setup"
+      },
+      {
+        "candidateNumber": 46,
+        "reason": "variant that imports its complete playing-area setup from game 45"
+      },
+      {
+        "candidateNumber": 53,
+        "reason": "variant of the preceding blindfold game without a self-contained base procedure"
+      },
+      {
+        "candidateNumber": 58,
+        "reason": "cross-reference-only tag variant without a self-contained procedure"
+      },
+      {
+        "candidateNumber": 68,
+        "reason": "variant defined only by its difference from game 67"
+      },
+      {
+        "candidateNumber": 92,
+        "reason": "variant expressed only as amendments to game 91 rather than a self-contained procedure"
+      },
+      {
+        "candidateNumber": 126,
+        "reason": "variant defined as changes to game 124b rather than a self-contained procedure"
+      },
+      {
+        "candidateNumber": 132,
+        "reason": "variant defined as amendments to game 131 rather than a self-contained procedure"
+      }
+    ]
+  },
+  "transcriptionEvidence": {
+    "sourceStatement": "Pinned embedded text from the KPBC PDF stored in private repository artifacts.",
+    "sourceLocation": "https://kpbc.umk.pl/Content/193867/PDF/Magazyn_265_06_HD_008.pdf",
+    "deterministicNormalization": [
+      "omit the numbered activity heading represented in frontmatter",
+      "omit isolated printed-page numbers",
+      "omit pinned music, song-lyric and illustration ranges",
+      "truncate pinned following-section headings and epigraphs",
+      "retain pinned prose fragments from lines that also introduce excluded songs",
+      "relocate pinned source footnotes that interrupt a continued rule",
+      "join layout soft wraps and dehyphenate line-break continuations",
+      "preserve spelling, punctuation and paragraph order without lexical modernization"
+    ],
+    "lexicalModernization": false
+  },
+  "deduplication": {
+    "exactBodyMatches": [],
+    "nearDuplicateCandidates": []
+  },
+  "activities": [
+    {
+      "id": "zgr-001",
+      "candidateNumber": 1,
+      "title": "Ptaszek",
+      "startLine": "p0060-l0010",
+      "endLine": "p0061-l0015",
+      "pdfPages": [
+        60,
+        61
+      ],
+      "printedPages": [
+        55,
+        56
+      ],
+      "sourceBlockSha256": "123b05b54753f3f506984dd0dc1939740be4b5bee4a47ab5a83d13b832b5485e",
+      "publishedSourceHash": "5fda831fb5974f78a339b26c0045e0d22eac6acc00cb783619afbb2c9c4dde9b",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0060-l0017",
+          "endLine": "p0061-l0011",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-003",
+      "candidateNumber": 3,
+      "title": "Chusteczka jedwabna",
+      "startLine": "p0061-l0024",
+      "endLine": "p0062-l0019",
+      "pdfPages": [
+        61,
+        62
+      ],
+      "printedPages": [
+        56,
+        57
+      ],
+      "sourceBlockSha256": "e0938026f76ad18e56c7f595f979d575972d938f8f875a59b0e3aa87a0aba0bd",
+      "publishedSourceHash": "9f509844daea61a75ebcfa811bcce5c8920710ea578f128525e551eb16699ce7",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0062-l0005",
+          "endLine": "p0062-l0015",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-004",
+      "candidateNumber": 4,
+      "title": "Stoi różyczka",
+      "startLine": "p0062-l0020",
+      "endLine": "p0063-l0009",
+      "pdfPages": [
+        62,
+        63
+      ],
+      "printedPages": [
+        57,
+        58
+      ],
+      "sourceBlockSha256": "0bbd1c5b79326e8e3d926c57d565e6cf884b202cf2d30062fcc0b23cc783814b",
+      "publishedSourceHash": "9eb8e41f46f898805d3c155b5aa9f960a97d213261986fd9c009d9d263ae3bf2",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0063-l0002",
+          "endLine": "p0063-l0005",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-005",
+      "candidateNumber": 5,
+      "title": "Juljanka",
+      "startLine": "p0063-l0010",
+      "endLine": "p0063-l0024",
+      "pdfPages": [
+        63
+      ],
+      "printedPages": [
+        58
+      ],
+      "sourceBlockSha256": "a7d9b9b4bed6a3ce7c77907560a72d47878d1c14c0b08da8100f79706b86ec6e",
+      "publishedSourceHash": "bc0c249589ca880708edb8449c7acd70b61bdcc061dd87bf53a203d8c7d6746c",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0063-l0014",
+          "endLine": "p0063-l0020",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-006",
+      "candidateNumber": 6,
+      "title": "Na około wciąż wędruję",
+      "startLine": "p0063-l0025",
+      "endLine": "p0065-l0001",
+      "pdfPages": [
+        63,
+        64,
+        65
+      ],
+      "printedPages": [
+        58,
+        59,
+        60
+      ],
+      "sourceBlockSha256": "5d030dcaab946140a23dee0242b55f9a5e1a2bcb7346f24f915219e3eab47a7a",
+      "publishedSourceHash": "f63df543eb91ff25b396b1d9be851631d07280f1d771c5e245bd9b41c84beeb7",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0064-l0005",
+          "endLine": "p0064-l0020",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-007",
+      "candidateNumber": 7,
+      "title": "Ogrodniczka",
+      "startLine": "p0065-l0002",
+      "endLine": "p0065-l0014",
+      "pdfPages": [
+        65
+      ],
+      "printedPages": [
+        60
+      ],
+      "sourceBlockSha256": "1c6713b6d895fe0ed8cff3fe1716739e0f64d4180795202ff7602f0312d30c18",
+      "publishedSourceHash": "ce375366ccb435a5fd7db9f11a71f5b2dc37e08bfd0fd28c04525bff0f28d0df",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0065-l0008",
+          "endLine": "p0065-l0011",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-008",
+      "candidateNumber": 8,
+      "title": "Konopki",
+      "startLine": "p0065-l0015",
+      "endLine": "p0066-l0020",
+      "pdfPages": [
+        65,
+        66
+      ],
+      "printedPages": [
+        60,
+        61
+      ],
+      "sourceBlockSha256": "cb807efb99d65b1b7056409530463cadc69856503630d99f99cf78419259add6",
+      "publishedSourceHash": "ac9801a3b95ecf6949c8e7d51d48911cba72eb4236a1ed8048c241ea4b086b19",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0065-l0020",
+          "endLine": "p0066-l0001",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-009",
+      "candidateNumber": 9,
+      "title": "Zameczek",
+      "startLine": "p0066-l0021",
+      "endLine": "p0067-l0013",
+      "pdfPages": [
+        66,
+        67
+      ],
+      "printedPages": [
+        61,
+        62
+      ],
+      "sourceBlockSha256": "1006ea43e62959f2b3f4a28b62a77ff96a94ed20e7d4b19e174b5a4215ed2f79",
+      "publishedSourceHash": "01dab6fee2b373f4595ffae9568a7cd901184c6d07f0a2195ac93799a73e55f9",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0066-l0028",
+          "endLine": "p0067-l0009",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-010",
+      "candidateNumber": 10,
+      "title": "Jawor",
+      "startLine": "p0067-l0014",
+      "endLine": "p0068-l0026",
+      "pdfPages": [
+        67,
+        68
+      ],
+      "printedPages": [
+        62,
+        63
+      ],
+      "sourceBlockSha256": "058b2b05c6cd006d34752c843976d1645d6ff8a8e990c797d217d5f9b64a4397",
+      "publishedSourceHash": "7c83febf44fce5f93da0e7fd445353912383ff853c2333e1a4865a53a5586151",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0068-l0001",
+          "endLine": "p0068-l0011",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-011",
+      "candidateNumber": 11,
+      "title": "Liwu gąski",
+      "startLine": "p0068-l0027",
+      "endLine": "p0069-l0017",
+      "pdfPages": [
+        68,
+        69
+      ],
+      "printedPages": [
+        63,
+        64
+      ],
+      "sourceBlockSha256": "016d1c85265bd8ed06dde86dd420dde0a576920b7adb26d52c366e9d8bb671a7",
+      "publishedSourceHash": "b9b3f41f6c9dfffbe8f62b3093d8b8087ca907fc9dcfccf93cd0257a9b1dc267",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0069-l0001",
+          "endLine": "p0069-l0001",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0069-l0006",
+          "endLine": "p0069-l0015",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0069-l0018",
+          "endLine": "p0070-l0005",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-012",
+      "candidateNumber": 12,
+      "title": "Zelman",
+      "startLine": "p0070-l0006",
+      "endLine": "p0071-l0026",
+      "pdfPages": [
+        70,
+        71
+      ],
+      "printedPages": [
+        65,
+        66
+      ],
+      "sourceBlockSha256": "c86b7f0faf9874179758d139cac2c4b6774d49d563e4e6d8d4338311dbd9b70a",
+      "publishedSourceHash": "0a477d4b29025ff222d145db36340fd900870511941e17c8316b3438aa122fd5",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0070-l0016",
+          "endLine": "p0071-l0016",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-013",
+      "candidateNumber": 13,
+      "title": "Ogroduszek",
+      "startLine": "p0071-l0027",
+      "endLine": "p0072-l0009",
+      "pdfPages": [
+        71,
+        72
+      ],
+      "printedPages": [
+        66,
+        67
+      ],
+      "sourceBlockSha256": "d8c4491cecbd33def4c0f30bb6eac79d660c2eea06ccd1434ffdcd57078bfe26",
+      "publishedSourceHash": "b5015747397a6dab9539558b326955702409682d8ef75998478bf6a6665910d4",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0072-l0005",
+          "endLine": "p0072-l0006",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0072-l0010",
+          "endLine": "p0072-l0021",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-014",
+      "candidateNumber": 14,
+      "title": "Nawlekanie igły",
+      "startLine": "p0073-l0001",
+      "endLine": "p0073-l0021",
+      "pdfPages": [
+        73
+      ],
+      "printedPages": [
+        68
+      ],
+      "sourceBlockSha256": "e55061c34a00f0cb9f3cb7e330171ac40dc8164056218c36301599eca52a7e05",
+      "publishedSourceHash": "de4f64dada96f27324b313c5a3894c878dbf6eddccc6a0ea88904e145bba1a27"
+    },
+    {
+      "id": "zgr-015",
+      "candidateNumber": 15,
+      "title": "Ojciec Wirgiljusz",
+      "startLine": "p0073-l0022",
+      "endLine": "p0074-l0015",
+      "pdfPages": [
+        73,
+        74
+      ],
+      "printedPages": [
+        68,
+        69
+      ],
+      "sourceBlockSha256": "ff42da68b5a52f30b7917283be46b569da20b2af71d0beacdb8b61bd081359db",
+      "publishedSourceHash": "9a3cde4478ca79cc7150a8041f9b283d7d39873ef954c0211b53c484eaa18ef1",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0073-l0030",
+          "endLine": "p0074-l0010",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-017",
+      "candidateNumber": 17,
+      "title": "Rzemiosła (Muzykant)",
+      "startLine": "p0074-l0024",
+      "endLine": "p0075-l0017",
+      "pdfPages": [
+        74,
+        75
+      ],
+      "printedPages": [
+        69,
+        70
+      ],
+      "sourceBlockSha256": "e003cc5e31c13910fa32ce7dfffa0075c8ae2aaa3b41a914ef8f78ac976210e8",
+      "publishedSourceHash": "aa5c466d771916e730385459b7657ab922e69d8cb1759f3d8a5f0b69f7209caa"
+    },
+    {
+      "id": "zgr-019",
+      "candidateNumber": 19,
+      "title": "Królewna",
+      "startLine": "p0077-l0002",
+      "endLine": "p0077-l0013",
+      "pdfPages": [
+        77
+      ],
+      "printedPages": [
+        72
+      ],
+      "sourceBlockSha256": "0bd2288ad701254d6f9cff738831be1812e333e945f1df1f7763c009d8b6a1d7",
+      "publishedSourceHash": "7babbe8617c3cf373a2044f25c4e9fadb1c0fc22c47609d4fad8656039dd2e23",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0077-l0014",
+          "endLine": "p0078-l0007",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-021",
+      "candidateNumber": 21,
+      "title": "Wdowa na wydaniu",
+      "startLine": "p0079-l0030",
+      "endLine": "p0080-l0034",
+      "pdfPages": [
+        79,
+        80
+      ],
+      "printedPages": [
+        74,
+        75
+      ],
+      "sourceBlockSha256": "bb6853682d2b559000a0027bd04d7744476c296ad8f3e3aef44311cd6d9ae853",
+      "publishedSourceHash": "33ad91cb663dbc3017b7e3059c78271d7751c13c900638fa4a2301dbcdf0d6b4",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0080-l0004",
+          "endLine": "p0080-l0022",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0080-l0027",
+          "endLine": "p0080-l0030",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-022",
+      "candidateNumber": 22,
+      "title": "Przepiórka",
+      "startLine": "p0081-l0005",
+      "endLine": "p0084-l0003",
+      "pdfPages": [
+        81,
+        82,
+        83,
+        84
+      ],
+      "printedPages": [
+        76,
+        77,
+        78,
+        79
+      ],
+      "sourceBlockSha256": "c3c3f01efd32140911ee281e1fb132521fdf69b75a42896b0806d3a56395621a",
+      "publishedSourceHash": "255009d4d4b67701d5c8c08bf86ad18dac9f2c311cea821c6e88f6f20e913407",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0081-l0015",
+          "endLine": "p0083-l0005",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-023",
+      "candidateNumber": 23,
+      "title": "Gąska",
+      "startLine": "p0084-l0004",
+      "endLine": "p0084-l0015",
+      "pdfPages": [
+        84
+      ],
+      "printedPages": [
+        79
+      ],
+      "sourceBlockSha256": "81f6e3b6d7c73677eb9713c063389b02ad7044037801bf4f19fda3ca8f3bc0c1",
+      "publishedSourceHash": "29e1f7c639faeee73a76818cbcf8a7b329b9c4d591d19817a7602889a714a5df",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0084-l0016",
+          "endLine": "p0084-l0021",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-024",
+      "candidateNumber": 24,
+      "title": "Pasterz",
+      "startLine": "p0084-l0022",
+      "endLine": "p0085-l0001",
+      "pdfPages": [
+        84,
+        85
+      ],
+      "printedPages": [
+        79,
+        80
+      ],
+      "sourceBlockSha256": "a8223a06582407e5cf2e8eea9e5a86e8e1780e47df615fd7d7ba9c636e82147a",
+      "publishedSourceHash": "d6dc92600ce63c046709d4627d7f74502d4b81534f8adcfd57fd11ed045039c1"
+    },
+    {
+      "id": "zgr-025",
+      "candidateNumber": 25,
+      "title": "Róża",
+      "startLine": "p0085-l0002",
+      "endLine": "p0086-l0030",
+      "pdfPages": [
+        85,
+        86
+      ],
+      "printedPages": [
+        80,
+        81
+      ],
+      "sourceBlockSha256": "5527e2295ee93f46b75547bac8e28da02e0f86f90e9962abb4d496fe143e0bb4",
+      "publishedSourceHash": "0ccc86699849b4f86d7037ca4b966e41b284345edd4d2a17232dca5eabacebdb",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0085-l0009",
+          "endLine": "p0085-l0017",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0085-l0021",
+          "endLine": "p0085-l0023",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0086-l0002",
+          "endLine": "p0086-l0004",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0086-l0019",
+          "endLine": "p0086-l0028",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-026",
+      "candidateNumber": 26,
+      "title": "Ksieni",
+      "startLine": "p0086-l0031",
+      "endLine": "p0087-l0017",
+      "pdfPages": [
+        86,
+        87
+      ],
+      "printedPages": [
+        81,
+        82
+      ],
+      "sourceBlockSha256": "926b0eb7f256a23daa4231fcbcdecab8c94e342823873ef54c355bfcee61a48d",
+      "publishedSourceHash": "e97947d66b0f5c28de582578633c26eafb81735bf3cac11df98445c819dc8d91",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0087-l0007",
+          "endLine": "p0087-l0011",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0087-l0014",
+          "endLine": "p0087-l0015",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-027",
+      "candidateNumber": 27,
+      "title": "Swaty",
+      "startLine": "p0087-l0018",
+      "endLine": "p0088-l0028",
+      "pdfPages": [
+        87,
+        88
+      ],
+      "printedPages": [
+        82,
+        83
+      ],
+      "sourceBlockSha256": "dac899bf18063e436d27e57297c898a69ee7070cfdf52904a917fb0da5929bb0",
+      "publishedSourceHash": "70f5dbd947817a7cb76c6c9ea298c7d7f61a1182da2e5f5eb1d676a560da5604",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0088-l0001",
+          "endLine": "p0088-l0024",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-028",
+      "candidateNumber": 28,
+      "title": "Dyna",
+      "startLine": "p0088-l0029",
+      "endLine": "p0089-l0019",
+      "pdfPages": [
+        88,
+        89
+      ],
+      "printedPages": [
+        83,
+        84
+      ],
+      "sourceBlockSha256": "876586d703fdd772c5091c1f200f32e222dc038a77e382c7a86a22c52620571a",
+      "publishedSourceHash": "a7c87ba2cd938c3345ed41ebfeda3cabf8e6c89955e370203a9c2d2338f4cae9",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0089-l0004",
+          "endLine": "p0089-l0012",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-029",
+      "candidateNumber": 29,
+      "title": "Kokoszka",
+      "startLine": "p0089-l0020",
+      "endLine": "p0090-l0007",
+      "pdfPages": [
+        89,
+        90
+      ],
+      "printedPages": [
+        84,
+        85
+      ],
+      "sourceBlockSha256": "99c04b0b1c7f569d76b8a679d7da1b191c281a3ef9b9f8b21545c3ad06ca5754",
+      "publishedSourceHash": "d4a61cb71bc371ab1a306cb1cd1d8b2a722ea9e3e6edf466a9a1a2224477ee8c",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0090-l0008",
+          "endLine": "p0090-l0014",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-030",
+      "candidateNumber": 30,
+      "title": "Chaber",
+      "startLine": "p0090-l0015",
+      "endLine": "p0091-l0017",
+      "pdfPages": [
+        90,
+        91
+      ],
+      "printedPages": [
+        85,
+        86
+      ],
+      "sourceBlockSha256": "59033593fa3153809bcb5222b1349f892a7a657b364d9ea430b083b8244d1a53",
+      "publishedSourceHash": "626c5f3670c71537bd35211f847e07f8aba2ce5fc74233e592a428c0a53261d0",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0091-l0018",
+          "endLine": "p0091-l0032",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-031",
+      "candidateNumber": 31,
+      "title": "Zajączki",
+      "startLine": "p0092-l0003",
+      "endLine": "p0092-l0023",
+      "pdfPages": [
+        92
+      ],
+      "printedPages": [
+        87
+      ],
+      "sourceBlockSha256": "b25f1d1e5aa519dfcdb3d7796924bf5041035587219946d053a89b1e84c320da",
+      "publishedSourceHash": "06e53495e08608d9acd7546264b960d9f7ea47fa52f94fdc29659af631f0227e",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0092-l0024",
+          "endLine": "p0094-l0032",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-032",
+      "candidateNumber": 32,
+      "title": "Bóbr",
+      "startLine": "p0094-l0033",
+      "endLine": "p0095-l0012",
+      "pdfPages": [
+        94,
+        95
+      ],
+      "printedPages": [
+        89,
+        90
+      ],
+      "sourceBlockSha256": "b51806be35d8a84b058166d79431853bb594bf186fed378c7c281059cf1aea1a",
+      "publishedSourceHash": "4f0f37eb44dec71a8ff94edf59a247181591df6146e228f85f85918283da43df",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0095-l0004",
+          "endLine": "p0095-l0008",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-033",
+      "candidateNumber": 33,
+      "title": "Krycie",
+      "startLine": "p0095-l0013",
+      "endLine": "p0096-l0001",
+      "pdfPages": [
+        95,
+        96
+      ],
+      "printedPages": [
+        90,
+        91
+      ],
+      "sourceBlockSha256": "407fba099facb8fabd6a1c07529a57844ed994998aa0067d37c6c8f2c8a05adf",
+      "publishedSourceHash": "4c013877c488a6a8ce1435510a4abdef191a27e8ae2877b7fa100ec58a5ef148"
+    },
+    {
+      "id": "zgr-034",
+      "candidateNumber": 34,
+      "title": "Zbójcy i hajducy",
+      "startLine": "p0096-l0002",
+      "endLine": "p0097-l0001",
+      "pdfPages": [
+        96,
+        97
+      ],
+      "printedPages": [
+        91,
+        92
+      ],
+      "sourceBlockSha256": "a8a609adeda93384efd2432d72cbf04ac96c7135d0ba6d777184e8fe18284761",
+      "publishedSourceHash": "2cfe068b015f5cd0f1e502faccbdd5c6e7b0b379a7a6f7b856b6bffbc2824aba"
+    },
+    {
+      "id": "zgr-035",
+      "candidateNumber": 35,
+      "title": "Sitko",
+      "startLine": "p0097-l0005",
+      "endLine": "p0097-l0020",
+      "pdfPages": [
+        97
+      ],
+      "printedPages": [
+        92
+      ],
+      "sourceBlockSha256": "b37267d0a7872ad8289fcb51e8047a194b324ccab4208aa2e480f0c8abf733da",
+      "publishedSourceHash": "eb2cd9732c32b562a3c6361a0267c020861e693b9f526cca86834077e5e87125",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0097-l0012",
+          "endLine": "p0097-l0015",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-036",
+      "candidateNumber": 36,
+      "title": "Cztery kąty",
+      "startLine": "p0097-l0021",
+      "endLine": "p0098-l0008",
+      "pdfPages": [
+        97,
+        98
+      ],
+      "printedPages": [
+        92,
+        93
+      ],
+      "sourceBlockSha256": "36fa2e100d1930cec77ea77ad09ebcafe169e9596c89dbb37e20db69bae0ae8d",
+      "publishedSourceHash": "434dcc9ba289d777926568af7f605310a20e18737fb6b1698dc65b69f16170e0"
+    },
+    {
+      "id": "zgr-037",
+      "candidateNumber": 37,
+      "title": "Kółko",
+      "startLine": "p0098-l0009",
+      "endLine": "p0098-l0018",
+      "pdfPages": [
+        98
+      ],
+      "printedPages": [
+        93
+      ],
+      "sourceBlockSha256": "b222b3c7beee22d0de204762dab1c1fd7b67bcc2f8566364a2fb560283551066",
+      "publishedSourceHash": "600008ae3783c1567c1a07b681f1c28a80d3c95726bc91b86363e4e4884dcee5"
+    },
+    {
+      "id": "zgr-040",
+      "candidateNumber": 40,
+      "title": "Wesoły ogrodnik",
+      "startLine": "p0099-l0002",
+      "endLine": "p0099-l0010",
+      "pdfPages": [
+        99
+      ],
+      "printedPages": [
+        94
+      ],
+      "sourceBlockSha256": "ae2819457012a0a78082d7d7c893eb00e9e85b64c3c553cfa102d153f4a58c1f",
+      "publishedSourceHash": "0718bf0eefcb3794d48f0ae0406e4812a4d90e373a34e12867c66e04ebc2c6f7"
+    },
+    {
+      "id": "zgr-042",
+      "candidateNumber": 42,
+      "title": "Gospoda",
+      "startLine": "p0099-l0020",
+      "endLine": "p0100-l0001",
+      "pdfPages": [
+        99,
+        100
+      ],
+      "printedPages": [
+        94,
+        95
+      ],
+      "sourceBlockSha256": "bac0e4a27a5381030fc360cf128312dc5efa72b2b9990adb0b983e0f57d74590",
+      "publishedSourceHash": "bf07f7f99724d7c9da71e97dca8906085bcddef515564e01c4ce766086904c43"
+    },
+    {
+      "id": "zgr-044",
+      "candidateNumber": 44,
+      "title": "Pani Starościna",
+      "startLine": "p0100-l0007",
+      "endLine": "p0100-l0019",
+      "pdfPages": [
+        100
+      ],
+      "printedPages": [
+        95
+      ],
+      "sourceBlockSha256": "a51d6671fa4168a470ae974d35c690fe8a0b889af8e695fa79f43686a489d275",
+      "publishedSourceHash": "e0d96cc3a3c40c9a8992b33f37ca48987494827b8035eeee8abca33a80289764"
+    },
+    {
+      "id": "zgr-047",
+      "candidateNumber": 47,
+      "title": "P a r y",
+      "startLine": "p0101-l0005",
+      "endLine": "p0101-l0012",
+      "pdfPages": [
+        101
+      ],
+      "printedPages": [
+        96
+      ],
+      "sourceBlockSha256": "30cbf089468d71520825ee88a19a0232bf308d13210177e5fc1b1185b0bfdf0b",
+      "publishedSourceHash": "d12626db8c1a9bc6652439f9a6356e470dddbc1e653d7e97158b293ba7aa619a"
+    },
+    {
+      "id": "zgr-048",
+      "candidateNumber": 48,
+      "title": "Gąsior",
+      "startLine": "p0101-l0013",
+      "endLine": "p0101-l0025",
+      "pdfPages": [
+        101
+      ],
+      "printedPages": [
+        96
+      ],
+      "sourceBlockSha256": "461521f82b74771f728a952f4872711060d71871e19ab54202dcebd148715434",
+      "publishedSourceHash": "59a18e6d292b2131081f6537ca11d81e6a1df0bf9c5cc06344af879669367637"
+    },
+    {
+      "id": "zgr-049",
+      "candidateNumber": 49,
+      "title": "Koło",
+      "startLine": "p0101-l0027",
+      "endLine": "p0102-l0009",
+      "pdfPages": [
+        101,
+        102
+      ],
+      "printedPages": [
+        96,
+        97
+      ],
+      "sourceBlockSha256": "50bd9dff36f8faac8e4e34ae0c4bb23b65fdbde92632ab0e1be2b39bd04211d2",
+      "publishedSourceHash": "e1cb03bdfeb2388aa250549ce2795c5f705578cf6a67db3a94e18bb080707e90"
+    },
+    {
+      "id": "zgr-050",
+      "candidateNumber": 50,
+      "title": "Baran",
+      "startLine": "p0102-l0010",
+      "endLine": "p0102-l0022",
+      "pdfPages": [
+        102
+      ],
+      "printedPages": [
+        97
+      ],
+      "sourceBlockSha256": "98998ec4d6265e55454c16b87237fa9685ca79b82a8d65a5f68e02f530fae813",
+      "publishedSourceHash": "0ec7b530536397e0a9d9094781fedf39f54c93158211e611c822ecfb872e34bb",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0102-l0023",
+          "endLine": "p0103-l0013",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-051",
+      "candidateNumber": 51,
+      "title": "Przerywane wojsko",
+      "startLine": "p0103-l0014",
+      "endLine": "p0104-l0004",
+      "pdfPages": [
+        103,
+        104
+      ],
+      "printedPages": [
+        98,
+        99
+      ],
+      "sourceBlockSha256": "f1ff82b2368077aa41b17d5cb66352707aba3ccf176f719fc8c2e407a38db0d0",
+      "publishedSourceHash": "416546119fb5826655c0e7961492c9733cad3e140bf93b4ef2922bce7ad1bef8"
+    },
+    {
+      "id": "zgr-052",
+      "candidateNumber": 52,
+      "title": "Babka",
+      "startLine": "p0104-l0008",
+      "endLine": "p0104-l0024",
+      "pdfPages": [
+        104
+      ],
+      "printedPages": [
+        99
+      ],
+      "sourceBlockSha256": "f946e91de1827188e21d31e966ddc1807df825a369a689bbd355daaa66e1c8b4",
+      "publishedSourceHash": "c568fdc3c7ca10c6dbeb1000fcd5ff8eb37ae2af16ced711f8f80798a8024481"
+    },
+    {
+      "id": "zgr-054",
+      "candidateNumber": 54,
+      "title": "Derkacz",
+      "startLine": "p0105-l0003",
+      "endLine": "p0105-l0012",
+      "pdfPages": [
+        105
+      ],
+      "printedPages": [
+        100
+      ],
+      "sourceBlockSha256": "7614f535ef2cd903e1b7434ec458f3fde5ce704900f0e439ced8cb340f61cfcf",
+      "publishedSourceHash": "5bbea48b78e1f954ab62ae6fb0b50300ab1b49bf8472c81a4a1e3fd999c6f789"
+    },
+    {
+      "id": "zgr-055",
+      "candidateNumber": 55,
+      "title": "Gąski",
+      "startLine": "p0105-l0013",
+      "endLine": "p0106-l0008",
+      "pdfPages": [
+        105,
+        106
+      ],
+      "printedPages": [
+        100,
+        101
+      ],
+      "sourceBlockSha256": "916a09374be863a4f7c4dc1b7f69acac5810b099a4df98dcb9736da4c7972c1a",
+      "publishedSourceHash": "10b1cc1c950cf48019da065a6ea4e913a64de1dbeb47a2a07b50270d17b3b45e"
+    },
+    {
+      "id": "zgr-056",
+      "candidateNumber": 56,
+      "title": "Jastrząb i gołębie",
+      "startLine": "p0106-l0009",
+      "endLine": "p0106-l0025",
+      "pdfPages": [
+        106
+      ],
+      "printedPages": [
+        101
+      ],
+      "sourceBlockSha256": "c148bde993ed130c82eafd64a32e4bf3dd82a7830e09c848523088cccc180ac9",
+      "publishedSourceHash": "121f5e4bc549ffa4a18486aeccee092425b797aa0ecbe442e322a8bb7ac277ed"
+    },
+    {
+      "id": "zgr-057",
+      "candidateNumber": 57,
+      "title": "Łapanka",
+      "startLine": "p0106-l0026",
+      "endLine": "p0107-l0007",
+      "pdfPages": [
+        106,
+        107
+      ],
+      "printedPages": [
+        101,
+        102
+      ],
+      "sourceBlockSha256": "398ec37464b7e565bf5aa6def9e868f999cac99c640d0d4472882a8d925c051f",
+      "publishedSourceHash": "0b59f8e604637bd0cf0451c17a0c20f961659da45590a51d33cca72a6d14b136"
+    },
+    {
+      "id": "zgr-059",
+      "candidateNumber": 59,
+      "title": "Topiec",
+      "startLine": "p0107-l0014",
+      "endLine": "p0107-l0023",
+      "pdfPages": [
+        107
+      ],
+      "printedPages": [
+        102
+      ],
+      "sourceBlockSha256": "87c6c304f74b5ccf227c82c3db780780e4f23a63b30ea41686184cdbd9a6cbd8",
+      "publishedSourceHash": "f1e49e33417544a98f3367a435bcb722a3b1631b67387d5ef439d2a3144e0424"
+    },
+    {
+      "id": "zgr-060",
+      "candidateNumber": 60,
+      "title": "Strzygoń",
+      "startLine": "p0107-l0024",
+      "endLine": "p0108-l0007",
+      "pdfPages": [
+        107,
+        108
+      ],
+      "printedPages": [
+        102,
+        103
+      ],
+      "sourceBlockSha256": "9628ac73ae08a355dd278da28675d89c3bd9bc24c223efaa03826509c803d2ef",
+      "publishedSourceHash": "8a93aac64b999a1c2ae3a50da45167867c303b1059b8a60b5a3907a4eb4d7c62"
+    },
+    {
+      "id": "zgr-061",
+      "candidateNumber": 61,
+      "title": "Król",
+      "startLine": "p0108-l0008",
+      "endLine": "p0108-l0025",
+      "pdfPages": [
+        108
+      ],
+      "printedPages": [
+        103
+      ],
+      "sourceBlockSha256": "edca2ce1fae9a32a9f2dd18bc47fd7e66d74c2e5836c1b97915c9e32da5dc68d",
+      "publishedSourceHash": "bd1d577ed9032a8cc58f1805bcd4f180745bf11eab903318da6f67b3414d0ce9"
+    },
+    {
+      "id": "zgr-062",
+      "candidateNumber": 62,
+      "title": "Kuchareczka",
+      "startLine": "p0108-l0026",
+      "endLine": "p0109-l0009",
+      "pdfPages": [
+        108,
+        109
+      ],
+      "printedPages": [
+        103,
+        104
+      ],
+      "sourceBlockSha256": "42199f2b925a33c9469959b3bafb354433a8e6e88e79a38c2433607e50cf3f10",
+      "publishedSourceHash": "698169537165fe19778b5809f8e09b49d1b0fc44b4f9d80d5ce15ea163e67af3"
+    },
+    {
+      "id": "zgr-063",
+      "candidateNumber": 63,
+      "title": "Szewczyk",
+      "startLine": "p0109-l0010",
+      "endLine": "p0110-l0001",
+      "pdfPages": [
+        109,
+        110
+      ],
+      "printedPages": [
+        104,
+        105
+      ],
+      "sourceBlockSha256": "5cc3ff35e56003bcd05b59ffd4fa11d21c1a4b055fcb572d8b0af8af6022d257",
+      "publishedSourceHash": "d1a0967f73fea19667edc12447746f61910555a45e44dae55402e87b385c560e",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0109-l0015",
+          "endLine": "p0109-l0027",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-064",
+      "candidateNumber": 64,
+      "title": "Kot i mysz",
+      "startLine": "p0110-l0002",
+      "endLine": "p0110-l0020",
+      "pdfPages": [
+        110
+      ],
+      "printedPages": [
+        105
+      ],
+      "sourceBlockSha256": "cbf026d28b6f4966f7808dc8522b72d23755c1ded87ab8b53f1f12e69512016e",
+      "publishedSourceHash": "52d408a82551e9180a380aec47c8b798875670de8882c2407ec9b81aa2130af4",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0110-l0021",
+          "endLine": "p0111-l0010",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-065",
+      "candidateNumber": 65,
+      "title": "Trzeciak",
+      "startLine": "p0111-l0011",
+      "endLine": "p0112-l0007",
+      "pdfPages": [
+        111,
+        112
+      ],
+      "printedPages": [
+        106,
+        107
+      ],
+      "sourceBlockSha256": "d191977090ab1cf9cdd07e4d5d01f231fc14c4eef5dd988ccc9e814275700c41",
+      "publishedSourceHash": "611c6d0513f67aa5e2ff5a5202e267ba825c2fb3e9e8bc8ec2ed3e3fedb2e4a9"
+    },
+    {
+      "id": "zgr-066",
+      "candidateNumber": 66,
+      "title": "Lis",
+      "startLine": "p0112-l0008",
+      "endLine": "p0113-l0014",
+      "pdfPages": [
+        112,
+        113
+      ],
+      "printedPages": [
+        107,
+        108
+      ],
+      "sourceBlockSha256": "ccaf68f19b14b39fce0c347938260c4334e75fd62edff0a1d3d0ba39aa2b853b",
+      "publishedSourceHash": "93db03dcee31d343d4c0ea2a064e33d4de55f4e933fccad28eb8d69b5c001a23",
+      "relocatedSourceRanges": [
+        {
+          "startLine": "p0112-l0031",
+          "endLine": "p0112-l0033",
+          "reason": "source-footnote-relocated-after-game"
+        }
+      ]
+    },
+    {
+      "id": "zgr-067",
+      "candidateNumber": 67,
+      "title": "Klapanka",
+      "startLine": "p0113-l0015",
+      "endLine": "p0113-l0023",
+      "pdfPages": [
+        113
+      ],
+      "printedPages": [
+        108
+      ],
+      "sourceBlockSha256": "38660703f44bb9ed0fa433b230640733e6c01a3afd3ecf8a5a1d8ad427ee76c9",
+      "publishedSourceHash": "2957bfdae492190dae8325e185e076be3b4c143aa334c441a66b94e523cd4c09"
+    },
+    {
+      "id": "zgr-069",
+      "candidateNumber": 69,
+      "title": "Wąż",
+      "startLine": "p0114-l0002",
+      "endLine": "p0114-l0013",
+      "pdfPages": [
+        114
+      ],
+      "printedPages": [
+        109
+      ],
+      "sourceBlockSha256": "6f133358ad937f2c8e649b8e1b8deae9f12a3c677961836fe348bf97b6fef8a2",
+      "publishedSourceHash": "4445476878b0750d46dd6edbb5a03464d6fb72b929afc6cf2c4b995d713cb8b4",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0114-l0014",
+          "endLine": "p0114-l0023",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-070",
+      "candidateNumber": 70,
+      "title": "Wilk i gąski",
+      "startLine": "p0114-l0024",
+      "endLine": "p0115-l0025",
+      "pdfPages": [
+        114,
+        115
+      ],
+      "printedPages": [
+        109,
+        110
+      ],
+      "sourceBlockSha256": "8d3659e520e40097ab75188f7823d3cc7adbb1c421827e6bb32f4875c8a86032",
+      "publishedSourceHash": "80af33381912f1786c0ccfd24c4178101b2d9d3c97bb882a93d10c9400df6d10"
+    },
+    {
+      "id": "zgr-071",
+      "candidateNumber": 71,
+      "title": "Płótno",
+      "startLine": "p0115-l0026",
+      "endLine": "p0116-l0020",
+      "pdfPages": [
+        115,
+        116
+      ],
+      "printedPages": [
+        110,
+        111
+      ],
+      "sourceBlockSha256": "a41a8ab24e18dfa6db0b41ed0bc1e053fbe4708a3158dc1fa653661f3e8c4623",
+      "publishedSourceHash": "0efd4bbe0f42cb5cd237f2b6828cf3a9196d5abecda6b2d170ff55860d87539e"
+    },
+    {
+      "id": "zgr-072",
+      "candidateNumber": 72,
+      "title": "Ptaki (Farby)",
+      "startLine": "p0116-l0021",
+      "endLine": "p0117-l0024",
+      "pdfPages": [
+        116,
+        117
+      ],
+      "printedPages": [
+        111,
+        112
+      ],
+      "sourceBlockSha256": "5fe5764d2c25a60580ec2c5e04e6fa83ca69dfb7dcf545215704bdfac0cfff40",
+      "publishedSourceHash": "851cd17f356bd65ccb19f3c78636ae9363dfa9ed011b51847e6a917a0c73b111"
+    },
+    {
+      "id": "zgr-073",
+      "candidateNumber": 73,
+      "title": "Fabjan",
+      "startLine": "p0117-l0025",
+      "endLine": "p0118-l0015",
+      "pdfPages": [
+        117,
+        118
+      ],
+      "printedPages": [
+        112,
+        113
+      ],
+      "sourceBlockSha256": "44a0f11edd648b6e214bec2396f48dfb45872558065fb0ea8b1f5fd4d47ccad3",
+      "publishedSourceHash": "5bf0117ef0b8f0a0540fced17a3cf918bd2b0e0755a37ac08266048ff7fdcbd6"
+    },
+    {
+      "id": "zgr-074",
+      "candidateNumber": 74,
+      "title": "Wójt i kuropatwy",
+      "startLine": "p0118-l0016",
+      "endLine": "p0119-l0001",
+      "pdfPages": [
+        118,
+        119
+      ],
+      "printedPages": [
+        113,
+        114
+      ],
+      "sourceBlockSha256": "f952692fe10e33c9a5c0410ce439d03e16ca08318e4c92405f3c98377e449022",
+      "publishedSourceHash": "48436a5abdaebd60708370a8e340b72002b50622c14147aca178d03cdcbe93dc"
+    },
+    {
+      "id": "zgr-075",
+      "candidateNumber": 75,
+      "title": "Żóraw",
+      "startLine": "p0119-l0002",
+      "endLine": "p0119-l0023",
+      "pdfPages": [
+        119
+      ],
+      "printedPages": [
+        114
+      ],
+      "sourceBlockSha256": "64700be9808901cc5a44d96c52cda4948d83c19a8eef96af4ec28645da2e6954",
+      "publishedSourceHash": "8f537e6c3ae9dbee1367f4504c737d93616c61d43d182ec4381fe4a99d6254ac",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0119-l0012",
+          "endLine": "p0119-l0016",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-076",
+      "candidateNumber": 76,
+      "title": "Czarny lud",
+      "startLine": "p0119-l0024",
+      "endLine": "p0120-l0021",
+      "pdfPages": [
+        119,
+        120
+      ],
+      "printedPages": [
+        114,
+        115
+      ],
+      "sourceBlockSha256": "e1dd3e1c54eb1f94486ff054ab915525db6169c4ae7fe5e28563d826f2aa3f88",
+      "publishedSourceHash": "626821612cd078dc13cefc5e8d3bbca1b91e045b945d9f23b3d81d66f47534ee"
+    },
+    {
+      "id": "zgr-077",
+      "candidateNumber": 77,
+      "title": "Na granicy",
+      "startLine": "p0120-l0022",
+      "endLine": "p0122-l0001",
+      "pdfPages": [
+        120,
+        121,
+        122
+      ],
+      "printedPages": [
+        115,
+        116,
+        117
+      ],
+      "sourceBlockSha256": "391a47103cf4bcf2ad905b56ca14670a4a684206acc7aee3d6ce17f984e93211",
+      "publishedSourceHash": "66148509904ea1b3a602594b5c6a29ae9d59527c95d9aaebac268a4b14d0cdcd",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0121-l0014",
+          "endLine": "p0121-l0020",
+          "reason": "illustration-text-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-078",
+      "candidateNumber": 78,
+      "title": "Wójt",
+      "startLine": "p0122-l0002",
+      "endLine": "p0122-l0010",
+      "pdfPages": [
+        122
+      ],
+      "printedPages": [
+        117
+      ],
+      "sourceBlockSha256": "41fb6492df6f45f1b5d9b03713c759daf9a12b763f0163715efdf18d6caf35f9",
+      "publishedSourceHash": "cb85125c54b227f516d0cc00bfcc6d42cdac3c6d2d845d266f0caf065d5250db"
+    },
+    {
+      "id": "zgr-079",
+      "candidateNumber": 79,
+      "title": "Lis fantowy",
+      "startLine": "p0122-l0011",
+      "endLine": "p0123-l0001",
+      "pdfPages": [
+        122,
+        123
+      ],
+      "printedPages": [
+        117,
+        118
+      ],
+      "sourceBlockSha256": "4cea343faa21e9c7596de395cdf7a50e542e336e2f9d47d9cbebf4efdd539337",
+      "publishedSourceHash": "1bf4145dfd5b6c727ec40aea5b77f080f82b7076888e8beb444ec5e8ece176df"
+    },
+    {
+      "id": "zgr-080",
+      "candidateNumber": 80,
+      "title": "Plinje",
+      "startLine": "p0123-l0002",
+      "endLine": "p0128-l0001",
+      "pdfPages": [
+        123,
+        124,
+        125,
+        126,
+        127,
+        128
+      ],
+      "printedPages": [
+        118,
+        119,
+        120,
+        121,
+        122,
+        123
+      ],
+      "sourceBlockSha256": "7e2ac8781382cf8f52b320c8eb42068aee550c436581d96cd0bc5d949110c135",
+      "publishedSourceHash": "7ed60a06a8aeb81f21c83f321790073227a3bc42bb0c7a522356fe513b141cf9",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0123-l0010",
+          "endLine": "p0123-l0010",
+          "reason": "illustration-text-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0123-l0026",
+          "endLine": "p0123-l0026",
+          "reason": "illustration-text-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-081",
+      "candidateNumber": 81,
+      "title": "Polowanie",
+      "startLine": "p0128-l0003",
+      "endLine": "p0129-l0004",
+      "pdfPages": [
+        128,
+        129
+      ],
+      "printedPages": [
+        123,
+        124
+      ],
+      "sourceBlockSha256": "2a2139902f591bd85de4a8fedde44c72b56db3d75b3458e51c55d1ef922bd51d",
+      "publishedSourceHash": "7501a7364c549c291199652c739a773b67ea3d4a34424ef3c3ff292a1b2cb169"
+    },
+    {
+      "id": "zgr-082",
+      "candidateNumber": 82,
+      "title": "Bieg rozstawny (Wici)",
+      "startLine": "p0129-l0005",
+      "endLine": "p0130-l0019",
+      "pdfPages": [
+        129,
+        130
+      ],
+      "printedPages": [
+        124,
+        125
+      ],
+      "sourceBlockSha256": "fef0c824f99cf3d02270f54b4c98723ef4727525dc4dfeeb188753726d47652e",
+      "publishedSourceHash": "9011f5c79c6d8ed8a334810f6aeaadb8135c0abd319e339a3424c2d2cee533bb"
+    },
+    {
+      "id": "zgr-083",
+      "candidateNumber": 83,
+      "title": "Żaby i bocian",
+      "startLine": "p0131-l0002",
+      "endLine": "p0132-l0001",
+      "pdfPages": [
+        131,
+        132
+      ],
+      "printedPages": [
+        126,
+        127
+      ],
+      "sourceBlockSha256": "663b1a3590a799a015b45a8acbb16306619b6ca535f4079ca0de53f62425fc87",
+      "publishedSourceHash": "b57072c48abc9a1f18693cbad028327fd36716e1dc4ab4ceea69dd06695845e7"
+    },
+    {
+      "id": "zgr-084",
+      "candidateNumber": 84,
+      "title": "Klasy",
+      "startLine": "p0132-l0002",
+      "endLine": "p0134-l0014",
+      "pdfPages": [
+        132,
+        133,
+        134
+      ],
+      "printedPages": [
+        127,
+        128,
+        129
+      ],
+      "sourceBlockSha256": "621bf92c394a3fa860032f0e7e4169baf52377126dbcd9eb627f2370f310404f",
+      "publishedSourceHash": "dead74b0fabc68a2faa01875cb8b6278b85b38ad538c814a13832bd6b2c4e63d",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0133-l0011",
+          "endLine": "p0133-l0011",
+          "reason": "illustration-text-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-085",
+      "candidateNumber": 85,
+      "title": "Zajączek",
+      "startLine": "p0134-l0015",
+      "endLine": "p0135-l0004",
+      "pdfPages": [
+        134,
+        135
+      ],
+      "printedPages": [
+        129,
+        130
+      ],
+      "sourceBlockSha256": "1a83ad8b1fe1a73c5a728bf4bfb7bbc133ac31ae277da8003dad10e65a0ea335",
+      "publishedSourceHash": "ddabaf2f22c29040794f6a41440118e3fb120ef447299477546311988a3199c3",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0134-l0020",
+          "endLine": "p0134-l0026",
+          "reason": "music-or-song-lyrics-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-086",
+      "candidateNumber": 86,
+      "title": "Przeskok",
+      "startLine": "p0135-l0005",
+      "endLine": "p0135-l0028",
+      "pdfPages": [
+        135
+      ],
+      "printedPages": [
+        130
+      ],
+      "sourceBlockSha256": "1e8ff096fcc677bcf11a91ab8562e1e56ec91b4693911a854f96666c71dd61ab",
+      "publishedSourceHash": "eba07cb34627ac14be2865572f399fa3dd218de83260ae68cde89ab85e7ce660"
+    },
+    {
+      "id": "zgr-087",
+      "candidateNumber": 87,
+      "title": "Nożna w kole",
+      "startLine": "p0136-l0006",
+      "endLine": "p0137-l0001",
+      "pdfPages": [
+        136,
+        137
+      ],
+      "printedPages": [
+        131,
+        132
+      ],
+      "sourceBlockSha256": "c75d7333b7b2d7cddce4a425f57b18caf4e141d10ab496a9393a4a74c1a41c14",
+      "publishedSourceHash": "62f8713aae6351c9647a95840de7f955792cfd434a51d938a8702aaeb78d71a7"
+    },
+    {
+      "id": "zgr-088",
+      "candidateNumber": 88,
+      "title": "Nożna z wieżą",
+      "startLine": "p0137-l0002",
+      "endLine": "p0137-l0016",
+      "pdfPages": [
+        137
+      ],
+      "printedPages": [
+        132
+      ],
+      "sourceBlockSha256": "e75143894bc691b3acb1de182907d82f8b9a52b04e0d1508fd7470505c53b0da",
+      "publishedSourceHash": "7de23f152ca5558140cb78eb77df4049e716ce5d5314632d357bfd8d77e017ee"
+    },
+    {
+      "id": "zgr-089",
+      "candidateNumber": 89,
+      "title": "Podaj dalej",
+      "startLine": "p0137-l0017",
+      "endLine": "p0138-l0011",
+      "pdfPages": [
+        137,
+        138
+      ],
+      "printedPages": [
+        132,
+        133
+      ],
+      "sourceBlockSha256": "7284a1cb7e499fccbdaada1fce6b0734d1de75f4afb21d34445cbbe1620b4617",
+      "publishedSourceHash": "9f48bd2cbb643f3b9769f01f79ed653edd78c7ac929e1fa6803f4694ed4c92c3"
+    },
+    {
+      "id": "zgr-090",
+      "candidateNumber": 90,
+      "title": "Nożna z bramką",
+      "startLine": "p0138-l0012",
+      "endLine": "p0139-l0027",
+      "pdfPages": [
+        138,
+        139
+      ],
+      "printedPages": [
+        133,
+        134
+      ],
+      "sourceBlockSha256": "6d481d45faac1f8d8840a970d8a55b2c6a1ed334e812643d81809b6fca9683b3",
+      "publishedSourceHash": "1eff1767417ab5b03198f3d08cb0b4bc78064ec9625aeb16df940ebedfb6fd44"
+    },
+    {
+      "id": "zgr-091",
+      "candidateNumber": 91,
+      "title": "Nożna angielska",
+      "startLine": "p0139-l0028",
+      "endLine": "p0163-l0014",
+      "pdfPages": [
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163
+      ],
+      "printedPages": [
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158
+      ],
+      "sourceBlockSha256": "b0cb51b3b61d35e18e5ba492076abdc35d8487c11c12764023e9669574314a01",
+      "publishedSourceHash": "f7236eeb066454a185cb752ca2aee1217bc420f87481926a6c5606f7c49d06f7",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0156-l0002",
+          "endLine": "p0156-l0003",
+          "reason": "illustration-text-outside-corpus-scope"
+        }
+      ]
+    },
+    {
+      "id": "zgr-093",
+      "candidateNumber": 93,
+      "title": "Pietruszka (Pani Róża)",
+      "startLine": "p0167-l0002",
+      "endLine": "p0169-l0002",
+      "pdfPages": [
+        167,
+        168,
+        169
+      ],
+      "printedPages": [
+        162,
+        163,
+        164
+      ],
+      "sourceBlockSha256": "2b7e28a7cb77e7a4123ada3126567d0122d378f584f8121d2cac77890d6fc437",
+      "publishedSourceHash": "316b60704d0cc1d5ddd019e97875700c2278f7af09362e1c3584f77caba877a4"
+    },
+    {
+      "id": "zgr-094",
+      "candidateNumber": 94,
+      "title": "Złota kula",
+      "startLine": "p0169-l0003",
+      "endLine": "p0169-l0025",
+      "pdfPages": [
+        169
+      ],
+      "printedPages": [
+        164
+      ],
+      "sourceBlockSha256": "4a2fa61f839c5b12e7051f33d60f973142c07c5d0edb543ca5457e5dae2333e7",
+      "publishedSourceHash": "9e32787555f235a505fb1c9cc21a0f24271d85f6a4f6a2843a044bef24f026b6"
+    },
+    {
+      "id": "zgr-095",
+      "candidateNumber": 95,
+      "title": "Anioły i Djabły",
+      "startLine": "p0169-l0026",
+      "endLine": "p0170-l0015",
+      "pdfPages": [
+        169,
+        170
+      ],
+      "printedPages": [
+        164,
+        165
+      ],
+      "sourceBlockSha256": "cc35928a513fdf0ce3da50c03a21c1fb6bedc59f9691380a71b9fec20e6c4918",
+      "publishedSourceHash": "26e00e28f880ea25b1c70fb692e377d98b5dd274573f29b0991a14b8f7f6bf44"
+    },
+    {
+      "id": "zgr-096",
+      "candidateNumber": 96,
+      "title": "Kamyczki",
+      "startLine": "p0171-l0003",
+      "endLine": "p0172-l0004",
+      "pdfPages": [
+        171,
+        172
+      ],
+      "printedPages": [
+        166,
+        167
+      ],
+      "sourceBlockSha256": "14d3786d481d221ffd165d156729013463047b64ae90e4437c047ca5158a175d",
+      "publishedSourceHash": "0a39e3e17b4cb3026da3cd3211b596e2a58acadd1a131fde1fbbe7b05a8c7753"
+    },
+    {
+      "id": "zgr-097",
+      "candidateNumber": 97,
+      "title": "Bierki",
+      "startLine": "p0172-l0005",
+      "endLine": "p0174-l0005",
+      "pdfPages": [
+        172,
+        173,
+        174
+      ],
+      "printedPages": [
+        167,
+        168,
+        169
+      ],
+      "sourceBlockSha256": "a3045494b284917feee3820079cd20ec67751b6e908e101770615630c584a9f7",
+      "publishedSourceHash": "ae5940bdfb4c179c79b3b0ae1bdf6582b2d252cfe87e9ab2cb535294618feb8d",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0173-l0008",
+          "endLine": "p0173-l0009",
+          "reason": "illustration-text-outside-corpus-scope"
+        }
+      ],
+      "relocatedSourceRanges": [
+        {
+          "startLine": "p0172-l0031",
+          "endLine": "p0172-l0032",
+          "reason": "source-footnote-relocated-after-game"
+        }
+      ]
+    },
+    {
+      "id": "zgr-098",
+      "candidateNumber": 98,
+      "title": "Na losy",
+      "startLine": "p0174-l0006",
+      "endLine": "p0175-l0005",
+      "pdfPages": [
+        174,
+        175
+      ],
+      "printedPages": [
+        169,
+        170
+      ],
+      "sourceBlockSha256": "3f506df6482bda54460791aa7bf6d7e2e6a64e15a971508a92970a8d3c5ab756",
+      "publishedSourceHash": "f46dae3cd31fe939e17668acae5bcaacb53ec853017d55e02d90b8d480382fde"
+    },
+    {
+      "id": "zgr-099",
+      "candidateNumber": 99,
+      "title": "Kulanie",
+      "startLine": "p0175-l0006",
+      "endLine": "p0175-l0016",
+      "pdfPages": [
+        175
+      ],
+      "printedPages": [
+        170
+      ],
+      "sourceBlockSha256": "c43e422b6f66f1f3b19e0bc5d66e43ae96082683b859a5b12bc663244bb8d13c",
+      "publishedSourceHash": "99d45cf4d4803fbf8ef0a75674f000daf89bc9f76a2336841594d76dfac8e7e2"
+    },
+    {
+      "id": "zgr-100",
+      "candidateNumber": 100,
+      "title": "Ducza",
+      "startLine": "p0175-l0017",
+      "endLine": "p0176-l0003",
+      "pdfPages": [
+        175,
+        176
+      ],
+      "printedPages": [
+        170,
+        171
+      ],
+      "sourceBlockSha256": "fa95120751cc6dd7f6398399509233b6aa37ec1efc1bb8e614e6d20af8310dfc",
+      "publishedSourceHash": "9b9f7f75897fb6cb2cecfc61d7a79895d22af1a2a66465327ac62553792e61f7",
+      "relocatedSourceRanges": [
+        {
+          "startLine": "p0175-l0029",
+          "endLine": "p0175-l0030",
+          "reason": "source-footnote-relocated-after-game"
+        }
+      ]
+    },
+    {
+      "id": "zgr-101",
+      "candidateNumber": 101,
+      "title": "Pikier",
+      "startLine": "p0176-l0004",
+      "endLine": "p0176-l0019",
+      "pdfPages": [
+        176
+      ],
+      "printedPages": [
+        171
+      ],
+      "sourceBlockSha256": "c15b32282b7b76b7c9c3c3ac1289b8d2a6cecf1f6041f9cbcdc73d8e41ead5bd",
+      "publishedSourceHash": "8d03d9b9ccdfb446f9b9928711c9f43533f24a0540d604844f50a55caaa322e9"
+    },
+    {
+      "id": "zgr-102",
+      "candidateNumber": 102,
+      "title": "Katarynka",
+      "startLine": "p0176-l0020",
+      "endLine": "p0177-l0014",
+      "pdfPages": [
+        176,
+        177
+      ],
+      "printedPages": [
+        171,
+        172
+      ],
+      "sourceBlockSha256": "24e5c765397135b3e3c9de3a59a1c7f1d54c6da866375621e7245556ade9ec19",
+      "publishedSourceHash": "7295d347396adbec715f5ccec018835470b9566caebfd52652a890c6fa6775a3"
+    },
+    {
+      "id": "zgr-103",
+      "candidateNumber": 103,
+      "title": "Kręgle polskie",
+      "startLine": "p0177-l0015",
+      "endLine": "p0182-l0019",
+      "pdfPages": [
+        177,
+        178,
+        179,
+        180,
+        181,
+        182
+      ],
+      "printedPages": [
+        172,
+        173,
+        174,
+        175,
+        176,
+        177
+      ],
+      "sourceBlockSha256": "cfc75b6f8f0ccc13d096c00c93897d4d6b3240e1f0c98fec8438a99d938f86e6",
+      "publishedSourceHash": "3452d8cc4d1b132d3ca2ce96ac553f0ed4f9e25b5ef929b2d6565a4d5a6c3635",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0178-l0011",
+          "endLine": "p0178-l0011",
+          "reason": "illustration-text-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0178-l0016",
+          "endLine": "p0178-l0016",
+          "reason": "illustration-text-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0178-l0028",
+          "endLine": "p0178-l0028",
+          "reason": "illustration-text-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0178-l0031",
+          "endLine": "p0178-l0031",
+          "reason": "illustration-text-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0179-l0004",
+          "endLine": "p0179-l0037",
+          "reason": "illustration-text-outside-corpus-scope"
+        }
+      ],
+      "sourceContributor": "Kazimierz Lutosławski"
+    },
+    {
+      "id": "zgr-104",
+      "candidateNumber": 104,
+      "title": "Kolbiki",
+      "startLine": "p0182-l0020",
+      "endLine": "p0183-l0011",
+      "pdfPages": [
+        182,
+        183
+      ],
+      "printedPages": [
+        177,
+        178
+      ],
+      "sourceBlockSha256": "78dec100c38627ca9cc27061efc28d8f43ac80054716cd1beeed387aaebb38a3",
+      "publishedSourceHash": "f76ec7129a4e57cc1861d6f9dea1eb77bfd44cb6c4e7db070e51f29d7a93f8cc"
+    },
+    {
+      "id": "zgr-105",
+      "candidateNumber": 105,
+      "title": "Skowronek (Kanarek)",
+      "startLine": "p0183-l0012",
+      "endLine": "p0183-l0029",
+      "pdfPages": [
+        183
+      ],
+      "printedPages": [
+        178
+      ],
+      "sourceBlockSha256": "d189f2e79970bbf3bade357afbc6e70f597cb8fa9895f0c209ebd1d2510f2dbf",
+      "publishedSourceHash": "acd2ab4e5319d20f69e48f3051ec28940c84268ceadb4ddb3b467cfe47acc460"
+    },
+    {
+      "id": "zgr-106",
+      "candidateNumber": 106,
+      "title": "Śnieżki",
+      "startLine": "p0183-l0030",
+      "endLine": "p0186-l0004",
+      "pdfPages": [
+        183,
+        184,
+        185,
+        186
+      ],
+      "printedPages": [
+        178,
+        179,
+        180,
+        181
+      ],
+      "sourceBlockSha256": "d8688c3c7a8cdc948d682368e4456f9379f2f1b4187dca190e2b5a1cb4ad3888",
+      "publishedSourceHash": "5bd99201a671424521395b310671b92c4a0679e9d36446e975425faea67b3180"
+    },
+    {
+      "id": "zgr-107",
+      "candidateNumber": 107,
+      "title": "Strzelec",
+      "startLine": "p0186-l0005",
+      "endLine": "p0186-l0023",
+      "pdfPages": [
+        186
+      ],
+      "printedPages": [
+        181
+      ],
+      "sourceBlockSha256": "1b151a5a3769a4abcfca0161f650d59dfb171c599bfe9c923b0cfa6801312d40",
+      "publishedSourceHash": "330707eb9173184bdeb40aa47279d6e34486ab5fcf80c4224caff88e35a124a0"
+    },
+    {
+      "id": "zgr-108",
+      "candidateNumber": 108,
+      "title": "Meta (kucie)",
+      "startLine": "p0186-l0024",
+      "endLine": "p0188-l0014",
+      "pdfPages": [
+        186,
+        187,
+        188
+      ],
+      "printedPages": [
+        181,
+        182,
+        183
+      ],
+      "sourceBlockSha256": "ee3a1bc8ac35ed4f138dfcc1441cf122dd9232bf4a5e898ef5048c0e1ea55f97",
+      "publishedSourceHash": "772d5d9f00af660ad5eca56b7b7bb277c590f5407cf4d62c9bd0de139f921cf3"
+    },
+    {
+      "id": "zgr-109",
+      "candidateNumber": 109,
+      "title": "Kasza",
+      "startLine": "p0188-l0015",
+      "endLine": "p0189-l0011",
+      "pdfPages": [
+        188,
+        189
+      ],
+      "printedPages": [
+        183,
+        184
+      ],
+      "sourceBlockSha256": "b7b031798018ddeb9415a3cb9e48d749e93fc6315078b5027056942abbb8db85",
+      "publishedSourceHash": "c1ec57bd26cffdf5e7a4ee57f2ba260ab1bd6a1a7c95283f6e92bc7c863393be"
+    },
+    {
+      "id": "zgr-110",
+      "candidateNumber": 110,
+      "title": "Sparzak",
+      "startLine": "p0189-l0012",
+      "endLine": "p0190-l0001",
+      "pdfPages": [
+        189,
+        190
+      ],
+      "printedPages": [
+        184,
+        185
+      ],
+      "sourceBlockSha256": "39d91206fbc4f4568b2074e2ab0f3527658cc01c85e077d86901e65bcdc4f9bd",
+      "publishedSourceHash": "34a5adc85cbeefbd3c500ce0e7c6ef65e62b5473f6b0e0f4dcf587cb2067dd58"
+    },
+    {
+      "id": "zgr-111",
+      "candidateNumber": 111,
+      "title": "Łapa (Ściana)",
+      "startLine": "p0190-l0002",
+      "endLine": "p0190-l0007",
+      "pdfPages": [
+        190
+      ],
+      "printedPages": [
+        185
+      ],
+      "sourceBlockSha256": "c1c9d5d63aa78272c9b640c8879157a07fd68c8f08097e8ef251999ddf3ddb8f",
+      "publishedSourceHash": "e5aa593a38de67794049d9ec9e06677dbec432868b9cbe4163f6c81b1a14589b"
+    },
+    {
+      "id": "zgr-112",
+      "candidateNumber": 112,
+      "title": "Kowal",
+      "startLine": "p0190-l0008",
+      "endLine": "p0192-l0026",
+      "pdfPages": [
+        190,
+        191,
+        192
+      ],
+      "printedPages": [
+        185,
+        186,
+        187
+      ],
+      "sourceBlockSha256": "2e203a370fd19aec175844c999087dcde8e4c9e4411ef62209adde1ca9cef2ec",
+      "publishedSourceHash": "e8f07445f886051e4d13fca377ddd2a16c96244ce8c648b721f9bd7c56d2d94d"
+    },
+    {
+      "id": "zgr-113",
+      "candidateNumber": 113,
+      "title": "Wyścig piłek w dwóch rzędach",
+      "startLine": "p0192-l0027",
+      "endLine": "p0193-l0014",
+      "pdfPages": [
+        192,
+        193
+      ],
+      "printedPages": [
+        187,
+        188
+      ],
+      "sourceBlockSha256": "b82c500537b2474c15b5914b5f136796174344bab955d12881bb920d39a2553b",
+      "publishedSourceHash": "81c6ac78e9c4384bdd269f726658628f616dd23506f25d4768302e19f3792b28"
+    },
+    {
+      "id": "zgr-114",
+      "candidateNumber": 114,
+      "title": "Stójka",
+      "startLine": "p0193-l0015",
+      "endLine": "p0194-l0012",
+      "pdfPages": [
+        193,
+        194
+      ],
+      "printedPages": [
+        188,
+        189
+      ],
+      "sourceBlockSha256": "661229a6ca991ace1d0b7f72b54f73d76e538e0e884267db9f0fb419b30c9a70",
+      "publishedSourceHash": "7c10018982d528ee442eaeb79f4bcd65a5081c85f37a0cdf107dc1b3dcca4295"
+    },
+    {
+      "id": "zgr-115",
+      "candidateNumber": 115,
+      "title": "Wokatus",
+      "startLine": "p0194-l0013",
+      "endLine": "p0195-l0003",
+      "pdfPages": [
+        194,
+        195
+      ],
+      "printedPages": [
+        189,
+        190
+      ],
+      "sourceBlockSha256": "5c1abb1a40418b01b8a7e90e726ddd2013368af90d93afcaf98500ce82de532f",
+      "publishedSourceHash": "a53e93352f958fbdec697ec9f8bb0a4594fd31d99269c733430a3abb99963fd2"
+    },
+    {
+      "id": "zgr-116",
+      "candidateNumber": 116,
+      "title": "Dotki",
+      "startLine": "p0195-l0004",
+      "endLine": "p0195-l0028",
+      "pdfPages": [
+        195
+      ],
+      "printedPages": [
+        190
+      ],
+      "sourceBlockSha256": "feb7a888fdc5ae4ba351807daaec7e0c589c3c371a83873d167bc28cb6c28aba",
+      "publishedSourceHash": "7a239427112a39e1af0f33a3ab979c8b04d8654438669cbea628cb86e3fa9774"
+    },
+    {
+      "id": "zgr-117",
+      "candidateNumber": 117,
+      "title": "Trójmetki",
+      "startLine": "p0195-l0029",
+      "endLine": "p0196-l0008",
+      "pdfPages": [
+        195,
+        196
+      ],
+      "printedPages": [
+        190,
+        191
+      ],
+      "sourceBlockSha256": "6b5f672940797575da2a6213e624399481ace914c4e2d00fb8bfe6ddfd65a712",
+      "publishedSourceHash": "dbe569b3e12b1442c296145e23ea98a6e23279f795a845928ed04f31b3f7a270"
+    },
+    {
+      "id": "zgr-118",
+      "candidateNumber": 118,
+      "title": "Ekstra (Ekstrameta)",
+      "startLine": "p0196-l0009",
+      "endLine": "p0196-l0025",
+      "pdfPages": [
+        196
+      ],
+      "printedPages": [
+        191
+      ],
+      "sourceBlockSha256": "70d6f66a59862399f875163f6ecd57f07d46886b24780ed0e5394ad24b2e3aa9",
+      "publishedSourceHash": "b805384f4268390ab6620ccec6b5a662c6d6f3a23c899d7db4887a95904a46cb"
+    },
+    {
+      "id": "zgr-119",
+      "candidateNumber": 119,
+      "title": "Zbijany",
+      "startLine": "p0196-l0026",
+      "endLine": "p0197-l0014",
+      "pdfPages": [
+        196,
+        197
+      ],
+      "printedPages": [
+        191,
+        192
+      ],
+      "sourceBlockSha256": "c01c69fdd3dfa04b8eac26f4757f63f924fdd78710a22f2c0625038b8eba8af3",
+      "publishedSourceHash": "262c42643d68d023c2de488a4834e7054fdc72004c391f930bce9f26bfcdaa04"
+    },
+    {
+      "id": "zgr-120",
+      "candidateNumber": 120,
+      "title": "Wyścig pił w dwuszeregu",
+      "startLine": "p0197-l0015",
+      "endLine": "p0198-l0001",
+      "pdfPages": [
+        197,
+        198
+      ],
+      "printedPages": [
+        192,
+        193
+      ],
+      "sourceBlockSha256": "0cb88d36d0b2686abea5104623553f79ca7ce59ba798f7277f48699bbe3a8db0",
+      "publishedSourceHash": "8433e6e6bbbc271aeaad0f81d7eb6e0661475b64e202ff72c5eb2f871d8c8641"
+    },
+    {
+      "id": "zgr-121",
+      "candidateNumber": 121,
+      "title": "Koszykowa",
+      "startLine": "p0198-l0002",
+      "endLine": "p0207-l0007",
+      "pdfPages": [
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207
+      ],
+      "printedPages": [
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202
+      ],
+      "sourceBlockSha256": "38b28cb3c746ec7e78488ae547c70d06af3bdbc000a670c4eff65c77e10fbdc1",
+      "publishedSourceHash": "d1c0573bf7a42ce3847a5b0138aa94c700d0d89cf46f9849037e3673c74d6d07",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0199-l0001",
+          "endLine": "p0199-l0001",
+          "reason": "illustration-text-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0201-l0007",
+          "endLine": "p0201-l0008",
+          "reason": "illustration-text-outside-corpus-scope"
+        }
+      ],
+      "relocatedSourceRanges": [
+        {
+          "startLine": "p0200-l0029",
+          "endLine": "p0200-l0034",
+          "reason": "source-footnote-relocated-after-game"
+        }
+      ]
+    },
+    {
+      "id": "zgr-122",
+      "candidateNumber": 122,
+      "title": "Św inka",
+      "startLine": "p0208-l0002",
+      "endLine": "p0209-l0005",
+      "pdfPages": [
+        208,
+        209
+      ],
+      "printedPages": [
+        203,
+        204
+      ],
+      "sourceBlockSha256": "12e9c5bc8e829217c7245e4931b921aa90f5e071af403579305ba37cf6b4067b",
+      "publishedSourceHash": "8fc3b705595bdc9751f6b6429ac855501dab982d951f78980235ad2fc6337401"
+    },
+    {
+      "id": "zgr-123",
+      "candidateNumber": 123,
+      "title": "Krąg",
+      "startLine": "p0209-l0006",
+      "endLine": "p0210-l0013",
+      "pdfPages": [
+        209,
+        210
+      ],
+      "printedPages": [
+        204,
+        205
+      ],
+      "sourceBlockSha256": "fa16e0398406a0626375e6066ba02ae0781f6ad359de5d3a5de9501f43c99d80",
+      "publishedSourceHash": "e90f7e8f21fad2626959fca5843ebe4d42e7c018f060523a80dae12cf902b105"
+    },
+    {
+      "id": "zgr-124",
+      "candidateNumber": 124,
+      "title": "Kiczka prosta",
+      "startLine": "p0210-l0014",
+      "endLine": "p0212-l0019",
+      "pdfPages": [
+        210,
+        211,
+        212
+      ],
+      "printedPages": [
+        205,
+        206,
+        207
+      ],
+      "sourceBlockSha256": "ae1cae016bb8ca0421ad405dbe4dab19838a3c93539ef58bb87b3f91e0d15a1b",
+      "publishedSourceHash": "22b5cabe82312fd6d17d3e7b83a2b2085200396026f9ee54e789a42e76460485"
+    },
+    {
+      "id": "zgr-125",
+      "candidateNumber": 125,
+      "title": "Kiczka z matkami",
+      "startLine": "p0212-l0020",
+      "endLine": "p0213-l0009",
+      "pdfPages": [
+        212,
+        213
+      ],
+      "printedPages": [
+        207,
+        208
+      ],
+      "sourceBlockSha256": "590ca0aa21435ec526cd5c094976cdda4d7bba97f66f43256724921c36d7a032",
+      "publishedSourceHash": "4a8d9f3a94f6cc934ce5a8a19aaaaf938c494b359af6b95aa2b1f3987d36691c"
+    },
+    {
+      "id": "zgr-127",
+      "candidateNumber": 127,
+      "title": "Stręk",
+      "startLine": "p0213-l0025",
+      "endLine": "p0214-l0018",
+      "pdfPages": [
+        213,
+        214
+      ],
+      "printedPages": [
+        208,
+        209
+      ],
+      "sourceBlockSha256": "d4c5bbd5b1956116be044bc43596f971af8e43000bd7b94faaa8a282219ae7ac",
+      "publishedSourceHash": "6b49f18cd20edb39d2cbb794c1129a65b147d5589f6efecbcd49e15ea193f4ee"
+    },
+    {
+      "id": "zgr-128",
+      "candidateNumber": 128,
+      "title": "Matka i córka",
+      "startLine": "p0214-l0019",
+      "endLine": "p0215-l0018",
+      "pdfPages": [
+        214,
+        215
+      ],
+      "printedPages": [
+        209,
+        210
+      ],
+      "sourceBlockSha256": "9d030facfa9bbf0c9497392933cf86bf93a42830d9f84f4f4c78338277c7d722",
+      "publishedSourceHash": "967b6b46eb117256c501e5fc788e2b147fb643acada7743e4728abb1fcf519de"
+    },
+    {
+      "id": "zgr-129",
+      "candidateNumber": 129,
+      "title": "Wieko",
+      "startLine": "p0215-l0019",
+      "endLine": "p0216-l0021",
+      "pdfPages": [
+        215,
+        216
+      ],
+      "printedPages": [
+        210,
+        211
+      ],
+      "sourceBlockSha256": "1bfcb6614f38621822920dc21a43ceaf5884e2b1c7530c572ddc51e748ad78f8",
+      "publishedSourceHash": "e2bb339544fa3cc801d8bbe64746812dbe210d7a2b88628dce590259a45df2ef"
+    },
+    {
+      "id": "zgr-130",
+      "candidateNumber": 130,
+      "title": "Palant prosty",
+      "startLine": "p0216-l0022",
+      "endLine": "p0218-l0012",
+      "pdfPages": [
+        216,
+        217,
+        218
+      ],
+      "printedPages": [
+        211,
+        212,
+        213
+      ],
+      "sourceBlockSha256": "f0c50fc41366b5b7c8b01bad7a985344a90a78f148e05c9edf96f6498aa34869",
+      "publishedSourceHash": "dcc5e1365241f65177cfda25f271615a5c97b7c5e8ec928a00857b510f2bf4d5"
+    },
+    {
+      "id": "zgr-131",
+      "candidateNumber": 131,
+      "title": "Palant z matkami, bez galenia",
+      "startLine": "p0218-l0013",
+      "endLine": "p0228-l0007",
+      "pdfPages": [
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228
+      ],
+      "printedPages": [
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223
+      ],
+      "sourceBlockSha256": "3ebbf223b6610a06e8bd6cac7d9246bc393eaac62b85ea9c40956527050c992c",
+      "publishedSourceHash": "2e032282a590b50176befa69c492a5ae39a3aefd1eb7919666073145b473bb2b",
+      "detectorStartLine": "p0219-l0006",
+      "detectorSourceBlockSha256": "a60bdfcbb22fdfa597c84b2aabd0c43d715d2cf39984238a5a01f6268df65621",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0219-l0029",
+          "endLine": "p0219-l0029",
+          "reason": "illustration-text-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0219-l0033",
+          "endLine": "p0219-l0033",
+          "reason": "illustration-text-outside-corpus-scope"
+        }
+      ],
+      "relocatedSourceRanges": [
+        {
+          "startLine": "p0219-l0036",
+          "endLine": "p0219-l0036",
+          "reason": "source-footnote-relocated-after-game"
+        }
+      ]
+    },
+    {
+      "id": "zgr-133",
+      "candidateNumber": 133,
+      "title": "Pięstówka",
+      "startLine": "p0229-l0031",
+      "endLine": "p0231-l0015",
+      "pdfPages": [
+        229,
+        230,
+        231
+      ],
+      "printedPages": [
+        224,
+        225,
+        226
+      ],
+      "sourceBlockSha256": "4acddb89662d9d4cd73333433870b66d4d0604565f185fa2b9c0bb52a00ccb01",
+      "publishedSourceHash": "865af61b632288101e4cdf185403e05add62513c622ab90dcb3b76571aebced7",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0229-l0035",
+          "endLine": "p0229-l0035",
+          "reason": "illustration-text-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0230-l0025",
+          "endLine": "p0230-l0025",
+          "reason": "illustration-text-outside-corpus-scope"
+        },
+        {
+          "startLine": "p0231-l0001",
+          "endLine": "p0231-l0001",
+          "reason": "illustration-text-outside-corpus-scope"
+        }
+      ]
+    }
+  ]
+}

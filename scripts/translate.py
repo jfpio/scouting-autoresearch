@@ -30,6 +30,7 @@ PRICE_SOURCE = "https://docs.mistral.ai/inference/pricing"
 PRICE_ACCESSED_ON = "2026-09-04"
 MIN_OUTPUT_TOKENS = 512
 MAX_OUTPUT_TOKENS = 8192
+MAX_TRANSLATION_CHUNK_CHARS = 5000
 MODEL_PRICING = {
     "ministral-14b-2512": {"input": 0.2, "output": 0.2},
     "mistral-large-2512": {"input": 0.5, "output": 1.5},
@@ -128,7 +129,8 @@ PROTECTED_URL_PATTERN = re.compile(r"https?://[^\s)]+")
 PROTECTED_NUMBER_PATTERN = re.compile(
     r"(?:[⁰¹²³⁴⁵⁶⁷⁸⁹]+|\d{1,3}(?:[ \u00a0]\d{3})+|\d+(?:[.,/—–-]\d+)*)"
 )
-PROTECTED_MARKER_PATTERN = re.compile(r"ZXQ(?:URL|NUM)[A-Z]+QXZ")
+PROTECTED_ROMAN_PATTERN = re.compile(r"(?<!\w)[IVXLCDM]+(?!\w)")
+PROTECTED_MARKER_PATTERN = re.compile(r"ZXQ(?:URL|NUM|ROM|BR)[A-Z]+QXZ")
 
 
 def _alphabetic_index(index: int) -> str:
@@ -143,10 +145,12 @@ def _alphabetic_index(index: int) -> str:
     return result
 
 
-def protect_translation_body(body: str) -> tuple[str, dict[str, str]]:
+def protect_translation_body(
+    body: str, *, protect_paragraph_breaks: bool = False
+) -> tuple[str, dict[str, str]]:
     """Replace exact URLs and numeric forms with unique, digit-free markers."""
     replacements: dict[str, str] = {}
-    counters = {"URL": 0, "NUM": 0}
+    counters = {"URL": 0, "NUM": 0, "ROM": 0, "BR": 0}
 
     def replace(kind: str):
         def callback(match: re.Match[str]) -> str:
@@ -162,6 +166,9 @@ def protect_translation_body(body: str) -> tuple[str, dict[str, str]]:
 
     protected = PROTECTED_URL_PATTERN.sub(replace("URL"), body)
     protected = PROTECTED_NUMBER_PATTERN.sub(replace("NUM"), protected)
+    protected = PROTECTED_ROMAN_PATTERN.sub(replace("ROM"), protected)
+    if protect_paragraph_breaks:
+        protected = re.sub(r"\n[ \t]*\n", replace("BR"), protected)
     if re.search(r"\d", protected):
         raise ValueError("A digit remained outside the protected-token encoding")
     return protected, replacements
@@ -172,11 +179,20 @@ def restore_translation_body(
     replacements: dict[str, str],
     *,
     reject_unprotected_digits: bool = False,
+    normalize_unprotected_paragraph_breaks: bool = False,
 ) -> str:
     """Restore protected values only when every issued marker survived exactly once."""
     if reject_unprotected_digits and re.search(r"\d", body):
         raise ValueError("Translation introduced a digit outside protected tokens")
-    restored = body
+    restored = (
+        re.sub(r"\n[ \t]*\n", " ", body)
+        if normalize_unprotected_paragraph_breaks
+        else body
+    )
+    if normalize_unprotected_paragraph_breaks:
+        for marker in replacements:
+            if marker.startswith("ZXQBR"):
+                restored = re.sub(rf"[ \t]*{re.escape(marker)}[ \t]*", marker, restored)
     for marker, original in replacements.items():
         count = restored.count(marker)
         if count != 1:
@@ -187,6 +203,8 @@ def restore_translation_body(
     unexpected = sorted(set(PROTECTED_MARKER_PATTERN.findall(restored)))
     if unexpected:
         raise ValueError(f"Unexpected protected translation tokens: {unexpected}")
+    if "ZXQ" in restored or "QXZ" in restored:
+        raise ValueError("Translation left or invented a malformed protected-token wrapper")
     return restored
 
 
@@ -253,7 +271,11 @@ def translation_fidelity_checks(
     target_locale: str | None = None,
 ) -> dict[str, Any]:
     source_urls = Counter(re.findall(r"https?://[^\s)]+", body))
-    translated_urls = Counter(re.findall(r"https?://[^\s)]+", translated["body"]))
+    translated_body = translated["body"]
+    urls_preserved = (
+        sum(source_urls.values()) == len(re.findall(r"https?://", translated_body))
+        and all(translated_body.count(url) == count for url, count in source_urls.items())
+    )
     number_pattern = PROTECTED_NUMBER_PATTERN.pattern
 
     def normalized_numbers(text: str, locale: str) -> Counter[str]:
@@ -298,7 +320,10 @@ def translation_fidelity_checks(
         ),
         "traitCountPreserved": len(translated.get("traits") or [])
         == len(metadata.get("traits") or []),
-        "urlsPreserved": source_urls == translated_urls,
+        # Compare the protected URL literals, not surrounding Markdown punctuation.
+        # A translated link label may move a comma or parenthesis next to the URL
+        # without changing the URL itself.
+        "urlsPreserved": urls_preserved,
         "numbersPreserved": source_numbers == translated_numbers,
         "paragraphBreaksPreserved": len(re.findall(r"\n\s*\n", body))
         == len(re.findall(r"\n\s*\n", translated["body"])),
@@ -350,6 +375,8 @@ def deterministic_translation_repairs(
     source_body: str,
     translated: dict[str, Any],
     target_locale: str,
+    *,
+    repair_number_words: bool = True,
 ) -> tuple[dict[str, Any], list[str]]:
     """Repair only mechanically provable output-contract violations."""
     repaired = dict(translated)
@@ -358,7 +385,7 @@ def deterministic_translation_repairs(
         repaired["traits"] = []
         repairs.append("reset-invented-empty-traits")
 
-    if target_locale != "en":
+    if target_locale != "en" or not repair_number_words:
         return repaired, repairs
     url_pattern = r"https?://[^\s)]+"
     source_without_urls = re.sub(url_pattern, "", source_body)
@@ -406,14 +433,18 @@ class PermanentTranslationError(RuntimeError):
         self.diagnostics = diagnostics or {}
 
 
-class ProtectedTokenError(ValueError):
-    """The provider returned a usable response but violated a protected-token contract."""
+class TranslationContractError(ValueError):
+    """The provider returned billable output that failed a local translation contract."""
 
     def __init__(self, reason: str, actual_model: str, usage: dict[str, Any]):
         super().__init__(reason)
         self.reason = reason
         self.actual_model = actual_model
         self.usage = usage
+
+
+class ProtectedTokenError(TranslationContractError):
+    """The provider returned a usable response but violated a protected-token contract."""
 
 
 def available_model_ids(api_key: str) -> set[str]:
@@ -554,6 +585,19 @@ def request_reference_cost_upper_bound(
     )
 
 
+def translation_attempt_reference_cost_upper_bound(
+    metadata: dict[str, Any], body: str, model: str, target_locale: str | None = None
+) -> float:
+    """Reserve the worst supported retry path before sending the first request."""
+    full_request = request_reference_cost_upper_bound(
+        metadata, body, model, target_locale
+    )
+    # A protected-token retry can consume two full requests. If the resulting
+    # candidate then fails paragraph fidelity, a second pair of full-context
+    # requests can encode paragraph boundaries as protected tokens.
+    return round(6 * full_request, 8)
+
+
 def enforce_reference_cost_limit(
     policy: dict[str, Any],
     spent_usd: float,
@@ -567,7 +611,7 @@ def enforce_reference_cost_limit(
     limit = float(policy.get("maxReferenceCostUsd", 0))
     if not 0 < limit <= 10:
         raise ValueError("Translation reference-cost limit must be within (0, 10] USD")
-    projected = spent_usd + 2 * request_reference_cost_upper_bound(
+    projected = spent_usd + translation_attempt_reference_cost_upper_bound(
         metadata, body, model, target_locale
     )
     if projected > limit:
@@ -618,12 +662,15 @@ def request_translation(
     target_locale: str,
     prompt_version_value: str,
     fidelity_feedback: str | None = None,
+    protect_paragraph_breaks: bool = False,
 ) -> tuple[dict, str, dict[str, Any]]:
     system_prompt = system_prompt_for(source_locale, target_locale, prompt_version_value)
     request_body_text = body
     protected_replacements: dict[str, str] = {}
     if prompt_version_value in {"translation-pl-en-v4", "translation-pl-en-v5"}:
-        request_body_text, protected_replacements = protect_translation_body(body)
+        request_body_text, protected_replacements = protect_translation_body(
+            body, protect_paragraph_breaks=protect_paragraph_breaks
+        )
     user_payload = {
         "id": activity_id,
         "title": metadata["title"],
@@ -697,10 +744,173 @@ def request_translation(
                 protected_replacements,
                 reject_unprotected_digits=prompt_version_value
                 == "translation-pl-en-v5",
+                normalize_unprotected_paragraph_breaks=protect_paragraph_breaks,
             )
         except ValueError as error:
             raise ProtectedTokenError(str(error), actual_model, usage) from error
     return translated, actual_model, usage
+
+
+def request_translation_preserving_paragraphs(
+    api_key: str,
+    model: str,
+    activity_id: str,
+    metadata: dict[str, Any],
+    body: str,
+    source_locale: str,
+    target_locale: str,
+    prompt_version_value: str,
+) -> tuple[dict[str, Any], str, dict[str, Any]]:
+    """Retry the full body with protected paragraph markers and one repair attempt."""
+    feedback = (
+        "The previous candidate changed paragraph boundaries. Translate the complete record in "
+        "context. Paragraph boundaries are immutable ZXQBR...QXZ tokens. Copy every protected "
+        "token verbatim and exactly once; never wrap, expand, or interpret it."
+    )
+    try:
+        return request_translation(
+            api_key,
+            model,
+            activity_id,
+            metadata,
+            body,
+            source_locale,
+            target_locale,
+            prompt_version_value,
+            fidelity_feedback=feedback,
+            protect_paragraph_breaks=True,
+        )
+    except ProtectedTokenError as first_error:
+        _protected, replacements = protect_translation_body(
+            body, protect_paragraph_breaks=True
+        )
+        retry_feedback = (
+            f"{feedback} The previous response violated the contract. The complete ordered token "
+            f"set is: {', '.join(replacements)}. Emit no other ZXQ or QXZ text."
+        )
+        try:
+            translated, actual_model, retry_usage = request_translation(
+                api_key,
+                model,
+                activity_id,
+                metadata,
+                body,
+                source_locale,
+                target_locale,
+                prompt_version_value,
+                fidelity_feedback=retry_feedback,
+                protect_paragraph_breaks=True,
+            )
+        except ProtectedTokenError as second_error:
+            raise ProtectedTokenError(
+                second_error.reason,
+                second_error.actual_model,
+                combine_usage_records([first_error.usage, second_error.usage]),
+            ) from second_error
+        return (
+            translated,
+            actual_model,
+            combine_usage_records([first_error.usage, retry_usage]),
+        )
+
+
+def request_translation_in_chunks(
+    api_key: str,
+    model: str,
+    activity_id: str,
+    metadata: dict[str, Any],
+    body: str,
+    source_locale: str,
+    target_locale: str,
+    prompt_version_value: str,
+) -> tuple[dict[str, Any], str, dict[str, Any]]:
+    """Translate an oversized record in multi-paragraph, context-bearing chunks."""
+    paragraphs = re.split(r"\n[ \t]*\n", body)
+    chunks: list[str] = []
+    current: list[str] = []
+    for paragraph in paragraphs:
+        candidate = "\n\n".join([*current, paragraph])
+        if current and len(candidate) > MAX_TRANSLATION_CHUNK_CHARS:
+            chunks.append("\n\n".join(current))
+            current = [paragraph]
+        else:
+            current.append(paragraph)
+    if current:
+        chunks.append("\n\n".join(current))
+    if len(chunks) < 2:
+        raise ValueError("Chunk fallback requires an oversized multi-paragraph record")
+
+    translated_chunks: list[str] = []
+    usage_records: list[dict[str, Any]] = []
+    actual_models: set[str] = set()
+    first_payload: dict[str, Any] | None = None
+    for index, chunk in enumerate(chunks, start=1):
+        feedback = (
+            f"This is multi-paragraph chunk {index} of {len(chunks)} from the single complete "
+            f"record titled {metadata['title']!r}. Translate only the supplied body. Preserve "
+            "every protected token and paragraph marker exactly once. Do not invent references, "
+            "citations, dates, rules, headings, or source notes."
+        )
+        try:
+            translated, actual_model, usage = request_translation(
+                api_key,
+                model,
+                activity_id,
+                metadata,
+                chunk,
+                source_locale,
+                target_locale,
+                prompt_version_value,
+                fidelity_feedback=feedback,
+                protect_paragraph_breaks=True,
+            )
+        except ProtectedTokenError as first_error:
+            _protected, replacements = protect_translation_body(
+                chunk, protect_paragraph_breaks=True
+            )
+            retry_feedback = (
+                f"{feedback} The previous response violated the contract. The complete ordered "
+                f"token set for this chunk is: {', '.join(replacements)}. Emit no other ZXQ or "
+                "QXZ text."
+            )
+            try:
+                translated, actual_model, retry_usage = request_translation(
+                    api_key,
+                    model,
+                    activity_id,
+                    metadata,
+                    chunk,
+                    source_locale,
+                    target_locale,
+                    prompt_version_value,
+                    fidelity_feedback=retry_feedback,
+                    protect_paragraph_breaks=True,
+                )
+            except ProtectedTokenError as second_error:
+                raise ProtectedTokenError(
+                    second_error.reason,
+                    second_error.actual_model,
+                    combine_usage_records(
+                        [*usage_records, first_error.usage, second_error.usage]
+                    ),
+                ) from second_error
+            usage = combine_usage_records([first_error.usage, retry_usage])
+        if first_payload is None:
+            first_payload = translated
+        translated_chunks.append(translated["body"].strip())
+        usage_records.append(usage)
+        actual_models.add(actual_model)
+    if first_payload is None or len(actual_models) != 1:
+        raise TranslationContractError(
+            "Chunk translation returned no output or multiple actual models",
+            sorted(actual_models)[0] if actual_models else model,
+            combine_usage_records(usage_records),
+        )
+    return (
+        {**first_payload, "body": "\n\n".join(translated_chunks)},
+        next(iter(actual_models)),
+        combine_usage_records(usage_records),
+    )
 
 
 def current_translation(
@@ -896,27 +1106,40 @@ def translate_one(
     selected_prompt = requirements["expectedPrompt"] or prompt_version(
         source_locale, target_locale
     )
-    request_retried = False
     try:
-        translated, actual_model, usage = request_translation(
-            api_key,
-            model,
-            activity_id,
-            metadata,
-            body,
-            source_locale,
-            target_locale,
-            selected_prompt,
-        )
+        if len(body) > 2 * MAX_TRANSLATION_CHUNK_CHARS:
+            translated, actual_model, usage = request_translation_in_chunks(
+                api_key,
+                model,
+                activity_id,
+                metadata,
+                body,
+                source_locale,
+                target_locale,
+                selected_prompt,
+            )
+        else:
+            translated, actual_model, usage = request_translation(
+                api_key,
+                model,
+                activity_id,
+                metadata,
+                body,
+                source_locale,
+                target_locale,
+                selected_prompt,
+            )
     except ProtectedTokenError as first_error:
-        request_retried = True
         _protected_body, protected_replacements = protect_translation_body(body)
         required_tokens = ", ".join(protected_replacements)
         feedback = (
             "The previous candidate violated the protected-token contract. The exact required "
             f"tokens for this record are: {required_tokens}. Copy each one exactly once at its "
             "source position, even when a nearby word makes its meaning appear redundant. Do not "
-            "introduce any digit outside those tokens."
+            "introduce any digit outside those tokens. Spell every number concept written as a "
+            "word in the source as an English word (for example, translate Polish 'trzy' as "
+            "'three', never '3'). Preserve lettered sections as lettered sections and do not add "
+            "numeric list labels."
         )
         try:
             translated, actual_model, corrected_usage = request_translation(
@@ -931,22 +1154,68 @@ def translate_one(
                 fidelity_feedback=feedback,
             )
         except ProtectedTokenError as second_error:
-            raise ValueError(
-                f"Translation violated the protected-token contract twice for {activity_id}: "
-                f"{second_error.reason}"
-            ) from second_error
-        usage = combine_usage_records([first_error.usage, corrected_usage])
+            try:
+                translated, actual_model, paragraph_usage = (
+                    request_translation_preserving_paragraphs(
+                        api_key,
+                        model,
+                        activity_id,
+                        metadata,
+                        body,
+                        source_locale,
+                        target_locale,
+                        selected_prompt,
+                    )
+                )
+            except ProtectedTokenError as final_error:
+                try:
+                    translated, actual_model, chunk_usage = request_translation_in_chunks(
+                        api_key,
+                        model,
+                        activity_id,
+                        metadata,
+                        body,
+                        source_locale,
+                        target_locale,
+                        selected_prompt,
+                    )
+                except ProtectedTokenError as chunk_error:
+                    raise TranslationContractError(
+                        f"Translation violated the protected-token contract after full-context "
+                        f"and chunk retries for {activity_id}: {chunk_error.reason}",
+                        chunk_error.actual_model,
+                        combine_usage_records(
+                            [
+                                first_error.usage,
+                                second_error.usage,
+                                final_error.usage,
+                                chunk_error.usage,
+                            ]
+                        ),
+                    ) from chunk_error
+                usage = combine_usage_records(
+                    [first_error.usage, second_error.usage, final_error.usage, chunk_usage]
+                )
+            else:
+                usage = combine_usage_records(
+                    [first_error.usage, second_error.usage, paragraph_usage]
+                )
+        else:
+            usage = combine_usage_records([first_error.usage, corrected_usage])
+    protected_numeric_contract = selected_prompt in {
+        "translation-pl-en-v4",
+        "translation-pl-en-v5",
+    }
     translated, deterministic_repairs = deterministic_translation_repairs(
-        metadata, body, translated, target_locale
+        metadata,
+        body,
+        translated,
+        target_locale,
+        repair_number_words=not protected_numeric_contract,
     )
     fidelity = translation_fidelity_checks(metadata, body, translated, target_locale)
     if not fidelity["automaticPass"]:
         failed = sorted(key for key, value in fidelity.items() if isinstance(value, bool) and not value)
-        if request_retried:
-            raise ValueError(
-                f"Translation failed after the protected-token retry for {activity_id}: "
-                f"{', '.join(failed)}"
-            )
         exact_numeric_tokens = re.findall(
             r"(?<!\w)(?:\d{1,3}(?:[ ,.\u00a0]\d{3})+|\d+(?:[.,]\d+)?)",
             body,
@@ -958,19 +1227,42 @@ def translate_one(
             f"{json.dumps(exact_numeric_tokens, ensure_ascii=False)}. "
             "Do not create any additional digit-containing token."
         )
-        corrected, corrected_model, corrected_usage = request_translation(
-            api_key,
-            model,
-            activity_id,
+        try:
+            if "paragraphBreaksPreserved" in failed:
+                corrected, corrected_model, corrected_usage = request_translation_preserving_paragraphs(
+                    api_key,
+                    model,
+                    activity_id,
+                    metadata,
+                    body,
+                    source_locale,
+                    target_locale,
+                    selected_prompt,
+                )
+            else:
+                corrected, corrected_model, corrected_usage = request_translation(
+                    api_key,
+                    model,
+                    activity_id,
+                    metadata,
+                    body,
+                    source_locale,
+                    target_locale,
+                    selected_prompt,
+                    fidelity_feedback=feedback,
+                )
+        except ProtectedTokenError as retry_error:
+            raise ProtectedTokenError(
+                retry_error.reason,
+                retry_error.actual_model,
+                combine_usage_records([usage, retry_error.usage]),
+            ) from retry_error
+        corrected, corrected_repairs = deterministic_translation_repairs(
             metadata,
             body,
-            source_locale,
+            corrected,
             target_locale,
-            selected_prompt,
-            fidelity_feedback=feedback,
-        )
-        corrected, corrected_repairs = deterministic_translation_repairs(
-            metadata, body, corrected, target_locale
+            repair_number_words=not protected_numeric_contract,
         )
         deterministic_repairs.extend(corrected_repairs)
         corrected_fidelity = translation_fidelity_checks(
@@ -982,9 +1274,26 @@ def translate_one(
                 for key, value in corrected_fidelity.items()
                 if isinstance(value, bool) and not value
             )
-            raise ValueError(
+            numeric_detail = ""
+            if "numbersPreserved" in corrected_failed:
+                source_numeric_forms = Counter(
+                    PROTECTED_NUMBER_PATTERN.findall(PROTECTED_URL_PATTERN.sub("", body))
+                )
+                translated_numeric_forms = Counter(
+                    PROTECTED_NUMBER_PATTERN.findall(
+                        PROTECTED_URL_PATTERN.sub("", corrected["body"])
+                    )
+                )
+                numeric_detail = (
+                    "; numeric forms missing="
+                    f"{dict(source_numeric_forms - translated_numeric_forms)}, extra="
+                    f"{dict(translated_numeric_forms - source_numeric_forms)}"
+                )
+            raise TranslationContractError(
                 f"Translation failed fidelity checks twice for {activity_id}: "
-                f"{', '.join(corrected_failed)}"
+                f"{', '.join(corrected_failed)}{numeric_detail}",
+                corrected_model,
+                combine_usage_records([usage, corrected_usage]),
             )
         translated = corrected
         actual_model = corrected_model
@@ -1031,9 +1340,12 @@ def combine_usage_records(records: list[dict[str, Any]]) -> dict[str, Any]:
     return {
         "promptTokens": sum(int(record["promptTokens"]) for record in records),
         "completionTokens": sum(int(record["completionTokens"]) for record in records),
-        "requestAttempts": len(records),
+        "requestAttempts": sum(int(record.get("requestAttempts", 1)) for record in records),
         "requestMaxOutputTokens": max(requested),
-        "requestMaxOutputTokensTotal": sum(requested),
+        "requestMaxOutputTokensTotal": sum(
+            int(record.get("requestMaxOutputTokensTotal", requested[index]))
+            for index, record in enumerate(records)
+        ),
         "billedCostUsd": None if first.get("billingMode") == "education-credit" else 0,
         "referenceCostUsd": round(
             sum(float(record["referenceCostUsd"]) for record in records), 8
@@ -1154,6 +1466,47 @@ def advance_translation_state(
         float(totals["referenceCostUsd"]) + float(usage.get("referenceCostUsd", 0)),
         8,
     )
+
+
+def advance_failed_translation_usage(
+    state: dict[str, Any], actual_model: str | None, usage: dict[str, Any]
+) -> None:
+    """Account for billable responses that did not produce a publishable translation."""
+    if actual_model:
+        state["models"] = sorted(set(state["models"]) | {actual_model})
+    failed = state.setdefault(
+        "failedRequestUsage",
+        {
+            "promptTokens": 0,
+            "completionTokens": 0,
+            "requestAttempts": 0,
+            "requestMaxOutputTokens": 0,
+            "referenceCostUsd": 0.0,
+            "billedCostUsd": None
+            if state["usage"].get("billingMode") == "education-credit"
+            else 0,
+        },
+    )
+    attempts = int(usage.get("requestAttempts", 1))
+    requested_total = int(
+        usage.get("requestMaxOutputTokensTotal", usage.get("requestMaxOutputTokens", 0))
+    )
+    for target in (state["usage"], failed):
+        target["promptTokens"] = int(target.get("promptTokens", 0)) + int(
+            usage.get("promptTokens", 0)
+        )
+        target["completionTokens"] = int(target.get("completionTokens", 0)) + int(
+            usage.get("completionTokens", 0)
+        )
+        target["requestMaxOutputTokens"] = int(
+            target.get("requestMaxOutputTokens", 0)
+        ) + requested_total
+        target["referenceCostUsd"] = round(
+            float(target.get("referenceCostUsd", 0))
+            + float(usage.get("referenceCostUsd", 0)),
+            8,
+        )
+    failed["requestAttempts"] = int(failed.get("requestAttempts", 0)) + attempts
 
 
 def write_checkpoint(
@@ -1297,6 +1650,30 @@ def main() -> None:
     api_key = load_secret()
     errors: list[dict[str, str]] = []
     state = translation_state(paths, model, target_locale)
+    if state_path.exists():
+        prior_checkpoint = read_json(state_path)
+        prior_failed = prior_checkpoint.get("failedRequestUsage")
+        if (
+            isinstance(prior_failed, dict)
+            and prior_checkpoint.get("sourceId") == source_id
+            and prior_checkpoint.get("targetLocale") == target_locale
+            and prior_checkpoint.get("modelRequested") == model
+        ):
+            state["failedRequestUsage"] = prior_failed
+            totals = state["usage"]
+            totals["promptTokens"] += int(prior_failed.get("promptTokens", 0))
+            totals["completionTokens"] += int(prior_failed.get("completionTokens", 0))
+            totals["requestMaxOutputTokens"] += int(
+                prior_failed.get("requestMaxOutputTokens", 0)
+            )
+            totals["referenceCostUsd"] = round(
+                float(totals["referenceCostUsd"])
+                + float(prior_failed.get("referenceCostUsd", 0)),
+                8,
+            )
+        prior_untracked = prior_checkpoint.get("untrackedHistoricalFailedRequestUsage")
+        if isinstance(prior_untracked, dict):
+            state["untrackedHistoricalFailedRequestUsage"] = prior_untracked
     try:
         ensure_models_available(api_key, {model})
     except TransientTranslationError as error:
@@ -1345,7 +1722,12 @@ def main() -> None:
             metadata, body = load_markdown(path)
             enforce_reference_cost_limit(
                 source_translation_policy(source_id, target_locale),
-                float(state["usage"]["referenceCostUsd"]),
+                float(state["usage"]["referenceCostUsd"])
+                + float(
+                    (state.get("untrackedHistoricalFailedRequestUsage") or {}).get(
+                        "referenceCostUpperBoundUsd", 0
+                    )
+                ),
                 metadata,
                 body,
                 model,
@@ -1396,6 +1778,22 @@ def main() -> None:
             raise SystemExit(
                 f"{error.reason}; provider access or configuration requires review"
             ) from error
+        except TranslationContractError as error:
+            advance_failed_translation_usage(state, error.actual_model, error.usage)
+            errors.append({"id": path.stem, "error": str(error)})
+            write_checkpoint(
+                state_path,
+                status="failed",
+                source_id=source_id,
+                source_locale=source_locale,
+                target_locale=target_locale,
+                model=model,
+                paths=paths,
+                state=state,
+                reason=f"translation-contract-failed:{path.stem}",
+            )
+            print(f"ERROR {path.stem}: {error}", flush=True)
+            break
         except Exception as error:  # preserve the completed prefix for manual diagnosis
             errors.append({"id": path.stem, "error": str(error)})
             write_checkpoint(

@@ -1,0 +1,43 @@
+schemaVersion: 1
+id: piasecki-movement-large-vs-small-v1
+sourceId: piasecki-movement-games-1922
+status: approved-run-scope
+productionCandidate: mistral-large-2512
+candidates:
+  - mistral-large-2512
+  - mistral-small-2603
+targetLocale: en
+promptVersion: translation-pl-en-v5
+promptEncoding: protected-values-v2
+pipelineRepairs: deterministic-contract-v1
+reasoningMode: disabled
+activityIds:
+  - zgr-001
+  - zgr-031
+  - zgr-091
+  - zgr-103
+  - zgr-121
+  - zgr-131
+sampleRationale:
+  zgr-001: short circle game with omitted music and lyrics
+  zgr-031: medium folk game with dialogue and an omitted song block
+  zgr-091: longest record, with formal football rules, sections, measurements and many numerals
+  zgr-103: long team throwing game with diagrams removed and a named source contributor
+  zgr-121: long basketball rules with numbered penalties and a relocated source footnote
+  zgr-131: long Polish palant rules with numbered sections, archaic vocabulary and a relocated source footnote
+criteria:
+  - complete-meaning
+  - no-summary-or-modernization
+  - numbers-and-units-preserved
+  - markdown-and-urls-preserved
+  - natural-english
+execution:
+  maxActivities: 6
+  maxModels: 2
+  sequentialRequests: true
+  requireExplicitExecute: true
+  continueOnAutomaticPass: true
+  billingMode: education-credit
+  enforceReferenceCostLimit: true
+  maxReferenceCostUsd: 10
+  resultsUnderScratch: scouting-autoresearch/model-evaluations

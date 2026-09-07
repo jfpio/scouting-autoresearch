@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "translation-model-evaluation",
+  "evaluationId": "piasecki-movement-large-vs-small-v1",
+  "sourceId": "piasecki-movement-games-1922",
+  "targetLocale": "en",
+  "promptVersion": "translation-pl-en-v5",
+  "promptEncoding": "protected-values-v2",
+  "status": "complete",
+  "configHash": "e8bcc35cf212b15326fc669567ff228509abdd6e9b38e9831a2fdf35eb125d1b",
+  "productionCandidate": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "candidates": [
+    "mistral-large-2512",
+    "mistral-small-2603"
+  ],
+  "activityIds": [
+    "zgr-001",
+    "zgr-031",
+    "zgr-091",
+    "zgr-103",
+    "zgr-121",
+    "zgr-131"
+  ],
+  "completedPairs": [
+    "mistral-large-2512:zgr-001",
+    "mistral-large-2512:zgr-031",
+    "mistral-large-2512:zgr-091",
+    "mistral-large-2512:zgr-103",
+    "mistral-large-2512:zgr-121",
+    "mistral-large-2512:zgr-131",
+    "mistral-small-2603:zgr-001",
+    "mistral-small-2603:zgr-031",
+    "mistral-small-2603:zgr-091",
+    "mistral-small-2603:zgr-103",
+    "mistral-small-2603:zgr-121",
+    "mistral-small-2603:zgr-131"
+  ],
+  "pendingPairs": [],
+  "usageByModel": {
+    "mistral-large-2512": {
+      "promptTokens": 23499,
+      "completionTokens": 15805,
+      "referenceCostUsd": 0.035457
+    },
+    "mistral-small-2603": {
+      "promptTokens": 23499,
+      "completionTokens": 15467,
+      "referenceCostUsd": 0.01280505
+    }
+  },
+  "automaticFailurePairs": [
+    "mistral-large-2512:zgr-103",
+    "mistral-large-2512:zgr-131",
+    "mistral-small-2603:zgr-031",
+    "mistral-small-2603:zgr-091",
+    "mistral-small-2603:zgr-103",
+    "mistral-small-2603:zgr-121",
+    "mistral-small-2603:zgr-131"
+  ],
+  "humanReviewRequired": true,
+  "resultPathUnderScratch": "scouting-autoresearch/model-evaluations/piasecki-movement-large-vs-small-v1/results.json"
+}
