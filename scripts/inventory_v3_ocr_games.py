@@ -38,7 +38,7 @@ SOURCE_PLANS = {
         "Gry i ćwiczenia terenowe (Harce terenowe)",
         "Jan Jasiński",
         1938,
-        "numbered-game-or-exercise-openings-v1",
+        "numbered-game-or-exercise-and-scout-race-openings-v2",
         ((89, 268), (281, 303)),
         ((81, 86), (305, 308)),
         "Game prose in the Polona object explicitly marked public domain; non-game media remain outside the product scope.",
@@ -332,14 +332,20 @@ def parse_jasinski(pages: list[OCRPage]) -> list[dict[str, Any]]:
             if re.match(r"^#{1,6}\s+", raw_line):
                 current_section = strip_markup(raw_line)
             line = strip_markup(raw_line)
+            scout_race = re.match(r"^Bieg\s+(\d{1,2})(.*)$", line, re.IGNORECASE)
             match = re.match(r"^(\d{1,3})\.\s+(.+)$", line)
-            if not match:
+            if scout_race and re.match(r"^#{1,6}\s+", raw_line):
+                source_number: int | str = f"Bieg {scout_race.group(1)}"
+                title = normalize_space(line).rstrip(":.")
+            elif match:
+                source_number = int(match.group(1))
+                title = re.split(r"[.;]", match.group(2), maxsplit=1)[0].strip()
+            else:
                 continue
-            title = re.split(r"[.;]", match.group(2), maxsplit=1)[0].strip()
             if len(title) < 3:
                 continue
             item = {
-                "sourceNumber": int(match.group(1)),
+                "sourceNumber": source_number,
                 "titleRaw": title,
                 "section": current_section,
                 "candidateKind": "game-or-exercise-needs-review",

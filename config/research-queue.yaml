@@ -9,10 +9,10 @@ activeRun:
   report: data/reports/v3-source-expansion-2026-09.json
   sourceUnitCount: 11
   pullRequestPolicy: one-at-end-of-run
-  candidateCount: 760
-  importedActivityCount: 154
+  candidateCount: 775
+  importedActivityCount: 292
   deferredSourceUnitCount: 2
-  nextStep: review-and-import-jasinski-candidates
+  nextStep: review-and-import-dabrowski-indoor-games-candidates
   nextHumanGates: []
 subjects:
   - id: robert-baden-powell

@@ -267,6 +267,13 @@ zachowany i wymaga warstw polskiej oraz angielskiej; dlatego przed jego importem
 walidator i pipeline tłumaczeń muszą jawnie obsłużyć `originalLanguage: fr`. Każde źródło
 przechodzi mały smoke test przypiętego modelu przed pełnym tłumaczeniem.
 
+V3-R1 zbiera również przykłady propozycji całych biegów harcerskich oraz pojedynczych
+punktów biegu jako kandydatury na nowe rodzaje aktywności. Nie należy utożsamiać ich
+automatycznie ani z `game`, ani z `trial`: bieg opisuje układ wielu zadań w trasie lub
+sekwencji, punkt biegu opisuje zadanie w tym układzie, a próba opisuje podejmowane wyzwanie
+lub wymaganie. Rodzaje mogą się nakładać, ale takie nakładanie wymaga jawnego dowodu w źródle
+i decyzji redakcyjnej. W tym runie kandydatury pozostają poza produkcyjnym korpusem gier.
+
 Po zamknięciu jedenastu jednostek należy ponownie wykonać audyt skal uczestników i faset,
 utworzyć embeddingi dla dokładnie całego powiększonego zbioru gier oraz przebudować mapę i
 pakiet kandydatur podobnych wariantów. Dopiero te wyniki wraz z raportem źródłowym składają

@@ -1,0 +1,43 @@
+schemaVersion: 1
+id: jasinski-large-vs-small-v5
+sourceId: jasinski-field-games-1938
+status: approved-run-scope
+productionCandidate: mistral-large-2512
+candidates:
+  - mistral-large-2512
+  - mistral-small-2603
+targetLocale: en
+promptVersion: translation-pl-en-v5
+promptEncoding: protected-values-v2
+pipelineRepairs: deterministic-contract-v1
+reasoningMode: disabled
+activityIds:
+  - gct-001
+  - gct-032
+  - gct-089
+  - gct-123
+  - gct-149
+  - gct-196
+sampleRationale:
+  gct-001: multi-paragraph nature search with variants and group scoring
+  gct-032: compact tracking procedure with historical vocabulary
+  gct-089: long terrain exercise with structured rules
+  gct-123: very short competitive service activity
+  gct-149: patrol reconnaissance game with timings and multiple groups
+  gct-196: longest multi-day war game with lists, dates, distances and safety rules
+criteria:
+  - complete-meaning
+  - no-summary-or-modernization
+  - numbers-and-units-preserved
+  - markdown-and-urls-preserved
+  - natural-english
+execution:
+  maxActivities: 6
+  maxModels: 2
+  sequentialRequests: true
+  requireExplicitExecute: true
+  continueOnAutomaticPass: true
+  billingMode: education-credit
+  enforceReferenceCostLimit: true
+  maxReferenceCostUsd: 10
+  resultsUnderScratch: scouting-autoresearch/model-evaluations

@@ -258,6 +258,26 @@ def main() -> None:
                 for item in existing.get("results") or []
                 if item.get("sourceHash") == current_hashes.get(item.get("activityId"))
             ]
+            records_by_id = {
+                path.stem: (metadata, body) for path, metadata, body in records
+            }
+            for item in results:
+                record = records_by_id.get(str(item.get("activityId")))
+                translated = item.get("translation")
+                if record and isinstance(translated, dict):
+                    item["checks"] = translation_quality_checks(
+                        record[0], record[1], translated, target_locale
+                    )
+            write_json(
+                result_path,
+                {
+                    "schemaVersion": 1,
+                    "evaluationId": config["id"],
+                    "configHash": config_hash,
+                    "generatedAt": datetime.now(UTC).isoformat(),
+                    "results": results,
+                },
+            )
     completed = {str(item["pairId"]) for item in results}
     api_key = load_secret()
     try:

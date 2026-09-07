@@ -9,7 +9,7 @@
     "sourceCount": 4
   },
   "sourceOutcomes": [
-    {"sourceId": "jasinski-field-games-1938", "status": "record-review-pending", "candidateCount": 181, "importedActivityCount": 0},
+    {"sourceId": "jasinski-field-games-1938", "status": "imported", "candidateCount": 196, "importedActivityCount": 138, "ocrReferenceCostUsd": 0.9, "translationReferenceCostUsd": 0.125461, "modelEvaluationReferenceCostUsd": 0.00913305, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
     {"sourceId": "mojmir-scout-games-1912", "status": "imported", "candidateCount": 85, "importedActivityCount": 80, "ocrReferenceCostUsd": 0.308, "translationReferenceCostUsd": 0.0788565, "modelEvaluationReferenceCostUsd": 0.0135349, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
     {"sourceId": "dabrowski-indoor-games-1934", "status": "record-review-pending", "candidateCount": 183, "importedActivityCount": 0},
     {"sourceId": "piasecki-movement-games-1922", "status": "record-review-pending", "candidateCount": 133, "importedActivityCount": 0},
@@ -37,7 +37,7 @@
   "editionsAndComponentAuthorship": {
     "status": "approved-library-ground-truth",
     "reviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md",
-    "candidateCount": 760,
+    "candidateCount": 775,
     "candidateReportsAreMetadataOnly": true,
     "rawOcrStorage": "scratch-only"
   },
@@ -50,10 +50,10 @@
     "zwolakowska-cub-pack-1945": {"processedViewCount": 32}
   },
   "candidateAndImportCounts": {
-    "candidateCount": 760,
-    "importedActivityCount": 154,
+    "candidateCount": 775,
+    "importedActivityCount": 292,
     "candidateCountBySource": {
-      "jasinski-field-games-1938": 181,
+      "jasinski-field-games-1938": 196,
       "mojmir-scout-games-1912": 85,
       "dabrowski-indoor-games-1934": 183,
       "piasecki-movement-games-1922": 133,
@@ -88,10 +88,10 @@
     "ocrProcessedViewCount": 619,
     "ocrReferenceCostUsd": 2.48,
     "referenceCostLimitUsd": 10.0,
-    "translationPromptTokens": 100506,
-    "translationCompletionTokens": 52323,
-    "translationReferenceCostUsd": 0.1287375,
-    "completedModelEvaluationReferenceCostUsd": 0.0135349
+    "translationPromptTokens": 200021,
+    "translationCompletionTokens": 102792,
+    "translationReferenceCostUsd": 0.2541985,
+    "completedModelEvaluationReferenceCostUsd": 0.02266795
   },
   "validationResults": {
     "status": "pending-after-corpus-expansion",

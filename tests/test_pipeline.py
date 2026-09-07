@@ -108,6 +108,16 @@ class PipelineTests(unittest.TestCase):
                 reject_unprotected_digits=True,
             )
 
+    def test_translation_protected_tokens_preserve_superscript_footnotes(self):
+        protected, replacements = protect_translation_body("Goniec¹ i łącznik².")
+        self.assertNotIn("¹", protected)
+        self.assertNotIn("²", protected)
+        self.assertEqual(len(replacements), 2)
+        self.assertEqual(
+            restore_translation_body(protected, replacements, reject_unprotected_digits=True),
+            "Goniec¹ i łącznik².",
+        )
+
     def test_translation_cooldown_uses_provider_value_or_one_hour_fallback(self):
         now = datetime(2026, 9, 3, tzinfo=UTC)
         self.assertEqual(retry_at_from_headers({}, now), now + timedelta(hours=1))
@@ -348,6 +358,32 @@ class PipelineTests(unittest.TestCase):
             },
         )
         self.assertTrue(grouped_checks["numbersPreserved"])
+
+        range_spacing_checks = translation_quality_checks(
+            {"traits": [], "originalLanguage": "pl"},
+            "Obozy są odległe o 5 — 10 km.",
+            {
+                "title": "Camps",
+                "section": "Games",
+                "traits": [],
+                "body": "The camps are 5–10 km apart.",
+            },
+            "en",
+        )
+        self.assertTrue(range_spacing_checks["numbersPreserved"])
+
+        retained_source_grouping_checks = translation_quality_checks(
+            {"traits": [], "originalLanguage": "pl"},
+            "Użyj mapy 1 : 100.000.",
+            {
+                "title": "Map",
+                "section": "Games",
+                "traits": [],
+                "body": "Use a 1 : 100.000 map.",
+            },
+            "en",
+        )
+        self.assertTrue(retained_source_grouping_checks["numbersPreserved"])
 
     def test_mojmir_translation_evaluation_pins_v5_protected_values(self):
         root = Path(__file__).resolve().parents[1]

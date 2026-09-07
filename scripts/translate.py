@@ -126,7 +126,7 @@ SYSTEM_PROMPT_OVERRIDES = {
 
 PROTECTED_URL_PATTERN = re.compile(r"https?://[^\s)]+")
 PROTECTED_NUMBER_PATTERN = re.compile(
-    r"(?:\d{1,3}(?:[ \u00a0]\d{3})+|\d+(?:[.,/—–-]\d+)*)"
+    r"(?:[⁰¹²³⁴⁵⁶⁷⁸⁹]+|\d{1,3}(?:[ \u00a0]\d{3})+|\d+(?:[.,/—–-]\d+)*)"
 )
 PROTECTED_MARKER_PATTERN = re.compile(r"ZXQ(?:URL|NUM)[A-Z]+QXZ")
 
@@ -260,10 +260,11 @@ def translation_fidelity_checks(
         normalized: list[str] = []
         for value in re.findall(number_pattern, text):
             compact = value.replace(" ", "").replace("\u00a0", "")
-            if locale == "en" and re.fullmatch(r"\d{1,3}(?:,\d{3})+", compact):
-                compact = compact.replace(",", "")
-            elif locale == "pl" and re.fullmatch(r"\d{1,3}(?:[.]\d{3})+", compact):
-                compact = compact.replace(".", "")
+            if re.search(r"[—–-]", compact):
+                normalized.extend(part for part in re.split(r"[—–-]", compact) if part)
+                continue
+            if re.fullmatch(r"\d{1,3}(?:[.,]\d{3})+", compact):
+                compact = compact.replace(",", "").replace(".", "")
             else:
                 compact = compact.replace(",", ".")
             normalized.append(compact)

@@ -11,6 +11,7 @@ from inventory_v3_ocr_games import (
     _deduplicate,
     _toc_pairs,
     annotate_candidate_boundaries,
+    parse_jasinski,
     parse_mojmir,
 )
 
@@ -45,6 +46,22 @@ class V3OCRInventoryTests(unittest.TestCase):
         self.assertEqual(len(candidates), 85)
         self.assertTrue(all(item["locatorStatus"] == "heading-located" for item in candidates))
 
+    def test_jasinski_includes_numbered_scout_race_examples(self):
+        pages = [
+            OCRPage(
+                227,
+                "view-0227.jpg",
+                "216",
+                "# Przykłady biegów harcerskich.\n# Bieg 1:\nOpis.\n# Bieg 2 (nocny):\nOpis.",
+                "a" * 64,
+            )
+        ]
+        candidates = parse_jasinski(pages)
+        self.assertEqual(
+            [(item["sourceNumber"], item["titleRaw"]) for item in candidates],
+            [("Bieg 1", "Bieg 1"), ("Bieg 2", "Bieg 2 (nocny)")],
+        )
+
     def test_boundary_annotation_hashes_prose_without_emitting_it(self):
         pages = [
             OCRPage(10, "view-0010.jpg", "1", "## Pierwsza\nOpis według Setona.\n## Druga\nOpis.", "a" * 64),
@@ -70,7 +87,7 @@ class V3OCRInventoryTests(unittest.TestCase):
 
     def test_checked_in_candidate_reports_are_metadata_only_and_complete(self):
         expected_counts = {
-            "jasinski-field-games-1938": 181,
+            "jasinski-field-games-1938": 196,
             "mojmir-scout-games-1912": 85,
             "dabrowski-indoor-games-1934": 183,
             "pawelek-young-troop-1919": 24,
@@ -97,7 +114,7 @@ class V3OCRInventoryTests(unittest.TestCase):
                     self.assertGreater(candidate["blockNonEmptyLineCount"], 0)
                 self.assertFalse(prohibited_candidate_keys.intersection(candidate))
             total += expected_count
-        self.assertEqual(total, 547)
+        self.assertEqual(total, 562)
 
 
 if __name__ == "__main__":

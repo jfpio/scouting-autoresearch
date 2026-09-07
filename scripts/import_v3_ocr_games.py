@@ -59,6 +59,38 @@ class ImportPlan:
     smoke_numbers: tuple[int, ...]
     selection_basis: str
     translation_prompt: str
+    repeated_header_patterns: tuple[str, ...] = ()
+    stop_heading_patterns: tuple[str, ...] = ()
+    candidate_stop_headings: tuple[tuple[int, str], ...] = ()
+    preserve_inline_heading_body: bool = False
+    use_inventory_title: bool = False
+    inline_only_numbers: tuple[int, ...] = ()
+
+
+JASINSKI_REJECTED_REASONS = (
+    (65, "composite instructional essay with an embedded example but no bounded standalone game block"),
+    (77, "cross-reference-only variant without a self-contained procedure"),
+    (100, "heading-only signal without a bounded procedure"),
+    *(
+        (number, "fragment of a service-task list, not a self-contained game")
+        for number in range(116, 123)
+    ),
+    *(
+        (number, "reconnaissance checklist without a game or competitive procedure")
+        for number in range(137, 149)
+    ),
+    *(
+        (number, "interview topic or editorial guidance, not a bounded game")
+        for number in range(150, 171)
+    ),
+    *(
+        (
+            number,
+            "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope",
+        )
+        for number in range(171, 186)
+    ),
+)
 
 
 IMPORT_PLANS = {
@@ -128,6 +160,64 @@ IMPORT_PLANS = {
         ),
         translation_prompt="translation-pl-en-v5",
     ),
+    "jasinski-field-games-1938": ImportPlan(
+        prefix="gct",
+        sections=(
+            (5, "I. Gry poszukiwawcze"),
+            (9, "II. Gry obserwacyjne"),
+            (12, "III. Gry obserwacyjno-pamięciowe"),
+            (29, "IV. Podchody"),
+            (51, "V. Tropienia"),
+            (58, "VI. Ocenianie odległości"),
+            (66, "VII. Pomiary"),
+            (89, "VIII. Gry terenoznawcze"),
+            (97, "IX. Szukanie skarbów"),
+            (115, "X. Łączność"),
+            (131, "XI. Dobre uczynki i pierwsza pomoc"),
+            (149, "XII. Patrolowanie i zwiady"),
+            (166, "XIII. Wywiady"),
+            (185, "XIV. Biegi harcerskie"),
+            (196, "XV. Gry wojenne"),
+        ),
+        author="Jan Jasiński",
+        title="Gry i ćwiczenia terenowe (Harce terenowe)",
+        year=1938,
+        edition="wydanie 2 poprawione i rozszerzone",
+        publication_place="Poznań",
+        publisher="Drukarnia i Księgarnia św. Wojciecha",
+        source_url="https://polona.pl/preview/b1600bcb-668f-4daf-a37b-81fade26971f",
+        rights_evidence_url=(
+            "https://polona.pl/api/library-object-query/digital-objects/"
+            "b1600bcb-668f-4daf-a37b-81fade26971f"
+        ),
+        rights_statement="„Domena Publiczna” — oznaczenie konkretnego obiektu w Polonie",
+        accessed_on="2026-09-07",
+        extraction_recipe="v3-bounded-ocr-game-import-v3",
+        accepted_numbers=tuple(
+            number
+            for number in range(1, 197)
+            if number not in {rejected for rejected, _reason in JASINSKI_REJECTED_REASONS}
+        ),
+        rejected_reasons=JASINSKI_REJECTED_REASONS,
+        repeated_headers=(),
+        join_soft_wraps=True,
+        smoke_numbers=(1, 32, 89, 123, 149, 196),
+        selection_basis=(
+            "source-numbered entries with a bounded, executable game or competitive exercise; "
+            "lists, reconnaissance prompts, interview topics, cross-reference-only variants and "
+            "whole scout-course proposals are retained in the review report but excluded from the "
+            "current game-only production scope"
+        ),
+        translation_prompt="translation-pl-en-v5",
+        repeated_header_patterns=(r"^Gry i ćwiczenia terenowe\.\s*\d*$",),
+        stop_heading_patterns=(
+            r"^#{1,6}\s+(?:[IVXLCDM]+\.\s+|GRY I ĆWICZENIA TERENOWE WYŻSZEGO STOPNIA\b).*$",
+        ),
+        candidate_stop_headings=((36, "Tropienie według śladów sztucznych."),),
+        preserve_inline_heading_body=True,
+        use_inventory_title=True,
+        inline_only_numbers=(36,),
+    ),
 }
 
 
@@ -157,6 +247,9 @@ def clean_source_block(
     repeated_headers: tuple[str, ...] = (),
     *,
     join_soft_wraps: bool = False,
+    repeated_header_patterns: tuple[str, ...] = (),
+    preserve_inline_heading_body: bool = False,
+    inline_heading_title: str | None = None,
 ) -> str:
     """Remove only deterministic OCR furniture, never modernize source prose."""
     if join_soft_wraps:
@@ -164,22 +257,40 @@ def clean_source_block(
     lines = raw_block.splitlines()
     if not lines:
         raise ValueError("Empty source block")
+    heading_line = lines[0]
+    inline_body = ""
+    if inline_heading_title:
+        plain_heading = re.sub(r"^#{1,6}\s*", "", heading_line).strip()
+        plain_heading = re.sub(
+            r"^(?:\d+|[IVXLCDM]+)[.)]?\s+", "", plain_heading, flags=re.IGNORECASE
+        )
+        if plain_heading.casefold().startswith(inline_heading_title.casefold()):
+            suffix = plain_heading[len(inline_heading_title):]
+            if re.match(r"^\.\s+[a-ząćęłńóśźż]", suffix):
+                inline_body = plain_heading
+            else:
+                inline_body = suffix.lstrip(" .:;—-")
     lines = lines[1:]  # candidate title is represented in frontmatter
     kept: list[str] = []
     for line in lines:
         stripped = line.strip()
-        if re.fullmatch(r"\d{1,3}", stripped):
+        if re.fullmatch(r"\d{1,3}\*?", stripped):
             continue
         if re.fullmatch(r"!\[[^\]]*\]\([^)]*\)", stripped):
             continue
         if stripped == "*":
             continue
-        if stripped.lstrip("-").strip() in repeated_headers:
+        furniture = stripped.lstrip("-").strip()
+        if furniture in repeated_headers:
+            continue
+        if any(re.fullmatch(pattern, furniture, re.IGNORECASE) for pattern in repeated_header_patterns):
             continue
         if re.fullmatch(r"#{1,6}\s+DZIAŁ\s+[IVXLCDM]+\.?", stripped, re.IGNORECASE):
             continue
         kept.append(line.rstrip())
     body = "\n".join(kept).strip()
+    if inline_body:
+        body = f"{inline_body}\n\n{body}".strip()
     body = re.sub(r"\n{3,}", "\n\n", body)
     if join_soft_wraps:
         body = re.sub(
@@ -194,9 +305,39 @@ def clean_source_block(
         " ",
         body,
     )
+    if not body and preserve_inline_heading_body:
+        body = re.sub(r"^#{1,6}\s*", "", heading_line).strip()
+        body = re.sub(r"^(?:\d+|[IVXLCDM]+)[.)]?\s+", "", body, flags=re.IGNORECASE)
     if not body:
         raise ValueError("Source block contains no prose after furniture removal")
     return body
+
+
+def find_stop_heading(
+    pages_by_view: dict[int, Any],
+    start: tuple[int, int],
+    end: tuple[int, int] | None,
+    range_end: int,
+    patterns: tuple[str, ...],
+    exact_headings: tuple[str, ...],
+) -> tuple[tuple[int, int], str] | None:
+    """Locate an approved section boundary after a candidate opening."""
+    final_view = end[0] if end else range_end
+    for view in range(start[0], final_view + 1):
+        page = pages_by_view.get(view)
+        if page is None:
+            continue
+        for line_number, line in enumerate(page.markdown.splitlines(), start=1):
+            locator = (view, line_number)
+            if locator <= start or (end is not None and locator >= end):
+                continue
+            stripped = line.strip()
+            heading = re.sub(r"^#{1,6}\s*", "", stripped).strip()
+            if heading in exact_headings or any(
+                re.fullmatch(pattern, stripped, re.IGNORECASE) for pattern in patterns
+            ):
+                return locator, heading
+    return None
 
 
 def section_for_number(plan: ImportPlan, number: int) -> str:
@@ -271,11 +412,35 @@ def import_source(source_id: str) -> dict[str, Any]:
         raw_hash = hashlib.sha256((normalize_space(raw_block) + "\n").encode("utf-8")).hexdigest()
         if raw_hash != item.get("sourceBlockSha256"):
             raise ValueError(f"Pinned block hash differs for candidate {number}")
-        source_body = clean_source_block(
-            raw_block,
-            plan.repeated_headers,
-            join_soft_wraps=plan.join_soft_wraps,
+        exact_stop_headings = tuple(
+            heading
+            for candidate_number, heading in plan.candidate_stop_headings
+            if candidate_number == number
         )
+        stop = find_stop_heading(
+            pages_by_view,
+            start,
+            end,
+            range_end,
+            plan.stop_heading_patterns,
+            exact_stop_headings,
+        )
+        if stop is not None:
+            raw_block, view_end, _ = _block_text(pages_by_view, start, stop[0], range_end)
+        if number in plan.inline_only_numbers:
+            raw_block = raw_block.splitlines()[0]
+            view_end = start[0]
+        try:
+            source_body = clean_source_block(
+                raw_block,
+                plan.repeated_headers,
+                join_soft_wraps=plan.join_soft_wraps,
+                repeated_header_patterns=plan.repeated_header_patterns,
+                preserve_inline_heading_body=plan.preserve_inline_heading_body,
+                inline_heading_title=str(item["titleRaw"]),
+            )
+        except ValueError as error:
+            raise ValueError(f"Candidate {number}: {error}") from error
         content_hash = hashlib.sha256(normalize_space(source_body).encode("utf-8")).hexdigest()
         if content_hash in source_bodies:
             raise ValueError(
@@ -297,7 +462,7 @@ def import_source(source_id: str) -> dict[str, Any]:
             raise ValueError(f"Candidate {number} lacks a pinned Polona facsimile URL")
 
         activity_id = f"{plan.prefix}-{number:03d}"
-        title = source_heading_title(raw_block)
+        title = str(item["titleRaw"]) if plan.use_inventory_title else source_heading_title(raw_block)
         source_note = (
             "---\n\n"
             f"*Źródło skanu: [Polona / Biblioteka Narodowa]({plan.source_url}), "
@@ -327,18 +492,22 @@ def import_source(source_id: str) -> dict[str, Any]:
             "participantScaleBasis": "unknown",
         }
         output_records.append((VAULT / "activities" / f"{activity_id}.md", metadata, body))
-        activities.append(
-            {
-                "id": activity_id,
-                "candidateNumber": number,
-                "title": title,
-                "viewStart": start[0],
-                "viewEnd": view_end,
-                "printedPages": printed_pages,
-                "sourceBlockSha256": raw_hash,
-                "publishedSourceHash": metadata["sourceHash"],
+        activity_report = {
+            "id": activity_id,
+            "candidateNumber": number,
+            "title": title,
+            "viewStart": start[0],
+            "viewEnd": view_end,
+            "printedPages": printed_pages,
+            "sourceBlockSha256": raw_hash,
+            "publishedSourceHash": metadata["sourceHash"],
+        }
+        if stop is not None:
+            activity_report["truncatedBeforeHeading"] = {
+                "locator": f"view-{stop[0][0]:04d}-l{stop[0][1]:04d}",
+                "heading": stop[1],
             }
-        )
+        activities.append(activity_report)
 
     revision = source_revision(checkpoint, selected_views)
     for output, metadata, body in output_records:
@@ -420,6 +589,12 @@ def import_source(source_id: str) -> dict[str, Any]:
                 "omit non-text illustration placeholders while retaining page provenance",
                 "omit source-specific repeated running headers",
             ]
+        )
+    if plan.repeated_header_patterns:
+        normalization.append("omit source-specific repeated running headers matched by pinned patterns")
+    if plan.stop_heading_patterns or plan.candidate_stop_headings:
+        normalization.append(
+            "truncate a candidate at the first pinned following chapter or subsection heading"
         )
     if plan.join_soft_wraps:
         normalization.append(
