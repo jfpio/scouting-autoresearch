@@ -161,7 +161,7 @@ class V3OCRInventoryTests(unittest.TestCase):
             "jasinski-field-games-1938": 196,
             "mojmir-scout-games-1912": 85,
             "dabrowski-indoor-games-1934": 184,
-            "pawelek-young-troop-1919": 24,
+            "pawelek-young-troop-1919": 115,
             "zwolakowska-cub-pack-1945": 74,
         }
         prohibited_candidate_keys = {
@@ -185,7 +185,7 @@ class V3OCRInventoryTests(unittest.TestCase):
                     self.assertGreater(candidate["blockNonEmptyLineCount"], 0)
                 self.assertFalse(prohibited_candidate_keys.intersection(candidate))
             total += expected_count
-        self.assertEqual(total, 563)
+        self.assertEqual(total, 654)
 
 
 if __name__ == "__main__":

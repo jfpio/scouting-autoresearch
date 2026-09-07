@@ -319,32 +319,173 @@ def parse_dabrowski(pages: list[OCRPage]) -> list[dict[str, Any]]:
     )
 
 
+PAWELEK_MEETING_CANDIDATES = (
+    ("Gra Kima", "view-0021-l0017", "view-0022-l0025"),
+    ("Szukanie naparstka", "view-0026-l0009", "view-0026-l0011"),
+    ("Ocenianie wagi", "view-0029-l0019", "view-0029-l0023"),
+    ("Gra Kima — kolory", "view-0031-l0025", "view-0031-l0027"),
+    ("Gra węchowa", "view-0031-l0027", "view-0032-l0003"),
+    ("Co zmieniono na stole, w ubraniu, na ścianie, w pokoju", "view-0035-l0015", "view-0035-l0017"),
+    ("Szachownica", "view-0037-l0017", "view-0038-l0005"),
+    ("Niknące obrazy", "view-0040-l0023", "view-0040-l0025"),
+    ("Opis ściany", "view-0043-l0007", "view-0043-l0009"),
+    ("Pamiętanie ogłoszeń", "view-0045-l0017", "view-0045-l0019"),
+    ("Wyprawa po rośliny", "view-0048-l0009", "view-0048-l0011"),
+    ("Kim i szukanie naparstka", "view-0051-l0011", "view-0051-l0013"),
+    ("Mruczek", "view-0054-l0015", "view-0054-l0017"),
+    ("Połowa listu", "view-0057-l0007", "view-0057-l0009"),
+    ("Rysunek deseniu na tapecie", "view-0059-l0021", "view-0059-l0023"),
+    ("Wiązanie węzłów", "view-0062-l0005", "view-0062-l0007"),
+    ("Węzły do drzewa", "view-0064-l0015", "view-0064-l0017"),
+    ("Rzemiosło (warsztat)", "view-0067-l0009", "view-0067-l0011"),
+    ("Wilk, koza i kapusta oraz zagadki z zapałkami", "view-0069-l0003", "view-0069-l0005"),
+    ("Rysowanie profilu", "view-0072-l0005", "view-0072-l0007"),
+    ("Klub świstaków", "view-0074-l0021", "view-0074-l0023"),
+    ("Bilety wizytowe albo składacz (zecer)", "view-0077-l0017", "view-0077-l0019"),
+    ("Zapoznanie się z kompasem", "view-0079-l0019", "view-0079-l0021"),
+    ("Ocenianie długości i wagi", "view-0082-l0017", "view-0082-l0019"),
+    ("Tak i Nie", "view-0084-l0005", "view-0084-l0007"),
+    ("Rysowanie układu wnętrzności", "view-0086-l0009", "view-0086-l0011"),
+    ("Coś ruchowego (Bęben)", "view-0088-l0015", "view-0088-l0017"),
+)
+
+PAWELEK_APPROACH_CANDIDATES = (
+    ("Ciche podejście miejsca obozu", "view-0090-l0015"),
+    ("Podchodzenie — typ pierwszy", "view-0092-l0007"),
+    ("Podchodzenie — typ drugi", "view-0093-l0009"),
+    ("Podchodzenie — typ trzeci", "view-0093-l0015"),
+    ("Podchodzenie — typ czwarty", "view-0093-l0019"),
+    ("Zadania terenowe — typ piąty", "view-0094-l0005"),
+)
+
+PAWELEK_FIELD_CANDIDATES = (
+    ("Zając", "view-0094-l0017"),
+    ("Wyprawa po rośliny", "view-0094-l0019"),
+    ("Szukanie naparstka", "view-0094-l0021"),
+    ("Co zmienione w ubraniu", "view-0094-l0023"),
+    ("Podglądanie jelenia", "view-0094-l0025"),
+    ("Podchodzenie ślepego", "view-0094-l0027"),
+    ("Podchodzenie warty", "view-0094-l0029"),
+    ("Tyraljerka", "view-0094-l0031"),
+    ("Pełzanie", "view-0094-l0033"),
+    ("Przekradanie się ze Zbaraża", "view-0094-l0035"),
+    ("Ucieczka Sybiraka", "view-0095-l0005"),
+    ("Pająki i muchy", "view-0095-l0007"),
+    ("Borsuk", "view-0095-l0009"),
+    ("Wrona", "view-0095-l0011"),
+    ("Kozak-Tatarzyn", "view-0095-l0013"),
+    ("Wykrycie warty", "view-0095-l0015"),
+    ("Złodziej w obozie", "view-0095-l0017"),
+    ("Szukanie zgubionego przedmiotu", "view-0095-l0019"),
+    ("Ocena odległości", "view-0095-l0023"),
+    ("Wróć za 5 minut", "view-0095-l0025"),
+    ("Pomiar szerokości", "view-0095-l0027"),
+    ("Budowa mostu", "view-0095-l0029"),
+    ("Budowa szałasu", "view-0095-l0031"),
+    ("Marsz przez las", "view-0095-l0033"),
+    ("Sygnalizowanie", "view-0095-l0035"),
+    ("Ćwiczenia w noszeniu rannych", "view-0095-l0037"),
+    ("Łażenie po drzewach", "view-0095-l0039"),
+    ("Małpia gimnastyka", "view-0095-l0041"),
+)
+
+PAWELEK_MOVEMENT_CANDIDATES = (
+    ("Berek", "view-0098-l0025"),
+    ("Bieg rozstawny", "view-0098-l0027"),
+    ("Wyścig wywoływany", "view-0099-l0005"),
+    ("Wyścig pojedynczy", "view-0099-l0007"),
+    ("Trzeciak", "view-0099-l0009"),
+    ("Przecinane wojsko", "view-0099-l0011"),
+    ("Czarny lud", "view-0099-l0013"),
+    ("Lis", "view-0099-l0015"),
+    ("Kogucia walka", "view-0099-l0017"),
+    ("Podrywka", "view-0099-l0019"),
+    ("Podrywka ze zwodzeniem", "view-0099-l0021"),
+    ("Bocian", "view-0099-l0023"),
+    ("Do pana zając", "view-0099-l0027"),
+    ("Do pana zając klepany", "view-0099-l0029"),
+    ("Lis i gęsi", "view-0099-l0031"),
+    ("Wąż", "view-0099-l0033"),
+    ("Ostatni kot zawieszony", "view-0099-l0035"),
+    ("Dzień i noc", "view-0099-l0037"),
+    ("Przeciągane wojsko", "view-0099-l0039"),
+    ("Przepychane wojsko", "view-0099-l0041"),
+    ("Ciuciubabka", "view-0099-l0043"),
+    ("Sparzak", "view-0100-l0005"),
+    ("Narodowości (Vocatus)", "view-0100-l0007"),
+    ("Sztandar", "view-0100-l0009"),
+    ("Palant", "view-0100-l0011"),
+    ("Kiczka, Klipa", "view-0100-l0013"),
+    ("Świnka", "view-0100-l0015"),
+    ("Pikor i Forteca", "view-0100-l0017"),
+    ("Przeciąganie się liną", "view-0100-l0019"),
+    ("Przepychanie się żerdzią", "view-0100-l0021"),
+    ("Bieg na przełaj", "view-0100-l0023"),
+    ("Bieg z przeszkodami", "view-0100-l0027"),
+    ("Wyścigi humorystyczne", "view-0100-l0029"),
+    ("Skoki w dal i wwyż", "view-0100-l0031"),
+    ("Skok przez kozła", "view-0100-l0033"),
+    ("Biegi", "view-0100-l0035"),
+    ("Rzuty", "view-0100-l0037"),
+    ("Strzelanie", "view-0100-l0039"),
+    ("Piłka nożna", "view-0100-l0043"),
+)
+
+PAWELEK_CITY_CANDIDATES = (
+    ("Przekradanie się przez ilnię wart", "view-0101-l0005"),
+    ("Maskarada", "view-0101-l0007"),
+    ("Zając", "view-0101-l0009"),
+    ("Szukanie lekarza", "view-0101-l0011"),
+    ("Zapisywanie numerów", "view-0101-l0013"),
+    ("Zapamiętanie trzech wystaw", "view-0101-l0015"),
+    ("Obejrzenie bramy lub pomnika", "view-0101-l0017"),
+    ("Wymierzenie długości ulicy", "view-0101-l0021"),
+    ("Znalezienie najkrótszej drogi", "view-0101-l0023"),
+    ("Wyliczenie porządku sklepów", "view-0101-l0025"),
+    ("Znalezienie braków hygienicznych", "view-0101-l0027"),
+    ("Wyrysowanie przypuszczalnego rozkładu", "view-0101-l0029"),
+    ("Określenie rodzaju oświetlenia", "view-0101-l0031"),
+    ("Rozkłady jazdy pociągów", "view-0101-l0033"),
+    ("Stacje dorożkarskie", "view-0101-l0035"),
+)
+
+
+def _locator_tuple(locator: str) -> tuple[int, int]:
+    match = re.fullmatch(r"view-(\d{4})-l(\d{4})", locator)
+    if not match:
+        raise ValueError(f"Unexpected pinned locator: {locator}")
+    return int(match.group(1)), int(match.group(2))
+
+
 def parse_pawelek(pages: list[OCRPage]) -> list[dict[str, Any]]:
-    result = []
-    for page in pages:
-        if not in_ranges(page.view, ((19, 101),)):
-            continue
-        for line_number, raw_line in enumerate(page.markdown.splitlines(), start=1):
-            line = strip_markup(raw_line)
-            match = re.match(r"^Gra\s*:\s*(.+?)(?:\.|$)", line, re.IGNORECASE)
-            if match:
-                title = match.group(1).strip()
-            else:
-                match = re.match(r"^Gra\s+Kima\.(?:\s|$)", line, re.IGNORECASE)
-                title = "Gra Kima" if match else ""
-            if title:
-                item = {"titleRaw": title}
-                item.update(_locator(page, line_number, raw_line))
-                result.append(item)
-        if 90 <= page.view <= 101:
-            for line_number, raw_line in enumerate(page.markdown.splitlines(), start=1):
-                if re.match(r"^#{2,6}\s+", raw_line):
-                    title = strip_markup(raw_line).rstrip(".")
-                    if compact(title) == compact("Piłka nożna"):
-                        item = {"titleRaw": title}
-                        item.update(_locator(page, line_number, raw_line))
-                        result.append(item)
-    return _deduplicate(result)
+    """Return reviewed paragraph-level candidates, not meeting-program labels."""
+    pages_by_view = {page.view: page for page in pages}
+    result: list[dict[str, Any]] = []
+
+    def append(title: str, start_locator: str, end_locator: str, section: str) -> None:
+        view, line_number = _locator_tuple(start_locator)
+        page = pages_by_view[view]
+        raw_line = page.markdown.splitlines()[line_number - 1]
+        item = {"titleRaw": title, "section": section, "pinnedEndExclusiveLocator": end_locator}
+        item.update(_locator(page, line_number, raw_line))
+        result.append(item)
+
+    for title, start, end in PAWELEK_MEETING_CANDIDATES:
+        append(title, start, end, "Gry na zbiórkach")
+
+    grouped = (
+        (PAWELEK_APPROACH_CANDIDATES, "Podchodzenia", "view-0094-l0017"),
+        (PAWELEK_FIELD_CANDIDATES, "Gry i ćwiczenia w polu", "view-0097-l0005"),
+        (PAWELEK_MOVEMENT_CANDIDATES, "Gry ruchowe", "view-0101-l0003"),
+        (PAWELEK_CITY_CANDIDATES, "Gry w mieście", "view-0101-l0043"),
+    )
+    for candidates, section, final_end in grouped:
+        for index, (title, start) in enumerate(candidates):
+            end = candidates[index + 1][1] if index + 1 < len(candidates) else final_end
+            if start == "view-0090-l0015":
+                end = "view-0090-l0017"
+            append(title, start, end, section)
+    return result
 
 
 def parse_jasinski(pages: list[OCRPage]) -> list[dict[str, Any]]:
@@ -542,6 +683,14 @@ def annotate_candidate_boundaries(
             start < anchor < next_anchor if next_anchor else start < anchor and anchor[0] <= bounds[1]
             for anchor in unreliable_anchors
         )
+        pinned_end = item.get("pinnedEndExclusiveLocator")
+        if pinned_end:
+            next_anchor = _locator_tuple(str(pinned_end))
+            if next_anchor <= start or next_anchor[0] > bounds[1]:
+                raise ValueError(
+                    f"Pinned candidate boundary falls outside the source range: {pinned_end}"
+                )
+            intervening_unreliable = 0
         raw_block, view_end, nonempty_lines = _block_text(
             pages_by_view,
             start,
@@ -568,7 +717,9 @@ def annotate_candidate_boundaries(
             "blockNonEmptyLineCount": nonempty_lines,
             "componentRiskSignalIds": sorted(set(risk_signals)),
             "boundaryStatus": (
-                "review-required-adjacent-uncertain-locator"
+                "bounded-by-reviewed-paragraph"
+                if pinned_end
+                else "review-required-adjacent-uncertain-locator"
                 if intervening_unreliable
                 else "bounded-by-next-heading" if next_anchor else "bounded-by-approved-range-end"
             ),

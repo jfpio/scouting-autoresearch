@@ -10,6 +10,7 @@ from import_v3_ocr_games import (
     IMPORT_PLANS,
     clean_source_block,
     find_stop_heading,
+    printed_pages_for_block,
     section_for_number,
     source_heading_title,
     source_revision,
@@ -158,6 +159,27 @@ class ImportV3OcrGamesTests(unittest.TestCase):
         self.assertIn((156, "Ranny w górach."), plan.candidate_stop_headings)
         self.assertEqual(dict(plan.title_overrides)[78], "Wańka-wstańka")
         self.assertEqual(plan.heading_is_body_numbers, (6, 66, 67))
+
+    def test_pawelek_review_uses_paragraph_candidates_and_pbc_source(self):
+        plan = IMPORT_PLANS["pawelek-young-troop-1919"]
+        self.assertEqual(len(plan.accepted_numbers), 61)
+        self.assertEqual(len(plan.rejected_reasons), 54)
+        self.assertTrue(plan.use_inventory_section)
+        self.assertIn(106, plan.heading_is_body_numbers)
+
+    def test_printed_pages_follow_markers_across_scan_views(self):
+        class Page:
+            def __init__(self, markdown):
+                self.markdown = markdown
+
+        pages = {
+            10: Page("— 20 —\n\nPoczątek gry"),
+            11: Page("— 21 —\n\nkoniec gry\n\nNastępna"),
+        }
+        self.assertEqual(
+            printed_pages_for_block(pages, (10, 3), (11, 5), 11),
+            [20, 21],
+        )
 
     def test_source_revision_is_ordered_and_scoped_to_selected_views(self):
         checkpoint = {

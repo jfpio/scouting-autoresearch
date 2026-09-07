@@ -14,7 +14,7 @@
     {"sourceId": "dabrowski-indoor-games-1934", "status": "imported", "candidateCount": 184, "importedActivityCount": 175, "ocrReferenceCostUsd": 0.344, "translationReferenceCostUsd": 0.0948105, "modelEvaluationReferenceCostUsd": 0.00545545, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
     {"sourceId": "piasecki-movement-games-1922", "status": "imported", "candidateCount": 133, "importedActivityCount": 117, "translationReferenceCostUsd": 0.2930155, "modelEvaluationReferenceCostUsd": 0.04826205, "untrackedFailedTranslationReferenceCostUpperBoundUsd": 0.017268, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
     {"sourceId": "dabrowski-winter-games-1935", "status": "skipped-with-reason", "candidateCount": 0, "importedActivityCount": 0, "reason": "Owner deferred both PBC sources from the current V3 run after the direct URL proved to be an indirect DjVu index."},
-    {"sourceId": "pawelek-young-troop-1919", "status": "record-review-pending", "candidateCount": 24, "importedActivityCount": 0},
+    {"sourceId": "pawelek-young-troop-1919", "status": "imported", "candidateCount": 115, "importedActivityCount": 61, "ocrReferenceCostUsd": 0.344, "translationReferenceCostUsd": 0.0304275, "modelEvaluationReferenceCostUsd": 0.00920805, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
     {"sourceId": "zwolakowska-cub-pack-1945", "status": "imported", "candidateCount": 74, "importedActivityCount": 74, "ocrReferenceCostUsd": 0.128, "translationReferenceCostUsd": 0.049881, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v3", "sourceValidation": "passed"},
     {"sourceId": "sedlaczek-fieldcraft-method-1935", "status": "skipped-with-reason", "candidateCount": 0, "importedActivityCount": 0, "reason": "Owner deferred both PBC sources from the current V3 run after the direct URL proved to be an indirect DjVu index."},
     {"sourceId": "piasecki-schreiber-polish-scoutcraft-1917", "status": "record-review-pending", "candidateCount": 40, "importedActivityCount": 0},
@@ -37,7 +37,7 @@
   "editionsAndComponentAuthorship": {
     "status": "approved-library-ground-truth",
     "reviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md",
-    "candidateCount": 776,
+    "candidateCount": 867,
     "candidateReportsAreMetadataOnly": true,
     "rawOcrStorage": "repository-artifacts-gitignored-group-storage"
   },
@@ -50,14 +50,14 @@
     "zwolakowska-cub-pack-1945": {"processedViewCount": 32}
   },
   "candidateAndImportCounts": {
-    "candidateCount": 776,
-    "importedActivityCount": 584,
+    "candidateCount": 867,
+    "importedActivityCount": 645,
     "candidateCountBySource": {
       "jasinski-field-games-1938": 196,
       "mojmir-scout-games-1912": 85,
       "dabrowski-indoor-games-1934": 184,
       "piasecki-movement-games-1922": 133,
-      "pawelek-young-troop-1919": 24,
+      "pawelek-young-troop-1919": 115,
       "zwolakowska-cub-pack-1945": 74,
       "piasecki-schreiber-polish-scoutcraft-1917": 40,
       "sedlaczek-scout-school-1921": 40
@@ -88,10 +88,10 @@
     "ocrProcessedViewCount": 619,
     "ocrReferenceCostUsd": 2.48,
     "referenceCostLimitUsd": 10.0,
-    "translationPromptTokens": 284123,
-    "translationCompletionTokens": 137965,
-    "translationReferenceCostUsd": 0.6420245,
-    "completedModelEvaluationReferenceCostUsd": 0.07638545,
+    "translationPromptTokens": 311558,
+    "translationCompletionTokens": 149105,
+    "translationReferenceCostUsd": 0.672452,
+    "completedModelEvaluationReferenceCostUsd": 0.0855935,
     "untrackedFailedTranslationReferenceCostUpperBoundUsd": 0.017268
   },
   "validationResults": {

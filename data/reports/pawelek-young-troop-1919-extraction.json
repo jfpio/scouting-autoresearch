@@ -1,0 +1,997 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "pawelek-young-troop-1919",
+  "sourceSha256": "763d994490ea5a9cffd2b8e97b1938b15ba7c8b3bd6d8e9b0d19901e59d2fc9a",
+  "parserVersion": "v3-reviewed-paragraph-ocr-game-import-v1",
+  "reviewRequired": false,
+  "activityCount": 61,
+  "wholeSourceCopiedToRepository": false,
+  "selection": {
+    "candidateCount": 115,
+    "acceptedGameCount": 61,
+    "rejectedCount": 54,
+    "basis": "reviewed paragraph-level descriptions with enough setup, procedure and outcome to function as a standalone game or competitive exercise; meeting-program labels, technical drills, catalogues, bare names and rules dependent on another entry remain in the review report but outside the game-only production corpus",
+    "rejectedCandidates": [
+      {
+        "candidateNumber": 4,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 6,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 9,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 16,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 17,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 18,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 19,
+        "reason": "composite catalogue of three distinct puzzles without separate paragraph boundaries"
+      },
+      {
+        "candidateNumber": 23,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 24,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 26,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 27,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 33,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 34,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 37,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 40,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 41,
+        "reason": "variant or traditional game whose paragraph depends on rules supplied elsewhere"
+      },
+      {
+        "candidateNumber": 42,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 52,
+        "reason": "variant or traditional game whose paragraph depends on rules supplied elsewhere"
+      },
+      {
+        "candidateNumber": 54,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 55,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 56,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 58,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 59,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 60,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 61,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 62,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 66,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 67,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 68,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 69,
+        "reason": "fragmentary procedure without enough setup or outcome rules to stand alone"
+      },
+      {
+        "candidateNumber": 77,
+        "reason": "variant or traditional game whose paragraph depends on rules supplied elsewhere"
+      },
+      {
+        "candidateNumber": 86,
+        "reason": "variant or traditional game whose paragraph depends on rules supplied elsewhere"
+      },
+      {
+        "candidateNumber": 87,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 88,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 89,
+        "reason": "fragmentary procedure without enough setup or outcome rules to stand alone"
+      },
+      {
+        "candidateNumber": 90,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 91,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 95,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 96,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 98,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 99,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 100,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 102,
+        "reason": "variant or traditional game whose paragraph depends on rules supplied elsewhere"
+      },
+      {
+        "candidateNumber": 104,
+        "reason": "observation task without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 105,
+        "reason": "observation task without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 107,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 108,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 109,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 110,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 111,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 112,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 113,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 114,
+        "reason": "title, shorthand or cross-reference without a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 115,
+        "reason": "technical exercise, programme item or task outside the current game-only production scope"
+      }
+    ]
+  },
+  "transcriptionEvidence": {
+    "sourceStatement": "Mistral OCR output from pinned page images; raw responses remain in the gitignored artifacts store on Group Storage.",
+    "sourceLocation": "https://pbc.biaman.pl/dlibra/publication/29783/edition/28922",
+    "deterministicNormalization": [
+      "omit the repeated activity heading represented in frontmatter",
+      "omit isolated numeric printed-page furniture",
+      "omit the following section heading when it falls inside the preceding block",
+      "join OCR soft line wraps and dehyphenate lowercase word continuations",
+      "join a page-break blank line only before a lowercase sentence continuation, including after comma, semicolon or colon",
+      "preserve spelling, punctuation and paragraph order without modernization"
+    ],
+    "lexicalModernization": false
+  },
+  "deduplication": {
+    "exactBodyMatches": [],
+    "nearDuplicateCandidates": []
+  },
+  "activities": [
+    {
+      "id": "mdr-001",
+      "candidateNumber": 1,
+      "title": "Gra Kima",
+      "viewStart": 21,
+      "viewEnd": 22,
+      "printedPages": [
+        41,
+        42
+      ],
+      "sourceBlockSha256": "7f54cc118d4afd444808f889526894df46bc90da874caebfb8d0100351f64d33",
+      "publishedSourceHash": "0c75953563cb8fa0b253a3134d59571ff7225007dfaf272d92c3ad9456c9d4ac"
+    },
+    {
+      "id": "mdr-002",
+      "candidateNumber": 2,
+      "title": "Szukanie naparstka",
+      "viewStart": 26,
+      "viewEnd": 26,
+      "printedPages": [
+        50
+      ],
+      "sourceBlockSha256": "b054ca7a350816b10880bdefa4319df6321454af9ea3bdccbc6f35f7262d98f5",
+      "publishedSourceHash": "ff829c798e3f94ee957188b21b7093f85dc9137d1634ab4570cacdf5d6a86b21"
+    },
+    {
+      "id": "mdr-003",
+      "candidateNumber": 3,
+      "title": "Ocenianie wagi",
+      "viewStart": 29,
+      "viewEnd": 29,
+      "printedPages": [
+        57
+      ],
+      "sourceBlockSha256": "ef1949f101e473899a2999d374392b4295e07d3284afff6f4ff21864a5bd82a7",
+      "publishedSourceHash": "b3e07ff86ccf35d629f3130aa1848eee3a05aa492b96a4685363a567b0b7cfc9"
+    },
+    {
+      "id": "mdr-005",
+      "candidateNumber": 5,
+      "title": "Gra węchowa",
+      "viewStart": 31,
+      "viewEnd": 32,
+      "printedPages": [
+        61,
+        62
+      ],
+      "sourceBlockSha256": "99a77433c8682d371909bfaf17d493647123947af35b4684438c31d4ab4b8ed2",
+      "publishedSourceHash": "7fa0f72cd5dc052610260ddae974782a66d82418798c91176f2e971f509d61b3"
+    },
+    {
+      "id": "mdr-007",
+      "candidateNumber": 7,
+      "title": "Szachownica",
+      "viewStart": 37,
+      "viewEnd": 38,
+      "printedPages": [
+        73,
+        74
+      ],
+      "sourceBlockSha256": "7cfef68da7204f81c3cd04d6ea89969ea130f187467620d9f07816646e4673aa",
+      "publishedSourceHash": "7b9f2fb0db0aac27075f740bd04219ebe6faa77b475c34522b6ee8468c0a6a38"
+    },
+    {
+      "id": "mdr-008",
+      "candidateNumber": 8,
+      "title": "Niknące obrazy",
+      "viewStart": 40,
+      "viewEnd": 40,
+      "printedPages": [
+        79
+      ],
+      "sourceBlockSha256": "d3623375cf5ab3e9c1a56dad6b60611c556b82ac87d13967529f475ef5c16d4a",
+      "publishedSourceHash": "991de067f2ed671df3c95a4f0466da48bd29051c22e7ac16e9578a9352aa2e69"
+    },
+    {
+      "id": "mdr-010",
+      "candidateNumber": 10,
+      "title": "Pamiętanie ogłoszeń",
+      "viewStart": 45,
+      "viewEnd": 45,
+      "printedPages": [
+        89
+      ],
+      "sourceBlockSha256": "7c07f070ac163d850135347b08ddd12bb2269a957a98b88911ff516092f9b938",
+      "publishedSourceHash": "2ec1dead0d54ecce146567386573fa02f0031f4530e18ad96344b5a3b57f2c52"
+    },
+    {
+      "id": "mdr-011",
+      "candidateNumber": 11,
+      "title": "Wyprawa po rośliny",
+      "viewStart": 48,
+      "viewEnd": 48,
+      "printedPages": [
+        94
+      ],
+      "sourceBlockSha256": "d4086d22d03d8ff934f552c7bc44b53332b5aa3b7e073b7b8b1c64f054da9ba5",
+      "publishedSourceHash": "77fd513c363993547f93b82a75809671b23666a0ffb2d74a91e62d89ca1507aa"
+    },
+    {
+      "id": "mdr-012",
+      "candidateNumber": 12,
+      "title": "Kim i szukanie naparstka",
+      "viewStart": 51,
+      "viewEnd": 51,
+      "printedPages": [
+        101
+      ],
+      "sourceBlockSha256": "a976013e015307403e5194967752b7bf6a3682c2a2a62e8ea95be6206d122e52",
+      "publishedSourceHash": "717befd503d8d858105b57af74ebc0bdb9b2417e4747480661a10d8c0a94ad2f"
+    },
+    {
+      "id": "mdr-013",
+      "candidateNumber": 13,
+      "title": "Mruczek",
+      "viewStart": 54,
+      "viewEnd": 54,
+      "printedPages": [
+        107
+      ],
+      "sourceBlockSha256": "fa9e6954c59083c917a73e91083c1353d5574484017da157a5450898263fc75b",
+      "publishedSourceHash": "0dc4121c38405227b333a275a0cb109c14211ccc703573f888316c841a9b618b"
+    },
+    {
+      "id": "mdr-014",
+      "candidateNumber": 14,
+      "title": "Połowa listu",
+      "viewStart": 57,
+      "viewEnd": 57,
+      "printedPages": [
+        112
+      ],
+      "sourceBlockSha256": "f4f39a60bc82ca6364df9998463e19f382ad3513e0dc40101b1166e887f18981",
+      "publishedSourceHash": "4f065f8ce0ccd549ac227271c0f3e013ee08dacda5b389ed0de22fdf9ec02aba"
+    },
+    {
+      "id": "mdr-015",
+      "candidateNumber": 15,
+      "title": "Rysunek deseniu na tapecie",
+      "viewStart": 59,
+      "viewEnd": 59,
+      "printedPages": [
+        116
+      ],
+      "sourceBlockSha256": "a112359c3e58e31c056cbafec0ca5244692a67e7c768b05b46d61fef872e83c3",
+      "publishedSourceHash": "97adbe4806c374421919eb80199ade77dda974d88e0c2fa6e076569e7c7953aa"
+    },
+    {
+      "id": "mdr-020",
+      "candidateNumber": 20,
+      "title": "Rysowanie profilu",
+      "viewStart": 72,
+      "viewEnd": 72,
+      "printedPages": [
+        142
+      ],
+      "sourceBlockSha256": "4c629f2ecc1e84fefb9de7dba1510716fd61bad75deae93035ffb2b836c496b6",
+      "publishedSourceHash": "15fee5a6767438d2beb76421af0e424b1cd143f0fad3eca0039bc61fb92c08ec"
+    },
+    {
+      "id": "mdr-021",
+      "candidateNumber": 21,
+      "title": "Klub świstaków",
+      "viewStart": 74,
+      "viewEnd": 74,
+      "printedPages": [
+        147
+      ],
+      "sourceBlockSha256": "90b26cfd15010df480c96b08d9e0aa4348b306306cb68c423b8a579a0e7fd61b",
+      "publishedSourceHash": "69ae05a03ce1b53eb83ee6fc112b313e14683063af9f0b5ca9581caa97859e7f"
+    },
+    {
+      "id": "mdr-022",
+      "candidateNumber": 22,
+      "title": "Bilety wizytowe albo składacz (zecer)",
+      "viewStart": 77,
+      "viewEnd": 77,
+      "printedPages": [
+        153
+      ],
+      "sourceBlockSha256": "c58df43992da9beba854ac550a309beed5e76592a341f6f583fb910013d77091",
+      "publishedSourceHash": "8f15281b277799ca3b8bbe1fb27212af74924bbb34b347b17592cc8a43946b6c"
+    },
+    {
+      "id": "mdr-025",
+      "candidateNumber": 25,
+      "title": "Tak i Nie",
+      "viewStart": 84,
+      "viewEnd": 84,
+      "printedPages": [
+        168
+      ],
+      "sourceBlockSha256": "47a08cdba6cadd8e86595ac3ec9a1c3695606f206f6d11d2b0629187732f6baf",
+      "publishedSourceHash": "23830a8e4813a7d6e6757d3b28980b3fa0e284e3359718fdf19def8cb5a186e4"
+    },
+    {
+      "id": "mdr-028",
+      "candidateNumber": 28,
+      "title": "Ciche podejście miejsca obozu",
+      "viewStart": 90,
+      "viewEnd": 90,
+      "printedPages": [
+        181
+      ],
+      "sourceBlockSha256": "0b175926fd672bf989fad19cb8a6b1c9e37c3f514eef2fb188572799d0f837c4",
+      "publishedSourceHash": "bb8e0bff8c7c21921cff60a449afb5a1acb9dfde2d2e84f577c713d7d87ca37a"
+    },
+    {
+      "id": "mdr-029",
+      "candidateNumber": 29,
+      "title": "Podchodzenie — typ pierwszy",
+      "viewStart": 92,
+      "viewEnd": 93,
+      "printedPages": [
+        184,
+        185,
+        186
+      ],
+      "sourceBlockSha256": "47e1f09845bc57441406bce1d1b9b9dda7e048b4e79278c9df83377d5ff0e3d9",
+      "publishedSourceHash": "05efa76f4b2ef606471eb6f392aef227f7c98c9f3a42385d9c91cc52b4335c01"
+    },
+    {
+      "id": "mdr-030",
+      "candidateNumber": 30,
+      "title": "Podchodzenie — typ drugi",
+      "viewStart": 93,
+      "viewEnd": 93,
+      "printedPages": [
+        186,
+        187
+      ],
+      "sourceBlockSha256": "7f8ba1758c68a017dfe0d5029e12192b6b02972ce9c34c62b7c2c6b874c6d0c6",
+      "publishedSourceHash": "54ed82441aea6b31a3b3a2571c3a19d9578ab1e263e8fc4985ff10b012e7aeef"
+    },
+    {
+      "id": "mdr-031",
+      "candidateNumber": 31,
+      "title": "Podchodzenie — typ trzeci",
+      "viewStart": 93,
+      "viewEnd": 93,
+      "printedPages": [
+        187
+      ],
+      "sourceBlockSha256": "335beb6007850f8776a5b02ebf276007889ffee6f6264709fbf2d750dda42ee4",
+      "publishedSourceHash": "c75f0db49af917173b69fdd761ba94f4703b369061c0277a2924f6bb87cb23ba"
+    },
+    {
+      "id": "mdr-032",
+      "candidateNumber": 32,
+      "title": "Podchodzenie — typ czwarty",
+      "viewStart": 93,
+      "viewEnd": 94,
+      "printedPages": [
+        187,
+        188
+      ],
+      "sourceBlockSha256": "7f560c8a07923755199137e48caff8e7efc84e76db09deedf05427110dac5cec",
+      "publishedSourceHash": "9353fb734597eb7e0a6e2a514a6587ef52612767eb8d9ed23e589f558963d4b0"
+    },
+    {
+      "id": "mdr-035",
+      "candidateNumber": 35,
+      "title": "Wyprawa po rośliny",
+      "viewStart": 94,
+      "viewEnd": 94,
+      "printedPages": [
+        189
+      ],
+      "sourceBlockSha256": "aaebe16311effcca2462e8c13980145698c05da8dd781bb58f1b6119a87f9e2b",
+      "publishedSourceHash": "5afa5a31ff7d9e383375e87b1c6df36a82deda8292011c8bc897783375017d8b"
+    },
+    {
+      "id": "mdr-036",
+      "candidateNumber": 36,
+      "title": "Szukanie naparstka",
+      "viewStart": 94,
+      "viewEnd": 94,
+      "printedPages": [
+        189
+      ],
+      "sourceBlockSha256": "678c902ddd172f3ddc748d05fe5a3493de4441692fae118f57d99740675dff6e",
+      "publishedSourceHash": "ba1570735f274574e3d989804344cb0f9089f9ced6d45f5588dfa7d20b7499f0"
+    },
+    {
+      "id": "mdr-038",
+      "candidateNumber": 38,
+      "title": "Podglądanie jelenia",
+      "viewStart": 94,
+      "viewEnd": 94,
+      "printedPages": [
+        189
+      ],
+      "sourceBlockSha256": "40824fd468259c282898dd37662bd1f9689dc7b052a0b17d85a4dc87df38ef02",
+      "publishedSourceHash": "b9c57192ae01b4cae3ccd6f4828462d47d37618638bd38464a33d241604a4c87"
+    },
+    {
+      "id": "mdr-039",
+      "candidateNumber": 39,
+      "title": "Podchodzenie ślepego",
+      "viewStart": 94,
+      "viewEnd": 94,
+      "printedPages": [
+        189
+      ],
+      "sourceBlockSha256": "cbadc4d60b5588b50b7839c53af448af953046a59cd0daaf5dff07e7e8f32f48",
+      "publishedSourceHash": "2a70141df12f13e27622b8d7701356e978aea9a30393bf55b5a03eac54e04b51"
+    },
+    {
+      "id": "mdr-043",
+      "candidateNumber": 43,
+      "title": "Przekradanie się ze Zbaraża",
+      "viewStart": 94,
+      "viewEnd": 95,
+      "printedPages": [
+        189,
+        190
+      ],
+      "sourceBlockSha256": "9ac308d083bf05e0b6d39d8f046a8dfd8f9af4080b8efefc878865ab32fd0ec6",
+      "publishedSourceHash": "25545a77c7baa4403b70cfb55abe58581cfc7afa268885d097879aca24b3847e"
+    },
+    {
+      "id": "mdr-044",
+      "candidateNumber": 44,
+      "title": "Ucieczka Sybiraka",
+      "viewStart": 95,
+      "viewEnd": 95,
+      "printedPages": [
+        190
+      ],
+      "sourceBlockSha256": "71edce53e12318d0528e8312d6125fe9ec6b145d859fcb03a557e441a06148c2",
+      "publishedSourceHash": "16122c0f5cb95c9a3290ddc6dd28671bed5f6f0b900ba189ab5605c5b61509e9"
+    },
+    {
+      "id": "mdr-045",
+      "candidateNumber": 45,
+      "title": "Pająki i muchy",
+      "viewStart": 95,
+      "viewEnd": 95,
+      "printedPages": [
+        190
+      ],
+      "sourceBlockSha256": "9a8670aceaa0b7c7047bb094b85d41ed4171d8911e4a0b94e59b7722100315de",
+      "publishedSourceHash": "8eb3af270428751b9921b9a8974a8ef2bcafb1261fdc084d222b3d7b9342916c"
+    },
+    {
+      "id": "mdr-046",
+      "candidateNumber": 46,
+      "title": "Borsuk",
+      "viewStart": 95,
+      "viewEnd": 95,
+      "printedPages": [
+        190
+      ],
+      "sourceBlockSha256": "2348996c086ed0a7a52ffec682d99778b7d5662e2bc5c08ea4be90fbdd2d8113",
+      "publishedSourceHash": "1df22a13e65d3d7cae9822284003531a2af1221df90424409d7f854c814dc6a1"
+    },
+    {
+      "id": "mdr-047",
+      "candidateNumber": 47,
+      "title": "Wrona",
+      "viewStart": 95,
+      "viewEnd": 95,
+      "printedPages": [
+        190
+      ],
+      "sourceBlockSha256": "3e87ef7f561bd6d1ab59d1f232aa04f93d1317d9a9dbcc37896ab78fc45fba2d",
+      "publishedSourceHash": "9de2d7de9fac10f85e8920e9f448e9b33c66b97e8ce1ade44fde4f18057711a3"
+    },
+    {
+      "id": "mdr-048",
+      "candidateNumber": 48,
+      "title": "Kozak-Tatarzyn",
+      "viewStart": 95,
+      "viewEnd": 95,
+      "printedPages": [
+        190
+      ],
+      "sourceBlockSha256": "cd5a1e0a4b6e7bc97095eba464dccef2e148960fd16976b94210a9f163e2d268",
+      "publishedSourceHash": "90ecb7c7ce8b72ac07ba0a67f9f58b9792982f9c9d28a3db0166eb66b665b287"
+    },
+    {
+      "id": "mdr-049",
+      "candidateNumber": 49,
+      "title": "Wykrycie warty",
+      "viewStart": 95,
+      "viewEnd": 95,
+      "printedPages": [
+        190
+      ],
+      "sourceBlockSha256": "84158e715a7eeb33811b3f9a5948da02e147782895069acf52c1253373a57bda",
+      "publishedSourceHash": "66413537cc68db6c09784e41fed5e12a317de352c759558f23f7f7cb47d8ebd4"
+    },
+    {
+      "id": "mdr-050",
+      "candidateNumber": 50,
+      "title": "Złodziej w obozie",
+      "viewStart": 95,
+      "viewEnd": 95,
+      "printedPages": [
+        190
+      ],
+      "sourceBlockSha256": "22eb0b0b9ba731760c87cd325d5d9c768559a2a6f8f0b54063473ab817b7c5a5",
+      "publishedSourceHash": "0f50d0aac474e8a3a0d7785a239991fc2209a6db2550ac1fed9e3557f63cb649"
+    },
+    {
+      "id": "mdr-051",
+      "candidateNumber": 51,
+      "title": "Szukanie zgubionego przedmiotu",
+      "viewStart": 95,
+      "viewEnd": 95,
+      "printedPages": [
+        190,
+        191
+      ],
+      "sourceBlockSha256": "1e9fcd2764f5ae8976189980ac00f05c8c52ace89d53c6b09c9ce17836a79230",
+      "publishedSourceHash": "0ad39760e6547e19ab5a52909996ab0060ffc9f453869ce1d0c87163c2f86e8d"
+    },
+    {
+      "id": "mdr-053",
+      "candidateNumber": 53,
+      "title": "Wróć za 5 minut",
+      "viewStart": 95,
+      "viewEnd": 95,
+      "printedPages": [
+        191
+      ],
+      "sourceBlockSha256": "e6fd61d33c71aa667cf3d442fc458c061ce665bb626f7ec29b2cc2e50b104ef7",
+      "publishedSourceHash": "2e3cb6b72207af1b485c9882926ad7ad94fe3ea90ac4ff37e380e56e3d67896a"
+    },
+    {
+      "id": "mdr-057",
+      "candidateNumber": 57,
+      "title": "Marsz przez las",
+      "viewStart": 95,
+      "viewEnd": 95,
+      "printedPages": [
+        191
+      ],
+      "sourceBlockSha256": "4c748364412d007db976a3a013166efcdacc15a4186fa7cc42914a9d52639aaf",
+      "publishedSourceHash": "231d08cf13856b80d46e70046675298c1e96dd23610c76cf05b9eb1c407c76df"
+    },
+    {
+      "id": "mdr-063",
+      "candidateNumber": 63,
+      "title": "Bieg rozstawny",
+      "viewStart": 98,
+      "viewEnd": 99,
+      "printedPages": [
+        197,
+        198
+      ],
+      "sourceBlockSha256": "ad113c1050e8626ae993c2f7698be01e535ed49ef4992190694a7cc674c29398",
+      "publishedSourceHash": "f3948330e6756340334fa1b08b306f1cbfe7887de9cd75ad950e1a9866183ce9"
+    },
+    {
+      "id": "mdr-064",
+      "candidateNumber": 64,
+      "title": "Wyścig wywoływany",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        198
+      ],
+      "sourceBlockSha256": "50cae7e5c4da1b95082c81389c00e3b77dde7c4e905df7bf219797efb53276da",
+      "publishedSourceHash": "c4b8106d97bd86700def7cf250169cebf47435742217d0499eb20e3df632eece"
+    },
+    {
+      "id": "mdr-065",
+      "candidateNumber": 65,
+      "title": "Wyścig pojedynczy",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        198
+      ],
+      "sourceBlockSha256": "9317635a982dac71ebb515faf2b95b393012195b0c85946903ee50d73dc01ace",
+      "publishedSourceHash": "90b4b10fb519c58010915940fd11cdce45693a306afcd5ab80565ff7c9036ab5"
+    },
+    {
+      "id": "mdr-070",
+      "candidateNumber": 70,
+      "title": "Kogucia walka",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        198
+      ],
+      "sourceBlockSha256": "fd73c3dcc5793ef85f0480d5d14d6808f696e1c5057f0b22ff21fde916693a81",
+      "publishedSourceHash": "0258b75f77948765fef6e6cef642f31a08d029ebc01697ad821ab01c34b6f429"
+    },
+    {
+      "id": "mdr-071",
+      "candidateNumber": 71,
+      "title": "Podrywka",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        198
+      ],
+      "sourceBlockSha256": "ec8ef15c9a1fe5d455462affc3b8f9ca5e7f6316a9471912555a3ce49038e5a1",
+      "publishedSourceHash": "b9f8e3f3fb9dc1d1eec705b10406027f83f0ca284186af030d2769898913c842"
+    },
+    {
+      "id": "mdr-072",
+      "candidateNumber": 72,
+      "title": "Podrywka ze zwodzeniem",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        198
+      ],
+      "sourceBlockSha256": "491a9eb858a96ed7d80f7fbc88241fdcd0ef1e4d6aca7c7d35128959dcf02fb0",
+      "publishedSourceHash": "16dec25c5e9e767152fd4107173cff8433bcfac778f4fb795e27a441d74870a0"
+    },
+    {
+      "id": "mdr-073",
+      "candidateNumber": 73,
+      "title": "Bocian",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        198,
+        199
+      ],
+      "sourceBlockSha256": "cf575988b9fd78bca724b79ac8d8404c615f3e73553e8fb7921cca6ae22be824",
+      "publishedSourceHash": "40b132645221a3ed24a60733c7783e8809a6a5ee4d6d1fb009dba15e83aed02f"
+    },
+    {
+      "id": "mdr-074",
+      "candidateNumber": 74,
+      "title": "Do pana zając",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        199
+      ],
+      "sourceBlockSha256": "267679bfceafedcad33e87c551b7bffb3ba7fb7dacf7886b44bc3ab9dadf1035",
+      "publishedSourceHash": "f6e969ec0e28c0d5daecafdc2e8f51d9b05c2b95bdb004eeb42188a5d9434c28"
+    },
+    {
+      "id": "mdr-075",
+      "candidateNumber": 75,
+      "title": "Do pana zając klepany",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        199
+      ],
+      "sourceBlockSha256": "969f95f37423bc6b317d0aca85b73ebd5581b574ff4a22d4a6d4c8ba1b5f87e1",
+      "publishedSourceHash": "7a0269b8881a87ae1589f2d16c7707add54d0d30a28c2310e828e65ec07b3c4b"
+    },
+    {
+      "id": "mdr-076",
+      "candidateNumber": 76,
+      "title": "Lis i gęsi",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        199
+      ],
+      "sourceBlockSha256": "9e707ad2e747c0ef8a05cf4441158ff6abb240bdba827921ed3c82e424a2a626",
+      "publishedSourceHash": "a71589911380f6bc0f469257e4c6714c9ebe998f81301b2e229298b2932f1f7b"
+    },
+    {
+      "id": "mdr-078",
+      "candidateNumber": 78,
+      "title": "Ostatni kot zawieszony",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        199
+      ],
+      "sourceBlockSha256": "58ea9ac06cfc8a39a73a1d382d8fbb00fae301050c36a20951eaf367100e6d44",
+      "publishedSourceHash": "62ef8f035664173f67902c2533234e3f5a0df0e44ca541674f43af2368b70943"
+    },
+    {
+      "id": "mdr-079",
+      "candidateNumber": 79,
+      "title": "Dzień i noc",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        199
+      ],
+      "sourceBlockSha256": "e522f5c529550d3f7622ab8addc4f17d4b15535077727806dcf22a2fb94ad1bf",
+      "publishedSourceHash": "fe07ebcac566a33b97dc77f0870853da8d4fa9d16505a3f72dda90cfb9ab1591"
+    },
+    {
+      "id": "mdr-080",
+      "candidateNumber": 80,
+      "title": "Przeciągane wojsko",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        199
+      ],
+      "sourceBlockSha256": "d8737121cb5f354090a53e2dae1547e25048fa1fa682f1415766b6fcf2b56b6f",
+      "publishedSourceHash": "71fa0c0a30444db5f6a2dbddece62989a8230071e0cb81d6af711f83702b28ad"
+    },
+    {
+      "id": "mdr-081",
+      "candidateNumber": 81,
+      "title": "Przepychane wojsko",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        199
+      ],
+      "sourceBlockSha256": "ebaeb48018755684f9f20f503d8a51696280cc9788aaa16fda432e876c5893e1",
+      "publishedSourceHash": "0d73ee6b26ea26416f498d3c28cb67e6d39e514dbe9eaeb6573ee48ad3db3399"
+    },
+    {
+      "id": "mdr-082",
+      "candidateNumber": 82,
+      "title": "Ciuciubabka",
+      "viewStart": 99,
+      "viewEnd": 100,
+      "printedPages": [
+        199,
+        200
+      ],
+      "sourceBlockSha256": "16f56108221323906eb9c3c4c6dc60ef5b6844b4ec56823dceb8852cec9c41ad",
+      "publishedSourceHash": "f654d13f83cb8e4a1eb808b6cd48bb45fec34749200768f01c153675fa4f344c"
+    },
+    {
+      "id": "mdr-083",
+      "candidateNumber": 83,
+      "title": "Sparzak",
+      "viewStart": 100,
+      "viewEnd": 100,
+      "printedPages": [
+        200
+      ],
+      "sourceBlockSha256": "e07076c9e0c20c92b21a7e289b5534f6011dc52b8e78269817c600fcfc203120",
+      "publishedSourceHash": "b413f90ef2e147ed761a021165d6268ce7e133a266d8094303f235a650900a7a"
+    },
+    {
+      "id": "mdr-084",
+      "candidateNumber": 84,
+      "title": "Narodowości (Vocatus)",
+      "viewStart": 100,
+      "viewEnd": 100,
+      "printedPages": [
+        200
+      ],
+      "sourceBlockSha256": "345be307468f4ecf63c76062a924d35c8ffde120dd1f73a9204c5e6a8a3d35cf",
+      "publishedSourceHash": "6d42fddc7a69f15d317ea23da6d48e969606563fd9ae5e721ac4a59aff4f209b"
+    },
+    {
+      "id": "mdr-085",
+      "candidateNumber": 85,
+      "title": "Sztandar",
+      "viewStart": 100,
+      "viewEnd": 100,
+      "printedPages": [
+        200
+      ],
+      "sourceBlockSha256": "ef1f90296a7cb6ff08d9ae6385e6b78819f6e6b967c73329391618c12db2d4b2",
+      "publishedSourceHash": "7bbf1089597c0e93a7e748384477bd0ae7e6a83d64f41073ae0c9b10c262a975"
+    },
+    {
+      "id": "mdr-092",
+      "candidateNumber": 92,
+      "title": "Bieg na przełaj",
+      "viewStart": 100,
+      "viewEnd": 100,
+      "printedPages": [
+        200,
+        201
+      ],
+      "sourceBlockSha256": "5e912332d4914ae05488162be21953467079d62728bd2ae640e230343b4105c6",
+      "publishedSourceHash": "57b1ad1986e940a1362094b41ca9a53e17fd1ef1de86bc07e7fe0ac4fa31c434"
+    },
+    {
+      "id": "mdr-093",
+      "candidateNumber": 93,
+      "title": "Bieg z przeszkodami",
+      "viewStart": 100,
+      "viewEnd": 100,
+      "printedPages": [
+        201
+      ],
+      "sourceBlockSha256": "4b3fda758819f96f376aaf59d27b153fcf00feecd7a9a1accb957776b655df55",
+      "publishedSourceHash": "9b861eed761f4cfc2d83766108decc93a9f5959bb7ae85907b470d264f13beb3"
+    },
+    {
+      "id": "mdr-094",
+      "candidateNumber": 94,
+      "title": "Wyścigi humorystyczne",
+      "viewStart": 100,
+      "viewEnd": 100,
+      "printedPages": [
+        201
+      ],
+      "sourceBlockSha256": "b8e35459fdb46701298698f0b4b268df82ac6fc3d5d66fadc209e4e384dc77cb",
+      "publishedSourceHash": "9fb2eacb74e85f9367fd3a5829d8d92b58e6a43ba4530bfedf888c070955685c"
+    },
+    {
+      "id": "mdr-097",
+      "candidateNumber": 97,
+      "title": "Biegi",
+      "viewStart": 100,
+      "viewEnd": 100,
+      "printedPages": [
+        201
+      ],
+      "sourceBlockSha256": "d38d5ec4faf34cc4b2139296440e91d2deb5cee3ef30c6e85c4b536515ab3492",
+      "publishedSourceHash": "14b92dbb3837415fcfde68a56e118049a37398fb7126b3f1995754c94464eca1"
+    },
+    {
+      "id": "mdr-101",
+      "candidateNumber": 101,
+      "title": "Przekradanie się przez ilnię wart",
+      "viewStart": 101,
+      "viewEnd": 101,
+      "printedPages": [
+        202
+      ],
+      "sourceBlockSha256": "dc069f41a0bbcf0142ffc0643c073430a6dccacf914726ac0e2e7f80210b069a",
+      "publishedSourceHash": "40810811a7792e3dbf4eb1b4b534caab3907884a707ba8bda543d016b213028f"
+    },
+    {
+      "id": "mdr-103",
+      "candidateNumber": 103,
+      "title": "Zając",
+      "viewStart": 101,
+      "viewEnd": 101,
+      "printedPages": [
+        202
+      ],
+      "sourceBlockSha256": "70b60f7007b9ff1b28469bf4f2a3c7f7e71368c7b1efdd51d1b8eedf50cb1a70",
+      "publishedSourceHash": "8d913496791c81d3c584a9348c8aad3f72fb0fb1102836446088598154310b3c"
+    },
+    {
+      "id": "mdr-106",
+      "candidateNumber": 106,
+      "title": "Zapamiętanie trzech wystaw",
+      "viewStart": 101,
+      "viewEnd": 101,
+      "printedPages": [
+        202
+      ],
+      "sourceBlockSha256": "c112124360bd9733091f5d64400609045ec574cbfd97507d023acea5f2b0ea7b",
+      "publishedSourceHash": "b6207c54b54d7f03d3b2a775d843c33df637740cd0d378c9896bb545834bd792"
+    }
+  ]
+}

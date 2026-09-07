@@ -67,6 +67,7 @@ class ImportPlan:
     inline_only_numbers: tuple[int, ...] = ()
     title_overrides: tuple[tuple[int, str], ...] = ()
     heading_is_body_numbers: tuple[int, ...] = ()
+    use_inventory_section: bool = False
 
 
 JASINSKI_REJECTED_REASONS = (
@@ -106,6 +107,59 @@ DABROWSKI_REJECTED_REASONS = (
     (143, "catalogue of distinct drawing contest ideas, not one bounded game"),
     (159, "general field-signalling guidance without a self-contained game procedure"),
 )
+
+
+PAWELEK_ACCEPTED_NUMBERS = (
+    1, 2, 3, 5, 7, 8, 10, 11, 12, 13, 14, 15, 20, 21, 22, 25,
+    28, 29, 30, 31, 32,
+    35, 36, 38, 39, 43, 44, 45, 46, 47, 48, 49, 50, 51, 53, 57,
+    63, 64, 65, 70, 71, 72, 73, 74, 75, 76, 78, 79, 80, 81, 82, 83,
+    84, 85, 92, 93, 94, 97,
+    101, 103, 106,
+)
+
+
+def _pawelek_rejected_reasons() -> tuple[tuple[int, str], ...]:
+    reasons: dict[int, str] = {}
+
+    def mark(numbers: tuple[int, ...], reason: str) -> None:
+        for number in numbers:
+            reasons[number] = reason
+
+    mark(
+        (4, 6, 9, 23, 24, 26, 34, 37, 40, 55, 56, 58, 62, 66, 67, 68,
+         87, 88, 90, 91, 98, 99, 100, 114),
+        "title, shorthand or cross-reference without a self-contained game procedure",
+    )
+    mark(
+        (16, 17, 18, 27, 33, 42, 54, 59, 60, 61, 95, 96, 107, 108, 109,
+         110, 111, 112, 113, 115),
+        "technical exercise, programme item or task outside the current game-only production scope",
+    )
+    mark(
+        (19,),
+        "composite catalogue of three distinct puzzles without separate paragraph boundaries",
+    )
+    mark(
+        (41, 52, 77, 86, 102),
+        "variant or traditional game whose paragraph depends on rules supplied elsewhere",
+    )
+    mark(
+        (69, 89),
+        "fragmentary procedure without enough setup or outcome rules to stand alone",
+    )
+    mark(
+        (104, 105),
+        "observation task without a game or competitive procedure",
+    )
+    for accepted in PAWELEK_ACCEPTED_NUMBERS:
+        reasons.pop(accepted, None)
+    rejected = set(range(1, 116)) - set(PAWELEK_ACCEPTED_NUMBERS)
+    missing = rejected - set(reasons)
+    extra = set(reasons) - rejected
+    if missing or extra:
+        raise ValueError(f"Invalid Pawełek rejection plan; missing={sorted(missing)}, extra={sorted(extra)}")
+    return tuple(sorted(reasons.items()))
 
 
 IMPORT_PLANS = {
@@ -314,6 +368,37 @@ IMPORT_PLANS = {
         ),
         heading_is_body_numbers=(6, 66, 67),
     ),
+    "pawelek-young-troop-1919": ImportPlan(
+        prefix="mdr",
+        sections=((115, "Młoda drużyna"),),
+        author="Alojzy Pawełek",
+        title="Młoda drużyna",
+        year=1919,
+        edition="wydanie 2",
+        publication_place="Warszawa",
+        publisher="Skład główny Kom. D. Harc. w Warszawie",
+        source_url="https://pbc.biaman.pl/dlibra/publication/29783/edition/28922",
+        rights_evidence_url="https://pbc.biaman.pl/dlibra/publication/29783/edition/28922",
+        rights_statement="„Domena publiczna” — oznaczenie konkretnego obiektu w Podlaskiej Bibliotece Cyfrowej",
+        accessed_on="2026-09-06",
+        extraction_recipe="v3-reviewed-paragraph-ocr-game-import-v1",
+        accepted_numbers=PAWELEK_ACCEPTED_NUMBERS,
+        rejected_reasons=_pawelek_rejected_reasons(),
+        repeated_headers=(),
+        join_soft_wraps=True,
+        smoke_numbers=(1, 29, 43, 63, 75, 103),
+        selection_basis=(
+            "reviewed paragraph-level descriptions with enough setup, procedure and outcome "
+            "to function as a standalone game or competitive exercise; meeting-program labels, "
+            "technical drills, catalogues, bare names and rules dependent on another entry remain "
+            "in the review report but outside the game-only production corpus"
+        ),
+        translation_prompt="translation-pl-en-v5",
+        preserve_inline_heading_body=True,
+        use_inventory_title=True,
+        heading_is_body_numbers=(3, 12, 28, 51, 101, 106),
+        use_inventory_section=True,
+    ),
 }
 
 
@@ -324,6 +409,34 @@ def parse_end_locator(locator: str) -> tuple[int, int] | None:
     if not match:
         raise ValueError(f"Unexpected end locator: {locator}")
     return int(match.group(1)), int(match.group(2))
+
+
+PRINTED_PAGE_MARKER = re.compile(r"^(?:[—-]\s*)?(\d{1,3})(?:\s*[—-])?$")
+
+
+def printed_pages_for_block(
+    pages_by_view: dict[int, Any],
+    start: tuple[int, int],
+    end: tuple[int, int] | None,
+    range_end: int,
+) -> list[int]:
+    """Map OCR lines to the most recent printed-page marker in a two-page scan."""
+    current_page: int | None = None
+    result: list[int] = []
+    final_view = end[0] if end else range_end
+    for view in sorted(pages_by_view):
+        if view > final_view:
+            break
+        for line_number, line in enumerate(pages_by_view[view].markdown.splitlines(), start=1):
+            marker = PRINTED_PAGE_MARKER.fullmatch(line.strip())
+            if marker:
+                current_page = int(marker.group(1))
+            locator = (view, line_number)
+            if locator < start or (end is not None and locator >= end):
+                continue
+            if current_page is not None and not marker and current_page not in result:
+                result.append(current_page)
+    return result
 
 
 def source_heading_title(raw_block: str) -> str:
@@ -363,17 +476,19 @@ def clean_source_block(
         plain_heading = re.sub(
             r"^(?:\d+|[IVXLCDM]+)[.)]?\s+", "", plain_heading, flags=re.IGNORECASE
         )
-        if plain_heading.casefold().startswith(inline_heading_title.casefold()):
-            suffix = plain_heading[len(inline_heading_title):]
+        match_heading = plain_heading.replace("**", "").replace("__", "")
+        title_offset = match_heading.casefold().find(inline_heading_title.casefold())
+        if title_offset >= 0:
+            suffix = match_heading[title_offset + len(inline_heading_title):]
             if re.match(r"^\.\s+[a-ząćęłńóśźż]", suffix):
-                inline_body = plain_heading
+                inline_body = match_heading[title_offset:]
             else:
                 inline_body = suffix.lstrip(" .:;—-")
     lines = lines[1:]  # candidate title is represented in frontmatter
     kept: list[str] = []
     for line in lines:
         stripped = line.strip()
-        if re.fullmatch(r"\d{1,3}\*?", stripped):
+        if re.fullmatch(r"(?:[—-]\s*)?\d{1,3}\*?(?:\s*[—-])?", stripped):
             continue
         if re.fullmatch(r"!\[[^\]]*\]\([^)]*\)", stripped):
             continue
@@ -481,7 +596,11 @@ def import_source(source_id: str) -> dict[str, Any]:
         raise ValueError("Accepted candidate numbers differ from the pinned import plan")
     if any(
         item.get("boundaryStatus")
-        not in {"bounded-by-next-heading", "bounded-by-approved-range-end"}
+        not in {
+            "bounded-by-next-heading",
+            "bounded-by-approved-range-end",
+            "bounded-by-reviewed-paragraph",
+        }
         for item in accepted
     ):
         raise ValueError("Accepted candidates include an uncertain OCR boundary")
@@ -550,26 +669,46 @@ def import_source(source_id: str) -> dict[str, Any]:
 
         views = set(range(start[0], view_end + 1))
         selected_views.update(views)
-        printed_pages = []
-        for view in sorted(views):
-            label = str((checkpoint_items.get(view) or {}).get("printedLabel") or "")
-            if label.isdigit() and int(label) not in printed_pages:
-                printed_pages.append(int(label))
+        if source_id == "pawelek-young-troop-1919":
+            printed_pages = printed_pages_for_block(
+                pages_by_view, start, stop[0] if stop is not None else end, range_end
+            )
+        else:
+            printed_pages = []
+            for view in sorted(views):
+                label = str((checkpoint_items.get(view) or {}).get("printedLabel") or "")
+                if label.isdigit() and int(label) not in printed_pages:
+                    printed_pages.append(int(label))
         if not printed_pages:
             raise ValueError(f"Candidate {number} lacks printed-page provenance")
-        facsimile_url = str((checkpoint_items.get(start[0]) or {}).get("url") or "")
-        if not facsimile_url.startswith("https://polona.pl/iiif/3/"):
-            raise ValueError(f"Candidate {number} lacks a pinned Polona facsimile URL")
+        if source_id == "pawelek-young-troop-1919":
+            source_item = next(
+                (entry for entry in checkpoint.get("items", []) if entry.get("kind") == "pdf"),
+                {},
+            )
+            pdf_url = str(source_item.get("finalUrl") or source_item.get("url") or "")
+            if not pdf_url.startswith("https://pbc.biaman.pl/Content/"):
+                raise ValueError(f"Candidate {number} lacks a pinned PBC PDF URL")
+            facsimile_url = f"{pdf_url}#page={start[0]}"
+        else:
+            facsimile_url = str((checkpoint_items.get(start[0]) or {}).get("url") or "")
+            if not facsimile_url.startswith("https://polona.pl/iiif/3/"):
+                raise ValueError(f"Candidate {number} lacks a pinned Polona facsimile URL")
 
         activity_id = f"{plan.prefix}-{number:03d}"
         title = dict(plan.title_overrides).get(
             number,
             str(item["titleRaw"]) if plan.use_inventory_title else source_heading_title(raw_block),
         )
+        provider_name = (
+            "Podlaska Biblioteka Cyfrowa"
+            if source_id == "pawelek-young-troop-1919"
+            else "Polona / Biblioteka Narodowa"
+        )
         source_note = (
             "---\n\n"
-            f"*Źródło skanu: [Polona / Biblioteka Narodowa]({plan.source_url}), "
-            f"oznaczenie „Domena Publiczna”. [Zobacz skan — widok {start[0]}]"
+            f"*Źródło skanu: [{provider_name}]({plan.source_url}), "
+            f"oznaczenie „Domena publiczna”. [Zobacz skan — widok {start[0]}]"
             f"({facsimile_url}).*"
         )
         body = f"{source_body}\n\n{source_note}"
@@ -580,7 +719,11 @@ def import_source(source_id: str) -> dict[str, Any]:
             "originalLanguage": "pl",
             "title": title,
             "traits": [],
-            "section": section_for_number(plan, number),
+            "section": (
+                str(item["section"])
+                if plan.use_inventory_section
+                else section_for_number(plan, number)
+            ),
             "printedPages": printed_pages,
             "sourceViewStart": start[0],
             "sourceViewEnd": view_end,
@@ -621,7 +764,16 @@ def import_source(source_id: str) -> dict[str, Any]:
         if stale.name not in expected_names:
             stale.unlink()
 
-    first_facsimile = str((checkpoint_items[min(selected_views)]).get("url") or "")
+    if source_id == "pawelek-young-troop-1919":
+        source_item = next(
+            (entry for entry in checkpoint.get("items", []) if entry.get("kind") == "pdf"),
+            {},
+        )
+        first_facsimile = (
+            f"{source_item.get('finalUrl') or source_item.get('url')}#page={min(selected_views)}"
+        )
+    else:
+        first_facsimile = str((checkpoint_items[min(selected_views)]).get("url") or "")
     extraction_path = ROOT / "data" / "reports" / f"{source_id}-extraction.json"
     source_metadata = {
         "id": source_id,
@@ -660,12 +812,17 @@ def import_source(source_id: str) -> dict[str, Any]:
             ],
         },
     }
+    source_provider = (
+        "Podlaskiej Bibliotece Cyfrowej"
+        if source_id == "pawelek-young-troop-1919"
+        else "Polonie"
+    )
     source_body = (
         f"# {plan.title}\n\n"
         "Źródło bibliograficzne dla gier wyodrębnionych z obiektu bibliotecznego jawnie "
-        "oznaczonego jako domena publiczna. Obrazy stron i pełna książka pozostają poza "
-        "repozytorium.\n\n"
-        f"- [Rekord cyfrowy w Polonie]({plan.source_url})\n"
+        "oznaczonego jako domena publiczna. Obrazy stron, OCR i pełna książka pozostają "
+        "w ignorowanym przez Git katalogu `artifacts/` przy checkoutcie na Group Storage.\n\n"
+        f"- [Rekord cyfrowy w {source_provider}]({plan.source_url})\n"
         f"- [Dokładny dowód statusu prawnego]({plan.rights_evidence_url})\n"
     )
     dump_markdown(VAULT / "sources" / f"{source_id}.md", source_metadata, source_body)
@@ -719,7 +876,7 @@ def import_source(source_id: str) -> dict[str, Any]:
         "wholeSourceCopiedToRepository": False,
         "selection": selection,
         "transcriptionEvidence": {
-            "sourceStatement": "Mistral OCR output from pinned Polona IIIF page images; raw responses remain in scratch.",
+            "sourceStatement": "Mistral OCR output from pinned page images; raw responses remain in the gitignored artifacts store on Group Storage.",
             "sourceLocation": plan.source_url,
             "deterministicNormalization": normalization,
             "lexicalModernization": False,
