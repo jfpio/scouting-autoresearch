@@ -58,15 +58,15 @@
   "candidateInventory": {
     "status": "complete-for-acquired-sources",
     "candidateCount": 867,
-    "importedActivityCount": 681,
+    "importedActivityCount": 715,
     "metadataOnly": true,
     "rawOcrStorage": "repository-artifacts-gitignored-group-storage",
     "componentReviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md",
     "ocr": {
       "model": "mistral-ocr-4-1",
       "billingMode": "education-credit",
-      "processedViewCount": 619,
-      "referenceCostUsd": 2.48,
+      "processedViewCount": 653,
+      "referenceCostUsd": 2.616,
       "referenceCostLimitUsd": 10.0
     }
   },
@@ -124,9 +124,9 @@
     {"id": "zwolakowska-cub-pack-1945", "status": "imported", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/zwolakowska-cub-pack-1945.json", "candidateReport": "data/reports/zwolakowska-cub-pack-1945-candidates.json", "extractionReport": "data/reports/zwolakowska-cub-pack-1945-extraction.json", "translationReport": "data/reports/zwolakowska-cub-pack-1945-translation-pl-en.json", "candidateCount": 74, "importedActivityCount": 74, "ocrReferenceCostUsd": 0.128, "translationReferenceCostUsd": 0.049881, "sourceValidation": {"status": "passed", "validator": "scripts/validate_v3_imported_source.py", "targetedTestCount": 6, "validatedAt": "2026-09-07"}},
     {"id": "sedlaczek-fieldcraft-method-1935", "status": "skipped-with-reason", "alternativeReview": "vault/reviews/accepted/pbc-direct-djvu-alternatives.md", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/sedlaczek-fieldcraft-method-1935.json", "candidateCount": 0, "importedActivityCount": 0, "terminalReason": "Owner deferred both PBC sources from the current V3 run after the direct URL proved to be an indirect DjVu index."},
     {"id": "piasecki-schreiber-polish-scoutcraft-1917", "status": "imported", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-schreiber-polish-scoutcraft-1917.json", "candidateReport": "data/reports/piasecki-schreiber-polish-scoutcraft-1917-candidates.json", "extractionReport": "data/reports/piasecki-schreiber-polish-scoutcraft-1917-extraction.json", "translationReport": "data/reports/piasecki-schreiber-polish-scoutcraft-1917-translation-pl-en.json", "modelEvaluationReport": "data/reports/piasecki-schreiber-polish-scoutcraft-1917-translation-model-evaluation.json", "candidateCount": 40, "importedActivityCount": 36, "translationReferenceCostUsd": 0.0235865, "modelEvaluationReferenceCostUsd": 0.00683925, "untrackedFailedTranslationReferenceCostUpperBoundUsd": 0.010041, "sourceValidation": {"status": "passed", "validator": "scripts/validate_v3_imported_source.py", "targetedTestCount": 8, "validatedAt": "2026-09-07"}},
-    {"id": "sedlaczek-scout-school-1921", "status": "record-review-pending", "inspectionCheckpoint": "data/checkpoints/source-inspection/sedlaczek-scout-school-1921.json", "candidateReport": "data/reports/sedlaczek-scout-school-1921-candidates.json", "candidateCount": 40, "importedActivityCount": 0},
+    {"id": "sedlaczek-scout-school-1921", "status": "imported", "inspectionCheckpoint": "data/checkpoints/source-inspection/sedlaczek-scout-school-1921.json", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/sedlaczek-scout-school-1921.json", "candidateReport": "data/reports/sedlaczek-scout-school-1921-candidates.json", "extractionReport": "data/reports/sedlaczek-scout-school-1921-extraction.json", "translationReport": "data/reports/sedlaczek-scout-school-1921-translation-pl-en.json", "candidateCount": 40, "importedActivityCount": 34, "ocrReferenceCostUsd": 0.136, "translationReferenceCostUsd": 0.02857, "sourceValidation": {"status": "passed", "validator": "scripts/validate_v3_imported_source.py", "targetedTestCount": 5, "validatedAt": "2026-09-08"}},
     {"id": "chamarande-1934", "status": "zero-yield", "ocrCheckpoint": "data/checkpoints/gallica-fetch/chamarande-1934.json", "extractionReport": "data/reports/chamarande-1934-extraction.json", "candidateCount": 0, "importedActivityCount": 0, "referenceCostUsd": 0.456, "terminalReason": "The approved prose contains programme-level mentions of games but no self-contained game rules."}
   ],
-  "nextStep": "review and import Sedlaczek scout-school candidates",
+  "nextStep": "run V3 corpus audits and rebuild the semantic map",
   "pullRequestOpened": false
 }

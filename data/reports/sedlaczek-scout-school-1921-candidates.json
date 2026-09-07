@@ -5,7 +5,7 @@
   "authorStatement": "Stanisław Sedlaczek",
   "edition": "wydanie 3",
   "year": 1921,
-  "status": "candidate-inventory-complete-record-review-pending",
+  "status": "complete-imported",
   "sourceText": {
     "classification": "embedded-text-available",
     "sha256": "7c3cbd6f8a54b1ce1a5d93b69dc494c2d6d7f3ed83aeb7406dedb3f008c1eb27",
@@ -38,7 +38,7 @@
     },
     "rightsScope": "Game prose in the library object explicitly marked public domain; non-game media remain outside the product scope.",
     "humanReviewRequiredBeforeFullTextPublication": false,
-    "importedActivityCount": 0,
+    "importedActivityCount": 34,
     "componentEvidence": [
       "The preface describes Sedlaczek as primarily the editor rather than the author of the whole book.",
       "It says most games came from Herman Mojmir, several from Edmund Cenar, and additional exercises from Tadeusz Jaroszyński.",
@@ -50,7 +50,8 @@
         "titleRaw": "Przepisy ogólne gier z podchodzeniem",
         "reason": "shared-rules-section-not-a-standalone-game"
       }
-    ]
+    ],
+    "recordReviewRequired": false
   },
   "candidates": [
     {
@@ -66,7 +67,8 @@
       "titleLocatorScore": 0.3333,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "3f92938790a9a4c77bb733d2a4489cd8a6b17780da17d86e3cf4227e069be533",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "short observation drill without a game or competitive procedure"
     },
     {
       "titleRaw": "Szukanie naparstka",
@@ -81,7 +83,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "3f92938790a9a4c77bb733d2a4489cd8a6b17780da17d86e3cf4227e069be533",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 56,
+      "reviewedEndView": 57,
+      "reviewedStartPattern": "^2\\. Szukanie naparstka\\.",
+      "reviewedEndPattern": "^\\*\\*Pieśni\\.\\*\\*"
     },
     {
       "titleRaw": "Kim",
@@ -96,7 +102,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "41b231ee4ee729585348e2b5942584cdb9684cab0364c0ea21ade4847f33b68e",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 66,
+      "reviewedEndView": 66,
+      "reviewedStartPattern": "^# K i m\\.$",
+      "reviewedEndPattern": "^Uprawiając grę Kima"
     },
     {
       "titleRaw": "Szukanie zegarka",
@@ -111,7 +121,11 @@
       "titleLocatorScore": 0.9,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "39d672d72de3d8c474c94b26ebdd0b70852651a48b5f7add4e821e0c93307ebe",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 71,
+      "reviewedEndView": 71,
+      "reviewedStartPattern": "^Ćwiczenie pokojowe\\. 1\\. Szukanie zegarka\\.",
+      "reviewedEndPattern": "^2\\. Nielad na stole\\."
     },
     {
       "titleRaw": "Nieład na stole",
@@ -126,7 +140,11 @@
       "titleLocatorScore": 0.4103,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "39d672d72de3d8c474c94b26ebdd0b70852651a48b5f7add4e821e0c93307ebe",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 71,
+      "reviewedEndView": 71,
+      "reviewedStartPattern": "^2\\. Nielad na stole\\.",
+      "reviewedEndPattern": "^Rysowanie znaków patrolowych\\."
     },
     {
       "titleRaw": "Ćwiczenie węchu",
@@ -141,7 +159,11 @@
       "titleLocatorScore": 0.4583,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "8e4135f0451866120a98b0a9d1cd948cb3753aa1a573fffee118ac327cc9d713",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 93,
+      "reviewedEndView": 93,
+      "reviewedStartPattern": "^2\\. Ćwiczenie węchu\\.",
+      "reviewedEndPattern": "^Organizowanie pracy\\."
     },
     {
       "titleRaw": "Rysowanie śladu",
@@ -156,7 +178,8 @@
       "titleLocatorScore": 0.4545,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "4ff49d8cc273c0328c19286cbb8e553432dc985fdff602f8aa05d62a93cba8e3",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "drawing exercise without a game or competitive procedure"
     },
     {
       "titleRaw": "Gra Morgana",
@@ -171,7 +194,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "0e7a4521c83d098465adf15580731894551215c1c13b52ec4b87aad5efc24813",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 130,
+      "reviewedEndView": 130,
+      "reviewedStartPattern": "^4\\) Gra Morgana\\.",
+      "reviewedEndPattern": "^# Wycieczka\\."
     },
     {
       "titleRaw": "Ocenianie długości etc.",
@@ -186,7 +213,8 @@
       "titleLocatorScore": 0.5455,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "da820d0fb9e0d26da81acafb38be72e598103edc42821e05714ac22454c2a22f",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "measurement drill without a game or competitive procedure"
     },
     {
       "titleRaw": "Karton Bineta",
@@ -201,7 +229,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "cd1f59941406cefbc8457b9596adeec902e17bec5e8d992ff26ec455222badaf",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 180,
+      "reviewedEndView": 181,
+      "reviewedStartPattern": "^\\*Karton Bineta\\.\\*",
+      "reviewedEndPattern": "^Obserwowanie obrazków"
     },
     {
       "titleRaw": "Dobieranie barw",
@@ -216,7 +248,11 @@
       "titleLocatorScore": 0.9,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "d1bf4eeed399e5276cdbb39ea59c847f2fff6679986ae183a959f3d2999bc55a",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 189,
+      "reviewedEndView": 189,
+      "reviewedStartPattern": "^\\*Ćwiczenia pokojowe\\.\\* 1\\) Dobieranie barw\\.",
+      "reviewedEndPattern": "^2\\) Rysowanie z pamięci"
     },
     {
       "titleRaw": "Podrywka ze zwodzeniem (Kozacy i Tatarzy)",
@@ -231,7 +267,11 @@
       "titleLocatorScore": 0.6133,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "39d672d72de3d8c474c94b26ebdd0b70852651a48b5f7add4e821e0c93307ebe",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 71,
+      "reviewedEndView": 72,
+      "reviewedStartPattern": "^3\\. Podrywka ze zwodzeniem\\.",
+      "reviewedEndPattern": "4\\. \\*Ciuc u-babka\\*\\."
     },
     {
       "titleRaw": "Ciuciu babka",
@@ -246,7 +286,11 @@
       "titleLocatorScore": 0.5,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "bd085be58a6899df4c72d1ae8160bd00d09a7bec1df8c4bb3dd4660fbe1d9de2",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 72,
+      "reviewedEndView": 72,
+      "reviewedStartPattern": "4\\. \\*Ciuc u-babka\\*\\.",
+      "reviewedEndPattern": "5\\. Kucie 120\\."
     },
     {
       "titleRaw": "Bieg rozstawny",
@@ -261,7 +305,11 @@
       "titleLocatorScore": 0.9,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "32925204fe05be36d98cb29f2cdc55c2e5c61d88a4675df7bf42161d66bc9091",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 95,
+      "reviewedEndView": 95,
+      "reviewedStartPattern": "2\\. Bieg rozstawny 65\\.",
+      "reviewedEndPattern": "3\\) \\*Dołki\\* 126\\."
     },
     {
       "titleRaw": "Ptasznik",
@@ -276,7 +324,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "cfc75b5dd135b13b21d3bcd99ef129819e33494aa47f9f2f7717d88b634f3b9b",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 140,
+      "reviewedEndView": 140,
+      "reviewedStartPattern": "^Ptasznik\\.",
+      "reviewedEndPattern": "Walka byków\\."
     },
     {
       "titleRaw": "Walka byków",
@@ -291,7 +343,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "cfc75b5dd135b13b21d3bcd99ef129819e33494aa47f9f2f7717d88b634f3b9b",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 140,
+      "reviewedEndView": 141,
+      "reviewedStartPattern": "Walka byków\\.",
+      "reviewedEndPattern": null
     },
     {
       "titleRaw": "Polowanie na jelenia",
@@ -306,7 +362,11 @@
       "titleLocatorScore": 0.4324,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "be01baf751725bcda4407d75cf6511896ef0f5699978332d308e1b9f6c9866ff",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 16,
+      "reviewedEndView": 16,
+      "reviewedStartPattern": "^3\\. W porze poobiedniej",
+      "reviewedEndPattern": "^W podobny sposób"
     },
     {
       "titleRaw": "Podchodzenie ślepego",
@@ -321,7 +381,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "a5b2e918aea2bedf3a463b6ed388e9c8bcbb89cdb75d5aabb6c177a293b152fc",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 84,
+      "reviewedEndView": 84,
+      "reviewedStartPattern": "^2\\. \\*Podchodzenie ślepego\\.\\*",
+      "reviewedEndPattern": "^4\\. \\*Przekradanka\\*"
     },
     {
       "titleRaw": "Przedkradanka (mur ślepych)",
@@ -336,7 +400,11 @@
       "titleLocatorScore": 0.6452,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "a5b2e918aea2bedf3a463b6ed388e9c8bcbb89cdb75d5aabb6c177a293b152fc",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 84,
+      "reviewedEndView": 84,
+      "reviewedStartPattern": "^4\\. \\*Przekradanka\\* \\(mur ślepych\\)\\.",
+      "reviewedEndPattern": "^5\\. \\*Wyprawa po rośliny\\*"
     },
     {
       "titleRaw": "Wyprawa po rośliny",
@@ -351,7 +419,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "a5b2e918aea2bedf3a463b6ed388e9c8bcbb89cdb75d5aabb6c177a293b152fc",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 84,
+      "reviewedEndView": 84,
+      "reviewedStartPattern": "^5\\. \\*Wyprawa po rośliny\\*,",
+      "reviewedEndPattern": "^\\*Gry ruchowe\\.\\*"
     },
     {
       "titleRaw": "Ocenianie odległości",
@@ -366,7 +438,8 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "8e4135f0451866120a98b0a9d1cd948cb3753aa1a573fffee118ac327cc9d713",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "distance-estimation drill without a game or competitive procedure"
     },
     {
       "titleRaw": "Zbieranie bawełny",
@@ -381,7 +454,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "1374a452205db5608928856f50b08edb90ca3d0b16ea2e3cb4433a91808f000a",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 94,
+      "reviewedEndView": 94,
+      "reviewedStartPattern": "^\\*Zbieranie bawełny\\.\\*",
+      "reviewedEndPattern": null
     },
     {
       "titleRaw": "Ognisko na wyścigi",
@@ -396,7 +473,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "32925204fe05be36d98cb29f2cdc55c2e5c61d88a4675df7bf42161d66bc9091",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 95,
+      "reviewedEndView": 95,
+      "reviewedStartPattern": "^3\\. \\*Ognisko na wyścigi\\.\\*",
+      "reviewedEndPattern": "^\\*Gry ruchowe\\.\\*"
     },
     {
       "titleRaw": "Blisko — daleko",
@@ -411,7 +492,11 @@
       "titleLocatorScore": 0.9,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "93c28c3f0e9079fb31b4eda5d48bc0a955a7f095b5f40e12e2aea438058cb126",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 112,
+      "reviewedEndView": 113,
+      "reviewedStartPattern": "3\\. Blisko daleko\\.",
+      "reviewedEndPattern": "^\\*Bieg harcowy\\.\\*"
     },
     {
       "titleRaw": "Bieg harcowy",
@@ -426,7 +511,8 @@
       "titleLocatorScore": 0.3571,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "86ca27dfcdcee3803a239a29e17d22fc061129ebacc7fe26ee2f15630e6a5c4c",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "running technique and practice advice, not a bounded game"
     },
     {
       "titleRaw": "Tropienie za skrawkami (zając)",
@@ -441,7 +527,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "4ff49d8cc273c0328c19286cbb8e553432dc985fdff602f8aa05d62a93cba8e3",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 119,
+      "reviewedEndView": 119,
+      "reviewedStartPattern": "^1\\) Tropienie za skrawkami \\(Zając\\) \\(przygotowanie do biegu na przełaj\\)\\.",
+      "reviewedEndPattern": "^2\\) Pamiętanie śladów\\."
     },
     {
       "titleRaw": "Pamiętanie śladów",
@@ -456,7 +546,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "4ff49d8cc273c0328c19286cbb8e553432dc985fdff602f8aa05d62a93cba8e3",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 119,
+      "reviewedEndView": 120,
+      "reviewedStartPattern": "^2\\) Pamiętanie śladów\\.",
+      "reviewedEndPattern": "^4\\) \\*Polowanie na jelenia\\*"
     },
     {
       "titleRaw": "Podchodzenie straży",
@@ -471,7 +565,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "0e7a4521c83d098465adf15580731894551215c1c13b52ec4b87aad5efc24813",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 130,
+      "reviewedEndView": 131,
+      "reviewedStartPattern": "^1\\) Podchodzenie straży\\.",
+      "reviewedEndPattern": "^Odmianą tej gry jest: podchodzenie zwierzyny\\."
     },
     {
       "titleRaw": "Podchodzenie zwierzyny",
@@ -486,7 +584,11 @@
       "titleLocatorScore": 0.5797,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "3dbb802eeb8f54858f4da460ffd77dbcae7fb1ec4650f7e437a1429a0a3d7a7d",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 131,
+      "reviewedEndView": 131,
+      "reviewedStartPattern": "^Odmianą tej gry jest: podchodzenie zwierzyny\\.",
+      "reviewedEndPattern": null
     },
     {
       "titleRaw": "Wycieczka po mieście",
@@ -501,7 +603,8 @@
       "titleLocatorScore": 0.5,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "0bd898830329dff5440c612e2188df2488e043a8a1fc7a39d4d205380f12475a",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "urban reconnaissance checklist without a game or competitive procedure"
     },
     {
       "titleRaw": "Łapanka w mieście",
@@ -516,7 +619,11 @@
       "titleLocatorScore": 0.9333,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "20493279476d1fd2d1821e53c70a21336913605fdebe947feec66f33532f9ac3",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 169,
+      "reviewedEndView": 170,
+      "reviewedStartPattern": "^# Łapanka w mieście\\.$",
+      "reviewedEndPattern": null
     },
     {
       "titleRaw": "Rysunek śladu",
@@ -531,7 +638,11 @@
       "titleLocatorScore": 0.9,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "c59c7f8b90122e423c72836006a5f7e32dd11712ff1669ad844bb564e85e02ee",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 181,
+      "reviewedEndView": 181,
+      "reviewedStartPattern": "^1\\) Tropienie po śniegu\\. 2\\) Rysunek śladu\\.",
+      "reviewedEndPattern": "^Gry ruchowe\\."
     },
     {
       "titleRaw": "Fort śnieżny",
@@ -546,7 +657,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "d1bf4eeed399e5276cdbb39ea59c847f2fff6679986ae183a959f3d2999bc55a",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 189,
+      "reviewedEndView": 190,
+      "reviewedStartPattern": "^Fort śnieżny\\.",
+      "reviewedEndPattern": "^Dwaj gońce z depeszami\\."
     },
     {
       "titleRaw": "Dwaj gońce z depeszami",
@@ -561,7 +676,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "315b7f9973bb844000fc16a3be4098af3e1f75d40d2baf9282f64f400f2705f8",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 190,
+      "reviewedEndView": 190,
+      "reviewedStartPattern": "^Dwaj gońce z depeszami\\.",
+      "reviewedEndPattern": null
     },
     {
       "titleRaw": "Polowanie na lisa",
@@ -576,7 +695,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "74265920874c87521b9f28f1d5e10659738b0ab219eb982946cf602054ce3331",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 196,
+      "reviewedEndView": 197,
+      "reviewedStartPattern": "^1\\) Polowanie na lisa\\.",
+      "reviewedEndPattern": "^2\\) Fort śnieżny\\."
     },
     {
       "titleRaw": "Pająk i mucha",
@@ -591,7 +714,11 @@
       "titleLocatorScore": 0.8696,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "d365edf1aaf36942965e621d4e5aed36edc3e4ac01e6f8802ee20d95856be50a",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 199,
+      "reviewedEndView": 199,
+      "reviewedStartPattern": "^### \\*Pająk i muchą\\.\\*$",
+      "reviewedEndPattern": "^\\*Kozacki proceder w stepie\\.\\*"
     },
     {
       "titleRaw": "Kozacki proceder w stepie",
@@ -606,7 +733,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "d365edf1aaf36942965e621d4e5aed36edc3e4ac01e6f8802ee20d95856be50a",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 199,
+      "reviewedEndView": 200,
+      "reviewedStartPattern": "^\\*Kozacki proceder w stepie\\.\\*",
+      "reviewedEndPattern": null
     },
     {
       "titleRaw": "Zwiady w mieście",
@@ -621,7 +752,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "b367c0955a9c4ee6be54973deca2bc0d85edbd79affdb77fb9ba670d9f695c88",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 208,
+      "reviewedEndView": 209,
+      "reviewedStartPattern": "^1\\) \\*Zwiady w mieście\\.\\*",
+      "reviewedEndPattern": "^2\\) \\*Wyprawa do bieguna\\.\\*"
     },
     {
       "titleRaw": "Wyprawa do bieguna",
@@ -636,7 +771,11 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "82d8718346c55e0bc45d1eb53f9a5477eff57d01e42e73616d687a378e92bf65",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 209,
+      "reviewedEndView": 209,
+      "reviewedStartPattern": "^2\\) \\*Wyprawa do bieguna\\.\\*",
+      "reviewedEndPattern": null
     },
     {
       "titleRaw": "Ucieczka Sybiraka",
@@ -651,7 +790,11 @@
       "titleLocatorScore": 0.4688,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "ceb4f4caa8d33994547cf0019899c1bb3879308ea4ee4c1125c4f0a6c4d01908",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartView": 217,
+      "reviewedEndView": 218,
+      "reviewedStartPattern": "^\\*Ucieczka Sybiraka\\.\\*",
+      "reviewedEndPattern": "^## Próba i przyrzeczenie\\."
     }
   ]
 }

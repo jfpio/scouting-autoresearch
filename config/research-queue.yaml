@@ -10,9 +10,9 @@ activeRun:
   sourceUnitCount: 11
   pullRequestPolicy: one-at-end-of-run
   candidateCount: 867
-  importedActivityCount: 681
+  importedActivityCount: 715
   deferredSourceUnitCount: 2
-  nextStep: review-and-import-sedlaczek-scout-school-candidates
+  nextStep: run-v3-corpus-audits-and-semantic-map
   nextHumanGates: []
 subjects:
   - id: robert-baden-powell
