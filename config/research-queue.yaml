@@ -9,6 +9,11 @@ activeRun:
   report: data/reports/v3-source-expansion-2026-09.json
   sourceUnitCount: 11
   pullRequestPolicy: one-at-end-of-run
+  candidateCount: 760
+  importedActivityCount: 0
+  nextHumanGates:
+    - vault/reviews/inbox/v3-component-authorship-2026-09.md
+    - vault/reviews/inbox/pbc-direct-djvu-alternatives.md
 subjects:
   - id: robert-baden-powell
     name: Robert Baden-Powell
@@ -40,10 +45,11 @@ subjects:
   - id: jacques-sevin
     name: Jacques Sevin
     referenceUrl: https://en.wikipedia.org/wiki/Jacques_Sevin
-    status: ocr-ready
+    status: complete-zero-yield
     priority: 1
     activeSourceId: chamarande-1934
     checkpoint: data/checkpoints/gallica-fetch/chamarande-1934.json
+    extractionReport: data/reports/chamarande-1934-extraction.json
     rightsNote: >-
       BnF/Gallica oznacza edycję Chamarande z 1934 r. jako domaine public, a Jacques Sevin
       zmarł w 1951 r. Właściciel 5 września 2026 r. zatwierdził niekomercyjne,

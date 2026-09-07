@@ -132,7 +132,8 @@ SOURCE_PLANS: dict[str, dict[str, Any]] = {
         ],
         "componentEvidence": [
             "The preface describes Sedlaczek as primarily the editor rather than the author of the whole book.",
-            "It says most games came from Mojmir, several from Cerar, and additional exercises from Jaroszyński.",
+            "It says most games came from Herman Mojmir, several from Edmund Cenar, and additional exercises from Tadeusz Jaroszyński.",
+            "The named contributors died in 1919, 1913 and 1933 respectively, so their own prose is public domain in Poland and the EU; component attribution must still be retained.",
             "The report therefore inventories candidate locations but leaves every prose block pending human component review.",
         ],
     },

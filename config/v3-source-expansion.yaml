@@ -99,8 +99,13 @@ humanGates:
     reviewRecord: vault/reviews/accepted/v3-polish-sources-acquisition.md
     decision: temporary-download-and-named-public-domain-prose-only
   - id: per-item-rights-and-component-authorship
-    status: pending-during-run
+    status: awaiting-human-decision
+    reviewRecord: vault/reviews/inbox/v3-component-authorship-2026-09.md
     decision: batch-for-human-review-before-full-text-publication
+  - id: pbc-direct-djvu-artifacts
+    status: awaiting-human-decision
+    reviewRecord: vault/reviews/inbox/pbc-direct-djvu-alternatives.md
+    decision: do-not-fetch-until-explicitly-approved
 sourceUnits:
   - id: jasinski-field-games-1938
     order: 1

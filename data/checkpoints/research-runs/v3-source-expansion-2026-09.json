@@ -31,14 +31,14 @@
       ]
     },
     "acquisitionPreparation": {
-      "status": "human-approved-execution-pending",
-      "contentDownloadsPerformed": 7,
-      "sourceUnitsWithCompletedAcquisition": 7,
+      "status": "approved-scope-executed-for-eight-polish-sources",
+      "contentDownloadsPerformed": 8,
+      "sourceUnitsWithCompletedAcquisition": 8,
       "regionalDirectArtifactLinksDiscovered": 7,
       "directArtifactCandidatesActionableAfterApproval": 4,
       "automatedFetchBlockedByRobots": 2,
       "robotsBlockedLinksWithPermittedAlternative": 1,
-      "polonaRecordsRequiringPost-approvalResolution": 3,
+      "polonaRecordsRequiringPost-approvalResolution": 0,
       "preFetchedGallicaSources": 1,
       "rawArtifactsStorage": "scratch-only",
       "executionAdapterStatus": "implemented-and-smoke-tested",
@@ -53,6 +53,30 @@
       "renderedPages": 584,
       "checkedLinksAndAssets": 17272
     }
+  },
+  "candidateInventory": {
+    "status": "complete-for-acquired-sources",
+    "candidateCount": 760,
+    "importedActivityCount": 0,
+    "metadataOnly": true,
+    "rawOcrStorage": "scratch-only",
+    "componentReviewRecord": "vault/reviews/inbox/v3-component-authorship-2026-09.md",
+    "ocr": {
+      "model": "mistral-ocr-4-1",
+      "billingMode": "education-credit",
+      "processedViewCount": 619,
+      "referenceCostUsd": 2.48,
+      "referenceCostLimitUsd": 10.0
+    }
+  },
+  "validation": {
+    "status": "passed",
+    "targetedV3TestCount": 17,
+    "fullUnitTestCount": 215,
+    "fullUnitTestSlurmJobId": "22095999",
+    "fullUnitTestExitCode": "0:0",
+    "repositoryValidation": "passed",
+    "repositoryValidationSlurmJobId": "22095930"
   },
   "humanGates": [
     {
@@ -75,22 +99,23 @@
     },
     {
       "id": "per-item-rights-and-component-authorship",
-      "status": "pending-during-run"
+      "status": "awaiting-human-decision",
+      "reviewRecord": "vault/reviews/inbox/v3-component-authorship-2026-09.md"
     }
   ],
   "sourceUnits": [
-    {"id": "jasinski-field-games-1938", "status": "acquired", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/jasinski-field-games-1938.json"},
-    {"id": "mojmir-scout-games-1912", "status": "acquired", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/mojmir-scout-games-1912.json"},
-    {"id": "dabrowski-indoor-games-1934", "status": "acquired", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/dabrowski-indoor-games-1934.json"},
+    {"id": "jasinski-field-games-1938", "status": "awaiting-component-review", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/jasinski-field-games-1938.json", "candidateReport": "data/reports/jasinski-field-games-1938-candidates.json", "candidateCount": 181, "importedActivityCount": 0, "referenceCostUsd": 0.9},
+    {"id": "mojmir-scout-games-1912", "status": "awaiting-component-review", "componentReviewStatus": "mapping-required", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/mojmir-scout-games-1912.json", "candidateReport": "data/reports/mojmir-scout-games-1912-candidates.json", "candidateCount": 85, "importedActivityCount": 0, "referenceCostUsd": 0.308},
+    {"id": "dabrowski-indoor-games-1934", "status": "awaiting-component-review", "componentReviewStatus": "mapping-required", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/dabrowski-indoor-games-1934.json", "candidateReport": "data/reports/dabrowski-indoor-games-1934-candidates.json", "candidateCount": 183, "importedActivityCount": 0, "referenceCostUsd": 0.344},
     {"id": "piasecki-movement-games-1922", "status": "awaiting-component-review", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-movement-games-1922.json", "candidateReport": "data/reports/piasecki-movement-games-1922-candidates.json", "candidateCount": 133, "importedActivityCount": 0},
     {"id": "dabrowski-winter-games-1935", "status": "awaiting-artifact-approval", "alternativeReview": "vault/reviews/inbox/pbc-direct-djvu-alternatives.md"},
-    {"id": "pawelek-young-troop-1919", "status": "ocr-pending", "inspectionCheckpoint": "data/checkpoints/source-inspection/pawelek-young-troop-1919.json"},
-    {"id": "zwolakowska-cub-pack-1945", "status": "not-started"},
+    {"id": "pawelek-young-troop-1919", "status": "awaiting-component-review", "componentReviewStatus": "mapping-required", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/pawelek-young-troop-1919.json", "candidateReport": "data/reports/pawelek-young-troop-1919-candidates.json", "candidateCount": 24, "importedActivityCount": 0, "referenceCostUsd": 0.344},
+    {"id": "zwolakowska-cub-pack-1945", "status": "awaiting-component-review", "componentReviewStatus": "signature-scope-decision-required", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/zwolakowska-cub-pack-1945.json", "candidateReport": "data/reports/zwolakowska-cub-pack-1945-candidates.json", "candidateCount": 74, "importedActivityCount": 0, "referenceCostUsd": 0.128},
     {"id": "sedlaczek-fieldcraft-method-1935", "status": "awaiting-artifact-approval", "alternativeReview": "vault/reviews/inbox/pbc-direct-djvu-alternatives.md"},
     {"id": "piasecki-schreiber-polish-scoutcraft-1917", "status": "awaiting-component-review", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-schreiber-polish-scoutcraft-1917.json", "candidateReport": "data/reports/piasecki-schreiber-polish-scoutcraft-1917-candidates.json", "candidateCount": 40, "importedActivityCount": 0},
     {"id": "sedlaczek-scout-school-1921", "status": "awaiting-component-review", "inspectionCheckpoint": "data/checkpoints/source-inspection/sedlaczek-scout-school-1921.json", "candidateReport": "data/reports/sedlaczek-scout-school-1921-candidates.json", "candidateCount": 40, "importedActivityCount": 0},
     {"id": "chamarande-1934", "status": "zero-yield", "ocrCheckpoint": "data/checkpoints/gallica-fetch/chamarande-1934.json", "extractionReport": "data/reports/chamarande-1934-extraction.json", "candidateCount": 0, "importedActivityCount": 0, "referenceCostUsd": 0.456, "terminalReason": "The approved prose contains programme-level mentions of games but no self-contained game rules."}
   ],
-  "nextStep": "complete the remaining Polona acquisition, scope OCR for the image-only sources, and prepare one batch component-authorship review for the three embedded-text candidate inventories",
+  "nextStep": "obtain the batch component-authorship decision, decide whether to fetch the two direct PBC DjVu alternatives, then review/import eligible candidate blocks and rebuild the V3 semantic artifacts",
   "pullRequestOpened": false
 }

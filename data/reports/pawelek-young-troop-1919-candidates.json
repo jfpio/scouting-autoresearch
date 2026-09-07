@@ -1,0 +1,367 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "pawelek-young-troop-1919",
+  "sourceTitle": "Młoda drużyna",
+  "authorStatement": "Alojzy Pawełek",
+  "year": 1919,
+  "status": "candidate-inventory-complete-component-review-pending",
+  "sourceText": {
+    "classification": "mistral-ocr-scratch-only",
+    "storage": "scratch-only",
+    "model": "mistral-ocr-4-1",
+    "recipeVersion": "mistral-ocr-image-v1",
+    "approvedViewCount": 86
+  },
+  "method": {
+    "version": "explicit-game-label-locators-v1",
+    "bodyViewRanges": [
+      [
+        19,
+        101
+      ]
+    ],
+    "indexViewRanges": [
+      [
+        116,
+        118
+      ]
+    ],
+    "normalization": [
+      "collapse whitespace and remove Markdown emphasis only for matching",
+      "retain raw OCR-derived title, view/page locator and hashes; do not retain the matched OCR line",
+      "do not emit or modernize full source prose"
+    ],
+    "locatorCaveat": "Candidate boundaries and kinds remain a review task; a locator does not establish authorship or publication eligibility."
+  },
+  "selection": {
+    "productionKind": "game",
+    "candidateCount": 24,
+    "importedActivityCount": 0,
+    "rightsScope": "Pawełek's own prose only; Lutosławski's foreword and other separately authored contributions are excluded.",
+    "humanReviewRequiredBeforeFullTextPublication": true,
+    "knownComponentExceptions": [
+      "Meeting programmes are not games by themselves; only explicitly labelled game blocks are inventoried.",
+      "The author's preface says coworkers may recognize their ideas and names three earlier books used while writing; each candidate therefore needs component-level attribution before full-text publication."
+    ]
+  },
+  "ocrUsage": {
+    "pagesProcessed": 86,
+    "referenceCostUsd": 0.344,
+    "referenceCostLimitUsd": 10.0,
+    "referenceCostLimitEnforced": true
+  },
+  "candidates": [
+    {
+      "titleRaw": "Gra Kima",
+      "viewStart": 19,
+      "printedPageStart": null,
+      "pageLocator": "view-0019",
+      "bestLineLocator": "view-0019-l0006",
+      "titleLocatorLineSha256": "1539f6969f359c55692f26f0f5206181beef2ff0a8c8ce96fa82b4ee7e979870",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "4ef3e35dc0953ab16b6370257d545aed5f3fbde152d606aca0a503c69c81589c",
+      "sourcePageSha256": "8aca51a6d95dd584b65b1c2ea7611076cadf5f155d858ad0b6f4e9d080d46c05",
+      "number": 1,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "szukanie naparstka",
+      "viewStart": 23,
+      "printedPageStart": null,
+      "pageLocator": "view-0023",
+      "bestLineLocator": "view-0023-l0032",
+      "titleLocatorLineSha256": "b3ebd9a8134e59a34da2135d87bb8079d62f5c2305efa7751de1a0e0de5e9d15",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "718d929200a7c4ad0553674a806a6ef22bc9b66fbee850607986fd78c4a5bba5",
+      "sourcePageSha256": "0c255afaefa44a2b9290ee36b95f10d86daae9ef1f7e47fd0dc6230d72c2ee6a",
+      "number": 2,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Co zmieniono na stole, w ubraniu",
+      "viewStart": 33,
+      "printedPageStart": null,
+      "pageLocator": "view-0033",
+      "bestLineLocator": "view-0033-l0023",
+      "titleLocatorLineSha256": "5493b020f369ec3ebb6a92a5a6e1d38fbb97808b5549c61ff7dbe11611e3505f",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "4490e870329fa02d63747ff0aba21571d40202d1d734077297d8a5fe883ba76f",
+      "sourcePageSha256": "9c36c5ea8522b31d5946d29d9ba9ac2a235da17527f328a1d6141757e5aad605",
+      "number": 3,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Szachownica",
+      "viewStart": 36,
+      "printedPageStart": null,
+      "pageLocator": "view-0036",
+      "bestLineLocator": "view-0036-l0011",
+      "titleLocatorLineSha256": "f4e9873d2837617839294bd72374d633811c30a03317b27cc8fd7562e7f297d1",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "7219ddc180e28386c20ddb37aa4cbe39fbbfc3a0d2916def4c9037c0f7ae7131",
+      "sourcePageSha256": "ec00b6c4d35406cd32866e43fc16689ee0191d68070034c7a193fc04ff2ad879",
+      "number": 4,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Niknące obrazy",
+      "viewStart": 38,
+      "printedPageStart": null,
+      "pageLocator": "view-0038",
+      "bestLineLocator": "view-0038-l0019",
+      "titleLocatorLineSha256": "93a9ffccb4931c73d2a5f26bd7a2d191c46638fc7458d0af149ed3acd6d55ca1",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "984a919a158eac057488afba7e71665949a1d26b2031d07a0620a882522eebc5",
+      "sourcePageSha256": "01999084c1f20bad93ba604790bfee136dd452136a053d70a0615c4fcf6e099b",
+      "number": 5,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Opis ściany",
+      "viewStart": 41,
+      "printedPageStart": null,
+      "pageLocator": "view-0041",
+      "bestLineLocator": "view-0041-l0009",
+      "titleLocatorLineSha256": "5966498f0002e02ac1c2aa1667d07311f527702ee0406b108b0bc3c777af2ba8",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "7b08593fa1e135b4e66f9635465a72ee4821967c05837671a551e4fe6b775a9b",
+      "sourcePageSha256": "0e1c83d7e6e495db7217ead7939d700123009452857a2cb97fcd8fa23aca0832",
+      "number": 6,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Pamiętanie ogłoszeń",
+      "viewStart": 44,
+      "printedPageStart": null,
+      "pageLocator": "view-0044",
+      "bestLineLocator": "view-0044-l0009",
+      "titleLocatorLineSha256": "aab7e2484a93d2371eda87908d23b375b15f66c724125087d8009780d7fc6ec3",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "e18999629836ec2f9840f71b8801c3160472ae7a3b94da5c753439791956522d",
+      "sourcePageSha256": "a6cce7005b29d2b81a33bde5f6edcf35f180f0b0aa872322ed63008935d8764b",
+      "number": 7,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Wyprawa po rośliny",
+      "viewStart": 46,
+      "printedPageStart": null,
+      "pageLocator": "view-0046",
+      "bestLineLocator": "view-0046-l0019",
+      "titleLocatorLineSha256": "0f35e3969f3586dffe3cd9a3a9a497430269e37a1aa96b06db2fb61315e67bdf",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "45c3a45e7debbfb1a4b4d09f1aa9396fe554c440096fb0c97de7b59ad9a8974e",
+      "sourcePageSha256": "b0b19110e3fb03720e51fd699031495a2a69c21afc2611c7a6d6cca8a2944f7a",
+      "number": 8,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Kim i szukanie naparstka",
+      "viewStart": 49,
+      "printedPageStart": null,
+      "pageLocator": "view-0049",
+      "bestLineLocator": "view-0049-l0021",
+      "titleLocatorLineSha256": "5fb7f700a185c3b94dfcbae92bd2a4e24e600d0bba5fb1fa905a50a6c413a4e3",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "893290a2a6096304733d570b572f8c12212fc1126748d3c68e3d4fac894fef82",
+      "sourcePageSha256": "1b15c3575e730a80e01414a4f77b7387fb863791cffe8ae266c24a9c1fb94bd4",
+      "number": 9,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Mruczek",
+      "viewStart": 52,
+      "printedPageStart": null,
+      "pageLocator": "view-0052",
+      "bestLineLocator": "view-0052-l0029",
+      "titleLocatorLineSha256": "50f619b786f3fedbd3139c312648e1f43633d394cad76c3f0abe537624135057",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "a382cfdc17014553ab6aeca929ff49fd6e7fef3eddcbc2884823f42b1b283374",
+      "sourcePageSha256": "6b3fa7d3bfb1d38f9c60cbef517cd3f86b3c33017d6f857d981f8a1bdd381748",
+      "number": 10,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Połowa listu",
+      "viewStart": 55,
+      "printedPageStart": null,
+      "pageLocator": "view-0055",
+      "bestLineLocator": "view-0055-l0022",
+      "titleLocatorLineSha256": "ba4715b1ae8fd6bd73d16a76a1056f22726d3259fb2bebea3ae3436c68f9f16a",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "2568e1df8c8fe2b6670b483ddc06c6a58e4078abcdfae62032b444fe0215156f",
+      "sourcePageSha256": "f5d420ae0582a75d5bcf6c5e021158631e2c61d08e963a41d9f6388fb3488725",
+      "number": 11,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Rysunek deseniu na tapecie",
+      "viewStart": 58,
+      "printedPageStart": null,
+      "pageLocator": "view-0058",
+      "bestLineLocator": "view-0058-l0007",
+      "titleLocatorLineSha256": "403a9c8f95c636619034ae15b4d9d315b79f5a59271cc3e8bf53c205f80b969c",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "cb0f79fee37fdb64458f1b38fc2be83e33baa72c370755fb5e33f62dd88c3019",
+      "sourcePageSha256": "3096350846b5733c6de28430c55aa0d016094e5ce3ab91664ad6d10114af402c",
+      "number": 12,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Wiązanie węzłów",
+      "viewStart": 60,
+      "printedPageStart": null,
+      "pageLocator": "view-0060",
+      "bestLineLocator": "view-0060-l0019",
+      "titleLocatorLineSha256": "12576f023f9160685cf86704116bc8f65e4a5923790d12e29b221ad2762d5ef4",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "d620d77d7da6f500905b4596257e841d4807f1c85f04f22f623fd90ac986878b",
+      "sourcePageSha256": "d22e6fa36f85a7967af2a3e2317787fee84d2cca7836c19974d37dbd88735e60",
+      "number": 13,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Węzły",
+      "viewStart": 63,
+      "printedPageStart": null,
+      "pageLocator": "view-0063",
+      "bestLineLocator": "view-0063-l0006",
+      "titleLocatorLineSha256": "1fed5a390510d874f5e2263a3b606e6b1b8ed1ab20c12ba43697a8f0be1a9059",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "22bba4f9a07435254bdf89baf4e5ce97b63f438c2cc5d5a0008039c96e6ca2c0",
+      "sourcePageSha256": "f81883ffd394a7fe3e989d8fbe13d912105754c3d4ed53bb17456f5a363f37e6",
+      "number": 14,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Rzemiosło",
+      "viewStart": 65,
+      "printedPageStart": null,
+      "pageLocator": "view-0065",
+      "bestLineLocator": "view-0065-l0019",
+      "titleLocatorLineSha256": "f99574fdf15e131adca1cadc79c9dae44b6b6edbd8497dc9be3c2bd5e3d81785",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "87b874891e7a6286abb9a126fcbcbf08985494fe73e14c2cbfcd57be7eb28d7f",
+      "sourcePageSha256": "8dc32534460bed47d9d70a0349bbd9660f44add2bf9e51c3676658f3a722245e",
+      "number": 15,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Wilk, koza i kapusta",
+      "viewStart": 67,
+      "printedPageStart": null,
+      "pageLocator": "view-0067",
+      "bestLineLocator": "view-0067-l0021",
+      "titleLocatorLineSha256": "ded465eb06f837fd886b0292c8757a08fb2a93c1266a7bbf88db96c48448e354",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "ad740016f6ec90b29d307543dc69d3ce4879c02f5f71ed97ad2edfab8bd48d58",
+      "sourcePageSha256": "18e82b54fa3b7e2a60fd3072842b3e53af432216e8b685e8f3997063bb957818",
+      "number": 16,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Rysowanie profilu",
+      "viewStart": 70,
+      "printedPageStart": null,
+      "pageLocator": "view-0070",
+      "bestLineLocator": "view-0070-l0011",
+      "titleLocatorLineSha256": "9b6ec6b391ef0cd3da664c09571d89acee4020ae12b2a586d6e357e1521fb189",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "d58547d42274217dda7bb278a402888e0473d866443739cac46d82a839940fdf",
+      "sourcePageSha256": "9738d42499ad601223c043129c05ade6255698f037261af855f38fc4fdcf9ef0",
+      "number": 17,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Klub świstaków",
+      "viewStart": 73,
+      "printedPageStart": null,
+      "pageLocator": "view-0073",
+      "bestLineLocator": "view-0073-l0007",
+      "titleLocatorLineSha256": "b98c9b314f0ac77bf14e910c6c729521f019355359a4875060b7cc1bd8d27008",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "09368fb3b75c3781bf131897217e85cf525e582d48267fc92da5efff7f2e6d57",
+      "sourcePageSha256": "ee8b45f4c6d02ec840732201361f8c9d098cd2741654586d1bd3af371af9a343",
+      "number": 18,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Bilety wizytowe — zecer",
+      "viewStart": 75,
+      "printedPageStart": null,
+      "pageLocator": "view-0075",
+      "bestLineLocator": "view-0075-l0016",
+      "titleLocatorLineSha256": "4b95f8aa435326c1caf034fd5c9ca9225769ad6ab67cfda837263bcae15018b4",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "b3f275ee6da3466ea227abb38e10a64d05f7e5aa73aaccb5e47dffa9bb650750",
+      "sourcePageSha256": "d340875aa834a65a6c17c79b8578a9687599aac6b4e1e0c04536bf9620b7a3ed",
+      "number": 19,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Zapoznanie się z kompasem",
+      "viewStart": 78,
+      "printedPageStart": null,
+      "pageLocator": "view-0078",
+      "bestLineLocator": "view-0078-l0036",
+      "titleLocatorLineSha256": "f9ba02b7d6b327427fa9560735a4ea78b1bc25d612d7f38bf80e954c4ac172ae",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "bb8d41dea55e471a990e32e235420bbb1a1e616dbacdab2518ea932abe734e99",
+      "sourcePageSha256": "e37be8a255bf1473c839cc58d46c2971d0e85fd73c2ee5fe92e0fd7b2a4186af",
+      "number": 20,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Ocenianie długości i wagi",
+      "viewStart": 80,
+      "printedPageStart": null,
+      "pageLocator": "view-0080",
+      "bestLineLocator": "view-0080-l0020",
+      "titleLocatorLineSha256": "6a5adff386f6af3ab4bcde8c5ce72d70b03d92811f400e15d5b49c592c4b1435",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "b7af0340e0a255c46d4763bc5974b9d8e04422c78ffdb12e21fdd763ea7c258f",
+      "sourcePageSha256": "43d32a04a65d800be26fd1024988e72f3ae901a04c12c13263a161d416098065",
+      "number": 21,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Rysowanie układu wnętrzności",
+      "viewStart": 84,
+      "printedPageStart": null,
+      "pageLocator": "view-0084",
+      "bestLineLocator": "view-0084-l0025",
+      "titleLocatorLineSha256": "70cc02ab4a001a4d6bd5efaff46336e59719cf6e452ae7644afc2488f69c6f26",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "864179ad37b69c01ce41710bcded9622144d6084add0830b17c870600ba4136d",
+      "sourcePageSha256": "2ddb1e4c2ba20f647e61c181c1fe5eae14b27dffb561161483f5d6a6e4dcbcb5",
+      "number": 22,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Coś ruchowego",
+      "viewStart": 87,
+      "printedPageStart": null,
+      "pageLocator": "view-0087",
+      "bestLineLocator": "view-0087-l0011",
+      "titleLocatorLineSha256": "83802f8491361793052524695cd6b93d3426950156f48ac49884f95f86e0cc4c",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "ae79ac3e846c406a26f56939f3bdf1279e3073b90ab279e2bb3967630d71eb1c",
+      "sourcePageSha256": "905a0f388635ea9aec9c053551e07d1b420adb43d0a2e573984e8ed889fd8897",
+      "number": 23,
+      "componentReviewStatus": "pending-human-review"
+    },
+    {
+      "titleRaw": "Piłka nożna",
+      "viewStart": 100,
+      "printedPageStart": null,
+      "pageLocator": "view-0100",
+      "bestLineLocator": "view-0100-l0043",
+      "titleLocatorLineSha256": "b81925782a0577fde290f8b004dcba134dd8f861d746785050c74869ef154bcb",
+      "locatorStatus": "heading-located",
+      "ocrResponseSha256": "d0e62a759c1f8467d961e002eec15d75a34d88f93fbc125f3b9e9fb3d592aeaf",
+      "sourcePageSha256": "47b4bb86895faecfd3998e13427bd3d403ab07a5d2cc18e47349599383788705",
+      "number": 24,
+      "componentReviewStatus": "pending-human-review"
+    }
+  ]
+}

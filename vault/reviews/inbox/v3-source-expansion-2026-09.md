@@ -18,6 +18,9 @@ approvedHumanDecisions:
     reviewRecord: vault/reviews/accepted/v3-polish-sources-acquisition.md
 approvedAt: "2026-09-06"
 approvedBy: repository-owner
+candidateCount: 760
+importedActivityCount: 0
+ocrReferenceCostUsd: 2.48
 ---
 
 # V3-R1 — rozszerzenie korpusu przed mapą semantyczną
@@ -72,3 +75,26 @@ pull requestem. Pośrednie PR-y per książka są wyłączone.
 
 Samo zatwierdzenie tych trzech bramek nie zatwierdza wynikowych aktywności ani końcowej
 publikacji. Te decyzje pozostają widoczne w jednym raporcie i końcowym PR-ze V3-R1.
+
+## Stan wykonania 7 września 2026
+
+- Osiem dostępnych polskich książek zostało pobranych do scratch i zinwentaryzowanych.
+- Mistral OCR przetworzył 506 polskich widoków za koszt referencyjny 2,024 USD. Razem ze 113
+  widokami *Chamarande* OCR objął 619 widoków za 2,480 USD. Nie wystąpił `429`.
+- W ośmiu książkach znaleziono 760 lokalizatorów kandydatów na gry. Pełna treść nie trafiła
+  do repozytorium; raporty zawierają tylko metadane, lokalizatory i hashe.
+- *Chamarande* zakończyło się prawidłowym wynikiem zero-yield: zatwierdzona proza opisuje
+  program i wspomina gry, lecz nie zawiera samodzielnych reguł gry.
+- Dwa źródła PBC Rzeszów pozostają niepobrane. Zakaz automatycznego ZIP-u jest respektowany;
+  bezpośrednie pliki DjVu z oficjalnego czytnika czekają na osobną decyzję w
+  `vault/reviews/inbox/pbc-direct-djvu-alternatives.md`.
+- Inspekcja przedmów ujawniła nieprzypisane wkłady w kilku kompilacjach. Zbiorcza decyzja i
+  bezpieczna rekomendacja znajdują się w
+  `vault/reviews/inbox/v3-component-authorship-2026-09.md`.
+- Ukierunkowane testy V3 przeszły `17/17`, pełny zestaw przeszedł `215/215` na CPU node w
+  jobie Slurm `22095999`, a `python scripts/validate.py` zakończył się powodzeniem.
+
+Po rozstrzygnięciu tych dwóch bramek agent może przejść do przeglądu granic, importu
+kwalifikujących się gier, tłumaczeń, relacji podobieństwa, skal liczby uczestników oraz
+przebudowy embeddingów i mapy semantycznej. PR nadal powstanie tylko jeden, po osiągnięciu
+stanu terminalnego przez wszystkie jednostki manifestu.

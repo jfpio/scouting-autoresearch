@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "runId": "v3-source-expansion-2026-09",
+  "milestone": "V3-R1",
+  "status": "active-awaiting-human-gates",
+  "baseline": {
+    "activityCount": 284,
+    "gameCount": 199,
+    "sourceCount": 4
+  },
+  "sourceOutcomes": [
+    {"sourceId": "jasinski-field-games-1938", "status": "awaiting-component-review", "candidateCount": 181, "importedActivityCount": 0},
+    {"sourceId": "mojmir-scout-games-1912", "status": "awaiting-component-mapping", "candidateCount": 85, "importedActivityCount": 0},
+    {"sourceId": "dabrowski-indoor-games-1934", "status": "awaiting-component-mapping", "candidateCount": 183, "importedActivityCount": 0},
+    {"sourceId": "piasecki-movement-games-1922", "status": "awaiting-component-review", "candidateCount": 133, "importedActivityCount": 0},
+    {"sourceId": "dabrowski-winter-games-1935", "status": "awaiting-artifact-approval", "candidateCount": 0, "importedActivityCount": 0},
+    {"sourceId": "pawelek-young-troop-1919", "status": "awaiting-component-mapping", "candidateCount": 24, "importedActivityCount": 0},
+    {"sourceId": "zwolakowska-cub-pack-1945", "status": "awaiting-signature-scope-review", "candidateCount": 74, "importedActivityCount": 0},
+    {"sourceId": "sedlaczek-fieldcraft-method-1935", "status": "awaiting-artifact-approval", "candidateCount": 0, "importedActivityCount": 0},
+    {"sourceId": "piasecki-schreiber-polish-scoutcraft-1917", "status": "awaiting-component-mapping", "candidateCount": 40, "importedActivityCount": 0},
+    {"sourceId": "sedlaczek-scout-school-1921", "status": "awaiting-component-review", "candidateCount": 40, "importedActivityCount": 0},
+    {"sourceId": "chamarande-1934", "status": "zero-yield", "candidateCount": 0, "importedActivityCount": 0, "reason": "The approved prose contains programme-level mentions of games but no self-contained game rules."}
+  ],
+  "accessAndRightsDecisions": {
+    "approvedRecords": [
+      "vault/reviews/accepted/collection-historyczna-slaska.md",
+      "vault/reviews/accepted/chamarande-1934-prose-scope.md",
+      "vault/reviews/accepted/v3-polish-sources-acquisition.md",
+      "vault/reviews/accepted/v3-regional-library-access.md"
+    ],
+    "pendingRecords": [
+      "vault/reviews/inbox/v3-component-authorship-2026-09.md",
+      "vault/reviews/inbox/pbc-direct-djvu-alternatives.md"
+    ],
+    "publishedFullTextAllowed": false
+  },
+  "editionsAndComponentAuthorship": {
+    "status": "batch-review-prepared",
+    "reviewRecord": "vault/reviews/inbox/v3-component-authorship-2026-09.md",
+    "candidateCount": 760,
+    "candidateReportsAreMetadataOnly": true,
+    "rawOcrStorage": "scratch-only"
+  },
+  "pageScopes": {
+    "chamarande-1934": {"approvedViewCount": 113, "processedViewCount": 113},
+    "jasinski-field-games-1938": {"processedViewCount": 225},
+    "mojmir-scout-games-1912": {"processedViewCount": 77},
+    "dabrowski-indoor-games-1934": {"processedViewCount": 86},
+    "pawelek-young-troop-1919": {"processedViewCount": 86},
+    "zwolakowska-cub-pack-1945": {"processedViewCount": 32}
+  },
+  "candidateAndImportCounts": {
+    "candidateCount": 760,
+    "importedActivityCount": 0,
+    "candidateCountBySource": {
+      "jasinski-field-games-1938": 181,
+      "mojmir-scout-games-1912": 85,
+      "dabrowski-indoor-games-1934": 183,
+      "piasecki-movement-games-1922": 133,
+      "pawelek-young-troop-1919": 24,
+      "zwolakowska-cub-pack-1945": 74,
+      "piasecki-schreiber-polish-scoutcraft-1917": 40,
+      "sedlaczek-scout-school-1921": 40
+    }
+  },
+  "exclusionsAndZeroYieldReasons": {
+    "global": [
+      "illustrations, photographs, covers, music and lyrics",
+      "anonymous, unidentified or separately protected contributions",
+      "damaged or missing text that would require reconstruction"
+    ],
+    "chamarande-1934": "zero-yield: no self-contained game rules in the approved prose scope",
+    "dabrowski-winter-games-1935": "not fetched: robots-blocked ZIP prohibited and direct DjVu awaiting approval",
+    "sedlaczek-fieldcraft-method-1935": "not fetched: robots-blocked ZIP prohibited and direct DjVu awaiting approval"
+  },
+  "exactDuplicatesAndCloseVariantCandidates": {
+    "status": "pending-after-eligible-import",
+    "reason": "Full candidate prose remains outside the repository until component review."
+  },
+  "ocrAndTranslationModels": {
+    "ocrModel": "mistral-ocr-4-1",
+    "ocrRecipeVersion": "mistral-ocr-image-v1",
+    "translationStatus": "not-started-until-component-review",
+    "reasoningMode": "disabled"
+  },
+  "tokenUsageAndReferenceCost": {
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "ocrProcessedViewCount": 619,
+    "ocrReferenceCostUsd": 2.48,
+    "referenceCostLimitUsd": 10.0,
+    "translationReferenceCostUsd": 0.0
+  },
+  "validationResults": {
+    "status": "passed",
+    "targetedV3Tests": {"status": "passed", "testCount": 17},
+    "fullUnitTests": {
+      "status": "passed",
+      "testCount": 215,
+      "slurmJobId": "22095999",
+      "exitCode": "0:0",
+      "elapsed": "00:00:31",
+      "testRuntimeSeconds": 8.899
+    },
+    "repositoryValidation": {
+      "status": "passed",
+      "command": "python scripts/validate.py",
+      "slurmJobId": "22095930",
+      "exitCode": "0:0"
+    }
+  },
+  "unresolvedIssues": [
+    "Human decision on the component-authorship batch.",
+    "Human decision on the two direct PBC DjVu alternatives.",
+    "Per-candidate boundary and component review before any full-text import.",
+    "Translations, duplicate linking, participant-scale classification and semantic-map rebuild after import."
+  ],
+  "pullRequestOpened": false
+}
