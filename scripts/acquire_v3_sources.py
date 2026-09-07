@@ -284,6 +284,16 @@ def polona_image_url(info_url: str) -> str:
     return info_url[: -len("info.json")] + "full/1600,/0/default.jpg"
 
 
+def polona_image_fallback_url(info_url: str) -> str:
+    """Return the native-size IIIF URL used when a small image rejects width 1600."""
+    parsed = urlparse(info_url)
+    if parsed.scheme != "https" or parsed.hostname != "polona.pl":
+        raise AcquisitionError("polona-tile-is-outside-the-approved-host")
+    if not parsed.path.startswith("/iiif/3/") or not parsed.path.endswith("/info.json"):
+        raise AcquisitionError("polona-tile-info-url-has-an-unexpected-shape")
+    return info_url[: -len("info.json")] + "full/max/0/default.jpg"
+
+
 def validate_image(payload: bytes, content_type: str | None) -> str:
     if payload.startswith(b"\xff\xd8"):
         kind = "jpeg"
@@ -347,12 +357,20 @@ def acquire_polona(plan: AcquisitionPlan, limit: int | None) -> dict[str, Any]:
     ):
         raise AcquisitionError("polona-record-no-longer-matches-the-approved-public-domain-scope")
     tiles = record.get("tiles") or []
-    image_urls: list[tuple[int, str, str | None]] = []
+    image_urls: list[tuple[int, str, str, str | None]] = []
     for index, tile in enumerate(tiles, start=1):
         if not isinstance(tile, dict) or not tile.get("info"):
             continue
         label = (tile.get("label") or {}).get("pl")
-        image_urls.append((index, polona_image_url(str(tile["info"])), str(label) if label else None))
+        info_url = str(tile["info"])
+        image_urls.append(
+            (
+                index,
+                polona_image_url(info_url),
+                polona_image_fallback_url(info_url),
+                str(label) if label else None,
+            )
+        )
     if not image_urls:
         raise AcquisitionError("polona-record-has-no-downloadable-iiif-images")
 
@@ -366,6 +384,9 @@ def acquire_polona(plan: AcquisitionPlan, limit: int | None) -> dict[str, Any]:
     interval = 60.0 / max(1, plan.rate_limit_per_minute)
     metadata_path = plan.source_directory / "metadata.json"
     write_atomic(metadata_path, metadata)
+    checkpoint.pop("reason", None)
+    checkpoint.pop("providerDiagnostics", None)
+    checkpoint.pop("nextRetryAt", None)
     checkpoint.update(
         {
             "status": "in-progress",
@@ -386,16 +407,32 @@ def acquire_polona(plan: AcquisitionPlan, limit: int | None) -> dict[str, Any]:
         }
     )
     write_checkpoint(plan.checkpoint_path, checkpoint)
-    for position, (index, url, label) in enumerate(selected):
+    for position, (index, preferred_url, fallback_url, label) in enumerate(selected):
         if position:
             time.sleep(interval)
-        payload, image_final_url, image_content_type = fetch_bytes(url, "polona.pl", MAX_IMAGE_BYTES)
+        url = preferred_url
+        fallback_after_http_status = None
+        try:
+            payload, image_final_url, image_content_type = fetch_bytes(
+                url, "polona.pl", MAX_IMAGE_BYTES
+            )
+        except AcquisitionError as error:
+            # Polona's IIIF server returns 400 instead of downscaling when the requested
+            # width is larger than the native scan. Retry only that deterministic case at
+            # native size; all other provider failures retain their normal classification.
+            if error.reason != "permanent-provider-error" or error.diagnostics.get("httpStatus") != 400:
+                raise
+            time.sleep(interval)
+            url = fallback_url
+            fallback_after_http_status = 400
+            payload, image_final_url, image_content_type = fetch_bytes(
+                url, "polona.pl", MAX_IMAGE_BYTES
+            )
         kind = validate_image(payload, image_content_type)
         suffix = ".jpg" if kind == "jpeg" else ".png"
         output = plan.source_directory / "views" / f"view-{index:04d}{suffix}"
         write_atomic(output, payload)
-        items.append(
-            {
+        item = {
                 "viewIndex": index,
                 "printedLabel": label,
                 "kind": kind,
@@ -407,7 +444,9 @@ def acquire_polona(plan: AcquisitionPlan, limit: int | None) -> dict[str, Any]:
                 "sha256": hashlib.sha256(payload).hexdigest(),
                 "retrievedAt": now_iso(),
             }
-        )
+        if fallback_after_http_status is not None:
+            item["fallbackAfterHttpStatus"] = fallback_after_http_status
+        items.append(item)
         checkpoint["completedImageCount"] = len(
             {item.get("viewIndex") for item in items if item.get("status") == "complete"}
         )

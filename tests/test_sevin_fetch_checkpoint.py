@@ -28,7 +28,13 @@ class SevinFetchCheckpointTests(unittest.TestCase):
             return
         self.assertIn(
             checkpoint["status"],
-            {"view-fetch-in-progress", "views-fetched", "page-scope-review-pending", "ocr-ready"},
+            {
+                "view-fetch-in-progress",
+                "views-fetched",
+                "page-scope-review-pending",
+                "ocr-ready",
+                "zero-yield",
+            },
         )
         self.assertEqual(
             checkpoint["fetchStrategy"],
@@ -39,7 +45,8 @@ class SevinFetchCheckpointTests(unittest.TestCase):
         self.assertEqual(view_fetch["completedViews"], len(view_fetch["items"]))
         self.assertGreater(view_fetch["completedViews"], 0)
         self.assertEqual(
-            checkpoint["status"] in {"views-fetched", "page-scope-review-pending", "ocr-ready"},
+            checkpoint["status"]
+            in {"views-fetched", "page-scope-review-pending", "ocr-ready", "zero-yield"},
             view_fetch["completedViews"] == view_fetch["totalViews"],
         )
 

@@ -6,7 +6,12 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from acquire_v3_sources import AcquisitionError, load_plan, polona_image_url
+from acquire_v3_sources import (
+    AcquisitionError,
+    load_plan,
+    polona_image_fallback_url,
+    polona_image_url,
+)
 
 
 class V3SourceAcquisitionTests(unittest.TestCase):
@@ -37,8 +42,14 @@ class V3SourceAcquisitionTests(unittest.TestCase):
             polona_image_url("https://polona.pl/iiif/3/abc/info.json"),
             "https://polona.pl/iiif/3/abc/full/1600,/0/default.jpg",
         )
+        self.assertEqual(
+            polona_image_fallback_url("https://polona.pl/iiif/3/abc/info.json"),
+            "https://polona.pl/iiif/3/abc/full/max/0/default.jpg",
+        )
         with self.assertRaises(AcquisitionError):
             polona_image_url("https://example.test/iiif/3/abc/info.json")
+        with self.assertRaises(AcquisitionError):
+            polona_image_fallback_url("https://example.test/iiif/3/abc/info.json")
 
     def test_slurm_job_records_explicit_cpu_resources_and_scratch_logs(self):
         job = (
