@@ -95,8 +95,8 @@ collections:
   - id: pbc-rzeszow
     name: Podkarpacka Biblioteka Cyfrowa
     baseUrl: https://www.pbc.rzeszow.pl/
-    status: candidate
-    allowedMethods: [metadata-only]
+    status: approved-per-item
+    allowedMethods: [metadata-only, documented-download]
     rateLimitPerMinute: 5
     reviewRecord: vault/reviews/accepted/v3-regional-library-access.md
     robotsTxt:
@@ -107,9 +107,20 @@ collections:
       checkedAt: "2026-09-06"
       status: no-public-reuse-policy-found-on-linked-policy-page
     notes: >-
-      Wpis kolekcji umożliwia research metadanych. Pobranie konkretnego pliku lub pełnego
-      tekstu wymaga zapisanej decyzji per-item o prawach, składnikach i warunkach serwisu.
-      Nie automatyzuj odnośników /Content/*/zip*, które robots.txt jawnie blokuje.
+      Właściciel 7 września 2026 r. zatwierdził pobranie dwóch przypiętych plików DjVu z
+      oficjalnego czytnika. Nie automatyzuj odnośników /Content/*/zip*, które robots.txt
+      jawnie blokuje, ani żadnych innych obiektów PBC.
+    itemApprovals:
+      - sourceId: dabrowski-winter-games-1935
+        artifactType: djvu
+        path: /Content/10620/DjVu/harce_zimowe.djvu
+        approvedAt: "2026-09-07"
+        approvedBy: repository-owner
+      - sourceId: sedlaczek-fieldcraft-method-1935
+        artifactType: djvu
+        path: /Content/10606/DjVu/metodyka_harcow.djvu
+        approvedAt: "2026-09-07"
+        approvedBy: repository-owner
   - id: kpbc
     name: Kujawsko-Pomorska Biblioteka Cyfrowa
     baseUrl: https://kpbc.umk.pl/

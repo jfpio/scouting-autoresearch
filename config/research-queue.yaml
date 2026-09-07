@@ -11,9 +11,9 @@ activeRun:
   pullRequestPolicy: one-at-end-of-run
   candidateCount: 760
   importedActivityCount: 0
-  nextHumanGates:
-    - vault/reviews/inbox/v3-component-authorship-2026-09.md
-    - vault/reviews/inbox/pbc-direct-djvu-alternatives.md
+  deferredSourceUnitCount: 2
+  nextStep: review-and-import-candidates-from-eight-acquired-polish-sources
+  nextHumanGates: []
 subjects:
   - id: robert-baden-powell
     name: Robert Baden-Powell

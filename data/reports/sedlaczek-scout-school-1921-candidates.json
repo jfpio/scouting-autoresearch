@@ -5,7 +5,7 @@
   "authorStatement": "Stanisław Sedlaczek",
   "edition": "wydanie 3",
   "year": 1921,
-  "status": "candidate-inventory-complete-component-review-pending",
+  "status": "candidate-inventory-complete-record-review-pending",
   "sourceText": {
     "classification": "embedded-text-available",
     "sha256": "7c3cbd6f8a54b1ce1a5d93b69dc494c2d6d7f3ed83aeb7406dedb3f008c1eb27",
@@ -27,8 +27,18 @@
     "candidateCount": 40,
     "headingLocatedCount": 30,
     "pageOnlyLocatorCount": 10,
+    "rightsStatus": "public-domain",
+    "rightsEvidencePolicy": "explicit-library-public-domain-status-is-ground-truth",
+    "rightsEvidence": {
+      "institution": "Śląska Biblioteka Cyfrowa",
+      "statusLabel": "domena publiczna",
+      "evidenceUrl": "https://www.sbc.org.pl/dlibra/publication/68754/edition/64835",
+      "checkedAt": "2026-09-06",
+      "reviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md"
+    },
+    "rightsScope": "Game prose in the library object explicitly marked public domain; non-game media remain outside the product scope.",
+    "humanReviewRequiredBeforeFullTextPublication": false,
     "importedActivityCount": 0,
-    "humanReviewRequiredBeforeFullTextPublication": true,
     "componentEvidence": [
       "The preface describes Sedlaczek as primarily the editor rather than the author of the whole book.",
       "It says most games came from Herman Mojmir, several from Edmund Cenar, and additional exercises from Tadeusz Jaroszyński.",
@@ -56,7 +66,7 @@
       "titleLocatorScore": 0.3333,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "3f92938790a9a4c77bb733d2a4489cd8a6b17780da17d86e3cf4227e069be533",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Szukanie naparstka",
@@ -71,7 +81,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "3f92938790a9a4c77bb733d2a4489cd8a6b17780da17d86e3cf4227e069be533",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kim",
@@ -86,7 +96,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "41b231ee4ee729585348e2b5942584cdb9684cab0364c0ea21ade4847f33b68e",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Szukanie zegarka",
@@ -101,7 +111,7 @@
       "titleLocatorScore": 0.9,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "39d672d72de3d8c474c94b26ebdd0b70852651a48b5f7add4e821e0c93307ebe",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Nieład na stole",
@@ -116,7 +126,7 @@
       "titleLocatorScore": 0.4103,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "39d672d72de3d8c474c94b26ebdd0b70852651a48b5f7add4e821e0c93307ebe",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Ćwiczenie węchu",
@@ -131,7 +141,7 @@
       "titleLocatorScore": 0.4583,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "8e4135f0451866120a98b0a9d1cd948cb3753aa1a573fffee118ac327cc9d713",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Rysowanie śladu",
@@ -146,7 +156,7 @@
       "titleLocatorScore": 0.4545,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "4ff49d8cc273c0328c19286cbb8e553432dc985fdff602f8aa05d62a93cba8e3",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Gra Morgana",
@@ -161,7 +171,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "0e7a4521c83d098465adf15580731894551215c1c13b52ec4b87aad5efc24813",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Ocenianie długości etc.",
@@ -176,7 +186,7 @@
       "titleLocatorScore": 0.5455,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "da820d0fb9e0d26da81acafb38be72e598103edc42821e05714ac22454c2a22f",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Karton Bineta",
@@ -191,7 +201,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "cd1f59941406cefbc8457b9596adeec902e17bec5e8d992ff26ec455222badaf",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Dobieranie barw",
@@ -206,7 +216,7 @@
       "titleLocatorScore": 0.9,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "d1bf4eeed399e5276cdbb39ea59c847f2fff6679986ae183a959f3d2999bc55a",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Podrywka ze zwodzeniem (Kozacy i Tatarzy)",
@@ -221,7 +231,7 @@
       "titleLocatorScore": 0.6133,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "39d672d72de3d8c474c94b26ebdd0b70852651a48b5f7add4e821e0c93307ebe",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Ciuciu babka",
@@ -236,7 +246,7 @@
       "titleLocatorScore": 0.5,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "bd085be58a6899df4c72d1ae8160bd00d09a7bec1df8c4bb3dd4660fbe1d9de2",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Bieg rozstawny",
@@ -251,7 +261,7 @@
       "titleLocatorScore": 0.9,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "32925204fe05be36d98cb29f2cdc55c2e5c61d88a4675df7bf42161d66bc9091",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Ptasznik",
@@ -266,7 +276,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "cfc75b5dd135b13b21d3bcd99ef129819e33494aa47f9f2f7717d88b634f3b9b",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Walka byków",
@@ -281,7 +291,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "cfc75b5dd135b13b21d3bcd99ef129819e33494aa47f9f2f7717d88b634f3b9b",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Polowanie na jelenia",
@@ -296,7 +306,7 @@
       "titleLocatorScore": 0.4324,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "be01baf751725bcda4407d75cf6511896ef0f5699978332d308e1b9f6c9866ff",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Podchodzenie ślepego",
@@ -311,7 +321,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "a5b2e918aea2bedf3a463b6ed388e9c8bcbb89cdb75d5aabb6c177a293b152fc",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Przedkradanka (mur ślepych)",
@@ -326,7 +336,7 @@
       "titleLocatorScore": 0.6452,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "a5b2e918aea2bedf3a463b6ed388e9c8bcbb89cdb75d5aabb6c177a293b152fc",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wyprawa po rośliny",
@@ -341,7 +351,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "a5b2e918aea2bedf3a463b6ed388e9c8bcbb89cdb75d5aabb6c177a293b152fc",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Ocenianie odległości",
@@ -356,7 +366,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "8e4135f0451866120a98b0a9d1cd948cb3753aa1a573fffee118ac327cc9d713",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Zbieranie bawełny",
@@ -371,7 +381,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "1374a452205db5608928856f50b08edb90ca3d0b16ea2e3cb4433a91808f000a",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Ognisko na wyścigi",
@@ -386,7 +396,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "32925204fe05be36d98cb29f2cdc55c2e5c61d88a4675df7bf42161d66bc9091",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Blisko — daleko",
@@ -401,7 +411,7 @@
       "titleLocatorScore": 0.9,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "93c28c3f0e9079fb31b4eda5d48bc0a955a7f095b5f40e12e2aea438058cb126",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Bieg harcowy",
@@ -416,7 +426,7 @@
       "titleLocatorScore": 0.3571,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "86ca27dfcdcee3803a239a29e17d22fc061129ebacc7fe26ee2f15630e6a5c4c",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Tropienie za skrawkami (zając)",
@@ -431,7 +441,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "4ff49d8cc273c0328c19286cbb8e553432dc985fdff602f8aa05d62a93cba8e3",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Pamiętanie śladów",
@@ -446,7 +456,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "4ff49d8cc273c0328c19286cbb8e553432dc985fdff602f8aa05d62a93cba8e3",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Podchodzenie straży",
@@ -461,7 +471,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "0e7a4521c83d098465adf15580731894551215c1c13b52ec4b87aad5efc24813",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Podchodzenie zwierzyny",
@@ -476,7 +486,7 @@
       "titleLocatorScore": 0.5797,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "3dbb802eeb8f54858f4da460ffd77dbcae7fb1ec4650f7e437a1429a0a3d7a7d",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wycieczka po mieście",
@@ -491,7 +501,7 @@
       "titleLocatorScore": 0.5,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "0bd898830329dff5440c612e2188df2488e043a8a1fc7a39d4d205380f12475a",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Łapanka w mieście",
@@ -506,7 +516,7 @@
       "titleLocatorScore": 0.9333,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "20493279476d1fd2d1821e53c70a21336913605fdebe947feec66f33532f9ac3",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Rysunek śladu",
@@ -521,7 +531,7 @@
       "titleLocatorScore": 0.9,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "c59c7f8b90122e423c72836006a5f7e32dd11712ff1669ad844bb564e85e02ee",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Fort śnieżny",
@@ -536,7 +546,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "d1bf4eeed399e5276cdbb39ea59c847f2fff6679986ae183a959f3d2999bc55a",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Dwaj gońce z depeszami",
@@ -551,7 +561,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "315b7f9973bb844000fc16a3be4098af3e1f75d40d2baf9282f64f400f2705f8",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Polowanie na lisa",
@@ -566,7 +576,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "74265920874c87521b9f28f1d5e10659738b0ab219eb982946cf602054ce3331",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Pająk i mucha",
@@ -581,7 +591,7 @@
       "titleLocatorScore": 0.8696,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "d365edf1aaf36942965e621d4e5aed36edc3e4ac01e6f8802ee20d95856be50a",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kozacki proceder w stepie",
@@ -596,7 +606,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "d365edf1aaf36942965e621d4e5aed36edc3e4ac01e6f8802ee20d95856be50a",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Zwiady w mieście",
@@ -611,7 +621,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "b367c0955a9c4ee6be54973deca2bc0d85edbd79affdb77fb9ba670d9f695c88",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wyprawa do bieguna",
@@ -626,7 +636,7 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "82d8718346c55e0bc45d1eb53f9a5477eff57d01e42e73616d687a378e92bf65",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Ucieczka Sybiraka",
@@ -641,7 +651,7 @@
       "titleLocatorScore": 0.4688,
       "locatorStatus": "page-located-heading-needs-review",
       "sourcePageSha256": "ceb4f4caa8d33994547cf0019899c1bb3879308ea4ee4c1125c4f0a6c4d01908",
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     }
   ]
 }

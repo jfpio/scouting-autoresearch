@@ -29,6 +29,7 @@ CHECKPOINT_DIR = ROOT / "data" / "checkpoints" / "source-acquisition"
 MAX_METADATA_BYTES = 4 * 1024 * 1024
 MAX_IMAGE_BYTES = 20 * 1024 * 1024
 MAX_PDF_BYTES = 512 * 1024 * 1024
+MAX_DJVU_BYTES = 512 * 1024 * 1024
 USER_AGENT = "scouting-autoresearch/1.0 (+https://github.com/jfpio/scouting-autoresearch)"
 
 
@@ -37,6 +38,7 @@ class AcquisitionPlan:
     source_id: str
     collection_id: str
     method: str
+    artifact_type: str | None
     source_url: str
     artifact_url: str | None
     expected_host: str
@@ -100,11 +102,29 @@ def load_plan(source_id: str) -> AcquisitionPlan:
     )
     if not unit:
         raise AcquisitionError("source-is-not-in-the-v3-manifest")
+    if unit.get("runDisposition") == "skipped-with-reason":
+        raise AcquisitionError("source-is-skipped-in-the-current-v3-run")
     proposed = unit.get("proposedAcquisition") or {}
     method = str(proposed.get("method") or "")
     if method == "zip-link-blocked-by-robots":
-        raise AcquisitionError("artifact-is-blocked-by-robots-use-a-permitted-alternative")
-    if method not in {"polona-uuid-record", "direct-artifact-link-from-metadata-page"}:
+        gates = {gate.get("id"): gate for gate in manifest.get("humanGates", [])}
+        alternative = unit.get("alternativeCandidate") or {}
+        approval = gates.get("pbc-direct-djvu-artifacts") or {}
+        if (
+            alternative.get("method") != "direct-djvu-from-official-reader"
+            or alternative.get("status") != "approved-resolve-before-fetch"
+            or alternative.get("artifactType") != "djvu"
+            or approval.get("status") != "approved"
+            or approval.get("approvedBy") != "repository-owner"
+        ):
+            raise AcquisitionError("artifact-is-blocked-by-robots-use-a-permitted-alternative")
+        proposed = alternative
+        method = str(proposed.get("method"))
+    if method not in {
+        "polona-uuid-record",
+        "direct-artifact-link-from-metadata-page",
+        "direct-djvu-from-official-reader",
+    }:
         raise AcquisitionError("source-does-not-use-this-acquisition-adapter")
     if proposed.get("status") != "approved-resolve-before-fetch":
         raise AcquisitionError("source-acquisition-is-not-owner-approved")
@@ -125,7 +145,7 @@ def load_plan(source_id: str) -> AcquisitionPlan:
     )
     if not expected_host:
         raise AcquisitionError("target-collection-has-no-approved-host")
-    source_url = str(unit.get("url") or "")
+    source_url = str(proposed.get("discoveryUrl") or unit.get("url") or "")
     parsed_source = urlparse(source_url)
     if parsed_source.scheme != "https" or not parsed_source.hostname:
         raise AcquisitionError("source-record-url-is-not-https")
@@ -141,6 +161,7 @@ def load_plan(source_id: str) -> AcquisitionPlan:
         source_id=source_id,
         collection_id=collection_id,
         method=method,
+        artifact_type=str(proposed.get("artifactType") or "") or None,
         source_url=source_url,
         artifact_url=artifact_url,
         expected_host=expected_host,
@@ -248,7 +269,14 @@ def resolve_direct_artifact(plan: AcquisitionPlan) -> tuple[str, dict[str, Any]]
     source_host = str(urlparse(plan.source_url).hostname or "")
     page, final_url, content_type = fetch_bytes(plan.source_url, source_host, MAX_METADATA_BYTES)
     text = page.decode("utf-8", errors="replace")
-    candidates = re.findall(r"(?:https?:)?//[^\"'<>\s]+\.pdf|/Content/[^\"'<>\s]+\.pdf", text, re.I)
+    if plan.artifact_type not in {"pdf", "djvu"}:
+        raise AcquisitionError("direct-artifact-type-is-not-supported")
+    extension = re.escape(f".{plan.artifact_type}")
+    candidates = re.findall(
+        rf"(?:https?:)?//[^\"'<>\s]+{extension}|/Content/[^\"'<>\s]+{extension}",
+        text,
+        re.I,
+    )
     target = normalized_artifact_identity(plan.artifact_url)
     resolved = None
     for candidate in candidates:
@@ -273,6 +301,18 @@ def validate_pdf(payload: bytes, content_type: str | None) -> None:
         raise AcquisitionError("artifact-signature-is-not-pdf")
     if content_type and content_type not in {"application/pdf", "application/octet-stream"}:
         raise AcquisitionError("artifact-content-type-is-not-pdf", {"contentType": content_type})
+
+
+def validate_djvu(payload: bytes, content_type: str | None) -> None:
+    if not payload.startswith(b"AT&TFORM") or payload[12:16] not in {b"DJVU", b"DJVM"}:
+        raise AcquisitionError("artifact-signature-is-not-djvu")
+    if content_type and content_type not in {
+        "image/vnd.djvu",
+        "image/x-djvu",
+        "image/x.djvu",
+        "application/octet-stream",
+    }:
+        raise AcquisitionError("artifact-content-type-is-not-djvu", {"contentType": content_type})
 
 
 def polona_image_url(info_url: str) -> str:
@@ -306,15 +346,24 @@ def validate_image(payload: bytes, content_type: str | None) -> str:
     return kind
 
 
-def acquire_direct_pdf(plan: AcquisitionPlan) -> dict[str, Any]:
+def acquire_direct_artifact(plan: AcquisitionPlan) -> dict[str, Any]:
     checkpoint = read_checkpoint(plan)
     artifact_url, resolution = resolve_direct_artifact(plan)
-    output = plan.source_directory / "source.pdf"
-    existing = next((item for item in checkpoint.get("items", []) if item.get("kind") == "pdf"), None)
+    if plan.artifact_type not in {"pdf", "djvu"}:
+        raise AcquisitionError("direct-artifact-type-is-not-supported")
+    output = plan.source_directory / f"source.{plan.artifact_type}"
+    existing = next(
+        (item for item in checkpoint.get("items", []) if item.get("kind") == plan.artifact_type),
+        None,
+    )
     if existing and output.exists() and hashlib.sha256(output.read_bytes()).hexdigest() == existing.get("sha256"):
         return checkpoint
-    payload, final_url, content_type = fetch_bytes(artifact_url, plan.expected_host, MAX_PDF_BYTES)
-    validate_pdf(payload, content_type)
+    size_limit = MAX_PDF_BYTES if plan.artifact_type == "pdf" else MAX_DJVU_BYTES
+    payload, final_url, content_type = fetch_bytes(artifact_url, plan.expected_host, size_limit)
+    if plan.artifact_type == "pdf":
+        validate_pdf(payload, content_type)
+    else:
+        validate_djvu(payload, content_type)
     write_atomic(output, payload)
     checkpoint.update(
         {
@@ -324,7 +373,7 @@ def acquire_direct_pdf(plan: AcquisitionPlan) -> dict[str, Any]:
             "completedAt": now_iso(),
             "items": [
                 {
-                    "kind": "pdf",
+                    "kind": plan.artifact_type,
                     "status": "complete",
                     "url": artifact_url,
                     "finalUrl": final_url,
@@ -502,8 +551,8 @@ def main() -> None:
         print(json.dumps(summarize(plan, checkpoint, False), ensure_ascii=False, indent=2))
         return
     try:
-        if plan.method == "direct-artifact-link-from-metadata-page":
-            checkpoint = acquire_direct_pdf(plan)
+        if plan.method.startswith("direct-"):
+            checkpoint = acquire_direct_artifact(plan)
         else:
             checkpoint = acquire_polona(plan, args.limit)
     except AcquisitionError as error:

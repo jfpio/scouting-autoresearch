@@ -4,7 +4,7 @@
   "sourceTitle": "Gry i ćwiczenia terenowe (Harce terenowe)",
   "authorStatement": "Jan Jasiński",
   "year": 1938,
-  "status": "candidate-inventory-complete-component-review-pending",
+  "status": "candidate-inventory-complete-record-review-pending",
   "sourceText": {
     "classification": "mistral-ocr-scratch-only",
     "storage": "scratch-only",
@@ -37,16 +37,27 @@
     "normalization": [
       "collapse whitespace and remove Markdown emphasis only for matching",
       "retain raw OCR-derived title, view/page locator and hashes; do not retain the matched OCR line",
+      "hash candidate blocks from their start heading to the next reliable heading without emitting block text",
       "do not emit or modernize full source prose"
     ],
-    "locatorCaveat": "Candidate boundaries and kinds remain a review task; a locator does not establish authorship or publication eligibility."
+    "locatorCaveat": "Candidate boundaries, kinds and provenance notes remain a record-review task; the library's explicit public-domain status establishes publication eligibility for this digital object."
   },
   "selection": {
     "productionKind": "game",
     "candidateCount": 181,
     "importedActivityCount": 0,
-    "rightsScope": "Jasiński's own prose only; cover artwork, illustrations and separately credited material are excluded.",
-    "humanReviewRequiredBeforeFullTextPublication": true,
+    "rightsScope": "Game prose in the Polona object explicitly marked public domain; non-game media remain outside the product scope.",
+    "rightsStatus": "public-domain",
+    "rightsEvidencePolicy": "explicit-library-public-domain-status-is-ground-truth",
+    "rightsEvidence": {
+      "institution": "Polona",
+      "statusLabel": "Domena Publiczna",
+      "statusDetail": "copyrightProtected=false",
+      "evidenceUrl": "https://polona.pl/api/library-object-query/digital-objects/b1600bcb-668f-4daf-a37b-81fade26971f",
+      "checkedAt": "2026-09-06T18:23:33.670373+00:00",
+      "reviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md"
+    },
+    "humanReviewRequiredBeforeFullTextPublication": false,
     "knownComponentExceptions": [
       "The author's preface says the selection is based on his long practical experience; no blanket third-party contribution credit was found in the inspected front matter."
     ]
@@ -71,8 +82,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "4097637a4457f09eb424e1afaec3bba6ddf9f4bd0e0de4eb17af273570f380a1",
       "sourcePageSha256": "19a3a9ff20dc19867207883105480f3f54ea82741133fec068e83e1c05e6509e",
+      "viewEndInclusive": 90,
+      "endExclusiveLocator": "view-0090-l0007",
+      "sourceBlockSha256": "29d274a444977578c6f916acad9c19b4d07f9ce000ce952e5a3d89e595869011",
+      "blockMarkdownCharacterCount": 1615,
+      "blockNonEmptyLineCount": 8,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 1,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -87,8 +105,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "73a930a8d7ad39bee15c3496a75393627c09f0683a8725b61bbfc19566310cbc",
       "sourcePageSha256": "42298471bb07f2c13127f7c2efa80937c84cc59de3ace4475c6abafcf24350fd",
+      "viewEndInclusive": 90,
+      "endExclusiveLocator": "view-0090-l0009",
+      "sourceBlockSha256": "afe0d88db25c219af1981328bd27180693eb2dac5d7e2d39d0fadffbd91942cf",
+      "blockMarkdownCharacterCount": 416,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 2,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -103,8 +128,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "73a930a8d7ad39bee15c3496a75393627c09f0683a8725b61bbfc19566310cbc",
       "sourcePageSha256": "42298471bb07f2c13127f7c2efa80937c84cc59de3ace4475c6abafcf24350fd",
+      "viewEndInclusive": 91,
+      "endExclusiveLocator": "view-0091-l0003",
+      "sourceBlockSha256": "9ed92ba1ad13443da4ff4aea9db7a3651e76a0ac03419345e8af287d70712e72",
+      "blockMarkdownCharacterCount": 544,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 3,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 4,
@@ -119,8 +151,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "b2e02d95f19a5c599f3d1bf2af2d8e76b12d2886e1d7e63afc395278bfbb6884",
       "sourcePageSha256": "100263ee36cc63b63b38fd3dc7a11a67a2efe4118912e4ced7de370ed71d767b",
+      "viewEndInclusive": 91,
+      "endExclusiveLocator": "view-0091-l0007",
+      "sourceBlockSha256": "96c1f57acf7a91f30c4a19f3daabbc4e452c6d7ccb5726d9b0c59c0108311db5",
+      "blockMarkdownCharacterCount": 450,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 4,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 5,
@@ -135,8 +174,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "b2e02d95f19a5c599f3d1bf2af2d8e76b12d2886e1d7e63afc395278bfbb6884",
       "sourcePageSha256": "100263ee36cc63b63b38fd3dc7a11a67a2efe4118912e4ced7de370ed71d767b",
+      "viewEndInclusive": 92,
+      "endExclusiveLocator": "view-0092-l0007",
+      "sourceBlockSha256": "5034f2b69b05dfc3b856539112183a6817c821d8009ec9c1dc8b6e2437ac717f",
+      "blockMarkdownCharacterCount": 1722,
+      "blockNonEmptyLineCount": 12,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 5,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 1,
@@ -151,8 +197,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "ffb8968ce5a05128d93857c4d96d1cbc4718616b35ac60804bdb05356595fde7",
       "sourcePageSha256": "b34f8db604e0e40d73b93eed08f2730e72280c439f3b4d21645965bf2e98b319",
+      "viewEndInclusive": 93,
+      "endExclusiveLocator": "view-0093-l0003",
+      "sourceBlockSha256": "ebe285619dd97b84c5da6a9bcfb6e24119b8b8e7112619b933222cdc8346652f",
+      "blockMarkdownCharacterCount": 919,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 6,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -167,8 +220,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "84e576ea6f9e5b26c5191a628b354619ec390893c4693c4ef152b1e59148d351",
       "sourcePageSha256": "86f127bbf9d97e3f8ecd9ef5186f67bc9bf8fa6681f6b8a11ecbbc89236abba7",
+      "viewEndInclusive": 93,
+      "endExclusiveLocator": "view-0093-l0009",
+      "sourceBlockSha256": "63a95e61af052b5d6c2a32994f82f92617af68897b4cdc9b71a05947c6f2c892",
+      "blockMarkdownCharacterCount": 918,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 7,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -183,8 +243,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "84e576ea6f9e5b26c5191a628b354619ec390893c4693c4ef152b1e59148d351",
       "sourcePageSha256": "86f127bbf9d97e3f8ecd9ef5186f67bc9bf8fa6681f6b8a11ecbbc89236abba7",
+      "viewEndInclusive": 94,
+      "endExclusiveLocator": "view-0094-l0005",
+      "sourceBlockSha256": "86940b3d9343bfd128476695dd0d54bf451392d6c366c719df1c6f236dfe7880",
+      "blockMarkdownCharacterCount": 572,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 8,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 4,
@@ -199,8 +266,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "2eb6e01d68d25c17cbef8811b77ca60ac0f2184e729df72d9a1e522eb68770ab",
       "sourcePageSha256": "bf923440d4f97924a4b424e2452390a392bfea090b626242c1aab2118b42142f",
+      "viewEndInclusive": 94,
+      "endExclusiveLocator": "view-0094-l0013",
+      "sourceBlockSha256": "d0fe9d74eb594bb91451c3ecc595ce8b7a3b23715e5a1434c78d53db04aa6987",
+      "blockMarkdownCharacterCount": 421,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 9,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 1,
@@ -215,8 +289,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "2eb6e01d68d25c17cbef8811b77ca60ac0f2184e729df72d9a1e522eb68770ab",
       "sourcePageSha256": "bf923440d4f97924a4b424e2452390a392bfea090b626242c1aab2118b42142f",
+      "viewEndInclusive": 95,
+      "endExclusiveLocator": "view-0096-l0001",
+      "sourceBlockSha256": "cbf5895282172ed562953531f46069c75cc8b222a7c77bb5f69f7217c65eb9e9",
+      "blockMarkdownCharacterCount": 2265,
+      "blockNonEmptyLineCount": 15,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 10,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -231,8 +312,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "1470a6be1394bc3ce2f941f22e58f0a4f25779c8eb76186608a8c8ff196debaf",
       "sourcePageSha256": "c248e7f59a81339cfc6a0df137e9876e4e0e6221ad880950533c39024cf0b87c",
+      "viewEndInclusive": 96,
+      "endExclusiveLocator": "view-0097-l0001",
+      "sourceBlockSha256": "c248e7f59a81339cfc6a0df137e9876e4e0e6221ad880950533c39024cf0b87c",
+      "blockMarkdownCharacterCount": 1496,
+      "blockNonEmptyLineCount": 8,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 11,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -247,8 +335,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "5a17eb0d4d7cb1de97e35603ee2310a1a0369076583e3427dec6c682f3179f3d",
       "sourcePageSha256": "86c3831443631c46327cc3411fd5c6940182828eee6431ff6d098ea088a6bae7",
+      "viewEndInclusive": 97,
+      "endExclusiveLocator": "view-0097-l0008",
+      "sourceBlockSha256": "2fc5e9e69eec7e3eb1912bb610a9f94ea8da375072f21cb1c79851ddf3d4c009",
+      "blockMarkdownCharacterCount": 257,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 12,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 1,
@@ -263,8 +358,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "5a17eb0d4d7cb1de97e35603ee2310a1a0369076583e3427dec6c682f3179f3d",
       "sourcePageSha256": "86c3831443631c46327cc3411fd5c6940182828eee6431ff6d098ea088a6bae7",
+      "viewEndInclusive": 97,
+      "endExclusiveLocator": "view-0097-l0017",
+      "sourceBlockSha256": "87b52137d0d6dfc2a7469dc491f3580378b01426c9162a469c2e66402741a08d",
+      "blockMarkdownCharacterCount": 751,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 13,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -279,8 +381,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "5a17eb0d4d7cb1de97e35603ee2310a1a0369076583e3427dec6c682f3179f3d",
       "sourcePageSha256": "86c3831443631c46327cc3411fd5c6940182828eee6431ff6d098ea088a6bae7",
+      "viewEndInclusive": 97,
+      "endExclusiveLocator": "view-0097-l0021",
+      "sourceBlockSha256": "f106e29530f086ad72512a429d9449f77a10940f5a65842526f064aef9e00c62",
+      "blockMarkdownCharacterCount": 146,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 14,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -295,8 +404,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "5a17eb0d4d7cb1de97e35603ee2310a1a0369076583e3427dec6c682f3179f3d",
       "sourcePageSha256": "86c3831443631c46327cc3411fd5c6940182828eee6431ff6d098ea088a6bae7",
+      "viewEndInclusive": 98,
+      "endExclusiveLocator": "view-0098-l0003",
+      "sourceBlockSha256": "29659e13d118a77a2b898d3e77c6a4b4f10916432f3505d85b7d299bae158437",
+      "blockMarkdownCharacterCount": 334,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 15,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 4,
@@ -311,8 +427,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "b8847b4fbda5e251da4eae4b4df7b2dba2990adcab64943aa111991962961ce0",
       "sourcePageSha256": "b8d80aade658fca7ce1bffefeecacd6a34bbfe29a010917a8e68cd4be1c66720",
+      "viewEndInclusive": 98,
+      "endExclusiveLocator": "view-0098-l0007",
+      "sourceBlockSha256": "d808dc35c2e1908446aba5ba3ba1202b32c47b885e030f136a59e5d827656eef",
+      "blockMarkdownCharacterCount": 393,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 16,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 5,
@@ -327,8 +450,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "b8847b4fbda5e251da4eae4b4df7b2dba2990adcab64943aa111991962961ce0",
       "sourcePageSha256": "b8d80aade658fca7ce1bffefeecacd6a34bbfe29a010917a8e68cd4be1c66720",
+      "viewEndInclusive": 99,
+      "endExclusiveLocator": "view-0099-l0003",
+      "sourceBlockSha256": "3d6fa4942c8ff1cb32d5455f629c2dae5b9191b6a694ff70e388ea26ef4b56a5",
+      "blockMarkdownCharacterCount": 1068,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 17,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 6,
@@ -343,8 +473,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "e43cbb1483ad2ff57c38314dd61967a2214ce85df473fa549e68301746c66d88",
       "sourcePageSha256": "b5020c39db79cd1e97975fa30e1708e3111180c1af299f8ed5b3640b508ea78d",
+      "viewEndInclusive": 99,
+      "endExclusiveLocator": "view-0099-l0007",
+      "sourceBlockSha256": "3615f55370702b27df4fc9f0980864dfd9db3a7dd682ebc968cc55a47daddc44",
+      "blockMarkdownCharacterCount": 461,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 18,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 7,
@@ -359,8 +496,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "e43cbb1483ad2ff57c38314dd61967a2214ce85df473fa549e68301746c66d88",
       "sourcePageSha256": "b5020c39db79cd1e97975fa30e1708e3111180c1af299f8ed5b3640b508ea78d",
+      "viewEndInclusive": 99,
+      "endExclusiveLocator": "view-0099-l0011",
+      "sourceBlockSha256": "fb49c881ac84271bdcb70453b044185cb28b0a55856a606af0f086c0fe721c33",
+      "blockMarkdownCharacterCount": 166,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 19,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 8,
@@ -375,8 +519,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "e43cbb1483ad2ff57c38314dd61967a2214ce85df473fa549e68301746c66d88",
       "sourcePageSha256": "b5020c39db79cd1e97975fa30e1708e3111180c1af299f8ed5b3640b508ea78d",
+      "viewEndInclusive": 99,
+      "endExclusiveLocator": "view-0100-l0001",
+      "sourceBlockSha256": "e61b59bdaa1b36969a6c09ea1818046a25f711be6d1eea982399e5f9eb06bf15",
+      "blockMarkdownCharacterCount": 660,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 20,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 9,
@@ -391,8 +544,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "33f76b3bd000497b55fd856a194afbd90b9de10b30eb7ea72a5b51d4b5c3540c",
       "sourcePageSha256": "b94900177fc7eb617feef82c7d0d6c8545363137bb1ecc768ae092f8f9ec5b7c",
+      "viewEndInclusive": 100,
+      "endExclusiveLocator": "view-0101-l0001",
+      "sourceBlockSha256": "b94900177fc7eb617feef82c7d0d6c8545363137bb1ecc768ae092f8f9ec5b7c",
+      "blockMarkdownCharacterCount": 1544,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 21,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 10,
@@ -407,8 +567,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "7a406ebcc9b40afbb60c6e35a72875e28cf74a03e2aa04da18ae865c36a6a9a1",
       "sourcePageSha256": "a46c872f6485fed008e4b223437060f7a49823d8f6f05fe3a8e78b839074cb9b",
+      "viewEndInclusive": 101,
+      "endExclusiveLocator": "view-0101-l0005",
+      "sourceBlockSha256": "88a08be4faf831c8bc7beb819bdc02461f3a82b0820c406130ed62e4e042e582",
+      "blockMarkdownCharacterCount": 306,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 22,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 11,
@@ -423,8 +590,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "7a406ebcc9b40afbb60c6e35a72875e28cf74a03e2aa04da18ae865c36a6a9a1",
       "sourcePageSha256": "a46c872f6485fed008e4b223437060f7a49823d8f6f05fe3a8e78b839074cb9b",
+      "viewEndInclusive": 102,
+      "endExclusiveLocator": "view-0102-l0005",
+      "sourceBlockSha256": "2fdbcc689df38432971f7d3d7371e3b670ecc464eaeea3dd0c1eead2e1a4573a",
+      "blockMarkdownCharacterCount": 1469,
+      "blockNonEmptyLineCount": 9,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 23,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 12,
@@ -439,8 +613,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "94564af01a94901667699ee1ae3ad03190071f6a333c8051874a3a18f7dcaf7e",
       "sourcePageSha256": "54bfbf6e08e4827a9cb85749c0446cf8a236fc01fd279297ee84e44d6b10be05",
+      "viewEndInclusive": 102,
+      "endExclusiveLocator": "view-0102-l0015",
+      "sourceBlockSha256": "8d2e9208d94946b7d991fac22c5caa7f39546d9a855af335effa9d4f33ae6272",
+      "blockMarkdownCharacterCount": 1041,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 24,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 13,
@@ -455,8 +638,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "94564af01a94901667699ee1ae3ad03190071f6a333c8051874a3a18f7dcaf7e",
       "sourcePageSha256": "54bfbf6e08e4827a9cb85749c0446cf8a236fc01fd279297ee84e44d6b10be05",
+      "viewEndInclusive": 103,
+      "endExclusiveLocator": "view-0103-l0005",
+      "sourceBlockSha256": "e58d059985f1401efb08f4b9b13a14dea4717dd2b5ff671e35acfe87a2182348",
+      "blockMarkdownCharacterCount": 1062,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 25,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 14,
@@ -471,8 +661,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "aac2131a253aa0a3d7198b771b3e1b98f00cf9745ca9209a50296eca997092a1",
       "sourcePageSha256": "35af12d55916fc510cb3fba011c8d02cc60626ef11f181e0391b55f165649e9a",
+      "viewEndInclusive": 104,
+      "endExclusiveLocator": "view-0104-l0003",
+      "sourceBlockSha256": "5acf9b4d5697459ec9cd38baa812740bd90839525f426162e85ef114546f77d1",
+      "blockMarkdownCharacterCount": 1001,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 26,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 15,
@@ -487,8 +684,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "b2e66afdf437383c44012583632726d8a4c005a808203dbdd0d30284443e441d",
       "sourcePageSha256": "8fec24d09be3d3c83d5c3632d7c39eceb19c835dc7333295c635b785c1a54d6e",
+      "viewEndInclusive": 105,
+      "endExclusiveLocator": "view-0105-l0003",
+      "sourceBlockSha256": "b888ac7f04de4a6ebb315c83d3b9cb53a8fc0db4c515e4af304453f7ca26c1cd",
+      "blockMarkdownCharacterCount": 1826,
+      "blockNonEmptyLineCount": 8,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 27,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 16,
@@ -503,8 +707,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "2bb135d623270b44a12d439339af74629097013d6935fa65abaf4abee63e3d6b",
       "sourcePageSha256": "dd6e6d4748c66944ecb0d1936732e479b1600780b7f69daf587901997ea821d5",
+      "viewEndInclusive": 105,
+      "endExclusiveLocator": "view-0105-l0007",
+      "sourceBlockSha256": "8560f79eb23cc780df3995fb43a0a50b778f10ed60be5e69fd03ddd1d5de98c3",
+      "blockMarkdownCharacterCount": 419,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 28,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 17,
@@ -519,8 +730,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "2bb135d623270b44a12d439339af74629097013d6935fa65abaf4abee63e3d6b",
       "sourcePageSha256": "dd6e6d4748c66944ecb0d1936732e479b1600780b7f69daf587901997ea821d5",
+      "viewEndInclusive": 106,
+      "endExclusiveLocator": "view-0106-l0009",
+      "sourceBlockSha256": "2c65945edb0416a436d53ca32fc4dc54aa611c3baae1d7c43681707ddb5e9213",
+      "blockMarkdownCharacterCount": 1121,
+      "blockNonEmptyLineCount": 12,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 29,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 1,
@@ -535,8 +753,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "f95d475ca15e65db5f5635b26f6c78a52ccf7e9d5b22a8b92e8233faa0277532",
       "sourcePageSha256": "f7890b9e4b7b0a375f47751b7576832f5b0c391c3f55d21230a0986bf3843d64",
+      "viewEndInclusive": 106,
+      "endExclusiveLocator": "view-0106-l0011",
+      "sourceBlockSha256": "1ebc82093f5d4eeda83e0af8f8b381b6a35ad342af9effabff0aee1b9213b05e",
+      "blockMarkdownCharacterCount": 411,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 30,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -551,8 +776,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "f95d475ca15e65db5f5635b26f6c78a52ccf7e9d5b22a8b92e8233faa0277532",
       "sourcePageSha256": "f7890b9e4b7b0a375f47751b7576832f5b0c391c3f55d21230a0986bf3843d64",
+      "viewEndInclusive": 106,
+      "endExclusiveLocator": "view-0106-l0013",
+      "sourceBlockSha256": "f7636a4a1d41afd89883058c81ee6b358a3550f17fcbbcd202315d0439562e71",
+      "blockMarkdownCharacterCount": 129,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 31,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -567,8 +799,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "f95d475ca15e65db5f5635b26f6c78a52ccf7e9d5b22a8b92e8233faa0277532",
       "sourcePageSha256": "f7890b9e4b7b0a375f47751b7576832f5b0c391c3f55d21230a0986bf3843d64",
+      "viewEndInclusive": 106,
+      "endExclusiveLocator": "view-0106-l0015",
+      "sourceBlockSha256": "5aebe29898b44f3141d06e6b59e576d8702201d861352cbea26c4078bc38ff19",
+      "blockMarkdownCharacterCount": 159,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 32,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 4,
@@ -583,8 +822,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "f95d475ca15e65db5f5635b26f6c78a52ccf7e9d5b22a8b92e8233faa0277532",
       "sourcePageSha256": "f7890b9e4b7b0a375f47751b7576832f5b0c391c3f55d21230a0986bf3843d64",
+      "viewEndInclusive": 106,
+      "endExclusiveLocator": "view-0106-l0017",
+      "sourceBlockSha256": "04653baa9dff6f0498eaed3a60343986d19db9bbb6757316da6cb1f327a2f62a",
+      "blockMarkdownCharacterCount": 147,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 33,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 5,
@@ -599,8 +845,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "f95d475ca15e65db5f5635b26f6c78a52ccf7e9d5b22a8b92e8233faa0277532",
       "sourcePageSha256": "f7890b9e4b7b0a375f47751b7576832f5b0c391c3f55d21230a0986bf3843d64",
+      "viewEndInclusive": 107,
+      "endExclusiveLocator": "view-0107-l0003",
+      "sourceBlockSha256": "59c77fdeadf191862cff98a210a69dc6241acde48590498493f9675b74b36cd8",
+      "blockMarkdownCharacterCount": 319,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 34,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 6,
@@ -615,8 +868,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "359128a9c3453453d90adff9be4ca3cbd30d7e9ed2e8fb8e21df5cefaa39ab26",
       "sourcePageSha256": "7e174bed3bf4d7b76687af2c05d32d1286838a6c55186e4888d8412b15893532",
+      "viewEndInclusive": 107,
+      "endExclusiveLocator": "view-0107-l0011",
+      "sourceBlockSha256": "90042fea845fd026beb92b9d7216100a4d73d5423f28f552c9dc9b91a0e5f303",
+      "blockMarkdownCharacterCount": 881,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 35,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 7,
@@ -631,8 +891,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "359128a9c3453453d90adff9be4ca3cbd30d7e9ed2e8fb8e21df5cefaa39ab26",
       "sourcePageSha256": "7e174bed3bf4d7b76687af2c05d32d1286838a6c55186e4888d8412b15893532",
+      "viewEndInclusive": 113,
+      "endExclusiveLocator": "view-0113-l0007",
+      "sourceBlockSha256": "a13987d443eec9a3712a55aa0cf001e0631521aae50fadd856d860b7d95b94b0",
+      "blockMarkdownCharacterCount": 7697,
+      "blockNonEmptyLineCount": 103,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "illustration-reference"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 36,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 8,
@@ -647,8 +917,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "5260fabda7cb1b0fbf68646f4993dcc005399ac796dbddf7d4f9e2e135746f1e",
       "sourcePageSha256": "3dba9ed35a49da738d0fbe551089db4b4571c4ac478a8be4966aed082c97addc",
+      "viewEndInclusive": 114,
+      "endExclusiveLocator": "view-0114-l0007",
+      "sourceBlockSha256": "ae10bd1fb00fa2b05be8ec83ab9e02385a81750f2098842185ed00ea4155a1f5",
+      "blockMarkdownCharacterCount": 2321,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 37,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 9,
@@ -663,8 +942,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "a4244b8353cfbe2525e0e0eb98f23036f5b73763145e05294acf61ed71b4e313",
       "sourcePageSha256": "0a440d4deeff4735cdeb84208af923cc3160601b632d13681836bcdedce42087",
+      "viewEndInclusive": 115,
+      "endExclusiveLocator": "view-0115-l0003",
+      "sourceBlockSha256": "fa265c115f51d2e0df9a2f042180c1e5e4ac704b2aa591bd95b63a997169f6c8",
+      "blockMarkdownCharacterCount": 899,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 38,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 10,
@@ -679,8 +967,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "01be24388a20fcd112d732224f49e9584f3741c45aa6df7022ae072f8ac2f449",
       "sourcePageSha256": "2d375c2c6ea9d2fd41c1d7b7aa42b3949f757942666cdcd2e244c41e8dc6bd60",
+      "viewEndInclusive": 116,
+      "endExclusiveLocator": "view-0116-l0003",
+      "sourceBlockSha256": "bc93bb094bdd6d19bd520566ff201898a00c7ddad14964f41a6c71cf959a5fd8",
+      "blockMarkdownCharacterCount": 1059,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 39,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 11,
@@ -695,8 +990,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "043ce76cbfadbe393e09fda5638ded31cda2a48a399529243498ec89fe00a0fc",
       "sourcePageSha256": "3b7e57dd454a97b81c399955ee5a9f01ac94f1d0e645b51be5a1d8c6bde43a7d",
+      "viewEndInclusive": 116,
+      "endExclusiveLocator": "view-0116-l0009",
+      "sourceBlockSha256": "c164473cf1b8fe1ddd277e1c92641c7c27a00d0f459a331d8aa0a0ad2e3ef71f",
+      "blockMarkdownCharacterCount": 566,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 40,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 12,
@@ -711,8 +1015,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "043ce76cbfadbe393e09fda5638ded31cda2a48a399529243498ec89fe00a0fc",
       "sourcePageSha256": "3b7e57dd454a97b81c399955ee5a9f01ac94f1d0e645b51be5a1d8c6bde43a7d",
+      "viewEndInclusive": 117,
+      "endExclusiveLocator": "view-0117-l0003",
+      "sourceBlockSha256": "e0079fda489a752b82e92b54d005f5017d0f9ec5dfb9e36b22334675488fbe65",
+      "blockMarkdownCharacterCount": 1108,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 41,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 13,
@@ -727,8 +1038,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "265ba516c4c04f5bb79dae4c33b2efc3c3d6c8f1f58c5ad38c34da214f23855f",
       "sourcePageSha256": "bc5fab202fe4741671412a0e15a768783869330935338b9a70e11fd72b29958c",
+      "viewEndInclusive": 117,
+      "endExclusiveLocator": "view-0117-l0009",
+      "sourceBlockSha256": "7bc968988b85f438949a7b7bb8e174590357af6d078823490a7dc9e82dd6af32",
+      "blockMarkdownCharacterCount": 1289,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 42,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 14,
@@ -743,8 +1061,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "265ba516c4c04f5bb79dae4c33b2efc3c3d6c8f1f58c5ad38c34da214f23855f",
       "sourcePageSha256": "bc5fab202fe4741671412a0e15a768783869330935338b9a70e11fd72b29958c",
+      "viewEndInclusive": 118,
+      "endExclusiveLocator": "view-0118-l0007",
+      "sourceBlockSha256": "37686d0179d455f502e9a7fe9fd1f28e74470cdd6905080c701caad69f15bf2f",
+      "blockMarkdownCharacterCount": 1136,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 43,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 15,
@@ -759,8 +1084,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "1019a4774db33d80d1804fc9dc41604f89f933fb14354d84f190d955d26bd21f",
       "sourcePageSha256": "9e0305ec56fa73d36f65250f5bdb23ef430bf53c86c2fe968a773fffb10d8e0f",
+      "viewEndInclusive": 119,
+      "endExclusiveLocator": "view-0119-l0011",
+      "sourceBlockSha256": "181bb5329385e85c7ca44c065ca18db5d61a1eed4449b6cf031b5162a83b4c7e",
+      "blockMarkdownCharacterCount": 1248,
+      "blockNonEmptyLineCount": 11,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 44,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 16,
@@ -775,8 +1107,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "893bd312aa6ff7577509d7b11a50608176b3768516f9605f495054aa0c6e1b1a",
       "sourcePageSha256": "c85a7fa46581c03bc717a583c655d820fd65d786e687285ece929e2d111be1ce",
+      "viewEndInclusive": 120,
+      "endExclusiveLocator": "view-0120-l0003",
+      "sourceBlockSha256": "32865ad958c2dc6051dd6c53097c5a6833b47857a4236e59f50409e6db8c67bf",
+      "blockMarkdownCharacterCount": 1341,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 45,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 17,
@@ -791,8 +1130,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "96a797cd6763dcbbed089fc79678e671877d61b932f1f2d16fe3ee4adc7ce242",
       "sourcePageSha256": "cf2e6a5f13cbc6169e3205685484b4abf7211e7bfc86e6d57d0a9cdbe608720e",
+      "viewEndInclusive": 122,
+      "endExclusiveLocator": "view-0122-l0003",
+      "sourceBlockSha256": "6b5923a6ee30eea5809d681adef9be1fafaee4a1f34729a8501bd0486f0e6efd",
+      "blockMarkdownCharacterCount": 2688,
+      "blockNonEmptyLineCount": 25,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 46,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 18,
@@ -807,8 +1155,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "ff37d4c08dafc431997ea774ba7dd5b4a2fc3136adcb32cea3499551d07f24b6",
       "sourcePageSha256": "f3d075bab9e25aaa7ca0cab54fdf3d669974f69c08966e9a982d4f8de11c1308",
+      "viewEndInclusive": 122,
+      "endExclusiveLocator": "view-0122-l0011",
+      "sourceBlockSha256": "5ef34fb35da82a6bb8611c17685f4cac788c3484f53b66c875bb401500deeb0b",
+      "blockMarkdownCharacterCount": 427,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 47,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 19,
@@ -823,8 +1178,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "ff37d4c08dafc431997ea774ba7dd5b4a2fc3136adcb32cea3499551d07f24b6",
       "sourcePageSha256": "f3d075bab9e25aaa7ca0cab54fdf3d669974f69c08966e9a982d4f8de11c1308",
+      "viewEndInclusive": 123,
+      "endExclusiveLocator": "view-0123-l0003",
+      "sourceBlockSha256": "154ff078f59b3e56947ac00ae7c7dfb67bb7352f03069eade07c76e732362bb0",
+      "blockMarkdownCharacterCount": 1116,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 48,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 20,
@@ -839,8 +1203,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "15cdc2a1e58f9ea2ac6caf2609ff2f34945e54ea1fd6da25de5986ff60682730",
       "sourcePageSha256": "725a4d6fa19bda21ff7a8a748b541b0e757cccd5629032b910e9c4bd2698d63d",
+      "viewEndInclusive": 123,
+      "endExclusiveLocator": "view-0123-l0016",
+      "sourceBlockSha256": "7c9be9a888adada7f88b5f61c6fa93c913e0e123751a2f24fa5a6fc206be0cad",
+      "blockMarkdownCharacterCount": 423,
+      "blockNonEmptyLineCount": 11,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 49,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 21,
@@ -855,8 +1226,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "15cdc2a1e58f9ea2ac6caf2609ff2f34945e54ea1fd6da25de5986ff60682730",
       "sourcePageSha256": "725a4d6fa19bda21ff7a8a748b541b0e757cccd5629032b910e9c4bd2698d63d",
+      "viewEndInclusive": 124,
+      "endExclusiveLocator": "view-0124-l0005",
+      "sourceBlockSha256": "15ca93612bae797fa6f550d8dfcfcad2cd728f53edd42d032e25cdebab06eba5",
+      "blockMarkdownCharacterCount": 1160,
+      "blockNonEmptyLineCount": 14,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 50,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 22,
@@ -871,8 +1249,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "73f5089a002899cda57e1076021e980849da2fabfe29da38fe8ab15b0df3fc6e",
       "sourcePageSha256": "c1a9992168a2569883b628ec4870f993a60726e40a2eae735052f8784b4236b6",
+      "viewEndInclusive": 125,
+      "endExclusiveLocator": "view-0125-l0007",
+      "sourceBlockSha256": "bc0d046bde4b6842e73a40c79a3819902e2f51734906cff660bbd8d527a1dfd0",
+      "blockMarkdownCharacterCount": 1355,
+      "blockNonEmptyLineCount": 8,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 51,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 1,
@@ -887,8 +1272,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "bad058b34537773d05338c2cfebfc14b3eeda85dc55b72e427759baef61287ba",
       "sourcePageSha256": "a963b620e86caa70b58ac4b2ab6df56430bab1c5ec165d6e29dc1d1f55d476fc",
+      "viewEndInclusive": 125,
+      "endExclusiveLocator": "view-0125-l0011",
+      "sourceBlockSha256": "161ca10465f34a8fc68061bca7882eb8d5e5ce697718b866a06c63ff346abc20",
+      "blockMarkdownCharacterCount": 455,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 52,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -903,8 +1295,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "bad058b34537773d05338c2cfebfc14b3eeda85dc55b72e427759baef61287ba",
       "sourcePageSha256": "a963b620e86caa70b58ac4b2ab6df56430bab1c5ec165d6e29dc1d1f55d476fc",
+      "viewEndInclusive": 126,
+      "endExclusiveLocator": "view-0126-l0003",
+      "sourceBlockSha256": "e669b2adb33627f335b8f7e5da916dd7ba7729c1e6d3fe9d1b10ef8c01a10a6f",
+      "blockMarkdownCharacterCount": 574,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 53,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -919,8 +1318,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "ba690ec97175f13b99d877d0f317841a24e0d87ea80d8f4abf2fa35c7986692c",
       "sourcePageSha256": "0bb3f4115396339d835ef214fa5f543000c2ede5ebb7ef0fe5ecf905c93d94a2",
+      "viewEndInclusive": 126,
+      "endExclusiveLocator": "view-0126-l0009",
+      "sourceBlockSha256": "1d6df91dcc1a4bb73a447e84f3a0b85280a7eea5aa099d448f7880bff6e90da7",
+      "blockMarkdownCharacterCount": 1323,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 54,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 4,
@@ -935,8 +1341,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "ba690ec97175f13b99d877d0f317841a24e0d87ea80d8f4abf2fa35c7986692c",
       "sourcePageSha256": "0bb3f4115396339d835ef214fa5f543000c2ede5ebb7ef0fe5ecf905c93d94a2",
+      "viewEndInclusive": 127,
+      "endExclusiveLocator": "view-0127-l0003",
+      "sourceBlockSha256": "4969448ac6936652f61f7c0ca8d8b2a7952c8d598a500ad32ba93e1c46fcd6c3",
+      "blockMarkdownCharacterCount": 552,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 55,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 5,
@@ -951,8 +1364,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "22aa9b72b1655100486a20dfd46c34f133009f68cdc30d269868e04218f5edc3",
       "sourcePageSha256": "143191c89cd42f23c2d7749692501ccafad1f649122eb5106963a35e1be56033",
+      "viewEndInclusive": 127,
+      "endExclusiveLocator": "view-0127-l0005",
+      "sourceBlockSha256": "7143d0134dac352050fb6894d178d455d8fa919e276ef37d8f9c56d9fd63fac5",
+      "blockMarkdownCharacterCount": 654,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 56,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 6,
@@ -967,8 +1387,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "22aa9b72b1655100486a20dfd46c34f133009f68cdc30d269868e04218f5edc3",
       "sourcePageSha256": "143191c89cd42f23c2d7749692501ccafad1f649122eb5106963a35e1be56033",
+      "viewEndInclusive": 127,
+      "endExclusiveLocator": "view-0127-l0007",
+      "sourceBlockSha256": "fe56f83139051d0251840da7e18b680d59294c3949ca96a9688a5c47f1b7d5bb",
+      "blockMarkdownCharacterCount": 576,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 57,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 7,
@@ -983,8 +1412,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "22aa9b72b1655100486a20dfd46c34f133009f68cdc30d269868e04218f5edc3",
       "sourcePageSha256": "143191c89cd42f23c2d7749692501ccafad1f649122eb5106963a35e1be56033",
+      "viewEndInclusive": 128,
+      "endExclusiveLocator": "view-0128-l0009",
+      "sourceBlockSha256": "b0c74f87d73807f3aee434a317421fca767f41fd679b600c5ea16e383fb16d47",
+      "blockMarkdownCharacterCount": 592,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 58,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 1,
@@ -999,8 +1435,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "7214f3d5b42f990c454aeb7111a809c6e23c3ca7d29069dd3adc0ed1374135eb",
       "sourcePageSha256": "0612bb15968aa423f11243f60dd2a138787e012cafc41d7e5a95f93154a9cea9",
+      "viewEndInclusive": 129,
+      "endExclusiveLocator": "view-0129-l0005",
+      "sourceBlockSha256": "d646455cc0b780aa5466e055e8103c30fb72f2c79c1b924f14986202c0d40b51",
+      "blockMarkdownCharacterCount": 1682,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "illustration-reference"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 59,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -1015,8 +1461,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "6062793d77ced59a50c7f5274d9e69d634321c28387c972266dfa0761d9cdedf",
       "sourcePageSha256": "876d59576be871169a7dc3f39bc43369112feac4dbb51030e6d31d6df20b13a4",
+      "viewEndInclusive": 130,
+      "endExclusiveLocator": "view-0130-l0003",
+      "sourceBlockSha256": "220c4b5f4969acb133719118968fddf2306f8550dfb70dcd30e6e275d6da8e63",
+      "blockMarkdownCharacterCount": 728,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 60,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -1031,8 +1484,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "3df1936331e9317ebd2db5278dc09c853f778f8234c5e07b9a04a0fcb01d5be2",
       "sourcePageSha256": "d2a061f8ef19429beea563d299c4a257717ec42e11ffc687cd4ac62c7afff558",
+      "viewEndInclusive": 132,
+      "endExclusiveLocator": "view-0132-l0009",
+      "sourceBlockSha256": "a1c722527664cb447e581032e73fc9a70844686f651542b49889eee5111cc462",
+      "blockMarkdownCharacterCount": 2612,
+      "blockNonEmptyLineCount": 21,
+      "componentRiskSignalIds": [
+        "illustration-reference"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 61,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 5,
@@ -1047,8 +1509,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "ab67c0ea0615248348ba634d2833a7ef71fab5b8c69f63c674315bf41577cf23",
       "sourcePageSha256": "170f897d7c64aa968cd8233e45975091487a9ba7d39a64b585f106a7ae51dec0",
+      "viewEndInclusive": 133,
+      "endExclusiveLocator": "view-0133-l0005",
+      "sourceBlockSha256": "91c205c8388d37a24671372e758945ac5b983a8c6c692bea6360c352ec0db802",
+      "blockMarkdownCharacterCount": 962,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 62,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 6,
@@ -1063,8 +1532,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "944c76a01b3b37c61b9f949ee0439186f546fbfeb9b3533155300aaf71e33702",
       "sourcePageSha256": "6a80305df2ae191716c41ffdd15a3a0325d18610dd8ebbedf18b38dff50ab507",
+      "viewEndInclusive": 133,
+      "endExclusiveLocator": "view-0133-l0011",
+      "sourceBlockSha256": "838ff186d80d9e4ee8aadf9789a708122e5964aebb9a7f47bb63714ca61d8f37",
+      "blockMarkdownCharacterCount": 665,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 63,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 7,
@@ -1079,8 +1555,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "944c76a01b3b37c61b9f949ee0439186f546fbfeb9b3533155300aaf71e33702",
       "sourcePageSha256": "6a80305df2ae191716c41ffdd15a3a0325d18610dd8ebbedf18b38dff50ab507",
+      "viewEndInclusive": 134,
+      "endExclusiveLocator": "view-0134-l0003",
+      "sourceBlockSha256": "6771a39c92c10ccfb410eddb85731a0f2190e1544768597bb52087054e873f32",
+      "blockMarkdownCharacterCount": 523,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 64,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 8,
@@ -1095,8 +1578,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "3f50ee61a7486de8d2d630a1b35bb29413368fbdb3d53bd38904965510582be4",
       "sourcePageSha256": "e2c0e78f46659ee02d515d49f8847a807882c401d260a8b0fe287eb200dbe970",
+      "viewEndInclusive": 136,
+      "endExclusiveLocator": "view-0137-l0001",
+      "sourceBlockSha256": "8241a6d9c335caec65a4a025534b1bed1f2e23004465c78ab82eca082f8d391f",
+      "blockMarkdownCharacterCount": 3605,
+      "blockNonEmptyLineCount": 25,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 65,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 9,
@@ -1111,8 +1603,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "06486d0d14d89f524c186c737de39402fc629d0aeee3ddbdc33064be51905999",
       "sourcePageSha256": "486a5350487b4e179e7223fc2e57a4502ae7ed9189453d58ca32ce7ae42ff0de",
+      "viewEndInclusive": 139,
+      "endExclusiveLocator": "view-0139-l0005",
+      "sourceBlockSha256": "e08dc829e51e3845f4ea6d315e346476fc72c2a175769c4dc27bacb95df744cb",
+      "blockMarkdownCharacterCount": 4266,
+      "blockNonEmptyLineCount": 16,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 66,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 1,
@@ -1127,8 +1629,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "ce5638b2ada6e18ab232a57e9982fc4583e353b44677dcb52d898bb99be1f341",
       "sourcePageSha256": "0f28620f4b83caeaad6e7409db0d4cd5f814c750c5802efe7950f8dcf763625d",
+      "viewEndInclusive": 139,
+      "endExclusiveLocator": "view-0139-l0009",
+      "sourceBlockSha256": "2a11e2da26bf3ee7496eadcc1eef9b19bee32f13c7c36e554c3fd3171afdfe57",
+      "blockMarkdownCharacterCount": 202,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 67,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -1143,8 +1652,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "ce5638b2ada6e18ab232a57e9982fc4583e353b44677dcb52d898bb99be1f341",
       "sourcePageSha256": "0f28620f4b83caeaad6e7409db0d4cd5f814c750c5802efe7950f8dcf763625d",
+      "viewEndInclusive": 140,
+      "endExclusiveLocator": "view-0140-l0012",
+      "sourceBlockSha256": "74e297e52d1b4a77cb071ee66598682feb0a7e30cf0a8cbeb2c837217b96db95",
+      "blockMarkdownCharacterCount": 1631,
+      "blockNonEmptyLineCount": 20,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 68,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -1159,8 +1677,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "75ad4e90e4c14f6836acf8f5aa80531b7ad846651be2fd4f964c26771b9c9786",
       "sourcePageSha256": "ed27b4e8afccb5231cb15944880639b7b4638893453813e61f9473846b53fdcd",
+      "viewEndInclusive": 141,
+      "endExclusiveLocator": "view-0141-l0036",
+      "sourceBlockSha256": "8bdb04beb5ffbb9fb34aa08eb90241bcd2225df7cc4729a8f63ab1c130cd6a38",
+      "blockMarkdownCharacterCount": 1441,
+      "blockNonEmptyLineCount": 38,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 69,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 4,
@@ -1175,8 +1700,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "70b1929ce680d8c6c46a26e04ee376a1519d32817ba96f76eed33600e6c1ffea",
       "sourcePageSha256": "6ef4d95c3996b440659b17f986e9e6336815de567b266a19560f462aee83e0b1",
+      "viewEndInclusive": 142,
+      "endExclusiveLocator": "view-0142-l0007",
+      "sourceBlockSha256": "62bd9fa415e751a84a9dea3ba0991ce8d8db1efd49c3fea8365b76d910cd17db",
+      "blockMarkdownCharacterCount": 712,
+      "blockNonEmptyLineCount": 8,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 70,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 5,
@@ -1191,8 +1725,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "44ba5a8dc9812cb299bcee07910312d0960dfc32f43f7006a00786e5abb2d85a",
       "sourcePageSha256": "9e045e5d89b75cded8c4ea40c872d1997d400df2aa730ab1c4f215970656015b",
+      "viewEndInclusive": 144,
+      "endExclusiveLocator": "view-0144-l0007",
+      "sourceBlockSha256": "9c916f69cd095d1d2ace7a8da7b4bf8608217913e89efcdcfdb2da3f2d995229",
+      "blockMarkdownCharacterCount": 2914,
+      "blockNonEmptyLineCount": 18,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 71,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 6,
@@ -1207,8 +1750,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "4282f91527079e05e808e743855d62bcbf5a98a91b0b6cf331788e965e8d82fc",
       "sourcePageSha256": "309f6631214881f569a9ca1d75835f707f05ae9952664f1cf2bce9ffc5c963f4",
+      "viewEndInclusive": 144,
+      "endExclusiveLocator": "view-0145-l0001",
+      "sourceBlockSha256": "eea0c84857723d08a93ea3230b895135fb8bd94f8a1157333bcfa2f24fa55d41",
+      "blockMarkdownCharacterCount": 1284,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 72,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 7,
@@ -1223,8 +1775,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "d517deae4599e7811500eb39460c52fa66146a0236872732a20de3b25932bcbe",
       "sourcePageSha256": "492167916985dbeda133466b585781e469a03aef61877f7da599228165189dc6",
+      "viewEndInclusive": 145,
+      "endExclusiveLocator": "view-0145-l0005",
+      "sourceBlockSha256": "888f3bfa7ff142f12bd65e534c0307b15e1bd0fa51caf015f88b37a9014b1253",
+      "blockMarkdownCharacterCount": 181,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 73,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 8,
@@ -1239,8 +1798,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "d517deae4599e7811500eb39460c52fa66146a0236872732a20de3b25932bcbe",
       "sourcePageSha256": "492167916985dbeda133466b585781e469a03aef61877f7da599228165189dc6",
+      "viewEndInclusive": 145,
+      "endExclusiveLocator": "view-0145-l0009",
+      "sourceBlockSha256": "9e47943ac61433f2391069ccc1b80544c6907daaad748cbf834a38fa310ea3a8",
+      "blockMarkdownCharacterCount": 138,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 74,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 9,
@@ -1255,8 +1821,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "d517deae4599e7811500eb39460c52fa66146a0236872732a20de3b25932bcbe",
       "sourcePageSha256": "492167916985dbeda133466b585781e469a03aef61877f7da599228165189dc6",
+      "viewEndInclusive": 145,
+      "endExclusiveLocator": "view-0145-l0013",
+      "sourceBlockSha256": "baf6910144a7fb78f29d8ef74c022e283b5d95590c4a6ac2c0a8d58447374fe3",
+      "blockMarkdownCharacterCount": 891,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 75,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 10,
@@ -1271,8 +1844,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "d517deae4599e7811500eb39460c52fa66146a0236872732a20de3b25932bcbe",
       "sourcePageSha256": "492167916985dbeda133466b585781e469a03aef61877f7da599228165189dc6",
+      "viewEndInclusive": 146,
+      "endExclusiveLocator": "view-0147-l0001",
+      "sourceBlockSha256": "aba6d951a997edc1a91b5132a22886aa6e13ca153bb01bda4627df069daf7494",
+      "blockMarkdownCharacterCount": 2028,
+      "blockNonEmptyLineCount": 9,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 76,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 11,
@@ -1287,8 +1867,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "7a568898fc534b16502270f47da939d05a8488767f4c3b6be32c872aeb1349d4",
       "sourcePageSha256": "24804990e8a670452e72775495ef692d5e2b807d31ead3c48397fd84c6d95638",
+      "viewEndInclusive": 147,
+      "endExclusiveLocator": "view-0147-l0005",
+      "sourceBlockSha256": "77019e201e5f00dc29f00e8bb007b9b625975e7cc21cf4f1ff39e63b8a9d5966",
+      "blockMarkdownCharacterCount": 96,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 77,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 12,
@@ -1303,8 +1890,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "7a568898fc534b16502270f47da939d05a8488767f4c3b6be32c872aeb1349d4",
       "sourcePageSha256": "24804990e8a670452e72775495ef692d5e2b807d31ead3c48397fd84c6d95638",
+      "viewEndInclusive": 148,
+      "endExclusiveLocator": "view-0148-l0009",
+      "sourceBlockSha256": "7903f3f986be59e0711fec9535fe87420e00572d6c66d197fab4137725e28dbf",
+      "blockMarkdownCharacterCount": 2138,
+      "blockNonEmptyLineCount": 14,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 78,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 13,
@@ -1319,8 +1915,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "ccc841f728202ce453e6afca5d6144b4d1a70376918fa69869dd00aad139081c",
       "sourcePageSha256": "9a828a58cbf7efdd85bf2e77551c9ac8bb9b14e5d56086ffe292d1f7e5cd2155",
+      "viewEndInclusive": 149,
+      "endExclusiveLocator": "view-0149-l0013",
+      "sourceBlockSha256": "cb06638ec0ac9a33974374e625525d9539c9c5c6f0d46e0f6ca021e2a4ec65bd",
+      "blockMarkdownCharacterCount": 1882,
+      "blockNonEmptyLineCount": 9,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 79,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 14,
@@ -1335,8 +1938,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "096adae4bb2964145dc8b2d6da3eb27fa05a69c134632d7fd92548fecbe77566",
       "sourcePageSha256": "9dc97381f6a7a5dc6211fd52ce9fa82efbb47337ff0da9a763128d57c8bd8548",
+      "viewEndInclusive": 150,
+      "endExclusiveLocator": "view-0150-l0005",
+      "sourceBlockSha256": "4cfab163885d3a4e6f946f75c51035e2c3881280eaadf954e2442ef18aa263e7",
+      "blockMarkdownCharacterCount": 990,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 80,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 15,
@@ -1351,8 +1961,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "d516301643b62af5862902b5b4e206f018d49fd30d4c7de39b3d16579b801562",
       "sourcePageSha256": "f5128294c51e9ec67a1974273587eb54e992e7b4a83b5ef4b7b161063d0a8054",
+      "viewEndInclusive": 150,
+      "endExclusiveLocator": "view-0150-l0009",
+      "sourceBlockSha256": "0792cef6f251400b7d9d4882ecccd5337abab26a4c8190e4714d79a6c66fe2ca",
+      "blockMarkdownCharacterCount": 932,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 81,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 16,
@@ -1367,8 +1984,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "d516301643b62af5862902b5b4e206f018d49fd30d4c7de39b3d16579b801562",
       "sourcePageSha256": "f5128294c51e9ec67a1974273587eb54e992e7b4a83b5ef4b7b161063d0a8054",
+      "viewEndInclusive": 152,
+      "endExclusiveLocator": "view-0152-l0005",
+      "sourceBlockSha256": "f5d253f8ed35e22ab99617015a5408623a56306feb1ed315fc5ae648fa77d4ed",
+      "blockMarkdownCharacterCount": 1415,
+      "blockNonEmptyLineCount": 13,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "illustration-reference"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 82,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 17,
@@ -1383,8 +2010,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "309962b00604bbcdb9ada8afce2988a0ddb025662efca2a3577353141811bcf8",
       "sourcePageSha256": "fb740f52c959eb85df5911d99834650817350d2019a4056f5c9e87c3191c413b",
+      "viewEndInclusive": 153,
+      "endExclusiveLocator": "view-0153-l0013",
+      "sourceBlockSha256": "e633e55856d0e39de70812ededa19f87f9063e3e999be067c05f37b05bd5b412",
+      "blockMarkdownCharacterCount": 1683,
+      "blockNonEmptyLineCount": 11,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 83,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 18,
@@ -1399,8 +2035,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "43f8d67c76fb4172bb747873230f34f09efceafb6614885db35d8cd6156e5236",
       "sourcePageSha256": "04f6e4b6e80dad51498a106f29c4ffab5f7baf621701b7d825ad6c2751f15cac",
+      "viewEndInclusive": 153,
+      "endExclusiveLocator": "view-0154-l0001",
+      "sourceBlockSha256": "810eede5a5e18d271d611ce42085de32e42a436e4e4a55a28819eaf84e287ee5",
+      "blockMarkdownCharacterCount": 804,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 84,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 19,
@@ -1415,8 +2060,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "62102b6f1a1aeef5e1bd04bf9ca20560d9c4172a7d588e1ce81dd2ae7bb39d64",
       "sourcePageSha256": "61b6cfbcab63224763f219599f3a59fc6cb623211d153a984481f2fa8bd21fc9",
+      "viewEndInclusive": 155,
+      "endExclusiveLocator": "view-0155-l0009",
+      "sourceBlockSha256": "b2f68c265678f5638a1a4ad4827687fc72bae46851029be568d354084b1341b0",
+      "blockMarkdownCharacterCount": 1886,
+      "blockNonEmptyLineCount": 22,
+      "componentRiskSignalIds": [
+        "illustration-reference",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 85,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 20,
@@ -1431,8 +2086,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "e5806d95a414c44fc89227cee921c7a8473ac29178a51c3e0f4c4db30c8d4680",
       "sourcePageSha256": "4684ed39bd0ae1b1b60df5631a8afbb98b0d1fab6c4f8a447c83a3eab55bbe4b",
+      "viewEndInclusive": 155,
+      "endExclusiveLocator": "view-0155-l0013",
+      "sourceBlockSha256": "2da027858ad5cb3631facf6266a37c017c7094c81bd7b3c2149c9439d03aabe7",
+      "blockMarkdownCharacterCount": 390,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 86,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 21,
@@ -1447,8 +2109,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "e5806d95a414c44fc89227cee921c7a8473ac29178a51c3e0f4c4db30c8d4680",
       "sourcePageSha256": "4684ed39bd0ae1b1b60df5631a8afbb98b0d1fab6c4f8a447c83a3eab55bbe4b",
+      "viewEndInclusive": 158,
+      "endExclusiveLocator": "view-0158-l0018",
+      "sourceBlockSha256": "718d0140086afcf7cc88f5bad478cd7b544da608adcb548f80acd82c1c940fa3",
+      "blockMarkdownCharacterCount": 3118,
+      "blockNonEmptyLineCount": 33,
+      "componentRiskSignalIds": [
+        "illustration-reference",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 87,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 22,
@@ -1463,8 +2135,19 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "9b0701a179164a8015c18752083f374bb334d4aa6c2e31f1ae957a65904ac585",
       "sourcePageSha256": "daddfa72b80728a9c771e958d346414a8260baded9196afaa89f9652facafcb5",
+      "viewEndInclusive": 161,
+      "endExclusiveLocator": "view-0161-l0013",
+      "sourceBlockSha256": "a10af3bf51ed220ed574a2997f05141e42b37a7d5887061f98a3d2bd815591e1",
+      "blockMarkdownCharacterCount": 2880,
+      "blockNonEmptyLineCount": 29,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "illustration-reference",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 88,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 23,
@@ -1479,8 +2162,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "9bab62e148201cbf10d4945846fce96cf7e0e243fde6b63f560f9b6d395a3e88",
       "sourcePageSha256": "d5681398961386a8c26fde5f027c71e2a19807e778b5a6c667aead1c5e2fafa8",
+      "viewEndInclusive": 166,
+      "endExclusiveLocator": "view-0166-l0003",
+      "sourceBlockSha256": "80be586d9086a330fde209268574e0cb74a7eaa7cd3906145aec1b68af1363ef",
+      "blockMarkdownCharacterCount": 5629,
+      "blockNonEmptyLineCount": 53,
+      "componentRiskSignalIds": [
+        "illustration-reference",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 89,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 1,
@@ -1495,8 +2188,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "d025aae46de8dc4c8873d9a874f75c76e750755ecf47510e6a2e01d7ae9faa85",
       "sourcePageSha256": "228653c3f0a269dee27d960506074a535989fd787b6fbc8322f272e470e793e8",
+      "viewEndInclusive": 168,
+      "endExclusiveLocator": "view-0168-l0011",
+      "sourceBlockSha256": "78c5f369b005a5d1ff6bb6b786b1e5b204c3a65566ed591d2a1b846379a83174",
+      "blockMarkdownCharacterCount": 2593,
+      "blockNonEmptyLineCount": 23,
+      "componentRiskSignalIds": [
+        "illustration-reference",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 90,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -1511,8 +2214,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "53c68278b5956a81728436d6ad0fc7b18ce89aa9bd141159073986700cbf8352",
       "sourcePageSha256": "ba1b3d022d1dec434decdb25eb7b0919420a49086193c4ad6d1139c837873fa9",
+      "viewEndInclusive": 169,
+      "endExclusiveLocator": "view-0169-l0005",
+      "sourceBlockSha256": "5da50d15175d12f3d0eaf254f5889df1702344b20059c2e24cf92a0ac3d5dc01",
+      "blockMarkdownCharacterCount": 1073,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 91,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -1527,8 +2237,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "98938b88d6334c2b4da3502b0b0044e570f62bcd2b8fbc67e5c83f07dfafd73b",
       "sourcePageSha256": "eb5b89c9c41670630d8ffad54447a453504881ee0c02a6860256522bc46bba32",
+      "viewEndInclusive": 170,
+      "endExclusiveLocator": "view-0170-l0011",
+      "sourceBlockSha256": "04406bf846fa196ed2b062a69093566af195beb939741a68b3989085fa75ee81",
+      "blockMarkdownCharacterCount": 2030,
+      "blockNonEmptyLineCount": 14,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 92,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 4,
@@ -1543,8 +2262,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "0842344f4e7a00637a8c33a4262b581a54cb3732d223133736043ba73b9539c1",
       "sourcePageSha256": "f388e090720fdb0fdab38891c581d0dd0daa106b45ffee9826b7fe2c1e056c07",
+      "viewEndInclusive": 171,
+      "endExclusiveLocator": "view-0171-l0015",
+      "sourceBlockSha256": "affabd16a4f8ed98e4770d5f0c5501870591f546ea926bae0108fe77a72716b8",
+      "blockMarkdownCharacterCount": 974,
+      "blockNonEmptyLineCount": 11,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "illustration-reference"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 93,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 5,
@@ -1559,8 +2288,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "a3f9b7f39da21111835f075914e7534bc3bb41c4f4d6e972ec5ffbc47921cc50",
       "sourcePageSha256": "efdfdb28b8851ed211d49bc5dc7e291e08cdbed195b0764993ec92b7570910a5",
+      "viewEndInclusive": 172,
+      "endExclusiveLocator": "view-0172-l0005",
+      "sourceBlockSha256": "909ba8d5d558cc4f1af468f6a0ef8de966650dc30577984a51067eb4cfde4bca",
+      "blockMarkdownCharacterCount": 721,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 94,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 6,
@@ -1575,8 +2311,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "1167c0599d8b7400a8786bc7b4d34f05ba8f1b1676a1d19179b3883b18399acd",
       "sourcePageSha256": "79ac373a093d2059890f284211fefe165c66426eeec6ea6e250b28767a457d4e",
+      "viewEndInclusive": 172,
+      "endExclusiveLocator": "view-0172-l0019",
+      "sourceBlockSha256": "c85813cad8075c17862262914068c177e51907dce555353d336beb4fa444a408",
+      "blockMarkdownCharacterCount": 654,
+      "blockNonEmptyLineCount": 8,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 95,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 7,
@@ -1591,8 +2336,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "1167c0599d8b7400a8786bc7b4d34f05ba8f1b1676a1d19179b3883b18399acd",
       "sourcePageSha256": "79ac373a093d2059890f284211fefe165c66426eeec6ea6e250b28767a457d4e",
+      "viewEndInclusive": 173,
+      "endExclusiveLocator": "view-0173-l0005",
+      "sourceBlockSha256": "ee75878b1587dac0780926b8cffc51c893de0844a71ac72c70b6528763b58169",
+      "blockMarkdownCharacterCount": 677,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 96,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 8,
@@ -1607,8 +2361,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "6a896fe884ed5cf06b76fd6fa5aa65a0fe38ace7d28e97122772371c2376f849",
       "sourcePageSha256": "caff9ce98c623db4de0b0ad8c3c7e69c33b8578ade7c7d2ec44e4b42d2cb60a3",
+      "viewEndInclusive": 174,
+      "endExclusiveLocator": "view-0174-l0011",
+      "sourceBlockSha256": "aa628aefb0951023e1ad45b672aa227924ad1be23509e7fbb09b1323b89af656",
+      "blockMarkdownCharacterCount": 2045,
+      "blockNonEmptyLineCount": 12,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 97,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 1,
@@ -1623,8 +2386,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "d4215291ee2d5ce1e9e2c1199e6e2d3be459e385de1dea6d21e10a6a5558814d",
       "sourcePageSha256": "e5436b61cd2396a00e28c6347b81fc6d694de84ae1978f98aedb38a6c517c0d2",
+      "viewEndInclusive": 176,
+      "endExclusiveLocator": "view-0177-l0001",
+      "sourceBlockSha256": "2bdff93535b90c72ce9027bdeddc25072c6e7ccc5328b702dff174e66c6f53d8",
+      "blockMarkdownCharacterCount": 3435,
+      "blockNonEmptyLineCount": 21,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 98,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -1639,8 +2411,19 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "bcd778a8631219db42607099ba93ae9583e4ca6bac27c771e9bfece631cd1af7",
       "sourcePageSha256": "687c57063c20c03d158644c78680dfc262e85dc44a3de66d8829660e8bb2e7eb",
+      "viewEndInclusive": 180,
+      "endExclusiveLocator": "view-0180-l0003",
+      "sourceBlockSha256": "4cd270e9a548c7646c782e889bcd82b1d0eb7902f1243c8224553e84c869221b",
+      "blockMarkdownCharacterCount": 4124,
+      "blockNonEmptyLineCount": 34,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "illustration-reference",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 99,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -1655,8 +2438,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "a8f27e4be8b5d2c20ab762389d00eed027404215b0cc7783b8248a07e024b27c",
       "sourcePageSha256": "f0a027215b39a0f5762bb318223a328e27858e67d5be30eee074005cde75faaa",
+      "viewEndInclusive": 180,
+      "endExclusiveLocator": "view-0180-l0005",
+      "sourceBlockSha256": "65b6a6fa617448e1930eaa4be645376719c6bb40fa99e8e40e16585f3740f291",
+      "blockMarkdownCharacterCount": 44,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 100,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 4,
@@ -1671,8 +2461,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "a8f27e4be8b5d2c20ab762389d00eed027404215b0cc7783b8248a07e024b27c",
       "sourcePageSha256": "f0a027215b39a0f5762bb318223a328e27858e67d5be30eee074005cde75faaa",
+      "viewEndInclusive": 182,
+      "endExclusiveLocator": "view-0182-l0005",
+      "sourceBlockSha256": "94542357a2671cbd7ee488f6873437d1662e59edc52f4af1d76b07e86c387594",
+      "blockMarkdownCharacterCount": 2535,
+      "blockNonEmptyLineCount": 38,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "illustration-reference"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 101,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 5,
@@ -1687,8 +2487,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "72bd765f1992326a8f101cde031f79e9eda30fdcfc36c7ef48c787872bc8f630",
       "sourcePageSha256": "6f1b95c36a366810a0dcf495d7e1f54a2e4f2705231cee0ccebc3b2f46c0310a",
+      "viewEndInclusive": 183,
+      "endExclusiveLocator": "view-0183-l0003",
+      "sourceBlockSha256": "064c66c35525b7599f5e5e439b4653d5a1d7bb171266c12088b652b85ad47251",
+      "blockMarkdownCharacterCount": 497,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 102,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 6,
@@ -1703,8 +2510,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "a7c9c8fa2d78f4d44528032700f741fcd623c433acc64549e768966be407562b",
       "sourcePageSha256": "d8e49bf82b6beed966c5e8c73e97ed270127dde4b5928e6ffdc702ae8002433e",
+      "viewEndInclusive": 183,
+      "endExclusiveLocator": "view-0183-l0007",
+      "sourceBlockSha256": "cbb84a4cd8f0235336a4345851b5f47f67d14fabbb74f946ec3b9eb048263ac7",
+      "blockMarkdownCharacterCount": 533,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 103,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 7,
@@ -1719,8 +2535,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "a7c9c8fa2d78f4d44528032700f741fcd623c433acc64549e768966be407562b",
       "sourcePageSha256": "d8e49bf82b6beed966c5e8c73e97ed270127dde4b5928e6ffdc702ae8002433e",
+      "viewEndInclusive": 183,
+      "endExclusiveLocator": "view-0184-l0001",
+      "sourceBlockSha256": "4a91769f51926bd2e4b254f59de330e31d9a514ff0934db16fc57cf9f6680557",
+      "blockMarkdownCharacterCount": 948,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 104,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 8,
@@ -1735,8 +2558,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "f6c317276c1a95e242d82def3729d6e0c873a3859221b641530284deac8ddca1",
       "sourcePageSha256": "b452fcce6cc830a2df81cc17af07e31d710024d6deb287113efeb410c1781b66",
+      "viewEndInclusive": 184,
+      "endExclusiveLocator": "view-0184-l0028",
+      "sourceBlockSha256": "bd7fa2f7094bb7ca3480bb05b43f6250c14d5da7e73c443c3bb9d04d9782b235",
+      "blockMarkdownCharacterCount": 1173,
+      "blockNonEmptyLineCount": 25,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 105,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 9,
@@ -1751,8 +2581,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "f6c317276c1a95e242d82def3729d6e0c873a3859221b641530284deac8ddca1",
       "sourcePageSha256": "b452fcce6cc830a2df81cc17af07e31d710024d6deb287113efeb410c1781b66",
+      "viewEndInclusive": 185,
+      "endExclusiveLocator": "view-0185-l0039",
+      "sourceBlockSha256": "22914f3ba3c96bb983939ffad6681be8e78643c4ddcf8b6fb4348c3f8534ff23",
+      "blockMarkdownCharacterCount": 1675,
+      "blockNonEmptyLineCount": 44,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 106,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 10,
@@ -1767,8 +2604,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "7c57b5b9f1ccb3fa0a59c13cfa0eb6314db64082576a0269d2f748e820ca6f05",
       "sourcePageSha256": "2131e895584cf3bd6560113bc39cde3a654bb5916575e78ff9fa65799bc0daca",
+      "viewEndInclusive": 186,
+      "endExclusiveLocator": "view-0186-l0005",
+      "sourceBlockSha256": "dbedc781b1af0e07245fb4e6f9e5af3e7294bf4f58bb5b429c6dadf7f2944543",
+      "blockMarkdownCharacterCount": 686,
+      "blockNonEmptyLineCount": 8,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 107,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 11,
@@ -1783,8 +2627,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "d24b176036817bf8131895e220bac82b25ad99f163e53b19e2d6427e5ae6d187",
       "sourcePageSha256": "c0ee1763580b1b5d71a40da82096c4f5d7c31951f1e71dda3e5af953668b2bef",
+      "viewEndInclusive": 186,
+      "endExclusiveLocator": "view-0186-l0011",
+      "sourceBlockSha256": "d7ec9c466c72513df720c81bc938e9041d2d92c1c445f50acc66f4b6b2e53c9b",
+      "blockMarkdownCharacterCount": 830,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 108,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 12,
@@ -1799,8 +2650,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "d24b176036817bf8131895e220bac82b25ad99f163e53b19e2d6427e5ae6d187",
       "sourcePageSha256": "c0ee1763580b1b5d71a40da82096c4f5d7c31951f1e71dda3e5af953668b2bef",
+      "viewEndInclusive": 188,
+      "endExclusiveLocator": "view-0188-l0005",
+      "sourceBlockSha256": "2b4c6bbe89d411f4c6e9c7389cdb8191eab58e0db90315a72f5a1cfdf4320fcf",
+      "blockMarkdownCharacterCount": 2052,
+      "blockNonEmptyLineCount": 14,
+      "componentRiskSignalIds": [
+        "illustration-reference"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 109,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 13,
@@ -1815,8 +2675,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "726301e95d1c49385a5a1a9a39cfbb86b71dabf7e1cb5456ac1c64372c0bda60",
       "sourcePageSha256": "a888f3756943775112d557d2986fc87f1acf14401a694ca8dcc6573bbe50c652",
+      "viewEndInclusive": 188,
+      "endExclusiveLocator": "view-0188-l0017",
+      "sourceBlockSha256": "09d76c7a37f98b992a911dd98d218d296fa5c12cb822d552bb7d47b17fd2c534",
+      "blockMarkdownCharacterCount": 860,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 110,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 14,
@@ -1831,8 +2698,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "726301e95d1c49385a5a1a9a39cfbb86b71dabf7e1cb5456ac1c64372c0bda60",
       "sourcePageSha256": "a888f3756943775112d557d2986fc87f1acf14401a694ca8dcc6573bbe50c652",
+      "viewEndInclusive": 189,
+      "endExclusiveLocator": "view-0189-l0009",
+      "sourceBlockSha256": "cd8a1cd0be0a4b8861a57ef78d0c59449c674e6111722a97aa6695c7dcd26121",
+      "blockMarkdownCharacterCount": 789,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 111,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 15,
@@ -1847,8 +2721,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "7af535db49e1f7b462877e93f150ecd720314bf34c8eb9ad5be62114bc39359e",
       "sourcePageSha256": "3cd9347a70bcce97f2505631c3708ea97a6099ac7e7c0b285235fbe2c4802427",
+      "viewEndInclusive": 190,
+      "endExclusiveLocator": "view-0190-l0014",
+      "sourceBlockSha256": "26a00b6a2a91fb33e543c72bc1c9febee628759b0433bb71d03c65656d74859c",
+      "blockMarkdownCharacterCount": 2318,
+      "blockNonEmptyLineCount": 12,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 112,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 16,
@@ -1863,8 +2744,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "92bc7a8eec77f0e966a3f42a7991219d5a6880d68cb5702e6da1246c7467d9e0",
       "sourcePageSha256": "dd67f8d4f4a15bfb4753f64753cd79d438cf35b892d7931bb7030842b51b06e7",
+      "viewEndInclusive": 191,
+      "endExclusiveLocator": "view-0191-l0003",
+      "sourceBlockSha256": "f58b450d86f5a538751fba4e79ae8a7d3fa6f310c5271178ecaae60023fc7ee2",
+      "blockMarkdownCharacterCount": 1088,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 113,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 17,
@@ -1879,8 +2767,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "8aa1307d08c11581cd64bdda901b8a175af6e69f15147eeec55c82d37983e959",
       "sourcePageSha256": "202a75d66d80ba71ae94f86b320df269cb833678f272a867695edeba635d1782",
+      "viewEndInclusive": 192,
+      "endExclusiveLocator": "view-0192-l0009",
+      "sourceBlockSha256": "7332006fb0e55318cb5231aba5d56815dfb05e2b2139897f10d2188022f96255",
+      "blockMarkdownCharacterCount": 1905,
+      "blockNonEmptyLineCount": 8,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 114,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 18,
@@ -1895,8 +2790,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "81de76c6d06c9304368fb7940b7c4901e67dbbc69b4b36a0110e0a99458f30cd",
       "sourcePageSha256": "79367b2f3ec95753757ba43e06c594983d27dfd73ba1ac15c18d076d179cc08a",
+      "viewEndInclusive": 194,
+      "endExclusiveLocator": "view-0194-l0011",
+      "sourceBlockSha256": "4cb34ad26d73f9eb1f4a1a94a4715a216bad6874b73eb3c0bb6ebcfd02bce7c2",
+      "blockMarkdownCharacterCount": 2807,
+      "blockNonEmptyLineCount": 19,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 115,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 1,
@@ -1911,8 +2816,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "1abc0538461b8b0b96506296c6b0d762fde18e5c17a0893e0362648cae3fb22b",
       "sourcePageSha256": "933ad18c25732dbe2a9216de2fa4927a449bc44c2a1a84a8d8567e07caea9821",
+      "viewEndInclusive": 194,
+      "endExclusiveLocator": "view-0194-l0012",
+      "sourceBlockSha256": "25d28cebd7e600db6ff8d81d45cc386317d9f4f7e3edc19c42048f40d1a1de9d",
+      "blockMarkdownCharacterCount": 43,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 116,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -1927,8 +2839,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "1abc0538461b8b0b96506296c6b0d762fde18e5c17a0893e0362648cae3fb22b",
       "sourcePageSha256": "933ad18c25732dbe2a9216de2fa4927a449bc44c2a1a84a8d8567e07caea9821",
+      "viewEndInclusive": 194,
+      "endExclusiveLocator": "view-0194-l0013",
+      "sourceBlockSha256": "178bd961779360439c1a80e077b85365b05942c0b0425479178d3a795bcf6d85",
+      "blockMarkdownCharacterCount": 21,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 117,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -1943,8 +2862,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "1abc0538461b8b0b96506296c6b0d762fde18e5c17a0893e0362648cae3fb22b",
       "sourcePageSha256": "933ad18c25732dbe2a9216de2fa4927a449bc44c2a1a84a8d8567e07caea9821",
+      "viewEndInclusive": 194,
+      "endExclusiveLocator": "view-0194-l0014",
+      "sourceBlockSha256": "af2771a5b71fc8a50f5f42d1260844277e2c1fe6b1d8a4c82938e4d3474be8d1",
+      "blockMarkdownCharacterCount": 43,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 118,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 4,
@@ -1959,8 +2885,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "1abc0538461b8b0b96506296c6b0d762fde18e5c17a0893e0362648cae3fb22b",
       "sourcePageSha256": "933ad18c25732dbe2a9216de2fa4927a449bc44c2a1a84a8d8567e07caea9821",
+      "viewEndInclusive": 194,
+      "endExclusiveLocator": "view-0194-l0015",
+      "sourceBlockSha256": "35bc88e8837b26c8921eef2abff724512ae11b2ce625cf3fd42c3e5046c13634",
+      "blockMarkdownCharacterCount": 24,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 119,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 5,
@@ -1975,8 +2908,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "1abc0538461b8b0b96506296c6b0d762fde18e5c17a0893e0362648cae3fb22b",
       "sourcePageSha256": "933ad18c25732dbe2a9216de2fa4927a449bc44c2a1a84a8d8567e07caea9821",
+      "viewEndInclusive": 194,
+      "endExclusiveLocator": "view-0194-l0016",
+      "sourceBlockSha256": "dc04d3d3bd0ad24e236dc1ab9a4cbcd2285207a3d3a46a2e2829d272b2c32b54",
+      "blockMarkdownCharacterCount": 41,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 120,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 6,
@@ -1991,8 +2931,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "1abc0538461b8b0b96506296c6b0d762fde18e5c17a0893e0362648cae3fb22b",
       "sourcePageSha256": "933ad18c25732dbe2a9216de2fa4927a449bc44c2a1a84a8d8567e07caea9821",
+      "viewEndInclusive": 194,
+      "endExclusiveLocator": "view-0194-l0017",
+      "sourceBlockSha256": "2889bfe9594397e11fe6e9224f70da4d769457f303f3156ac1242e36c5a6169a",
+      "blockMarkdownCharacterCount": 38,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 121,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 7,
@@ -2007,8 +2954,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "1abc0538461b8b0b96506296c6b0d762fde18e5c17a0893e0362648cae3fb22b",
       "sourcePageSha256": "933ad18c25732dbe2a9216de2fa4927a449bc44c2a1a84a8d8567e07caea9821",
+      "viewEndInclusive": 194,
+      "endExclusiveLocator": "view-0194-l0021",
+      "sourceBlockSha256": "281f3151b2fba335d41bd4b26f38abad59af31b3a19395a70745b38e493ea7f3",
+      "blockMarkdownCharacterCount": 158,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 122,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 8,
@@ -2023,8 +2977,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "1abc0538461b8b0b96506296c6b0d762fde18e5c17a0893e0362648cae3fb22b",
       "sourcePageSha256": "933ad18c25732dbe2a9216de2fa4927a449bc44c2a1a84a8d8567e07caea9821",
+      "viewEndInclusive": 194,
+      "endExclusiveLocator": "view-0194-l0025",
+      "sourceBlockSha256": "26a939991f0eb9317591c939576535add07347f4863ac3b54108611902e4c1ff",
+      "blockMarkdownCharacterCount": 126,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 123,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 9,
@@ -2039,8 +3000,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "1abc0538461b8b0b96506296c6b0d762fde18e5c17a0893e0362648cae3fb22b",
       "sourcePageSha256": "933ad18c25732dbe2a9216de2fa4927a449bc44c2a1a84a8d8567e07caea9821",
+      "viewEndInclusive": 195,
+      "endExclusiveLocator": "view-0195-l0009",
+      "sourceBlockSha256": "a11e380aebc42ba08189114198a67a8f2ced1f1da7a875858f096931b55dc915",
+      "blockMarkdownCharacterCount": 681,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 124,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 10,
@@ -2055,8 +3023,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "fd0fb2e9b002066421de5c0335f37b5dd79fd0e02cd745b9e3f29cbfd60dad12",
       "sourcePageSha256": "616e4f00f807429dc16fe88599f58915c9e52e78a6d5960dd5f0f6fd775f525b",
+      "viewEndInclusive": 195,
+      "endExclusiveLocator": "view-0195-l0019",
+      "sourceBlockSha256": "e2a608c38979abb5edbde079b122aa8bd86c0bc1c0e3ef9f3e15a14319d819e5",
+      "blockMarkdownCharacterCount": 416,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 125,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 11,
@@ -2071,8 +3046,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "fd0fb2e9b002066421de5c0335f37b5dd79fd0e02cd745b9e3f29cbfd60dad12",
       "sourcePageSha256": "616e4f00f807429dc16fe88599f58915c9e52e78a6d5960dd5f0f6fd775f525b",
+      "viewEndInclusive": 196,
+      "endExclusiveLocator": "view-0196-l0003",
+      "sourceBlockSha256": "f4c9a3945cf997d9390869af260cfa5561eea1a261d54c624a0b087d0c9d9c6b",
+      "blockMarkdownCharacterCount": 605,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 126,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 12,
@@ -2087,8 +3069,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "ced096c6277b9b884a63bd431b90f4b2f92a8e33df44e1bbac69a237838b1976",
       "sourcePageSha256": "a20325c2e70a2172c7cf17fb00895b3f23a616dc354a19d5f260a22ac4001e08",
+      "viewEndInclusive": 196,
+      "endExclusiveLocator": "view-0196-l0007",
+      "sourceBlockSha256": "0564de78cc20f96040068bc8facff68cf5d53e2289d8a5aba94580c6072e535f",
+      "blockMarkdownCharacterCount": 154,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 127,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 13,
@@ -2103,8 +3092,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "ced096c6277b9b884a63bd431b90f4b2f92a8e33df44e1bbac69a237838b1976",
       "sourcePageSha256": "a20325c2e70a2172c7cf17fb00895b3f23a616dc354a19d5f260a22ac4001e08",
+      "viewEndInclusive": 197,
+      "endExclusiveLocator": "view-0197-l0005",
+      "sourceBlockSha256": "0711fa642f42468ac868f7924a638702d8c573e92a79fbf2988ab12a02b101dc",
+      "blockMarkdownCharacterCount": 1658,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 128,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 14,
@@ -2119,8 +3117,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "36e5e413181f5e82c3e6412dfb20cb47e65522e0f9dcc430d79be0544c764a4b",
       "sourcePageSha256": "a2ce4024ca49f933a481d9366f6198a01f58c9458262c5b1feb6815c2709758d",
+      "viewEndInclusive": 197,
+      "endExclusiveLocator": "view-0197-l0009",
+      "sourceBlockSha256": "1f4394e90596dabcd878b48c402e8e331804c538035f8a34838a989f7d3ba95e",
+      "blockMarkdownCharacterCount": 240,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 129,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 15,
@@ -2135,8 +3142,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "36e5e413181f5e82c3e6412dfb20cb47e65522e0f9dcc430d79be0544c764a4b",
       "sourcePageSha256": "a2ce4024ca49f933a481d9366f6198a01f58c9458262c5b1feb6815c2709758d",
+      "viewEndInclusive": 198,
+      "endExclusiveLocator": "view-0198-l0003",
+      "sourceBlockSha256": "251ba8d65b48822d7b7b62cf18e0abf0304c7f4a17766f142a171bc3da05924f",
+      "blockMarkdownCharacterCount": 1076,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 130,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 16,
@@ -2151,8 +3165,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "3862c2e7fb038f5bd93fb192eb9017aed8073edda4a3a8283be931129cf9dc20",
       "sourcePageSha256": "41b387326ee3135d9615804507dc25b2c93b95305c5b24821a18491afe65f989",
+      "viewEndInclusive": 202,
+      "endExclusiveLocator": "view-0202-l0003",
+      "sourceBlockSha256": "844a9f4b91b112f0d8f35e88660d54075664686a66e18a452850057fa4c8bfdc",
+      "blockMarkdownCharacterCount": 5383,
+      "blockNonEmptyLineCount": 48,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "illustration-reference"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 131,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 1,
@@ -2167,8 +3191,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "944a7bd235f5c7654f30450ff6c183e50008af3cc814b246eb3600eddeb6e7c9",
       "sourcePageSha256": "4b0b2801073ab7817b63e96e3a1b5359eb88c997799b68208ef79ec03ec10f05",
+      "viewEndInclusive": 202,
+      "endExclusiveLocator": "view-0202-l0013",
+      "sourceBlockSha256": "eb1f41eee345a63fe6a22a628fde561cdc0af04d09fb112fc16501c8c670faa6",
+      "blockMarkdownCharacterCount": 399,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 132,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -2183,8 +3214,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "944a7bd235f5c7654f30450ff6c183e50008af3cc814b246eb3600eddeb6e7c9",
       "sourcePageSha256": "4b0b2801073ab7817b63e96e3a1b5359eb88c997799b68208ef79ec03ec10f05",
+      "viewEndInclusive": 202,
+      "endExclusiveLocator": "view-0202-l0021",
+      "sourceBlockSha256": "faf725373ab9de28fc9e8c8ff8e31c7f976908d212a83aee8fb67bed4462dd6b",
+      "blockMarkdownCharacterCount": 566,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 133,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -2199,8 +3237,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "944a7bd235f5c7654f30450ff6c183e50008af3cc814b246eb3600eddeb6e7c9",
       "sourcePageSha256": "4b0b2801073ab7817b63e96e3a1b5359eb88c997799b68208ef79ec03ec10f05",
+      "viewEndInclusive": 203,
+      "endExclusiveLocator": "view-0203-l0005",
+      "sourceBlockSha256": "8d6bc693bbe12ad8d654e1be1366904c70f96450f4b34d145cab56ab01e6910e",
+      "blockMarkdownCharacterCount": 654,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 134,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 4,
@@ -2215,8 +3260,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "1d59fef0a7f23578382b9d10b49dc01ddbf5d7d48329c7f80c6e8b923cc33a1c",
       "sourcePageSha256": "d9ec0402d8875127c53b390823f5d5679aa51213f424bd3b721f4f3c0212b236",
+      "viewEndInclusive": 203,
+      "endExclusiveLocator": "view-0204-l0001",
+      "sourceBlockSha256": "e2f5578a993f94e99206fb9ccb890cec185fd8e8a6d113dbccac0e0b11d8cbfb",
+      "blockMarkdownCharacterCount": 1228,
+      "blockNonEmptyLineCount": 13,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 135,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 5,
@@ -2231,8 +3283,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "91b175b7c1dc580a820d05576ceab4e3bbaa4411fa7deb2b9df3b71c8058e718",
       "sourcePageSha256": "6619f038d96655c13291f4459596f5f3c0307c823b7d9fba91c728c1d13ec9f4",
+      "viewEndInclusive": 205,
+      "endExclusiveLocator": "view-0205-l0011",
+      "sourceBlockSha256": "e79cd7b78fd9b799aa27381e083a1eb6051b97db6243e5ed0c1498725b321d69",
+      "blockMarkdownCharacterCount": 1987,
+      "blockNonEmptyLineCount": 13,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 136,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 6,
@@ -2247,8 +3306,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "f0377a88b0702e206e82ee44203df9ac119f8d0a7f79c4a11023e04a358dce3c",
       "sourcePageSha256": "3011c3a7f2081547c5821e89c652523ea3d8ac87f58f611c457689b47e2aad7b",
+      "viewEndInclusive": 205,
+      "endExclusiveLocator": "view-0205-l0019",
+      "sourceBlockSha256": "0432991d986d5b54f9f1951193be2c7b53190a3f4414b20dd3e7186fb9d896f6",
+      "blockMarkdownCharacterCount": 256,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 137,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 7,
@@ -2263,8 +3329,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "f0377a88b0702e206e82ee44203df9ac119f8d0a7f79c4a11023e04a358dce3c",
       "sourcePageSha256": "3011c3a7f2081547c5821e89c652523ea3d8ac87f58f611c457689b47e2aad7b",
+      "viewEndInclusive": 205,
+      "endExclusiveLocator": "view-0205-l0027",
+      "sourceBlockSha256": "a571a1ed32b9c9bb5687bd29f56397ba4a162d5b051df821e55b950fb47685d1",
+      "blockMarkdownCharacterCount": 254,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 138,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 8,
@@ -2279,8 +3352,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "f0377a88b0702e206e82ee44203df9ac119f8d0a7f79c4a11023e04a358dce3c",
       "sourcePageSha256": "3011c3a7f2081547c5821e89c652523ea3d8ac87f58f611c457689b47e2aad7b",
+      "viewEndInclusive": 205,
+      "endExclusiveLocator": "view-0206-l0001",
+      "sourceBlockSha256": "d5e396981181534b705da57f56298318130ab0cfd7aef0550db8115a77c99ec3",
+      "blockMarkdownCharacterCount": 133,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 139,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 9,
@@ -2295,8 +3375,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "88c8389df127292ec79b62f801274df4974be01a3e1e94a36404669b70808cba",
       "sourcePageSha256": "f34f127c38a17f15659ac2325d2287330c4da0a7f3748ed97ff255fb37fc0a31",
+      "viewEndInclusive": 206,
+      "endExclusiveLocator": "view-0206-l0008",
+      "sourceBlockSha256": "22b1f5939c04892219bd95d4653285e4748daff7d7d22f0799e0e0a2ed4005d6",
+      "blockMarkdownCharacterCount": 246,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 140,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 10,
@@ -2311,8 +3398,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "88c8389df127292ec79b62f801274df4974be01a3e1e94a36404669b70808cba",
       "sourcePageSha256": "f34f127c38a17f15659ac2325d2287330c4da0a7f3748ed97ff255fb37fc0a31",
+      "viewEndInclusive": 206,
+      "endExclusiveLocator": "view-0206-l0019",
+      "sourceBlockSha256": "f237696042823fe90eea6a8953602d87400e641b1d62715743f9944e0f3c1562",
+      "blockMarkdownCharacterCount": 312,
+      "blockNonEmptyLineCount": 9,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 141,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 11,
@@ -2327,8 +3421,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "88c8389df127292ec79b62f801274df4974be01a3e1e94a36404669b70808cba",
       "sourcePageSha256": "f34f127c38a17f15659ac2325d2287330c4da0a7f3748ed97ff255fb37fc0a31",
+      "viewEndInclusive": 206,
+      "endExclusiveLocator": "view-0206-l0026",
+      "sourceBlockSha256": "0f2b73489e2049cacdc03484c3ade9e3e41a46d1ceb8d8a279f2d5077fb35012",
+      "blockMarkdownCharacterCount": 248,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 142,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 12,
@@ -2343,8 +3444,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "88c8389df127292ec79b62f801274df4974be01a3e1e94a36404669b70808cba",
       "sourcePageSha256": "f34f127c38a17f15659ac2325d2287330c4da0a7f3748ed97ff255fb37fc0a31",
+      "viewEndInclusive": 206,
+      "endExclusiveLocator": "view-0206-l0032",
+      "sourceBlockSha256": "d719b5611f28f120e831bce7342c597196364d8a80871f9e483573bc4d02086a",
+      "blockMarkdownCharacterCount": 121,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 143,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 13,
@@ -2359,8 +3467,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "88c8389df127292ec79b62f801274df4974be01a3e1e94a36404669b70808cba",
       "sourcePageSha256": "f34f127c38a17f15659ac2325d2287330c4da0a7f3748ed97ff255fb37fc0a31",
+      "viewEndInclusive": 206,
+      "endExclusiveLocator": "view-0207-l0001",
+      "sourceBlockSha256": "e4f21a6abe4d5ffd11bfc0e110ca8f9dea8639bb94ea00313e9083933b836f11",
+      "blockMarkdownCharacterCount": 116,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 144,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 14,
@@ -2375,8 +3490,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "9faea6ea078d16ec0fb8c893d03e7819807275a63b4a7e770f6a3e017d23201b",
       "sourcePageSha256": "d51100d06e636fe080722cc04ba497764880af54203225fee203a5247e8d945e",
+      "viewEndInclusive": 207,
+      "endExclusiveLocator": "view-0207-l0008",
+      "sourceBlockSha256": "a89044d1cdd2e1bed64272eb09f13541871b76912216fc617ed5df92d2da9536",
+      "blockMarkdownCharacterCount": 164,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 145,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 15,
@@ -2391,8 +3513,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "9faea6ea078d16ec0fb8c893d03e7819807275a63b4a7e770f6a3e017d23201b",
       "sourcePageSha256": "d51100d06e636fe080722cc04ba497764880af54203225fee203a5247e8d945e",
+      "viewEndInclusive": 207,
+      "endExclusiveLocator": "view-0207-l0017",
+      "sourceBlockSha256": "6543ad518bcae3fbabc3305df75f9c657e137615dc8bc506d82e8c9140fb483f",
+      "blockMarkdownCharacterCount": 172,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 146,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 16,
@@ -2407,8 +3536,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "9faea6ea078d16ec0fb8c893d03e7819807275a63b4a7e770f6a3e017d23201b",
       "sourcePageSha256": "d51100d06e636fe080722cc04ba497764880af54203225fee203a5247e8d945e",
+      "viewEndInclusive": 207,
+      "endExclusiveLocator": "view-0207-l0026",
+      "sourceBlockSha256": "ae15e7a25afe9508a099030def92521b92f520b01c792fedb051f2604e643e30",
+      "blockMarkdownCharacterCount": 244,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 147,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 17,
@@ -2423,8 +3559,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "9faea6ea078d16ec0fb8c893d03e7819807275a63b4a7e770f6a3e017d23201b",
       "sourcePageSha256": "d51100d06e636fe080722cc04ba497764880af54203225fee203a5247e8d945e",
+      "viewEndInclusive": 207,
+      "endExclusiveLocator": "view-0207-l0036",
+      "sourceBlockSha256": "18e6693b733189b4bd8a29b41988210b9c12b6ce5a4ce2f222c5cbe68ea09316",
+      "blockMarkdownCharacterCount": 351,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 148,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 18,
@@ -2439,8 +3582,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "9faea6ea078d16ec0fb8c893d03e7819807275a63b4a7e770f6a3e017d23201b",
       "sourcePageSha256": "d51100d06e636fe080722cc04ba497764880af54203225fee203a5247e8d945e",
+      "viewEndInclusive": 209,
+      "endExclusiveLocator": "view-0209-l0007",
+      "sourceBlockSha256": "2138143147b274fc5d6ab77ca1bb4d818e4143f024ce660fc8ba9447ba8b43a2",
+      "blockMarkdownCharacterCount": 2107,
+      "blockNonEmptyLineCount": 17,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 149,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 1,
@@ -2455,8 +3605,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "37377cead6038593382671cf80a376394fcc6b414a1505fa560721434be690bb",
       "sourcePageSha256": "e3666c6ab47e93a97191baa6d61fb4b0414c882d636f0e57e76c8c9701a0289a",
+      "viewEndInclusive": 209,
+      "endExclusiveLocator": "view-0209-l0008",
+      "sourceBlockSha256": "f314d70e4b8bee2855ad91de4ea7db1c58d3fc8fd439e229cffee2703277a57f",
+      "blockMarkdownCharacterCount": 117,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 150,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -2471,8 +3628,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "37377cead6038593382671cf80a376394fcc6b414a1505fa560721434be690bb",
       "sourcePageSha256": "e3666c6ab47e93a97191baa6d61fb4b0414c882d636f0e57e76c8c9701a0289a",
+      "viewEndInclusive": 209,
+      "endExclusiveLocator": "view-0209-l0009",
+      "sourceBlockSha256": "fa48e904d7dc041c1e9f531ec7068324015fd7a57353d51d6fef0fb9e6665b4c",
+      "blockMarkdownCharacterCount": 71,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 151,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -2487,8 +3651,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "37377cead6038593382671cf80a376394fcc6b414a1505fa560721434be690bb",
       "sourcePageSha256": "e3666c6ab47e93a97191baa6d61fb4b0414c882d636f0e57e76c8c9701a0289a",
+      "viewEndInclusive": 209,
+      "endExclusiveLocator": "view-0209-l0010",
+      "sourceBlockSha256": "97c62ccc55b0622cca4735630b2101f2e19702fc96d8cc81db0f7590533687bc",
+      "blockMarkdownCharacterCount": 98,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 152,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 4,
@@ -2503,8 +3674,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "37377cead6038593382671cf80a376394fcc6b414a1505fa560721434be690bb",
       "sourcePageSha256": "e3666c6ab47e93a97191baa6d61fb4b0414c882d636f0e57e76c8c9701a0289a",
+      "viewEndInclusive": 209,
+      "endExclusiveLocator": "view-0209-l0011",
+      "sourceBlockSha256": "305860537c55c1322d2804683191b66419908eef38f6c310f64e55bc31a07096",
+      "blockMarkdownCharacterCount": 53,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 153,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 5,
@@ -2519,8 +3697,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "37377cead6038593382671cf80a376394fcc6b414a1505fa560721434be690bb",
       "sourcePageSha256": "e3666c6ab47e93a97191baa6d61fb4b0414c882d636f0e57e76c8c9701a0289a",
+      "viewEndInclusive": 209,
+      "endExclusiveLocator": "view-0209-l0012",
+      "sourceBlockSha256": "deb4a8b24f69c7e31e2067ef01ef05b7a400ab5a86df83a78bbde5d0ddcbf0ed",
+      "blockMarkdownCharacterCount": 63,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 154,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 6,
@@ -2535,8 +3720,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "37377cead6038593382671cf80a376394fcc6b414a1505fa560721434be690bb",
       "sourcePageSha256": "e3666c6ab47e93a97191baa6d61fb4b0414c882d636f0e57e76c8c9701a0289a",
+      "viewEndInclusive": 209,
+      "endExclusiveLocator": "view-0209-l0013",
+      "sourceBlockSha256": "f71379ca8918ce6ee5254a54c28c44c85bf9cfd81421f65fa5b2ae7568cb27da",
+      "blockMarkdownCharacterCount": 51,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 155,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 7,
@@ -2551,8 +3743,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "37377cead6038593382671cf80a376394fcc6b414a1505fa560721434be690bb",
       "sourcePageSha256": "e3666c6ab47e93a97191baa6d61fb4b0414c882d636f0e57e76c8c9701a0289a",
+      "viewEndInclusive": 209,
+      "endExclusiveLocator": "view-0209-l0014",
+      "sourceBlockSha256": "7184da3d74f79b7fc252eb67b0beace78e5a1ff54f894580d590598a56654fa9",
+      "blockMarkdownCharacterCount": 44,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 156,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 8,
@@ -2567,8 +3766,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "37377cead6038593382671cf80a376394fcc6b414a1505fa560721434be690bb",
       "sourcePageSha256": "e3666c6ab47e93a97191baa6d61fb4b0414c882d636f0e57e76c8c9701a0289a",
+      "viewEndInclusive": 209,
+      "endExclusiveLocator": "view-0209-l0015",
+      "sourceBlockSha256": "c3327420d11615976ef012ac10fe2a07fa6f1327d80f97383bd973c4e20410e6",
+      "blockMarkdownCharacterCount": 88,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 157,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 9,
@@ -2583,8 +3789,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "37377cead6038593382671cf80a376394fcc6b414a1505fa560721434be690bb",
       "sourcePageSha256": "e3666c6ab47e93a97191baa6d61fb4b0414c882d636f0e57e76c8c9701a0289a",
+      "viewEndInclusive": 209,
+      "endExclusiveLocator": "view-0209-l0016",
+      "sourceBlockSha256": "149dc43693303040d24754a8063bac823caefef6c271f6003e253bd03a5ff9e0",
+      "blockMarkdownCharacterCount": 89,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 158,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 10,
@@ -2599,8 +3812,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "37377cead6038593382671cf80a376394fcc6b414a1505fa560721434be690bb",
       "sourcePageSha256": "e3666c6ab47e93a97191baa6d61fb4b0414c882d636f0e57e76c8c9701a0289a",
+      "viewEndInclusive": 209,
+      "endExclusiveLocator": "view-0210-l0001",
+      "sourceBlockSha256": "689cc2ab86ed70a81ef14444aaa613825a846d1d7f3df53a2ae68f8ad9c58164",
+      "blockMarkdownCharacterCount": 61,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 159,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 11,
@@ -2615,8 +3835,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "9f958864ed6d463d34381a4103a7fd7b177608bface8806aa8b222d0d3947e94",
       "sourcePageSha256": "4fdb32cf4184b05a51b7b3322d175ab9750e1c026f8052b45ffb59c06b27e3be",
+      "viewEndInclusive": 210,
+      "endExclusiveLocator": "view-0210-l0002",
+      "sourceBlockSha256": "9c6219778fd8d2b8fc0fa8bac35ae9f788154e9d8a0e1e9e328c9c08068bd9b9",
+      "blockMarkdownCharacterCount": 25,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 160,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 12,
@@ -2631,8 +3858,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "9f958864ed6d463d34381a4103a7fd7b177608bface8806aa8b222d0d3947e94",
       "sourcePageSha256": "4fdb32cf4184b05a51b7b3322d175ab9750e1c026f8052b45ffb59c06b27e3be",
+      "viewEndInclusive": 210,
+      "endExclusiveLocator": "view-0210-l0003",
+      "sourceBlockSha256": "9c2ff991a9accdfcb9d3699cab6d20c1e545c80da3cbac09b9d1ece2c96cd173",
+      "blockMarkdownCharacterCount": 40,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 161,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 13,
@@ -2647,8 +3881,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "9f958864ed6d463d34381a4103a7fd7b177608bface8806aa8b222d0d3947e94",
       "sourcePageSha256": "4fdb32cf4184b05a51b7b3322d175ab9750e1c026f8052b45ffb59c06b27e3be",
+      "viewEndInclusive": 210,
+      "endExclusiveLocator": "view-0210-l0007",
+      "sourceBlockSha256": "1afe36657f61c472fd56ab31466ce6ba8f1b1ca1ef2fa12ccc97bb022783720e",
+      "blockMarkdownCharacterCount": 188,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 162,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 14,
@@ -2663,8 +3904,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "9f958864ed6d463d34381a4103a7fd7b177608bface8806aa8b222d0d3947e94",
       "sourcePageSha256": "4fdb32cf4184b05a51b7b3322d175ab9750e1c026f8052b45ffb59c06b27e3be",
+      "viewEndInclusive": 210,
+      "endExclusiveLocator": "view-0210-l0023",
+      "sourceBlockSha256": "b4fbd03d96cb82e2febfcc3a8a0a2e1ee169fdad4d60a289c012a799d0658037",
+      "blockMarkdownCharacterCount": 708,
+      "blockNonEmptyLineCount": 14,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 163,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 15,
@@ -2679,8 +3927,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "9f958864ed6d463d34381a4103a7fd7b177608bface8806aa8b222d0d3947e94",
       "sourcePageSha256": "4fdb32cf4184b05a51b7b3322d175ab9750e1c026f8052b45ffb59c06b27e3be",
+      "viewEndInclusive": 210,
+      "endExclusiveLocator": "view-0210-l0028",
+      "sourceBlockSha256": "78edb8ed15785213b09c4615a687970ce26b4486bd8224890e53a49be04e7fb5",
+      "blockMarkdownCharacterCount": 134,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 164,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 16,
@@ -2695,8 +3950,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "9f958864ed6d463d34381a4103a7fd7b177608bface8806aa8b222d0d3947e94",
       "sourcePageSha256": "4fdb32cf4184b05a51b7b3322d175ab9750e1c026f8052b45ffb59c06b27e3be",
+      "viewEndInclusive": 212,
+      "endExclusiveLocator": "view-0212-l0003",
+      "sourceBlockSha256": "f809c64cb6e1f97c833d41f1dcd9661fc8a75b869ac82dba0a1fae5d8665a7e8",
+      "blockMarkdownCharacterCount": 1574,
+      "blockNonEmptyLineCount": 41,
+      "componentRiskSignalIds": [
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 165,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 19,
@@ -2711,8 +3975,19 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "402d25fe53391d8fa7f2385a86b5ab28bffeeaf52964d57cb7a02edeff5cbc0b",
       "sourcePageSha256": "b324c439101eda43a97b86093066573d58d7bf83fc0d205dc49978a74a53af34",
+      "viewEndInclusive": 220,
+      "endExclusiveLocator": "view-0220-l0009",
+      "sourceBlockSha256": "f00226e833f3637e0d8147c6a77bec393512eee59e1b3fdf9c6f0dafb18aec27",
+      "blockMarkdownCharacterCount": 11430,
+      "blockNonEmptyLineCount": 138,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "illustration-reference",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 166,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 1,
@@ -2727,8 +4002,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "491df5359eb0a205c1a81ded468a92a5fc80ac87e1f63515cb711c6d6fa9a355",
       "sourcePageSha256": "86ac8ced136dab0df4397c2530ecda84d14942e2498ad897332ba89b3976e98e",
+      "viewEndInclusive": 220,
+      "endExclusiveLocator": "view-0220-l0010",
+      "sourceBlockSha256": "3723552cc3b7c654bcbc4c056d66d5db84fd86f41230976e042c72281215774a",
+      "blockMarkdownCharacterCount": 80,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 167,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -2743,8 +4025,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "491df5359eb0a205c1a81ded468a92a5fc80ac87e1f63515cb711c6d6fa9a355",
       "sourcePageSha256": "86ac8ced136dab0df4397c2530ecda84d14942e2498ad897332ba89b3976e98e",
+      "viewEndInclusive": 220,
+      "endExclusiveLocator": "view-0220-l0011",
+      "sourceBlockSha256": "6b265317349ba9ee591e5cffd63f6e3f4921abd6cadc14f2503f47ba39440361",
+      "blockMarkdownCharacterCount": 101,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 168,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -2759,8 +4048,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "491df5359eb0a205c1a81ded468a92a5fc80ac87e1f63515cb711c6d6fa9a355",
       "sourcePageSha256": "86ac8ced136dab0df4397c2530ecda84d14942e2498ad897332ba89b3976e98e",
+      "viewEndInclusive": 220,
+      "endExclusiveLocator": "view-0220-l0012",
+      "sourceBlockSha256": "d6509306aeab8803ede6f30658c48abf6a4f16de466394e6872fb8871305f946",
+      "blockMarkdownCharacterCount": 76,
+      "blockNonEmptyLineCount": 1,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 169,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 4,
@@ -2775,8 +4071,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "491df5359eb0a205c1a81ded468a92a5fc80ac87e1f63515cb711c6d6fa9a355",
       "sourcePageSha256": "86ac8ced136dab0df4397c2530ecda84d14942e2498ad897332ba89b3976e98e",
+      "viewEndInclusive": 233,
+      "endExclusiveLocator": "view-0233-l0007",
+      "sourceBlockSha256": "49dc28cd252630fdd8bea1d787aa8ce851ac3edba3e208fc56370689bdde3e1a",
+      "blockMarkdownCharacterCount": 17942,
+      "blockNonEmptyLineCount": 208,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 170,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 1,
@@ -2791,8 +4097,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "61dc0e3f84782bb226c01c93237c06909dfe9a8d0a6e7fde76f125ede85ab9ac",
       "sourcePageSha256": "14c2159dd6fbb48aca23a75bbfcbd2de69af5cd08ac6c9039bf49e30aa37edee",
+      "viewEndInclusive": 233,
+      "endExclusiveLocator": "view-0234-l0001",
+      "sourceBlockSha256": "ac627e3c0930b5e282355e47a55404914bc387d8361892ba13401e9fdb97d056",
+      "blockMarkdownCharacterCount": 850,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 171,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 2,
@@ -2807,8 +4120,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "2988b1c6d1b2a80447c122db5819bcad86d76de83617db76029ce51663cf5125",
       "sourcePageSha256": "18792482d4658e582b12d59315525337338c404bb1afae48eeb2553c5429bc03",
+      "viewEndInclusive": 235,
+      "endExclusiveLocator": "view-0235-l0003",
+      "sourceBlockSha256": "09fcad390fd0c884504c0828af26699b0a7c1ed8d72aab535d1d3ce471254955",
+      "blockMarkdownCharacterCount": 1711,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 172,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 3,
@@ -2823,8 +4143,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "182dbc55bdffc04337f93a9f8986aca91495159e2d5ef59d706542dd0f9dd052",
       "sourcePageSha256": "3954450e4d4e239c1937c3ded70b9a0b6e5e6a395f3d3f09f3d145e6e1e5defb",
+      "viewEndInclusive": 236,
+      "endExclusiveLocator": "view-0236-l0003",
+      "sourceBlockSha256": "5e47be7a2351b819d6c3eab3dd6683547f1218b0baf4300d68ebc33edea5b625",
+      "blockMarkdownCharacterCount": 1645,
+      "blockNonEmptyLineCount": 10,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 173,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 4,
@@ -2839,8 +4168,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "7b272bd40f8321887739bf9faa36e9b1697db0398b436b95ced7cf70c8dec2dc",
       "sourcePageSha256": "3d47edee853f6286f0ccfeab32f7d2290200c5683277e49e6a1252b14f6d4e9a",
+      "viewEndInclusive": 236,
+      "endExclusiveLocator": "view-0236-l0009",
+      "sourceBlockSha256": "f4663ff43b9f656a0fca2babe865e9219c6f580307e04ae0242ddea7cb6043f9",
+      "blockMarkdownCharacterCount": 878,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 174,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 5,
@@ -2855,8 +4191,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "7b272bd40f8321887739bf9faa36e9b1697db0398b436b95ced7cf70c8dec2dc",
       "sourcePageSha256": "3d47edee853f6286f0ccfeab32f7d2290200c5683277e49e6a1252b14f6d4e9a",
+      "viewEndInclusive": 237,
+      "endExclusiveLocator": "view-0237-l0009",
+      "sourceBlockSha256": "a9e139243452bb2d80d9b920667e4ed420c801f17499a7ba41716e5a30c49df1",
+      "blockMarkdownCharacterCount": 1819,
+      "blockNonEmptyLineCount": 8,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 175,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 6,
@@ -2871,8 +4214,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "b0fb663e3c16c1807861ee0775f273fc81d7441dedb1886b503a49245f86d475",
       "sourcePageSha256": "fcec241177304c4d101faefaffb34ad08b02ff7064f46e3920ce72821bed095d",
+      "viewEndInclusive": 238,
+      "endExclusiveLocator": "view-0238-l0009",
+      "sourceBlockSha256": "77636729e33206c906cdbcfebad2344dd18cddc9be01feccd1b728407b18600b",
+      "blockMarkdownCharacterCount": 1510,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 176,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 7,
@@ -2887,8 +4239,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "5517c97d76f5d6681931515d21f77ebeb8250ef6177a873d52f850e40923339e",
       "sourcePageSha256": "51da10dfd7625beb002aef8a0a365a5d8a2c04967abd7bad4f51815e6336f9e0",
+      "viewEndInclusive": 239,
+      "endExclusiveLocator": "view-0239-l0009",
+      "sourceBlockSha256": "566d9f3c2509f2380c80558501f71f0b0256d1145939710b8a8241bd3ab3e6ae",
+      "blockMarkdownCharacterCount": 711,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [
+        "illustration-reference"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 177,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 8,
@@ -2903,8 +4264,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "a165b41803ef8f984f528728a0922126e67e14b18b5457eb14cdc412b5ca6851",
       "sourcePageSha256": "19a1fc5ae37cec4f291f4d34b15d5afc57b853ac09ce9e9d5d799985cfbcff17",
+      "viewEndInclusive": 241,
+      "endExclusiveLocator": "view-0241-l0015",
+      "sourceBlockSha256": "3bb2beb3ca0f21da2d3ab3f278768b9dbcbff6ba90977ee2db2fb49b72a38ceb",
+      "blockMarkdownCharacterCount": 3454,
+      "blockNonEmptyLineCount": 21,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 178,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 9,
@@ -2919,8 +4289,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "f2502bcefb83429d9df53531a5d7d0a78d1985efa327d3f9ba477b009a24f461",
       "sourcePageSha256": "7f9902d92cf40152c012792fec9cb3226ae392bd04737793d1073619a8550ad5",
+      "viewEndInclusive": 242,
+      "endExclusiveLocator": "view-0243-l0001",
+      "sourceBlockSha256": "7b6572967df59ad01af95c41a3bdc75f5b0cc7f7257d0df5ea64b2e95e20e3c2",
+      "blockMarkdownCharacterCount": 2084,
+      "blockNonEmptyLineCount": 11,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 179,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 10,
@@ -2935,8 +4314,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "3410e068cff668c7cbeba8e8eb45baa8cd267d0c1c1029076b0757b9fe34b404",
       "sourcePageSha256": "837ddac21802d2f0f113f4ca4f80e2673c1d5426c93bd91394ea6096877c70ca",
+      "viewEndInclusive": 244,
+      "endExclusiveLocator": "view-0244-l0011",
+      "sourceBlockSha256": "af7c06ce4e38e65974caa86290a6ee5cfef320038675ec9c5a600aa88e03f63f",
+      "blockMarkdownCharacterCount": 2396,
+      "blockNonEmptyLineCount": 21,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 180,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "sourceNumber": 11,
@@ -2951,8 +4339,19 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "2001a9fca20ff2a27dc6f9bcb4c5cf13228e1037a9579720783fc5b42ea44e4b",
       "sourcePageSha256": "70bde6a377ab4284df5805e81bb3097ae7642310bc5ace8c608e0f3e459909bc",
+      "viewEndInclusive": 268,
+      "endExclusiveLocator": "view-0268-eof",
+      "sourceBlockSha256": "e734d93183fdf6b143c77414f8862deb09cdcde359aeaeb05c36d828b7706300",
+      "blockMarkdownCharacterCount": 30179,
+      "blockNonEmptyLineCount": 288,
+      "componentRiskSignalIds": [
+        "illustration-reference",
+        "quotation-markers",
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-approved-range-end",
       "number": 181,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     }
   ]
 }

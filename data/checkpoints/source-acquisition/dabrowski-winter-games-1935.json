@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-source-acquisition",
+  "sourceId": "dabrowski-winter-games-1935",
+  "collectionId": "pbc-rzeszow",
+  "status": "skipped-with-reason",
+  "sourceFilesCommittedToRepository": 0,
+  "items": [
+    {
+      "kind": "djvu",
+      "status": "index-only-incomplete-source",
+      "url": "https://www.pbc.rzeszow.pl/Content/10620/DjVu/harce_zimowe.djvu",
+      "finalUrl": "https://www.pbc.rzeszow.pl/Content/10620/DjVu/harce_zimowe.djvu",
+      "scratchRelativePath": "scouting-autoresearch/sources/dabrowski-winter-games-1935/source.djvu",
+      "bytes": 485,
+      "sha256": "c764ae314dc8a5a17700e4aeac171eeef7b1468a1b01f6f46e9e6245dc691ac5",
+      "contentType": "image/x.djvu",
+      "retrievedAt": "2026-09-07T11:08:19.719714+00:00"
+    }
+  ],
+  "terminalReason": "Owner deferred both PBC sources from the current V3 run after this URL proved to be an indirect multipage DjVu index rather than a complete book.",
+  "artifactAssessment": "indirect-multipage-djvu-index",
+  "method": "direct-djvu-from-official-reader",
+  "recordResolution": {
+    "recordUrl": "https://www.pbc.rzeszow.pl/dlibra/publication/edition/10620/content",
+    "recordFinalUrl": "https://www.pbc.rzeszow.pl/dlibra/publication/edition/10620/content",
+    "recordContentType": "text/html",
+    "recordSha256": "b12eb79b8ffa1420679815d2951aed139a8c583befa0e60cadc1c339f7a4841c",
+    "recordBytes": 22158,
+    "resolvedAt": "2026-09-07T11:08:19.580577+00:00"
+  },
+  "skippedAt": "2026-09-07"
+}

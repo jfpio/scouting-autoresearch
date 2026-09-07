@@ -13,12 +13,11 @@ proposedUse:
   - documented-download-to-temporary-scratch
   - inspect-title-pages-credits-and-table-of-contents
   - ocr-or-text-extraction-of-potential-game-pages
-  - publish-only-components-covered-by-the-human-approved-rights-scope
-excludedUntilSeparatelyEstablished:
+  - publish-game-prose-from-library-objects-explicitly-marked-public-domain
+outsideProductScope:
   - illustrations-photographs-covers-music-and-lyrics
-  - anonymous-or-unidentified-contributions
-  - separately-credited-forewords-introductions-and-quoted-works
   - digital-library-site-database-and-packaging
+supersededRightsScopeBy: vault/reviews/accepted/v3-component-authorship-2026-09.md
 humanDecision:
   status: approved
   approvedBy: repository-owner
@@ -33,9 +32,16 @@ humanDecision:
 
 # V3-R1 — polskie źródła: nabycie i bramka prawna
 
-Ten pakiet nie uznaje etykiety jednej biblioteki za samodzielny dowód. Łączy opis konkretnego
-wydania z informacją o autorstwie i dacie śmierci, a następnie ogranicza planowany import do
-składników, które po inspekcji da się przypisać osobie objętej zatwierdzonym zakresem.
+> Aktualizacja 7 września 2026 r.: poniższa pierwotna, ostrożniejsza kwalifikacja została
+> zastąpiona decyzją w `vault/reviews/accepted/v3-component-authorship-2026-09.md`. Jawne
+> oznaczenie konkretnego obiektu przez bibliotekę jako domeny publicznej jest dla projektu
+> rozstrzygające. Informacje o współpracownikach i zapożyczeniach zachowujemy jako
+> proweniencję, nie jako bramkę prawną.
+
+Pierwotna analiza w tym pakiecie nie uznawała etykiety jednej biblioteki za samodzielny dowód
+i łączyła opis wydania z autorstwem oraz datą śmierci. Ten sposób kwalifikacji pozostaje niżej
+jako historia decyzji, ale nie obowiązuje już dla obiektów z jednoznacznym statusem
+instytucjonalnym.
 
 Zatwierdzenie poniższej propozycji pozwoli pobrać dziesięć wskazanych obiektów wyłącznie do
 tymczasowego katalogu w `$SCRATCH`, ustalić mapę składników i przetwarzać tekst. Nie obejmie

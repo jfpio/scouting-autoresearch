@@ -55,6 +55,18 @@ class V3SourceRunTests(unittest.TestCase):
             any("movement-games edition metadata" in error for error in self.errors(manifest))
         )
 
+    def test_rejects_missing_exact_library_rights_evidence(self):
+        manifest = copy.deepcopy(self.manifest)
+        unit = next(
+            item
+            for item in manifest["sourceUnits"]
+            if item["id"] == "dabrowski-indoor-games-1934"
+        )
+        unit.pop("rightsEvidence")
+        self.assertTrue(
+            any("institutional public-domain evidence" in error for error in self.errors(manifest))
+        )
+
     def test_rejects_missing_polish_acquisition_gate(self):
         manifest = copy.deepcopy(self.manifest)
         manifest["humanGates"] = [
@@ -106,6 +118,26 @@ class V3SourceRunTests(unittest.TestCase):
         self.assertTrue(
             any("robots ZIP exclusion" in error for error in self.errors(registry=registry))
         )
+
+    def test_rejects_unapproved_or_zip_shaped_pbc_alternative(self):
+        manifest = copy.deepcopy(self.manifest)
+        unit = next(
+            item
+            for item in manifest["sourceUnits"]
+            if item["id"] == "dabrowski-winter-games-1935"
+        )
+        unit["alternativeCandidate"]["url"] = "https://www.pbc.rzeszow.pl/Content/10620/zip/source.djvu"
+        self.assertTrue(any("DjVu alternative" in error for error in self.errors(manifest)))
+
+    def test_rejects_reactivating_a_pbc_source_in_this_run(self):
+        manifest = copy.deepcopy(self.manifest)
+        unit = next(
+            item
+            for item in manifest["sourceUnits"]
+            if item["id"] == "dabrowski-winter-games-1935"
+        )
+        unit.pop("runDisposition")
+        self.assertTrue(any("explicitly deferred" in error for error in self.errors(manifest)))
 
 
 if __name__ == "__main__":

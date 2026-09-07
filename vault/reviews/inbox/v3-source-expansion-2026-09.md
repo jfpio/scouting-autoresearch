@@ -3,7 +3,7 @@ id: v3-source-expansion-2026-09
 recordType: research-run-review
 status: active
 createdAt: "2026-09-06"
-reviewRequired: true
+reviewRequired: false
 manifest: config/v3-source-expansion.yaml
 milestone: V3-R1
 sourceUnitCount: 11
@@ -52,8 +52,9 @@ pull requestem. Pośrednie PR-y per książka są wyłączone.
    redakcyjnego.
 3. Zatwierdzono udokumentowane pobranie polskich obiektów do scratch oraz wstępny zakres
    domeny publicznej nazwanych autorów, opisany w osobnym pakiecie nabycia.
-4. W toku runu przed publikacją pełnego tekstu należy przedstawić zbiorczo do kontroli ustalone
-   wydania, autorstwo poszczególnych składników i decyzje prawne dla polskich książek.
+4. Właściciel zatwierdził jawny status domeny publicznej podany przez bibliotekę dla
+   konkretnego obiektu jako rozstrzygający. Przegląd autorstwa pozostaje elementem
+   proweniencji, ale nie blokuje importu.
 
 ## Gotowe formuły decyzji
 
@@ -85,16 +86,16 @@ publikacji. Te decyzje pozostają widoczne w jednym raporcie i końcowym PR-ze V
   do repozytorium; raporty zawierają tylko metadane, lokalizatory i hashe.
 - *Chamarande* zakończyło się prawidłowym wynikiem zero-yield: zatwierdzona proza opisuje
   program i wspomina gry, lecz nie zawiera samodzielnych reguł gry.
-- Dwa źródła PBC Rzeszów pozostają niepobrane. Zakaz automatycznego ZIP-u jest respektowany;
-  bezpośrednie pliki DjVu z oficjalnego czytnika czekają na osobną decyzję w
-  `vault/reviews/inbox/pbc-direct-djvu-alternatives.md`.
-- Inspekcja przedmów ujawniła nieprzypisane wkłady w kilku kompilacjach. Zbiorcza decyzja i
-  bezpieczna rekomendacja znajdują się w
-  `vault/reviews/inbox/v3-component-authorship-2026-09.md`.
-- Ukierunkowane testy V3 przeszły `17/17`, pełny zestaw przeszedł `215/215` na CPU node w
-  jobie Slurm `22095999`, a `python scripts/validate.py` zakończył się powodzeniem.
+- Dwa źródła PBC Rzeszów są pominięte w tym runie decyzją właściciela. Zakaz automatycznego
+  ZIP-u jest respektowany; bezpośrednie adresy zwróciły tylko indeksy pośredniego DjVu, a nie
+  kompletne książki. Zgoda na te adresy pozostaje zapisana do ewentualnego osobnego runu.
+- Właściciel zatwierdził oznaczenie konkretnego obiektu przez bibliotekę cyfrową jako
+  rozstrzygający dowód domeny publicznej. Decyzja i skutek dla ośmiu zinwentaryzowanych
+  książek są zapisane w `vault/reviews/accepted/v3-component-authorship-2026-09.md`.
+- Ukierunkowane testy V3 przeszły `25/25`, pełny zestaw przeszedł `220/220` na CPU node w
+  jobie Slurm `22097463`, a `python scripts/validate.py` zakończył się powodzeniem.
 
-Po rozstrzygnięciu tych dwóch bramek agent może przejść do przeglądu granic, importu
-kwalifikujących się gier, tłumaczeń, relacji podobieństwa, skal liczby uczestników oraz
-przebudowy embeddingów i mapy semantycznej. PR nadal powstanie tylko jeden, po osiągnięciu
-stanu terminalnego przez wszystkie jednostki manifestu.
+Wszystkie bramki są rozstrzygnięte. Agent może przejść do przeglądu granic i importu gier z
+ośmiu pozyskanych polskich książek, tłumaczeń, relacji podobieństwa, skal liczby uczestników
+oraz przebudowy embeddingów i mapy semantycznej. PR nadal powstanie tylko jeden, po
+osiągnięciu stanu terminalnego przez wszystkie jednostki manifestu.

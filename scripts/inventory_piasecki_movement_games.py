@@ -13,7 +13,7 @@ from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
 
-from common import ROOT, read_json, write_json
+from common import ROOT, read_json, read_yaml, write_json
 
 
 SOURCE_ID = "piasecki-movement-games-1922"
@@ -173,6 +173,13 @@ def discovery_cost_summary() -> dict[str, Any]:
 
 def build_report() -> dict[str, Any]:
     inspection = read_json(INSPECTION_PATH)
+    manifest = read_yaml(ROOT / "config" / "v3-source-expansion.yaml") or {}
+    manifest_unit = next(
+        item for item in manifest.get("sourceUnits", []) if item.get("id") == SOURCE_ID
+    )
+    rights_evidence = manifest_unit.get("rightsEvidence") or {}
+    if not rights_evidence:
+        raise ValueError(f"Missing institutional rights evidence for {SOURCE_ID}")
     embedded = inspection.get("embeddedText") or {}
     scratch = os.environ.get("SCRATCH")
     if not scratch:
@@ -195,7 +202,7 @@ def build_report() -> dict[str, Any]:
         item["sourceBlockSha256"] = hashlib.sha256(
             ("\n".join(line["text"] for line in selected) + "\n").encode("utf-8")
         ).hexdigest()
-        item["componentReviewStatus"] = "pending-human-review"
+        item["recordReviewStatus"] = "pending-agent-review"
         item["separateLyricsOrVerseReviewRequired"] = item["number"] <= 30
         if item["number"] == 103:
             item["separateContributorNamedInPreface"] = "Kazimierz Lutosławski"
@@ -206,7 +213,7 @@ def build_report() -> dict[str, Any]:
         "authorStatement": "Eugeniusz Piasecki",
         "edition": "wydanie 3 poprawione i rozszerzone",
         "year": 1922,
-        "status": "candidate-inventory-complete-component-review-pending",
+        "status": "candidate-inventory-complete-record-review-pending",
         "sourceText": {
             "classification": "embedded-text-available",
             "sha256": embedded.get("sha256"),
@@ -223,19 +230,22 @@ def build_report() -> dict[str, Any]:
                 "retain raw OCR title and exact PDF-page/line provenance",
                 "do not emit or modernize full source text",
             ],
-            "locatorCaveat": "Candidate ranges run from one numbered heading to the line before the next; page furniture and separately authored sub-blocks still require block review before import.",
+            "locatorCaveat": "Candidate ranges run from one numbered heading to the line before the next; page furniture and provenance notes still require record review before import.",
         },
         "selection": {
             "productionKind": "game",
             "tocGameCount": 133,
+            "rightsStatus": "public-domain",
+            "rightsEvidencePolicy": "explicit-library-public-domain-status-is-ground-truth",
+            "rightsEvidence": rights_evidence,
+            "humanReviewRequiredBeforeFullTextPublication": False,
             "candidateCount": len(items),
             "importedActivityCount": 0,
-            "rightsScope": "Piasecki's own prose only; illustrations, music, lyrics, quoted text and separate contributions remain excluded.",
-            "humanReviewRequiredBeforeFullTextPublication": True,
+            "rightsScope": "Game prose in the KPBC object explicitly marked public domain; music, lyrics and illustrations remain outside the product scope.",
             "knownComponentExceptions": [
-                "Games 1-30 combine rule prose with verse or song material requiring block-level exclusion.",
+                "Games 1-30 combine rule prose with verse or song material requiring record-level separation because songs are outside the product scope.",
                 "The preface separately credits Kazimierz Lutosławski with the description of game 103, Kręgle polskie.",
-                "The preface states that some unclear descriptions were repeated verbatim and that the collection draws on printed and living traditions; quotation and attribution evidence must be reviewed per game.",
+                "The preface states that some unclear descriptions were repeated verbatim and that the collection draws on printed and living traditions; retain quotation and attribution evidence as provenance per game.",
             ],
         },
         "supplementalDiscovery": discovery_cost_summary(),

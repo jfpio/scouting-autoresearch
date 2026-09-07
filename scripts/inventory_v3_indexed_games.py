@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Inventory game-like entries from two V3 books with embedded text.
 
-The reports deliberately stop at page/heading provenance.  They do not emit full
-source text and do not decide whether a block is safe to publish; both books say
-that material from other authors was incorporated.
+The reports deliberately stop at page/heading provenance and do not emit full
+source text. Both library objects carry an explicit public-domain status; signals
+about incorporated material are retained as provenance, not publication blockers.
 """
 
 from __future__ import annotations
@@ -18,7 +18,7 @@ from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
 
-from common import ROOT, read_json, write_json
+from common import ROOT, read_json, read_yaml, write_json
 
 
 def _items(section: str, values: list[tuple[str, int]]) -> list[dict[str, Any]]:
@@ -176,6 +176,13 @@ def _page_lines(page: str) -> list[dict[str, Any]]:
 
 def build_report(source_id: str) -> dict[str, Any]:
     plan = SOURCE_PLANS[source_id]
+    manifest = read_yaml(ROOT / "config" / "v3-source-expansion.yaml") or {}
+    manifest_unit = next(
+        item for item in manifest.get("sourceUnits", []) if item.get("id") == source_id
+    )
+    rights_evidence = manifest_unit.get("rightsEvidence") or {}
+    if not rights_evidence:
+        raise ValueError(f"Missing institutional rights evidence for {source_id}")
     inspection_path = ROOT / "data" / "checkpoints" / "source-inspection" / f"{source_id}.json"
     inspection = read_json(inspection_path)
     embedded = inspection.get("embeddedText") or {}
@@ -234,7 +241,7 @@ def build_report(source_id: str) -> dict[str, Any]:
                 "titleLocatorScore": round(score, 4),
                 "locatorStatus": locator_status,
                 "sourcePageSha256": hashlib.sha256(normalized_page.encode("utf-8")).hexdigest(),
-                "componentReviewStatus": "pending-human-review",
+                "recordReviewStatus": "pending-agent-review",
             }
         )
         candidates.append(item)
@@ -246,7 +253,7 @@ def build_report(source_id: str) -> dict[str, Any]:
         "authorStatement": plan["authorStatement"],
         "edition": plan["edition"],
         "year": plan["year"],
-        "status": "candidate-inventory-complete-component-review-pending",
+        "status": "candidate-inventory-complete-record-review-pending",
         "sourceText": {
             "classification": "embedded-text-available",
             "sha256": embedded.get("sha256"),
@@ -268,8 +275,12 @@ def build_report(source_id: str) -> dict[str, Any]:
             "candidateCount": len(candidates),
             "headingLocatedCount": located_count,
             "pageOnlyLocatorCount": len(candidates) - located_count,
+            "rightsStatus": "public-domain",
+            "rightsEvidencePolicy": "explicit-library-public-domain-status-is-ground-truth",
+            "rightsEvidence": rights_evidence,
+            "rightsScope": "Game prose in the library object explicitly marked public domain; non-game media remain outside the product scope.",
+            "humanReviewRequiredBeforeFullTextPublication": False,
             "importedActivityCount": 0,
-            "humanReviewRequiredBeforeFullTextPublication": True,
             "componentEvidence": plan["componentEvidence"],
             "excludedIndexEntries": plan["excludedIndexEntries"],
         },

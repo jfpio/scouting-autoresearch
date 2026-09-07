@@ -121,10 +121,15 @@ Obecność w korpusie historycznym nie oznacza rekomendacji metodycznej. Status
 
 ## Zasady prawne i źródłowe
 
-Udokumentowany upływ 70 pełnych lat od śmierci autora pozwala automatycznie uznać jego
-oryginalny składnik za domenę publiczną w Polsce i UE. Nie rozstrzyga jednak praw do wkładów
-innych osób. Dla każdej edycji sprawdzamy autora, współautorów, redaktora, tłumacza,
-ilustratorów, kraj pochodzenia, datę publikacji i status reprodukcji.
+Jawne oznaczenie konkretnego obiektu przez bibliotekę, archiwum lub zbiór cyfrowy jako
+`domena publiczna`, `public domain` albo równoważne jest dla projektu rozstrzygającym dowodem
+statusu udostępnionej zawartości. Zachowujemy instytucję, dokładne wydanie, URL, brzmienie
+oznaczenia, datę sprawdzenia, atrybucję oraz osobne warunki korzystania z reprodukcji.
+
+Dopiero gdy instytucja nie podaje jednoznacznego statusu konkretnego obiektu, ustalamy autora,
+współautorów, redaktora, tłumacza, ilustratorów, kraj pochodzenia i daty śmierci. W tym trybie
+udokumentowany upływ 70 pełnych lat od śmierci autora może kwalifikować jego oryginalny wkład,
+ale nie rozstrzyga automatycznie praw do pozostałych składników wydania.
 
 - pełny tekst publikujemy wyłącznie przy udokumentowanym `rightsStatus: public-domain`,
 - status prawny zawsze przypisujemy wskazanej instytucji lub konkretnemu dowodowi,

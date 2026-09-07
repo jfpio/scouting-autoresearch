@@ -18,7 +18,7 @@ from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any, Iterable
 
-from common import ROOT, read_json, write_json
+from common import ROOT, read_json, read_yaml, write_json
 
 
 @dataclass(frozen=True)
@@ -29,7 +29,7 @@ class SourcePlan:
     method: str
     body_ranges: tuple[tuple[int, int], ...]
     index_ranges: tuple[tuple[int, int], ...] = ()
-    rights_scope: str = "named public-domain prose only"
+    rights_scope: str = "game prose in the library object explicitly marked public domain"
     component_exceptions: tuple[str, ...] = ()
 
 
@@ -41,7 +41,7 @@ SOURCE_PLANS = {
         "numbered-game-or-exercise-openings-v1",
         ((89, 268), (281, 303)),
         ((81, 86), (305, 308)),
-        "Jasiński's own prose only; cover artwork, illustrations and separately credited material are excluded.",
+        "Game prose in the Polona object explicitly marked public domain; non-game media remain outside the product scope.",
         (
             "The author's preface says the selection is based on his long practical experience; no blanket third-party contribution credit was found in the inspected front matter.",
         ),
@@ -53,9 +53,9 @@ SOURCE_PLANS = {
         "numbered-toc-and-body-heading-locators-v1",
         ((13, 85),),
         ((11, 12), (86, 87)),
-        "Mojmir's own prose only; quotations, illustrations and separately credited material are excluded.",
+        "Game prose in the Polona object explicitly marked public domain; non-game media remain outside the product scope.",
         (
-            "The book cites Baden-Powell, Seton and other collections as sources; each prose block remains pending component review.",
+            "The book cites Baden-Powell, Seton and other collections as sources; retain these signals as provenance and similarity evidence.",
         ),
     ),
     "dabrowski-indoor-games-1934": SourcePlan(
@@ -65,7 +65,7 @@ SOURCE_PLANS = {
         "toc-page-and-fuzzy-heading-locators-v1",
         ((5, 82),),
         ((83, 90),),
-        "Dąbrowski's own prose only; cover artwork, graphics, quotations and separately credited material are excluded.",
+        "Game prose in the Polona object explicitly marked public domain; non-game media remain outside the product scope.",
         (
             "The author's introduction says games came from many scouts and Warsaw troops and credits W. Dehnel with review and additions.",
             "The introduction also names Gilcraft's Games Book, Ewa Grodecka's edited collection and periodicals as sources without mapping them to individual games.",
@@ -78,10 +78,10 @@ SOURCE_PLANS = {
         "explicit-game-label-locators-v1",
         ((19, 101),),
         ((116, 118),),
-        "Pawełek's own prose only; Lutosławski's foreword and other separately authored contributions are excluded.",
+        "Game prose in the PBC object explicitly marked public domain; non-game media remain outside the product scope.",
         (
             "Meeting programmes are not games by themselves; only explicitly labelled game blocks are inventoried.",
-            "The author's preface says coworkers may recognize their ideas and names three earlier books used while writing; each candidate therefore needs component-level attribution before full-text publication.",
+            "The author's preface says coworkers may recognize their ideas and names three earlier books used while writing; retain this as provenance and similarity evidence.",
         ),
     ),
     "zwolakowska-cub-pack-1945": SourcePlan(
@@ -91,10 +91,10 @@ SOURCE_PLANS = {
         "game-chapter-heading-locators-v1",
         ((294, 321),),
         ((293, 293), (322, 324)),
-        "candidate mapping only until the author and rights of each game-chapter component are established",
+        "Game prose in the Polona object explicitly marked public domain; non-game media remain outside the product scope.",
         (
-            "Hanna Kopciówna (Hanna Brzozowska-Kopciówna, 1907–1944) signs the introduction immediately before Dział I; her own prose is public domain in Poland and the EU, but the signature's scope over all 74 descriptions remains unresolved.",
-            "The edition is a collective work and expressly contains contributed and reprinted components.",
+            "Hanna Kopciówna signs the introduction immediately before Dział I; retain the unresolved signature scope as provenance rather than a legal blocker.",
+            "The edition is a collective work and expressly contains contributed and reprinted components; retain these signals for attribution and similarity review.",
         ),
     ),
 }
@@ -408,15 +408,161 @@ PARSERS = {
 }
 
 
+COMPONENT_RISK_PATTERNS = {
+    "explicit-attribution-language": re.compile(
+        r"\b(?:według|wg\.?|zaczerpnięt\w*|nadesłał\w*|podał\w*|opisał\w*|autorstw\w*)\b",
+        re.IGNORECASE,
+    ),
+    "known-external-source-name": re.compile(
+        r"\b(?:baden[ -]powell\w*|seton\w*|gilcraft\w*|grodeck\w*|mojmir\w*|cenar\w*|jaroszyń\w*|lutosławsk\w*|sedlaczek\w*|gibess\w*|glass\w*|sopoćk\w*)\b",
+        re.IGNORECASE,
+    ),
+    "verse-song-or-music-language": re.compile(
+        r"\b(?:pieś\w*|piosen\w*|melodi\w*|śpiew\w*|zwrotk\w*|refren\w*|wiersz\w*|nuty?)\b",
+        re.IGNORECASE,
+    ),
+    "illustration-reference": re.compile(r"\b(?:rys|ryc|fig)\s*\.", re.IGNORECASE),
+}
+
+
+def _line_from_locator(locator: str) -> int:
+    match = re.fullmatch(r"view-\d{4}-l(\d{4})", locator)
+    if not match:
+        raise ValueError(f"Unexpected OCR line locator: {locator}")
+    return int(match.group(1))
+
+
+def _body_range(view: int, ranges: tuple[tuple[int, int], ...]) -> tuple[int, int] | None:
+    return next((bounds for bounds in ranges if bounds[0] <= view <= bounds[1]), None)
+
+
+def _block_text(
+    pages_by_view: dict[int, OCRPage],
+    start: tuple[int, int],
+    end: tuple[int, int] | None,
+    range_end: int,
+) -> tuple[str, int, int]:
+    fragments = []
+    last_included_view = start[0]
+    nonempty_line_count = 0
+    final_view = end[0] if end else range_end
+    for view in range(start[0], final_view + 1):
+        page = pages_by_view.get(view)
+        if page is None:
+            continue
+        lines = page.markdown.splitlines()
+        first_index = start[1] - 1 if view == start[0] else 0
+        final_index = end[1] - 1 if end and view == end[0] else len(lines)
+        selected = lines[first_index:final_index]
+        if selected:
+            last_included_view = view
+            nonempty_line_count += sum(bool(normalize_space(line)) for line in selected)
+            fragments.extend(selected)
+    return "\n".join(fragments), last_included_view, nonempty_line_count
+
+
+def annotate_candidate_boundaries(
+    plan: SourcePlan,
+    pages: list[OCRPage],
+    candidates: list[dict[str, Any]],
+) -> None:
+    pages_by_view = {page.view: page for page in pages}
+    anchors = []
+    anchor_counts: dict[tuple[int, int], int] = {}
+    for item in candidates:
+        locator = item.get("bestLineLocator")
+        if not locator:
+            continue
+        anchor = (int(item["viewStart"]), _line_from_locator(locator))
+        anchors.append((anchor, item))
+        anchor_counts[anchor] = anchor_counts.get(anchor, 0) + 1
+
+    reliable = [
+        (anchor, item)
+        for anchor, item in anchors
+        if item.get("locatorStatus") == "heading-located" and anchor_counts[anchor] == 1
+    ]
+    reliable.sort(key=lambda value: value[0])
+    unreliable_anchors = sorted(
+        anchor
+        for anchor, item in anchors
+        if item.get("locatorStatus") != "heading-located" or anchor_counts[anchor] != 1
+    )
+
+    for item in candidates:
+        locator = item.get("bestLineLocator")
+        if not locator:
+            item["boundaryStatus"] = "manual-review-required-missing-heading"
+            continue
+        start = (int(item["viewStart"]), _line_from_locator(locator))
+        bounds = _body_range(start[0], plan.body_ranges)
+        if item.get("locatorStatus") != "heading-located" or anchor_counts[start] != 1 or bounds is None:
+            item["boundaryStatus"] = "manual-review-required-uncertain-heading"
+            continue
+        next_anchor = next(
+            (
+                anchor
+                for anchor, _other in reliable
+                if anchor > start and _body_range(anchor[0], plan.body_ranges) == bounds
+            ),
+            None,
+        )
+        intervening_unreliable = sum(
+            start < anchor < next_anchor if next_anchor else start < anchor and anchor[0] <= bounds[1]
+            for anchor in unreliable_anchors
+        )
+        raw_block, view_end, nonempty_lines = _block_text(
+            pages_by_view,
+            start,
+            next_anchor,
+            bounds[1],
+        )
+        normalized_block = normalize_space(raw_block) + "\n"
+        risk_signals = [
+            signal_id
+            for signal_id, pattern in COMPONENT_RISK_PATTERNS.items()
+            if pattern.search(raw_block)
+        ]
+        if raw_block.count("„") + raw_block.count('"') >= 2:
+            risk_signals.append("quotation-markers")
+        item.update({
+            "viewEndInclusive": view_end,
+            "endExclusiveLocator": (
+                f"view-{next_anchor[0]:04d}-l{next_anchor[1]:04d}"
+                if next_anchor
+                else f"view-{bounds[1]:04d}-eof"
+            ),
+            "sourceBlockSha256": hashlib.sha256(normalized_block.encode("utf-8")).hexdigest(),
+            "blockMarkdownCharacterCount": len(raw_block),
+            "blockNonEmptyLineCount": nonempty_lines,
+            "componentRiskSignalIds": sorted(set(risk_signals)),
+            "boundaryStatus": (
+                "review-required-adjacent-uncertain-locator"
+                if intervening_unreliable
+                else "bounded-by-next-heading" if next_anchor else "bounded-by-approved-range-end"
+            ),
+        })
+        if intervening_unreliable:
+            item["interveningUnreliableCandidateCount"] = intervening_unreliable
+
+
 def build_report(source_id: str) -> dict[str, Any]:
     plan = SOURCE_PLANS[source_id]
+    manifest = read_yaml(ROOT / "config" / "v3-source-expansion.yaml") or {}
+    manifest_unit = next(
+        item for item in manifest.get("sourceUnits", []) if item.get("id") == source_id
+    )
+    rights_evidence = manifest_unit.get("rightsEvidence") or {}
+    if not rights_evidence:
+        raise ValueError(f"Missing institutional rights evidence for {source_id}")
     checkpoint, pages = load_ocr_pages(source_id)
     candidates = PARSERS[source_id](pages)
     if not candidates:
         raise ValueError(f"No candidate locators recovered for {source_id}")
+    annotate_candidate_boundaries(plan, pages, candidates)
     for number, item in enumerate(candidates, start=1):
         item["number"] = number
-        item["componentReviewStatus"] = "pending-human-review"
+        item["recordReviewStatus"] = "pending-agent-review"
     run = checkpoint["ocrRun"]
     item_recipe_versions = {
         item.get("recipeVersion")
@@ -432,7 +578,7 @@ def build_report(source_id: str) -> dict[str, Any]:
         "sourceTitle": plan.title,
         "authorStatement": plan.author_statement,
         "year": plan.year,
-        "status": "candidate-inventory-complete-component-review-pending",
+        "status": "candidate-inventory-complete-record-review-pending",
         "sourceText": {
             "classification": "mistral-ocr-scratch-only",
             "storage": "scratch-only",
@@ -447,16 +593,20 @@ def build_report(source_id: str) -> dict[str, Any]:
             "normalization": [
                 "collapse whitespace and remove Markdown emphasis only for matching",
                 "retain raw OCR-derived title, view/page locator and hashes; do not retain the matched OCR line",
+                "hash candidate blocks from their start heading to the next reliable heading without emitting block text",
                 "do not emit or modernize full source prose",
             ],
-            "locatorCaveat": "Candidate boundaries and kinds remain a review task; a locator does not establish authorship or publication eligibility.",
+            "locatorCaveat": "Candidate boundaries, kinds and provenance notes remain a record-review task; the library's explicit public-domain status establishes publication eligibility for this digital object.",
         },
         "selection": {
             "productionKind": "game",
             "candidateCount": len(candidates),
             "importedActivityCount": 0,
             "rightsScope": plan.rights_scope,
-            "humanReviewRequiredBeforeFullTextPublication": True,
+            "rightsStatus": "public-domain",
+            "rightsEvidencePolicy": "explicit-library-public-domain-status-is-ground-truth",
+            "rightsEvidence": rights_evidence,
+            "humanReviewRequiredBeforeFullTextPublication": False,
             "knownComponentExceptions": list(plan.component_exceptions),
         },
         "ocrUsage": run.get("usage"),

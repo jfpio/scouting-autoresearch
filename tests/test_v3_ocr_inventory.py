@@ -5,7 +5,14 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from inventory_v3_ocr_games import OCRPage, _deduplicate, _toc_pairs, parse_mojmir
+from inventory_v3_ocr_games import (
+    OCRPage,
+    SourcePlan,
+    _deduplicate,
+    _toc_pairs,
+    annotate_candidate_boundaries,
+    parse_mojmir,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,6 +45,29 @@ class V3OCRInventoryTests(unittest.TestCase):
         self.assertEqual(len(candidates), 85)
         self.assertTrue(all(item["locatorStatus"] == "heading-located" for item in candidates))
 
+    def test_boundary_annotation_hashes_prose_without_emitting_it(self):
+        pages = [
+            OCRPage(10, "view-0010.jpg", "1", "## Pierwsza\nOpis według Setona.\n## Druga\nOpis.", "a" * 64),
+        ]
+        candidates = [
+            {
+                "titleRaw": "Pierwsza", "viewStart": 10,
+                "bestLineLocator": "view-0010-l0001", "locatorStatus": "heading-located",
+            },
+            {
+                "titleRaw": "Druga", "viewStart": 10,
+                "bestLineLocator": "view-0010-l0003", "locatorStatus": "heading-located",
+            },
+        ]
+        plan = SourcePlan("T", "A", 1900, "test", ((10, 10),))
+        annotate_candidate_boundaries(plan, pages, candidates)
+        self.assertEqual(candidates[0]["endExclusiveLocator"], "view-0010-l0003")
+        self.assertEqual(candidates[0]["viewEndInclusive"], 10)
+        self.assertIn("explicit-attribution-language", candidates[0]["componentRiskSignalIds"])
+        self.assertIn("known-external-source-name", candidates[0]["componentRiskSignalIds"])
+        self.assertEqual(len(candidates[0]["sourceBlockSha256"]), 64)
+        self.assertNotIn("Opis", str(candidates[0]))
+
     def test_checked_in_candidate_reports_are_metadata_only_and_complete(self):
         expected_counts = {
             "jasinski-field-games-1938": 181,
@@ -62,6 +92,9 @@ class V3OCRInventoryTests(unittest.TestCase):
                 self.assertEqual(len(candidate["ocrResponseSha256"]), 64)
                 self.assertEqual(len(candidate["sourcePageSha256"]), 64)
                 self.assertEqual(len(candidate["titleLocatorLineSha256"]), 64)
+                if candidate["boundaryStatus"].startswith("bounded-by"):
+                    self.assertEqual(len(candidate["sourceBlockSha256"]), 64)
+                    self.assertGreater(candidate["blockNonEmptyLineCount"], 0)
                 self.assertFalse(prohibited_candidate_keys.intersection(candidate))
             total += expected_count
         self.assertEqual(total, 547)

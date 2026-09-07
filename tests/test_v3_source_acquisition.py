@@ -11,6 +11,7 @@ from acquire_v3_sources import (
     load_plan,
     polona_image_fallback_url,
     polona_image_url,
+    validate_djvu,
 )
 
 
@@ -32,10 +33,16 @@ class V3SourceAcquisitionTests(unittest.TestCase):
         self.assertEqual(plan.expected_host, "kpbc.umk.pl")
         self.assertTrue(plan.artifact_url.startswith("https://kpbc.umk.pl/Content/"))
 
-    def test_robots_blocked_zip_never_builds_an_execution_plan(self):
+    def test_owner_deferred_pbc_source_cannot_be_acquired_in_this_run(self):
         with patch.dict(os.environ, {"SCRATCH": self.scratch}):
-            with self.assertRaisesRegex(AcquisitionError, "blocked-by-robots"):
+            with self.assertRaisesRegex(AcquisitionError, "skipped-in-the-current-v3-run"):
                 load_plan("dabrowski-winter-games-1935")
+
+    def test_djvu_signature_is_validated(self):
+        validate_djvu(b"AT&TFORM\x00\x00\x00\x08DJVU", "image/vnd.djvu")
+        validate_djvu(b"AT&TFORM\x00\x00\x00\x08DJVM", "image/x.djvu")
+        with self.assertRaisesRegex(AcquisitionError, "signature-is-not-djvu"):
+            validate_djvu(b"PK\x03\x04not-a-djvu", "application/octet-stream")
 
     def test_polona_image_url_accepts_only_pinned_https_iiif_shape(self):
         self.assertEqual(

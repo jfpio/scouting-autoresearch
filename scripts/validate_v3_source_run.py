@@ -179,6 +179,24 @@ def v3_source_run_errors(
         require(unit.get("discoveryCollectionId") in collections, f"{unit_id}: unregistered discovery collection")
         require(unit.get("targetCollectionId") in collections, f"{unit_id}: unregistered target collection")
         require(bool(unit.get("accessStatus")), f"{unit_id}: missing access status")
+        if unit.get("language") == "pl":
+            rights_evidence = unit.get("rightsEvidence") or {}
+            require(
+                bool(rights_evidence.get("institution"))
+                and "publiczn" in str(rights_evidence.get("statusLabel") or "").casefold()
+                and str(rights_evidence.get("evidenceUrl") or "").startswith("https://")
+                and bool(rights_evidence.get("checkedAt"))
+                and bool(rights_evidence.get("reviewRecord"))
+                and (ROOT / str(rights_evidence.get("reviewRecord"))).is_file(),
+                f"{unit_id}: exact institutional public-domain evidence is missing",
+            )
+        if unit_id in {"dabrowski-winter-games-1935", "sedlaczek-fieldcraft-method-1935"}:
+            require(
+                unit.get("runDisposition") == "skipped-with-reason"
+                and unit.get("skipReason")
+                == "owner-deferred-pbc-sources-from-current-v3-run",
+                f"{unit_id}: PBC source is not explicitly deferred from this V3 run",
+            )
         proposed = unit.get("proposedAcquisition") or {}
         method = proposed.get("method")
         acquisition_method_counts[method] = acquisition_method_counts.get(method, 0) + 1
@@ -215,6 +233,23 @@ def v3_source_run_errors(
                 and proposed.get("alternativeRequired")
                 == "permitted-non-zip-artifact-or-human-supplied-file",
                 f"{unit_id}: robots-blocked PBC artifact is not safely represented",
+            )
+            alternative = unit.get("alternativeCandidate") or {}
+            alternative_url = str(alternative.get("url") or "")
+            parsed_alternative = urlparse(alternative_url)
+            require(
+                alternative.get("status") == "approved-resolve-before-fetch"
+                and alternative.get("method") == "direct-djvu-from-official-reader"
+                and alternative.get("artifactType") == "djvu"
+                and parsed_alternative.scheme == "https"
+                and parsed_alternative.hostname == "www.pbc.rzeszow.pl"
+                and parsed_alternative.path.startswith("/Content/")
+                and parsed_alternative.path.endswith(".djvu")
+                and "/zip" not in parsed_alternative.path.casefold()
+                and alternative.get("robotsDecision") == "direct-djvu-path-not-disallowed"
+                and alternative.get("reviewRecord")
+                == "vault/reviews/accepted/pbc-direct-djvu-alternatives.md",
+                f"{unit_id}: approved PBC DjVu alternative is not safely represented",
             )
         elif method == "polona-uuid-record":
             uuid = str(proposed.get("uuid") or "")
@@ -297,6 +332,30 @@ def v3_source_run_errors(
         bool(polish_review) and (ROOT / str(polish_review)).is_file(),
         "Polish source acquisition gate lacks its review record",
     )
+    pbc_gate = gates.get("pbc-direct-djvu-artifacts", {})
+    require(
+        pbc_gate.get("status") == "approved"
+        and pbc_gate.get("approvedBy") == "repository-owner"
+        and pbc_gate.get("approvedAt") == "2026-09-07"
+        and pbc_gate.get("reviewRecord")
+        == "vault/reviews/accepted/pbc-direct-djvu-alternatives.md",
+        "PBC direct DjVu gate is not approved and bounded",
+    )
+    require(
+        pbc_gate.get("decision")
+        == "approved-for-future-use-deferred-from-current-v3-run",
+        "PBC direct DjVu approval is not deferred from the current V3 run",
+    )
+    component_gate = gates.get("per-item-rights-and-component-authorship", {})
+    require(
+        component_gate.get("status") == "approved"
+        and component_gate.get("approvedBy") == "repository-owner"
+        and component_gate.get("decision")
+        == "explicit-library-public-domain-status-is-ground-truth"
+        and component_gate.get("reviewRecord")
+        == "vault/reviews/accepted/v3-component-authorship-2026-09.md",
+        "V3 library public-domain evidence policy is not approved",
+    )
 
     active_run = queue.get("activeRun") or {}
     require(active_run.get("id") == run_id, "Research queue does not point to the V3 source run")
@@ -324,7 +383,7 @@ def v3_source_run_errors(
                 "ocr-pending",
                 "ocr-in-progress",
                 "awaiting-artifact-approval",
-                "awaiting-component-review",
+                "record-review-pending",
                 "extracting",
                 "translating",
                 "imported",
@@ -361,8 +420,23 @@ def v3_source_run_errors(
         )
         require(
             candidate_payload.get("status")
-            == "candidate-inventory-complete-component-review-pending",
-            f"{unit.get('id')}: candidate report is not awaiting component review",
+            == "candidate-inventory-complete-record-review-pending",
+            f"{unit.get('id')}: candidate report is not awaiting record review",
+        )
+        require(
+            selection.get("rightsStatus") == "public-domain"
+            and selection.get("rightsEvidencePolicy")
+            == "explicit-library-public-domain-status-is-ground-truth"
+            and selection.get("humanReviewRequiredBeforeFullTextPublication") is False,
+            f"{unit.get('id')}: candidate report does not apply the approved library evidence policy",
+        )
+        rights_evidence = selection.get("rightsEvidence") or {}
+        require(
+            bool(rights_evidence.get("institution"))
+            and bool(rights_evidence.get("statusLabel"))
+            and str(rights_evidence.get("evidenceUrl") or "").startswith("https://")
+            and bool(rights_evidence.get("checkedAt")),
+            f"{unit.get('id')}: candidate report lacks exact institutional rights evidence",
         )
     require(checkpoint.get("pullRequestOpened") is False, "Prepared V3 checkpoint claims an open PR")
     checkpoint_acquisition = (checkpoint.get("preparation") or {}).get(
@@ -370,11 +444,11 @@ def v3_source_run_errors(
     ) or {}
     require(
         isinstance(checkpoint_acquisition.get("contentDownloadsPerformed"), int)
-        and 0 <= checkpoint_acquisition.get("contentDownloadsPerformed") <= 9
+        and 0 <= checkpoint_acquisition.get("contentDownloadsPerformed") <= 10
         and checkpoint_acquisition.get("regionalDirectArtifactLinksDiscovered") == 7
-        and checkpoint_acquisition.get("directArtifactCandidatesActionableAfterApproval") == 4
+        and checkpoint_acquisition.get("directArtifactCandidatesActionableAfterApproval") in {4, 6}
         and checkpoint_acquisition.get("automatedFetchBlockedByRobots") == 2
-        and checkpoint_acquisition.get("robotsBlockedLinksWithPermittedAlternative") == 1
+        and checkpoint_acquisition.get("robotsBlockedLinksWithPermittedAlternative") in {1, 2}
         and 0 <= checkpoint_acquisition.get("polonaRecordsRequiringPost-approvalResolution", -1) <= 4
         and checkpoint_acquisition.get("preFetchedGallicaSources") == 1,
         "V3 acquisition-preparation checkpoint is stale",

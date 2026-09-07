@@ -4,7 +4,7 @@
   "sourceTitle": "Młoda drużyna",
   "authorStatement": "Alojzy Pawełek",
   "year": 1919,
-  "status": "candidate-inventory-complete-component-review-pending",
+  "status": "candidate-inventory-complete-record-review-pending",
   "sourceText": {
     "classification": "mistral-ocr-scratch-only",
     "storage": "scratch-only",
@@ -29,19 +29,29 @@
     "normalization": [
       "collapse whitespace and remove Markdown emphasis only for matching",
       "retain raw OCR-derived title, view/page locator and hashes; do not retain the matched OCR line",
+      "hash candidate blocks from their start heading to the next reliable heading without emitting block text",
       "do not emit or modernize full source prose"
     ],
-    "locatorCaveat": "Candidate boundaries and kinds remain a review task; a locator does not establish authorship or publication eligibility."
+    "locatorCaveat": "Candidate boundaries, kinds and provenance notes remain a record-review task; the library's explicit public-domain status establishes publication eligibility for this digital object."
   },
   "selection": {
     "productionKind": "game",
     "candidateCount": 24,
     "importedActivityCount": 0,
-    "rightsScope": "Pawełek's own prose only; Lutosławski's foreword and other separately authored contributions are excluded.",
-    "humanReviewRequiredBeforeFullTextPublication": true,
+    "rightsScope": "Game prose in the PBC object explicitly marked public domain; non-game media remain outside the product scope.",
+    "rightsStatus": "public-domain",
+    "rightsEvidencePolicy": "explicit-library-public-domain-status-is-ground-truth",
+    "rightsEvidence": {
+      "institution": "Podlaska Biblioteka Cyfrowa",
+      "statusLabel": "Domena publiczna",
+      "evidenceUrl": "https://pbc.biaman.pl/dlibra/publication/29783/edition/28922",
+      "checkedAt": "2026-09-06",
+      "reviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md"
+    },
+    "humanReviewRequiredBeforeFullTextPublication": false,
     "knownComponentExceptions": [
       "Meeting programmes are not games by themselves; only explicitly labelled game blocks are inventoried.",
-      "The author's preface says coworkers may recognize their ideas and names three earlier books used while writing; each candidate therefore needs component-level attribution before full-text publication."
+      "The author's preface says coworkers may recognize their ideas and names three earlier books used while writing; retain this as provenance and similarity evidence."
     ]
   },
   "ocrUsage": {
@@ -61,8 +71,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "4ef3e35dc0953ab16b6370257d545aed5f3fbde152d606aca0a503c69c81589c",
       "sourcePageSha256": "8aca51a6d95dd584b65b1c2ea7611076cadf5f155d858ad0b6f4e9d080d46c05",
+      "viewEndInclusive": 23,
+      "endExclusiveLocator": "view-0023-l0032",
+      "sourceBlockSha256": "9c75be4664890e23965e789e75c5d918b8bbf98e44e155a50158678b9e46042c",
+      "blockMarkdownCharacterCount": 17199,
+      "blockNonEmptyLineCount": 122,
+      "componentRiskSignalIds": [
+        "quotation-markers",
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 1,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "szukanie naparstka",
@@ -74,8 +94,20 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "718d929200a7c4ad0553674a806a6ef22bc9b66fbee850607986fd78c4a5bba5",
       "sourcePageSha256": "0c255afaefa44a2b9290ee36b95f10d86daae9ef1f7e47fd0dc6230d72c2ee6a",
+      "viewEndInclusive": 33,
+      "endExclusiveLocator": "view-0033-l0023",
+      "sourceBlockSha256": "541e132c962ce0322eebdc3e0f083e80998d8c8e2e4b26f3ba4fce6b0ace9561",
+      "blockMarkdownCharacterCount": 34181,
+      "blockNonEmptyLineCount": 164,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "known-external-source-name",
+        "quotation-markers",
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 2,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Co zmieniono na stole, w ubraniu",
@@ -87,8 +119,19 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "4490e870329fa02d63747ff0aba21571d40202d1d734077297d8a5fe883ba76f",
       "sourcePageSha256": "9c36c5ea8522b31d5946d29d9ba9ac2a235da17527f328a1d6141757e5aad605",
+      "viewEndInclusive": 36,
+      "endExclusiveLocator": "view-0036-l0011",
+      "sourceBlockSha256": "e1ad6810d6965f5583a9cc0a3124b2ade0f5660325972b3533eab54c53086dce",
+      "blockMarkdownCharacterCount": 10174,
+      "blockNonEmptyLineCount": 40,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "quotation-markers",
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 3,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Szachownica",
@@ -100,8 +143,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "7219ddc180e28386c20ddb37aa4cbe39fbbfc3a0d2916def4c9037c0f7ae7131",
       "sourcePageSha256": "ec00b6c4d35406cd32866e43fc16689ee0191d68070034c7a193fc04ff2ad879",
+      "viewEndInclusive": 38,
+      "endExclusiveLocator": "view-0038-l0019",
+      "sourceBlockSha256": "13ea950880ec7a84b782da85cd6426875889bc95e7ff2e04d473c1be1de3ac2a",
+      "blockMarkdownCharacterCount": 9635,
+      "blockNonEmptyLineCount": 28,
+      "componentRiskSignalIds": [
+        "known-external-source-name",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 4,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Niknące obrazy",
@@ -113,8 +166,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "984a919a158eac057488afba7e71665949a1d26b2031d07a0620a882522eebc5",
       "sourcePageSha256": "01999084c1f20bad93ba604790bfee136dd452136a053d70a0615c4fcf6e099b",
+      "viewEndInclusive": 41,
+      "endExclusiveLocator": "view-0041-l0009",
+      "sourceBlockSha256": "90d67f5e6408bbd9a2d0a72284971fd57da1fc167c861d8cf529e6606a58472b",
+      "blockMarkdownCharacterCount": 8401,
+      "blockNonEmptyLineCount": 30,
+      "componentRiskSignalIds": [
+        "quotation-markers",
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 5,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Opis ściany",
@@ -126,8 +189,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "7b08593fa1e135b4e66f9635465a72ee4821967c05837671a551e4fe6b775a9b",
       "sourcePageSha256": "0e1c83d7e6e495db7217ead7939d700123009452857a2cb97fcd8fa23aca0832",
+      "viewEndInclusive": 44,
+      "endExclusiveLocator": "view-0044-l0009",
+      "sourceBlockSha256": "7a997de092a19e2f46e89d86f7f6ad174989490b53b1b0b91c694fdc44c3ef0d",
+      "blockMarkdownCharacterCount": 10683,
+      "blockNonEmptyLineCount": 29,
+      "componentRiskSignalIds": [
+        "quotation-markers",
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 6,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Pamiętanie ogłoszeń",
@@ -139,8 +212,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "e18999629836ec2f9840f71b8801c3160472ae7a3b94da5c753439791956522d",
       "sourcePageSha256": "a6cce7005b29d2b81a33bde5f6edcf35f180f0b0aa872322ed63008935d8764b",
+      "viewEndInclusive": 46,
+      "endExclusiveLocator": "view-0046-l0019",
+      "sourceBlockSha256": "51693e85cc82d842c3c2ef2848c4fef620180789422c01d9ced9a529ef6e2404",
+      "blockMarkdownCharacterCount": 10213,
+      "blockNonEmptyLineCount": 27,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 7,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wyprawa po rośliny",
@@ -152,8 +234,19 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "45c3a45e7debbfb1a4b4d09f1aa9396fe554c440096fb0c97de7b59ad9a8974e",
       "sourcePageSha256": "b0b19110e3fb03720e51fd699031495a2a69c21afc2611c7a6d6cca8a2944f7a",
+      "viewEndInclusive": 49,
+      "endExclusiveLocator": "view-0049-l0021",
+      "sourceBlockSha256": "016360558d7cc65e13968867c7ac92ff95d3e6de14ad76b78ffdfec92f29793b",
+      "blockMarkdownCharacterCount": 11015,
+      "blockNonEmptyLineCount": 32,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "quotation-markers",
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 8,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kim i szukanie naparstka",
@@ -165,8 +258,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "893290a2a6096304733d570b572f8c12212fc1126748d3c68e3d4fac894fef82",
       "sourcePageSha256": "1b15c3575e730a80e01414a4f77b7387fb863791cffe8ae266c24a9c1fb94bd4",
+      "viewEndInclusive": 52,
+      "endExclusiveLocator": "view-0052-l0029",
+      "sourceBlockSha256": "6c678fc2f1215e8f19a14f23a763b2222746fa170ddd451fa7fca309a1bb5483",
+      "blockMarkdownCharacterCount": 11573,
+      "blockNonEmptyLineCount": 38,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 9,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Mruczek",
@@ -178,8 +280,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "a382cfdc17014553ab6aeca929ff49fd6e7fef3eddcbc2884823f42b1b283374",
       "sourcePageSha256": "6b3fa7d3bfb1d38f9c60cbef517cd3f86b3c33017d6f857d981f8a1bdd381748",
+      "viewEndInclusive": 55,
+      "endExclusiveLocator": "view-0055-l0022",
+      "sourceBlockSha256": "1c4ac507b27fed63ecc1b037eba512bfa06d3f2f58fea726b7f847632a4929f8",
+      "blockMarkdownCharacterCount": 9862,
+      "blockNonEmptyLineCount": 36,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 10,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Połowa listu",
@@ -191,8 +302,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "2568e1df8c8fe2b6670b483ddc06c6a58e4078abcdfae62032b444fe0215156f",
       "sourcePageSha256": "f5d420ae0582a75d5bcf6c5e021158631e2c61d08e963a41d9f6388fb3488725",
+      "viewEndInclusive": 58,
+      "endExclusiveLocator": "view-0058-l0007",
+      "sourceBlockSha256": "3ab9522b2d210e80e6127f628d0d5fd56a14497d185d746507b96101d842877c",
+      "blockMarkdownCharacterCount": 8449,
+      "blockNonEmptyLineCount": 37,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 11,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Rysunek deseniu na tapecie",
@@ -204,8 +325,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "cb0f79fee37fdb64458f1b38fc2be83e33baa72c370755fb5e33f62dd88c3019",
       "sourcePageSha256": "3096350846b5733c6de28430c55aa0d016094e5ce3ab91664ad6d10114af402c",
+      "viewEndInclusive": 60,
+      "endExclusiveLocator": "view-0060-l0019",
+      "sourceBlockSha256": "ac28a918d001f9a2939ced0080494b1dccda3806f1ca3ec18de00d1d66ae133d",
+      "blockMarkdownCharacterCount": 8707,
+      "blockNonEmptyLineCount": 40,
+      "componentRiskSignalIds": [
+        "quotation-markers",
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 12,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wiązanie węzłów",
@@ -217,8 +348,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "d620d77d7da6f500905b4596257e841d4807f1c85f04f22f623fd90ac986878b",
       "sourcePageSha256": "d22e6fa36f85a7967af2a3e2317787fee84d2cca7836c19974d37dbd88735e60",
+      "viewEndInclusive": 63,
+      "endExclusiveLocator": "view-0063-l0006",
+      "sourceBlockSha256": "3a30e04b646b15a62be7c6cb28f8af57f8df92ba42dec250121f52761dd7eaa8",
+      "blockMarkdownCharacterCount": 8988,
+      "blockNonEmptyLineCount": 34,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 13,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Węzły",
@@ -230,8 +370,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "22bba4f9a07435254bdf89baf4e5ce97b63f438c2cc5d5a0008039c96e6ca2c0",
       "sourcePageSha256": "f81883ffd394a7fe3e989d8fbe13d912105754c3d4ed53bb17456f5a363f37e6",
+      "viewEndInclusive": 65,
+      "endExclusiveLocator": "view-0065-l0019",
+      "sourceBlockSha256": "8b95173043644c1b8063d09930623ca657e8fca971a71ca388e0a1d8815be0fd",
+      "blockMarkdownCharacterCount": 8906,
+      "blockNonEmptyLineCount": 33,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 14,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Rzemiosło",
@@ -243,8 +392,19 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "87b874891e7a6286abb9a126fcbcbf08985494fe73e14c2cbfcd57be7eb28d7f",
       "sourcePageSha256": "8dc32534460bed47d9d70a0349bbd9660f44add2bf9e51c3676658f3a722245e",
+      "viewEndInclusive": 67,
+      "endExclusiveLocator": "view-0067-l0021",
+      "sourceBlockSha256": "e087a6ac11dad13463774d26bcb09d16b2f717ef299be2b604fb17d959edd7a1",
+      "blockMarkdownCharacterCount": 7056,
+      "blockNonEmptyLineCount": 25,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "known-external-source-name",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 15,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wilk, koza i kapusta",
@@ -256,8 +416,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "ad740016f6ec90b29d307543dc69d3ce4879c02f5f71ed97ad2edfab8bd48d58",
       "sourcePageSha256": "18e82b54fa3b7e2a60fd3072842b3e53af432216e8b685e8f3997063bb957818",
+      "viewEndInclusive": 70,
+      "endExclusiveLocator": "view-0070-l0011",
+      "sourceBlockSha256": "0eb687f579bf5c8901742e02270e60b1772c6aff78104d6986714f17e12efa47",
+      "blockMarkdownCharacterCount": 10016,
+      "blockNonEmptyLineCount": 32,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 16,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Rysowanie profilu",
@@ -269,8 +439,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "d58547d42274217dda7bb278a402888e0473d866443739cac46d82a839940fdf",
       "sourcePageSha256": "9738d42499ad601223c043129c05ade6255698f037261af855f38fc4fdcf9ef0",
+      "viewEndInclusive": 73,
+      "endExclusiveLocator": "view-0073-l0007",
+      "sourceBlockSha256": "2ddf5f08ba38c5b2a761212462dcbc06b4a4843e2e787e7601d99a4add13cd02",
+      "blockMarkdownCharacterCount": 10101,
+      "blockNonEmptyLineCount": 34,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 17,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Klub świstaków",
@@ -282,8 +461,17 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "09368fb3b75c3781bf131897217e85cf525e582d48267fc92da5efff7f2e6d57",
       "sourcePageSha256": "ee8b45f4c6d02ec840732201361f8c9d098cd2741654586d1bd3af371af9a343",
+      "viewEndInclusive": 75,
+      "endExclusiveLocator": "view-0075-l0016",
+      "sourceBlockSha256": "fb5a3d6bcd25440c7b837423f7e8590516567c01355fcba7734535c5cf0e7ce5",
+      "blockMarkdownCharacterCount": 9528,
+      "blockNonEmptyLineCount": 32,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 18,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Bilety wizytowe — zecer",
@@ -295,8 +483,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "b3f275ee6da3466ea227abb38e10a64d05f7e5aa73aaccb5e47dffa9bb650750",
       "sourcePageSha256": "d340875aa834a65a6c17c79b8578a9687599aac6b4e1e0c04536bf9620b7a3ed",
+      "viewEndInclusive": 78,
+      "endExclusiveLocator": "view-0078-l0036",
+      "sourceBlockSha256": "7912a6ca2f04d675fa18b7f13f97334154992e2a82068017e00af27d4dc62638",
+      "blockMarkdownCharacterCount": 10740,
+      "blockNonEmptyLineCount": 43,
+      "componentRiskSignalIds": [
+        "quotation-markers",
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 19,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Zapoznanie się z kompasem",
@@ -308,8 +506,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "bb8d41dea55e471a990e32e235420bbb1a1e616dbacdab2518ea932abe734e99",
       "sourcePageSha256": "e37be8a255bf1473c839cc58d46c2971d0e85fd73c2ee5fe92e0fd7b2a4186af",
+      "viewEndInclusive": 80,
+      "endExclusiveLocator": "view-0080-l0020",
+      "sourceBlockSha256": "a6b6912784fdace4148f09c90f1e2475b272d45eb285444434aa7aa43a1a8c19",
+      "blockMarkdownCharacterCount": 8616,
+      "blockNonEmptyLineCount": 26,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 20,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Ocenianie długości i wagi",
@@ -321,8 +529,18 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "b7af0340e0a255c46d4763bc5974b9d8e04422c78ffdb12e21fdd763ea7c258f",
       "sourcePageSha256": "43d32a04a65d800be26fd1024988e72f3ae901a04c12c13263a161d416098065",
+      "viewEndInclusive": 84,
+      "endExclusiveLocator": "view-0084-l0025",
+      "sourceBlockSha256": "829d457898ed3807398544fcff566c38d1b2e2e09e84631f231fe5ae05945b58",
+      "blockMarkdownCharacterCount": 14463,
+      "blockNonEmptyLineCount": 52,
+      "componentRiskSignalIds": [
+        "quotation-markers",
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 21,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Rysowanie układu wnętrzności",
@@ -334,8 +552,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "864179ad37b69c01ce41710bcded9622144d6084add0830b17c870600ba4136d",
       "sourcePageSha256": "2ddb1e4c2ba20f647e61c181c1fe5eae14b27dffb561161483f5d6a6e4dcbcb5",
+      "viewEndInclusive": 87,
+      "endExclusiveLocator": "view-0087-l0011",
+      "sourceBlockSha256": "5a7deded07e83cad562d2d36b5919e96e74e996984a70f459d819894232289f0",
+      "blockMarkdownCharacterCount": 8506,
+      "blockNonEmptyLineCount": 29,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 22,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Coś ruchowego",
@@ -347,8 +572,20 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "ae79ac3e846c406a26f56939f3bdf1279e3073b90ab279e2bb3967630d71eb1c",
       "sourcePageSha256": "905a0f388635ea9aec9c053551e07d1b420adb43d0a2e573984e8ed889fd8897",
+      "viewEndInclusive": 100,
+      "endExclusiveLocator": "view-0100-l0043",
+      "sourceBlockSha256": "37c17867fb501470244ee77f44cf0be6553553864753ebd46927e89a5ea16a85",
+      "blockMarkdownCharacterCount": 47942,
+      "blockNonEmptyLineCount": 209,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "known-external-source-name",
+        "quotation-markers",
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 23,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Piłka nożna",
@@ -360,8 +597,15 @@
       "locatorStatus": "heading-located",
       "ocrResponseSha256": "d0e62a759c1f8467d961e002eec15d75a34d88f93fbc125f3b9e9fb3d592aeaf",
       "sourcePageSha256": "47b4bb86895faecfd3998e13427bd3d403ab07a5d2cc18e47349599383788705",
+      "viewEndInclusive": 101,
+      "endExclusiveLocator": "view-0101-eof",
+      "sourceBlockSha256": "04e1b402a198c27b2bbcd3ce46948d6d2af789ce87bb396f624d2e61b9610534",
+      "blockMarkdownCharacterCount": 3744,
+      "blockNonEmptyLineCount": 25,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-approved-range-end",
       "number": 24,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     }
   ]
 }

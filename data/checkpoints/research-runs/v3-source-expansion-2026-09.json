@@ -32,8 +32,9 @@
     },
     "acquisitionPreparation": {
       "status": "approved-scope-executed-for-eight-polish-sources",
-      "contentDownloadsPerformed": 8,
+      "contentDownloadsPerformed": 10,
       "sourceUnitsWithCompletedAcquisition": 8,
+      "incompleteIndirectDjvuIndexesDownloaded": 2,
       "regionalDirectArtifactLinksDiscovered": 7,
       "directArtifactCandidatesActionableAfterApproval": 4,
       "automatedFetchBlockedByRobots": 2,
@@ -60,7 +61,7 @@
     "importedActivityCount": 0,
     "metadataOnly": true,
     "rawOcrStorage": "scratch-only",
-    "componentReviewRecord": "vault/reviews/inbox/v3-component-authorship-2026-09.md",
+    "componentReviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md",
     "ocr": {
       "model": "mistral-ocr-4-1",
       "billingMode": "education-credit",
@@ -71,12 +72,12 @@
   },
   "validation": {
     "status": "passed",
-    "targetedV3TestCount": 17,
-    "fullUnitTestCount": 215,
-    "fullUnitTestSlurmJobId": "22095999",
+    "targetedV3TestCount": 25,
+    "fullUnitTestCount": 220,
+    "fullUnitTestSlurmJobId": "22097463",
     "fullUnitTestExitCode": "0:0",
     "repositoryValidation": "passed",
-    "repositoryValidationSlurmJobId": "22095930"
+    "repositoryValidationSlurmJobId": "22097463"
   },
   "humanGates": [
     {
@@ -99,23 +100,33 @@
     },
     {
       "id": "per-item-rights-and-component-authorship",
-      "status": "awaiting-human-decision",
-      "reviewRecord": "vault/reviews/inbox/v3-component-authorship-2026-09.md"
+      "status": "approved",
+      "approvedAt": "2026-09-07",
+      "approvedBy": "repository-owner",
+      "decision": "explicit-library-public-domain-status-is-ground-truth",
+      "reviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md"
+    },
+    {
+      "id": "pbc-direct-djvu-artifacts",
+      "status": "approved",
+      "approvedAt": "2026-09-07",
+      "approvedBy": "repository-owner",
+      "reviewRecord": "vault/reviews/accepted/pbc-direct-djvu-alternatives.md"
     }
   ],
   "sourceUnits": [
-    {"id": "jasinski-field-games-1938", "status": "awaiting-component-review", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/jasinski-field-games-1938.json", "candidateReport": "data/reports/jasinski-field-games-1938-candidates.json", "candidateCount": 181, "importedActivityCount": 0, "referenceCostUsd": 0.9},
-    {"id": "mojmir-scout-games-1912", "status": "awaiting-component-review", "componentReviewStatus": "mapping-required", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/mojmir-scout-games-1912.json", "candidateReport": "data/reports/mojmir-scout-games-1912-candidates.json", "candidateCount": 85, "importedActivityCount": 0, "referenceCostUsd": 0.308},
-    {"id": "dabrowski-indoor-games-1934", "status": "awaiting-component-review", "componentReviewStatus": "mapping-required", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/dabrowski-indoor-games-1934.json", "candidateReport": "data/reports/dabrowski-indoor-games-1934-candidates.json", "candidateCount": 183, "importedActivityCount": 0, "referenceCostUsd": 0.344},
-    {"id": "piasecki-movement-games-1922", "status": "awaiting-component-review", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-movement-games-1922.json", "candidateReport": "data/reports/piasecki-movement-games-1922-candidates.json", "candidateCount": 133, "importedActivityCount": 0},
-    {"id": "dabrowski-winter-games-1935", "status": "awaiting-artifact-approval", "alternativeReview": "vault/reviews/inbox/pbc-direct-djvu-alternatives.md"},
-    {"id": "pawelek-young-troop-1919", "status": "awaiting-component-review", "componentReviewStatus": "mapping-required", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/pawelek-young-troop-1919.json", "candidateReport": "data/reports/pawelek-young-troop-1919-candidates.json", "candidateCount": 24, "importedActivityCount": 0, "referenceCostUsd": 0.344},
-    {"id": "zwolakowska-cub-pack-1945", "status": "awaiting-component-review", "componentReviewStatus": "signature-scope-decision-required", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/zwolakowska-cub-pack-1945.json", "candidateReport": "data/reports/zwolakowska-cub-pack-1945-candidates.json", "candidateCount": 74, "importedActivityCount": 0, "referenceCostUsd": 0.128},
-    {"id": "sedlaczek-fieldcraft-method-1935", "status": "awaiting-artifact-approval", "alternativeReview": "vault/reviews/inbox/pbc-direct-djvu-alternatives.md"},
-    {"id": "piasecki-schreiber-polish-scoutcraft-1917", "status": "awaiting-component-review", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-schreiber-polish-scoutcraft-1917.json", "candidateReport": "data/reports/piasecki-schreiber-polish-scoutcraft-1917-candidates.json", "candidateCount": 40, "importedActivityCount": 0},
-    {"id": "sedlaczek-scout-school-1921", "status": "awaiting-component-review", "inspectionCheckpoint": "data/checkpoints/source-inspection/sedlaczek-scout-school-1921.json", "candidateReport": "data/reports/sedlaczek-scout-school-1921-candidates.json", "candidateCount": 40, "importedActivityCount": 0},
+    {"id": "jasinski-field-games-1938", "status": "record-review-pending", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/jasinski-field-games-1938.json", "candidateReport": "data/reports/jasinski-field-games-1938-candidates.json", "candidateCount": 181, "importedActivityCount": 0, "referenceCostUsd": 0.9},
+    {"id": "mojmir-scout-games-1912", "status": "record-review-pending", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/mojmir-scout-games-1912.json", "candidateReport": "data/reports/mojmir-scout-games-1912-candidates.json", "candidateCount": 85, "importedActivityCount": 0, "referenceCostUsd": 0.308},
+    {"id": "dabrowski-indoor-games-1934", "status": "record-review-pending", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/dabrowski-indoor-games-1934.json", "candidateReport": "data/reports/dabrowski-indoor-games-1934-candidates.json", "candidateCount": 183, "importedActivityCount": 0, "referenceCostUsd": 0.344},
+    {"id": "piasecki-movement-games-1922", "status": "record-review-pending", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-movement-games-1922.json", "candidateReport": "data/reports/piasecki-movement-games-1922-candidates.json", "candidateCount": 133, "importedActivityCount": 0},
+    {"id": "dabrowski-winter-games-1935", "status": "skipped-with-reason", "alternativeReview": "vault/reviews/accepted/pbc-direct-djvu-alternatives.md", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/dabrowski-winter-games-1935.json", "candidateCount": 0, "importedActivityCount": 0, "terminalReason": "Owner deferred both PBC sources from the current V3 run after the direct URL proved to be an indirect DjVu index."},
+    {"id": "pawelek-young-troop-1919", "status": "record-review-pending", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/pawelek-young-troop-1919.json", "candidateReport": "data/reports/pawelek-young-troop-1919-candidates.json", "candidateCount": 24, "importedActivityCount": 0, "referenceCostUsd": 0.344},
+    {"id": "zwolakowska-cub-pack-1945", "status": "record-review-pending", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/zwolakowska-cub-pack-1945.json", "candidateReport": "data/reports/zwolakowska-cub-pack-1945-candidates.json", "candidateCount": 74, "importedActivityCount": 0, "referenceCostUsd": 0.128},
+    {"id": "sedlaczek-fieldcraft-method-1935", "status": "skipped-with-reason", "alternativeReview": "vault/reviews/accepted/pbc-direct-djvu-alternatives.md", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/sedlaczek-fieldcraft-method-1935.json", "candidateCount": 0, "importedActivityCount": 0, "terminalReason": "Owner deferred both PBC sources from the current V3 run after the direct URL proved to be an indirect DjVu index."},
+    {"id": "piasecki-schreiber-polish-scoutcraft-1917", "status": "record-review-pending", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-schreiber-polish-scoutcraft-1917.json", "candidateReport": "data/reports/piasecki-schreiber-polish-scoutcraft-1917-candidates.json", "candidateCount": 40, "importedActivityCount": 0},
+    {"id": "sedlaczek-scout-school-1921", "status": "record-review-pending", "inspectionCheckpoint": "data/checkpoints/source-inspection/sedlaczek-scout-school-1921.json", "candidateReport": "data/reports/sedlaczek-scout-school-1921-candidates.json", "candidateCount": 40, "importedActivityCount": 0},
     {"id": "chamarande-1934", "status": "zero-yield", "ocrCheckpoint": "data/checkpoints/gallica-fetch/chamarande-1934.json", "extractionReport": "data/reports/chamarande-1934-extraction.json", "candidateCount": 0, "importedActivityCount": 0, "referenceCostUsd": 0.456, "terminalReason": "The approved prose contains programme-level mentions of games but no self-contained game rules."}
   ],
-  "nextStep": "obtain the batch component-authorship decision, decide whether to fetch the two direct PBC DjVu alternatives, then review/import eligible candidate blocks and rebuild the V3 semantic artifacts",
+  "nextStep": "review and import eligible candidates from the eight acquired Polish sources, then rebuild the V3 semantic artifacts",
   "pullRequestOpened": false
 }

@@ -4,7 +4,7 @@
   "sourceTitle": "Gry i zabawy w izbie harcerskiej",
   "authorStatement": "Juliusz Dąbrowski",
   "year": 1934,
-  "status": "candidate-inventory-complete-component-review-pending",
+  "status": "candidate-inventory-complete-record-review-pending",
   "sourceText": {
     "classification": "mistral-ocr-scratch-only",
     "storage": "scratch-only",
@@ -29,16 +29,27 @@
     "normalization": [
       "collapse whitespace and remove Markdown emphasis only for matching",
       "retain raw OCR-derived title, view/page locator and hashes; do not retain the matched OCR line",
+      "hash candidate blocks from their start heading to the next reliable heading without emitting block text",
       "do not emit or modernize full source prose"
     ],
-    "locatorCaveat": "Candidate boundaries and kinds remain a review task; a locator does not establish authorship or publication eligibility."
+    "locatorCaveat": "Candidate boundaries, kinds and provenance notes remain a record-review task; the library's explicit public-domain status establishes publication eligibility for this digital object."
   },
   "selection": {
     "productionKind": "game",
     "candidateCount": 183,
     "importedActivityCount": 0,
-    "rightsScope": "Dąbrowski's own prose only; cover artwork, graphics, quotations and separately credited material are excluded.",
-    "humanReviewRequiredBeforeFullTextPublication": true,
+    "rightsScope": "Game prose in the Polona object explicitly marked public domain; non-game media remain outside the product scope.",
+    "rightsStatus": "public-domain",
+    "rightsEvidencePolicy": "explicit-library-public-domain-status-is-ground-truth",
+    "rightsEvidence": {
+      "institution": "Polona",
+      "statusLabel": "Domena Publiczna",
+      "statusDetail": "copyrightProtected=false",
+      "evidenceUrl": "https://polona.pl/api/library-object-query/digital-objects/f8a00528-6a07-4916-9a76-c1e094e317da",
+      "checkedAt": "2026-09-07T07:31:32.592158+00:00",
+      "reviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md"
+    },
+    "humanReviewRequiredBeforeFullTextPublication": false,
     "knownComponentExceptions": [
       "The author's introduction says games came from many scouts and Warsaw troops and credits W. Dehnel with review and additions.",
       "The introduction also names Gilcraft's Games Book, Ewa Grodecka's edited collection and periodicals as sources without mapping them to individual games."
@@ -63,8 +74,9 @@
       "ocrResponseSha256": "7acdbb08c0ab84874b2ed942017726100a9ce0214642de283794f8303f6ffad6",
       "sourcePageSha256": "e2e3d98da8510348487f065ca4bc5864c49f344a9bda2c0c80799e05a2cee04e",
       "titleLocatorScore": 0.0711,
+      "boundaryStatus": "manual-review-required-uncertain-heading",
       "number": 1,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Gra Kima obrazowa",
@@ -78,8 +90,9 @@
       "ocrResponseSha256": "7acdbb08c0ab84874b2ed942017726100a9ce0214642de283794f8303f6ffad6",
       "sourcePageSha256": "e2e3d98da8510348487f065ca4bc5864c49f344a9bda2c0c80799e05a2cee04e",
       "titleLocatorScore": 0.1268,
+      "boundaryStatus": "manual-review-required-uncertain-heading",
       "number": 2,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Gra Morgana",
@@ -93,8 +106,15 @@
       "ocrResponseSha256": "065cb0d063d6338ea30b0a7fc4c6f55dbc33feba47e43bdc26140b164dc5e31c",
       "sourcePageSha256": "845446a5c1d47e3b2149c0d12b3827a4c99c4ab5ac142fbe824a42a0706f0e8d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 15,
+      "endExclusiveLocator": "view-0015-l0005",
+      "sourceBlockSha256": "cdc0cd160eb080afa764e7ff2ff6259e6d65452e881610bc8cc4a0dec5b351fb",
+      "blockMarkdownCharacterCount": 145,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 3,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kim rąk",
@@ -108,8 +128,17 @@
       "ocrResponseSha256": "065cb0d063d6338ea30b0a7fc4c6f55dbc33feba47e43bdc26140b164dc5e31c",
       "sourcePageSha256": "845446a5c1d47e3b2149c0d12b3827a4c99c4ab5ac142fbe824a42a0706f0e8d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 15,
+      "endExclusiveLocator": "view-0015-l0021",
+      "sourceBlockSha256": "889ebe50a56e6d7e295bc813d54805525a8b2bd0683a26b98080315b79235394",
+      "blockMarkdownCharacterCount": 417,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 4,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kto przybył — kto ubył?",
@@ -123,8 +152,9 @@
       "ocrResponseSha256": "065cb0d063d6338ea30b0a7fc4c6f55dbc33feba47e43bdc26140b164dc5e31c",
       "sourcePageSha256": "845446a5c1d47e3b2149c0d12b3827a4c99c4ab5ac142fbe824a42a0706f0e8d",
       "titleLocatorScore": 0.3636,
+      "boundaryStatus": "manual-review-required-uncertain-heading",
       "number": 5,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Odrysuj ścianę",
@@ -138,8 +168,15 @@
       "ocrResponseSha256": "065cb0d063d6338ea30b0a7fc4c6f55dbc33feba47e43bdc26140b164dc5e31c",
       "sourcePageSha256": "845446a5c1d47e3b2149c0d12b3827a4c99c4ab5ac142fbe824a42a0706f0e8d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 15,
+      "endExclusiveLocator": "view-0015-l0009",
+      "sourceBlockSha256": "4f13ee626af0a6ce868ae1a6328245f9a1c024ccd03ad506df87d51362b9085f",
+      "blockMarkdownCharacterCount": 160,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 6,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Opisywanie pocztówki",
@@ -153,8 +190,17 @@
       "ocrResponseSha256": "065cb0d063d6338ea30b0a7fc4c6f55dbc33feba47e43bdc26140b164dc5e31c",
       "sourcePageSha256": "845446a5c1d47e3b2149c0d12b3827a4c99c4ab5ac142fbe824a42a0706f0e8d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 16,
+      "endExclusiveLocator": "view-0016-l0003",
+      "sourceBlockSha256": "9dce03bd0b5e735ea44e4e4a2320028e872479f9dfa43c540a5f067e175e5395",
+      "blockMarkdownCharacterCount": 238,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 7,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Zmiany w izbie",
@@ -168,8 +214,16 @@
       "ocrResponseSha256": "065cb0d063d6338ea30b0a7fc4c6f55dbc33feba47e43bdc26140b164dc5e31c",
       "sourcePageSha256": "845446a5c1d47e3b2149c0d12b3827a4c99c4ab5ac142fbe824a42a0706f0e8d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 15,
+      "endExclusiveLocator": "view-0015-l0015",
+      "sourceBlockSha256": "599cb52aca4c86e3fcb08b73cea528ecb990d3d73bddc2c9f365e28e4eaf2e6e",
+      "blockMarkdownCharacterCount": 232,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "review-required-adjacent-uncertain-locator",
+      "interveningUnreliableCandidateCount": 1,
       "number": 8,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Nabieranie",
@@ -183,8 +237,15 @@
       "ocrResponseSha256": "7bab99489c7a0b00ca16a647f913001c51b3cd5d64d2b8be1f0dd5f2d371910d",
       "sourcePageSha256": "ac98d518a3dffd7f222ba0a6f2a7869aff4cb9b962a674f8424d9e47976d67dc",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 16,
+      "endExclusiveLocator": "view-0016-l0007",
+      "sourceBlockSha256": "52d78e20d8b69d258c3ad96f090b03ed0d0c5f506d4483a974f74a334fa2123c",
+      "blockMarkdownCharacterCount": 494,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 9,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Pamięciowe",
@@ -198,8 +259,15 @@
       "ocrResponseSha256": "7bab99489c7a0b00ca16a647f913001c51b3cd5d64d2b8be1f0dd5f2d371910d",
       "sourcePageSha256": "ac98d518a3dffd7f222ba0a6f2a7869aff4cb9b962a674f8424d9e47976d67dc",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 17,
+      "endExclusiveLocator": "view-0017-l0005",
+      "sourceBlockSha256": "c5edfe3b8e6d523164ae0cd891a40d8099c71ffc25230abac9ec0dd3b0620410",
+      "blockMarkdownCharacterCount": 889,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 10,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Stwierdzenie nieporządku",
@@ -213,8 +281,15 @@
       "ocrResponseSha256": "785ed0c85b7605764a0651e7b02dc50a02560479c160b5618ea3a375eb2fab4e",
       "sourcePageSha256": "c34c0ff97c976245c184dacf5157df1d428e7d873ff6ac8427ed4f5628a2aab4",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 17,
+      "endExclusiveLocator": "view-0018-l0001",
+      "sourceBlockSha256": "d743b9d685f2d1d104d613fe21a79c78df86200cd2aaa2054db33022d815170e",
+      "blockMarkdownCharacterCount": 407,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 11,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Szukanie monet",
@@ -228,8 +303,15 @@
       "ocrResponseSha256": "785ed0c85b7605764a0651e7b02dc50a02560479c160b5618ea3a375eb2fab4e",
       "sourcePageSha256": "c34c0ff97c976245c184dacf5157df1d428e7d873ff6ac8427ed4f5628a2aab4",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 17,
+      "endExclusiveLocator": "view-0017-l0013",
+      "sourceBlockSha256": "6902e9c3fc576a2598e37710323ccab3d42c8727057b8c942d716cc88bab3daa",
+      "blockMarkdownCharacterCount": 215,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 12,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Szukanie przedmiotu",
@@ -243,8 +325,15 @@
       "ocrResponseSha256": "785ed0c85b7605764a0651e7b02dc50a02560479c160b5618ea3a375eb2fab4e",
       "sourcePageSha256": "c34c0ff97c976245c184dacf5157df1d428e7d873ff6ac8427ed4f5628a2aab4",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 17,
+      "endExclusiveLocator": "view-0017-l0009",
+      "sourceBlockSha256": "4ee9bb67bbe454d612eeea9cc41fc15f5180a560e7d0c3a2d10e41d77bc35c8f",
+      "blockMarkdownCharacterCount": 364,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 13,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Blisko — daleko",
@@ -258,8 +347,15 @@
       "ocrResponseSha256": "6a3cc8600f3569a3295866667ff0be59aa13651383a7cbf76e85795f045cdd83",
       "sourcePageSha256": "213ef8f27c2d9aedb101418042975dd9723f83cc78f71d954157356b72458fce",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 18,
+      "endExclusiveLocator": "view-0018-l0005",
+      "sourceBlockSha256": "b30265858a49309a480ffd65eab8b5694e9e9eb0158fbc0038cc3cb60b83acba",
+      "blockMarkdownCharacterCount": 395,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 14,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Warjaci",
@@ -273,8 +369,15 @@
       "ocrResponseSha256": "6a3cc8600f3569a3295866667ff0be59aa13651383a7cbf76e85795f045cdd83",
       "sourcePageSha256": "213ef8f27c2d9aedb101418042975dd9723f83cc78f71d954157356b72458fce",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 19,
+      "endExclusiveLocator": "view-0019-l0003",
+      "sourceBlockSha256": "de4025ea0de86d0004cf7f1593662e503d2f730ca7d5ef1f1542f3ce25c62c12",
+      "blockMarkdownCharacterCount": 397,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 15,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Zmiany w ubraniu",
@@ -288,8 +391,15 @@
       "ocrResponseSha256": "6a3cc8600f3569a3295866667ff0be59aa13651383a7cbf76e85795f045cdd83",
       "sourcePageSha256": "213ef8f27c2d9aedb101418042975dd9723f83cc78f71d954157356b72458fce",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 18,
+      "endExclusiveLocator": "view-0018-l0011",
+      "sourceBlockSha256": "03113f0d1b3472226c8dead49c6d5ab82198d9ad7750bb6b9c2f77ca7cfefd38",
+      "blockMarkdownCharacterCount": 635,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 16,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Dukat I",
@@ -303,8 +413,17 @@
       "ocrResponseSha256": "db08ebf06a243f1377b769bf9169b94081e18b13f050689416c3012381c68ff8",
       "sourcePageSha256": "defe96d3992f7e8cf92eb7c73cf69186656b1d2fb5f64e4490c4ceeb7cf0a1f0",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 20,
+      "endExclusiveLocator": "view-0020-l0005",
+      "sourceBlockSha256": "50555d05e1fd5cf0ca9e0fe4258106341983f6ebcbf4e58185b1d543f6d00022",
+      "blockMarkdownCharacterCount": 922,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 17,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Nawprost — nakrzyż",
@@ -318,8 +437,18 @@
       "ocrResponseSha256": "db08ebf06a243f1377b769bf9169b94081e18b13f050689416c3012381c68ff8",
       "sourcePageSha256": "defe96d3992f7e8cf92eb7c73cf69186656b1d2fb5f64e4490c4ceeb7cf0a1f0",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 19,
+      "endExclusiveLocator": "view-0019-l0007",
+      "sourceBlockSha256": "03017275b6f99644bab45c5737aa32d21e0fba692ebe33031d1f72e5be26c308",
+      "blockMarkdownCharacterCount": 750,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 18,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Burza na morzu",
@@ -333,8 +462,17 @@
       "ocrResponseSha256": "fdb2fb70c4214b4fb89660d5433ea1df50cc8e2bee926ab5dd050f43fa21417a",
       "sourcePageSha256": "51160a34c8abdcda3d07706e653d48c3bc31bd0591657363f749f0180f50c45d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 20,
+      "endExclusiveLocator": "view-0020-l0009",
+      "sourceBlockSha256": "359b59a38196dc8b5bb33c6ffb991ddb9c604e63f9c386eb4b5337bd4fa2f3db",
+      "blockMarkdownCharacterCount": 374,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 19,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Pierścionek",
@@ -348,8 +486,15 @@
       "ocrResponseSha256": "fdb2fb70c4214b4fb89660d5433ea1df50cc8e2bee926ab5dd050f43fa21417a",
       "sourcePageSha256": "51160a34c8abdcda3d07706e653d48c3bc31bd0591657363f749f0180f50c45d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 20,
+      "endExclusiveLocator": "view-0021-l0001",
+      "sourceBlockSha256": "3f570d83f70a6996b3d7a30d02bdad8fe919487509d94a9275c012cc0856d81c",
+      "blockMarkdownCharacterCount": 346,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 20,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Bum stukany",
@@ -363,8 +508,15 @@
       "ocrResponseSha256": "aa4d17ee7e2dc9bed63c691d13d0641e678303ae0b27bab38fa5dbcf85b3915e",
       "sourcePageSha256": "f972f418103eb91a012bcbbd4bf3a88dbef6dfe209ddc875aba7dd456fcc9d27",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 21,
+      "endExclusiveLocator": "view-0021-l0009",
+      "sourceBlockSha256": "a3c4ea7cc9f50a96a11c31ae9658f9ea42921432c8ff79d1b612bbc35e0d2a7f",
+      "blockMarkdownCharacterCount": 252,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 21,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Elektryczna chusteczka",
@@ -378,8 +530,15 @@
       "ocrResponseSha256": "aa4d17ee7e2dc9bed63c691d13d0641e678303ae0b27bab38fa5dbcf85b3915e",
       "sourcePageSha256": "f972f418103eb91a012bcbbd4bf3a88dbef6dfe209ddc875aba7dd456fcc9d27",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 21,
+      "endExclusiveLocator": "view-0021-l0005",
+      "sourceBlockSha256": "241b3870fda2aef2e109974ebc0871cb13712add776c619004f9b7e295a8333a",
+      "blockMarkdownCharacterCount": 357,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 22,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kury — koguty (z odmianą)",
@@ -393,8 +552,18 @@
       "ocrResponseSha256": "aa4d17ee7e2dc9bed63c691d13d0641e678303ae0b27bab38fa5dbcf85b3915e",
       "sourcePageSha256": "f972f418103eb91a012bcbbd4bf3a88dbef6dfe209ddc875aba7dd456fcc9d27",
       "titleLocatorScore": 0.5556,
+      "viewEndInclusive": 21,
+      "endExclusiveLocator": "view-0022-l0001",
+      "sourceBlockSha256": "9dcabc3c0bde7563f266a056558820393d8da49da1d8612f9d9799e3895112d0",
+      "blockMarkdownCharacterCount": 682,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "known-external-source-name",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 23,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Do wody",
@@ -408,8 +577,18 @@
       "ocrResponseSha256": "02f65ca1f4285fd8db4d22c16896e14b828ec6d9ca9c357803a22cfed1d187de",
       "sourcePageSha256": "58b4e2bae2bbc445151694ccb7bd9cc5e291e1a09bb07423f213ce51f7ffd0c4",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 22,
+      "endExclusiveLocator": "view-0022-l0005",
+      "sourceBlockSha256": "dc02467a395634e8a86f2ab4e20d9f738195a2c63f284f9302756bc18aa8776d",
+      "blockMarkdownCharacterCount": 334,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "known-external-source-name",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 24,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Nos, podłoga, lampa",
@@ -423,8 +602,17 @@
       "ocrResponseSha256": "02f65ca1f4285fd8db4d22c16896e14b828ec6d9ca9c357803a22cfed1d187de",
       "sourcePageSha256": "58b4e2bae2bbc445151694ccb7bd9cc5e291e1a09bb07423f213ce51f7ffd0c4",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 23,
+      "endExclusiveLocator": "view-0023-l0003",
+      "sourceBlockSha256": "8e1c2b931e3b45f2fb11fd84ebd5fef0862db58e17a6b658a838c1880562056c",
+      "blockMarkdownCharacterCount": 331,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 25,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Puść — trzymaj!",
@@ -438,8 +626,17 @@
       "ocrResponseSha256": "02f65ca1f4285fd8db4d22c16896e14b828ec6d9ca9c357803a22cfed1d187de",
       "sourcePageSha256": "58b4e2bae2bbc445151694ccb7bd9cc5e291e1a09bb07423f213ce51f7ffd0c4",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 22,
+      "endExclusiveLocator": "view-0022-l0009",
+      "sourceBlockSha256": "30beb553253fdc7b746e5703b72ad47848bb1545090e011f8d91650f4daa6d8d",
+      "blockMarkdownCharacterCount": 398,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 26,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Z rozkazu druha",
@@ -453,8 +650,17 @@
       "ocrResponseSha256": "02f65ca1f4285fd8db4d22c16896e14b828ec6d9ca9c357803a22cfed1d187de",
       "sourcePageSha256": "58b4e2bae2bbc445151694ccb7bd9cc5e291e1a09bb07423f213ce51f7ffd0c4",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 22,
+      "endExclusiveLocator": "view-0022-l0013",
+      "sourceBlockSha256": "1bad07f764833e441c855f682d993f5ccbcf7e647d93280f1e362e5fb8ca6f61",
+      "blockMarkdownCharacterCount": 283,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "known-external-source-name"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 27,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "List na bibule",
@@ -468,8 +674,15 @@
       "ocrResponseSha256": "56e747bcf1cd728d723842a74560cd97ce8b3cbd3c6b60d2e4821f0dfc4ec985",
       "sourcePageSha256": "d546096240d04c1ed593fc3e6e0439ba1f318510e0b34b23a4b65827fe26323a",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 23,
+      "endExclusiveLocator": "view-0023-l0021",
+      "sourceBlockSha256": "4baae48754789913106b3e557292877aa1dbab13c5c4f7f4c0618c065b1b2e26",
+      "blockMarkdownCharacterCount": 143,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 28,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Listy szyfrowe",
@@ -483,8 +696,15 @@
       "ocrResponseSha256": "56e747bcf1cd728d723842a74560cd97ce8b3cbd3c6b60d2e4821f0dfc4ec985",
       "sourcePageSha256": "d546096240d04c1ed593fc3e6e0439ba1f318510e0b34b23a4b65827fe26323a",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 23,
+      "endExclusiveLocator": "view-0024-l0001",
+      "sourceBlockSha256": "ec0ae4d4b67e40277031d946fdc73de1e1f83e05a2fda14aa8c879f5eeebc568",
+      "blockMarkdownCharacterCount": 123,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 29,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Rozrzucone sylaby",
@@ -498,8 +718,15 @@
       "ocrResponseSha256": "56e747bcf1cd728d723842a74560cd97ce8b3cbd3c6b60d2e4821f0dfc4ec985",
       "sourcePageSha256": "d546096240d04c1ed593fc3e6e0439ba1f318510e0b34b23a4b65827fe26323a",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 23,
+      "endExclusiveLocator": "view-0023-l0013",
+      "sourceBlockSha256": "66f2eb5cc0325c57a9254ea2e25e5b96bfe0270483274ff5f2fb7bf39d31a50c",
+      "blockMarkdownCharacterCount": 126,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 30,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Rozrzucone wyrazy",
@@ -513,8 +740,15 @@
       "ocrResponseSha256": "56e747bcf1cd728d723842a74560cd97ce8b3cbd3c6b60d2e4821f0dfc4ec985",
       "sourcePageSha256": "d546096240d04c1ed593fc3e6e0439ba1f318510e0b34b23a4b65827fe26323a",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 23,
+      "endExclusiveLocator": "view-0023-l0017",
+      "sourceBlockSha256": "7334a50b0ae6a28563bb92dfb847ed09264139e34f5b8c2ba2707cb163dc7e7b",
+      "blockMarkdownCharacterCount": 172,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 31,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Rób to — rób tak!",
@@ -528,8 +762,18 @@
       "ocrResponseSha256": "56e747bcf1cd728d723842a74560cd97ce8b3cbd3c6b60d2e4821f0dfc4ec985",
       "sourcePageSha256": "d546096240d04c1ed593fc3e6e0439ba1f318510e0b34b23a4b65827fe26323a",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 23,
+      "endExclusiveLocator": "view-0023-l0009",
+      "sourceBlockSha256": "0878e19f754641045b7eb55dd472770af1f210eacb42bbec2fca5a2b438e60fe",
+      "blockMarkdownCharacterCount": 321,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [
+        "known-external-source-name",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 32,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Badanie szpiegowskie",
@@ -543,8 +787,15 @@
       "ocrResponseSha256": "b9b43918b6e924d0a5b1053fc4bf2c0596e0969ef6cd13c17379b96986317298",
       "sourcePageSha256": "187c5fa9b1ccb271d0b952b8ef9ca97a9ad713db0d91f9bcfa04fc469992ac4c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 24,
+      "endExclusiveLocator": "view-0024-l0009",
+      "sourceBlockSha256": "e25a6655cfc78af391e29427d1fdd1d5f095652d4e15f310c189c460b82e2f4e",
+      "blockMarkdownCharacterCount": 343,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 33,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kryminalna scena",
@@ -558,8 +809,17 @@
       "ocrResponseSha256": "b9b43918b6e924d0a5b1053fc4bf2c0596e0969ef6cd13c17379b96986317298",
       "sourcePageSha256": "187c5fa9b1ccb271d0b952b8ef9ca97a9ad713db0d91f9bcfa04fc469992ac4c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 24,
+      "endExclusiveLocator": "view-0024-l0013",
+      "sourceBlockSha256": "bf86bf970eb44dbbb579e700fce365547d3670c080a402eaf07c2e8d3c6440b9",
+      "blockMarkdownCharacterCount": 179,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "known-external-source-name"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 34,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Obraz nielogiczny",
@@ -573,8 +833,15 @@
       "ocrResponseSha256": "b9b43918b6e924d0a5b1053fc4bf2c0596e0969ef6cd13c17379b96986317298",
       "sourcePageSha256": "187c5fa9b1ccb271d0b952b8ef9ca97a9ad713db0d91f9bcfa04fc469992ac4c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 25,
+      "endExclusiveLocator": "view-0025-l0005",
+      "sourceBlockSha256": "b6d953afb94e9069147598a095a9aefbd06cfe1a948b8245c8e5955a43c2656f",
+      "blockMarkdownCharacterCount": 318,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 35,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Opowiadanie nielogiczne",
@@ -588,8 +855,15 @@
       "ocrResponseSha256": "b9b43918b6e924d0a5b1053fc4bf2c0596e0969ef6cd13c17379b96986317298",
       "sourcePageSha256": "187c5fa9b1ccb271d0b952b8ef9ca97a9ad713db0d91f9bcfa04fc469992ac4c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 24,
+      "endExclusiveLocator": "view-0024-l0017",
+      "sourceBlockSha256": "8ebf9622c0e0ba6ecaf33ec82c5d9c7d7f49be20e28902acb7ac986e77e44536",
+      "blockMarkdownCharacterCount": 172,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 36,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Utracona pamięć",
@@ -603,8 +877,15 @@
       "ocrResponseSha256": "b9b43918b6e924d0a5b1053fc4bf2c0596e0969ef6cd13c17379b96986317298",
       "sourcePageSha256": "187c5fa9b1ccb271d0b952b8ef9ca97a9ad713db0d91f9bcfa04fc469992ac4c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 24,
+      "endExclusiveLocator": "view-0024-l0005",
+      "sourceBlockSha256": "807eef872a67df9dae10e7bd167196fd4e793e5af2795759fb4817b9331887c2",
+      "blockMarkdownCharacterCount": 250,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 37,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Licz poeto",
@@ -618,8 +899,17 @@
       "ocrResponseSha256": "f87a1715e9534c9aae1847a79aa70d4a41cd2a42b5e191408794d307f7bd7ce7",
       "sourcePageSha256": "538817c8d3e632dd99bc8bf39f0a768b774fe871b9700884a9ce3b151a93ceab",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 25,
+      "endExclusiveLocator": "view-0025-l0013",
+      "sourceBlockSha256": "88a2a0145f51b47cc858943b1326485612cc1ddf35fcc7f0195084942ad27d0e",
+      "blockMarkdownCharacterCount": 417,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 38,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Liczenie wspak",
@@ -633,8 +923,15 @@
       "ocrResponseSha256": "f87a1715e9534c9aae1847a79aa70d4a41cd2a42b5e191408794d307f7bd7ce7",
       "sourcePageSha256": "538817c8d3e632dd99bc8bf39f0a768b774fe871b9700884a9ce3b151a93ceab",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 25,
+      "endExclusiveLocator": "view-0025-l0009",
+      "sourceBlockSha256": "7093882d5fc5da34b3cc81db664e7c7dbd1622ea6e4fa376119ea23e43faa227",
+      "blockMarkdownCharacterCount": 81,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 39,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Złodziej w izbie",
@@ -648,8 +945,17 @@
       "ocrResponseSha256": "f87a1715e9534c9aae1847a79aa70d4a41cd2a42b5e191408794d307f7bd7ce7",
       "sourcePageSha256": "538817c8d3e632dd99bc8bf39f0a768b774fe871b9700884a9ce3b151a93ceab",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 25,
+      "endExclusiveLocator": "view-0026-l0001",
+      "sourceBlockSha256": "c2b07b448f98d79c7ceef483c41aa094fa16e1f70494dea72dc772d31a3f3d80",
+      "blockMarkdownCharacterCount": 559,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 40,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Bum",
@@ -663,8 +969,17 @@
       "ocrResponseSha256": "719524b4630854ca505d952dce55ab9d58a765a61a136fc7b73cb2a1c82f86c7",
       "sourcePageSha256": "5267421264e890152bdb2dfbae05ae49ba61b05c47fae0a0978b0bfb927540fc",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 26,
+      "endExclusiveLocator": "view-0026-l0015",
+      "sourceBlockSha256": "d86beee8d198cad4cbe9ffbcc3239ac61da04c18577b2f5f1c0fc870760f08ac",
+      "blockMarkdownCharacterCount": 487,
+      "blockNonEmptyLineCount": 12,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 41,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Bum — bam",
@@ -678,8 +993,18 @@
       "ocrResponseSha256": "719524b4630854ca505d952dce55ab9d58a765a61a136fc7b73cb2a1c82f86c7",
       "sourcePageSha256": "5267421264e890152bdb2dfbae05ae49ba61b05c47fae0a0978b0bfb927540fc",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 26,
+      "endExclusiveLocator": "view-0026-l0027",
+      "sourceBlockSha256": "39107063be8c800d54734573fa9877ad5bbb98c042bec939ee87a44564027cab",
+      "blockMarkdownCharacterCount": 335,
+      "blockNonEmptyLineCount": 9,
+      "componentRiskSignalIds": [
+        "known-external-source-name",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 42,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Szeptane rozkazy (z odmianą)",
@@ -693,8 +1018,15 @@
       "ocrResponseSha256": "719524b4630854ca505d952dce55ab9d58a765a61a136fc7b73cb2a1c82f86c7",
       "sourcePageSha256": "5267421264e890152bdb2dfbae05ae49ba61b05c47fae0a0978b0bfb927540fc",
       "titleLocatorScore": 0.6522,
+      "viewEndInclusive": 27,
+      "endExclusiveLocator": "view-0027-l0005",
+      "sourceBlockSha256": "967d0f74846ddba4d7fb220bee30ee87ea88c21a88d12ba972768da812cd7893",
+      "blockMarkdownCharacterCount": 521,
+      "blockNonEmptyLineCount": 11,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 43,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Szukanie zegarka pod czapkami",
@@ -708,8 +1040,15 @@
       "ocrResponseSha256": "08d3c353bb1dd515401030dac4956f8e624288d988b9b5052f2819763f821c0e",
       "sourcePageSha256": "9090f4aea6aa7aa987dba830b38e22d82809373c3335b56cb9f67f05845422da",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 27,
+      "endExclusiveLocator": "view-0027-l0013",
+      "sourceBlockSha256": "1af6ca9684907b15ce0b833a852ac93ba08df5ff66c4c595437f4f9843807813",
+      "blockMarkdownCharacterCount": 277,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 44,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Szukanie zegarka w izbie (z odmianą)",
@@ -723,8 +1062,15 @@
       "ocrResponseSha256": "08d3c353bb1dd515401030dac4956f8e624288d988b9b5052f2819763f821c0e",
       "sourcePageSha256": "9090f4aea6aa7aa987dba830b38e22d82809373c3335b56cb9f67f05845422da",
       "titleLocatorScore": 0.7241,
+      "viewEndInclusive": 28,
+      "endExclusiveLocator": "view-0028-l0005",
+      "sourceBlockSha256": "532304242c1417d9cf4937dc8be94f2351a76f041a027849ff39824a909fda00",
+      "blockMarkdownCharacterCount": 542,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 45,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Telefon na odległość",
@@ -738,8 +1084,15 @@
       "ocrResponseSha256": "08d3c353bb1dd515401030dac4956f8e624288d988b9b5052f2819763f821c0e",
       "sourcePageSha256": "9090f4aea6aa7aa987dba830b38e22d82809373c3335b56cb9f67f05845422da",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 27,
+      "endExclusiveLocator": "view-0027-l0009",
+      "sourceBlockSha256": "45d1e7b8778a77beeef0ae01e5733ff6b696cb629687ced1f1361a016ad87a5d",
+      "blockMarkdownCharacterCount": 638,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 46,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Obóz ślepych",
@@ -753,8 +1106,18 @@
       "ocrResponseSha256": "9c8e5724afc21845062a78978dcbfdbb06481ebe6b53a90ee0bfc7ff85032b72",
       "sourcePageSha256": "84d5cdae3a65701056b399c0dcbf92d3ce3e328fd282df7d9782452d967a3f70",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 29,
+      "endExclusiveLocator": "view-0029-l0003",
+      "sourceBlockSha256": "40a00a56889fc4beef778480d4ddea187a7445a30ab9aa7ed24e14d04f834f32",
+      "blockMarkdownCharacterCount": 845,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 47,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wykradzenie przedmiotu",
@@ -768,8 +1131,17 @@
       "ocrResponseSha256": "9c8e5724afc21845062a78978dcbfdbb06481ebe6b53a90ee0bfc7ff85032b72",
       "sourcePageSha256": "84d5cdae3a65701056b399c0dcbf92d3ce3e328fd282df7d9782452d967a3f70",
       "titleLocatorScore": 0.8571,
+      "viewEndInclusive": 28,
+      "endExclusiveLocator": "view-0028-l0009",
+      "sourceBlockSha256": "f028c35940b0bc5f5d717c84d449e4358e27524139a6586ce3c723972373b97b",
+      "blockMarkdownCharacterCount": 561,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 48,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wyrazy (z odmianą)",
@@ -783,8 +1155,9 @@
       "ocrResponseSha256": "12df3b81d61778a2b65690a83f79b1111320160db4a2dde39e7e0c9dc16a8614",
       "sourcePageSha256": "828716e71eb0446aea5384740c4f1caee1ab8a2f274a2070be385cc501b68171",
       "titleLocatorScore": 0.4286,
+      "boundaryStatus": "manual-review-required-uncertain-heading",
       "number": 49,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Włamywacze",
@@ -798,8 +1171,16 @@
       "ocrResponseSha256": "12df3b81d61778a2b65690a83f79b1111320160db4a2dde39e7e0c9dc16a8614",
       "sourcePageSha256": "828716e71eb0446aea5384740c4f1caee1ab8a2f274a2070be385cc501b68171",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 29,
+      "endExclusiveLocator": "view-0029-l0015",
+      "sourceBlockSha256": "f589d0c86f6bfc183cca3f287e8ac612f10c848cbaa4eebb3e285e53a0deb80a",
+      "blockMarkdownCharacterCount": 684,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "review-required-adjacent-uncertain-locator",
+      "interveningUnreliableCandidateCount": 1,
       "number": 50,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Łodzie podwodne",
@@ -813,8 +1194,15 @@
       "ocrResponseSha256": "12df3b81d61778a2b65690a83f79b1111320160db4a2dde39e7e0c9dc16a8614",
       "sourcePageSha256": "828716e71eb0446aea5384740c4f1caee1ab8a2f274a2070be385cc501b68171",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 30,
+      "endExclusiveLocator": "view-0030-l0003",
+      "sourceBlockSha256": "8e3fbf28d77ea9efbe8570904b3f0d75e569a2952f4e90c0d431ae0dd59132d7",
+      "blockMarkdownCharacterCount": 321,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 51,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Gdzieżes Jakóbku?",
@@ -828,8 +1216,17 @@
       "ocrResponseSha256": "762fb7a159da43fe253906eb9da873199beced0b27beb8fb35b63e241b95802f",
       "sourcePageSha256": "70a95b701751a8964ec626e3e7d628e7ec838af4780d0223f48af3dbfca8c7b7",
       "titleLocatorScore": 0.9333,
+      "viewEndInclusive": 31,
+      "endExclusiveLocator": "view-0031-l0003",
+      "sourceBlockSha256": "a03816941fa0efdc53cdbc111eccefea7a4387690847a4f514c4c4b038962078",
+      "blockMarkdownCharacterCount": 405,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 52,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Mur ślepych",
@@ -843,8 +1240,15 @@
       "ocrResponseSha256": "762fb7a159da43fe253906eb9da873199beced0b27beb8fb35b63e241b95802f",
       "sourcePageSha256": "70a95b701751a8964ec626e3e7d628e7ec838af4780d0223f48af3dbfca8c7b7",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 30,
+      "endExclusiveLocator": "view-0030-l0007",
+      "sourceBlockSha256": "4205793a9a716011b0d4c6550e34a852cf05bb42ee495c275d2106673b7d7402",
+      "blockMarkdownCharacterCount": 418,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 53,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Przechodzenie przez izbę",
@@ -858,8 +1262,15 @@
       "ocrResponseSha256": "762fb7a159da43fe253906eb9da873199beced0b27beb8fb35b63e241b95802f",
       "sourcePageSha256": "70a95b701751a8964ec626e3e7d628e7ec838af4780d0223f48af3dbfca8c7b7",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 30,
+      "endExclusiveLocator": "view-0030-l0011",
+      "sourceBlockSha256": "057d78aba30e11e3ad4aad240793fc7ef05472b49fd0392ae5036c5183593b1a",
+      "blockMarkdownCharacterCount": 374,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 54,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Ciuciu — babka",
@@ -873,8 +1284,15 @@
       "ocrResponseSha256": "0d71b87866d7214ade5f0a484eb0ba5b038032d88d54a998a7f467031f833ef8",
       "sourcePageSha256": "358e6e56495114ef6d676a54b1e284924749de6fe4e39caa7601c4c55380e21d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 31,
+      "endExclusiveLocator": "view-0031-l0007",
+      "sourceBlockSha256": "38a9a176da163bf2b39f001b4f899d9a0cc9fb6d4c7e5b01e6b632a113615522",
+      "blockMarkdownCharacterCount": 76,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 55,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Gra Kima uderzen (z odmiana)",
@@ -888,8 +1306,15 @@
       "ocrResponseSha256": "0d71b87866d7214ade5f0a484eb0ba5b038032d88d54a998a7f467031f833ef8",
       "sourcePageSha256": "358e6e56495114ef6d676a54b1e284924749de6fe4e39caa7601c4c55380e21d",
       "titleLocatorScore": 0.7222,
+      "viewEndInclusive": 31,
+      "endExclusiveLocator": "view-0032-l0001",
+      "sourceBlockSha256": "9a30bddb987122bb03c6957e01c413a30424ef7ea3ad176dba074cfd3061116a",
+      "blockMarkdownCharacterCount": 446,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 56,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Pogoń za głosem",
@@ -903,8 +1328,15 @@
       "ocrResponseSha256": "0d71b87866d7214ade5f0a484eb0ba5b038032d88d54a998a7f467031f833ef8",
       "sourcePageSha256": "358e6e56495114ef6d676a54b1e284924749de6fe4e39caa7601c4c55380e21d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 31,
+      "endExclusiveLocator": "view-0031-l0011",
+      "sourceBlockSha256": "cf4689c37f303ebfba6b1513dca55e59c32e215d46d18c970caf3318e6bb63bb",
+      "blockMarkdownCharacterCount": 551,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 57,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Depesza wieznia",
@@ -918,8 +1350,15 @@
       "ocrResponseSha256": "54c0421b9efc6fe874facd4b7dc6bb3e246fc58d61736e2eed856e3b2a2f160a",
       "sourcePageSha256": "3aadb1ad3e1e74e241f278f6d42f92b43de67bfcd733866a25139743ccc5ab6d",
       "titleLocatorScore": 0.8571,
+      "viewEndInclusive": 32,
+      "endExclusiveLocator": "view-0033-l0001",
+      "sourceBlockSha256": "bd9c0887be695d8696e802ddf9a75ea610b73bc0f3acb328304da69cd1d3c8fe",
+      "blockMarkdownCharacterCount": 161,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 58,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Gra Kima zegarkow",
@@ -933,8 +1372,15 @@
       "ocrResponseSha256": "54c0421b9efc6fe874facd4b7dc6bb3e246fc58d61736e2eed856e3b2a2f160a",
       "sourcePageSha256": "3aadb1ad3e1e74e241f278f6d42f92b43de67bfcd733866a25139743ccc5ab6d",
       "titleLocatorScore": 0.9333,
+      "viewEndInclusive": 32,
+      "endExclusiveLocator": "view-0032-l0013",
+      "sourceBlockSha256": "b9b04e9051874ad00aa378286dbae90db6cafb38f7b430384f4a292ab8c5a422",
+      "blockMarkdownCharacterCount": 320,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 59,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Poznaj po chodzie",
@@ -948,8 +1394,17 @@
       "ocrResponseSha256": "54c0421b9efc6fe874facd4b7dc6bb3e246fc58d61736e2eed856e3b2a2f160a",
       "sourcePageSha256": "3aadb1ad3e1e74e241f278f6d42f92b43de67bfcd733866a25139743ccc5ab6d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 32,
+      "endExclusiveLocator": "view-0032-l0009",
+      "sourceBlockSha256": "bf3682326b556c668993617665e1587ce62125c75510bfca036aedba9093a6a6",
+      "blockMarkdownCharacterCount": 136,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 60,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Poznaj po glosie",
@@ -963,8 +1418,15 @@
       "ocrResponseSha256": "54c0421b9efc6fe874facd4b7dc6bb3e246fc58d61736e2eed856e3b2a2f160a",
       "sourcePageSha256": "3aadb1ad3e1e74e241f278f6d42f92b43de67bfcd733866a25139743ccc5ab6d",
       "titleLocatorScore": 0.9286,
+      "viewEndInclusive": 32,
+      "endExclusiveLocator": "view-0032-l0005",
+      "sourceBlockSha256": "77d9232d1a6f17dc601147b8e3a744934405ebe0e53ff4b15cca0c00c3471273",
+      "blockMarkdownCharacterCount": 209,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 61,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Szukanie przy dzwiekach",
@@ -978,8 +1440,15 @@
       "ocrResponseSha256": "54c0421b9efc6fe874facd4b7dc6bb3e246fc58d61736e2eed856e3b2a2f160a",
       "sourcePageSha256": "3aadb1ad3e1e74e241f278f6d42f92b43de67bfcd733866a25139743ccc5ab6d",
       "titleLocatorScore": 0.9048,
+      "viewEndInclusive": 32,
+      "endExclusiveLocator": "view-0032-l0017",
+      "sourceBlockSha256": "4de469f730aa0e28092d1c84dba2939aeb2b1aadcfafeab4f4871edef91b2488",
+      "blockMarkdownCharacterCount": 231,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 62,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kra Kima dotykowa",
@@ -993,8 +1462,18 @@
       "ocrResponseSha256": "0fe760d3a86ccf738ea1869b54e5eb70f235f0d02a4effb1bdd2cf32bba4736c",
       "sourcePageSha256": "bef8e869ca0e4737d78e3a2019c6acdb636f76f18ba81a59f8e30e695ddd46e8",
       "titleLocatorScore": 0.9333,
+      "viewEndInclusive": 34,
+      "endExclusiveLocator": "view-0034-l0027",
+      "sourceBlockSha256": "218db966bf0e36b6f1ddb6afb20a47122846c85c8cf116d02dfb33576891d083",
+      "blockMarkdownCharacterCount": 1307,
+      "blockNonEmptyLineCount": 23,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "review-required-adjacent-uncertain-locator",
+      "interveningUnreliableCandidateCount": 1,
       "number": 63,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kto to powiedzial?",
@@ -1008,8 +1487,17 @@
       "ocrResponseSha256": "0fe760d3a86ccf738ea1869b54e5eb70f235f0d02a4effb1bdd2cf32bba4736c",
       "sourcePageSha256": "bef8e869ca0e4737d78e3a2019c6acdb636f76f18ba81a59f8e30e695ddd46e8",
       "titleLocatorScore": 0.9333,
+      "viewEndInclusive": 33,
+      "endExclusiveLocator": "view-0033-l0011",
+      "sourceBlockSha256": "be024045421704ad6c676c1cc5031a4180a986788bcdd633f46365ab9f9dd26d",
+      "blockMarkdownCharacterCount": 268,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [
+        "known-external-source-name"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 64,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Poszedl Marek",
@@ -1023,8 +1511,17 @@
       "ocrResponseSha256": "0fe760d3a86ccf738ea1869b54e5eb70f235f0d02a4effb1bdd2cf32bba4736c",
       "sourcePageSha256": "bef8e869ca0e4737d78e3a2019c6acdb636f76f18ba81a59f8e30e695ddd46e8",
       "titleLocatorScore": 0.9167,
+      "viewEndInclusive": 33,
+      "endExclusiveLocator": "view-0033-l0005",
+      "sourceBlockSha256": "1ac7f81b80adbf0dbc9dbff5d19b913374b7234265e758fca79e40804cac54de",
+      "blockMarkdownCharacterCount": 445,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "known-external-source-name"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 65,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Fasola pod kocem",
@@ -1038,8 +1535,9 @@
       "ocrResponseSha256": "bf17374c4d9094e97988c121a7242fcfb90a39858dc36065b58601e2751982a4",
       "sourcePageSha256": "a59ca961b5cba1c90e5bdf3a62fe1dd0d3e6dc38045f36f6deeeab49ad5d8a4b",
       "titleLocatorScore": 0.4,
+      "boundaryStatus": "manual-review-required-uncertain-heading",
       "number": 66,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "List na sznurku",
@@ -1053,8 +1551,15 @@
       "ocrResponseSha256": "bf17374c4d9094e97988c121a7242fcfb90a39858dc36065b58601e2751982a4",
       "sourcePageSha256": "a59ca961b5cba1c90e5bdf3a62fe1dd0d3e6dc38045f36f6deeeab49ad5d8a4b",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 35,
+      "endExclusiveLocator": "view-0035-l0003",
+      "sourceBlockSha256": "70673413dd7636081eecfc185f20a6bcb2f6c49f959f9873d731da8a2b68824e",
+      "blockMarkdownCharacterCount": 294,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 67,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Rozpoznawanie monet",
@@ -1068,8 +1573,15 @@
       "ocrResponseSha256": "bf17374c4d9094e97988c121a7242fcfb90a39858dc36065b58601e2751982a4",
       "sourcePageSha256": "a59ca961b5cba1c90e5bdf3a62fe1dd0d3e6dc38045f36f6deeeab49ad5d8a4b",
       "titleLocatorScore": 0.5143,
+      "viewEndInclusive": 34,
+      "endExclusiveLocator": "view-0034-l0032",
+      "sourceBlockSha256": "90e51bd5ca15e8b4c39aff4e3dfaf6061bf7eb1c20513678b3d1295f7dbea19d",
+      "blockMarkdownCharacterCount": 170,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 68,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Jelen i wilk",
@@ -1083,8 +1595,18 @@
       "ocrResponseSha256": "b54340d894cf7eca040c0292d6cc2e30e7a7f50c2baef77fcb085b317cf02b68",
       "sourcePageSha256": "6c6cd64898b96d1cf6b4e47a22577fa72969cca99e0a8f6c1bc269b03cd5735e",
       "titleLocatorScore": 0.9,
+      "viewEndInclusive": 35,
+      "endExclusiveLocator": "view-0036-l0001",
+      "sourceBlockSha256": "56ac0afaa631dbf8337c530c08ce9c79c8b62a2685fa0d3462c02feed777baa4",
+      "blockMarkdownCharacterCount": 258,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "known-external-source-name",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 69,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Poznaj po ubraniu (z odmiana)",
@@ -1098,8 +1620,15 @@
       "ocrResponseSha256": "b54340d894cf7eca040c0292d6cc2e30e7a7f50c2baef77fcb085b317cf02b68",
       "sourcePageSha256": "6c6cd64898b96d1cf6b4e47a22577fa72969cca99e0a8f6c1bc269b03cd5735e",
       "titleLocatorScore": 0.6522,
+      "viewEndInclusive": 35,
+      "endExclusiveLocator": "view-0035-l0011",
+      "sourceBlockSha256": "cffe99dd030d8b17b77d03c3c87b292afb769c6c99f5fbf1c998651afc272e08",
+      "blockMarkdownCharacterCount": 356,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 70,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Waz na uwiezi",
@@ -1113,8 +1642,15 @@
       "ocrResponseSha256": "b54340d894cf7eca040c0292d6cc2e30e7a7f50c2baef77fcb085b317cf02b68",
       "sourcePageSha256": "6c6cd64898b96d1cf6b4e47a22577fa72969cca99e0a8f6c1bc269b03cd5735e",
       "titleLocatorScore": 0.7273,
+      "viewEndInclusive": 35,
+      "endExclusiveLocator": "view-0035-l0015",
+      "sourceBlockSha256": "afb49ea0941e998dae248257be9cd17f12727f1310788c5cc480bfafe41f48c0",
+      "blockMarkdownCharacterCount": 294,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 71,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Dmuchany football",
@@ -1128,8 +1664,17 @@
       "ocrResponseSha256": "38d3a9141942f94529acc75173852a803b87104e2d6fc514b5a52f5e3e61b8fb",
       "sourcePageSha256": "e9284b2608df3ad259c46a44f319e92d55fe724049da15ee33d52264c2c57ad0",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 36,
+      "endExclusiveLocator": "view-0036-l0009",
+      "sourceBlockSha256": "e13ba59db27277623ef893c93403d6794c1498ef06a9d2c8c1811bb1bdc82fe9",
+      "blockMarkdownCharacterCount": 228,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "known-external-source-name"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 72,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Przeciaganie w szeregach",
@@ -1143,8 +1688,17 @@
       "ocrResponseSha256": "38d3a9141942f94529acc75173852a803b87104e2d6fc514b5a52f5e3e61b8fb",
       "sourcePageSha256": "e9284b2608df3ad259c46a44f319e92d55fe724049da15ee33d52264c2c57ad0",
       "titleLocatorScore": 0.9545,
+      "viewEndInclusive": 36,
+      "endExclusiveLocator": "view-0036-l0005",
+      "sourceBlockSha256": "ad27fc550c5bc32b649b5d4193e4f76d3a304f83813ba464684175bd6ec03328",
+      "blockMarkdownCharacterCount": 309,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "known-external-source-name"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 73,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Przedmuchiwanie piorka",
@@ -1158,8 +1712,15 @@
       "ocrResponseSha256": "38d3a9141942f94529acc75173852a803b87104e2d6fc514b5a52f5e3e61b8fb",
       "sourcePageSha256": "e9284b2608df3ad259c46a44f319e92d55fe724049da15ee33d52264c2c57ad0",
       "titleLocatorScore": 0.9524,
+      "viewEndInclusive": 36,
+      "endExclusiveLocator": "view-0036-l0013",
+      "sourceBlockSha256": "9d8e790c6ca590aa962bae7af29f258a2f51aa964fc3415a24bc1e022b67789d",
+      "blockMarkdownCharacterCount": 365,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 74,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Walka węźów",
@@ -1173,8 +1734,15 @@
       "ocrResponseSha256": "38d3a9141942f94529acc75173852a803b87104e2d6fc514b5a52f5e3e61b8fb",
       "sourcePageSha256": "e9284b2608df3ad259c46a44f319e92d55fe724049da15ee33d52264c2c57ad0",
       "titleLocatorScore": 0.9,
+      "viewEndInclusive": 36,
+      "endExclusiveLocator": "view-0037-l0001",
+      "sourceBlockSha256": "b63f051c54c9ad93f1fe1e1a77889a6dec4551185e9812f8501785e738e79915",
+      "blockMarkdownCharacterCount": 235,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 75,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Pilka do czapki",
@@ -1188,8 +1756,17 @@
       "ocrResponseSha256": "6c089ea6b48f21535efebd49d895a7f6752e81a0e5a4585af333cd769104e594",
       "sourcePageSha256": "a8078853c5b269eefb4402fb0ec23a099077088d2aea4e89c66c961ca5062b6d",
       "titleLocatorScore": 0.9231,
+      "viewEndInclusive": 37,
+      "endExclusiveLocator": "view-0037-l0005",
+      "sourceBlockSha256": "ced13f822d3e96ba11afaaf9210101ab549f45d52573f6206a45fe3f66e946c4",
+      "blockMarkdownCharacterCount": 685,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "known-external-source-name"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 76,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wanka - wstanka",
@@ -1203,8 +1780,17 @@
       "ocrResponseSha256": "6c089ea6b48f21535efebd49d895a7f6752e81a0e5a4585af333cd769104e594",
       "sourcePageSha256": "a8078853c5b269eefb4402fb0ec23a099077088d2aea4e89c66c961ca5062b6d",
       "titleLocatorScore": 0.8333,
+      "viewEndInclusive": 38,
+      "endExclusiveLocator": "view-0038-l0003",
+      "sourceBlockSha256": "694cb0efdff91962952b1a55d2531ba8f9d1556a2c5f69bec7ff337ef64284e9",
+      "blockMarkdownCharacterCount": 365,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "known-external-source-name"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 77,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wyscig tkacki",
@@ -1218,8 +1804,17 @@
       "ocrResponseSha256": "6c089ea6b48f21535efebd49d895a7f6752e81a0e5a4585af333cd769104e594",
       "sourcePageSha256": "a8078853c5b269eefb4402fb0ec23a099077088d2aea4e89c66c961ca5062b6d",
       "titleLocatorScore": 0.9167,
+      "viewEndInclusive": 37,
+      "endExclusiveLocator": "view-0037-l0009",
+      "sourceBlockSha256": "4564cae6414817407013cfcee8caebe4799bc519cb382c184434e9033ae68608",
+      "blockMarkdownCharacterCount": 472,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "known-external-source-name"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 78,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Drogocenny kij",
@@ -1233,8 +1828,17 @@
       "ocrResponseSha256": "6e9f57b1aa84060f93b4b380fd2ed6f3ebc70bd01bd3e8231aaeb0570fc297b1",
       "sourcePageSha256": "69c01b4456ee9620f4e75d0a6ceb90f2d8299f4de10316c45f9ad69870b47f5c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 39,
+      "endExclusiveLocator": "view-0039-l0003",
+      "sourceBlockSha256": "feaba85a22ccba44880b9645eeb825cab871072034b40207df6ffec680f23705",
+      "blockMarkdownCharacterCount": 493,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "known-external-source-name"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 79,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Szczur",
@@ -1248,8 +1852,15 @@
       "ocrResponseSha256": "6e9f57b1aa84060f93b4b380fd2ed6f3ebc70bd01bd3e8231aaeb0570fc297b1",
       "sourcePageSha256": "69c01b4456ee9620f4e75d0a6ceb90f2d8299f4de10316c45f9ad69870b47f5c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 38,
+      "endExclusiveLocator": "view-0038-l0011",
+      "sourceBlockSha256": "61768f7539fe6c0e9dbd98bb8947a20cd2c2471bffa508c5c6b7a300350e9415",
+      "blockMarkdownCharacterCount": 338,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 80,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Walki bykow",
@@ -1263,8 +1874,18 @@
       "ocrResponseSha256": "6e9f57b1aa84060f93b4b380fd2ed6f3ebc70bd01bd3e8231aaeb0570fc297b1",
       "sourcePageSha256": "69c01b4456ee9620f4e75d0a6ceb90f2d8299f4de10316c45f9ad69870b47f5c",
       "titleLocatorScore": 0.9,
+      "viewEndInclusive": 38,
+      "endExclusiveLocator": "view-0038-l0007",
+      "sourceBlockSha256": "e57f34e2bf8456d9b2f46c9db6e1deb1f83a1d2abdf2ba3287fd0e874c797c15",
+      "blockMarkdownCharacterCount": 647,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "known-external-source-name",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 81,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kozak i Tatarzyn",
@@ -1278,8 +1899,15 @@
       "ocrResponseSha256": "ba97530cea6b74e5db3c8ab4fcfb2276616cb5491e126cd8a3dd14e775d79ceb",
       "sourcePageSha256": "5330a7f57dffe979b6ff55ac2aea8b9354e0f5a0caad1509450c1cf5a1b40638",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 39,
+      "endExclusiveLocator": "view-0039-l0007",
+      "sourceBlockSha256": "791bee5696dfd98362f3a98bc7daaf592d42a22829b5cdbcb2e78b1990b8783e",
+      "blockMarkdownCharacterCount": 634,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 82,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Rabuś jabłek",
@@ -1293,8 +1921,17 @@
       "ocrResponseSha256": "ba97530cea6b74e5db3c8ab4fcfb2276616cb5491e126cd8a3dd14e775d79ceb",
       "sourcePageSha256": "5330a7f57dffe979b6ff55ac2aea8b9354e0f5a0caad1509450c1cf5a1b40638",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 39,
+      "endExclusiveLocator": "view-0040-l0001",
+      "sourceBlockSha256": "470ba4aef871b7c18e856c357ff6886b514f71fb00435b3f38091a36135b1eca",
+      "blockMarkdownCharacterCount": 370,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [
+        "known-external-source-name"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 83,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Przeszkody w mgle",
@@ -1308,8 +1945,17 @@
       "ocrResponseSha256": "cec741d91a8ed875196168260125c58df12622b3c67c58322bc067f0dad57e8a",
       "sourcePageSha256": "64ee68c532f68fa3c1f402179448e0f6083f824358f9055a00ad88f4815a3243",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 40,
+      "endExclusiveLocator": "view-0040-l0011",
+      "sourceBlockSha256": "2ba657c488800720a3ba1b9f7fa19d68176fd420eab0b79660536949e5c20c2a",
+      "blockMarkdownCharacterCount": 448,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [
+        "known-external-source-name"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 84,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Raz - dwa - trzy",
@@ -1323,8 +1969,17 @@
       "ocrResponseSha256": "cec741d91a8ed875196168260125c58df12622b3c67c58322bc067f0dad57e8a",
       "sourcePageSha256": "64ee68c532f68fa3c1f402179448e0f6083f824358f9055a00ad88f4815a3243",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 40,
+      "endExclusiveLocator": "view-0040-l0005",
+      "sourceBlockSha256": "d8dc2dc7defbb0c884ba2fa53f45204e60d496a74c96a34b5af237a9309c04b8",
+      "blockMarkdownCharacterCount": 483,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 85,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Tak — nie!",
@@ -1338,8 +1993,17 @@
       "ocrResponseSha256": "cec741d91a8ed875196168260125c58df12622b3c67c58322bc067f0dad57e8a",
       "sourcePageSha256": "64ee68c532f68fa3c1f402179448e0f6083f824358f9055a00ad88f4815a3243",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 40,
+      "endExclusiveLocator": "view-0041-l0001",
+      "sourceBlockSha256": "761bf24d432891207b3e927c332cc03ec006861a9866f5f963ddd4631dd0abef",
+      "blockMarkdownCharacterCount": 205,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 86,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Co to?",
@@ -1353,8 +2017,18 @@
       "ocrResponseSha256": "ce0d3092ac6dfc529e0998711e84eadfcd918865888672064db4278306e5de23",
       "sourcePageSha256": "7d4a1f48b005db864bac89349b41e9599a70507d08b6a9cc503ff73b71df97e7",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 41,
+      "endExclusiveLocator": "view-0041-l0005",
+      "sourceBlockSha256": "40d3de59e238828b5517cc70761b1671606cb20e95ba8411a1ab2f7db282fa9c",
+      "blockMarkdownCharacterCount": 550,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "known-external-source-name",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 87,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Mama — tata",
@@ -1368,8 +2042,17 @@
       "ocrResponseSha256": "ce0d3092ac6dfc529e0998711e84eadfcd918865888672064db4278306e5de23",
       "sourcePageSha256": "7d4a1f48b005db864bac89349b41e9599a70507d08b6a9cc503ff73b71df97e7",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 41,
+      "endExclusiveLocator": "view-0041-l0009",
+      "sourceBlockSha256": "5346617a9722f8b82ebe5e58ccaf8ff7ca7fa643b49dc5b9a39b2a6d26ddbb77",
+      "blockMarkdownCharacterCount": 443,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 88,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Moja Mimi",
@@ -1383,8 +2066,15 @@
       "ocrResponseSha256": "ce0d3092ac6dfc529e0998711e84eadfcd918865888672064db4278306e5de23",
       "sourcePageSha256": "7d4a1f48b005db864bac89349b41e9599a70507d08b6a9cc503ff73b71df97e7",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 42,
+      "endExclusiveLocator": "view-0042-l0003",
+      "sourceBlockSha256": "de9225670c06a0838f3e9c8999c832f00f6961e7eef7cf7fc4012ec4983c591e",
+      "blockMarkdownCharacterCount": 539,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 89,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Inteligencja",
@@ -1398,8 +2088,17 @@
       "ocrResponseSha256": "ce847c8380bce8eeb11670e65668e79e045bf58de8fbf2a8df83db31f0881230",
       "sourcePageSha256": "407ba9e827a114b244d9c736dfb8a781d2828589850e773ee2d00deaf21efd26",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 42,
+      "endExclusiveLocator": "view-0043-l0001",
+      "sourceBlockSha256": "8c3f90de347a23b45ec7260666689c5f0c82bc70d898ad188b6827f50c0775ea",
+      "blockMarkdownCharacterCount": 671,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 90,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Przysłowia",
@@ -1413,8 +2112,15 @@
       "ocrResponseSha256": "ce847c8380bce8eeb11670e65668e79e045bf58de8fbf2a8df83db31f0881230",
       "sourcePageSha256": "407ba9e827a114b244d9c736dfb8a781d2828589850e773ee2d00deaf21efd26",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 42,
+      "endExclusiveLocator": "view-0042-l0007",
+      "sourceBlockSha256": "22214b0c538fe18a738c93eb3f4970f80774f97f6d01d75381b575b9d5a09dc1",
+      "blockMarkdownCharacterCount": 343,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 91,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Abecadłówka",
@@ -1428,8 +2134,15 @@
       "ocrResponseSha256": "18346cd629ba30bca6678f7560c9d0e004a38456c1446290fe5d99c8ac0b0025",
       "sourcePageSha256": "08d20844b9e48cd52344243aadcb31ed8aa9f9eef2f1437f81814d8ed66a142a",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 43,
+      "endExclusiveLocator": "view-0043-l0013",
+      "sourceBlockSha256": "2ebdf8ece86ec5c08f0e9b12c806ad52b777c3a6331055337042ada52fcd5592",
+      "blockMarkdownCharacterCount": 301,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 92,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Czem okręt naładowany?",
@@ -1443,8 +2156,17 @@
       "ocrResponseSha256": "18346cd629ba30bca6678f7560c9d0e004a38456c1446290fe5d99c8ac0b0025",
       "sourcePageSha256": "08d20844b9e48cd52344243aadcb31ed8aa9f9eef2f1437f81814d8ed66a142a",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 43,
+      "endExclusiveLocator": "view-0043-l0009",
+      "sourceBlockSha256": "0ac98e2ee0aa056101fa453a47f85909f4785bc388e4038c1557db775f45ed88",
+      "blockMarkdownCharacterCount": 825,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 93,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Okręt C",
@@ -1458,8 +2180,18 @@
       "ocrResponseSha256": "18346cd629ba30bca6678f7560c9d0e004a38456c1446290fe5d99c8ac0b0025",
       "sourcePageSha256": "08d20844b9e48cd52344243aadcb31ed8aa9f9eef2f1437f81814d8ed66a142a",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 44,
+      "endExclusiveLocator": "view-0044-l0007",
+      "sourceBlockSha256": "ec9437194df392ab13b829f29893ca0e6aa8c9aa90a11785cb902ae96af58653",
+      "blockMarkdownCharacterCount": 417,
+      "blockNonEmptyLineCount": 8,
+      "componentRiskSignalIds": [
+        "known-external-source-name",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 94,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Pięciominutówka",
@@ -1473,8 +2205,15 @@
       "ocrResponseSha256": "9109fc5dbdebdb523a6847c3685ced0374c24c2ead2d67efc5b6586338818f78",
       "sourcePageSha256": "88ba014dcb5a0800683f38e700728734a2f023d7bd62cd53e976c92309ddc3aa",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 45,
+      "endExclusiveLocator": "view-0045-l0003",
+      "sourceBlockSha256": "76034584400db69db3c41f4fdcf3d848c56875a1f5bbf68ed42bdc6f9d474a2a",
+      "blockMarkdownCharacterCount": 258,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 95,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wielcy ludzie",
@@ -1488,8 +2227,15 @@
       "ocrResponseSha256": "9109fc5dbdebdb523a6847c3685ced0374c24c2ead2d67efc5b6586338818f78",
       "sourcePageSha256": "88ba014dcb5a0800683f38e700728734a2f023d7bd62cd53e976c92309ddc3aa",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 44,
+      "endExclusiveLocator": "view-0044-l0021",
+      "sourceBlockSha256": "1b5dbfca014576a74f4c098a8196a31b172786407764a3b55884b7fdbdaf2218",
+      "blockMarkdownCharacterCount": 485,
+      "blockNonEmptyLineCount": 12,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 96,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Łańcuch sylab",
@@ -1503,8 +2249,17 @@
       "ocrResponseSha256": "9109fc5dbdebdb523a6847c3685ced0374c24c2ead2d67efc5b6586338818f78",
       "sourcePageSha256": "88ba014dcb5a0800683f38e700728734a2f023d7bd62cd53e976c92309ddc3aa",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 44,
+      "endExclusiveLocator": "view-0044-l0034",
+      "sourceBlockSha256": "0fb5caed483dce4f2ddfb29f957d56a0bc8b2cb4167c9c8719b2d5682111f22f",
+      "blockMarkdownCharacterCount": 427,
+      "blockNonEmptyLineCount": 11,
+      "componentRiskSignalIds": [
+        "known-external-source-name"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 97,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Czarna magja (z odmianą)",
@@ -1518,8 +2273,15 @@
       "ocrResponseSha256": "a987d4e4e1502e3fae731f4b460607d820b0bfe045e5d080266524a9d9262b4d",
       "sourcePageSha256": "ab24abedb9dc03b73795e2b205a192b698d02b5515f008b49dfb1e2b9c658bd2",
       "titleLocatorScore": 0.5789,
+      "viewEndInclusive": 45,
+      "endExclusiveLocator": "view-0045-l0009",
+      "sourceBlockSha256": "213584d552c3f4f116d111e6a55d165058807ea2fcd723330842b59d569a2ade",
+      "blockMarkdownCharacterCount": 866,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 98,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Spowiedź",
@@ -1533,8 +2295,17 @@
       "ocrResponseSha256": "a987d4e4e1502e3fae731f4b460607d820b0bfe045e5d080266524a9d9262b4d",
       "sourcePageSha256": "ab24abedb9dc03b73795e2b205a192b698d02b5515f008b49dfb1e2b9c658bd2",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 45,
+      "endExclusiveLocator": "view-0046-l0001",
+      "sourceBlockSha256": "431772a83e507c32ebdd100a079746f0a876c23da25bb4468322aa98e2e53b78",
+      "blockMarkdownCharacterCount": 222,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 99,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Klub świstaków",
@@ -1548,8 +2319,15 @@
       "ocrResponseSha256": "9bf43dd67822ed11b7d7295d352449b7a34f61191f489afed17aa1ed3b21d98c",
       "sourcePageSha256": "94d4fc2af8977bca03cb8d7d33492003d3978ccfcf6f69dc670068c2de08d400",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 46,
+      "endExclusiveLocator": "view-0046-l0009",
+      "sourceBlockSha256": "b9cb61203e5eefa4ef2656a399e96393376e33ff4686ca4b6deb93ba6b07e170",
+      "blockMarkdownCharacterCount": 603,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 100,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Sekretarz",
@@ -1563,8 +2341,15 @@
       "ocrResponseSha256": "9bf43dd67822ed11b7d7295d352449b7a34f61191f489afed17aa1ed3b21d98c",
       "sourcePageSha256": "94d4fc2af8977bca03cb8d7d33492003d3978ccfcf6f69dc670068c2de08d400",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 47,
+      "endExclusiveLocator": "view-0047-l0003",
+      "sourceBlockSha256": "d0451805520c3898890abd36af78b68b969bebafc73badf5f79fe09db85f241e",
+      "blockMarkdownCharacterCount": 769,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 101,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Sąd I",
@@ -1578,8 +2363,17 @@
       "ocrResponseSha256": "9bf43dd67822ed11b7d7295d352449b7a34f61191f489afed17aa1ed3b21d98c",
       "sourcePageSha256": "94d4fc2af8977bca03cb8d7d33492003d3978ccfcf6f69dc670068c2de08d400",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 46,
+      "endExclusiveLocator": "view-0046-l0005",
+      "sourceBlockSha256": "b173c5bc8a6d5d5b94888cf100fcfada51e7fe4d7ae79c1ca7ce275c2a6ebb27",
+      "blockMarkdownCharacterCount": 503,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 102,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Poeta",
@@ -1593,8 +2387,17 @@
       "ocrResponseSha256": "e9a1bc2ec0913ad9388619f839905f347506bc6640db4410732c2c3af7bc7273",
       "sourcePageSha256": "c116691853630aad18cbb32f2c2dbcd260e8925d6bc62c3d60975a6afe00b59c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 47,
+      "endExclusiveLocator": "view-0048-l0001",
+      "sourceBlockSha256": "a33982e4c4d80adbed69a786e3e3d1f47dc0d10c648fd565bd2d6710d8b0fe63",
+      "blockMarkdownCharacterCount": 569,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 103,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Testament",
@@ -1608,8 +2411,15 @@
       "ocrResponseSha256": "e9a1bc2ec0913ad9388619f839905f347506bc6640db4410732c2c3af7bc7273",
       "sourcePageSha256": "c116691853630aad18cbb32f2c2dbcd260e8925d6bc62c3d60975a6afe00b59c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 47,
+      "endExclusiveLocator": "view-0047-l0007",
+      "sourceBlockSha256": "4fb06ec8ba01f9f8853f26db77d63d37d6d785f4c6fbeb7ca8703ce84bdf5f96",
+      "blockMarkdownCharacterCount": 158,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 104,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Coby-gdyby",
@@ -1623,8 +2433,17 @@
       "ocrResponseSha256": "64efb36dbd161d6592653255ecaef55b35ef8f1a7d23c4a4ebd55e682c378510",
       "sourcePageSha256": "e315994688823016a2d1b96272b6337b3605334ad68a9a049bfe0588c26cc56c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 48,
+      "endExclusiveLocator": "view-0048-l0005",
+      "sourceBlockSha256": "45f449d4acd296f2ecc72b7dd15240ca38b0c1e724618e0386883dd57302b1fe",
+      "blockMarkdownCharacterCount": 787,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 105,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Miau",
@@ -1638,8 +2457,17 @@
       "ocrResponseSha256": "64efb36dbd161d6592653255ecaef55b35ef8f1a7d23c4a4ebd55e682c378510",
       "sourcePageSha256": "e315994688823016a2d1b96272b6337b3605334ad68a9a049bfe0588c26cc56c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 48,
+      "endExclusiveLocator": "view-0048-l0009",
+      "sourceBlockSha256": "d7a2cc894de864794ab601a5031ca8c2a0e84cc3447954ce93ba33b591528ccb",
+      "blockMarkdownCharacterCount": 288,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 106,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Stajnia bawołów",
@@ -1653,8 +2481,17 @@
       "ocrResponseSha256": "64efb36dbd161d6592653255ecaef55b35ef8f1a7d23c4a4ebd55e682c378510",
       "sourcePageSha256": "e315994688823016a2d1b96272b6337b3605334ad68a9a049bfe0588c26cc56c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 49,
+      "endExclusiveLocator": "view-0049-l0003",
+      "sourceBlockSha256": "d29c78b34b5c9778113eda01f90de0bceeefffc774b7a8fe22f31abed8c1dd41",
+      "blockMarkdownCharacterCount": 377,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "known-external-source-name"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 107,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Adwokat",
@@ -1668,8 +2505,15 @@
       "ocrResponseSha256": "eb889559a4d6d241d525d37d95da4f91e878408dac785c2242e4d37c43249472",
       "sourcePageSha256": "af967dc0711c8f1daae94737d3ce12f852e9d66461478d271590e504b1ddf841",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 49,
+      "endExclusiveLocator": "view-0049-l0015",
+      "sourceBlockSha256": "f16439685d14b23607f522f2a4c18957bdb3ff219d223d5efa842f46c3ab1b3d",
+      "blockMarkdownCharacterCount": 283,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 108,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Perskie oko",
@@ -1683,8 +2527,17 @@
       "ocrResponseSha256": "eb889559a4d6d241d525d37d95da4f91e878408dac785c2242e4d37c43249472",
       "sourcePageSha256": "af967dc0711c8f1daae94737d3ce12f852e9d66461478d271590e504b1ddf841",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 49,
+      "endExclusiveLocator": "view-0049-l0007",
+      "sourceBlockSha256": "3d91fa1ef8f4a941b7bf2524aa9a86754be01d29296869a246c59037cfdfefea",
+      "blockMarkdownCharacterCount": 369,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 109,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Tak — nie II",
@@ -1698,8 +2551,15 @@
       "ocrResponseSha256": "eb889559a4d6d241d525d37d95da4f91e878408dac785c2242e4d37c43249472",
       "sourcePageSha256": "af967dc0711c8f1daae94737d3ce12f852e9d66461478d271590e504b1ddf841",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 49,
+      "endExclusiveLocator": "view-0049-l0011",
+      "sourceBlockSha256": "8948c63b212e18a4c0ab78d9d8b34c34a780c513a66f50e26a351374f5d9ed3e",
+      "blockMarkdownCharacterCount": 248,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 110,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wielcy ludzie II",
@@ -1713,8 +2573,18 @@
       "ocrResponseSha256": "eb889559a4d6d241d525d37d95da4f91e878408dac785c2242e4d37c43249472",
       "sourcePageSha256": "af967dc0711c8f1daae94737d3ce12f852e9d66461478d271590e504b1ddf841",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 50,
+      "endExclusiveLocator": "view-0050-l0003",
+      "sourceBlockSha256": "2cfe4a93791a94c4aa95d6cadf6c479e147d9bdbc1a687a2fc076134171373d5",
+      "blockMarkdownCharacterCount": 300,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "known-external-source-name",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 111,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Sąd II",
@@ -1728,8 +2598,18 @@
       "ocrResponseSha256": "e935f964a9c64fb34d845ef53491100d700c07fd92541bc99af000a6f5fe4678",
       "sourcePageSha256": "b69c3db3cd5325419356daafc985b769c99e8c4d5dbf8df4249c6259d3ca2469",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 51,
+      "endExclusiveLocator": "view-0051-l0003",
+      "sourceBlockSha256": "91a39471420e646760410203d331604d377618704e1e1aee1668d31babd4a50a",
+      "blockMarkdownCharacterCount": 1289,
+      "blockNonEmptyLineCount": 7,
+      "componentRiskSignalIds": [
+        "known-external-source-name",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 112,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Inscenizacja „Jeszcze Polska...“",
@@ -1743,8 +2623,18 @@
       "ocrResponseSha256": "5ec30ef93d567d8bb5fdf51dde53d66508227bb801304c437f15cfc13e2bb926",
       "sourcePageSha256": "4df67fc2a0537a9261d34cbe1de21d84b599b8fcf58cf701dc6e65b98f507604",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 51,
+      "endExclusiveLocator": "view-0052-l0001",
+      "sourceBlockSha256": "6e768846417ebb7c7516c0ed9241e201761f39b5ca0de3002b9f95c22254e339",
+      "blockMarkdownCharacterCount": 209,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "quotation-markers",
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 113,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Konkurs masztów",
@@ -1758,8 +2648,15 @@
       "ocrResponseSha256": "5ec30ef93d567d8bb5fdf51dde53d66508227bb801304c437f15cfc13e2bb926",
       "sourcePageSha256": "4df67fc2a0537a9261d34cbe1de21d84b599b8fcf58cf701dc6e65b98f507604",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 51,
+      "endExclusiveLocator": "view-0051-l0007",
+      "sourceBlockSha256": "83422606d2f5292236151eecb27f4b5d8012effb450fc6714f6130b4f7e7fbb3",
+      "blockMarkdownCharacterCount": 413,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 114,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Obrazek nielogiczny",
@@ -1773,8 +2670,15 @@
       "ocrResponseSha256": "5ec30ef93d567d8bb5fdf51dde53d66508227bb801304c437f15cfc13e2bb926",
       "sourcePageSha256": "4df67fc2a0537a9261d34cbe1de21d84b599b8fcf58cf701dc6e65b98f507604",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 51,
+      "endExclusiveLocator": "view-0051-l0011",
+      "sourceBlockSha256": "a951d7c7b1d5d65321dcf7c7890b87146aa39fbc218ff6983b7e66f28f7a2eae",
+      "blockMarkdownCharacterCount": 184,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 115,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Zawody śpiewackie",
@@ -1788,8 +2692,17 @@
       "ocrResponseSha256": "5ec30ef93d567d8bb5fdf51dde53d66508227bb801304c437f15cfc13e2bb926",
       "sourcePageSha256": "4df67fc2a0537a9261d34cbe1de21d84b599b8fcf58cf701dc6e65b98f507604",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 51,
+      "endExclusiveLocator": "view-0051-l0015",
+      "sourceBlockSha256": "95b07741c74d5398dc71c105df89eddd677de49f4772671c3604910c1a076696",
+      "blockMarkdownCharacterCount": 113,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 116,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kwartety",
@@ -1803,8 +2716,17 @@
       "ocrResponseSha256": "929dee8ea66461cebf0b18d1caa8b4b23f020eb4b89204e9f23838f81d811ebe",
       "sourcePageSha256": "42a2933d320c257e9f0fc2a62de1a91296785360de6355feabbe0972bd098797",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 53,
+      "endExclusiveLocator": "view-0053-l0003",
+      "sourceBlockSha256": "dcfb1c72828a6557ce5875fddab577ddbceb470739435baff85f464e563d4792",
+      "blockMarkdownCharacterCount": 1112,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 117,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Odrysowanie Zamku",
@@ -1818,8 +2740,15 @@
       "ocrResponseSha256": "929dee8ea66461cebf0b18d1caa8b4b23f020eb4b89204e9f23838f81d811ebe",
       "sourcePageSha256": "42a2933d320c257e9f0fc2a62de1a91296785360de6355feabbe0972bd098797",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 52,
+      "endExclusiveLocator": "view-0052-l0005",
+      "sourceBlockSha256": "3410be9392d9ceb1eb89397551d1136b12cf1e0754a639140f4ed94180f3d51f",
+      "blockMarkdownCharacterCount": 163,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 118,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Ślepe mapy",
@@ -1833,8 +2762,15 @@
       "ocrResponseSha256": "929dee8ea66461cebf0b18d1caa8b4b23f020eb4b89204e9f23838f81d811ebe",
       "sourcePageSha256": "42a2933d320c257e9f0fc2a62de1a91296785360de6355feabbe0972bd098797",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 52,
+      "endExclusiveLocator": "view-0052-l0009",
+      "sourceBlockSha256": "a900ff0b4cb0496ba99e42c286fa0d954a52967f122b158af14d835e206e84a6",
+      "blockMarkdownCharacterCount": 431,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 119,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Pamiętnik",
@@ -1848,8 +2784,17 @@
       "ocrResponseSha256": "b42aa1b40c98f5483094e2920e307e70fcce905bb052973a3c8c5e32c09d5f21",
       "sourcePageSha256": "cfc6fdad173d08fed5938773d19f19af9f91ce25479fac68cf51754777b28cdd",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 54,
+      "endExclusiveLocator": "view-0054-l0003",
+      "sourceBlockSha256": "66938f36b16b67b8795f901a7aacdb4308f6c1958cd291b6d3ee422d4166d09b",
+      "blockMarkdownCharacterCount": 1364,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 120,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Gra Kima Prawa",
@@ -1863,8 +2808,15 @@
       "ocrResponseSha256": "e1018ffe2b6b4003c372ed3edededb8adcfca4a873ae022d1e2eef515c783a2c",
       "sourcePageSha256": "9adf400dbfecef6d7bda6ec4e39c44e4c646f9f10f8d5b41b451758faa2c2dac",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 55,
+      "endExclusiveLocator": "view-0055-l0005",
+      "sourceBlockSha256": "1d0856019465fbc1be37852ab4cd79c8a3e22a7fc11a535d8c0f7ef27ccc3fd0",
+      "blockMarkdownCharacterCount": 678,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 121,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Podarty list",
@@ -1878,8 +2830,15 @@
       "ocrResponseSha256": "e1018ffe2b6b4003c372ed3edededb8adcfca4a873ae022d1e2eef515c783a2c",
       "sourcePageSha256": "9adf400dbfecef6d7bda6ec4e39c44e4c646f9f10f8d5b41b451758faa2c2dac",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 54,
+      "endExclusiveLocator": "view-0054-l0009",
+      "sourceBlockSha256": "088c73979774d33648b08617d51395ebbb6b1812b8dc1978dad688138a0b67b6",
+      "blockMarkdownCharacterCount": 543,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 122,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Krzyż Harcerski",
@@ -1893,8 +2852,15 @@
       "ocrResponseSha256": "d7a1093f32c25e1f85250c587b9dccfaca89f10bb679bf66a735bdb3a70601e1",
       "sourcePageSha256": "43e97314e8ca64e5c55720ef08ee1c1964d2c32b195f831e2a1af65e3b96c8d5",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 55,
+      "endExclusiveLocator": "view-0055-l0009",
+      "sourceBlockSha256": "8dd7f2a2bb9fa313811b04bfbfe5b36786cffe7aa2a6a3f0b229686235702d9b",
+      "blockMarkdownCharacterCount": 375,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 123,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kto pod kim?",
@@ -1908,8 +2874,18 @@
       "ocrResponseSha256": "d7a1093f32c25e1f85250c587b9dccfaca89f10bb679bf66a735bdb3a70601e1",
       "sourcePageSha256": "43e97314e8ca64e5c55720ef08ee1c1964d2c32b195f831e2a1af65e3b96c8d5",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 55,
+      "endExclusiveLocator": "view-0056-l0001",
+      "sourceBlockSha256": "2893cfe7bb9b58a1e37602ae4a1d4dba2d7c57af63970989f00623d328199122",
+      "blockMarkdownCharacterCount": 582,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 124,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Alarm na planie",
@@ -1923,8 +2899,17 @@
       "ocrResponseSha256": "737fd48264994a625fc3d9c6b81c9dc338f98d05d4c352a6b39eb3365681f270",
       "sourcePageSha256": "e26e3710bfb7fabc150fe4c8aec983c57028cc4b796bc1d6da8ca97bacf51faa",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 56,
+      "endExclusiveLocator": "view-0057-l0001",
+      "sourceBlockSha256": "b47c3f8ad512c2bf58c999309d432ccbc7015f39fb195dbfa6f56a6d91e21c2a",
+      "blockMarkdownCharacterCount": 551,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 125,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Zmiany w mundurze",
@@ -1938,8 +2923,17 @@
       "ocrResponseSha256": "737fd48264994a625fc3d9c6b81c9dc338f98d05d4c352a6b39eb3365681f270",
       "sourcePageSha256": "e26e3710bfb7fabc150fe4c8aec983c57028cc4b796bc1d6da8ca97bacf51faa",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 56,
+      "endExclusiveLocator": "view-0056-l0009",
+      "sourceBlockSha256": "e5f7dcb73593b4e1cc9ed9a07a285dc9f26a8ae250cf03d10230610e9781f724",
+      "blockMarkdownCharacterCount": 740,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 126,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Nagły wybuch",
@@ -1953,8 +2947,15 @@
       "ocrResponseSha256": "faef0bbe8fedb65de2657354bdb84a950f65808219b97a688b509b7544bfdc7a",
       "sourcePageSha256": "93a612b636a6a9ab886f8cd5c8b24e28c0c326429535d22bd47071cc5922ac0d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 57,
+      "endExclusiveLocator": "view-0058-l0001",
+      "sourceBlockSha256": "c488dfbaf284086bc13d0753c840c39b231d93026eecc3109c78eb80ef2c206d",
+      "blockMarkdownCharacterCount": 167,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 127,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Plan dzielnicy",
@@ -1968,8 +2969,15 @@
       "ocrResponseSha256": "faef0bbe8fedb65de2657354bdb84a950f65808219b97a688b509b7544bfdc7a",
       "sourcePageSha256": "93a612b636a6a9ab886f8cd5c8b24e28c0c326429535d22bd47071cc5922ac0d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 57,
+      "endExclusiveLocator": "view-0057-l0013",
+      "sourceBlockSha256": "c7c424d7ebf33443432a8ae1529f2965f1b30ef3c77b3f0b0f9bf0c3a7130b67",
+      "blockMarkdownCharacterCount": 216,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 128,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Rozstrzepany sekretarz",
@@ -1983,8 +2991,15 @@
       "ocrResponseSha256": "faef0bbe8fedb65de2657354bdb84a950f65808219b97a688b509b7544bfdc7a",
       "sourcePageSha256": "93a612b636a6a9ab886f8cd5c8b24e28c0c326429535d22bd47071cc5922ac0d",
       "titleLocatorScore": 0.9756,
+      "viewEndInclusive": 57,
+      "endExclusiveLocator": "view-0057-l0005",
+      "sourceBlockSha256": "5597b42d028b6f3ab49078ad8cdce3d6e3f1e5e8c55aceacb6039e9f95119b62",
+      "blockMarkdownCharacterCount": 469,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 129,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wycieczka żółtodzióba",
@@ -1998,8 +3013,18 @@
       "ocrResponseSha256": "faef0bbe8fedb65de2657354bdb84a950f65808219b97a688b509b7544bfdc7a",
       "sourcePageSha256": "93a612b636a6a9ab886f8cd5c8b24e28c0c326429535d22bd47071cc5922ac0d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 57,
+      "endExclusiveLocator": "view-0057-l0009",
+      "sourceBlockSha256": "ddd4fb85afbaf4f909ff15e2bfdc94c6e46f4e2d99ebf2394a3ca1769e346bc8",
+      "blockMarkdownCharacterCount": 355,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers",
+        "verse-song-or-music-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 130,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Morze",
@@ -2013,8 +3038,15 @@
       "ocrResponseSha256": "59c81bced6403ce2beab480fb8a7bdede9d949b437528ff1b1962f5301dddde3",
       "sourcePageSha256": "e2cf9273dbb8df898e2bbced28a3e8a58b84e5255ac34c710fd799e845d7fa70",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 59,
+      "endExclusiveLocator": "view-0059-l0003",
+      "sourceBlockSha256": "a8163037337ee68c627c8d3afd61d89b6de77cc8f4c58c3ba124daab0547bac8",
+      "blockMarkdownCharacterCount": 404,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 131,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Okręty",
@@ -2028,8 +3060,17 @@
       "ocrResponseSha256": "59c81bced6403ce2beab480fb8a7bdede9d949b437528ff1b1962f5301dddde3",
       "sourcePageSha256": "e2cf9273dbb8df898e2bbced28a3e8a58b84e5255ac34c710fd799e845d7fa70",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 58,
+      "endExclusiveLocator": "view-0058-l0013",
+      "sourceBlockSha256": "c6508b52e7da7b48a342be99b067bb3eeb19f53ef8feacf94899c0a13e657209",
+      "blockMarkdownCharacterCount": 337,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 132,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Węzły",
@@ -2043,8 +3084,17 @@
       "ocrResponseSha256": "59c81bced6403ce2beab480fb8a7bdede9d949b437528ff1b1962f5301dddde3",
       "sourcePageSha256": "e2cf9273dbb8df898e2bbced28a3e8a58b84e5255ac34c710fd799e845d7fa70",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 58,
+      "endExclusiveLocator": "view-0058-l0009",
+      "sourceBlockSha256": "ebf610deec3008483f237bd00fec521cca0ecce6538e59790ba4d196fa9acb00",
+      "blockMarkdownCharacterCount": 627,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 133,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Zastęp inwalidów",
@@ -2058,8 +3108,15 @@
       "ocrResponseSha256": "59c81bced6403ce2beab480fb8a7bdede9d949b437528ff1b1962f5301dddde3",
       "sourcePageSha256": "e2cf9273dbb8df898e2bbced28a3e8a58b84e5255ac34c710fd799e845d7fa70",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 58,
+      "endExclusiveLocator": "view-0058-l0005",
+      "sourceBlockSha256": "2346d54c789eba10bb5dd275d8c566798adac0362267380c32a6c31da9735ae8",
+      "blockMarkdownCharacterCount": 201,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 134,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Most",
@@ -2073,8 +3130,15 @@
       "ocrResponseSha256": "a443d6eac9605953406c32a7e488c008be51d237f2c2e08bbbb21a80e58479c9",
       "sourcePageSha256": "055b7eeb6a6e4df47057acbfda840f07c7b6d93f70653620d8c143252d1df25f",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 60,
+      "endExclusiveLocator": "view-0060-l0003",
+      "sourceBlockSha256": "214bb5f3d6b2cbf67df1fd716f4280622e44c3d5eccadc7b6093f45723f9a3d7",
+      "blockMarkdownCharacterCount": 657,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 135,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wycieczka",
@@ -2088,8 +3152,15 @@
       "ocrResponseSha256": "a443d6eac9605953406c32a7e488c008be51d237f2c2e08bbbb21a80e58479c9",
       "sourcePageSha256": "055b7eeb6a6e4df47057acbfda840f07c7b6d93f70653620d8c143252d1df25f",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 59,
+      "endExclusiveLocator": "view-0059-l0013",
+      "sourceBlockSha256": "9200309876014e8865339203e91cf4fcf5bad85ca7a40a3ba94e9f285cc34223",
+      "blockMarkdownCharacterCount": 311,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 136,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Węzły poomacku",
@@ -2103,8 +3174,15 @@
       "ocrResponseSha256": "a443d6eac9605953406c32a7e488c008be51d237f2c2e08bbbb21a80e58479c9",
       "sourcePageSha256": "055b7eeb6a6e4df47057acbfda840f07c7b6d93f70653620d8c143252d1df25f",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 59,
+      "endExclusiveLocator": "view-0059-l0009",
+      "sourceBlockSha256": "e3d40b486e46382b322a30c692846fcc9269fd5ac61c53725ae680c6eafa4cf5",
+      "blockMarkdownCharacterCount": 112,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 137,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Gry przyrodnicze",
@@ -2118,8 +3196,17 @@
       "ocrResponseSha256": "5e62aae7b61fe546c96c7ae7086d6e26952135f20834fa0d4841f8a4027553ff",
       "sourcePageSha256": "beed169a37be93e0c28ed917d963335873931d77d71a7355e3cc55728a2bfea7",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 60,
+      "endExclusiveLocator": "view-0060-l0015",
+      "sourceBlockSha256": "1c5ae993d8d7c2cfd756a19b6123c135fbf3485f38d3fd9c13793476b6e3b783",
+      "blockMarkdownCharacterCount": 582,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 138,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Konkursy prac ręcznych",
@@ -2133,8 +3220,15 @@
       "ocrResponseSha256": "5e62aae7b61fe546c96c7ae7086d6e26952135f20834fa0d4841f8a4027553ff",
       "sourcePageSha256": "beed169a37be93e0c28ed917d963335873931d77d71a7355e3cc55728a2bfea7",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 60,
+      "endExclusiveLocator": "view-0060-l0007",
+      "sourceBlockSha256": "150b85ea8c294ff4626fee1f56511ba32d37c7aa8fc7bdae6620ec3dd1fe0eb4",
+      "blockMarkdownCharacterCount": 281,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 139,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Marsz z kompasem",
@@ -2148,8 +3242,17 @@
       "ocrResponseSha256": "5e62aae7b61fe546c96c7ae7086d6e26952135f20834fa0d4841f8a4027553ff",
       "sourcePageSha256": "beed169a37be93e0c28ed917d963335873931d77d71a7355e3cc55728a2bfea7",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 61,
+      "endExclusiveLocator": "view-0061-l0003",
+      "sourceBlockSha256": "712ac82cf0bd31336579b6824d65c1db69a5524ded77f866102a1ab6737fc424",
+      "blockMarkdownCharacterCount": 302,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 140,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Samowystarczalność",
@@ -2163,8 +3266,15 @@
       "ocrResponseSha256": "5e62aae7b61fe546c96c7ae7086d6e26952135f20834fa0d4841f8a4027553ff",
       "sourcePageSha256": "beed169a37be93e0c28ed917d963335873931d77d71a7355e3cc55728a2bfea7",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 60,
+      "endExclusiveLocator": "view-0060-l0011",
+      "sourceBlockSha256": "c2e39dd574507517479db79b060fa9535be271bd01864ab56ddb033050b2629d",
+      "blockMarkdownCharacterCount": 149,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 141,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Listy indyjskie",
@@ -2178,8 +3288,15 @@
       "ocrResponseSha256": "432effdda894ffc4ac3639131a251e885be29f5597e132af186787b63230cef0",
       "sourcePageSha256": "2b9047d3ca1d82252ddb66c4f1e508631df49875ed6b36ca5fea951f8d2a9f0d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 61,
+      "endExclusiveLocator": "view-0061-l0015",
+      "sourceBlockSha256": "15d4cd78dfe5f9e3db2507558d1ed5cdbf15c380d6590cbc0a985aa1ef11e09d",
+      "blockMarkdownCharacterCount": 95,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 142,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Musztra",
@@ -2193,8 +3310,17 @@
       "ocrResponseSha256": "432effdda894ffc4ac3639131a251e885be29f5597e132af186787b63230cef0",
       "sourcePageSha256": "2b9047d3ca1d82252ddb66c4f1e508631df49875ed6b36ca5fea951f8d2a9f0d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 61,
+      "endExclusiveLocator": "view-0061-l0011",
+      "sourceBlockSha256": "61e6b033549346f24a2e2926d7c48edf85683a3b23a480b9e2b0d450cbd4b2c0",
+      "blockMarkdownCharacterCount": 220,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 143,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wyprawa Indjan",
@@ -2208,8 +3334,17 @@
       "ocrResponseSha256": "432effdda894ffc4ac3639131a251e885be29f5597e132af186787b63230cef0",
       "sourcePageSha256": "2b9047d3ca1d82252ddb66c4f1e508631df49875ed6b36ca5fea951f8d2a9f0d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 65,
+      "endExclusiveLocator": "view-0065-l0005",
+      "sourceBlockSha256": "3c850c72aef7ba61e8302d9364365dc78aea4f0a66a5547ad6fa348d1afb31b1",
+      "blockMarkdownCharacterCount": 5014,
+      "blockNonEmptyLineCount": 22,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 144,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Zawody w szkicach",
@@ -2223,8 +3358,15 @@
       "ocrResponseSha256": "432effdda894ffc4ac3639131a251e885be29f5597e132af186787b63230cef0",
       "sourcePageSha256": "2b9047d3ca1d82252ddb66c4f1e508631df49875ed6b36ca5fea951f8d2a9f0d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 61,
+      "endExclusiveLocator": "view-0061-l0007",
+      "sourceBlockSha256": "51f68314283d235a1f26c3484497f52e220142cc69b7c1f228b59b5cf31a3b7e",
+      "blockMarkdownCharacterCount": 228,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 145,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Czem okręt naładowany? II",
@@ -2238,8 +3380,15 @@
       "ocrResponseSha256": "889f212d1b54ce1404aa65d459ed4d4085fa44c76af54c68ae6cc34a7a382b84",
       "sourcePageSha256": "9bb743620d38da9e982128c8ed24c72f7388d0d9c9df51a35817accdd856aaca",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 66,
+      "endExclusiveLocator": "view-0066-l0003",
+      "sourceBlockSha256": "e40189c6c5668284e612060c414980d27f6971f11d12de8e4d7ef3402680875a",
+      "blockMarkdownCharacterCount": 527,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 146,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Odrzucanie liter",
@@ -2253,8 +3402,17 @@
       "ocrResponseSha256": "889f212d1b54ce1404aa65d459ed4d4085fa44c76af54c68ae6cc34a7a382b84",
       "sourcePageSha256": "9bb743620d38da9e982128c8ed24c72f7388d0d9c9df51a35817accdd856aaca",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 65,
+      "endExclusiveLocator": "view-0065-l0009",
+      "sourceBlockSha256": "03a06abd0e0dc3c9cc6d504f3e94bcd0741ce26932bec25247aa41c9c1267685",
+      "blockMarkdownCharacterCount": 314,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 147,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Zmiana miejsc",
@@ -2268,8 +3426,15 @@
       "ocrResponseSha256": "889f212d1b54ce1404aa65d459ed4d4085fa44c76af54c68ae6cc34a7a382b84",
       "sourcePageSha256": "9bb743620d38da9e982128c8ed24c72f7388d0d9c9df51a35817accdd856aaca",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 65,
+      "endExclusiveLocator": "view-0065-l0013",
+      "sourceBlockSha256": "7539aab6280b4fb9ddce81bd8c15d7caf7d6337702d803774e755fc9ef4113b3",
+      "blockMarkdownCharacterCount": 354,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 148,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kropki — kreski",
@@ -2283,8 +3448,18 @@
       "ocrResponseSha256": "f5bb15d1f3f6b6eb1f3f335804007e2fc829e390820106e282a1ec1ec50b7877",
       "sourcePageSha256": "a5177af95c913b7e48cef61694e9c4b694f30ad6272e865586348bc54581eec2",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 66,
+      "endExclusiveLocator": "view-0066-l0007",
+      "sourceBlockSha256": "47d07a5df6ebfecc8ddec41c93cbf2ce74619c81cfb703b1c7fce77b3430ab78",
+      "blockMarkdownCharacterCount": 343,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 149,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wyścig par",
@@ -2298,8 +3473,18 @@
       "ocrResponseSha256": "f5bb15d1f3f6b6eb1f3f335804007e2fc829e390820106e282a1ec1ec50b7877",
       "sourcePageSha256": "a5177af95c913b7e48cef61694e9c4b694f30ad6272e865586348bc54581eec2",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 67,
+      "endExclusiveLocator": "view-0067-l0003",
+      "sourceBlockSha256": "e7025e609661ac58d11e2801911560902e6337803010fa490a0babeeeecae0c7",
+      "blockMarkdownCharacterCount": 883,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 150,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Gra Kima sygnalizacyjna",
@@ -2313,8 +3498,15 @@
       "ocrResponseSha256": "55a6a0aa33ca5f6c724c377d7b8555f929f2cf1d4408e6dffd7bd95eddacb6fd",
       "sourcePageSha256": "c4787a8152edad48a8df102f539f5f8028697ae3e0e92b2c303799785ad9df6d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 67,
+      "endExclusiveLocator": "view-0067-l0011",
+      "sourceBlockSha256": "2415f3d384d4551784250a2827d7d4791d21aee533fef4ade9b1f933f78e0c53",
+      "blockMarkdownCharacterCount": 414,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 151,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Klub sygnalistów",
@@ -2328,8 +3520,15 @@
       "ocrResponseSha256": "55a6a0aa33ca5f6c724c377d7b8555f929f2cf1d4408e6dffd7bd95eddacb6fd",
       "sourcePageSha256": "c4787a8152edad48a8df102f539f5f8028697ae3e0e92b2c303799785ad9df6d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 67,
+      "endExclusiveLocator": "view-0067-l0007",
+      "sourceBlockSha256": "e187e6a7c09296fa9702824aca3219530094aa823ac3fa1d3856bb7f6aef0902",
+      "blockMarkdownCharacterCount": 341,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 152,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Składanie wyrazów",
@@ -2343,8 +3542,15 @@
       "ocrResponseSha256": "55a6a0aa33ca5f6c724c377d7b8555f929f2cf1d4408e6dffd7bd95eddacb6fd",
       "sourcePageSha256": "c4787a8152edad48a8df102f539f5f8028697ae3e0e92b2c303799785ad9df6d",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 68,
+      "endExclusiveLocator": "view-0068-l0005",
+      "sourceBlockSha256": "24c28c2e9151fca24ec9164484917f554493a76929b07e6a1700833756abf265",
+      "blockMarkdownCharacterCount": 1037,
+      "blockNonEmptyLineCount": 6,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 153,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "List roztargnionego",
@@ -2358,8 +3564,15 @@
       "ocrResponseSha256": "14d4ccf6f36235ba12c0fb8dd807db5c3dfd0f5a8b141bed23c73e2fb69159eb",
       "sourcePageSha256": "b13b7f3c605dddae2f0ab64ceb9fe80b093803a508b729f3bca9d04923ada01e",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 68,
+      "endExclusiveLocator": "view-0068-l0009",
+      "sourceBlockSha256": "ac96b7ad694b787ae2f93dec49db4131c5e3d60147192f5c4cf5b356a6159560",
+      "blockMarkdownCharacterCount": 147,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 154,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Pięciominutówka II",
@@ -2373,8 +3586,15 @@
       "ocrResponseSha256": "14d4ccf6f36235ba12c0fb8dd807db5c3dfd0f5a8b141bed23c73e2fb69159eb",
       "sourcePageSha256": "b13b7f3c605dddae2f0ab64ceb9fe80b093803a508b729f3bca9d04923ada01e",
       "titleLocatorScore": 0.8824,
+      "viewEndInclusive": 68,
+      "endExclusiveLocator": "view-0068-l0017",
+      "sourceBlockSha256": "5df4cc25bf0aeb1fda8980cedea0994a1934a63698cb73a4b633232a075bcbc2",
+      "blockMarkdownCharacterCount": 181,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 155,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Zadanie łączności",
@@ -2388,8 +3608,17 @@
       "ocrResponseSha256": "14d4ccf6f36235ba12c0fb8dd807db5c3dfd0f5a8b141bed23c73e2fb69159eb",
       "sourcePageSha256": "b13b7f3c605dddae2f0ab64ceb9fe80b093803a508b729f3bca9d04923ada01e",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 69,
+      "endExclusiveLocator": "view-0069-l0003",
+      "sourceBlockSha256": "f86b0c93ee38527ed9c3d92ab99d6187ea62fadd0a40f25f4f63899680ea0b8b",
+      "blockMarkdownCharacterCount": 822,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 156,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "List więźnia",
@@ -2403,8 +3632,15 @@
       "ocrResponseSha256": "deb32293ea48f3b23583d636e6aabc3271041a3d27a9db6d314f3910d66353d3",
       "sourcePageSha256": "725ed96deccdd115c9a222cb532721ad45426ca52a2be2120fc6ec97cea0827c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 70,
+      "endExclusiveLocator": "view-0070-l0003",
+      "sourceBlockSha256": "9148a57c88f537852b477efc003fd02b9e3789d127fea9b6e03265119c53b844",
+      "blockMarkdownCharacterCount": 1284,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 157,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Gry w terenie",
@@ -2418,8 +3654,15 @@
       "ocrResponseSha256": "c5be45179cdf57baa22194849c3f9002eaee96668fa516072a34684867413b8e",
       "sourcePageSha256": "5c7550641c6e1da2f7478eba5615fbb330b3f59a7c40329cc9c9d94f6b90eba1",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 70,
+      "endExclusiveLocator": "view-0071-l0001",
+      "sourceBlockSha256": "7282a096243cff5e64057bb244d5e613b187c6a487aa6e6dc5c1308df408b245",
+      "blockMarkdownCharacterCount": 931,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 158,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Oblężenie Czorsztyna",
@@ -2433,8 +3676,17 @@
       "ocrResponseSha256": "2d915fb253f3178b1d7b28279226a05443a1d79d4036da60ba7e8fc31eded5a3",
       "sourcePageSha256": "c82e692fd43877bd187ead48f7aa49c617ea1df4616b5266aaad401ef3ebb602",
       "titleLocatorScore": 0.9474,
+      "viewEndInclusive": 73,
+      "endExclusiveLocator": "view-0073-l0007",
+      "sourceBlockSha256": "8eca86eb1a496fcb804b0c3ff18bac4b2b14b18f0e9b222a949d90ac86775c40",
+      "blockMarkdownCharacterCount": 2673,
+      "blockNonEmptyLineCount": 41,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 159,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Pogoń za zbiegami",
@@ -2448,8 +3700,15 @@
       "ocrResponseSha256": "2d915fb253f3178b1d7b28279226a05443a1d79d4036da60ba7e8fc31eded5a3",
       "sourcePageSha256": "c82e692fd43877bd187ead48f7aa49c617ea1df4616b5266aaad401ef3ebb602",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 71,
+      "endExclusiveLocator": "view-0071-l0011",
+      "sourceBlockSha256": "07e54b0b6200135686f6e56fc159f89750c4daef2365d4c6dabfdcb5a79cb647",
+      "blockMarkdownCharacterCount": 283,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 160,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wyścig depesz",
@@ -2463,8 +3722,17 @@
       "ocrResponseSha256": "2d915fb253f3178b1d7b28279226a05443a1d79d4036da60ba7e8fc31eded5a3",
       "sourcePageSha256": "c82e692fd43877bd187ead48f7aa49c617ea1df4616b5266aaad401ef3ebb602",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 71,
+      "endExclusiveLocator": "view-0071-l0007",
+      "sourceBlockSha256": "329f68e15018a947dca4cb02c18e01478a11b036a8265424db2029a089dc73df",
+      "blockMarkdownCharacterCount": 467,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 161,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kim — Aptekarz I",
@@ -2478,8 +3746,15 @@
       "ocrResponseSha256": "07afe52f90b0676101674afb5d9a2f0a2f36e000afefbd62266d339343a4b799",
       "sourcePageSha256": "aaada0e0118f82fbbe8e0b9b93692c9bbaca3016971a982e95ee787581fd6308",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 73,
+      "endExclusiveLocator": "view-0073-l0011",
+      "sourceBlockSha256": "0688b9833cf483848099fede27607137e76c46f37bed7c508f08377f6b3a724b",
+      "blockMarkdownCharacterCount": 328,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 162,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Kim — Aptekarz II",
@@ -2493,8 +3768,15 @@
       "ocrResponseSha256": "07afe52f90b0676101674afb5d9a2f0a2f36e000afefbd62266d339343a4b799",
       "sourcePageSha256": "aaada0e0118f82fbbe8e0b9b93692c9bbaca3016971a982e95ee787581fd6308",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 74,
+      "endExclusiveLocator": "view-0074-l0003",
+      "sourceBlockSha256": "8d3af2e3b4ea8fd810b66debe32264d185ab961f4049e17e8636c84a34dd9cc3",
+      "blockMarkdownCharacterCount": 276,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 163,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Na miejscu wypadku",
@@ -2508,8 +3790,15 @@
       "ocrResponseSha256": "23ec9b919d7935d98081c2605018c6bdadaf4f6d7a726a4a2934816a061fd259",
       "sourcePageSha256": "3c019b773b80a3b87a3d530e6c9d163ad01111644c768d34d4153c5bb67e1f7b",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 74,
+      "endExclusiveLocator": "view-0074-l0011",
+      "sourceBlockSha256": "ed47a92437b0cb10f8a9ffdfe7b6c67195460d77190e7c06b7fb5abc1b230620",
+      "blockMarkdownCharacterCount": 225,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 164,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Nagły wypadek",
@@ -2523,8 +3812,15 @@
       "ocrResponseSha256": "23ec9b919d7935d98081c2605018c6bdadaf4f6d7a726a4a2934816a061fd259",
       "sourcePageSha256": "3c019b773b80a3b87a3d530e6c9d163ad01111644c768d34d4153c5bb67e1f7b",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 74,
+      "endExclusiveLocator": "view-0074-l0015",
+      "sourceBlockSha256": "b49d9d29aa638f515bbd8fd52e24ca1deb32193aea3576bed1f7fc69f06d2e6f",
+      "blockMarkdownCharacterCount": 191,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 165,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Tragiczna historja",
@@ -2538,8 +3834,15 @@
       "ocrResponseSha256": "23ec9b919d7935d98081c2605018c6bdadaf4f6d7a726a4a2934816a061fd259",
       "sourcePageSha256": "3c019b773b80a3b87a3d530e6c9d163ad01111644c768d34d4153c5bb67e1f7b",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 74,
+      "endExclusiveLocator": "view-0074-l0007",
+      "sourceBlockSha256": "41d264645dffad3df8048d134285235a2abca314b95a94079b9a9baeb96b18ed",
+      "blockMarkdownCharacterCount": 261,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 166,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wyścig noszy",
@@ -2553,8 +3856,15 @@
       "ocrResponseSha256": "23ec9b919d7935d98081c2605018c6bdadaf4f6d7a726a4a2934816a061fd259",
       "sourcePageSha256": "3c019b773b80a3b87a3d530e6c9d163ad01111644c768d34d4153c5bb67e1f7b",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 74,
+      "endExclusiveLocator": "view-0075-l0001",
+      "sourceBlockSha256": "821ca447604c747c21bfb54a37ceb01fec890613ad27de4a0cd6bb4427eadf13",
+      "blockMarkdownCharacterCount": 358,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 167,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Katastrofa",
@@ -2568,8 +3878,15 @@
       "ocrResponseSha256": "2a8a497558a9abd36a3526ae56507317f98084ce6f4b55c3a4d3dcee4fb8db3e",
       "sourcePageSha256": "68e234b4ac87887c518d8bc23c791c47e56d9d07f01262212ec30ca1dbf91282",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 75,
+      "endExclusiveLocator": "view-0075-l0007",
+      "sourceBlockSha256": "777d7aaed7d8797ae4bfeddfff1652738640d44f4725047d5b0f9a24eb7226b9",
+      "blockMarkdownCharacterCount": 527,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 168,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Ranny w górach",
@@ -2583,8 +3900,15 @@
       "ocrResponseSha256": "2a8a497558a9abd36a3526ae56507317f98084ce6f4b55c3a4d3dcee4fb8db3e",
       "sourcePageSha256": "68e234b4ac87887c518d8bc23c791c47e56d9d07f01262212ec30ca1dbf91282",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 75,
+      "endExclusiveLocator": "view-0075-l0011",
+      "sourceBlockSha256": "42707d942265221a915f407aed4031ae2b538f2145a97361b8d4009b315db12a",
+      "blockMarkdownCharacterCount": 551,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 169,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wstrząs wewnętrzny",
@@ -2598,8 +3922,18 @@
       "ocrResponseSha256": "2a8a497558a9abd36a3526ae56507317f98084ce6f4b55c3a4d3dcee4fb8db3e",
       "sourcePageSha256": "68e234b4ac87887c518d8bc23c791c47e56d9d07f01262212ec30ca1dbf91282",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 77,
+      "endExclusiveLocator": "view-0077-l0003",
+      "sourceBlockSha256": "136b599c9ea597a8c997fe22b5aaa2ff2b9f484c0b9b0b8525e52005cb967a2b",
+      "blockMarkdownCharacterCount": 1591,
+      "blockNonEmptyLineCount": 36,
+      "componentRiskSignalIds": [
+        "known-external-source-name",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 170,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Podróż babci naokoło stołu (z odmianą)",
@@ -2613,8 +3947,15 @@
       "ocrResponseSha256": "31da98e5e1ea42607b277706552ea5cd41354422bb6f86f30008f13200e6359a",
       "sourcePageSha256": "5b8cd46098971ac1746f10f3d35412b68fb7fe4401526fba228e693c0a4b90af",
       "titleLocatorScore": 0.7419,
+      "viewEndInclusive": 77,
+      "endExclusiveLocator": "view-0077-l0019",
+      "sourceBlockSha256": "d4103ba38bc323d14097f793342a1aa0ce0c18e3dd22fb0e4faed77cbc95a4da",
+      "blockMarkdownCharacterCount": 282,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 171,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Rozkazy radjowe (z odmianami)",
@@ -2628,8 +3969,17 @@
       "ocrResponseSha256": "31da98e5e1ea42607b277706552ea5cd41354422bb6f86f30008f13200e6359a",
       "sourcePageSha256": "5b8cd46098971ac1746f10f3d35412b68fb7fe4401526fba228e693c0a4b90af",
       "titleLocatorScore": 0.5833,
+      "viewEndInclusive": 77,
+      "endExclusiveLocator": "view-0077-l0013",
+      "sourceBlockSha256": "36107738e7025686e0da02cb7951e16888f1f0bd56ab7e50b256a25cbc522a50",
+      "blockMarkdownCharacterCount": 794,
+      "blockNonEmptyLineCount": 5,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 172,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Rysowanie planów",
@@ -2643,8 +3993,15 @@
       "ocrResponseSha256": "31da98e5e1ea42607b277706552ea5cd41354422bb6f86f30008f13200e6359a",
       "sourcePageSha256": "5b8cd46098971ac1746f10f3d35412b68fb7fe4401526fba228e693c0a4b90af",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 78,
+      "endExclusiveLocator": "view-0078-l0003",
+      "sourceBlockSha256": "cc8524bf99e9e3c4f31733208f3a911f2e9de6d01857f5a37edefdd7050d6203",
+      "blockMarkdownCharacterCount": 236,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 173,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Gra Kima terenoznawcza",
@@ -2658,8 +4015,15 @@
       "ocrResponseSha256": "d11f43c9e8b827155a9e516eb0c910bf723ac8df5dab6d9ea45249b8a4872647",
       "sourcePageSha256": "7aaa20bda7d46c58d3b1bf3ebf51501a5c57f52e2ebcb3bcf0abac379645123c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 79,
+      "endExclusiveLocator": "view-0079-l0003",
+      "sourceBlockSha256": "ee572f7742224496781ccf68f4c8d63c198436df69be1f1c784484d9ac407dcd",
+      "blockMarkdownCharacterCount": 316,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 174,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Góry mądrości",
@@ -2673,8 +4037,17 @@
       "ocrResponseSha256": "d11f43c9e8b827155a9e516eb0c910bf723ac8df5dab6d9ea45249b8a4872647",
       "sourcePageSha256": "7aaa20bda7d46c58d3b1bf3ebf51501a5c57f52e2ebcb3bcf0abac379645123c",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 78,
+      "endExclusiveLocator": "view-0078-l0007",
+      "sourceBlockSha256": "65e7cf18450d23baa1c6394812eadf9ed0886a5689af819e48fd446895372714",
+      "blockMarkdownCharacterCount": 375,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 175,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Sygnalizacja na szkicu (z odmianą)",
@@ -2688,8 +4061,15 @@
       "ocrResponseSha256": "d11f43c9e8b827155a9e516eb0c910bf723ac8df5dab6d9ea45249b8a4872647",
       "sourcePageSha256": "7aaa20bda7d46c58d3b1bf3ebf51501a5c57f52e2ebcb3bcf0abac379645123c",
       "titleLocatorScore": 0.7143,
+      "viewEndInclusive": 78,
+      "endExclusiveLocator": "view-0078-l0013",
+      "sourceBlockSha256": "44fb13f78274e5dffbf9b14987ee7b5ac3245db88f59416758184a1771fcc29b",
+      "blockMarkdownCharacterCount": 573,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 176,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Dyktando terenoznawcze",
@@ -2703,8 +4083,15 @@
       "ocrResponseSha256": "57faebc52acb3b133d74b89b833b037bdf6e8e65461f07ad140ff7f44f920004",
       "sourcePageSha256": "63deee17624377aa1a8efd5f04fa005a91a381a20a1c9a32a9a531ee188d37d5",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 79,
+      "endExclusiveLocator": "view-0079-l0011",
+      "sourceBlockSha256": "6871344655dbcf64b3b44332e674174b581e74777c9950af4fd58399c431b6db",
+      "blockMarkdownCharacterCount": 280,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 177,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Loteryjka terenoznawcy",
@@ -2718,8 +4105,17 @@
       "ocrResponseSha256": "57faebc52acb3b133d74b89b833b037bdf6e8e65461f07ad140ff7f44f920004",
       "sourcePageSha256": "63deee17624377aa1a8efd5f04fa005a91a381a20a1c9a32a9a531ee188d37d5",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 79,
+      "endExclusiveLocator": "view-0079-l0007",
+      "sourceBlockSha256": "498061455ef5d6ab38192c877b7558246445ec784aa31ba74222cad09a542de4",
+      "blockMarkdownCharacterCount": 675,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 178,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Szkic z błędem",
@@ -2733,8 +4129,15 @@
       "ocrResponseSha256": "57faebc52acb3b133d74b89b833b037bdf6e8e65461f07ad140ff7f44f920004",
       "sourcePageSha256": "63deee17624377aa1a8efd5f04fa005a91a381a20a1c9a32a9a531ee188d37d5",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 80,
+      "endExclusiveLocator": "view-0080-l0003",
+      "sourceBlockSha256": "b95bd0bef317071b58744fe9dc9f1d1f2de6546ff2f8bb25f4d9ebae047e827a",
+      "blockMarkdownCharacterCount": 253,
+      "blockNonEmptyLineCount": 4,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 179,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Dokąd dojdziesz?",
@@ -2748,8 +4151,18 @@
       "ocrResponseSha256": "cd6fd8b88677949ad6839db5d4aa5506f784931c94301146c5e3d0c5158678fd",
       "sourcePageSha256": "f25a61029d12aff8ff7ed521718794732f43bd211f87d944572372d1e8e85f14",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 82,
+      "endExclusiveLocator": "view-0082-eof",
+      "sourceBlockSha256": "b37ea25a8fd2995382ae49bf2feec544230497c271854c81caf3a0b848f5473f",
+      "blockMarkdownCharacterCount": 2835,
+      "blockNonEmptyLineCount": 14,
+      "componentRiskSignalIds": [
+        "explicit-attribution-language",
+        "quotation-markers"
+      ],
+      "boundaryStatus": "bounded-by-approved-range-end",
       "number": 180,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Określ kierunek",
@@ -2763,8 +4176,15 @@
       "ocrResponseSha256": "cd6fd8b88677949ad6839db5d4aa5506f784931c94301146c5e3d0c5158678fd",
       "sourcePageSha256": "f25a61029d12aff8ff7ed521718794732f43bd211f87d944572372d1e8e85f14",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 80,
+      "endExclusiveLocator": "view-0080-l0017",
+      "sourceBlockSha256": "d65679019c87fe9bbc45bfbb5fdca38773f727865aac50b0b70782f3a084210b",
+      "blockMarkdownCharacterCount": 83,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 181,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Spacer po mapie",
@@ -2778,8 +4198,15 @@
       "ocrResponseSha256": "cd6fd8b88677949ad6839db5d4aa5506f784931c94301146c5e3d0c5158678fd",
       "sourcePageSha256": "f25a61029d12aff8ff7ed521718794732f43bd211f87d944572372d1e8e85f14",
       "titleLocatorScore": 1.0,
+      "viewEndInclusive": 80,
+      "endExclusiveLocator": "view-0080-l0013",
+      "sourceBlockSha256": "f405f24d058dbd445faaa5bc893c2c8568719816155f6f9a9c3b52bff334a6af",
+      "blockMarkdownCharacterCount": 168,
+      "blockNonEmptyLineCount": 2,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 182,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     },
     {
       "titleRaw": "Wczytaj się w mapę (z odmianą)",
@@ -2793,8 +4220,15 @@
       "ocrResponseSha256": "cd6fd8b88677949ad6839db5d4aa5506f784931c94301146c5e3d0c5158678fd",
       "sourcePageSha256": "f25a61029d12aff8ff7ed521718794732f43bd211f87d944572372d1e8e85f14",
       "titleLocatorScore": 0.6522,
+      "viewEndInclusive": 80,
+      "endExclusiveLocator": "view-0080-l0009",
+      "sourceBlockSha256": "9da87df42eb3d7813b4faa918b3319b7290c315a4951fcd411061c1c6fa56e9b",
+      "blockMarkdownCharacterCount": 314,
+      "blockNonEmptyLineCount": 3,
+      "componentRiskSignalIds": [],
+      "boundaryStatus": "bounded-by-next-heading",
       "number": 183,
-      "componentReviewStatus": "pending-human-review"
+      "recordReviewStatus": "pending-agent-review"
     }
   ]
 }
