@@ -6,14 +6,13 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import os
 import re
 import unicodedata
 from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
 
-from common import ROOT, read_json, read_yaml, write_json
+from common import ROOT, persisted_artifact_path, read_json, read_yaml, write_json
 
 
 SOURCE_ID = "piasecki-movement-games-1922"
@@ -181,10 +180,7 @@ def build_report() -> dict[str, Any]:
     if not rights_evidence:
         raise ValueError(f"Missing institutional rights evidence for {SOURCE_ID}")
     embedded = inspection.get("embeddedText") or {}
-    scratch = os.environ.get("SCRATCH")
-    if not scratch:
-        raise ValueError("SCRATCH is not set")
-    text_path = Path(scratch) / str(embedded.get("scratchRelativePath") or "")
+    text_path = persisted_artifact_path(embedded)
     payload = text_path.read_bytes()
     if hashlib.sha256(payload).hexdigest() != embedded.get("sha256"):
         raise ValueError("Pinned embedded-text hash mismatch")
@@ -217,7 +213,7 @@ def build_report() -> dict[str, Any]:
         "sourceText": {
             "classification": "embedded-text-available",
             "sha256": embedded.get("sha256"),
-            "storage": "scratch-only",
+            "storage": "repository-artifacts-gitignored-group-storage",
             "pdfPages": inspection.get("pdf", {}).get("pages"),
         },
         "method": {

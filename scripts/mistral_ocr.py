@@ -20,13 +20,22 @@ from urllib.parse import urlparse
 
 import yaml
 
-from common import ROOT, read_json, write_json
+from common import (
+    ARTIFACTS,
+    ROOT,
+    artifact_relative_path,
+    assert_artifact_path,
+    persisted_artifact_path,
+    read_json,
+    write_json,
+)
 from translate import retry_at_from_headers, safe_http_diagnostics
 
 
 OCR_API_URL = "https://api.mistral.ai/v1/ocr"
 MODELS_API_URL = "https://api.mistral.ai/v1/models"
 DEFAULT_CHECKPOINT_DIR = ROOT / "data" / "checkpoints" / "gallica-fetch"
+SOURCE_ACQUISITION_CHECKPOINT_DIR = ROOT / "data" / "checkpoints" / "source-acquisition"
 MAX_IMAGE_BYTES = 20 * 1024 * 1024
 TRANSIENT_HTTP_CODES = {408, 429, 500, 502, 503, 504}
 EXPECTED_API_HOST = "api.mistral.ai"
@@ -42,7 +51,7 @@ class OCRConfig:
     model: str
     execution_ready: bool
     approved_view_ranges: tuple[tuple[int, int], ...]
-    input_directory_under_scratch: str
+    input_directory_under_artifacts: str
     recipe_version: str
     include_blocks: bool
     confidence_granularity: str
@@ -52,7 +61,7 @@ class OCRConfig:
     price_mode: str
     price_source: str
     price_accessed_on: str
-    results_under_scratch: str
+    results_under_artifacts: str
 
 
 class OCRError(RuntimeError):
@@ -112,18 +121,18 @@ def load_config(path: Path) -> OCRConfig:
         raise RuntimeError("OCR approvedViewRanges must contain inclusive [start, end] pairs")
     if execution.get("executionReady") is True and not ranges:
         raise RuntimeError("Ready OCR config must contain at least one approved view range")
-    input_directory = str(execution.get("inputDirectoryUnderScratch") or "")
-    if input_directory != f"scouting-autoresearch/sources/{source_id}":
+    input_directory = str(execution.get("inputDirectoryUnderArtifacts") or "")
+    if input_directory != f"sources/{source_id}":
         raise RuntimeError("OCR input directory must match the configured source")
-    results = str(execution.get("resultsUnderScratch") or "")
-    if not results.startswith("scouting-autoresearch/"):
-        raise RuntimeError("OCR results must be under SCRATCH/scouting-autoresearch")
+    results = str(execution.get("resultsUnderArtifacts") or "")
+    if results != "ocr":
+        raise RuntimeError("OCR results must be under the repository artifact store")
     return OCRConfig(
         source_id=source_id,
         model=model,
         execution_ready=execution.get("executionReady") is True,
         approved_view_ranges=tuple((item[0], item[1]) for item in ranges),
-        input_directory_under_scratch=input_directory,
+        input_directory_under_artifacts=input_directory,
         recipe_version=recipe_version,
         include_blocks=request.get("includeBlocks") is True,
         confidence_granularity="page",
@@ -133,7 +142,7 @@ def load_config(path: Path) -> OCRConfig:
         price_mode=str(pricing.get("mode") or ""),
         price_source=str(pricing.get("source") or ""),
         price_accessed_on=str(pricing.get("accessedOn") or ""),
-        results_under_scratch=results,
+        results_under_artifacts=results,
     )
 
 
@@ -153,24 +162,20 @@ def load_secret() -> str:
     return key
 
 
-def scratch_root() -> Path:
-    scratch = os.environ.get("SCRATCH")
-    if not scratch:
-        raise RuntimeError("SCRATCH is not set")
-    return (Path(scratch) / "scouting-autoresearch").resolve()
+def default_checkpoint_path(source_id: str) -> Path:
+    acquired = SOURCE_ACQUISITION_CHECKPOINT_DIR / f"{source_id}.json"
+    return acquired if acquired.exists() else DEFAULT_CHECKPOINT_DIR / f"{source_id}.json"
 
 
-def assert_scratch_path(path: Path) -> None:
+def assert_store_path(path: Path) -> None:
     try:
-        path.resolve().relative_to(scratch_root())
+        assert_artifact_path(path)
     except ValueError as error:
-        raise RuntimeError(
-            "OCR inputs and outputs must remain under SCRATCH/scouting-autoresearch"
-        ) from error
+        raise RuntimeError("OCR inputs and outputs must remain under repository artifacts/") from error
 
 
 def validate_image(path: Path) -> tuple[bytes, str, str]:
-    assert_scratch_path(path)
+    assert_store_path(path)
     data = path.read_bytes()
     if not data or len(data) > MAX_IMAGE_BYTES:
         raise RuntimeError("OCR image is empty or exceeds the 20 MiB limit")
@@ -187,9 +192,7 @@ def validate_image(path: Path) -> tuple[bytes, str, str]:
 
 
 def assert_source_input(path: Path, config: OCRConfig) -> None:
-    expected = (
-        Path(os.environ["SCRATCH"]) / config.input_directory_under_scratch
-    ).resolve()
+    expected = (ARTIFACTS / config.input_directory_under_artifacts).resolve()
     try:
         path.resolve().relative_to(expected)
     except ValueError as error:
@@ -228,8 +231,8 @@ def request_identity(config: OCRConfig) -> str:
 
 def default_output(config: OCRConfig, image: Path, digest: str) -> Path:
     return (
-        Path(os.environ["SCRATCH"])
-        / config.results_under_scratch
+        ARTIFACTS
+        / config.results_under_artifacts
         / config.source_id
         / f"{image.stem}-{digest[:12]}-{request_identity(config)[:12]}.json"
     )
@@ -345,9 +348,8 @@ def completed_item(
             or item.get("model") != config.model
         ):
             continue
-        relative = item.get("scratchRelativePath")
-        if relative:
-            raw_path = Path(os.environ["SCRATCH"]) / relative
+        if item.get("artifactRelativePath") or item.get("scratchRelativePath"):
+            raw_path = persisted_artifact_path(item)
             if (
                 raw_path.exists()
                 and hashlib.sha256(raw_path.read_bytes()).hexdigest()
@@ -410,9 +412,7 @@ def record_success(
         "model": config.model,
         "recipeVersion": config.recipe_version,
         "requestIdentity": request_identity(config),
-        "scratchRelativePath": str(
-            output.resolve().relative_to(Path(os.environ["SCRATCH"]).resolve())
-        ),
+        "artifactRelativePath": artifact_relative_path(output),
         "responseSha256": hashlib.sha256(response_bytes).hexdigest(),
         "completedAt": completed_at.astimezone(UTC).isoformat(),
         **summary,
@@ -497,7 +497,7 @@ def ocr_image(
     response_bytes = (
         json.dumps(response, ensure_ascii=False, indent=2) + "\n"
     ).encode("utf-8")
-    assert_scratch_path(output)
+    assert_store_path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
     temporary = output.with_suffix(output.suffix + ".tmp")
     try:
@@ -518,7 +518,7 @@ def main() -> None:
     args = parser.parse_args()
 
     config = load_config(args.config)
-    checkpoint_path = args.checkpoint or DEFAULT_CHECKPOINT_DIR / f"{config.source_id}.json"
+    checkpoint_path = args.checkpoint or default_checkpoint_path(config.source_id)
     checkpoint = read_json(checkpoint_path)
     if checkpoint.get("sourceId") != config.source_id:
         raise SystemExit("OCR config and checkpoint sourceId differ")

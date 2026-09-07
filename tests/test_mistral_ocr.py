@@ -1,7 +1,6 @@
 import hashlib
 import io
 import json
-import os
 import sys
 import tempfile
 import unittest
@@ -71,13 +70,13 @@ class MistralOCRTests(unittest.TestCase):
                         "requireExplicitExecute": True,
                         "executionReady": True,
                         "approvedViewRanges": [[19, 29]],
-                        "inputDirectoryUnderScratch": "scouting-autoresearch/sources/chamarande-1934",
+                        "inputDirectoryUnderArtifacts": "sources/chamarande-1934",
                         "requireExactModelAccessCheck": True,
                         "sequentialRequests": True,
                         "billingMode": "education-credit",
                         "enforceReferenceCostLimit": True,
                         "maxReferenceCostUsd": 10,
-                        "resultsUnderScratch": "scouting-autoresearch/ocr",
+                        "resultsUnderArtifacts": "ocr",
                     },
                     "pricing": {
                         "mode": "standard",
@@ -129,13 +128,15 @@ class MistralOCRTests(unittest.TestCase):
                     expected_count,
                 )
 
-    def test_images_must_be_valid_and_under_project_scratch(self):
-        with tempfile.TemporaryDirectory() as directory, patch.dict(
-            os.environ, {"SCRATCH": directory}
+    def test_images_must_be_valid_and_under_repository_artifacts(self):
+        with tempfile.TemporaryDirectory() as directory, patch(
+            "common.ROOT", Path(directory)
+        ), patch("common.ARTIFACTS", Path(directory) / "artifacts"), patch(
+            "mistral_ocr.ARTIFACTS", Path(directory) / "artifacts"
         ):
             image = (
                 Path(directory)
-                / "scouting-autoresearch"
+                / "artifacts"
                 / "sources"
                 / "chamarande-1934"
                 / "page.jpg"
@@ -150,7 +151,7 @@ class MistralOCRTests(unittest.TestCase):
             assert_source_input(image, config)
             with self.assertRaisesRegex(RuntimeError, "configured source directory"):
                 assert_source_input(
-                    Path(directory) / "scouting-autoresearch" / "other.jpg", config
+                    Path(directory) / "other.jpg", config
                 )
             self.assertEqual(approved_view(image.with_name("f19-page.jpg"), config), 19)
             self.assertEqual(approved_view(image.with_name("view-0019.jpg"), config), 19)
@@ -160,7 +161,7 @@ class MistralOCRTests(unittest.TestCase):
             self.assertIsNone(approved_view(image.with_name("preview-0019.jpg"), config))
             outside = Path(directory) / "outside.jpg"
             outside.write_bytes(JPEG)
-            with self.assertRaisesRegex(RuntimeError, "must remain under"):
+            with self.assertRaisesRegex(RuntimeError, "repository artifacts"):
                 validate_image(outside)
 
     def test_exact_model_check_rejects_missing_model(self):
@@ -217,11 +218,13 @@ class MistralOCRTests(unittest.TestCase):
             validate_response({**response, "model": "other"}, "mistral-ocr-4-1")
 
     def test_success_is_costed_and_reused_by_input_and_response_hash(self):
-        with tempfile.TemporaryDirectory() as directory, patch.dict(
-            os.environ, {"SCRATCH": directory}
+        with tempfile.TemporaryDirectory() as directory, patch(
+            "common.ROOT", Path(directory)
+        ), patch("common.ARTIFACTS", Path(directory) / "artifacts"), patch(
+            "mistral_ocr.ARTIFACTS", Path(directory) / "artifacts"
         ):
             config = load_config(self.config(directory))
-            root = Path(directory) / "scouting-autoresearch"
+            root = Path(directory) / "artifacts"
             image = root / "sources" / "chamarande-1934" / "f19-page.jpg"
             output = root / "ocr" / "response.json"
             image.parent.mkdir(parents=True)
@@ -269,9 +272,7 @@ class MistralOCRTests(unittest.TestCase):
             )
 
     def test_run_is_complete_only_when_every_approved_view_is_recorded(self):
-        with tempfile.TemporaryDirectory() as directory, patch.dict(
-            os.environ, {"SCRATCH": directory}
-        ):
+        with tempfile.TemporaryDirectory() as directory:
             config = load_config(self.config(directory))
             checkpoint = Path(directory) / "checkpoint.json"
             items = [

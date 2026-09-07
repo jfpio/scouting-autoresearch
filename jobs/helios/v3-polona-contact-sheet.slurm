@@ -19,7 +19,7 @@ if [[ ! "${SOURCE_ID}" =~ ^[a-z0-9][a-z0-9-]+$ ]]; then
 fi
 
 repo="${SLURM_SUBMIT_DIR}"
-source_dir="${SCRATCH}/scouting-autoresearch/sources/${SOURCE_ID}/views"
+source_dir="${repo}/artifacts/sources/${SOURCE_ID}/views"
 checkpoint="${repo}/data/checkpoints/source-acquisition/${SOURCE_ID}.json"
 inspection_checkpoint="${repo}/data/checkpoints/source-inspection/${SOURCE_ID}.json"
 run_root="${SCRATCH}/scouting-autoresearch/runs/${SOURCE_ID}"

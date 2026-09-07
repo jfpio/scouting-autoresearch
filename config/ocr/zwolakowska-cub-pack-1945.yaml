@@ -9,14 +9,14 @@ execution:
   executionReady: true
   approvedViewRanges:
     - [293, 324]
-  inputDirectoryUnderScratch: scouting-autoresearch/sources/zwolakowska-cub-pack-1945
+  inputDirectoryUnderArtifacts: sources/zwolakowska-cub-pack-1945
   requireExplicitExecute: true
   requireExactModelAccessCheck: true
   sequentialRequests: true
   billingMode: education-credit
   enforceReferenceCostLimit: true
   maxReferenceCostUsd: 10
-  resultsUnderScratch: scouting-autoresearch/ocr
+  resultsUnderArtifacts: ocr
 pricing:
   mode: standard
   usdPer1000Pages: 4.0

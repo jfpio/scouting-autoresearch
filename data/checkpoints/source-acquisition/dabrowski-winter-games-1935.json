@@ -11,7 +11,7 @@
       "status": "index-only-incomplete-source",
       "url": "https://www.pbc.rzeszow.pl/Content/10620/DjVu/harce_zimowe.djvu",
       "finalUrl": "https://www.pbc.rzeszow.pl/Content/10620/DjVu/harce_zimowe.djvu",
-      "scratchRelativePath": "scouting-autoresearch/sources/dabrowski-winter-games-1935/source.djvu",
+      "artifactRelativePath": "artifacts/sources/dabrowski-winter-games-1935/source.djvu",
       "bytes": 485,
       "sha256": "c764ae314dc8a5a17700e4aeac171eeef7b1468a1b01f6f46e9e6245dc691ac5",
       "contentType": "image/x.djvu",

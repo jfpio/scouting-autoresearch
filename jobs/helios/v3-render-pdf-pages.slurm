@@ -25,7 +25,7 @@ if [[ ! "${PAGE_FIRST}" =~ ^[1-9][0-9]*$ ]]; then
 fi
 
 repo="${SLURM_SUBMIT_DIR}"
-source_root="${SCRATCH}/scouting-autoresearch/sources/${SOURCE_ID}"
+source_root="${repo}/artifacts/sources/${SOURCE_ID}"
 source_pdf="${source_root}/source.pdf"
 views_dir="${source_root}/views"
 run_root="${SCRATCH}/scouting-autoresearch/runs/${SOURCE_ID}/pdf-render"

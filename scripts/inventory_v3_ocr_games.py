@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build metadata-only candidate inventories from completed V3 OCR runs.
 
-Raw OCR stays in scratch.  Reports retain titles, page/view locators and hashes,
+Raw OCR stays in the ignored artifact store. Reports retain titles, page/view locators and hashes,
 but never copy the source prose.  A candidate is not a publication decision.
 """
 
@@ -10,7 +10,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import os
 import re
 import unicodedata
 from dataclasses import dataclass
@@ -18,7 +17,7 @@ from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any, Iterable
 
-from common import ROOT, read_json, read_yaml, write_json
+from common import ROOT, persisted_artifact_path, read_json, read_yaml, write_json
 
 
 @dataclass(frozen=True)
@@ -151,9 +150,6 @@ def load_ocr_pages(source_id: str) -> tuple[dict[str, Any], list[OCRPage]]:
     run = checkpoint.get("ocrRun") or {}
     if run.get("status") != "complete":
         raise ValueError(f"OCR run is not complete for {source_id}")
-    scratch = os.environ.get("SCRATCH")
-    if not scratch:
-        raise ValueError("SCRATCH is not set")
     printed = {
         int(item["viewIndex"]): item.get("printedLabel")
         for item in checkpoint.get("items", [])
@@ -161,7 +157,7 @@ def load_ocr_pages(source_id: str) -> tuple[dict[str, Any], list[OCRPage]]:
     }
     pages = []
     for item in run.get("items", []):
-        path = Path(scratch) / item["scratchRelativePath"]
+        path = persisted_artifact_path(item)
         payload = path.read_bytes()
         if hashlib.sha256(payload).hexdigest() != item["responseSha256"]:
             raise ValueError(f"Pinned OCR response hash mismatch: {path.name}")
@@ -615,8 +611,8 @@ def build_report(source_id: str) -> dict[str, Any]:
         "year": plan.year,
         "status": "candidate-inventory-complete-record-review-pending",
         "sourceText": {
-            "classification": "mistral-ocr-scratch-only",
-            "storage": "scratch-only",
+            "classification": "mistral-ocr-repository-artifacts",
+            "storage": "repository-artifacts-gitignored-group-storage",
             "model": run.get("model"),
             "recipeVersion": recipe_version,
             "approvedViewCount": run.get("completedApprovedViewCount"),

@@ -6,6 +6,7 @@ createdAt: "2026-09-05"
 reviewRequired: false
 publicationBlocked: false
 humanApproved: true
+storagePolicy: vault/reviews/accepted/v3-durable-artifact-storage-2026-09.md
 subjectId: jacques-sevin
 sourceId: chamarande-1934
 collectionId: gallica-bnf
@@ -66,11 +67,11 @@ proposedOcrScope:
     - "83"
     - 85-95
     - 97-134
-  rawOcrStorage: scratch-only
+  rawOcrStorage: repository-artifacts-gitignored-group-storage
   publicationRule: >-
     A page being eligible for technical OCR does not make every block on that page eligible
-    for the corpus. Only blocks attributable to Jacques Sevin may leave scratch and enter a
-    transcription or activity record.
+    for the corpus. Only blocks attributable to Jacques Sevin may leave the private artifact
+    store and enter a published transcription or activity record.
   mixedPagesRequiringBlockReview:
     - printedPages: "17"
       views: [29]
@@ -154,7 +155,8 @@ Strona tytułowa `f13` przypisuje książkę Jacques’owi Sevinowi. Nie wystarc
 przypisania mu wszystkich składników tomu: wewnątrz znajdują się cudze listy, przemówienia,
 anonimowe świadectwa, fotografia, lista memorialna, nuty i tekst pieśni. Powyższy zakres
 obejmuje strony zawierające prozę autorską Sevina, ale sześć grup stron mieszanych wymaga
-klasyfikacji bloków po OCR. Pełne wyniki tych stron pozostają wyłącznie w scratch.
+klasyfikacji bloków po OCR. Pełne wyniki tych stron pozostają wyłącznie w prywatnym,
+ignorowanym przez Git `artifacts/`.
 
 Największym zwartym wyłączeniem są strony 39–46. Zaczynają się jako przedruk z *Le Chef*,
 tekst główny kończy się podpisem `D. G.`, a w środku i na końcu znajdują się wypowiedzi lub
@@ -163,5 +165,6 @@ list Baden-Powella. Końcowe strony 135–141 nie są prozą Sevina kwalifikują
 pipeline’u.
 
 Właściciel zatwierdził ten zakres 6 września 2026 r. Zgoda pozwala na sekwencyjny OCR 113
-obrazów do scratch oraz późniejszą recenzję bloków. Nie zatwierdza automatycznie
+obrazów oraz późniejszą recenzję bloków. Artefakty są przechowywane zgodnie z późniejszą
+decyzją `v3-durable-artifact-storage-2026-09`. Zgoda nie zatwierdza automatycznie
 transkrypcji, aktywności, tłumaczeń ani publikacji.

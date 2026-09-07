@@ -10,14 +10,14 @@ execution:
   approvedViewRanges:
     - [19, 101]
     - [116, 118]
-  inputDirectoryUnderScratch: scouting-autoresearch/sources/pawelek-young-troop-1919
+  inputDirectoryUnderArtifacts: sources/pawelek-young-troop-1919
   requireExplicitExecute: true
   requireExactModelAccessCheck: true
   sequentialRequests: true
   billingMode: education-credit
   enforceReferenceCostLimit: true
   maxReferenceCostUsd: 10
-  resultsUnderScratch: scouting-autoresearch/ocr
+  resultsUnderArtifacts: ocr
 pricing:
   mode: standard
   usdPer1000Pages: 4.0

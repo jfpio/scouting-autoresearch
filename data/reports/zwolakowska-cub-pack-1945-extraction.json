@@ -13,7 +13,7 @@
     "basis": "dedicated game chapter with bounded headings"
   },
   "transcriptionEvidence": {
-    "sourceStatement": "Mistral OCR output from pinned Polona IIIF page images; raw responses remain in scratch.",
+    "sourceStatement": "Mistral OCR output from pinned Polona IIIF page images; raw responses remain in private repository artifacts.",
     "sourceLocation": "https://polona.pl/preview/3f71abd7-af13-4f31-9b48-cab79f380362",
     "deterministicNormalization": [
       "omit the repeated activity heading represented in frontmatter",

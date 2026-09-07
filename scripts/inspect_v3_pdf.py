@@ -12,7 +12,12 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from common import ROOT
+from common import (
+    ROOT,
+    artifact_relative_path,
+    assert_artifact_path,
+    persisted_artifact_path,
+)
 
 
 ACQUISITION_DIR = ROOT / "data" / "checkpoints" / "source-acquisition"
@@ -58,13 +63,6 @@ def text_classification(text: str, pages: int) -> str:
     )
 
 
-def scratch_root() -> Path:
-    value = os.environ.get("SCRATCH")
-    if not value:
-        raise RuntimeError("SCRATCH is not set")
-    return (Path(value) / "scouting-autoresearch").resolve()
-
-
 def source_pdf(source_id: str) -> tuple[Path, dict[str, Any]]:
     checkpoint_path = ACQUISITION_DIR / f"{source_id}.json"
     checkpoint = json.loads(checkpoint_path.read_text(encoding="utf-8"))
@@ -76,11 +74,10 @@ def source_pdf(source_id: str) -> tuple[Path, dict[str, Any]]:
     )
     if not item:
         raise RuntimeError("source acquisition checkpoint has no PDF")
-    path = (Path(os.environ["SCRATCH"]) / str(item.get("scratchRelativePath"))).resolve()
     try:
-        path.relative_to(scratch_root())
+        path = persisted_artifact_path(item)
     except ValueError as error:
-        raise RuntimeError("source PDF is outside project scratch") from error
+        raise RuntimeError("source PDF is outside the repository artifact store") from error
     if not path.is_file() or sha256(path) != item.get("sha256"):
         raise RuntimeError("source PDF is missing or does not match its acquisition hash")
     return path, item
@@ -93,12 +90,11 @@ def write_checkpoint(path: Path, payload: dict[str, Any]) -> None:
     temporary.replace(path)
 
 
-def approved_scratch_file(path: Path) -> Path:
-    resolved = path.resolve()
+def approved_artifact_file(path: Path) -> Path:
     try:
-        resolved.relative_to(scratch_root())
+        resolved = assert_artifact_path(path)
     except ValueError as error:
-        raise RuntimeError("inspection input is outside project scratch") from error
+        raise RuntimeError("inspection input is outside the repository artifact store") from error
     if not resolved.is_file():
         raise RuntimeError("inspection input is missing")
     return resolved
@@ -108,8 +104,8 @@ def inspect(source_id: str, pdfinfo_path: Path, text_path: Path) -> dict[str, An
     if not os.environ.get("SLURM_JOB_ID"):
         raise RuntimeError("PDF inspection must run inside Slurm")
     pdf, item = source_pdf(source_id)
-    pdfinfo_path = approved_scratch_file(pdfinfo_path)
-    text_path = approved_scratch_file(text_path)
+    pdfinfo_path = approved_artifact_file(pdfinfo_path)
+    text_path = approved_artifact_file(text_path)
     safe_info = parse_pdfinfo(pdfinfo_path.read_text(encoding="utf-8", errors="replace"))
     text = text_path.read_text(encoding="utf-8", errors="replace")
     non_whitespace = sum(not character.isspace() for character in text)
@@ -120,13 +116,13 @@ def inspect(source_id: str, pdfinfo_path: Path, text_path: Path) -> dict[str, An
         "status": "complete",
         "classification": text_classification(text, safe_info["pages"]),
         "sourcePdf": {
-            "scratchRelativePath": item["scratchRelativePath"],
+            "artifactRelativePath": artifact_relative_path(pdf),
             "sha256": item["sha256"],
             "bytes": item["bytes"],
         },
         "pdf": safe_info,
         "embeddedText": {
-            "scratchRelativePath": str(text_path.relative_to(Path(os.environ["SCRATCH"]))),
+            "artifactRelativePath": artifact_relative_path(text_path),
             "sha256": sha256(text_path),
             "bytes": text_path.stat().st_size,
             "characters": len(text),

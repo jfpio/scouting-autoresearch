@@ -9,14 +9,14 @@ execution:
   executionReady: true
   approvedViewRanges:
     - [5, 90]
-  inputDirectoryUnderScratch: scouting-autoresearch/sources/dabrowski-indoor-games-1934
+  inputDirectoryUnderArtifacts: sources/dabrowski-indoor-games-1934
   requireExplicitExecute: true
   requireExactModelAccessCheck: true
   sequentialRequests: true
   billingMode: education-credit
   enforceReferenceCostLimit: true
   maxReferenceCostUsd: 10
-  resultsUnderScratch: scouting-autoresearch/ocr
+  resultsUnderArtifacts: ocr
 pricing:
   mode: standard
   usdPer1000Pages: 4.0

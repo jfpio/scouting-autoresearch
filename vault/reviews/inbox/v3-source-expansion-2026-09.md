@@ -50,11 +50,13 @@ pull requestem. Pośrednie PR-y per książka są wyłączone.
 2. Zatwierdzono proponowany 113-widokowy zakres OCR *Chamarande*, wraz z
    wyłączeniem cudzych i anonimowych bloków, muzyki, ilustracji, fotografii i aparatu
    redakcyjnego.
-3. Zatwierdzono udokumentowane pobranie polskich obiektów do scratch oraz wstępny zakres
+3. Zatwierdzono udokumentowane pobranie polskich obiektów oraz wstępny zakres
    domeny publicznej nazwanych autorów, opisany w osobnym pakiecie nabycia.
 4. Właściciel zatwierdził jawny status domeny publicznej podany przez bibliotekę dla
    konkretnego obiektu jako rozstrzygający. Przegląd autorstwa pozostaje elementem
    proweniencji, ale nie blokuje importu.
+5. Właściciel zatwierdził trwałe przechowywanie książek, warstw tekstowych i surowego OCR-u
+   w ignorowanym przez Git `artifacts/` przy repozytorium na Group Storage.
 
 ## Gotowe formuły decyzji
 
@@ -79,7 +81,8 @@ publikacji. Te decyzje pozostają widoczne w jednym raporcie i końcowym PR-ze V
 
 ## Stan wykonania 7 września 2026
 
-- Osiem dostępnych polskich książek zostało pobranych do scratch i zinwentaryzowanych.
+- Osiem dostępnych polskich książek zostało pobranych, przeniesionych do trwałego
+  `artifacts/` i zinwentaryzowanych.
 - Mistral OCR przetworzył 506 polskich widoków za koszt referencyjny 2,024 USD. Razem ze 113
   widokami *Chamarande* OCR objął 619 widoków za 2,480 USD. Nie wystąpił `429`.
 - W ośmiu książkach znaleziono 760 lokalizatorów kandydatów na gry. Pełna treść nie trafiła

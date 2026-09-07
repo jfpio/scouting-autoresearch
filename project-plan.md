@@ -189,6 +189,9 @@ discover → rights review → fetch → OCR/extract → normalize → deduplica
    istniejącej polityki kolekcji nie wymaga ponownej decyzji.
 3. **Fetch:** pobiera wyłącznie z zaakceptowanej kolekcji, respektując limit i warunki.
 4. **OCR/extract:** zachowuje surowy wynik i parametry procesu, jeśli potrzebny jest OCR.
+   Pobrane książki, obrazy, warstwy tekstowe i surowy OCR pozostają w ignorowanym przez Git
+   `artifacts/` przy repozytorium na Group Storage, aby można je było ponownie sprawdzić bez
+   ponownego pobierania lub naliczania kosztu OCR.
 5. **Normalize:** poprawia jedynie techniczne artefakty; nie modernizuje treści.
 6. **Deduplicate:** porównuje hash, tytuł, źródło i podobieństwo tekstu. Dokładny duplikat
    może zostać wyłączony przed importem; bliski wariant pozostaje osobnym rekordem i po

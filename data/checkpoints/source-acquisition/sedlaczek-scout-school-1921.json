@@ -11,7 +11,7 @@
       "status": "complete",
       "url": "https://www.sbc.org.pl/Content/64835/PDF/64835.pdf",
       "finalUrl": "https://www.sbc.org.pl/Content/64835/PDF/64835.pdf",
-      "scratchRelativePath": "scouting-autoresearch/sources/sedlaczek-scout-school-1921/source.pdf",
+      "artifactRelativePath": "artifacts/sources/sedlaczek-scout-school-1921/source.pdf",
       "bytes": 17602211,
       "sha256": "59cfdfd261159903296525a07ee4db106afa1b424a281165cf686882dd982e12",
       "contentType": "application/pdf",

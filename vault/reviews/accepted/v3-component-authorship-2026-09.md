@@ -17,7 +17,8 @@ decision: explicit-library-public-domain-status-is-ground-truth
 
 OCR i ekstrakcja dały 760 lokalizatorów kandydatów w ośmiu książkach. Raporty kandydatów
 zawierają wyłącznie tytuły, numery stron lub widoków, cechy techniczne i hashe; pełna treść
-OCR pozostaje w scratch do chwili importu kwalifikujących się rekordów.
+OCR pozostaje w prywatnym, ignorowanym przez Git `artifacts/` także po imporcie, aby umożliwić
+ponowną kontrolę.
 
 ## Zatwierdzona reguła
 

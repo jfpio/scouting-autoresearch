@@ -11,7 +11,7 @@
       "status": "complete",
       "url": "https://www.wbc.poznan.pl/Content/440525/PDF/515207.pdf",
       "finalUrl": "https://www.wbc.poznan.pl/Content/440525/PDF/515207.pdf",
-      "scratchRelativePath": "scouting-autoresearch/sources/piasecki-schreiber-polish-scoutcraft-1917/source.pdf",
+      "artifactRelativePath": "artifacts/sources/piasecki-schreiber-polish-scoutcraft-1917/source.pdf",
       "bytes": 17609844,
       "sha256": "d25eae2d2949f877fec6fe0ad77f2fba19ba4c4fc4aa459d9cd65a6193181128",
       "contentType": "application/pdf",

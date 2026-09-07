@@ -7,7 +7,6 @@ import argparse
 import hashlib
 import json
 import math
-import os
 import re
 import urllib.error
 import urllib.request
@@ -15,7 +14,7 @@ from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
-from common import ROOT, read_json, write_json
+from common import ROOT, persisted_artifact_path, read_json, write_json
 from translate import (
     MODEL_PRICING,
     PRICE_ACCESSED_ON,
@@ -250,11 +249,9 @@ def load_source(source_id: str) -> tuple[dict[str, Any], list[str], str]:
     if checkpoint.get("status") != "complete" or checkpoint.get("classification") != "embedded-text-available":
         raise PermanentDiscoveryError("source-has-no-approved-embedded-text-layer")
     embedded = checkpoint.get("embeddedText") or {}
-    relative = embedded.get("scratchRelativePath")
-    scratch = os.environ.get("SCRATCH")
-    if not scratch or not relative:
-        raise PermanentDiscoveryError("scratch-or-embedded-text-path-is-missing")
-    path = Path(scratch) / str(relative)
+    if not embedded.get("artifactRelativePath") and not embedded.get("scratchRelativePath"):
+        raise PermanentDiscoveryError("embedded-text-path-is-missing")
+    path = persisted_artifact_path(embedded)
     payload = path.read_bytes()
     source_hash = hashlib.sha256(payload).hexdigest()
     if source_hash != embedded.get("sha256"):

@@ -10,7 +10,7 @@ runId: v3-source-expansion-2026-09
 manifest: config/v3-source-expansion.yaml
 sourceUnitCount: 10
 proposedUse:
-  - documented-download-to-temporary-scratch
+  - documented-download-to-repository-artifacts
   - inspect-title-pages-credits-and-table-of-contents
   - ocr-or-text-extraction-of-potential-game-pages
   - publish-game-prose-from-library-objects-explicitly-marked-public-domain
@@ -18,6 +18,7 @@ outsideProductScope:
   - illustrations-photographs-covers-music-and-lyrics
   - digital-library-site-database-and-packaging
 supersededRightsScopeBy: vault/reviews/accepted/v3-component-authorship-2026-09.md
+supersededStorageBy: vault/reviews/accepted/v3-durable-artifact-storage-2026-09.md
 humanDecision:
   status: approved
   approvedBy: repository-owner
@@ -50,6 +51,11 @@ wkładów. Szczegółowa kontrola `robots.txt` i warunków pięciu bibliotek reg
 się w `vault/reviews/accepted/v3-regional-library-access.md`; trzy ZIP-y PBC Rzeszów są wyłączone
 z automatycznego pobierania. Pełny tekst trafi do korpusu dopiero z dowodem na poziomie
 rekordu i strony.
+
+> Aktualizacja przechowywania 7 września 2026 r.: pierwotny zakres `scratch` został
+> zastąpiony przez `vault/reviews/accepted/v3-durable-artifact-storage-2026-09.md`. Pobrane
+> obiekty i surowy OCR są teraz przechowywane w prywatnym, ignorowanym przez Git
+> `artifacts/` na Group Storage.
 
 ## Ocena pozycji
 

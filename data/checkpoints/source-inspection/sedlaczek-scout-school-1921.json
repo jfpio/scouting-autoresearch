@@ -5,7 +5,7 @@
   "status": "complete",
   "classification": "embedded-text-available",
   "sourcePdf": {
-    "scratchRelativePath": "scouting-autoresearch/sources/sedlaczek-scout-school-1921/source.pdf",
+    "artifactRelativePath": "artifacts/sources/sedlaczek-scout-school-1921/source.pdf",
     "sha256": "59cfdfd261159903296525a07ee4db106afa1b424a281165cf686882dd982e12",
     "bytes": 17602211
   },
@@ -17,7 +17,7 @@
     "pdfVersion": "1.5"
   },
   "embeddedText": {
-    "scratchRelativePath": "scouting-autoresearch/inspection/sedlaczek-scout-school-1921/pdftotext-layout.txt",
+    "artifactRelativePath": "artifacts/inspection/sedlaczek-scout-school-1921/pdftotext-layout.txt",
     "sha256": "7c3cbd6f8a54b1ce1a5d93b69dc494c2d6d7f3ed83aeb7406dedb3f008c1eb27",
     "bytes": 510982,
     "characters": 477559,

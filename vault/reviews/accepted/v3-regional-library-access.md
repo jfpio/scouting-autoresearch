@@ -11,7 +11,8 @@ humanDecision:
   reviewedAt: "2026-09-06"
   scope: >-
     Per-item downloads from Polona and permitted direct PDFs, with canonical records,
-    attribution and scratch-only storage. PBC Rzeszów ZIP endpoints remain prohibited.
+    attribution and initially scratch-only storage. Storage was later superseded by the
+    accepted repository-artifacts policy. PBC Rzeszów ZIP endpoints remain prohibited.
 runId: v3-source-expansion-2026-09
 collectionIds:
   - pbc-rzeszow
@@ -21,6 +22,7 @@ collectionIds:
   - sbc
 sourceFilesDownloaded: 0
 repositoryContentAdded: metadata-only
+supersededStorageBy: vault/reviews/accepted/v3-durable-artifact-storage-2026-09.md
 ---
 
 # V3-R1 — dostęp do regionalnych bibliotek cyfrowych
@@ -44,7 +46,7 @@ i sygnaturze pliku.
   w izbie harcerskiej* znaleziono dokładne wydanie drugie z 1934 r. w Polonie pod UUID
   `f8a00528-6a07-4916-9a76-c1e094e317da`. Dla dwóch pozostałych tytułów trzeba znaleźć
   dozwolony artefakt innego typu lub niezależny egzemplarz; alternatywnie właściciel może
-  sam dostarczyć legalnie pobrany plik do scratch.
+  sam dostarczyć legalnie pobrany plik do prywatnego `artifacts/`.
 
 Blokada ZIP dotyczy trzech rekordów PBC, ale alternatywa Polony usuwa ją z krytycznej ścieżki
 `dabrowski-indoor-games-1934`. Nadal blokuje `dabrowski-winter-games-1935` oraz

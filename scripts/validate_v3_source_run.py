@@ -104,7 +104,8 @@ def v3_source_run_errors(
         "Prepared V3 run lacks artifact safety checks",
     )
     require(
-        acquisition_preparation.get("rawArtifactsStorage") == "scratch-only"
+        acquisition_preparation.get("rawArtifactsStorage")
+        == "repository-artifacts-gitignored-group-storage"
         and acquisition_preparation.get("repositorySourceFilesAllowed") is False,
         "Prepared V3 run may persist source files in the repository",
     )
@@ -266,7 +267,8 @@ def v3_source_run_errors(
         elif method == "pre-fetched-iiif-views":
             require(
                 unit_id == "chamarande-1934"
-                and proposed.get("status") == "approved-views-present-in-scratch"
+                and proposed.get("status")
+                == "approved-views-present-in-repository-artifacts"
                 and proposed.get("completedViews") == 188
                 and proposed.get("artifactType") == "jpeg-views",
                 "Chamarande acquisition preparation is inconsistent",
@@ -355,6 +357,16 @@ def v3_source_run_errors(
         and component_gate.get("reviewRecord")
         == "vault/reviews/accepted/v3-component-authorship-2026-09.md",
         "V3 library public-domain evidence policy is not approved",
+    )
+    artifact_gate = gates.get("durable-research-artifact-storage", {})
+    require(
+        artifact_gate.get("status") == "approved"
+        and artifact_gate.get("approvedBy") == "repository-owner"
+        and artifact_gate.get("decision")
+        == "repository-artifacts-gitignored-group-storage"
+        and artifact_gate.get("reviewRecord")
+        == "vault/reviews/accepted/v3-durable-artifact-storage-2026-09.md",
+        "V3 durable artifact storage is not approved and bounded",
     )
 
     active_run = queue.get("activeRun") or {}

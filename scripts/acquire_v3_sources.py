@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Acquire only owner-approved V3 source artifacts into project scratch storage."""
+"""Acquire owner-approved V3 source artifacts into the durable local artifact store."""
 
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ from urllib.parse import unquote, urljoin, urlparse
 
 import yaml
 
-from common import ROOT
+from common import ARTIFACTS, ROOT, artifact_relative_path, assert_artifact_path
 
 
 MANIFEST_PATH = ROOT / "config" / "v3-source-expansion.yaml"
@@ -69,18 +69,11 @@ def load_yaml(path: Path) -> dict[str, Any]:
     return yaml.safe_load(path.read_text(encoding="utf-8")) or {}
 
 
-def scratch_root() -> Path:
-    value = os.environ.get("SCRATCH")
-    if not value:
-        raise AcquisitionError("SCRATCH-is-not-set")
-    return (Path(value) / "scouting-autoresearch").resolve()
-
-
-def assert_scratch_path(path: Path) -> None:
+def assert_store_path(path: Path) -> None:
     try:
-        path.resolve().relative_to(scratch_root())
+        assert_artifact_path(path)
     except ValueError as error:
-        raise AcquisitionError("artifact-path-is-outside-project-scratch") from error
+        raise AcquisitionError("artifact-path-is-outside-repository-artifact-store") from error
 
 
 def load_plan(source_id: str) -> AcquisitionPlan:
@@ -155,8 +148,8 @@ def load_plan(source_id: str) -> AcquisitionPlan:
         parsed_artifact = urlparse(artifact_url)
         if parsed_artifact.scheme != "https" or parsed_artifact.hostname != expected_host:
             raise AcquisitionError("artifact-url-is-outside-the-approved-https-host")
-    directory = scratch_root() / "sources" / source_id
-    assert_scratch_path(directory)
+    directory = ARTIFACTS / "sources" / source_id
+    assert_store_path(directory)
     return AcquisitionPlan(
         source_id=source_id,
         collection_id=collection_id,
@@ -223,7 +216,7 @@ def fetch_bytes(url: str, expected_host: str, limit: int) -> tuple[bytes, str, s
 
 
 def write_atomic(path: Path, payload: bytes) -> None:
-    assert_scratch_path(path)
+    assert_store_path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
     try:
@@ -377,7 +370,7 @@ def acquire_direct_artifact(plan: AcquisitionPlan) -> dict[str, Any]:
                     "status": "complete",
                     "url": artifact_url,
                     "finalUrl": final_url,
-                    "scratchRelativePath": str(output.relative_to(Path(os.environ["SCRATCH"]))),
+                    "artifactRelativePath": artifact_relative_path(output),
                     "bytes": len(payload),
                     "sha256": hashlib.sha256(payload).hexdigest(),
                     "contentType": content_type,
@@ -444,7 +437,7 @@ def acquire_polona(plan: AcquisitionPlan, limit: int | None) -> dict[str, Any]:
                 "url": metadata_url,
                 "finalUrl": final_url,
                 "contentType": content_type,
-                "scratchRelativePath": str(metadata_path.relative_to(Path(os.environ["SCRATCH"]))),
+                "artifactRelativePath": artifact_relative_path(metadata_path),
                 "bytes": len(metadata),
                 "sha256": hashlib.sha256(metadata).hexdigest(),
                 "retrievedAt": now_iso(),
@@ -488,7 +481,7 @@ def acquire_polona(plan: AcquisitionPlan, limit: int | None) -> dict[str, Any]:
                 "status": "complete",
                 "url": url,
                 "finalUrl": image_final_url,
-                "scratchRelativePath": str(output.relative_to(Path(os.environ["SCRATCH"]))),
+                "artifactRelativePath": artifact_relative_path(output),
                 "bytes": len(payload),
                 "sha256": hashlib.sha256(payload).hexdigest(),
                 "retrievedAt": now_iso(),

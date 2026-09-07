@@ -5,7 +5,7 @@
   "status": "complete",
   "classification": "image-ocr-required",
   "sourcePdf": {
-    "scratchRelativePath": "scouting-autoresearch/sources/pawelek-young-troop-1919/source.pdf",
+    "artifactRelativePath": "artifacts/sources/pawelek-young-troop-1919/source.pdf",
     "sha256": "9c5eb912f3374ef4405dbae96c0b43851a69713c4faf8ce4c81fe6e9eae5aa41",
     "bytes": 35286756
   },
@@ -17,7 +17,7 @@
     "pdfVersion": "1.6"
   },
   "embeddedText": {
-    "scratchRelativePath": "scouting-autoresearch/inspection/pawelek-young-troop-1919/pdftotext-layout.txt",
+    "artifactRelativePath": "artifacts/inspection/pawelek-young-troop-1919/pdftotext-layout.txt",
     "sha256": "e9742d96e576b5cb5b1829e8bf61c461fb1b66f596bd8ba27e89ef785309040f",
     "bytes": 118,
     "characters": 118,
@@ -36,7 +36,7 @@
   "renderedViews": {
     "status": "complete",
     "pageCount": 118,
-    "scratchRelativeDirectory": "scouting-autoresearch/sources/pawelek-young-troop-1919/views",
+    "artifactRelativeDirectory": "artifacts/sources/pawelek-young-troop-1919/views",
     "sourcePdfSha256": "9c5eb912f3374ef4405dbae96c0b43851a69713c4faf8ce4c81fe6e9eae5aa41",
     "format": "JPEG",
     "maximumDimensionPixels": 1600,

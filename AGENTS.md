@@ -24,9 +24,11 @@
 - Systemowy `python3` na węźle logowania jest zbyt stary. Dla x86_64 przed pracą sprawdź
   `module spider Python/3.12.3`, a następnie załaduj zweryfikowane zależności, obecnie
   `GCCcore/13.3.0` i `Python/3.12.3`.
-- Środowiska wirtualne, logi i tymczasowe wyniki trzymaj pod
-  `$SCRATCH/scouting-autoresearch/`; nie zapisuj ich w repozytorium. Nie współdziel środowisk
-  ani artefaktów binarnych między x86_64 i GH200/aarch64.
+- Środowiska wirtualne, logi, buildy i odtwarzalne wyniki tymczasowe trzymaj pod
+  `$SCRATCH/scouting-autoresearch/`. Pobrane skany, PDF-y, DjVu, metadane źródłowe, warstwy
+  tekstowe dokumentów i surowe odpowiedzi OCR przechowuj trwale w ignorowanym przez Git
+  katalogu `artifacts/` w katalogu roboczym repozytorium na Group Storage. Nie współdziel
+  środowisk ani artefaktów binarnych między x86_64 i GH200/aarch64.
 - Standardowe lekkie kontrole to `python -m unittest discover -s tests -p 'test_*.py'` oraz
   `python scripts/validate.py`, wykonane Pythonem 3.12+ z zależnościami z `requirements.txt`.
 
@@ -150,7 +152,9 @@
   Nie scalaj ani nie usuwaj gry tylko dlatego, że jest podobna do innej.
 - Angielskie i polskie tłumaczenia maszynowe zawsze oznaczaj `machine-translation`. Nie twórz
   obietnicy późniejszej weryfikacji; zamiast tego zawsze linkuj tekst w języku źródłowym i skan.
-- Nie kopiuj PDF-ów ani pełnych repozytoriów źródłowych do tego repozytorium.
+- Nie dodawaj PDF-ów, DjVu, skanów, surowego OCR-u ani pełnych repozytoriów źródłowych do
+  historii Git. Takie artefakty mogą znajdować się wyłącznie w ignorowanym katalogu
+  `artifacts/`, zgodnie z przypisanymi prawami i warunkami dostawcy.
 
 ## Eksploracja modelu wiedzy
 

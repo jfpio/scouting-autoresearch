@@ -41,7 +41,7 @@
       "robotsBlockedLinksWithPermittedAlternative": 1,
       "polonaRecordsRequiringPost-approvalResolution": 0,
       "preFetchedGallicaSources": 1,
-      "rawArtifactsStorage": "scratch-only",
+      "rawArtifactsStorage": "repository-artifacts-gitignored-group-storage",
       "executionAdapterStatus": "implemented-and-smoke-tested",
       "acquisitionSmokeJobId": "22076104"
     },
@@ -60,7 +60,7 @@
     "candidateCount": 776,
     "importedActivityCount": 467,
     "metadataOnly": true,
-    "rawOcrStorage": "scratch-only",
+    "rawOcrStorage": "repository-artifacts-gitignored-group-storage",
     "componentReviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md",
     "ocr": {
       "model": "mistral-ocr-4-1",

@@ -14,6 +14,7 @@ set -euo pipefail
 : "${SOURCE_ID:?Submit with --export=ALL,SOURCE_ID=<manifest-id>}"
 
 cd "${SLURM_SUBMIT_DIR}"
+repo="${SLURM_SUBMIT_DIR}"
 
 printf 'gitRevision=%s\n' "$(git rev-parse HEAD)"
 printf 'hostname=%s\n' "$(hostname)"
@@ -22,8 +23,8 @@ printf 'slurmJobId=%s\n' "${SLURM_JOB_ID}"
 printf 'partition=%s\n' "${SLURM_JOB_PARTITION}"
 printf 'account=%s\n' "${SLURM_JOB_ACCOUNT}"
 printf 'sourceId=%s\n' "${SOURCE_ID}"
-source_pdf="${SCRATCH}/scouting-autoresearch/sources/${SOURCE_ID}/source.pdf"
-inspection_dir="${SCRATCH}/scouting-autoresearch/inspection/${SOURCE_ID}"
+source_pdf="${repo}/artifacts/sources/${SOURCE_ID}/source.pdf"
+inspection_dir="${repo}/artifacts/inspection/${SOURCE_ID}"
 pdfinfo_file="${inspection_dir}/pdfinfo.txt"
 text_file="${inspection_dir}/pdftotext-layout.txt"
 mkdir -p "${inspection_dir}"

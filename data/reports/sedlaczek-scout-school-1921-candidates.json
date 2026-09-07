@@ -9,7 +9,7 @@
   "sourceText": {
     "classification": "embedded-text-available",
     "sha256": "7c3cbd6f8a54b1ce1a5d93b69dc494c2d6d7f3ed83aeb7406dedb3f008c1eb27",
-    "storage": "scratch-only",
+    "storage": "repository-artifacts-gitignored-group-storage",
     "pdfPages": 229
   },
   "method": {

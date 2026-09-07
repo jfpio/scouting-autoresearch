@@ -6,8 +6,8 @@
   "year": 1919,
   "status": "candidate-inventory-complete-record-review-pending",
   "sourceText": {
-    "classification": "mistral-ocr-scratch-only",
-    "storage": "scratch-only",
+    "classification": "mistral-ocr-repository-artifacts",
+    "storage": "repository-artifacts-gitignored-group-storage",
     "model": "mistral-ocr-4-1",
     "recipeVersion": "mistral-ocr-image-v1",
     "approvedViewCount": 86

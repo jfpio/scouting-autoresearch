@@ -20,7 +20,7 @@ from gallica import (
     GallicaFetchError,
     active_cooldown,
     artifact_url,
-    assert_scratch_output,
+    assert_artifact_output,
     fetch_artifact,
     load_approved_item,
     record_fetch_error,
@@ -127,23 +127,23 @@ class GallicaTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             artifact_url(ITEM, "view", 0)
 
-    def test_output_must_stay_in_project_scratch(self):
-        with tempfile.TemporaryDirectory() as directory, patch.dict(
-            os.environ, {"SCRATCH": directory}
+    def test_output_must_stay_in_repository_artifacts(self):
+        with tempfile.TemporaryDirectory() as directory, patch(
+            "common.ARTIFACTS", Path(directory) / "artifacts"
         ):
-            allowed = Path(directory) / "scouting-autoresearch" / "source.pdf"
-            assert_scratch_output(allowed)
-            with self.assertRaisesRegex(RuntimeError, "must be stored under SCRATCH"):
-                assert_scratch_output(Path(directory) / "outside.pdf")
+            allowed = Path(directory) / "artifacts" / "source.pdf"
+            assert_artifact_output(allowed)
+            with self.assertRaisesRegex(RuntimeError, "repository artifacts"):
+                assert_artifact_output(Path(directory) / "outside.pdf")
 
     def test_fetch_is_atomic_hash_pinned_and_reused(self):
         data = b"%PDF-1.7\nexample"
         url = artifact_url(ITEM, "pdf")
         response = FakeResponse(data, "application/pdf", url)
-        with tempfile.TemporaryDirectory() as directory, patch.dict(
-            os.environ, {"SCRATCH": directory}
+        with tempfile.TemporaryDirectory() as directory, patch(
+            "common.ARTIFACTS", Path(directory) / "artifacts"
         ):
-            output = Path(directory) / "scouting-autoresearch" / "source.pdf"
+            output = Path(directory) / "artifacts" / "source.pdf"
             with patch("gallica.urllib.request.urlopen", return_value=response) as request:
                 result = fetch_artifact(
                     ITEM,
@@ -162,10 +162,10 @@ class GallicaTests(unittest.TestCase):
 
     def test_redirect_outside_gallica_is_rejected(self):
         response = FakeResponse(b"%PDF-1.7\nexample", "application/pdf", "https://evil.test/x")
-        with tempfile.TemporaryDirectory() as directory, patch.dict(
-            os.environ, {"SCRATCH": directory}
+        with tempfile.TemporaryDirectory() as directory, patch(
+            "common.ARTIFACTS", Path(directory) / "artifacts"
         ), patch("gallica.urllib.request.urlopen", return_value=response):
-            output = Path(directory) / "scouting-autoresearch" / "source.pdf"
+            output = Path(directory) / "artifacts" / "source.pdf"
             with self.assertRaisesRegex(RuntimeError, "redirected outside"):
                 fetch_artifact(ITEM, "pdf", output)
             self.assertFalse(output.exists())
@@ -178,10 +178,10 @@ class GallicaTests(unittest.TestCase):
             {},
             io.BytesIO(b"{}"),
         )
-        with tempfile.TemporaryDirectory() as directory, patch.dict(
-            os.environ, {"SCRATCH": directory}
+        with tempfile.TemporaryDirectory() as directory, patch(
+            "common.ARTIFACTS", Path(directory) / "artifacts"
         ), patch("gallica.urllib.request.urlopen", side_effect=error):
-            output = Path(directory) / "scouting-autoresearch" / "source.pdf"
+            output = Path(directory) / "artifacts" / "source.pdf"
             with self.assertRaises(GallicaFetchError) as raised:
                 fetch_artifact(
                     ITEM,
@@ -222,9 +222,9 @@ class GallicaTests(unittest.TestCase):
             "nextRetryAt": "2026-09-05T06:00:00+00:00",
             "fullDocument": {"url": artifact_url(ITEM, "pdf")},
         }
-        with tempfile.TemporaryDirectory() as directory, patch.dict(
-            os.environ, {"SCRATCH": directory}
-        ):
+        with tempfile.TemporaryDirectory() as directory, patch(
+            "common.ROOT", Path(directory)
+        ), patch("common.ARTIFACTS", Path(directory) / "artifacts"):
             checkpoint = Path(directory) / "checkpoint.json"
             checkpoint.write_text(json.dumps(base), encoding="utf-8")
             failure = GallicaFetchError(
@@ -255,7 +255,7 @@ class GallicaTests(unittest.TestCase):
 
             output = (
                 Path(directory)
-                / "scouting-autoresearch"
+                / "artifacts"
                 / "sources"
                 / ITEM.source_id
                 / f"{ITEM.source_id}-gallica.pdf"

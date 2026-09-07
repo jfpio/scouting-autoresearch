@@ -5,7 +5,7 @@
   "status": "complete",
   "classification": "embedded-text-available",
   "sourcePdf": {
-    "scratchRelativePath": "scouting-autoresearch/sources/piasecki-movement-games-1922/source.pdf",
+    "artifactRelativePath": "artifacts/sources/piasecki-movement-games-1922/source.pdf",
     "sha256": "fefea3f451c5903f796a4331cc8b21d8f4dbc4b6465ed9d394a62c93f26c6c34",
     "bytes": 24544678
   },
@@ -17,7 +17,7 @@
     "pdfVersion": "1.5"
   },
   "embeddedText": {
-    "scratchRelativePath": "scouting-autoresearch/inspection/piasecki-movement-games-1922/pdftotext-layout.txt",
+    "artifactRelativePath": "artifacts/inspection/piasecki-movement-games-1922/pdftotext-layout.txt",
     "sha256": "4f5379ad1a683a7f9f741f4a12b26f2ffffa97820f2f90b7145e8ff8e98ee51f",
     "bytes": 320226,
     "characters": 300191,

@@ -11,14 +11,14 @@ execution:
     - [81, 86]
     - [89, 303]
     - [305, 308]
-  inputDirectoryUnderScratch: scouting-autoresearch/sources/jasinski-field-games-1938
+  inputDirectoryUnderArtifacts: sources/jasinski-field-games-1938
   requireExplicitExecute: true
   requireExactModelAccessCheck: true
   sequentialRequests: true
   billingMode: education-credit
   enforceReferenceCostLimit: true
   maxReferenceCostUsd: 10
-  resultsUnderScratch: scouting-autoresearch/ocr
+  resultsUnderArtifacts: ocr
 pricing:
   mode: standard
   usdPer1000Pages: 4.0

@@ -11,7 +11,7 @@
       "status": "complete",
       "url": "https://kpbc.umk.pl/Content/193867/PDF/Magazyn_265_06_HD_008.pdf",
       "finalUrl": "https://kpbc.umk.pl/Content/193867/PDF/Magazyn_265_06_HD_008.pdf",
-      "scratchRelativePath": "scouting-autoresearch/sources/piasecki-movement-games-1922/source.pdf",
+      "artifactRelativePath": "artifacts/sources/piasecki-movement-games-1922/source.pdf",
       "bytes": 24544678,
       "sha256": "fefea3f451c5903f796a4331cc8b21d8f4dbc4b6465ed9d394a62c93f26c6c34",
       "contentType": "application/pdf",

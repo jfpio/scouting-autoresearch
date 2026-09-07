@@ -65,7 +65,7 @@ acquisitionPreparation:
   resolveAgainAfterHumanApproval: true
   requireRegisteredHttpsHost: true
   requireSignatureAndSizeValidation: true
-  rawArtifactsStorage: scratch-only
+  rawArtifactsStorage: repository-artifacts-gitignored-group-storage
   repositorySourceFilesAllowed: false
   automatedFetchBlockedByRobotsSourceUnits:
     - dabrowski-winter-games-1935
@@ -98,6 +98,12 @@ humanGates:
     approvedBy: repository-owner
     reviewRecord: vault/reviews/accepted/v3-polish-sources-acquisition.md
     decision: temporary-download-and-named-public-domain-prose-only
+  - id: durable-research-artifact-storage
+    status: approved
+    approvedAt: "2026-09-07"
+    approvedBy: repository-owner
+    reviewRecord: vault/reviews/accepted/v3-durable-artifact-storage-2026-09.md
+    decision: repository-artifacts-gitignored-group-storage
   - id: per-item-rights-and-component-authorship
     status: approved
     approvedAt: "2026-09-07"
@@ -379,7 +385,7 @@ sourceUnits:
     rightsReviewRecord: vault/reviews/accepted/candidate-jacques-sevin-chamarande-gallica.md
     pageScopeReviewRecord: vault/reviews/accepted/chamarande-1934-prose-scope.md
     proposedAcquisition:
-      status: approved-views-present-in-scratch
+      status: approved-views-present-in-repository-artifacts
       method: pre-fetched-iiif-views
       completedViews: 188
       artifactType: jpeg-views

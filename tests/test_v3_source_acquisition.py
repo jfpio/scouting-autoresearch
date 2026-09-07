@@ -1,8 +1,6 @@
-import os
 import sys
 import unittest
 from pathlib import Path
-from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
@@ -19,24 +17,27 @@ class V3SourceAcquisitionTests(unittest.TestCase):
     def setUp(self):
         self.scratch = "/tmp/scouting-autoresearch-test-scratch"
 
-    def test_approved_polona_source_is_scratch_only(self):
-        with patch.dict(os.environ, {"SCRATCH": self.scratch}):
-            plan = load_plan("jasinski-field-games-1938")
+    def test_approved_polona_source_uses_gitignored_repository_artifacts(self):
+        plan = load_plan("jasinski-field-games-1938")
         self.assertEqual(plan.collection_id, "polona")
         self.assertEqual(plan.method, "polona-uuid-record")
         self.assertEqual(plan.expected_host, "polona.pl")
-        self.assertTrue(str(plan.source_directory).startswith(self.scratch))
+        self.assertEqual(
+            plan.source_directory,
+            Path(__file__).resolve().parents[1]
+            / "artifacts"
+            / "sources"
+            / "jasinski-field-games-1938",
+        )
 
     def test_approved_direct_pdf_is_pinned_to_registered_host(self):
-        with patch.dict(os.environ, {"SCRATCH": self.scratch}):
-            plan = load_plan("piasecki-movement-games-1922")
+        plan = load_plan("piasecki-movement-games-1922")
         self.assertEqual(plan.expected_host, "kpbc.umk.pl")
         self.assertTrue(plan.artifact_url.startswith("https://kpbc.umk.pl/Content/"))
 
     def test_owner_deferred_pbc_source_cannot_be_acquired_in_this_run(self):
-        with patch.dict(os.environ, {"SCRATCH": self.scratch}):
-            with self.assertRaisesRegex(AcquisitionError, "skipped-in-the-current-v3-run"):
-                load_plan("dabrowski-winter-games-1935")
+        with self.assertRaisesRegex(AcquisitionError, "skipped-in-the-current-v3-run"):
+            load_plan("dabrowski-winter-games-1935")
 
     def test_djvu_signature_is_validated(self):
         validate_djvu(b"AT&TFORM\x00\x00\x00\x08DJVU", "image/vnd.djvu")

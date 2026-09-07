@@ -4,6 +4,7 @@ dist/
 .env
 .venv/
 .DS_Store
+/artifacts/
 data/checkpoints/
 !data/checkpoints/
 data/checkpoints/*

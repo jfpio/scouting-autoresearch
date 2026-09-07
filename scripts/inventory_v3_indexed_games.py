@@ -11,14 +11,13 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import os
 import re
 import unicodedata
 from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
 
-from common import ROOT, read_json, read_yaml, write_json
+from common import ROOT, persisted_artifact_path, read_json, read_yaml, write_json
 
 
 def _items(section: str, values: list[tuple[str, int]]) -> list[dict[str, Any]]:
@@ -186,10 +185,7 @@ def build_report(source_id: str) -> dict[str, Any]:
     inspection_path = ROOT / "data" / "checkpoints" / "source-inspection" / f"{source_id}.json"
     inspection = read_json(inspection_path)
     embedded = inspection.get("embeddedText") or {}
-    scratch = os.environ.get("SCRATCH")
-    if not scratch:
-        raise ValueError("SCRATCH is not set")
-    text_path = Path(scratch) / str(embedded.get("scratchRelativePath") or "")
+    text_path = persisted_artifact_path(embedded)
     payload = text_path.read_bytes()
     if hashlib.sha256(payload).hexdigest() != embedded.get("sha256"):
         raise ValueError("Pinned embedded-text hash mismatch")
@@ -257,7 +253,7 @@ def build_report(source_id: str) -> dict[str, Any]:
         "sourceText": {
             "classification": "embedded-text-available",
             "sha256": embedded.get("sha256"),
-            "storage": "scratch-only",
+            "storage": "repository-artifacts-gitignored-group-storage",
             "pdfPages": inspection.get("pdf", {}).get("pages"),
         },
         "method": {

@@ -39,7 +39,7 @@
     "reviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md",
     "candidateCount": 776,
     "candidateReportsAreMetadataOnly": true,
-    "rawOcrStorage": "scratch-only"
+    "rawOcrStorage": "repository-artifacts-gitignored-group-storage"
   },
   "pageScopes": {
     "chamarande-1934": {"approvedViewCount": 113, "processedViewCount": 113},

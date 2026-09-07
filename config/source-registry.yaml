@@ -212,7 +212,7 @@ collections:
         useMode: noncommercial-research-and-publication
         requiredAttribution: Source gallica.bnf.fr / Bibliothèque nationale de France
         approvedScope:
-          - documented download to temporary scratch storage for extraction and verification
+          - documented download to repository artifacts storage for extraction and verification
           - original French prose explicitly attributable to Jacques Sevin in the 1934 edition
         excludes:
           - music until its authorship and rights are established separately

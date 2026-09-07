@@ -77,7 +77,7 @@ rightsReview:
     useMode: noncommercial-research-and-publication
     requiredAttribution: Source gallica.bnf.fr / Bibliothèque nationale de France
     approvedScope:
-      - documented download to temporary scratch storage for extraction and verification
+      - documented download to repository artifacts storage for extraction and verification
       - original French prose explicitly attributable to Jacques Sevin in the 1934 edition
     excludes:
       - music until its authorship and rights are established separately
@@ -276,9 +276,10 @@ niekomercyjny sposób wykorzystania i obowiązek atrybucji Gallici. Zgoda obejmu
 prozę Sevina. Muzyka, plansze, ilustracje, okładka, późniejsze opracowania oraz cyfrowa warstwa
 Gallici pozostają wyłączone, dopóki nie zostaną ocenione osobno.
 
-Zatwierdzenie praw nie zatwierdza zakresu stron. Materiał został pobrany do katalogu scratch,
-a osobna propozycja zakresu OCR pozostaje w recenzji. Dopóki właściciel nie zatwierdzi tego
-zakresu, konfiguracja OCR pozostaje wyłączona i żaden tekst nie może trafić do korpusu.
+Zatwierdzenie praw nie zatwierdza zakresu stron. Materiał został pierwotnie pobrany do
+scratch, a następnie przeniesiony do prywatnego `artifacts/` zgodnie z decyzją
+`v3-durable-artifact-storage-2026-09`. Zakres OCR został zatwierdzony w osobnej recenzji;
+sam trwały zapis artefaktów nie zezwala na publikację dodatkowych składników.
 
 ## Poszukiwanie alternatywnego egzemplarza
 
@@ -291,7 +292,7 @@ nazwiska, a jedynym trafieniem dla autora był inny, niedostępny swobodnie śpi
 Wikisource i katalog Scoutscan również nie zwróciły dopasowania. W oficjalnym feedzie CSV
 Project Gutenberg nie było wiersza zawierającego nazwisko Jacques’a Sevina ani tytuł
 *Chamarande*. Feed został przeszukany strumieniowo i nie zapisano jego kopii w repozytorium
-ani w scratch.
+ani w prywatnym magazynie artefaktów.
 
 To jest udokumentowany wynik negatywny na dzień sprawdzenia, a nie dowód nieistnienia innego
 skanu. Nie pobrano żadnego pliku ani treści. Ponieważ nie znaleziono równoważnego egzemplarza

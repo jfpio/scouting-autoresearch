@@ -67,12 +67,15 @@ class SevinFetchCheckpointTests(unittest.TestCase):
         self.assertEqual(view_fetch["failedViewAttempts"], 0)
         datetime.fromisoformat(view_fetch["completedAt"])
 
-    def test_smoke_downloads_stay_outside_repository(self):
+    def test_smoke_downloads_stay_outside_git_in_repository_artifacts(self):
         checkpoint = self.checkpoint
         self.assertEqual(checkpoint["sourceFilesCommittedToRepository"], 0)
         self.assertFalse(checkpoint["fullTextCommittedToRepository"])
         self.assertFalse(checkpoint["fullDocument"]["persisted"])
-        self.assertEqual(checkpoint["scratchRelativeDirectory"], "scouting-autoresearch/sources/chamarande-1934")
+        self.assertEqual(
+            checkpoint["artifactRelativeDirectory"],
+            "artifacts/sources/chamarande-1934",
+        )
         self.assertEqual(len(checkpoint["downloadedViewSmoke"]), 3)
         self.assertTrue(all(len(item["sha256"]) == 64 for item in checkpoint["downloadedViewSmoke"]))
 
