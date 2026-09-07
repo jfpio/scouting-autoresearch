@@ -336,6 +336,34 @@ def v3_source_run_errors(
         ),
         "V3 checkpoint contains an unknown source-unit status",
     )
+    for unit in checkpoint_units:
+        candidate_report = unit.get("candidateReport")
+        if not candidate_report:
+            continue
+        candidate_path = ROOT / str(candidate_report)
+        require(candidate_path.is_file(), f"{unit.get('id')}: candidate report is missing")
+        if not candidate_path.is_file():
+            continue
+        try:
+            candidate_payload = json.loads(candidate_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            require(False, f"{unit.get('id')}: candidate report is not valid JSON")
+            continue
+        selection = candidate_payload.get("selection") or {}
+        require(
+            candidate_payload.get("sourceId") == unit.get("id"),
+            f"{unit.get('id')}: candidate report source ID differs from checkpoint",
+        )
+        require(
+            selection.get("candidateCount") == unit.get("candidateCount")
+            and len(candidate_payload.get("candidates") or []) == unit.get("candidateCount"),
+            f"{unit.get('id')}: candidate count differs between report and checkpoint",
+        )
+        require(
+            candidate_payload.get("status")
+            == "candidate-inventory-complete-component-review-pending",
+            f"{unit.get('id')}: candidate report is not awaiting component review",
+        )
     require(checkpoint.get("pullRequestOpened") is False, "Prepared V3 checkpoint claims an open PR")
     checkpoint_acquisition = (checkpoint.get("preparation") or {}).get(
         "acquisitionPreparation"
