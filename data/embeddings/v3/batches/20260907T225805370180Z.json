@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "semantic-map-v3-embeddings",
+  "batchId": "20260907T225805370180Z",
+  "generatedAt": "2026-09-07T22:58:05.370180+00:00",
+  "sourceId": "zwolakowska-cub-pack-1945",
+  "modelRequested": "mistral-embed-2312",
+  "model": "mistral-embed-2312",
+  "dimensions": 1024,
+  "recipeVersion": "bilingual-game-context-v1",
+  "billingMode": "education-credit",
+  "modelAccess": {
+    "checked": true,
+    "modelId": "mistral-embed-2312"
+  },
+  "referencePriceUsdPerMillionInputTokens": 0.1,
+  "referencePriceSource": "https://docs.mistral.ai/models/mistral-embed-23-12",
+  "referencePriceAccessedOn": "2026-09-04",
+  "activityIds": [
+    "wgz-051",
+    "wgz-052",
+    "wgz-053",
+    "wgz-054",
+    "wgz-055",
+    "wgz-056",
+    "wgz-057",
+    "wgz-058",
+    "wgz-059",
+    "wgz-060",
+    "wgz-061",
+    "wgz-062",
+    "wgz-063",
+    "wgz-064",
+    "wgz-065",
+    "wgz-066",
+    "wgz-067",
+    "wgz-068",
+    "wgz-069",
+    "wgz-070",
+    "wgz-071",
+    "wgz-072",
+    "wgz-073",
+    "wgz-074"
+  ],
+  "usage": {
+    "promptTokens": 9572,
+    "billedCostUsd": null,
+    "referenceCostUsd": 0.0009572
+  }
+}
