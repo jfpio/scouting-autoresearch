@@ -1,0 +1,656 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+  "sourceSha256": "c42c772d5d91d8adba550a5d32837e58f3fc8c43190a68da9e63f1d73b7b582b",
+  "parserVersion": "harce-1917-reviewed-indexed-game-import-v1",
+  "reviewRequired": false,
+  "activityCount": 36,
+  "wholeSourceCopiedToRepository": false,
+  "selection": {
+    "candidateCount": 40,
+    "acceptedGameCount": 36,
+    "rejectedCount": 4,
+    "basis": "bounded, self-contained game or competitive exercise confirmed against rendered facsimile pages",
+    "rejectedCandidates": [
+      {
+        "candidateNumber": 15,
+        "reason": "bibliographic reference only; this edition does not supply a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 16,
+        "reason": "bibliographic reference only; this edition does not supply a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 17,
+        "reason": "bibliographic reference only; this edition does not supply a self-contained game procedure"
+      },
+      {
+        "candidateNumber": 40,
+        "reason": "creative pantomime proposal without game rules, scoring or another bounded outcome procedure"
+      }
+    ]
+  },
+  "transcriptionEvidence": {
+    "sourceStatement": "Pinned embedded text and rendered pages stored in gitignored repository artifacts on Group Storage.",
+    "sourceLocation": "https://www.wbc.poznan.pl/Content/440525/PDF/515207.pdf",
+    "deterministicNormalization": [
+      "omit the activity heading represented in frontmatter",
+      "omit isolated printed-page numbers and pinned table or illustration ranges",
+      "join layout soft wraps and dehyphenate line-break continuations",
+      "apply only facsimile-confirmed OCR corrections",
+      "mark the one reconstruction obscured by a library stamp with square brackets",
+      "preserve source spelling and paragraph order without lexical modernization"
+    ],
+    "lexicalModernization": false
+  },
+  "deduplication": {
+    "exactBodyMatches": [],
+    "nearDuplicateCandidates": []
+  },
+  "activities": [
+    {
+      "id": "hmp-001",
+      "candidateNumber": 1,
+      "title": "Wyprawa do bieguna",
+      "startLine": "p0068-l0013",
+      "endLineExclusive": "p0069-l0004",
+      "pdfPages": [
+        68,
+        69
+      ],
+      "printedPages": [
+        53,
+        54
+      ],
+      "sourceBlockSha256": "17c4ff1e171a179a539f38c44686630240ac281dca54c7c8df0db2bc6919c7b3",
+      "publishedSourceHash": "0e97a625ac6954fd401d1dbd9b5c55be71da752f90f79629ede7ebc27fa59148"
+    },
+    {
+      "id": "hmp-002",
+      "candidateNumber": 2,
+      "title": "Twierdza ze śniegu",
+      "startLine": "p0069-l0004",
+      "endLineExclusive": "p0069-l0013",
+      "pdfPages": [
+        69
+      ],
+      "printedPages": [
+        54
+      ],
+      "sourceBlockSha256": "dd1dd78b9b56855f5232fec9792fea411bff3b4167320b7fddd7b4b356debac5",
+      "publishedSourceHash": "235b8d8bef8a38f7ddad8eb3f81d5d9c9d50f5195f89b8c7b6858c46b279ce42"
+    },
+    {
+      "id": "hmp-003",
+      "candidateNumber": 3,
+      "title": "Ucieczka Sybiraka",
+      "startLine": "p0069-l0013",
+      "endLineExclusive": "p0069-l0024",
+      "pdfPages": [
+        69
+      ],
+      "printedPages": [
+        54
+      ],
+      "sourceBlockSha256": "9bd5de1af34ef90789ac3d529be44202ba63daefacfe942ba253818d3c392afa",
+      "publishedSourceHash": "8fbed9027b8e42a2c1e4b851394bc96fd64d618d7f34fcdc9dab43bc89868e9c"
+    },
+    {
+      "id": "hmp-004",
+      "candidateNumber": 4,
+      "title": "Kozak i Tatarzyn",
+      "startLine": "p0070-l0003",
+      "endLineExclusive": "p0070-l0024",
+      "pdfPages": [
+        70
+      ],
+      "printedPages": [
+        55
+      ],
+      "sourceBlockSha256": "6a85ea1e5efcae20419fd31774d7fe7cffb9f7b5b90f625b11c4c0ff9aad9151",
+      "publishedSourceHash": "5e46ed9c65b7595d689d5fb4acb3ce58c73be85f4a72c234f0da77dd3ca5a963"
+    },
+    {
+      "id": "hmp-005",
+      "candidateNumber": 5,
+      "title": "Goniec",
+      "startLine": "p0070-l0024",
+      "endLineExclusive": "p0071-l0007",
+      "pdfPages": [
+        70,
+        71
+      ],
+      "printedPages": [
+        55,
+        56
+      ],
+      "sourceBlockSha256": "8f60aa5d30825f583b32fea67472fb80ebcf213329e53b61e3d36a11915410ca",
+      "publishedSourceHash": "68b20b70d0473d39c62afee9478a9cfe37368847a14738395b376dfaf5d4c15f"
+    },
+    {
+      "id": "hmp-006",
+      "candidateNumber": 6,
+      "title": "Gra Kima",
+      "startLine": "p0071-l0007",
+      "endLineExclusive": "p0072-l0007",
+      "pdfPages": [
+        71,
+        72
+      ],
+      "printedPages": [
+        56,
+        57
+      ],
+      "sourceBlockSha256": "0331af380fc6ee4997547a04e02c0cd4073ec480c740c26bf24b06a327ce8a60",
+      "publishedSourceHash": "21f5bd4f007e3b7aa3d6aacede85862e48c7a8081615b665a7a2ddf5005aa8ae",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0071-l0017",
+          "endLine": "p0071-l0036",
+          "reason": "table-illustration-or-page-furniture-outside-record-scope"
+        }
+      ]
+    },
+    {
+      "id": "hmp-007",
+      "candidateNumber": 7,
+      "title": "Przewodnik",
+      "startLine": "p0088-l0003",
+      "endLineExclusive": "p0088-l0012",
+      "pdfPages": [
+        88
+      ],
+      "printedPages": [
+        73
+      ],
+      "sourceBlockSha256": "4c0f9f7b64fb15cc59f8cd92567dec0d410ef974fb2bcbbea357bffce0b83c1a",
+      "publishedSourceHash": "b11a6de24fb0e032de2e1d2ae06225b13e548802fedfc96bb45667fb27b29b2f"
+    },
+    {
+      "id": "hmp-008",
+      "candidateNumber": 8,
+      "title": "Gdzie północ?",
+      "startLine": "p0088-l0012",
+      "endLineExclusive": "p0088-l0021",
+      "pdfPages": [
+        88
+      ],
+      "printedPages": [
+        73
+      ],
+      "sourceBlockSha256": "caefa2986aa524122d26d0d0a44fb72e6b1a4bbea9cde47ac1986ff942a857bb",
+      "publishedSourceHash": "5d235ac374eab44bfc9aaa0ae3c280b785f07c4b1df9b89e2e0413997bbc95b2"
+    },
+    {
+      "id": "hmp-009",
+      "candidateNumber": 9,
+      "title": "Podejście czaty",
+      "startLine": "p0088-l0021",
+      "endLineExclusive": "p0089-l0008",
+      "pdfPages": [
+        88,
+        89
+      ],
+      "printedPages": [
+        74
+      ],
+      "sourceBlockSha256": "bc19de6cb66c0dcdf0891454a8d320aa82b41fee18bc9ed0b3f42203eb61bf95",
+      "publishedSourceHash": "bc511f72105ab209f7e4b69beeb5d4f3b1bf3773fc4d576e6368b4888bcb132b"
+    },
+    {
+      "id": "hmp-010",
+      "candidateNumber": 10,
+      "title": "Świstaki",
+      "startLine": "p0091-l0011",
+      "endLineExclusive": "p0091-l0021",
+      "pdfPages": [
+        91
+      ],
+      "printedPages": [
+        76
+      ],
+      "sourceBlockSha256": "9bb19d1846598e029c1d3eab130d59612cb0a9c5a66caa0736d99d4671efe87d",
+      "publishedSourceHash": "3e2d875434c2e406a8985f16495908e086d1794475d384f874b8361ddd7bedc2"
+    },
+    {
+      "id": "hmp-011",
+      "candidateNumber": 11,
+      "title": "Połów wieloryba",
+      "startLine": "p0094-l0023",
+      "endLineExclusive": "p0095-l0017",
+      "pdfPages": [
+        94,
+        95
+      ],
+      "printedPages": [
+        80
+      ],
+      "sourceBlockSha256": "00d3858fa4008f015629fe18611cf23dcef062986166afee22ab22272e284e54",
+      "publishedSourceHash": "9246268648bf27081649d2f1a3e8e0f11d1bc57f125d015875bedb47e556cd21",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0095-l0007",
+          "endLine": "p0095-l0007",
+          "reason": "table-illustration-or-page-furniture-outside-record-scope"
+        }
+      ]
+    },
+    {
+      "id": "hmp-012",
+      "candidateNumber": 12,
+      "title": "Goniec Króla Jegomości",
+      "startLine": "p0108-l0020",
+      "endLineExclusive": "p0109-l0012",
+      "pdfPages": [
+        108,
+        109
+      ],
+      "printedPages": [
+        93,
+        94
+      ],
+      "sourceBlockSha256": "c6755bebdc19d64bcdb060a4a0193095d81c1f1bcc18373fad037ff3577b5dac",
+      "publishedSourceHash": "8132ccc53b7b1be2713383a007a7bc8ca63cdfd9a4dbf1bd0d51d9a72f47fc5c"
+    },
+    {
+      "id": "hmp-013",
+      "candidateNumber": 13,
+      "title": "Karawana",
+      "startLine": "p0109-l0012",
+      "endLineExclusive": "p0109-l0020",
+      "pdfPages": [
+        109
+      ],
+      "printedPages": [
+        94
+      ],
+      "sourceBlockSha256": "e91645189859fdfef96174654400008234b30296acde1e8f5985e5beda91ded8",
+      "publishedSourceHash": "7b64d01f2a6e44e47eb245902414dd1044e0d7f88a18455f9c8954bfcdb22a17"
+    },
+    {
+      "id": "hmp-014",
+      "candidateNumber": 14,
+      "title": "Wyścig zwiadowców",
+      "startLine": "p0109-l0020",
+      "endLineExclusive": "p0110-l0016",
+      "pdfPages": [
+        109,
+        110
+      ],
+      "printedPages": [
+        94,
+        95
+      ],
+      "sourceBlockSha256": "7f7d148a63594de90139ae27405bd894209ef8bd25d1f8075766291824dd890b",
+      "publishedSourceHash": "cf6d45165be7df034cddac85d8042dfe94e31fb8bac6be91f92452e4f718316b",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0110-l0001",
+          "endLine": "p0110-l0001",
+          "reason": "table-illustration-or-page-furniture-outside-record-scope"
+        }
+      ]
+    },
+    {
+      "id": "hmp-018",
+      "candidateNumber": 18,
+      "title": "Szukaj naparstka",
+      "startLine": "p0166-l0009",
+      "endLineExclusive": "p0166-l0019",
+      "pdfPages": [
+        166
+      ],
+      "printedPages": [
+        151
+      ],
+      "sourceBlockSha256": "ddba687adf5a9f0aaaba4fe549d0ddc03529ce99ee3a384c270991a6d2fa759d",
+      "publishedSourceHash": "16831023d8345097401e4794414a1a4d76b66d7ec4dcd9aa3c2f59d46c0d1158"
+    },
+    {
+      "id": "hmp-019",
+      "candidateNumber": 19,
+      "title": "Okna sklepowe",
+      "startLine": "p0166-l0019",
+      "endLineExclusive": "p0167-l0006",
+      "pdfPages": [
+        166,
+        167
+      ],
+      "printedPages": [
+        151,
+        152
+      ],
+      "sourceBlockSha256": "bfe6ae5ebbf25f917524ee95ea9e9c9cf596ecf13a5a207b7e1b141e9ce8e675",
+      "publishedSourceHash": "badf5adfe4aea93b1b240a5446536533312d79061cf2c2ccc058a088501b1be2"
+    },
+    {
+      "id": "hmp-020",
+      "candidateNumber": 20,
+      "title": "Co zawiera pokój?",
+      "startLine": "p0167-l0006",
+      "endLineExclusive": "p0167-l0014",
+      "pdfPages": [
+        167
+      ],
+      "printedPages": [
+        152
+      ],
+      "sourceBlockSha256": "cc0a792423549109976853a508cd5a51f6e7f557f4b9df22c42d8c39c1889712",
+      "publishedSourceHash": "c938c41cd99fdbb87c9c7ffa511bb6e2e94007cdc03cff4c57fdc1586a254a88"
+    },
+    {
+      "id": "hmp-021",
+      "candidateNumber": 21,
+      "title": "Rozpoznawanie obrazków",
+      "startLine": "p0167-l0015",
+      "endLineExclusive": "p0167-l0024",
+      "pdfPages": [
+        167
+      ],
+      "printedPages": [
+        152
+      ],
+      "sourceBlockSha256": "dbdf4c274a3884556f7505ae713d7e0c226cf979bbe849191e9fd1e55a7bdfb4",
+      "publishedSourceHash": "f0ce66feda91a63ebd6a47da31d774d0b58db47f486462da9023c2161c4ae9c0"
+    },
+    {
+      "id": "hmp-022",
+      "candidateNumber": 22,
+      "title": "Zając i charty",
+      "startLine": "p0167-l0024",
+      "endLineExclusive": "p0168-l0005",
+      "pdfPages": [
+        167,
+        168
+      ],
+      "printedPages": [
+        152,
+        153
+      ],
+      "sourceBlockSha256": "a30b291307b3e80a5a74f9287966bfd3f6a46da3780ef43737dbd7554a274664",
+      "publishedSourceHash": "8085d812f4b101601cc8958049555506eca3abc47d9f20023c19194a8adc6406"
+    },
+    {
+      "id": "hmp-023",
+      "candidateNumber": 23,
+      "title": "Węch harcerza",
+      "startLine": "p0168-l0005",
+      "endLineExclusive": "p0168-l0015",
+      "pdfPages": [
+        168
+      ],
+      "printedPages": [
+        153
+      ],
+      "sourceBlockSha256": "6359474c43672669b0eae97f32c63af6b29cd781ffa10772366ffd25cb1fb4b3",
+      "publishedSourceHash": "2ae989793138b1976f0b87e6404fc83db0077fd72f7615e73f2552ad35dcc5fd"
+    },
+    {
+      "id": "hmp-024",
+      "candidateNumber": 24,
+      "title": "Daleko i blizko",
+      "startLine": "p0168-l0015",
+      "endLineExclusive": "p0169-l0005",
+      "pdfPages": [
+        168,
+        169
+      ],
+      "printedPages": [
+        153,
+        154
+      ],
+      "sourceBlockSha256": "1358a6749930dc83dfb4040f95832fdd4abb6985e25748a57f03ca71559e0c5a",
+      "publishedSourceHash": "885026e62f149462fc52d41d644e2bc5fe8c1908c0a658fc9a7d50c210f81e3d"
+    },
+    {
+      "id": "hmp-025",
+      "candidateNumber": 25,
+      "title": "Pamięć tropu",
+      "startLine": "p0180-l0009",
+      "endLineExclusive": "p0180-l0016",
+      "pdfPages": [
+        180
+      ],
+      "printedPages": [
+        165
+      ],
+      "sourceBlockSha256": "1072b97c08b33ca6545b934a397817c88e00b6d9bbe672f5a0566ef1005915c7",
+      "publishedSourceHash": "76ddc5998131e4d8f1c0e9f23a3880334e3c424693572effba51a5480f53f1b1"
+    },
+    {
+      "id": "hmp-026",
+      "candidateNumber": 26,
+      "title": "Rysowanie tropu",
+      "startLine": "p0180-l0016",
+      "endLineExclusive": "p0180-l0023",
+      "pdfPages": [
+        180
+      ],
+      "printedPages": [
+        165
+      ],
+      "sourceBlockSha256": "f81db4d81a5ce3deeacb8d1833b0e361f2496e0b6f60bfc25f739e7be441fdbe",
+      "publishedSourceHash": "20722f1c42053fc55ea7d65866473bfe10b19df76789b26ed16c0debe6afce27"
+    },
+    {
+      "id": "hmp-027",
+      "candidateNumber": 27,
+      "title": "Wskaż złodzieja!",
+      "startLine": "p0180-l0023",
+      "endLineExclusive": "p0181-l0008",
+      "pdfPages": [
+        180,
+        181
+      ],
+      "printedPages": [
+        165,
+        166
+      ],
+      "sourceBlockSha256": "7e5b325f4680137445afa90f45512ce8ad40907cbc0fafd807f50ab25ecc0c26",
+      "publishedSourceHash": "d0d826a4cef4117ce975f334a21089e71aa2acc9444e7087ac17ec434f9553ad"
+    },
+    {
+      "id": "hmp-028",
+      "candidateNumber": 28,
+      "title": "Przemytnicy",
+      "startLine": "p0181-l0008",
+      "endLineExclusive": "p0181-l0028",
+      "pdfPages": [
+        181
+      ],
+      "printedPages": [
+        166
+      ],
+      "sourceBlockSha256": "24496d6caf55fdf937d5063eea899636e11ab80d4f4fd5774686fef73961f752",
+      "publishedSourceHash": "118cffbd6fd52b90233917fe9ae560b2fcc26a400c5ae6d047c0690742f0b40b"
+    },
+    {
+      "id": "hmp-029",
+      "candidateNumber": 29,
+      "title": "Polowanie na harcerza",
+      "startLine": "p0190-l0026",
+      "endLineExclusive": "p0191-l0004",
+      "pdfPages": [
+        190,
+        191
+      ],
+      "printedPages": [
+        175,
+        176
+      ],
+      "sourceBlockSha256": "5a3edf55d5c5a321fc06e5748ba5b29f3e457f10f72be51e5b748a98438117da",
+      "publishedSourceHash": "9e057fb88f3ae5975d7c2b6f2a4089004e7b67883b09dde0e7e7044a715c6b97"
+    },
+    {
+      "id": "hmp-030",
+      "candidateNumber": 30,
+      "title": "Kuryer Rządu Narodowego",
+      "startLine": "p0191-l0004",
+      "endLineExclusive": "p0191-l0012",
+      "pdfPages": [
+        191
+      ],
+      "printedPages": [
+        176
+      ],
+      "sourceBlockSha256": "99342a22c976222e60bd60a4fd191d2566fc804f732681a58572a1d398ce8652",
+      "publishedSourceHash": "7be9e748db31e152820cd6ea42175620fdc989e4635ec0b0778175b1a6465570"
+    },
+    {
+      "id": "hmp-031",
+      "candidateNumber": 31,
+      "title": "Bieg rozstawny",
+      "startLine": "p0191-l0012",
+      "endLineExclusive": "p0191-l0023",
+      "pdfPages": [
+        191
+      ],
+      "printedPages": [
+        176
+      ],
+      "sourceBlockSha256": "6919873ead9fb41606ba4464ca525791cc0ce1020ef6d0ae0e865dd2bd44d20d",
+      "publishedSourceHash": "53903e9bccbe919658a76318b940bff1cf8fd96d2889aa89ad603333be6a4629"
+    },
+    {
+      "id": "hmp-032",
+      "candidateNumber": 32,
+      "title": "Podejście zwierzyny",
+      "startLine": "p0191-l0023",
+      "endLineExclusive": "p0192-l0011",
+      "pdfPages": [
+        191,
+        192
+      ],
+      "printedPages": [
+        176,
+        177
+      ],
+      "sourceBlockSha256": "da9bc4a6f31ed47f07eb67a37d39d42ab689cf512b12f188e588ba4f9c39a53a",
+      "publishedSourceHash": "df046edca6c6b0abc098c31ac941b27d9ccc037f5f12c31bc22f5e5de85e6cd5"
+    },
+    {
+      "id": "hmp-033",
+      "candidateNumber": 33,
+      "title": "Podejście i sprawozdanie",
+      "startLine": "p0192-l0011",
+      "endLineExclusive": "p0192-l0027",
+      "pdfPages": [
+        192
+      ],
+      "printedPages": [
+        177
+      ],
+      "sourceBlockSha256": "2788c6fe427f3231e64307342e759f42e68716f7e96e30ac5666c0a92ee08b33",
+      "publishedSourceHash": "2de8509c17362457056d923b603705f7e7d04fd8f1713c1b2c472cd21670da09"
+    },
+    {
+      "id": "hmp-034",
+      "candidateNumber": 34,
+      "title": "Pająk i mucha",
+      "startLine": "p0192-l0027",
+      "endLineExclusive": "p0193-l0013",
+      "pdfPages": [
+        192,
+        193
+      ],
+      "printedPages": [
+        177,
+        178
+      ],
+      "sourceBlockSha256": "8f4c19a2734972c51db5f9b7241dd3ce61d3a37210317ec6ef9d5113660addb7",
+      "publishedSourceHash": "2a26917d0bd32afe78f874846a527c5306ea37ae69ea7813c54f3e32fa8373b1",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0192-l0031",
+          "endLine": "p0192-l0031",
+          "reason": "table-illustration-or-page-furniture-outside-record-scope"
+        }
+      ]
+    },
+    {
+      "id": "hmp-035",
+      "candidateNumber": 35,
+      "title": "Porwanie chorągwi",
+      "startLine": "p0193-l0013",
+      "endLineExclusive": "p0194-l0018",
+      "pdfPages": [
+        193,
+        194
+      ],
+      "printedPages": [
+        179
+      ],
+      "sourceBlockSha256": "fb575fd0696076c63b6f82aecd44303ac763518c3afe46f41cec1b5bb63a0ed9",
+      "publishedSourceHash": "2b2cc682a4f4e0f86a2493abff96964d17f369d09acdbae246913ad49baaf5f6",
+      "omittedSourceRanges": [
+        {
+          "startLine": "p0193-l0025",
+          "endLine": "p0193-l0033",
+          "reason": "table-illustration-or-page-furniture-outside-record-scope"
+        }
+      ]
+    },
+    {
+      "id": "hmp-036",
+      "candidateNumber": 36,
+      "title": "Łowy na niedźwiedzia",
+      "startLine": "p0204-l0013",
+      "endLineExclusive": "p0205-l0004",
+      "pdfPages": [
+        204,
+        205
+      ],
+      "printedPages": [
+        189,
+        190
+      ],
+      "sourceBlockSha256": "927b6e76b48a122222f8020a0a354f23ac3be4b99054e8d156861886306eab91",
+      "publishedSourceHash": "976b436c88b35232a26ea9b1bfa67fe6df8d14f84d4a2c71db5275d14675ba1e"
+    },
+    {
+      "id": "hmp-037",
+      "candidateNumber": 37,
+      "title": "Wyścig za rośliną",
+      "startLine": "p0208-l0009",
+      "endLineExclusive": "p0208-l0016",
+      "pdfPages": [
+        208
+      ],
+      "printedPages": [
+        193
+      ],
+      "sourceBlockSha256": "f1205da165a5a3d4e10a880e609a83cd2569e35dd2ec06a967a0049bfbc6b736",
+      "publishedSourceHash": "b3f542ede5d28e3f4b5eb2809933559925280bbbcccea2aae0d210b3a66e5ba7"
+    },
+    {
+      "id": "hmp-038",
+      "candidateNumber": 38,
+      "title": "Błędni rycerze",
+      "startLine": "p0244-l0021",
+      "endLineExclusive": "p0244-l0028",
+      "pdfPages": [
+        244
+      ],
+      "printedPages": [
+        229
+      ],
+      "sourceBlockSha256": "2340f9cfeebeb9047d2d9b858b4f85047bf939266805ae0dda73c350349624a5",
+      "publishedSourceHash": "4869e07e2e673c618a8a7cb371904baccb36f2a13fa7d991abb8225e559b9461"
+    },
+    {
+      "id": "hmp-039",
+      "candidateNumber": 39,
+      "title": "Wyścig strażaków",
+      "startLine": "p0277-l0014",
+      "endLineExclusive": "p0277-l0026",
+      "pdfPages": [
+        277
+      ],
+      "printedPages": [
+        262
+      ],
+      "sourceBlockSha256": "d57e1d389067b84ced120ab21cecaa66ddcff0c8e04f0e84c45b55a9b7fd1642",
+      "publishedSourceHash": "57394da9ae494f3595e61296ef78778fb2ccb430a3a481d202325466ca62fbac"
+    }
+  ]
+}

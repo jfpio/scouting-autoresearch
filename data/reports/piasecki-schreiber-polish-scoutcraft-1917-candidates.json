@@ -5,7 +5,7 @@
   "authorStatement": "Mieczysław Schreiber i Eugeniusz Piasecki",
   "edition": "wydanie 2",
   "year": 1917,
-  "status": "candidate-inventory-complete-record-review-pending",
+  "status": "complete-imported",
   "sourceText": {
     "classification": "embedded-text-available",
     "sha256": "c42c772d5d91d8adba550a5d32837e58f3fc8c43190a68da9e63f1d73b7b582b",
@@ -38,7 +38,7 @@
     },
     "rightsScope": "Game prose in the library object explicitly marked public domain; non-game media remain outside the product scope.",
     "humanReviewRequiredBeforeFullTextPublication": false,
-    "importedActivityCount": 0,
+    "importedActivityCount": 36,
     "componentEvidence": [
       "The title page calls the book an adaptation based on Baden-Powell's Scouting for Boys.",
       "The first-edition preface says named collaborators supplied examples and descriptions.",
@@ -61,7 +61,8 @@
         "titleRaw": "Przedstawienia dramatyczne",
         "reason": "activity-kind-outside-v3-production-scope"
       }
-    ]
+    ],
+    "recordReviewRequired": false
   },
   "candidates": [
     {
@@ -77,7 +78,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "c00d93db2c0ff62933170d4897121b0af788e1fb36323cdcb5be55a8e7a1c5e0",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0068-l0013",
+      "reviewedEndLineExclusive": "p0069-l0004"
     },
     {
       "titleRaw": "Twierdza ze śniegu",
@@ -92,7 +95,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "1218f69f7fc8881e6fe72a48d42db83c9f13de475d70a7fd5d9632e441531608",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0069-l0004",
+      "reviewedEndLineExclusive": "p0069-l0013"
     },
     {
       "titleRaw": "Ucieczka Sybiraka",
@@ -107,7 +112,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "1218f69f7fc8881e6fe72a48d42db83c9f13de475d70a7fd5d9632e441531608",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0069-l0013",
+      "reviewedEndLineExclusive": "p0069-l0024"
     },
     {
       "titleRaw": "Kozak i Tatarzyn",
@@ -122,7 +129,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "57a54a72518216207ce7728b27cebd82f07b5fb131e0164a7c3fc97fa418e300",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0070-l0003",
+      "reviewedEndLineExclusive": "p0070-l0024"
     },
     {
       "titleRaw": "Goniec",
@@ -137,7 +146,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "57a54a72518216207ce7728b27cebd82f07b5fb131e0164a7c3fc97fa418e300",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0070-l0024",
+      "reviewedEndLineExclusive": "p0071-l0007"
     },
     {
       "titleRaw": "Gra Kima",
@@ -152,7 +163,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "73b651db6b60e9da09c8cd4f3183c6e2a6bea70444de0f0a9f8c7d148dab6a86",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0071-l0007",
+      "reviewedEndLineExclusive": "p0072-l0007"
     },
     {
       "titleRaw": "Przewodnik",
@@ -167,7 +180,9 @@
       "titleLocatorScore": 0.9,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "5f612a1437a1178b1af0a1b4390cc7510cb5bc088cc509329db3fbffeddb3f53",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0088-l0003",
+      "reviewedEndLineExclusive": "p0088-l0012"
     },
     {
       "titleRaw": "Gdzie północ?",
@@ -182,7 +197,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "5f612a1437a1178b1af0a1b4390cc7510cb5bc088cc509329db3fbffeddb3f53",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0088-l0012",
+      "reviewedEndLineExclusive": "p0088-l0021"
     },
     {
       "titleRaw": "Podejście czaty",
@@ -197,7 +214,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "5f612a1437a1178b1af0a1b4390cc7510cb5bc088cc509329db3fbffeddb3f53",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0088-l0021",
+      "reviewedEndLineExclusive": "p0089-l0008"
     },
     {
       "titleRaw": "Świstaki",
@@ -212,7 +231,9 @@
       "titleLocatorScore": 0.9,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "943fd51f53c22fca06f12ae196a596be915ef52cc895769b5062fc75059cf7dd",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0091-l0011",
+      "reviewedEndLineExclusive": "p0091-l0021"
     },
     {
       "titleRaw": "Połów wieloryba",
@@ -227,7 +248,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "e6dc4b36fba89d0d774d2c0e029ca6394f4d57fb14723b485a800f7fe7db51f7",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0094-l0023",
+      "reviewedEndLineExclusive": "p0095-l0017"
     },
     {
       "titleRaw": "Goniec Króla Jegomości",
@@ -242,7 +265,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "1c0ff94dc7f5a3fbc3e55b6278fbc24440888c78cd00ad1ddae17ab1e9de2994",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0108-l0020",
+      "reviewedEndLineExclusive": "p0109-l0012"
     },
     {
       "titleRaw": "Karawana",
@@ -257,7 +282,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "ad8e65a8c0c8cfc997717ee19d24c7a0c863740fefa2818e4cb9bea42068a6ed",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0109-l0012",
+      "reviewedEndLineExclusive": "p0109-l0020"
     },
     {
       "titleRaw": "Wyścig zwiadowców",
@@ -272,7 +299,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "ad8e65a8c0c8cfc997717ee19d24c7a0c863740fefa2818e4cb9bea42068a6ed",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0109-l0020",
+      "reviewedEndLineExclusive": "p0110-l0016"
     },
     {
       "titleRaw": "Palant",
@@ -287,7 +316,8 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "71143fbe8d5f9d7d12005ba2eedeeddef3bab33bf2db1c94a5f016173f483132",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "bibliographic reference only; this edition does not supply a self-contained game procedure"
     },
     {
       "titleRaw": "Piłka nożna",
@@ -302,7 +332,8 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "71143fbe8d5f9d7d12005ba2eedeeddef3bab33bf2db1c94a5f016173f483132",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "bibliographic reference only; this edition does not supply a self-contained game procedure"
     },
     {
       "titleRaw": "Piłka koszykowa",
@@ -317,7 +348,8 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "71143fbe8d5f9d7d12005ba2eedeeddef3bab33bf2db1c94a5f016173f483132",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "bibliographic reference only; this edition does not supply a self-contained game procedure"
     },
     {
       "titleRaw": "Szukaj naparstka",
@@ -332,7 +364,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "ca0365d7954aaf1d9b0c918f6f1512cf8ff4318b68f538ee8e367ecd359dca9c",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0166-l0009",
+      "reviewedEndLineExclusive": "p0166-l0019"
     },
     {
       "titleRaw": "Okna sklepowe",
@@ -347,7 +381,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "ca0365d7954aaf1d9b0c918f6f1512cf8ff4318b68f538ee8e367ecd359dca9c",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0166-l0019",
+      "reviewedEndLineExclusive": "p0167-l0006"
     },
     {
       "titleRaw": "Co zawiera pokój?",
@@ -362,7 +398,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "bb65b503bfa7f2d74b157d1f69743445f73efb90a69750ad5ff3d2f59b129203",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0167-l0006",
+      "reviewedEndLineExclusive": "p0167-l0014"
     },
     {
       "titleRaw": "Rozpoznawanie obrazków",
@@ -377,7 +415,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "bb65b503bfa7f2d74b157d1f69743445f73efb90a69750ad5ff3d2f59b129203",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0167-l0015",
+      "reviewedEndLineExclusive": "p0167-l0024"
     },
     {
       "titleRaw": "Zając i charty",
@@ -392,7 +432,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "bb65b503bfa7f2d74b157d1f69743445f73efb90a69750ad5ff3d2f59b129203",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0167-l0024",
+      "reviewedEndLineExclusive": "p0168-l0005"
     },
     {
       "titleRaw": "Węch harcerza",
@@ -407,7 +449,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "f376a2977594fae5edbbebb46c0ff20c69516db4f3b22a51b3cbdef051a4b14b",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0168-l0005",
+      "reviewedEndLineExclusive": "p0168-l0015"
     },
     {
       "titleRaw": "Daleko i blizko",
@@ -422,7 +466,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "f376a2977594fae5edbbebb46c0ff20c69516db4f3b22a51b3cbdef051a4b14b",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0168-l0015",
+      "reviewedEndLineExclusive": "p0169-l0005"
     },
     {
       "titleRaw": "Pamięć tropu",
@@ -437,7 +483,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "f0d020ba525bb197a5c1c2946a8f6aad1723e0fed61a2fdcb9d5199a9ed4768a",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0180-l0009",
+      "reviewedEndLineExclusive": "p0180-l0016"
     },
     {
       "titleRaw": "Rysowanie tropu",
@@ -452,7 +500,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "f0d020ba525bb197a5c1c2946a8f6aad1723e0fed61a2fdcb9d5199a9ed4768a",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0180-l0016",
+      "reviewedEndLineExclusive": "p0180-l0023"
     },
     {
       "titleRaw": "Wskaż złodzieja!",
@@ -467,7 +517,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "f0d020ba525bb197a5c1c2946a8f6aad1723e0fed61a2fdcb9d5199a9ed4768a",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0180-l0023",
+      "reviewedEndLineExclusive": "p0181-l0008"
     },
     {
       "titleRaw": "Przemytnicy",
@@ -482,7 +534,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "3839584ed72158564b26316c4fa3b56a1e7075f2851440f79efb729c1997cee3",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0181-l0008",
+      "reviewedEndLineExclusive": "p0181-l0028"
     },
     {
       "titleRaw": "Polowanie na harcerza",
@@ -497,7 +551,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "1e4a302a46d8972faa39c0a45b47d23dafa86fef08fecd96a0cb8ace33ab8e5d",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0190-l0026",
+      "reviewedEndLineExclusive": "p0191-l0004"
     },
     {
       "titleRaw": "Kuryer Rządu Narodowego",
@@ -512,7 +568,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "d8a987491cf008bf28ef474322005c8ff52e17bbed79e9b066b3df028fb082d8",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0191-l0004",
+      "reviewedEndLineExclusive": "p0191-l0012"
     },
     {
       "titleRaw": "Bieg rozstawny",
@@ -527,7 +585,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "d8a987491cf008bf28ef474322005c8ff52e17bbed79e9b066b3df028fb082d8",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0191-l0012",
+      "reviewedEndLineExclusive": "p0191-l0023"
     },
     {
       "titleRaw": "Podejście zwierzyny",
@@ -542,7 +602,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "d8a987491cf008bf28ef474322005c8ff52e17bbed79e9b066b3df028fb082d8",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0191-l0023",
+      "reviewedEndLineExclusive": "p0192-l0011"
     },
     {
       "titleRaw": "Podejście i sprawozdanie",
@@ -557,7 +619,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "343fbc79470877685268925fcd1fde3ff539904e5d0f46648ea04f8c1e4bcb23",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0192-l0011",
+      "reviewedEndLineExclusive": "p0192-l0027"
     },
     {
       "titleRaw": "Pająk i mucha",
@@ -572,7 +636,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "343fbc79470877685268925fcd1fde3ff539904e5d0f46648ea04f8c1e4bcb23",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0192-l0027",
+      "reviewedEndLineExclusive": "p0193-l0013"
     },
     {
       "titleRaw": "Porwanie chorągwi",
@@ -587,7 +653,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "51d04078aecff986e981b4dbc0ca5753f85bd5c5193ad9c321562f4e87ad4de0",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0193-l0013",
+      "reviewedEndLineExclusive": "p0194-l0018"
     },
     {
       "titleRaw": "Łowy na niedźwiedzia",
@@ -602,7 +670,9 @@
       "titleLocatorScore": 0.9,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "7148c47a9834550133c170df5deded314b46d3f5907e05cfb3c936d376bf55a7",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0204-l0013",
+      "reviewedEndLineExclusive": "p0205-l0004"
     },
     {
       "titleRaw": "Wyścig za rośliną",
@@ -617,22 +687,26 @@
       "titleLocatorScore": 0.9,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "df104ef85d13fba16d092bfcf6f5ce02fab772549bb5ebdfe20c7231f0918d18",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0208-l0009",
+      "reviewedEndLineExclusive": "p0208-l0016"
     },
     {
       "titleRaw": "Błędni rycerze",
-      "printedPageStart": 220,
+      "printedPageStart": 229,
       "section": "Rycerskość i ratownictwo",
       "number": 38,
       "expectedPdfPageFromIndex": 235,
-      "pdfPageStart": 235,
-      "pageLocator": "p0235",
-      "bestLineLocator": "p0235-l0025",
-      "titleLocatorMatch": "nie będzie nawet o prawdziwych swych przy­",
+      "pdfPageStart": 244,
+      "pageLocator": "p0244",
+      "bestLineLocator": "p0244-l0021",
+      "titleLocatorMatch": "Błędni rycerze.",
       "titleLocatorScore": 0.375,
-      "locatorStatus": "page-located-heading-needs-review",
+      "locatorStatus": "heading-located-after-index-correction",
       "sourcePageSha256": "f5ef3e86330835f7e26ecb14c3825adb2333f2f608d0d7f97f01ef0639216c7c",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0244-l0021",
+      "reviewedEndLineExclusive": "p0244-l0028"
     },
     {
       "titleRaw": "Wyścig strażaków",
@@ -647,7 +721,9 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "0eb11919c05cc13f6e347fe9afa7bd9e4e32f04b7e0a30c31d6b22993288c334",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game",
+      "reviewedStartLine": "p0277-l0014",
+      "reviewedEndLineExclusive": "p0277-l0026"
     },
     {
       "titleRaw": "Pantomimy",
@@ -662,7 +738,8 @@
       "titleLocatorScore": 1.0,
       "locatorStatus": "heading-located",
       "sourcePageSha256": "0eb11919c05cc13f6e347fe9afa7bd9e4e32f04b7e0a30c31d6b22993288c334",
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "creative pantomime proposal without game rules, scoring or another bounded outcome procedure"
     }
   ]
 }

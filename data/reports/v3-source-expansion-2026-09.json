@@ -17,7 +17,7 @@
     {"sourceId": "pawelek-young-troop-1919", "status": "imported", "candidateCount": 115, "importedActivityCount": 61, "ocrReferenceCostUsd": 0.344, "translationReferenceCostUsd": 0.0304275, "modelEvaluationReferenceCostUsd": 0.00920805, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
     {"sourceId": "zwolakowska-cub-pack-1945", "status": "imported", "candidateCount": 74, "importedActivityCount": 74, "ocrReferenceCostUsd": 0.128, "translationReferenceCostUsd": 0.049881, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v3", "sourceValidation": "passed"},
     {"sourceId": "sedlaczek-fieldcraft-method-1935", "status": "skipped-with-reason", "candidateCount": 0, "importedActivityCount": 0, "reason": "Owner deferred both PBC sources from the current V3 run after the direct URL proved to be an indirect DjVu index."},
-    {"sourceId": "piasecki-schreiber-polish-scoutcraft-1917", "status": "record-review-pending", "candidateCount": 40, "importedActivityCount": 0},
+    {"sourceId": "piasecki-schreiber-polish-scoutcraft-1917", "status": "imported", "candidateCount": 40, "importedActivityCount": 36, "translationReferenceCostUsd": 0.0235865, "modelEvaluationReferenceCostUsd": 0.00683925, "untrackedFailedTranslationReferenceCostUpperBoundUsd": 0.010041, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
     {"sourceId": "sedlaczek-scout-school-1921", "status": "record-review-pending", "candidateCount": 40, "importedActivityCount": 0},
     {"sourceId": "chamarande-1934", "status": "zero-yield", "candidateCount": 0, "importedActivityCount": 0, "reason": "The approved prose contains programme-level mentions of games but no self-contained game rules."}
   ],
@@ -51,7 +51,7 @@
   },
   "candidateAndImportCounts": {
     "candidateCount": 867,
-    "importedActivityCount": 645,
+    "importedActivityCount": 681,
     "candidateCountBySource": {
       "jasinski-field-games-1938": 196,
       "mojmir-scout-games-1912": 85,
@@ -88,11 +88,11 @@
     "ocrProcessedViewCount": 619,
     "ocrReferenceCostUsd": 2.48,
     "referenceCostLimitUsd": 10.0,
-    "translationPromptTokens": 311558,
-    "translationCompletionTokens": 149105,
-    "translationReferenceCostUsd": 0.672452,
-    "completedModelEvaluationReferenceCostUsd": 0.0855935,
-    "untrackedFailedTranslationReferenceCostUpperBoundUsd": 0.017268
+    "translationPromptTokens": 331602,
+    "translationCompletionTokens": 158148,
+    "translationReferenceCostUsd": 0.6960385,
+    "completedModelEvaluationReferenceCostUsd": 0.09243275,
+    "untrackedFailedTranslationReferenceCostUpperBoundUsd": 0.027309
   },
   "validationResults": {
     "status": "pending-after-corpus-expansion",
