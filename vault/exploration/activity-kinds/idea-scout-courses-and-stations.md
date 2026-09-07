@@ -48,6 +48,17 @@ redakcyjna o takim sposobie użycia.
 - Samodzielna gra terenowa z metą lub biegiem uczestników jest kontrprzykładem, jeżeli nie
   organizuje wielu odrębnych punktów lub zadań.
 
+## Zatwierdzony kierunek redakcyjny
+
+Właściciel projektu 7 września 2026 r. zatwierdził dalsze opracowanie dwóch odrębnych
+rodzajów: `scout-course` oraz `scout-course-station`. Zatwierdził również model
+wieloetykietowy na granicy z `trial`: punkt biegu będący jednocześnie próbą może zachować
+obie etykiety, jeżeli każde z tych znaczeń ma osobną podstawę źródłową albo zostało ręcznie
+potwierdzone. Nie należy rozstrzygać kolizji przez automatyczne wybranie tylko jednej z nich.
+
+Ta decyzja ustala kierunek modelu, ale nie zatwierdza jeszcze produkcyjnej migracji schematu
+ani automatycznego przypisania etykiet konkretnym rekordom.
+
 ## Materiał dowodowy do przeglądu
 
 Raport `data/reports/jasinski-field-games-1938-candidates.json` zawiera kandydatury 171–185,
@@ -58,12 +69,10 @@ wydzielenia z wnętrza biegów i sprawdzenia ich granic w skanie.
 
 ## Pytania do decyzji
 
-1. Czy `scout-course` i `scout-course-station` mają zostać dwoma rodzajami, czy bieg ma być
-   rekordem z relacją `has-part` do zwykłych aktywności?
+1. Czy bieg ma być rekordem z relacją `has-part` do rekordów punktów, czy relacja
+   całość–część ma być reprezentowana inaczej?
 2. Czy punkt może istnieć samodzielnie bez rodzica-biegu?
-3. Czy relacja z próbą ma być wieloetykietowa, czy `trial` powinno opisywać wyłącznie
-   osobiste wyzwania niezależne od formatu biegu?
-4. Czy po akceptacji nowego rodzaju mapa semantyczna ma objąć także biegi i punkty, czy
+3. Czy po akceptacji nowego rodzaju mapa semantyczna ma objąć także biegi i punkty, czy
    zachować osobne warstwy?
 
 ## Warunek akceptacji
