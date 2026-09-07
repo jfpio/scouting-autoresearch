@@ -418,11 +418,26 @@ def v3_source_run_errors(
             and len(candidate_payload.get("candidates") or []) == unit.get("candidateCount"),
             f"{unit.get('id')}: candidate count differs between report and checkpoint",
         )
-        require(
-            candidate_payload.get("status")
-            == "candidate-inventory-complete-record-review-pending",
-            f"{unit.get('id')}: candidate report is not awaiting record review",
-        )
+        expected_candidate_status = {
+            "record-review-pending": "candidate-inventory-complete-record-review-pending",
+            "translating": "record-review-complete-original-imported-translation-pending",
+            "imported": "complete-imported",
+        }.get(unit.get("status"))
+        if expected_candidate_status:
+            require(
+                candidate_payload.get("status") == expected_candidate_status,
+                f"{unit.get('id')}: candidate report status differs from the source-unit stage",
+            )
+        if unit.get("status") in {"translating", "imported"}:
+            require(
+                selection.get("importedActivityCount") == unit.get("importedActivityCount")
+                and all(
+                    item.get("recordReviewStatus")
+                    in {"accepted-game", "rejected-not-game", "rejected-uncertain-boundary"}
+                    for item in candidate_payload.get("candidates") or []
+                ),
+                f"{unit.get('id')}: completed record review is inconsistent",
+            )
         require(
             selection.get("rightsStatus") == "public-domain"
             and selection.get("rightsEvidencePolicy")

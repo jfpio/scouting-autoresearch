@@ -31,6 +31,7 @@ from translate import (
     advance_translation_state,
     combine_usage_records,
     current_translation,
+    deterministic_translation_repairs,
     ensure_models_available,
     parse_json_content,
     retry_at_from_headers,
@@ -134,6 +135,24 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(
             translation_output_token_budget({"body": "x" * 100_000}),
             MAX_OUTPUT_TOKENS,
+        )
+
+    def test_translation_repair_restores_a_source_digit_without_touching_urls(self):
+        source = "Idź 40 kroków. https://example.test/40"
+        translated = {
+            "title": "Test",
+            "section": "Games",
+            "traits": ["invented"],
+            "body": "Walk forty paces. https://example.test/40",
+        }
+        repaired, repairs = deterministic_translation_repairs(
+            {"traits": []}, source, translated, "en"
+        )
+        self.assertEqual(repaired["traits"], [])
+        self.assertEqual(repaired["body"], "Walk 40 paces. https://example.test/40")
+        self.assertEqual(
+            repairs,
+            ["reset-invented-empty-traits", "restore-source-digit:40:1"],
         )
 
     def test_french_source_requires_an_explicit_supported_target(self):

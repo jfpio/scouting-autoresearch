@@ -81,10 +81,45 @@ when traits is empty. Preserve every numeral and unit without conversion and pre
 breaks. Output valid JSON only.""",
 }
 
+SYSTEM_PROMPT_OVERRIDES = {
+    (
+        "pl",
+        "en",
+        "translation-pl-en-v2",
+    ): SYSTEM_PROMPTS[("pl", "en")]
+    + "\nPreserve the traits array length exactly. If the supplied traits array is empty, "
+    "return traits as [] and do not infer any traits.",
+    (
+        "pl",
+        "en",
+        "translation-pl-en-v3",
+    ): SYSTEM_PROMPTS[("pl", "en")]
+    + "\nPreserve the traits array length exactly. If the supplied traits array is empty, "
+    "return traits as [] and do not infer any traits. Preserve every numeral and unit exactly: "
+    "do not convert quantities, clock notation, dates, distances, or explanatory numbers. Keep "
+    "digits as the same digits and number words as number words; never translate a Polish number "
+    "word into a digit or introduce any new digit-containing token. Preserve every URL exactly.",
+}
+
 
 def prompt_version(source_locale: str, target_locale: str) -> str:
     version = "v6" if (source_locale, target_locale) == ("en", "pl") else "v1"
     return f"translation-{source_locale}-{target_locale}-{version}"
+
+
+def system_prompt_for(
+    source_locale: str, target_locale: str, version: str
+) -> str:
+    override = SYSTEM_PROMPT_OVERRIDES.get((source_locale, target_locale, version))
+    if override:
+        return override
+    default_version = prompt_version(source_locale, target_locale)
+    if version != default_version:
+        raise ValueError(f"Unsupported prompt version: {version}")
+    prompt = SYSTEM_PROMPTS.get((source_locale, target_locale))
+    if not prompt:
+        raise ValueError(f"Unsupported translation direction: {source_locale}->{target_locale}")
+    return prompt
 
 
 def load_secret() -> str:
@@ -193,6 +228,69 @@ def translation_fidelity_checks(
         "bodyLengthRatio": round(body_ratio, 4),
         "automaticPass": all(checks.values()),
     }
+
+
+ENGLISH_INTEGER_WORDS = {
+    0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five",
+    6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten",
+    11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen", 15: "fifteen",
+    16: "sixteen", 17: "seventeen", 18: "eighteen", 19: "nineteen", 20: "twenty",
+    30: "thirty", 40: "forty", 50: "fifty", 60: "sixty", 70: "seventy",
+    80: "eighty", 90: "ninety", 100: "one hundred",
+}
+
+
+def _english_integer_word(value: int) -> str | None:
+    direct = ENGLISH_INTEGER_WORDS.get(value)
+    if direct:
+        return direct
+    if 20 < value < 100:
+        tens = ENGLISH_INTEGER_WORDS.get((value // 10) * 10)
+        ones = ENGLISH_INTEGER_WORDS.get(value % 10)
+        if tens and ones:
+            return f"{tens}-{ones}"
+    return None
+
+
+def deterministic_translation_repairs(
+    metadata: dict[str, Any],
+    source_body: str,
+    translated: dict[str, Any],
+    target_locale: str,
+) -> tuple[dict[str, Any], list[str]]:
+    """Repair only mechanically provable output-contract violations."""
+    repaired = dict(translated)
+    repairs: list[str] = []
+    if not (metadata.get("traits") or []) and repaired.get("traits"):
+        repaired["traits"] = []
+        repairs.append("reset-invented-empty-traits")
+
+    if target_locale != "en":
+        return repaired, repairs
+    url_pattern = r"https?://[^\s)]+"
+    source_without_urls = re.sub(url_pattern, "", source_body)
+    translated_body = str(repaired.get("body") or "")
+    translated_without_urls = re.sub(url_pattern, "", translated_body)
+    source_digits = Counter(re.findall(r"(?<!\w)\d+(?!\w)", source_without_urls))
+    translated_digits = Counter(
+        re.findall(r"(?<!\w)\d+(?!\w)", translated_without_urls)
+    )
+    for token, required_count in source_digits.items():
+        missing = required_count - translated_digits[token]
+        if missing <= 0:
+            continue
+        word = _english_integer_word(int(token))
+        if not word:
+            continue
+        pattern = re.compile(rf"\b{re.escape(word)}\b", re.IGNORECASE)
+        if len(pattern.findall(translated_body)) < missing:
+            continue
+        translated_body, replaced = pattern.subn(token, translated_body, count=missing)
+        if replaced:
+            repairs.append(f"restore-source-digit:{token}:{replaced}")
+            translated_digits[token] += replaced
+    repaired["body"] = translated_body
+    return repaired, repairs
 
 
 class TransientTranslationError(RuntimeError):
@@ -415,11 +513,10 @@ def request_translation(
     body: str,
     source_locale: str,
     target_locale: str,
+    prompt_version_value: str,
     fidelity_feedback: str | None = None,
 ) -> tuple[dict, str, dict[str, Any]]:
-    system_prompt = SYSTEM_PROMPTS.get((source_locale, target_locale))
-    if not system_prompt:
-        raise ValueError(f"Unsupported translation direction: {source_locale}->{target_locale}")
+    system_prompt = system_prompt_for(source_locale, target_locale, prompt_version_value)
     user_payload = {
         "id": activity_id,
         "title": metadata["title"],
@@ -606,9 +703,11 @@ def translation_requirements(
 ) -> dict[str, Any]:
     source_locale = metadata["originalLanguage"]
     target_locale = translation_target(source_locale, target_locale)
-    expected_prompt = prompt_version(source_locale, target_locale)
     source_id = metadata["sourceId"]
     policy = source_translation_policy(source_id, target_locale)
+    expected_prompt = str(
+        policy.get("promptVersion") or prompt_version(source_locale, target_locale)
+    )
     if policy:
         if policy.get("targetLocale") != target_locale:
             raise ValueError(f"Source {source_id} translation target differs from its policy")
@@ -616,8 +715,7 @@ def translation_requirements(
             raise ValueError(
                 f"Source {source_id} requires model {policy.get('modelRequested')}, not {model}"
             )
-        if policy.get("promptVersion") != expected_prompt:
-            raise ValueError(f"Source {source_id} translation prompt differs from its policy")
+        system_prompt_for(source_locale, target_locale, expected_prompt)
         if policy.get("billingMode") not in {"experimental-no-charge", "education-credit"}:
             raise ValueError(f"Source {source_id} has an unsupported translation billing mode")
         if policy.get("billingMode") == "education-credit":
@@ -685,6 +783,10 @@ def translate_one(
         body,
         source_locale,
         target_locale,
+        requirements["expectedPrompt"] or prompt_version(source_locale, target_locale),
+    )
+    translated, deterministic_repairs = deterministic_translation_repairs(
+        metadata, body, translated, target_locale
     )
     fidelity = translation_fidelity_checks(metadata, body, translated, target_locale)
     if not fidelity["automaticPass"]:
@@ -708,8 +810,13 @@ def translate_one(
             body,
             source_locale,
             target_locale,
+            requirements["expectedPrompt"] or prompt_version(source_locale, target_locale),
             fidelity_feedback=feedback,
         )
+        corrected, corrected_repairs = deterministic_translation_repairs(
+            metadata, body, corrected, target_locale
+        )
+        deterministic_repairs.extend(corrected_repairs)
         corrected_fidelity = translation_fidelity_checks(
             metadata, body, corrected, target_locale
         )
@@ -734,13 +841,16 @@ def translate_one(
         "section": translated["section"].strip(),
         "modelRequested": model,
         "model": actual_model,
-        "promptVersion": prompt_version(source_locale, target_locale),
+        "promptVersion": requirements["expectedPrompt"]
+        or prompt_version(source_locale, target_locale),
         "reasoningMode": "disabled",
         "generatedAt": date.today().isoformat(),
         "sourceHash": expected_hash,
         "status": "machine-translation",
         "usage": usage,
     }
+    if deterministic_repairs:
+        translated_meta["deterministicRepairs"] = sorted(set(deterministic_repairs))
     output_path.parent.mkdir(parents=True, exist_ok=True)
     dump_markdown(output_path, translated_meta, translated["body"])
     print(f"translated {activity_id} ({actual_model})", flush=True)
@@ -912,7 +1022,10 @@ def write_checkpoint(
         "sourceId": source_id,
         "sourceLocale": source_locale,
         "targetLocale": target_locale,
-        "promptVersion": prompt_version(source_locale, target_locale),
+        "promptVersion": str(
+            source_translation_policy(source_id, target_locale).get("promptVersion")
+            or prompt_version(source_locale, target_locale)
+        ),
         **current_state,
     }
     reasoning_mode = source_translation_policy(source_id, target_locale).get(
@@ -1161,6 +1274,9 @@ def main() -> None:
     )
     report = {**final_checkpoint, "generatedAt": date.today().isoformat()}
     write_json(report_path(source_id, source_locale, target_locale), report)
+    stale_error_report = error_report_path(source_id, source_locale, target_locale)
+    if stale_error_report.is_file():
+        stale_error_report.unlink()
     print(f"Translations current: {completed}/{len(paths)}")
 
 

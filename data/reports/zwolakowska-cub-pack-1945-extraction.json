@@ -1,0 +1,939 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "zwolakowska-cub-pack-1945",
+  "sourceSha256": "aac001a68d5beb488afbfe7c09a4eae402acc521f13535aae8e3206292057dc0",
+  "parserVersion": "v3-bounded-ocr-game-import-v1",
+  "reviewRequired": false,
+  "activityCount": 74,
+  "wholeSourceCopiedToRepository": false,
+  "selection": {
+    "candidateCount": 74,
+    "acceptedGameCount": 74,
+    "rejectedCount": 0,
+    "basis": "dedicated game chapter with bounded headings"
+  },
+  "transcriptionEvidence": {
+    "sourceStatement": "Mistral OCR output from pinned Polona IIIF page images; raw responses remain in scratch.",
+    "sourceLocation": "https://polona.pl/preview/3f71abd7-af13-4f31-9b48-cab79f380362",
+    "deterministicNormalization": [
+      "omit the repeated activity heading represented in frontmatter",
+      "omit isolated numeric printed-page furniture",
+      "omit the following section heading when it falls inside the preceding block",
+      "join a page-break blank line only when it interrupts a word-continuing sentence",
+      "preserve spelling, punctuation and paragraph order without modernization"
+    ],
+    "lexicalModernization": false
+  },
+  "deduplication": {
+    "exactBodyMatches": [],
+    "nearDuplicateCandidates": []
+  },
+  "activities": [
+    {
+      "id": "wgz-001",
+      "candidateNumber": 1,
+      "title": "SZUKANIE PRZEDMIOTU",
+      "viewStart": 294,
+      "viewEnd": 294,
+      "printedPages": [
+        290
+      ],
+      "sourceBlockSha256": "e3f173ac8714dc5c815dd962385b2b60d52b149aad6ca246e114b722fcdf749b",
+      "publishedSourceHash": "144bfaaee9efafe149f9d9dac82311fed75fffcf62b326b497556fb86423eaa8"
+    },
+    {
+      "id": "wgz-002",
+      "candidateNumber": 2,
+      "title": "NA ŁOWY",
+      "viewStart": 295,
+      "viewEnd": 295,
+      "printedPages": [
+        291
+      ],
+      "sourceBlockSha256": "6cd5d75ef6a12c74d9431a58d62523b28a33e99b08902ab1134d33f2c9509f7e",
+      "publishedSourceHash": "5ebfb28599e6b3c69d8398d6213c9d24db92951b142063eae9639e59bee84d20"
+    },
+    {
+      "id": "wgz-003",
+      "candidateNumber": 3,
+      "title": "W WIGWAMIE",
+      "viewStart": 295,
+      "viewEnd": 295,
+      "printedPages": [
+        291
+      ],
+      "sourceBlockSha256": "ff8c7e2afa4d554895d1b25a4e1efd1bb8d6b3d3f6c2ea8a8d2d5c4204073a40",
+      "publishedSourceHash": "8df816a6e409daa12205c95fa851598d123f33db5aea7e244f19ae0f0fb5eb93"
+    },
+    {
+      "id": "wgz-004",
+      "candidateNumber": 4,
+      "title": "TAJNY ZNAK",
+      "viewStart": 295,
+      "viewEnd": 295,
+      "printedPages": [
+        291
+      ],
+      "sourceBlockSha256": "85e895e09b9280754187a7b2d7e5cd2faa65a6df9659711ff23c82f4b1916d7a",
+      "publishedSourceHash": "2c8d1c6492b7e20eeed29f1fb0c7f0500a8bb45119bada343fdeaa34bb1b9a0b"
+    },
+    {
+      "id": "wgz-005",
+      "candidateNumber": 5,
+      "title": "DOBIERANIE POŁÓWEK KART",
+      "viewStart": 295,
+      "viewEnd": 295,
+      "printedPages": [
+        291
+      ],
+      "sourceBlockSha256": "246d31d00eb35da4b263dec2740c41fb21297fb90dd5cc57d28a06a1b5548824",
+      "publishedSourceHash": "b144717ba81a8723f3a132343d0e36881819eba4e88309ad5f40bda25d724a82"
+    },
+    {
+      "id": "wgz-006",
+      "candidateNumber": 6,
+      "title": "BARWY",
+      "viewStart": 296,
+      "viewEnd": 296,
+      "printedPages": [
+        292
+      ],
+      "sourceBlockSha256": "b1ef9a1bf3e0ca6623bb5d8ca3bd2645ac3502c7b1f2aed5ae945a9d41ae16a4",
+      "publishedSourceHash": "ec30226df09e359c874fff1df806de0910512c5f36531f42f69519357eb47231"
+    },
+    {
+      "id": "wgz-007",
+      "candidateNumber": 7,
+      "title": "ZBIERANIE ZAPAŁEK",
+      "viewStart": 296,
+      "viewEnd": 296,
+      "printedPages": [
+        292
+      ],
+      "sourceBlockSha256": "2c63d91eccd8654869862fc8e56dc8e66915affec66813bf2e5522ea62766576",
+      "publishedSourceHash": "155392c0db11bdc2c7d8405bec75f42f06515edd579e0140c884858ffe7caccf"
+    },
+    {
+      "id": "wgz-008",
+      "candidateNumber": 8,
+      "title": "UKŁADANKI Z ZAPAŁEK",
+      "viewStart": 296,
+      "viewEnd": 296,
+      "printedPages": [
+        292
+      ],
+      "sourceBlockSha256": "b27133fe3d7ecc1e593b761547f8de76491f7cc1dbf9667705783f9a4e2da24c",
+      "publishedSourceHash": "317a443a4e95f3b80370aef5a2138c575dcfc58064f96bc7022a28b1323bd317"
+    },
+    {
+      "id": "wgz-009",
+      "candidateNumber": 9,
+      "title": "UKŁADANKI",
+      "viewStart": 296,
+      "viewEnd": 297,
+      "printedPages": [
+        292,
+        293
+      ],
+      "sourceBlockSha256": "1d1ec799f47673031ad2710202b624e27186cd633ea82cf9cfe5aa3882c53852",
+      "publishedSourceHash": "8661623f1c0a26cf0b5e5d3077145573aa23b5f079bffde98521a11d944b5514"
+    },
+    {
+      "id": "wgz-010",
+      "candidateNumber": 10,
+      "title": "DOBIERANIE BARW",
+      "viewStart": 297,
+      "viewEnd": 297,
+      "printedPages": [
+        293
+      ],
+      "sourceBlockSha256": "2b6a1aeabfffad1354ae62e74580936c505bfee45b0b3f483915119b84d5ec27",
+      "publishedSourceHash": "537541998fbaae31553da36953624017d435f507a3e13ac5f00d1dfa3f4c1280"
+    },
+    {
+      "id": "wgz-011",
+      "candidateNumber": 11,
+      "title": "UKŁADANIE LIŚCI",
+      "viewStart": 297,
+      "viewEnd": 297,
+      "printedPages": [
+        293
+      ],
+      "sourceBlockSha256": "b937ab99c2bd4bdac3bb1f9779177352465b7d48757b7a879fdeb877507a27b5",
+      "publishedSourceHash": "f1f4dd8d9f22682a7322284655b87f40d0e90f97d3c74acee95530763ecfacea"
+    },
+    {
+      "id": "wgz-012",
+      "candidateNumber": 12,
+      "title": "MOZAJKA",
+      "viewStart": 298,
+      "viewEnd": 299,
+      "printedPages": [
+        294,
+        295
+      ],
+      "sourceBlockSha256": "6701484bc6f6e630fe15636db853d83b1b6d161073d12730ac644a61d6b6e824",
+      "publishedSourceHash": "056749c159a8267cd94141465376fcf27675994fcbd9ca77b56050da5fe4ffac"
+    },
+    {
+      "id": "wgz-013",
+      "candidateNumber": 13,
+      "title": "KOPCIUSZEK",
+      "viewStart": 299,
+      "viewEnd": 299,
+      "printedPages": [
+        295
+      ],
+      "sourceBlockSha256": "c39d2b974923a2a16226734a7ce21147c658261dd8b87b9ce0a7208b4215261b",
+      "publishedSourceHash": "0c94940120770e9632f985f63a8269adb527aafc8bbe288fe8deff019722d3e6"
+    },
+    {
+      "id": "wgz-014",
+      "candidateNumber": 14,
+      "title": "SZARADA",
+      "viewStart": 299,
+      "viewEnd": 299,
+      "printedPages": [
+        295
+      ],
+      "sourceBlockSha256": "0cdd749ed7c9e28f6dd038d5e4427ed37c13887bc71811bfd46cd02a5e40020b",
+      "publishedSourceHash": "b12d65cc8ab31d81b4fd1233659fc139a94395a6d6bad1d6312dd517d71505c0"
+    },
+    {
+      "id": "wgz-015",
+      "candidateNumber": 15,
+      "title": "ZA GŁOSEM GWIZDKA",
+      "viewStart": 299,
+      "viewEnd": 300,
+      "printedPages": [
+        295,
+        296
+      ],
+      "sourceBlockSha256": "95102b8c45fbbf41a488f259917151a4f1594aca48038ef81edcbc1c91f66f5a",
+      "publishedSourceHash": "90cbeb1b5238ede17a0031a5ae6d9dad4291e8e7163f87ef28c95f87c4072df7"
+    },
+    {
+      "id": "wgz-016",
+      "candidateNumber": 16,
+      "title": "POLECENIA «NA MIGI»",
+      "viewStart": 300,
+      "viewEnd": 300,
+      "printedPages": [
+        296
+      ],
+      "sourceBlockSha256": "8b63c9da717886f6ae4dd80bb9b5564f9af546b972cc136c7dd59eed7ea49fc2",
+      "publishedSourceHash": "c135571b8330780ef1870ecb728d2709ba1104db3d58c3ae577ec8928c33ea88"
+    },
+    {
+      "id": "wgz-017",
+      "candidateNumber": 17,
+      "title": "DEPESZA «RUCHOWA»",
+      "viewStart": 300,
+      "viewEnd": 300,
+      "printedPages": [
+        296
+      ],
+      "sourceBlockSha256": "de6aa1e85f5188e544d4c5b72fa60bf2ddd43be4c872c30506c12bd615447eb8",
+      "publishedSourceHash": "0e9122f2a868713a15fdc8b4526c98fad955ae7c990ba60c633885741accd0e6"
+    },
+    {
+      "id": "wgz-018",
+      "candidateNumber": 18,
+      "title": "ROZDAWANIE PRZEDMIOTÓW",
+      "viewStart": 301,
+      "viewEnd": 301,
+      "printedPages": [
+        297
+      ],
+      "sourceBlockSha256": "be16c4b030856b315e27918904f06b808762eaef967652d257174f1b5600df78",
+      "publishedSourceHash": "b14a56533647fbedf3c5c0fc35c637abac4bc267c36f84d2355028102a723bff"
+    },
+    {
+      "id": "wgz-019",
+      "candidateNumber": 19,
+      "title": "TRZYMAJ — PUŚĆ",
+      "viewStart": 301,
+      "viewEnd": 301,
+      "printedPages": [
+        297
+      ],
+      "sourceBlockSha256": "c9071f594c014be5881c4efd5d6ce844e28e92f506089d861f7df645cf7c52c3",
+      "publishedSourceHash": "c9740d111f7aa277233980c67d2987c94c439d9f30c466719d534331584efa75"
+    },
+    {
+      "id": "wgz-020",
+      "candidateNumber": 20,
+      "title": "ZMIANA KIERUNKU PIŁKI",
+      "viewStart": 301,
+      "viewEnd": 301,
+      "printedPages": [
+        297
+      ],
+      "sourceBlockSha256": "a7d5b37c517f282319a34b2973abe08b77f6bbed2797c94ef232999891599790",
+      "publishedSourceHash": "9e360341aa0c47ac6a0ebf81fd1d2abcfd26a23021d6bbd726514dd759b1bf5e"
+    },
+    {
+      "id": "wgz-021",
+      "candidateNumber": 21,
+      "title": "WALI SIĘ, PALI SIĘ",
+      "viewStart": 301,
+      "viewEnd": 302,
+      "printedPages": [
+        297,
+        298
+      ],
+      "sourceBlockSha256": "999b12ba2c1b730509ba6ec9511fe5cefbfdf6eec72cd39403101b962d49850e",
+      "publishedSourceHash": "b91ffa7e1e2745b8211b303f3b76ca718493e85dcaac28c1b416622c2a0afec5"
+    },
+    {
+      "id": "wgz-022",
+      "candidateNumber": 22,
+      "title": "ZBIERANIE KARTOFLI",
+      "viewStart": 302,
+      "viewEnd": 302,
+      "printedPages": [
+        298
+      ],
+      "sourceBlockSha256": "ae85f2a5eebea40aca81c4019801f05143bdb030ce03f49b571ef4e100106c72",
+      "publishedSourceHash": "72def67a52d177d7dd79625ccb4cbdbadb5b75429672dcf39ca98b4eb5f2cb02"
+    },
+    {
+      "id": "wgz-023",
+      "candidateNumber": 23,
+      "title": "Z WORECZKIEM",
+      "viewStart": 302,
+      "viewEnd": 302,
+      "printedPages": [
+        298
+      ],
+      "sourceBlockSha256": "1a70c3459407afd93ab82974d1ca0247e6aa3019f047d082d7679eb37e1c636e",
+      "publishedSourceHash": "69318155b63198cef7a4231236e1859b5c69f66c69e42a8a1c36d3758f76d010"
+    },
+    {
+      "id": "wgz-024",
+      "candidateNumber": 24,
+      "title": "Z PIŁECZKAMI",
+      "viewStart": 302,
+      "viewEnd": 303,
+      "printedPages": [
+        298,
+        299
+      ],
+      "sourceBlockSha256": "2d66f1131d46ff1b17baf8431bb5c2964cfc0a9d6a6edc0830747ce324505572",
+      "publishedSourceHash": "d7211beb9d82b6fb477365f514369cf2496bc3c75beb7dd8be31c3d4a5d320b0"
+    },
+    {
+      "id": "wgz-025",
+      "candidateNumber": 25,
+      "title": "PORZĄDNICKA",
+      "viewStart": 303,
+      "viewEnd": 303,
+      "printedPages": [
+        299
+      ],
+      "sourceBlockSha256": "a33d6b3548ca7e8cd6801dc59d6dc78c39125fd2118bc9badacaceb96183c1c7",
+      "publishedSourceHash": "979a813fae59a83d87a417a7b76d8e3b7fe0d40f8cb69c0b6da35368b8d77caf"
+    },
+    {
+      "id": "wgz-026",
+      "candidateNumber": 26,
+      "title": "MAŁA SZAFARKA",
+      "viewStart": 303,
+      "viewEnd": 303,
+      "printedPages": [
+        299
+      ],
+      "sourceBlockSha256": "2f43ae2ea470d8a46b7b0ebe3c315c7f887e2328ce6a283060aa521a99475825",
+      "publishedSourceHash": "44045942ec88fb0f73c579e0e92f2ba29d24c6446129f8d488ca23914a17f162"
+    },
+    {
+      "id": "wgz-027",
+      "candidateNumber": 27,
+      "title": "UBIERANIE LALEK",
+      "viewStart": 303,
+      "viewEnd": 303,
+      "printedPages": [
+        299
+      ],
+      "sourceBlockSha256": "5995aa8f32ff6db1356969ab95135e38917524240eaae8772638beb6cd5399c6",
+      "publishedSourceHash": "2b1a86d3e036887f4f9bef5931c525e8d388336aede296fe4196cbf8e061a7b8"
+    },
+    {
+      "id": "wgz-028",
+      "candidateNumber": 28,
+      "title": "NAWLEKANIE IGŁY",
+      "viewStart": 304,
+      "viewEnd": 304,
+      "printedPages": [
+        300
+      ],
+      "sourceBlockSha256": "1c9b87e6ebe70be42d977298b94d9505a9e2c7153f458193688a94d3c7393e14",
+      "publishedSourceHash": "2202986cf5668bf79485c19f641f313d52de05d7fef1bc519590d3b5af50afd1"
+    },
+    {
+      "id": "wgz-029",
+      "candidateNumber": 29,
+      "title": "MAŁA SZWACZKA",
+      "viewStart": 304,
+      "viewEnd": 304,
+      "printedPages": [
+        300
+      ],
+      "sourceBlockSha256": "111fb6b3b3fc3a5c4143180d7adeacf4e9b4687090412af56986f3f839398507",
+      "publishedSourceHash": "129703f6d298bfee04a8627f86895d59405e66de7c3c7ddb61c1ec8f1f019f0b"
+    },
+    {
+      "id": "wgz-030",
+      "candidateNumber": 30,
+      "title": "KUCHCIKI",
+      "viewStart": 304,
+      "viewEnd": 305,
+      "printedPages": [
+        300,
+        301
+      ],
+      "sourceBlockSha256": "b7363d5efb516bb7a69401eb71a68f3d7b39cbecf930341c43ed53356e2f1683",
+      "publishedSourceHash": "57495b43c263fd14f477cc90a6aeca13280a3e5732af477f97022355568b18c4"
+    },
+    {
+      "id": "wgz-031",
+      "candidateNumber": 31,
+      "title": "ROZKAZY",
+      "viewStart": 305,
+      "viewEnd": 305,
+      "printedPages": [
+        301
+      ],
+      "sourceBlockSha256": "56ae65c842d46bf54ae02dd156a32c7595d8658be31593516413ec8d49199ef4",
+      "publishedSourceHash": "5cd249682e9e3ef9a8b71c56097de09e7ee37c2a0baccf71d67d416fdcb7e1a3"
+    },
+    {
+      "id": "wgz-032",
+      "candidateNumber": 32,
+      "title": "WÓDZ ROZKAZUJE",
+      "viewStart": 305,
+      "viewEnd": 305,
+      "printedPages": [
+        301
+      ],
+      "sourceBlockSha256": "444619b939d97d20d327a297a24f13a1600051379312d60a9c4e781b0537bcf3",
+      "publishedSourceHash": "7780dc49a1b9f2bc719a351b921faa702c0072dd4e50c7d870c9dc6824a4ca35"
+    },
+    {
+      "id": "wgz-033",
+      "candidateNumber": 33,
+      "title": "KTO SPRAWNIEJ?",
+      "viewStart": 305,
+      "viewEnd": 305,
+      "printedPages": [
+        301
+      ],
+      "sourceBlockSha256": "e5f5cc008b50b05f46785fe1770baf1e4001c871661229a29ad4eed1fbb3e891",
+      "publishedSourceHash": "9160e544840c33469db2268b7680ee8fd694b61accf80b414be4199fea424595"
+    },
+    {
+      "id": "wgz-034",
+      "candidateNumber": 34,
+      "title": "PACZKI",
+      "viewStart": 305,
+      "viewEnd": 306,
+      "printedPages": [
+        301,
+        302
+      ],
+      "sourceBlockSha256": "5afe56937d893decc291d3c2765ea82b56c91c027772e8d6da1e4c48f69fec64",
+      "publishedSourceHash": "92b4f4b7e3ae1360c4241b98839e8bfc7af4c655226d7530d68eaa1eb7fd190f"
+    },
+    {
+      "id": "wgz-035",
+      "candidateNumber": 35,
+      "title": "POŻAR",
+      "viewStart": 306,
+      "viewEnd": 306,
+      "printedPages": [
+        302
+      ],
+      "sourceBlockSha256": "113eabb31fab1a141135960c67615aacf3fc00d7b3f94d7aeef647485097b1ee",
+      "publishedSourceHash": "8d6f78792f9ac11f437240143d469b1c49617e28313991f14802bbda90cc3f7f"
+    },
+    {
+      "id": "wgz-036",
+      "candidateNumber": 36,
+      "title": "POLECENIE",
+      "viewStart": 306,
+      "viewEnd": 306,
+      "printedPages": [
+        302
+      ],
+      "sourceBlockSha256": "3e438d80d0f58cd47d826c82a55342960ac95343bb256f15e84c5ddfa3895975",
+      "publishedSourceHash": "47b3b0a680150a9ade6cf40a226cd07126d0466cb493d48a4f44710227074fa6"
+    },
+    {
+      "id": "wgz-037",
+      "candidateNumber": 37,
+      "title": "SYGNALIZACJA",
+      "viewStart": 306,
+      "viewEnd": 306,
+      "printedPages": [
+        302
+      ],
+      "sourceBlockSha256": "52290d1d19ba148c5b51cb1e9961bfe46ce633cd0a280f6e448222428711b1da",
+      "publishedSourceHash": "a611b2392fc69e638bb75af167539e2f1a45c5c3e74045dabec978746aad101e"
+    },
+    {
+      "id": "wgz-038",
+      "candidateNumber": 38,
+      "title": "KOMPAS",
+      "viewStart": 306,
+      "viewEnd": 307,
+      "printedPages": [
+        302,
+        303
+      ],
+      "sourceBlockSha256": "45c4da78ebd631aa1e1c032c84e92df6d152fa471d08b97406fa3d076f280121",
+      "publishedSourceHash": "ddac667b6e1c4a6487a968ed7139fe65682e818f5a34ec8a0fbc53f617f6ca56"
+    },
+    {
+      "id": "wgz-039",
+      "candidateNumber": 39,
+      "title": "STRONY ŚWIATA — PO NIEWIDOMEMU",
+      "viewStart": 307,
+      "viewEnd": 307,
+      "printedPages": [
+        303
+      ],
+      "sourceBlockSha256": "d98093af6e38f8bde18b4ddb32f39fcaaa8ec84dd85becf739d51f9d9016ffb1",
+      "publishedSourceHash": "aef2b08eb13b6b48a83e270215a3246b63c257027ddbe000eb5898f745f70c75"
+    },
+    {
+      "id": "wgz-040",
+      "candidateNumber": 40,
+      "title": "POCHODZENIE SARNY",
+      "viewStart": 307,
+      "viewEnd": 307,
+      "printedPages": [
+        303
+      ],
+      "sourceBlockSha256": "9be806c5d978788a3fd0c252b7f858cd3c0af1f4156bd86e70de829b7a72179f",
+      "publishedSourceHash": "3ef207f2661a2f77937cbcbde3f4f5c982487edb5d16da63fd796f566d3392ff"
+    },
+    {
+      "id": "wgz-041",
+      "candidateNumber": 41,
+      "title": "POCHODZENIE WARTY",
+      "viewStart": 307,
+      "viewEnd": 308,
+      "printedPages": [
+        303,
+        304
+      ],
+      "sourceBlockSha256": "a8d571d77226b0bd6d732c37bd9b95744161ac9e2f00adf9caf0bf966f77f611",
+      "publishedSourceHash": "9a8347c8cff42f839f6cfef7c9e8ce551229aad132f63f7f2511fea1c6d880b4"
+    },
+    {
+      "id": "wgz-042",
+      "candidateNumber": 42,
+      "title": "CZATY",
+      "viewStart": 308,
+      "viewEnd": 308,
+      "printedPages": [
+        304
+      ],
+      "sourceBlockSha256": "95bc815e78bc0865f33d69b3c9e42fddf24ae821df5fa779347f7d8ce63a57ed",
+      "publishedSourceHash": "c03a6d5aff24b340805952ddbb1ba6872cbbc2e546d5667a203c2cbceb134a82"
+    },
+    {
+      "id": "wgz-043",
+      "candidateNumber": 43,
+      "title": "ZACZAROWANA KSIĘŻNICZKA",
+      "viewStart": 308,
+      "viewEnd": 308,
+      "printedPages": [
+        304
+      ],
+      "sourceBlockSha256": "0f0e1fce0bf060669e6d0c86b7c73f669236484d4d1ef618f9320cb0bc517a41",
+      "publishedSourceHash": "041f31920bd041a77e6788e06a25946b776110644c3bf51eb4313aa687ce057d"
+    },
+    {
+      "id": "wgz-044",
+      "candidateNumber": 44,
+      "title": "ZDOBYWANIE FORTECY",
+      "viewStart": 308,
+      "viewEnd": 309,
+      "printedPages": [
+        304,
+        305
+      ],
+      "sourceBlockSha256": "63db5f5bfa7178dd2da75290fadd07c00eb30b025b83d40105b18edf256c978e",
+      "publishedSourceHash": "6ac8ebd86a2c3a6eaa1a4cc2e336925cc33f60a626d7a996a4a9364d2036f0f1"
+    },
+    {
+      "id": "wgz-045",
+      "candidateNumber": 45,
+      "title": "PORT WOJENNY",
+      "viewStart": 309,
+      "viewEnd": 309,
+      "printedPages": [
+        305
+      ],
+      "sourceBlockSha256": "edd90107b3ea57c667e1c845c3656eb50ad629a3b1ebc75b3ce52774ec75f820",
+      "publishedSourceHash": "100c3baca926aec0394cc45b99e863f81d907312546fbee74a885fd43c40f1dd"
+    },
+    {
+      "id": "wgz-046",
+      "candidateNumber": 46,
+      "title": "STRAŻ GRANICZNA",
+      "viewStart": 309,
+      "viewEnd": 309,
+      "printedPages": [
+        305
+      ],
+      "sourceBlockSha256": "5407a34f07d3d33d6227ec9248bfcfd918fed0ff386e691086326db6a56b4615",
+      "publishedSourceHash": "776e2ce11002542ad4581e993822ae8067bf2000fccf74ba7d73bab4796527d7"
+    },
+    {
+      "id": "wgz-047",
+      "candidateNumber": 47,
+      "title": "CHOWANKA «W ZAKLEPANEGO»",
+      "viewStart": 309,
+      "viewEnd": 310,
+      "printedPages": [
+        305,
+        306
+      ],
+      "sourceBlockSha256": "a8afaf934394e17516a8a91c200098beb5b2f750009e4887b56ec12fdddb7335",
+      "publishedSourceHash": "050be6993c7205a216a3191a43ecfe722037e548db7659125f502c04d08d7b31"
+    },
+    {
+      "id": "wgz-048",
+      "candidateNumber": 48,
+      "title": "STRAŻE",
+      "viewStart": 310,
+      "viewEnd": 310,
+      "printedPages": [
+        306
+      ],
+      "sourceBlockSha256": "41d9f5eff1d07f334775dbd3b24e17202f9c541440b45235842492dc3958dadd",
+      "publishedSourceHash": "7c6929c2820db0e0fb3e6d1fe2ea129353c0abec7350c1211f6ec59e289c99b2"
+    },
+    {
+      "id": "wgz-049",
+      "candidateNumber": 49,
+      "title": "ODBICIE JEŃCA",
+      "viewStart": 310,
+      "viewEnd": 310,
+      "printedPages": [
+        306
+      ],
+      "sourceBlockSha256": "83aa782241b2c495fe05ee289c9c9af71753ec390b5802323e28a4c50c7cf3ae",
+      "publishedSourceHash": "9824d5947ef208d46095279fb78aaaace1f30a6d80c50f92949d6a3a00352bd6"
+    },
+    {
+      "id": "wgz-050",
+      "candidateNumber": 50,
+      "title": "CHOWANKA Z GONITWĄ",
+      "viewStart": 310,
+      "viewEnd": 311,
+      "printedPages": [
+        306,
+        307
+      ],
+      "sourceBlockSha256": "21031b547e303e62707e4b47a2184e9cc8cca673b2b3ad4080cfd2c770564342",
+      "publishedSourceHash": "741f877e3de464821aa1a630578be1067fad5930f0dd690318dd14ffe012d9a3"
+    },
+    {
+      "id": "wgz-051",
+      "candidateNumber": 51,
+      "title": "TAJNY LIST",
+      "viewStart": 311,
+      "viewEnd": 311,
+      "printedPages": [
+        307
+      ],
+      "sourceBlockSha256": "88fc0b276520f716688ff633746253bcc4db60ad297a69e815d421d08c312b1a",
+      "publishedSourceHash": "543fc265d660b188afad57de2426fb9cc9d75ea158843250b5e47f869514b018"
+    },
+    {
+      "id": "wgz-052",
+      "candidateNumber": 52,
+      "title": "UKRYTE ROZKAZY",
+      "viewStart": 311,
+      "viewEnd": 312,
+      "printedPages": [
+        307,
+        308
+      ],
+      "sourceBlockSha256": "fc2ff17b313ff8104ed71594c8c13ee3e0ca3bf7103400920877f399e7312818",
+      "publishedSourceHash": "d6004a685d4c58e4808d853f663d1e10a0a66ad411f104240310e6a2f50e58cd"
+    },
+    {
+      "id": "wgz-053",
+      "candidateNumber": 53,
+      "title": "POSZUKIWANIE SKARBU",
+      "viewStart": 312,
+      "viewEnd": 312,
+      "printedPages": [
+        308
+      ],
+      "sourceBlockSha256": "32c3829f978c093d6620512d8e50b6fc6d9bf7812a0792d12ffabd157c194bdb",
+      "publishedSourceHash": "afeaea2ec67e9f0e5cb9904086401b73b0cd7a37c881ef414a228c65c75d7f34"
+    },
+    {
+      "id": "wgz-054",
+      "candidateNumber": 54,
+      "title": "ZA ZNAKAMI",
+      "viewStart": 312,
+      "viewEnd": 312,
+      "printedPages": [
+        308
+      ],
+      "sourceBlockSha256": "b104b51cd00d7ac2a8b795073b9a91199b237e0de0783dd02b98b38b17c3202c",
+      "publishedSourceHash": "8db527cf91075ea6d580a1acc8d8f683f18b74c723fae3af8e18b04302018be4"
+    },
+    {
+      "id": "wgz-055",
+      "candidateNumber": 55,
+      "title": "POZNAJ LIŚĆ",
+      "viewStart": 312,
+      "viewEnd": 313,
+      "printedPages": [
+        308,
+        309
+      ],
+      "sourceBlockSha256": "5d343b09f338daa43efa33a09ae0d5bcee5b95453ec8854110e13f5621e5378d",
+      "publishedSourceHash": "316ab42e4d35f0d36129d93385a4af915b6e7728a22a49ead50a946e9a9ba0e2"
+    },
+    {
+      "id": "wgz-056",
+      "candidateNumber": 56,
+      "title": "WRÓŻKI I CZAROWNICE",
+      "viewStart": 313,
+      "viewEnd": 313,
+      "printedPages": [
+        309
+      ],
+      "sourceBlockSha256": "68ed3c490f51506fc2984c9600571cb98f9e9c85edd5ffc7dc5ef085a67f7362",
+      "publishedSourceHash": "03f43b8efd832bf9c5fe7e97b9cc3f5e16518562aaa3921513b2fe92dd3222f1"
+    },
+    {
+      "id": "wgz-057",
+      "candidateNumber": 57,
+      "title": "WĘDROWKA PRZEZ KRZAKI",
+      "viewStart": 313,
+      "viewEnd": 313,
+      "printedPages": [
+        309
+      ],
+      "sourceBlockSha256": "c0187c1f84c1c20075bc122bb1a62f835d1dba1e152760a395a7c3ecbde7e194",
+      "publishedSourceHash": "c2e3513f513d7bafbafa94269d06b8c9f997cf9c74e18a60d195f4cfba6bda10"
+    },
+    {
+      "id": "wgz-058",
+      "candidateNumber": 58,
+      "title": "ZDOBYCIE SKARBU",
+      "viewStart": 314,
+      "viewEnd": 314,
+      "printedPages": [
+        310
+      ],
+      "sourceBlockSha256": "1f59a0aa676af944c80292df0090978e437bbda438664d063e4d92e3ad0363f2",
+      "publishedSourceHash": "c33036b006531b096de5dde7ca0cc06b83fc5dedb60b23df49ef4a5042f07f22"
+    },
+    {
+      "id": "wgz-059",
+      "candidateNumber": 59,
+      "title": "TAJNY ROZKAZ",
+      "viewStart": 314,
+      "viewEnd": 314,
+      "printedPages": [
+        310
+      ],
+      "sourceBlockSha256": "5e091dc4ea5368d7ace5d1e79695c8bb08afcd80f74b29ceaae6d543e6e5f697",
+      "publishedSourceHash": "25176e1a82f3c236749bf62c27b941d92c825b47bb4773fa5264362d8039b9d2"
+    },
+    {
+      "id": "wgz-060",
+      "candidateNumber": 60,
+      "title": "WIEWIÓRKI",
+      "viewStart": 314,
+      "viewEnd": 314,
+      "printedPages": [
+        310
+      ],
+      "sourceBlockSha256": "bc786358968459fe67838fd88914896605b8a2b2c2f4a5d966e515c6fdfb3d7e",
+      "publishedSourceHash": "6074518e30ed64a206f4729161b4ae98db60488d1a23c1871ab7741e99ec28e3"
+    },
+    {
+      "id": "wgz-061",
+      "candidateNumber": 61,
+      "title": "ZDOBYWANIE ARSENAŁU",
+      "viewStart": 315,
+      "viewEnd": 315,
+      "printedPages": [
+        311
+      ],
+      "sourceBlockSha256": "24a9169dc237cac9c7b640e5090bd1f98ef4e77e788ae231872b6d3630b2d3e5",
+      "publishedSourceHash": "27a3e5cfe4153990051fb46d898f17fe7a181548a83427c52a2898947e1fabd2"
+    },
+    {
+      "id": "wgz-062",
+      "candidateNumber": 62,
+      "title": "CZAPKA NIEWIDKA",
+      "viewStart": 315,
+      "viewEnd": 316,
+      "printedPages": [
+        311,
+        312
+      ],
+      "sourceBlockSha256": "196d1ae55d6b006a9daa7ee6aa0acf9987c7870ad96211b5efeb1cc6910e38bf",
+      "publishedSourceHash": "ece3db3d2622f78289ba55884d29f46fa28ae5777cca47889328ad24a5aaa188"
+    },
+    {
+      "id": "wgz-063",
+      "candidateNumber": 63,
+      "title": "NAPAD INDJAN",
+      "viewStart": 316,
+      "viewEnd": 317,
+      "printedPages": [
+        312,
+        313
+      ],
+      "sourceBlockSha256": "c24905473a8aa9350472967ef4d07e50d07eb4f7edc84b7454ba0990723a97bc",
+      "publishedSourceHash": "55ca2aaedc6cd4827d4ec57fd505adf61d49f8453588c20ff27a6ef2a1701d23"
+    },
+    {
+      "id": "wgz-064",
+      "candidateNumber": 64,
+      "title": "WODNIK",
+      "viewStart": 317,
+      "viewEnd": 317,
+      "printedPages": [
+        313
+      ],
+      "sourceBlockSha256": "471c7b4125d398a14436d4f78b98184cf4627d13ea8f88b8c70ca8d1ebfe26a2",
+      "publishedSourceHash": "b3d3f48c7eb20ec8759549a45c114855e2cdedc5c2a242c0a2f804d32b749b77"
+    },
+    {
+      "id": "wgz-065",
+      "candidateNumber": 65,
+      "title": "WILK W LESIE",
+      "viewStart": 317,
+      "viewEnd": 317,
+      "printedPages": [
+        313
+      ],
+      "sourceBlockSha256": "4771d656ad0850ebc19036964db55a9ef8ef1623819bc052205a462c1f919071",
+      "publishedSourceHash": "1100883206427e29f0c38ee4b40c661d51010ee559e938c876effc1c8d6f2376"
+    },
+    {
+      "id": "wgz-066",
+      "candidateNumber": 66,
+      "title": "SŁEPA BABKA Z WYKUPEM",
+      "viewStart": 317,
+      "viewEnd": 317,
+      "printedPages": [
+        313
+      ],
+      "sourceBlockSha256": "b5db0b522a5810369713b5e15d5634676c38d99565d3d03e8b2efc6b31a229f6",
+      "publishedSourceHash": "c2e6eb07b0f738d5a30cc43a3e8954ebc1d92b0d562456f632c2a1c516e0d0aa"
+    },
+    {
+      "id": "wgz-067",
+      "candidateNumber": 67,
+      "title": "PSY I KRÓLIKI",
+      "viewStart": 318,
+      "viewEnd": 318,
+      "printedPages": [
+        314
+      ],
+      "sourceBlockSha256": "573219ba9985d439af2f2fdaccfb308c7dce316db60a15c7e259e063dd178f8e",
+      "publishedSourceHash": "c065794a5784e526397ec96b8de58caf6fb8e307892e31c6503cec2577724903"
+    },
+    {
+      "id": "wgz-068",
+      "candidateNumber": 68,
+      "title": "PRZEZ PRZESZKODY",
+      "viewStart": 318,
+      "viewEnd": 318,
+      "printedPages": [
+        314
+      ],
+      "sourceBlockSha256": "f6b0b82e97695ff301504ae55e7b0167510f9408b7b7da0960342f586e8978d5",
+      "publishedSourceHash": "6b573b3ae4b48df19bca32352dac76a210119599a3ebaa4083db00433461d4d1"
+    },
+    {
+      "id": "wgz-069",
+      "candidateNumber": 69,
+      "title": "RZUT DO TARCZY",
+      "viewStart": 318,
+      "viewEnd": 319,
+      "printedPages": [
+        314,
+        315
+      ],
+      "sourceBlockSha256": "cdc2389075ba412df37500f27e06bedb1f16f58a3d676633ea25eb22787168d5",
+      "publishedSourceHash": "6bb721033a83074b4ae1dcca37ab74cc08b9243378dd88ac713599c100e2a4a0"
+    },
+    {
+      "id": "wgz-070",
+      "candidateNumber": 70,
+      "title": "BEREK Z PIŁKĄ",
+      "viewStart": 319,
+      "viewEnd": 319,
+      "printedPages": [
+        315
+      ],
+      "sourceBlockSha256": "de16f1b793f011bb503d90850d04892af6e25d2c7694cd4545dbc4247dd6c69d",
+      "publishedSourceHash": "4ac7e85636595b34ad449e4e4c861dd64aa7056e5f06e1394528770c6762b103"
+    },
+    {
+      "id": "wgz-071",
+      "candidateNumber": 71,
+      "title": "MYŚLIWY I ZWIERZYNA",
+      "viewStart": 319,
+      "viewEnd": 319,
+      "printedPages": [
+        315
+      ],
+      "sourceBlockSha256": "7cac2de0b50b034bb7e3f7b1bd7b9d4f89a1327ece3a6c6e45bbc036d1aef0f3",
+      "publishedSourceHash": "37b65803596732f58cb0dd02e902ccbc738f50266b1ebb779dc07adf65ca41f1"
+    },
+    {
+      "id": "wgz-072",
+      "candidateNumber": 72,
+      "title": "PIRAMIDKI",
+      "viewStart": 319,
+      "viewEnd": 319,
+      "printedPages": [
+        315
+      ],
+      "sourceBlockSha256": "4e67f14046736f23a509f6498b4bc018b9e3c91b99b46344ada7ac18fd4b379e",
+      "publishedSourceHash": "91ef04183cacbe56c89ca00f93d1f37828089e230486d58aa70ab9cf4ec2b4c4"
+    },
+    {
+      "id": "wgz-073",
+      "candidateNumber": 73,
+      "title": "BOMBARDOWANIE",
+      "viewStart": 320,
+      "viewEnd": 320,
+      "printedPages": [
+        316
+      ],
+      "sourceBlockSha256": "0b23e0941ebd988b389531d8a8feab62ac33241ce67c9172c1e11fb61c4a86b2",
+      "publishedSourceHash": "e93f476e8225d8dc3958483c2eae2ef58b1b2eaa59386755fca8c722f0ac114f"
+    },
+    {
+      "id": "wgz-074",
+      "candidateNumber": 74,
+      "title": "BIEG PRZEZ TRZY KOŁA",
+      "viewStart": 320,
+      "viewEnd": 321,
+      "printedPages": [
+        316,
+        317
+      ],
+      "sourceBlockSha256": "36ec8ec39551363a51de86368138f6ce98f8929f96fa5e32f57ca26194ea13e2",
+      "publishedSourceHash": "55b62d6fb01acee31683621bc70f5582199e06a689c663848a4e22fbb0ca1962"
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   "sourceTitle": "W gromadzie zuchów",
   "authorStatement": "praca zbiorowa pod redakcją Jadwigi Zwolakowskiej",
   "year": 1945,
-  "status": "candidate-inventory-complete-record-review-pending",
+  "status": "complete-imported",
   "sourceText": {
     "classification": "mistral-ocr-scratch-only",
     "storage": "scratch-only",
@@ -41,7 +41,7 @@
   "selection": {
     "productionKind": "game",
     "candidateCount": 74,
-    "importedActivityCount": 0,
+    "importedActivityCount": 74,
     "rightsScope": "Game prose in the Polona object explicitly marked public domain; non-game media remain outside the product scope.",
     "rightsStatus": "public-domain",
     "rightsEvidencePolicy": "explicit-library-public-domain-status-is-ground-truth",
@@ -57,7 +57,8 @@
     "knownComponentExceptions": [
       "Hanna Kopciówna signs the introduction immediately before Dział I; retain the unresolved signature scope as provenance rather than a legal blocker.",
       "The edition is a collective work and expressly contains contributed and reprinted components; retain these signals for attribution and similarity review."
-    ]
+    ],
+    "recordReviewRequired": false
   },
   "ocrUsage": {
     "pagesProcessed": 32,
@@ -84,7 +85,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 1,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "NA ŁOWY",
@@ -104,7 +105,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 2,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "W WIGWAMIE",
@@ -124,7 +125,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 3,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "TAJNY ZNAK",
@@ -144,7 +145,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 4,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "DOBIERANIE POŁÓWEK KART",
@@ -164,7 +165,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 5,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "BARWY",
@@ -184,7 +185,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 6,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "ZBIERANIE ZAPAŁEK",
@@ -204,7 +205,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 7,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "UKŁADANKI Z ZAPAŁEK",
@@ -224,7 +225,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 8,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "UKŁADANKI",
@@ -244,7 +245,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 9,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "DOBIERANIE BARW",
@@ -264,7 +265,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 10,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "UKŁADANIE LIŚCI",
@@ -286,7 +287,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 11,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "MOZAJKA",
@@ -306,7 +307,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 12,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "KOPCIUSZEK",
@@ -328,7 +329,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 13,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "SZARADA",
@@ -348,7 +349,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 14,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "ZA GŁOSEM GWIZDKA",
@@ -368,7 +369,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 15,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "POLECENIA «NA MIGI»",
@@ -388,7 +389,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 16,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "DEPESZA «RUCHOWA»",
@@ -408,7 +409,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 17,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "ROZDAWANIE PRZEDMIOTÓW",
@@ -428,7 +429,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 18,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "TRZYMAJ — PUŚĆ",
@@ -448,7 +449,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 19,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "ZMIANA KIERUNKU PIŁKI",
@@ -468,7 +469,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 20,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "WALI SIĘ, PALI SIĘ",
@@ -488,7 +489,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 21,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "ZBIERANIE KARTOFLI",
@@ -508,7 +509,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 22,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Z WORECZKIEM",
@@ -528,7 +529,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 23,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Z PIŁECZKAMI",
@@ -548,7 +549,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 24,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "PORZĄDNICKA",
@@ -568,7 +569,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 25,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "MAŁA SZAFARKA",
@@ -588,7 +589,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 26,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "UBIERANIE LALEK",
@@ -608,7 +609,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 27,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "NAWLEKANIE IGŁY",
@@ -628,7 +629,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 28,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "MAŁA SZWACZKA",
@@ -648,7 +649,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 29,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "KUCHCIKI",
@@ -668,7 +669,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 30,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "ROZKAZY",
@@ -688,7 +689,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 31,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "WÓDZ ROZKAZUJE",
@@ -708,7 +709,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 32,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "KTO SPRAWNIEJ?",
@@ -728,7 +729,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 33,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "PACZKI",
@@ -748,7 +749,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 34,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "POŻAR",
@@ -768,7 +769,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 35,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "POLECENIE",
@@ -788,7 +789,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 36,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "SYGNALIZACJA",
@@ -808,7 +809,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 37,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "KOMPAS",
@@ -828,7 +829,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 38,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "STRONY ŚWIATA — PO NIEWIDOMEMU",
@@ -848,7 +849,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 39,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "POCHODZENIE SARNY",
@@ -868,7 +869,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 40,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "POCHODZENIE WARTY",
@@ -888,7 +889,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 41,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "CZATY",
@@ -908,7 +909,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 42,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "ZACZAROWANA KSIĘŻNICZKA",
@@ -928,7 +929,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 43,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "ZDOBYWANIE FORTECY",
@@ -948,7 +949,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 44,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "PORT WOJENNY",
@@ -968,7 +969,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 45,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "STRAŻ GRANICZNA",
@@ -988,7 +989,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 46,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "CHOWANKA «W ZAKLEPANEGO»",
@@ -1008,7 +1009,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 47,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "STRAŻE",
@@ -1028,7 +1029,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 48,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "ODBICIE JEŃCA",
@@ -1048,7 +1049,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 49,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "CHOWANKA Z GONITWĄ",
@@ -1068,7 +1069,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 50,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "TAJNY LIST",
@@ -1088,7 +1089,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 51,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "UKRYTE ROZKAZY",
@@ -1108,7 +1109,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 52,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "POSZUKIWANIE SKARBU",
@@ -1128,7 +1129,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 53,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "ZA ZNAKAMI",
@@ -1148,7 +1149,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 54,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "POZNAJ LIŚĆ",
@@ -1168,7 +1169,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 55,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "WRÓŻKI I CZAROWNICE",
@@ -1188,7 +1189,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 56,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "WĘDROWKA PRZEZ KRZAKI",
@@ -1208,7 +1209,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 57,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "ZDOBYCIE SKARBU",
@@ -1228,7 +1229,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 58,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "TAJNY ROZKAZ",
@@ -1248,7 +1249,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 59,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "WIEWIÓRKI",
@@ -1268,7 +1269,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 60,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "ZDOBYWANIE ARSENAŁU",
@@ -1288,7 +1289,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 61,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "CZAPKA NIEWIDKA",
@@ -1308,7 +1309,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 62,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "NAPAD INDJAN",
@@ -1328,7 +1329,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 63,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "WODNIK",
@@ -1348,7 +1349,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 64,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "WILK W LESIE",
@@ -1368,7 +1369,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 65,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "SŁEPA BABKA Z WYKUPEM",
@@ -1388,7 +1389,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 66,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "PSY I KRÓLIKI",
@@ -1408,7 +1409,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 67,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "PRZEZ PRZESZKODY",
@@ -1428,7 +1429,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 68,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "RZUT DO TARCZY",
@@ -1448,7 +1449,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 69,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "BEREK Z PIŁKĄ",
@@ -1468,7 +1469,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 70,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "MYŚLIWY I ZWIERZYNA",
@@ -1488,7 +1489,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 71,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "PIRAMIDKI",
@@ -1508,7 +1509,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 72,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "BOMBARDOWANIE",
@@ -1528,7 +1529,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 73,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "BIEG PRZEZ TRZY KOŁA",
@@ -1548,7 +1549,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-approved-range-end",
       "number": 74,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     }
   ]
 }

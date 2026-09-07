@@ -116,8 +116,12 @@ def main() -> None:
         for key in ("author", "title", "year", "sourceUrl", "rightsEvidenceUrl", "digitalEditionUrl"):
             require(bool(metadata.get(key)), f"Source {path.stem} lacks {key}", errors)
         require(
-            bool(metadata.get("pdfUrl") or metadata.get("textUrl")),
-            f"Source {path.stem} lacks a reusable digital text or PDF URL",
+            bool(
+                metadata.get("pdfUrl")
+                or metadata.get("textUrl")
+                or metadata.get("imageServiceEvidenceUrl")
+            ),
+            f"Source {path.stem} lacks a reusable digital text, PDF or image-service URL",
             errors,
         )
         if metadata.get("approvalPolicyId") == "project-gutenberg-pd-usa-plus-life-70":

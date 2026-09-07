@@ -15,7 +15,7 @@
     {"sourceId": "piasecki-movement-games-1922", "status": "record-review-pending", "candidateCount": 133, "importedActivityCount": 0},
     {"sourceId": "dabrowski-winter-games-1935", "status": "skipped-with-reason", "candidateCount": 0, "importedActivityCount": 0, "reason": "Owner deferred both PBC sources from the current V3 run after the direct URL proved to be an indirect DjVu index."},
     {"sourceId": "pawelek-young-troop-1919", "status": "record-review-pending", "candidateCount": 24, "importedActivityCount": 0},
-    {"sourceId": "zwolakowska-cub-pack-1945", "status": "record-review-pending", "candidateCount": 74, "importedActivityCount": 0},
+    {"sourceId": "zwolakowska-cub-pack-1945", "status": "imported", "candidateCount": 74, "importedActivityCount": 74, "ocrReferenceCostUsd": 0.128, "translationReferenceCostUsd": 0.049881, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v3", "sourceValidation": "passed"},
     {"sourceId": "sedlaczek-fieldcraft-method-1935", "status": "skipped-with-reason", "candidateCount": 0, "importedActivityCount": 0, "reason": "Owner deferred both PBC sources from the current V3 run after the direct URL proved to be an indirect DjVu index."},
     {"sourceId": "piasecki-schreiber-polish-scoutcraft-1917", "status": "record-review-pending", "candidateCount": 40, "importedActivityCount": 0},
     {"sourceId": "sedlaczek-scout-school-1921", "status": "record-review-pending", "candidateCount": 40, "importedActivityCount": 0},
@@ -51,7 +51,7 @@
   },
   "candidateAndImportCounts": {
     "candidateCount": 760,
-    "importedActivityCount": 0,
+    "importedActivityCount": 74,
     "candidateCountBySource": {
       "jasinski-field-games-1938": 181,
       "mojmir-scout-games-1912": 85,
@@ -79,7 +79,7 @@
   "ocrAndTranslationModels": {
     "ocrModel": "mistral-ocr-4-1",
     "ocrRecipeVersion": "mistral-ocr-image-v1",
-    "translationStatus": "not-started-until-record-import",
+    "translationStatus": "in-progress-by-source",
     "reasoningMode": "disabled"
   },
   "tokenUsageAndReferenceCost": {
@@ -88,10 +88,12 @@
     "ocrProcessedViewCount": 619,
     "ocrReferenceCostUsd": 2.48,
     "referenceCostLimitUsd": 10.0,
-    "translationReferenceCostUsd": 0.0
+    "translationPromptTokens": 39474,
+    "translationCompletionTokens": 20096,
+    "translationReferenceCostUsd": 0.049881
   },
   "validationResults": {
-    "status": "passed",
+    "status": "pending-after-corpus-expansion",
     "targetedV3Tests": {"status": "passed", "testCount": 25},
     "fullUnitTests": {
       "status": "passed",
