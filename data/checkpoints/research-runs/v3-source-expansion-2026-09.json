@@ -32,8 +32,8 @@
     },
     "acquisitionPreparation": {
       "status": "human-approved-execution-pending",
-      "contentDownloadsPerformed": 6,
-      "sourceUnitsWithCompletedAcquisition": 6,
+      "contentDownloadsPerformed": 7,
+      "sourceUnitsWithCompletedAcquisition": 7,
       "regionalDirectArtifactLinksDiscovered": 7,
       "directArtifactCandidatesActionableAfterApproval": 4,
       "automatedFetchBlockedByRobots": 2,
@@ -81,7 +81,7 @@
   "sourceUnits": [
     {"id": "jasinski-field-games-1938", "status": "acquired", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/jasinski-field-games-1938.json"},
     {"id": "mojmir-scout-games-1912", "status": "acquired", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/mojmir-scout-games-1912.json"},
-    {"id": "dabrowski-indoor-games-1934", "status": "not-started"},
+    {"id": "dabrowski-indoor-games-1934", "status": "acquired", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/dabrowski-indoor-games-1934.json"},
     {"id": "piasecki-movement-games-1922", "status": "awaiting-component-review", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-movement-games-1922.json", "candidateReport": "data/reports/piasecki-movement-games-1922-candidates.json", "candidateCount": 133, "importedActivityCount": 0},
     {"id": "dabrowski-winter-games-1935", "status": "awaiting-artifact-approval", "alternativeReview": "vault/reviews/inbox/pbc-direct-djvu-alternatives.md"},
     {"id": "pawelek-young-troop-1919", "status": "ocr-pending", "inspectionCheckpoint": "data/checkpoints/source-inspection/pawelek-young-troop-1919.json"},
