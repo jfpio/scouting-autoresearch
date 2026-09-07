@@ -11,7 +11,7 @@
   "sourceOutcomes": [
     {"sourceId": "jasinski-field-games-1938", "status": "imported", "candidateCount": 196, "importedActivityCount": 138, "ocrReferenceCostUsd": 0.9, "translationReferenceCostUsd": 0.125461, "modelEvaluationReferenceCostUsd": 0.00913305, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
     {"sourceId": "mojmir-scout-games-1912", "status": "imported", "candidateCount": 85, "importedActivityCount": 80, "ocrReferenceCostUsd": 0.308, "translationReferenceCostUsd": 0.0788565, "modelEvaluationReferenceCostUsd": 0.0135349, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
-    {"sourceId": "dabrowski-indoor-games-1934", "status": "record-review-pending", "candidateCount": 183, "importedActivityCount": 0},
+    {"sourceId": "dabrowski-indoor-games-1934", "status": "imported", "candidateCount": 184, "importedActivityCount": 175, "ocrReferenceCostUsd": 0.344, "translationReferenceCostUsd": 0.0948105, "modelEvaluationReferenceCostUsd": 0.00545545, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
     {"sourceId": "piasecki-movement-games-1922", "status": "record-review-pending", "candidateCount": 133, "importedActivityCount": 0},
     {"sourceId": "dabrowski-winter-games-1935", "status": "skipped-with-reason", "candidateCount": 0, "importedActivityCount": 0, "reason": "Owner deferred both PBC sources from the current V3 run after the direct URL proved to be an indirect DjVu index."},
     {"sourceId": "pawelek-young-troop-1919", "status": "record-review-pending", "candidateCount": 24, "importedActivityCount": 0},
@@ -37,7 +37,7 @@
   "editionsAndComponentAuthorship": {
     "status": "approved-library-ground-truth",
     "reviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md",
-    "candidateCount": 775,
+    "candidateCount": 776,
     "candidateReportsAreMetadataOnly": true,
     "rawOcrStorage": "scratch-only"
   },
@@ -50,12 +50,12 @@
     "zwolakowska-cub-pack-1945": {"processedViewCount": 32}
   },
   "candidateAndImportCounts": {
-    "candidateCount": 775,
-    "importedActivityCount": 292,
+    "candidateCount": 776,
+    "importedActivityCount": 467,
     "candidateCountBySource": {
       "jasinski-field-games-1938": 196,
       "mojmir-scout-games-1912": 85,
-      "dabrowski-indoor-games-1934": 183,
+      "dabrowski-indoor-games-1934": 184,
       "piasecki-movement-games-1922": 133,
       "pawelek-young-troop-1919": 24,
       "zwolakowska-cub-pack-1945": 74,
@@ -88,14 +88,14 @@
     "ocrProcessedViewCount": 619,
     "ocrReferenceCostUsd": 2.48,
     "referenceCostLimitUsd": 10.0,
-    "translationPromptTokens": 200021,
-    "translationCompletionTokens": 102792,
-    "translationReferenceCostUsd": 0.2541985,
-    "completedModelEvaluationReferenceCostUsd": 0.02266795
+    "translationPromptTokens": 284123,
+    "translationCompletionTokens": 137965,
+    "translationReferenceCostUsd": 0.349009,
+    "completedModelEvaluationReferenceCostUsd": 0.0281234
   },
   "validationResults": {
     "status": "pending-after-corpus-expansion",
-    "targetedV3Tests": {"status": "passed", "testCount": 25},
+    "targetedV3Tests": {"status": "passed", "testCount": 39},
     "fullUnitTests": {
       "status": "passed",
       "testCount": 220,

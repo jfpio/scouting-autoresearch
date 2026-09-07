@@ -1,0 +1,43 @@
+schemaVersion: 1
+id: dabrowski-indoor-large-vs-small-v1
+sourceId: dabrowski-indoor-games-1934
+status: approved-run-scope
+productionCandidate: mistral-large-2512
+candidates:
+  - mistral-large-2512
+  - mistral-small-2603
+targetLocale: en
+promptVersion: translation-pl-en-v5
+promptEncoding: protected-values-v2
+pipelineRepairs: deterministic-contract-v1
+reasoningMode: disabled
+activityIds:
+  - gih-006
+  - gih-043
+  - gih-119
+  - gih-138
+  - gih-162
+  - gih-170
+sampleRationale:
+  gih-006: very short procedure embedded in the same OCR line as its heading
+  gih-043: auditory-memory game with a source attribution and a variant
+  gih-119: long card-game procedure with numbers, quotation marks and variants
+  gih-138: long team construction contest with measurements and lettered scoring criteria
+  gih-162: signalling scenario followed by prose truncated at the next source section
+  gih-170: rescue game with three-person teams, obstacles and multi-part scoring
+criteria:
+  - complete-meaning
+  - no-summary-or-modernization
+  - numbers-and-units-preserved
+  - markdown-and-urls-preserved
+  - natural-english
+execution:
+  maxActivities: 6
+  maxModels: 2
+  sequentialRequests: true
+  requireExplicitExecute: true
+  continueOnAutomaticPass: true
+  billingMode: education-credit
+  enforceReferenceCostLimit: true
+  maxReferenceCostUsd: 10
+  resultsUnderScratch: scouting-autoresearch/model-evaluations

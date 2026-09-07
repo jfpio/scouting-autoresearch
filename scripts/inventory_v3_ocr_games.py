@@ -230,8 +230,20 @@ def parse_mojmir(pages: list[OCRPage]) -> list[dict[str, Any]]:
 
 
 TOC_EXCLUSIONS = {
-    "od autora", "o grach", "wstęp", "odmiany", "przykłady", "inne gry",
+    "od autora", "o grach", "wstęp", "odmiany", "inne gry",
     "zastosowanie w terenie", "str", "str.",
+}
+
+
+DABROWSKI_LOCATOR_OVERRIDES = {
+    compact("Gra Kima"): (12, 7),
+    compact("Gra Kima obrazowa"): (12, 11),
+    compact("Kto przybył — kto ubył?"): (15, 13),
+    compact("Wyrazy (z odmianą)"): (29, 7),
+    compact("Fasola pod kocem"): (34, 24),
+    compact("Rozpoznawanie monet"): (34, 27),
+    compact("Pięciominutówka II"): (68, 9),
+    compact("Ranny w górach"): (75, 7),
 }
 
 
@@ -276,9 +288,17 @@ def parse_dabrowski(pages: list[OCRPage]) -> list[dict[str, Any]]:
                         "indexView": page.view,
                     })
     body = [page for page in pages if in_ranges(page.view, ((5, 82),))]
+    pages_by_view = {page.view: page for page in body}
     for item in by_title.values():
+        override = DABROWSKI_LOCATOR_OVERRIDES.get(compact(item["titleRaw"]))
+        if override:
+            page = pages_by_view[override[0]]
+            line = page.markdown.splitlines()[override[1] - 1]
+            item.update(_locator(page, override[1], line))
+            item["locatorMethod"] = "pinned-reviewed-line"
+            continue
         expected = [page for page in body if page.printed_page == str(item["printedPageStart"])]
-        search_pages = expected or body
+        search_pages = body
         ranked = [
             (title_similarity(item["titleRaw"], line), page, line_number, line)
             for page in search_pages
@@ -291,7 +311,16 @@ def parse_dabrowski(pages: list[OCRPage]) -> list[dict[str, Any]]:
             item["titleLocatorScore"] = round(score, 4)
             if score < 0.5:
                 item["locatorStatus"] = "page-located-heading-needs-review"
-    return sorted(by_title.values(), key=lambda item: (item["printedPageStart"], item["titleRaw"]))
+    return sorted(
+        by_title.values(),
+        key=lambda item: (
+            int(item.get("viewStart", 10_000)),
+            _line_from_locator(item["bestLineLocator"])
+            if item.get("bestLineLocator")
+            else 10_000,
+            item["titleRaw"],
+        ),
+    )
 
 
 def parse_pawelek(pages: list[OCRPage]) -> list[dict[str, Any]]:

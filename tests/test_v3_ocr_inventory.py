@@ -11,6 +11,7 @@ from inventory_v3_ocr_games import (
     _deduplicate,
     _toc_pairs,
     annotate_candidate_boundaries,
+    parse_dabrowski,
     parse_jasinski,
     parse_mojmir,
 )
@@ -62,6 +63,76 @@ class V3OCRInventoryTests(unittest.TestCase):
             [("Bieg 1", "Bieg 1"), ("Bieg 2", "Bieg 2 (nocny)")],
         )
 
+    def test_dabrowski_uses_pinned_locator_for_inline_game_heading(self):
+        pages = [
+            OCRPage(
+                15,
+                "view-0015.jpg",
+                "13",
+                "\n".join([""] * 12 + ["Kto przybył? — ubył? z zastępu."]),
+                "a" * 64,
+            ),
+            OCRPage(
+                83,
+                "view-0083.jpg",
+                None,
+                "| Kto przybył — kto ubył? | 13 |",
+                "b" * 64,
+            ),
+        ]
+        candidates = parse_dabrowski(pages)
+        self.assertEqual(candidates[0]["bestLineLocator"], "view-0015-l0013")
+        self.assertEqual(candidates[0]["locatorMethod"], "pinned-reviewed-line")
+
+    def test_dabrowski_includes_source_indexed_examples_game(self):
+        pages = [
+            OCRPage(
+                53,
+                "view-0053.jpg",
+                "51",
+                "### **Przykłady.**\n\nOdczytujemy opowiadanie; kto rozpozna punkty Prawa — wygrywa.",
+                "a" * 64,
+            ),
+            OCRPage(
+                88,
+                "view-0088.jpg",
+                None,
+                "| Przykłady | 51 |",
+                "b" * 64,
+            ),
+        ]
+        candidates = parse_dabrowski(pages)
+        self.assertEqual([candidate["titleRaw"] for candidate in candidates], ["Przykłady"])
+        self.assertEqual(candidates[0]["bestLineLocator"], "view-0053-l0001")
+
+    def test_dabrowski_pins_ranny_w_gorach_to_full_game_not_cross_reference(self):
+        pages = [
+            OCRPage(
+                68,
+                "view-0068.jpg",
+                "66",
+                "# Ranny w górach.\n\nPatrz: gry samarytańskie.",
+                "a" * 64,
+            ),
+            OCRPage(
+                75,
+                "view-0075.jpg",
+                "73",
+                "\n".join([""] * 6 + ["# **Ranny w górach.**", "", "Zespoły ratują rannego."]),
+                "b" * 64,
+            ),
+            OCRPage(
+                90,
+                "view-0090.jpg",
+                None,
+                "Ranny w górach 73",
+                "c" * 64,
+            ),
+        ]
+        candidates = parse_dabrowski(pages)
+        self.assertEqual(candidates[0]["bestLineLocator"], "view-0075-l0007")
+        self.assertEqual(candidates[0]["locatorMethod"], "pinned-reviewed-line")
+
     def test_boundary_annotation_hashes_prose_without_emitting_it(self):
         pages = [
             OCRPage(10, "view-0010.jpg", "1", "## Pierwsza\nOpis według Setona.\n## Druga\nOpis.", "a" * 64),
@@ -89,7 +160,7 @@ class V3OCRInventoryTests(unittest.TestCase):
         expected_counts = {
             "jasinski-field-games-1938": 196,
             "mojmir-scout-games-1912": 85,
-            "dabrowski-indoor-games-1934": 183,
+            "dabrowski-indoor-games-1934": 184,
             "pawelek-young-troop-1919": 24,
             "zwolakowska-cub-pack-1945": 74,
         }
@@ -114,7 +185,7 @@ class V3OCRInventoryTests(unittest.TestCase):
                     self.assertGreater(candidate["blockNonEmptyLineCount"], 0)
                 self.assertFalse(prohibited_candidate_keys.intersection(candidate))
             total += expected_count
-        self.assertEqual(total, 562)
+        self.assertEqual(total, 563)
 
 
 if __name__ == "__main__":

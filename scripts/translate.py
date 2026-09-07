@@ -910,9 +910,13 @@ def translate_one(
         )
     except ProtectedTokenError as first_error:
         request_retried = True
+        _protected_body, protected_replacements = protect_translation_body(body)
+        required_tokens = ", ".join(protected_replacements)
         feedback = (
-            "The previous candidate violated the protected-token contract. Copy every ZXQ...QXZ "
-            "token exactly once and do not introduce any digit outside those tokens."
+            "The previous candidate violated the protected-token contract. The exact required "
+            f"tokens for this record are: {required_tokens}. Copy each one exactly once at its "
+            "source position, even when a nearby word makes its meaning appear redundant. Do not "
+            "introduce any digit outside those tokens."
         )
         try:
             translated, actual_model, corrected_usage = request_translation(

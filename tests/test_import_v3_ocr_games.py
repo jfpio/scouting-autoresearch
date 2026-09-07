@@ -89,6 +89,17 @@ class ImportV3OcrGamesTests(unittest.TestCase):
             "Szukanie przedmiotów, jak np. mostów i przepustów.",
         )
 
+    def test_clean_source_block_can_keep_inline_heading_as_first_body_line(self):
+        raw = "Fasola pod kocem nanizana na nitkę. Policz\nile ziarnek.\n"
+        self.assertEqual(
+            clean_source_block(
+                raw,
+                join_soft_wraps=True,
+                preserve_heading_as_body=True,
+            ),
+            "Fasola pod kocem nanizana na nitkę. Policz ile ziarnek.",
+        )
+
     def test_find_stop_heading_returns_first_pinned_chapter_boundary(self):
         class Page:
             def __init__(self, markdown):
@@ -136,6 +147,17 @@ class ImportV3OcrGamesTests(unittest.TestCase):
         rejected = {number for number, _ in plan.rejected_reasons}
         self.assertTrue(set(range(171, 186)).issubset(rejected))
         self.assertTrue(set(range(186, 197)).issubset(plan.accepted_numbers))
+
+    def test_dabrowski_review_keeps_only_bounded_games_and_competitive_exercises(self):
+        plan = IMPORT_PLANS["dabrowski-indoor-games-1934"]
+        self.assertEqual(len(plan.accepted_numbers), 175)
+        self.assertEqual(
+            {number for number, _ in plan.rejected_reasons},
+            {55, 116, 129, 133, 139, 140, 141, 143, 159},
+        )
+        self.assertIn((156, "Ranny w górach."), plan.candidate_stop_headings)
+        self.assertEqual(dict(plan.title_overrides)[78], "Wańka-wstańka")
+        self.assertEqual(plan.heading_is_body_numbers, (6, 66, 67))
 
     def test_source_revision_is_ordered_and_scoped_to_selected_views(self):
         checkpoint = {

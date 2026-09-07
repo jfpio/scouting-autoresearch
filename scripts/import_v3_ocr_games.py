@@ -65,6 +65,8 @@ class ImportPlan:
     preserve_inline_heading_body: bool = False
     use_inventory_title: bool = False
     inline_only_numbers: tuple[int, ...] = ()
+    title_overrides: tuple[tuple[int, str], ...] = ()
+    heading_is_body_numbers: tuple[int, ...] = ()
 
 
 JASINSKI_REJECTED_REASONS = (
@@ -90,6 +92,19 @@ JASINSKI_REJECTED_REASONS = (
         )
         for number in range(171, 186)
     ),
+)
+
+
+DABROWSKI_REJECTED_REASONS = (
+    (55, "source names a commonly known game but supplies no self-contained procedure"),
+    (116, "song dramatization without game rules or a competitive procedure"),
+    (129, "educational performance proposal without game rules or a competitive procedure"),
+    (133, "general knot-training advice and an external reference, not a bounded game"),
+    (139, "catalogue of distinct handicraft contest ideas, not one bounded game"),
+    (140, "catalogue of distinct self-reliance contest ideas, not one bounded game"),
+    (141, "catalogue of distinct nature-game ideas, not one bounded game"),
+    (143, "catalogue of distinct drawing contest ideas, not one bounded game"),
+    (159, "general field-signalling guidance without a self-contained game procedure"),
 )
 
 
@@ -218,6 +233,87 @@ IMPORT_PLANS = {
         use_inventory_title=True,
         inline_only_numbers=(36,),
     ),
+    "dabrowski-indoor-games-1934": ImportPlan(
+        prefix="gih",
+        sections=(
+            (10, "Gry ćwiczące zdolność zapamiętywania tego, co się zobaczyło"),
+            (18, "Gry ćwiczące spostrzegawczość"),
+            (28, "Gry ćwiczące bystrą orientację i szybką reakcję"),
+            (37, "Gry ćwiczące domyślność i wnioskowanie"),
+            (42, "Gry ćwiczące rozdwojenie uwagi"),
+            (64, "Gry ćwiczące zmysł słuchu i pamięć słuchową"),
+            (69, "Gry ćwiczące zmysł dotyku"),
+            (85, "Gry ćwiczące zręczność i zwinność"),
+            (112, "Gry towarzyskie"),
+            (146, "Gry służące do ćwiczeń na stopień młodzika"),
+            (162, "Gry służące do ćwiczenia się w sygnalizacji"),
+            (171, "Gry służące do ćwiczenia się w samarytance"),
+            (184, "Gry służące do ćwiczenia się w terenoznawstwie"),
+        ),
+        author="Juliusz Dąbrowski",
+        title="Gry i zabawy w izbie harcerskiej",
+        year=1934,
+        edition="wydanie 2",
+        publication_place="Warszawa",
+        publisher="Harcerskie Biuro Wydawnicze",
+        source_url="https://polona.pl/preview/f8a00528-6a07-4916-9a76-c1e094e317da",
+        rights_evidence_url=(
+            "https://polona.pl/api/library-object-query/digital-objects/"
+            "f8a00528-6a07-4916-9a76-c1e094e317da"
+        ),
+        rights_statement="„Domena Publiczna” — oznaczenie konkretnego obiektu w Polonie",
+        accessed_on="2026-09-07",
+        extraction_recipe="v3-bounded-ocr-game-import-v4",
+        accepted_numbers=tuple(
+            number
+            for number in range(1, 185)
+            if number not in {
+                rejected for rejected, _reason in DABROWSKI_REJECTED_REASONS
+            }
+        ),
+        rejected_reasons=DABROWSKI_REJECTED_REASONS,
+        repeated_headers=(),
+        join_soft_wraps=True,
+        smoke_numbers=(6, 43, 119, 138, 162, 170),
+        selection_basis=(
+            "source-indexed entries with a bounded, executable game or competitive exercise; "
+            "cross-references, performances, general guidance and catalogues of multiple "
+            "unseparated ideas remain in the review report but are excluded from the current "
+            "game-only production scope"
+        ),
+        translation_prompt="translation-pl-en-v5",
+        stop_heading_patterns=(
+            r"^#{1,6}\s+\**(?:Gry\b.*|Inne gry\b.*|Zastosowanie w terenie\b.*)$",
+        ),
+        candidate_stop_headings=((156, "Ranny w górach."),),
+        preserve_inline_heading_body=True,
+        use_inventory_title=True,
+        title_overrides=(
+            (54, "Gdzieżeś Jakóbku?"),
+            (57, "Gra Kima uderzeń (z odmianą)"),
+            (58, "Poznaj po głosie"),
+            (60, "Gra Kima zegarków"),
+            (61, "Szukanie przy dźwiękach"),
+            (62, "Depesza więźnia"),
+            (63, "Poszedł Marek"),
+            (64, "Kto to powiedział?"),
+            (65, "Gra Kima dotykowa"),
+            (69, "Poznaj po ubraniu (z odmianą)"),
+            (70, "Wąż na uwięzi"),
+            (71, "Jeleń i wilk"),
+            (72, "Przeciąganie w szeregach"),
+            (74, "Przedmuchiwanie piórka"),
+            (75, "Walka wężów"),
+            (76, "Piłka do czapki"),
+            (77, "Wyścig tkacki"),
+            (78, "Wańka-wstańka"),
+            (79, "Walki byków"),
+            (84, "Raz-dwa-trzy"),
+            (128, "Roztrzepany sekretarz"),
+            (162, "Oblężenie Czorsztyna"),
+        ),
+        heading_is_body_numbers=(6, 66, 67),
+    ),
 }
 
 
@@ -250,6 +346,7 @@ def clean_source_block(
     repeated_header_patterns: tuple[str, ...] = (),
     preserve_inline_heading_body: bool = False,
     inline_heading_title: str | None = None,
+    preserve_heading_as_body: bool = False,
 ) -> str:
     """Remove only deterministic OCR furniture, never modernize source prose."""
     if join_soft_wraps:
@@ -259,7 +356,9 @@ def clean_source_block(
         raise ValueError("Empty source block")
     heading_line = lines[0]
     inline_body = ""
-    if inline_heading_title:
+    if preserve_heading_as_body:
+        inline_body = re.sub(r"^#{1,6}\s*", "", heading_line).strip()
+    elif inline_heading_title:
         plain_heading = re.sub(r"^#{1,6}\s*", "", heading_line).strip()
         plain_heading = re.sub(
             r"^(?:\d+|[IVXLCDM]+)[.)]?\s+", "", plain_heading, flags=re.IGNORECASE
@@ -438,6 +537,7 @@ def import_source(source_id: str) -> dict[str, Any]:
                 repeated_header_patterns=plan.repeated_header_patterns,
                 preserve_inline_heading_body=plan.preserve_inline_heading_body,
                 inline_heading_title=str(item["titleRaw"]),
+                preserve_heading_as_body=number in plan.heading_is_body_numbers,
             )
         except ValueError as error:
             raise ValueError(f"Candidate {number}: {error}") from error
@@ -462,7 +562,10 @@ def import_source(source_id: str) -> dict[str, Any]:
             raise ValueError(f"Candidate {number} lacks a pinned Polona facsimile URL")
 
         activity_id = f"{plan.prefix}-{number:03d}"
-        title = str(item["titleRaw"]) if plan.use_inventory_title else source_heading_title(raw_block)
+        title = dict(plan.title_overrides).get(
+            number,
+            str(item["titleRaw"]) if plan.use_inventory_title else source_heading_title(raw_block),
+        )
         source_note = (
             "---\n\n"
             f"*Źródło skanu: [Polona / Biblioteka Narodowa]({plan.source_url}), "
