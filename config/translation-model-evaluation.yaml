@@ -6,6 +6,8 @@ productionCandidate: mistral-large-2512
 candidates:
   - mistral-large-2512
 reasoningMode: disabled
+promptVersion: translation-en-pl-v6
+pipelineRepairs: deterministic-contract-v1
 activityIds:
   - sfb-019
   - sfb-027

@@ -58,7 +58,7 @@
   "candidateInventory": {
     "status": "complete-for-acquired-sources",
     "candidateCount": 760,
-    "importedActivityCount": 74,
+    "importedActivityCount": 154,
     "metadataOnly": true,
     "rawOcrStorage": "scratch-only",
     "componentReviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md",
@@ -116,7 +116,7 @@
   ],
   "sourceUnits": [
     {"id": "jasinski-field-games-1938", "status": "record-review-pending", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/jasinski-field-games-1938.json", "candidateReport": "data/reports/jasinski-field-games-1938-candidates.json", "candidateCount": 181, "importedActivityCount": 0, "referenceCostUsd": 0.9},
-    {"id": "mojmir-scout-games-1912", "status": "record-review-pending", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/mojmir-scout-games-1912.json", "candidateReport": "data/reports/mojmir-scout-games-1912-candidates.json", "candidateCount": 85, "importedActivityCount": 0, "referenceCostUsd": 0.308},
+    {"id": "mojmir-scout-games-1912", "status": "imported", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/mojmir-scout-games-1912.json", "candidateReport": "data/reports/mojmir-scout-games-1912-candidates.json", "extractionReport": "data/reports/mojmir-scout-games-1912-extraction.json", "translationReport": "data/reports/mojmir-scout-games-1912-translation-pl-en.json", "modelEvaluationReport": "data/reports/mojmir-scout-games-1912-translation-model-evaluation.json", "candidateCount": 85, "importedActivityCount": 80, "ocrReferenceCostUsd": 0.308, "translationReferenceCostUsd": 0.0788565, "modelEvaluationReferenceCostUsd": 0.0135349, "sourceValidation": {"status": "passed", "validator": "scripts/validate_v3_imported_source.py", "targetedTestCount": 11, "validatedAt": "2026-09-07"}},
     {"id": "dabrowski-indoor-games-1934", "status": "record-review-pending", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/dabrowski-indoor-games-1934.json", "candidateReport": "data/reports/dabrowski-indoor-games-1934-candidates.json", "candidateCount": 183, "importedActivityCount": 0, "referenceCostUsd": 0.344},
     {"id": "piasecki-movement-games-1922", "status": "record-review-pending", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-movement-games-1922.json", "candidateReport": "data/reports/piasecki-movement-games-1922-candidates.json", "candidateCount": 133, "importedActivityCount": 0},
     {"id": "dabrowski-winter-games-1935", "status": "skipped-with-reason", "alternativeReview": "vault/reviews/accepted/pbc-direct-djvu-alternatives.md", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/dabrowski-winter-games-1935.json", "candidateCount": 0, "importedActivityCount": 0, "terminalReason": "Owner deferred both PBC sources from the current V3 run after the direct URL proved to be an indirect DjVu index."},
@@ -127,6 +127,6 @@
     {"id": "sedlaczek-scout-school-1921", "status": "record-review-pending", "inspectionCheckpoint": "data/checkpoints/source-inspection/sedlaczek-scout-school-1921.json", "candidateReport": "data/reports/sedlaczek-scout-school-1921-candidates.json", "candidateCount": 40, "importedActivityCount": 0},
     {"id": "chamarande-1934", "status": "zero-yield", "ocrCheckpoint": "data/checkpoints/gallica-fetch/chamarande-1934.json", "extractionReport": "data/reports/chamarande-1934-extraction.json", "candidateCount": 0, "importedActivityCount": 0, "referenceCostUsd": 0.456, "terminalReason": "The approved prose contains programme-level mentions of games but no self-contained game rules."}
   ],
-  "nextStep": "review and import Mojmir candidates, then continue the remaining six acquired Polish sources",
+  "nextStep": "review and import Jasiński candidates, then continue the remaining five acquired Polish sources",
   "pullRequestOpened": false
 }

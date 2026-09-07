@@ -15,15 +15,18 @@ import yaml
 from common import ROOT, VAULT, load_markdown, sha256_bytes, source_hash, write_json
 from translate import (
     PermanentTranslationError,
+    ProtectedTokenError,
     TransientTranslationError,
     active_retry,
     checkpoint_path,
+    deterministic_translation_repairs,
     ensure_models_available,
     load_secret,
     model_pricing,
     prompt_version,
     request_translation,
     request_reference_cost_upper_bound,
+    system_prompt_for,
     translation_fidelity_checks,
     translation_output_token_budget,
     translation_target,
@@ -70,6 +73,16 @@ def load_evaluation_config(path: Path) -> dict[str, Any]:
         raise ValueError("Translation model evaluation must record Education credit billing")
     if execution.get("enforceReferenceCostLimit") is not True:
         raise ValueError("Translation model evaluation must enforce its reference-cost limit")
+    if config.get("pipelineRepairs") != "deterministic-contract-v1":
+        raise ValueError("Translation model evaluation must use production deterministic repairs")
+    required_encoding = {
+        "translation-pl-en-v4": "protected-tokens-v1",
+        "translation-pl-en-v5": "protected-values-v2",
+    }.get(config.get("promptVersion"))
+    if required_encoding and config.get("promptEncoding") != required_encoding:
+        raise ValueError(
+            f"Translation prompt {config['promptVersion']} requires {required_encoding} encoding"
+        )
     cost_limit = float(execution.get("maxReferenceCostUsd", 0))
     if not 0 < cost_limit <= 10:
         raise ValueError("Translation model evaluation cost limit must be within (0, 10] USD")
@@ -159,6 +172,8 @@ def summary_payload(
         "evaluationId": config["id"],
         "sourceId": config["sourceId"],
         "targetLocale": config.get("targetLocale"),
+        "promptVersion": config.get("promptVersion"),
+        "promptEncoding": config.get("promptEncoding"),
         "status": status,
         "configHash": config_hash,
         "productionCandidate": config["productionCandidate"],
@@ -197,12 +212,17 @@ def main() -> None:
     records = activity_records(config)
     source_locale = records[0][1]["originalLanguage"]
     target_locale = translation_target(source_locale, config.get("targetLocale"))
+    evaluation_prompt = str(
+        config.get("promptVersion") or prompt_version(source_locale, target_locale)
+    )
+    system_prompt_for(source_locale, target_locale, evaluation_prompt)
     config_hash = sha256_bytes(args.config.read_bytes())
     plan = {
         "evaluationId": config["id"],
         "sourceId": config["sourceId"],
         "sourceLocale": source_locale,
         "targetLocale": target_locale,
+        "promptVersion": evaluation_prompt,
         "models": config["candidates"],
         "activityIds": config["activityIds"],
         "requests": len(config["candidates"]) * len(records),
@@ -226,10 +246,18 @@ def main() -> None:
 
     result_path, relative_result_path = result_location(config)
     results: list[dict[str, Any]] = []
+    current_hashes = {
+        path.stem: source_hash(metadata["title"], body)
+        for path, metadata, body in records
+    }
     if result_path.exists():
         existing = json.loads(result_path.read_text(encoding="utf-8"))
         if existing.get("configHash") == config_hash:
-            results = list(existing.get("results") or [])
+            results = [
+                item
+                for item in existing.get("results") or []
+                if item.get("sourceHash") == current_hashes.get(item.get("activityId"))
+            ]
     completed = {str(item["pairId"]) for item in results}
     api_key = load_secret()
     try:
@@ -290,6 +318,7 @@ def main() -> None:
                     body,
                     source_locale,
                     target_locale,
+                    evaluation_prompt,
                 )
             except TransientTranslationError as error:
                 checkpoint = summary_payload(
@@ -317,6 +346,55 @@ def main() -> None:
                 raise SystemExit(
                     f"{error.reason}; provider access or configuration requires review"
                 ) from error
+            except ProtectedTokenError as error:
+                results.append(
+                    {
+                        "pairId": pair_id,
+                        "activityId": path.stem,
+                        "sourceHash": source_hash(metadata["title"], body),
+                        "sourceLocale": source_locale,
+                        "targetLocale": target_locale,
+                        "modelRequested": model,
+                        "model": error.actual_model,
+                        "promptVersion": evaluation_prompt,
+                        "reasoningMode": "disabled",
+                        "usage": error.usage,
+                        "deterministicRepairs": [],
+                        "checks": {
+                            "protectedTokensPreserved": False,
+                            "automaticPass": False,
+                            "humanReviewRequired": True,
+                        },
+                        "contractFailure": error.reason,
+                        "translation": None,
+                    }
+                )
+                completed.add(pair_id)
+                write_json(
+                    result_path,
+                    {
+                        "schemaVersion": 1,
+                        "evaluationId": config["id"],
+                        "configHash": config_hash,
+                        "generatedAt": datetime.now(UTC).isoformat(),
+                        "results": results,
+                    },
+                )
+                write_json(
+                    evaluation_checkpoint,
+                    summary_payload(
+                        config,
+                        config_hash,
+                        relative_result_path,
+                        results,
+                        status="in-progress",
+                        current_pair=pair_id,
+                    ),
+                )
+                continue
+            translated, repairs = deterministic_translation_repairs(
+                metadata, body, translated, target_locale
+            )
             results.append(
                 {
                     "pairId": pair_id,
@@ -326,9 +404,10 @@ def main() -> None:
                     "targetLocale": target_locale,
                     "modelRequested": model,
                     "model": actual_model,
-                    "promptVersion": prompt_version(source_locale, target_locale),
+                    "promptVersion": evaluation_prompt,
                     "reasoningMode": "disabled",
                     "usage": usage,
+                    "deterministicRepairs": repairs,
                     "checks": translation_quality_checks(
                         metadata, body, translated, target_locale
                     ),
@@ -358,15 +437,20 @@ def main() -> None:
                 ),
             )
 
+    final_summary = summary_payload(
+        config,
+        config_hash,
+        relative_result_path,
+        results,
+        status="complete",
+    )
+    write_json(evaluation_checkpoint, final_summary)
     write_json(
-        evaluation_checkpoint,
-        summary_payload(
-            config,
-            config_hash,
-            relative_result_path,
-            results,
-            status="complete",
-        ),
+        ROOT
+        / "data"
+        / "reports"
+        / f"{config['sourceId']}-translation-model-evaluation.json",
+        final_summary,
     )
     print(f"Evaluation complete; inspect $SCRATCH/{relative_result_path}")
 

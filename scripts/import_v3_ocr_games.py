@@ -53,6 +53,12 @@ class ImportPlan:
     accessed_on: str
     extraction_recipe: str
     accepted_numbers: tuple[int, ...]
+    rejected_reasons: tuple[tuple[int, str], ...]
+    repeated_headers: tuple[str, ...]
+    join_soft_wraps: bool
+    smoke_numbers: tuple[int, ...]
+    selection_basis: str
+    translation_prompt: str
 
 
 IMPORT_PLANS = {
@@ -79,6 +85,48 @@ IMPORT_PLANS = {
         accessed_on="2026-09-07",
         extraction_recipe="v3-bounded-ocr-game-import-v1",
         accepted_numbers=tuple(range(1, 75)),
+        rejected_reasons=(),
+        repeated_headers=(),
+        join_soft_wraps=False,
+        smoke_numbers=(1, 12, 24, 47, 53, 74),
+        selection_basis="dedicated game chapter with bounded headings",
+        translation_prompt="translation-pl-en-v3",
+    ),
+    "mojmir-scout-games-1912": ImportPlan(
+        prefix="ciz",
+        sections=((85, "Ćwiczenia i zabawy skautowe"),),
+        author="Herman A. Mojmir",
+        title="Ćwiczenia i zabawy skautowe",
+        year=1912,
+        edition="wydanie z 1912 r.",
+        publication_place="Lwów",
+        publisher="Związek polskich towarzystw gimnast. sokolich",
+        source_url="https://polona.pl/preview/71788615-5b35-4973-88c0-f6e1550be578",
+        rights_evidence_url=(
+            "https://polona.pl/api/library-object-query/digital-objects/"
+            "71788615-5b35-4973-88c0-f6e1550be578"
+        ),
+        rights_statement="„Domena Publiczna” — oznaczenie konkretnego obiektu w Polonie",
+        accessed_on="2026-09-07",
+        extraction_recipe="v3-bounded-ocr-game-import-v2",
+        accepted_numbers=tuple(
+            number for number in range(1, 86) if number not in {3, 26, 60, 70, 73}
+        ),
+        rejected_reasons=(
+            (3, "educational exhortation without a bounded game procedure"),
+            (26, "historical tracking technique and quotation referring to other games, not self-contained rules"),
+            (60, "catalogue of physical exercises and general training advice, not one bounded game"),
+            (70, "collection of rescue drills and safety instruction, not one bounded game"),
+            (73, "meeting and discussion format, not a bounded game"),
+        ),
+        repeated_headers=("Ćwiczenia i zabawy skautowe.",),
+        join_soft_wraps=True,
+        smoke_numbers=(1, 12, 27, 46, 59, 85),
+        selection_basis=(
+            "source-numbered entries with a bounded, executable game or competitive exercise; "
+            "advice, drill catalogues and non-game meeting formats are excluded"
+        ),
+        translation_prompt="translation-pl-en-v5",
     ),
 }
 
@@ -92,8 +140,27 @@ def parse_end_locator(locator: str) -> tuple[int, int] | None:
     return int(match.group(1)), int(match.group(2))
 
 
-def clean_source_block(raw_block: str) -> str:
+def source_heading_title(raw_block: str) -> str:
+    lines = [line.strip() for line in raw_block.splitlines() if line.strip()]
+    if not lines:
+        raise ValueError("Empty source block")
+    heading = re.sub(r"^#{1,6}\s*", "", lines[0]).strip()
+    heading = re.sub(r"^(?:\d+|[IVXLCDM]+)[.)]?\s+", "", heading, flags=re.IGNORECASE)
+    heading = re.sub(r"[.\s]+$", "", heading)
+    if not heading:
+        raise ValueError("Source block has an empty heading")
+    return heading
+
+
+def clean_source_block(
+    raw_block: str,
+    repeated_headers: tuple[str, ...] = (),
+    *,
+    join_soft_wraps: bool = False,
+) -> str:
     """Remove only deterministic OCR furniture, never modernize source prose."""
+    if join_soft_wraps:
+        raw_block = re.sub(r"\n\s*\n\d{1,3}\n\s*\n", "\n", raw_block)
     lines = raw_block.splitlines()
     if not lines:
         raise ValueError("Empty source block")
@@ -103,13 +170,27 @@ def clean_source_block(raw_block: str) -> str:
         stripped = line.strip()
         if re.fullmatch(r"\d{1,3}", stripped):
             continue
+        if re.fullmatch(r"!\[[^\]]*\]\([^)]*\)", stripped):
+            continue
+        if stripped == "*":
+            continue
+        if stripped.lstrip("-").strip() in repeated_headers:
+            continue
         if re.fullmatch(r"#{1,6}\s+DZIAŁ\s+[IVXLCDM]+\.?", stripped, re.IGNORECASE):
             continue
         kept.append(line.rstrip())
     body = "\n".join(kept).strip()
     body = re.sub(r"\n{3,}", "\n\n", body)
+    if join_soft_wraps:
+        body = re.sub(
+            r"(?<=[A-Za-ząćęłńóśźżĄĆĘŁŃÓŚŹŻ])\-\n\n(?=[a-ząćęłńóśźż])",
+            "",
+            body,
+        )
+        body = re.sub(r"(?<=[A-Za-ząćęłńóśźżĄĆĘŁŃÓŚŹŻ])\-\n(?=[a-ząćęłńóśźż])", "", body)
+        body = re.sub(r"(?<!\n)\n(?!\n)", " ", body)
     body = re.sub(
-        r"(?<=[\wąćęłńóśźżĄĆĘŁŃÓŚŹŻ])\n\n(?=[a-ząćęłńóśźż])",
+        r"(?<=[\wąćęłńóśźżĄĆĘŁŃÓŚŹŻ,;:])\n\n(?=[a-ząćęłńóśźż])",
         " ",
         body,
     )
@@ -190,7 +271,11 @@ def import_source(source_id: str) -> dict[str, Any]:
         raw_hash = hashlib.sha256((normalize_space(raw_block) + "\n").encode("utf-8")).hexdigest()
         if raw_hash != item.get("sourceBlockSha256"):
             raise ValueError(f"Pinned block hash differs for candidate {number}")
-        source_body = clean_source_block(raw_block)
+        source_body = clean_source_block(
+            raw_block,
+            plan.repeated_headers,
+            join_soft_wraps=plan.join_soft_wraps,
+        )
         content_hash = hashlib.sha256(normalize_space(source_body).encode("utf-8")).hexdigest()
         if content_hash in source_bodies:
             raise ValueError(
@@ -212,7 +297,7 @@ def import_source(source_id: str) -> dict[str, Any]:
             raise ValueError(f"Candidate {number} lacks a pinned Polona facsimile URL")
 
         activity_id = f"{plan.prefix}-{number:03d}"
-        title = re.sub(r"[.\s]+$", "", normalize_space(str(item["titleRaw"])))
+        title = source_heading_title(raw_block)
         source_note = (
             "---\n\n"
             f"*Źródło skanu: [Polona / Biblioteka Narodowa]({plan.source_url}), "
@@ -290,7 +375,7 @@ def import_source(source_id: str) -> dict[str, Any]:
             "targetLocale": "en",
             "modelRequested": "mistral-large-2512",
             "reasoningMode": "disabled",
-            "promptVersion": "translation-pl-en-v3",
+            "promptVersion": plan.translation_prompt,
             "usageRequired": True,
             "requestBudgetRequired": True,
             "billingMode": "education-credit",
@@ -299,7 +384,7 @@ def import_source(source_id: str) -> dict[str, Any]:
             "report": f"data/reports/{source_id}-translation-pl-en.json",
             "priceAccessedOn": "2026-09-04",
             "smokeTestActivityIds": [
-                f"{plan.prefix}-{number:03d}" for number in (1, 12, 24, 47, 53, 74)
+                f"{plan.prefix}-{number:03d}" for number in plan.smoke_numbers
             ],
         },
     }
@@ -313,6 +398,39 @@ def import_source(source_id: str) -> dict[str, Any]:
     )
     dump_markdown(VAULT / "sources" / f"{source_id}.md", source_metadata, source_body)
 
+    selection = {
+        "candidateCount": len(candidates),
+        "acceptedGameCount": len(activities),
+        "rejectedCount": len(candidates) - len(activities),
+        "basis": plan.selection_basis,
+    }
+    if plan.rejected_reasons:
+        selection["rejectedCandidates"] = [
+            {"candidateNumber": number, "reason": reason}
+            for number, reason in plan.rejected_reasons
+        ]
+    normalization = [
+        "omit the repeated activity heading represented in frontmatter",
+        "omit isolated numeric printed-page furniture",
+        "omit the following section heading when it falls inside the preceding block",
+    ]
+    if plan.repeated_headers:
+        normalization.extend(
+            [
+                "omit non-text illustration placeholders while retaining page provenance",
+                "omit source-specific repeated running headers",
+            ]
+        )
+    if plan.join_soft_wraps:
+        normalization.append(
+            "join OCR soft line wraps and dehyphenate lowercase word continuations"
+        )
+    normalization.extend(
+        [
+            "join a page-break blank line only before a lowercase sentence continuation, including after comma, semicolon or colon",
+            "preserve spelling, punctuation and paragraph order without modernization",
+        ]
+    )
     extraction = {
         "schemaVersion": 1,
         "sourceId": source_id,
@@ -321,22 +439,11 @@ def import_source(source_id: str) -> dict[str, Any]:
         "reviewRequired": False,
         "activityCount": len(activities),
         "wholeSourceCopiedToRepository": False,
-        "selection": {
-            "candidateCount": len(candidates),
-            "acceptedGameCount": len(activities),
-            "rejectedCount": len(candidates) - len(activities),
-            "basis": "dedicated game chapter with bounded headings",
-        },
+        "selection": selection,
         "transcriptionEvidence": {
             "sourceStatement": "Mistral OCR output from pinned Polona IIIF page images; raw responses remain in scratch.",
             "sourceLocation": plan.source_url,
-            "deterministicNormalization": [
-                "omit the repeated activity heading represented in frontmatter",
-                "omit isolated numeric printed-page furniture",
-                "omit the following section heading when it falls inside the preceding block",
-                "join a page-break blank line only when it interrupts a word-continuing sentence",
-                "preserve spelling, punctuation and paragraph order without modernization",
-            ],
+            "deterministicNormalization": normalization,
             "lexicalModernization": False,
         },
         "deduplication": {"exactBodyMatches": [], "nearDuplicateCandidates": []},
@@ -345,10 +452,14 @@ def import_source(source_id: str) -> dict[str, Any]:
     write_json(extraction_path, extraction)
 
     accepted_numbers = set(plan.accepted_numbers)
+    rejected_reasons = dict(plan.rejected_reasons)
     for item in report["candidates"]:
-        item["recordReviewStatus"] = (
-            "accepted-game" if int(item["number"]) in accepted_numbers else "rejected-not-game"
-        )
+        number = int(item["number"])
+        item["recordReviewStatus"] = "accepted-game" if number in accepted_numbers else "rejected-not-game"
+        if number in rejected_reasons:
+            item["recordReviewReason"] = rejected_reasons[number]
+        else:
+            item.pop("recordReviewReason", None)
     expected_activity_ids = sorted(item["id"] for item in activities)
     translation_report_path = (
         ROOT / "data" / "reports" / f"{source_id}-translation-pl-en.json"

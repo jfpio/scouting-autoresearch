@@ -34,6 +34,8 @@ from translate import (
     deterministic_translation_repairs,
     ensure_models_available,
     parse_json_content,
+    protect_translation_body,
+    restore_translation_body,
     retry_at_from_headers,
     safe_http_diagnostics,
     translation_fidelity_checks,
@@ -70,6 +72,41 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(payload["title"], "Fire")
         with self.assertRaises(ValueError):
             parse_json_content('{"title":"Fire","body":"Text","traits":[],"section":"Trials","extra":true}')
+
+    def test_translation_protected_tokens_round_trip_exact_values(self):
+        source = (
+            "Biegnij 400—1500 kroków, potem 1/2 drogi. "
+            "Skan: https://example.test/view/40?part=1."
+        )
+        protected, replacements = protect_translation_body(source)
+        self.assertNotRegex(protected, r"\d")
+        self.assertNotIn("https://", protected)
+        self.assertEqual(len(replacements), 3)
+        translated = protected.replace("Biegnij", "Run").replace("kroków", "paces")
+        self.assertEqual(
+            restore_translation_body(
+                translated,
+                replacements,
+                reject_unprotected_digits=True,
+            ),
+            "Run 400—1500 paces, potem 1/2 drogi. "
+            "Skan: https://example.test/view/40?part=1.",
+        )
+
+    def test_translation_protected_tokens_reject_missing_marker(self):
+        protected, replacements = protect_translation_body("Idź 1/2 drogi.")
+        marker = next(iter(replacements))
+        with self.assertRaisesRegex(ValueError, "expected exactly once"):
+            restore_translation_body(protected.replace(marker, ""), replacements)
+
+    def test_translation_protected_tokens_reject_new_digits(self):
+        protected, replacements = protect_translation_body("Trzy kroki.")
+        with self.assertRaisesRegex(ValueError, "introduced a digit"):
+            restore_translation_body(
+                f"{protected} 2",
+                replacements,
+                reject_unprotected_digits=True,
+            )
 
     def test_translation_cooldown_uses_provider_value_or_one_hour_fallback(self):
         now = datetime(2026, 9, 3, tzinfo=UTC)
@@ -311,6 +348,16 @@ class PipelineTests(unittest.TestCase):
             },
         )
         self.assertTrue(grouped_checks["numbersPreserved"])
+
+    def test_mojmir_translation_evaluation_pins_v5_protected_values(self):
+        root = Path(__file__).resolve().parents[1]
+        config = load_evaluation_config(
+            root / "config" / "v3-mojmir-translation-model-evaluation.yaml"
+        )
+        self.assertEqual(config["promptVersion"], "translation-pl-en-v5")
+        self.assertEqual(config["promptEncoding"], "protected-values-v2")
+        self.assertEqual(config["productionCandidate"], "mistral-large-2512")
+        self.assertEqual(len(config["activityIds"]), 6)
 
     def test_translation_model_evaluation_checkpoints_permanent_provider_errors(self):
         config = {

@@ -6,7 +6,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from import_v3_ocr_games import IMPORT_PLANS, clean_source_block, section_for_number, source_revision
+from import_v3_ocr_games import (
+    IMPORT_PLANS,
+    clean_source_block,
+    section_for_number,
+    source_heading_title,
+    source_revision,
+)
 
 
 class ImportV3OcrGamesTests(unittest.TestCase):
@@ -25,11 +31,46 @@ class ImportV3OcrGamesTests(unittest.TestCase):
             "Nowy akapit zaczyna się wielką literą.",
         )
 
+    def test_clean_source_block_joins_page_break_after_comma_before_lowercase(self):
+        raw = "# GRA.\n\nWolno go przytrzymać,\n\nodebrać list.\n"
+        self.assertEqual(
+            clean_source_block(raw),
+            "Wolno go przytrzymać, odebrać list.",
+        )
+
+    def test_clean_source_block_removes_pinned_header_image_and_soft_wraps(self):
+        raw = (
+            "# 22. Gra.\n\nPierwszy aka-\npit i dru-\n\n15\n\n*\n\ngi akapit.\n\n"
+            "![img-0.jpeg](img-0.jpeg)\n\nĆwiczenia i zabawy skautowe.\n"
+        )
+        self.assertEqual(
+            clean_source_block(
+                raw,
+                ("Ćwiczenia i zabawy skautowe.",),
+                join_soft_wraps=True,
+            ),
+            "Pierwszy akapit i drugi akapit.",
+        )
+
+    def test_source_heading_title_uses_body_heading_and_strips_number(self):
+        self.assertEqual(
+            source_heading_title("### 48. Testament Woroby.\n\nTekst."),
+            "Testament Woroby",
+        )
+
     def test_section_boundaries_are_explicit(self):
         plan = IMPORT_PLANS["zwolakowska-cub-pack-1945"]
         self.assertEqual(section_for_number(plan, 24), "Dział I")
         self.assertEqual(section_for_number(plan, 25), "Dział II")
         self.assertEqual(section_for_number(plan, 64), "Dział IV")
+
+    def test_mojmir_review_rejects_five_non_game_entries(self):
+        plan = IMPORT_PLANS["mojmir-scout-games-1912"]
+        self.assertEqual(len(plan.accepted_numbers), 80)
+        self.assertEqual(
+            {number for number, _ in plan.rejected_reasons},
+            {3, 26, 60, 70, 73},
+        )
 
     def test_source_revision_is_ordered_and_scoped_to_selected_views(self):
         checkpoint = {

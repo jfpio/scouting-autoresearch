@@ -10,7 +10,7 @@
   },
   "sourceOutcomes": [
     {"sourceId": "jasinski-field-games-1938", "status": "record-review-pending", "candidateCount": 181, "importedActivityCount": 0},
-    {"sourceId": "mojmir-scout-games-1912", "status": "record-review-pending", "candidateCount": 85, "importedActivityCount": 0},
+    {"sourceId": "mojmir-scout-games-1912", "status": "imported", "candidateCount": 85, "importedActivityCount": 80, "ocrReferenceCostUsd": 0.308, "translationReferenceCostUsd": 0.0788565, "modelEvaluationReferenceCostUsd": 0.0135349, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
     {"sourceId": "dabrowski-indoor-games-1934", "status": "record-review-pending", "candidateCount": 183, "importedActivityCount": 0},
     {"sourceId": "piasecki-movement-games-1922", "status": "record-review-pending", "candidateCount": 133, "importedActivityCount": 0},
     {"sourceId": "dabrowski-winter-games-1935", "status": "skipped-with-reason", "candidateCount": 0, "importedActivityCount": 0, "reason": "Owner deferred both PBC sources from the current V3 run after the direct URL proved to be an indirect DjVu index."},
@@ -51,7 +51,7 @@
   },
   "candidateAndImportCounts": {
     "candidateCount": 760,
-    "importedActivityCount": 74,
+    "importedActivityCount": 154,
     "candidateCountBySource": {
       "jasinski-field-games-1938": 181,
       "mojmir-scout-games-1912": 85,
@@ -88,9 +88,10 @@
     "ocrProcessedViewCount": 619,
     "ocrReferenceCostUsd": 2.48,
     "referenceCostLimitUsd": 10.0,
-    "translationPromptTokens": 39474,
-    "translationCompletionTokens": 20096,
-    "translationReferenceCostUsd": 0.049881
+    "translationPromptTokens": 100506,
+    "translationCompletionTokens": 52323,
+    "translationReferenceCostUsd": 0.1287375,
+    "completedModelEvaluationReferenceCostUsd": 0.0135349
   },
   "validationResults": {
     "status": "pending-after-corpus-expansion",

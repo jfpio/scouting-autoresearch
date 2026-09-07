@@ -99,7 +99,95 @@ SYSTEM_PROMPT_OVERRIDES = {
     "do not convert quantities, clock notation, dates, distances, or explanatory numbers. Keep "
     "digits as the same digits and number words as number words; never translate a Polish number "
     "word into a digit or introduce any new digit-containing token. Preserve every URL exactly.",
+    (
+        "pl",
+        "en",
+        "translation-pl-en-v4",
+    ): SYSTEM_PROMPTS[("pl", "en")]
+    + "\nPreserve the traits array length exactly. If the supplied traits array is empty, "
+    "return traits as [] and do not infer any traits. The body contains immutable protected "
+    "tokens beginning with ZXQ and ending with QXZ. Copy every such token exactly once, at the "
+    "same semantic position, without translating, altering, splitting, or omitting it. Do not "
+    "invent any additional protected token.",
+    (
+        "pl",
+        "en",
+        "translation-pl-en-v5",
+    ): SYSTEM_PROMPTS[("pl", "en")]
+    + "\nPreserve the traits array length exactly. If the supplied traits array is empty, "
+    "return traits as [] and do not infer any traits. The body contains immutable protected "
+    "tokens beginning with ZXQ and ending with QXZ. They represent exact URLs and numeric forms. "
+    "Copy every protected token exactly once, at the same semantic "
+    "position, without translating, altering, splitting, or omitting it. Do not invent any "
+    "additional protected token or digit. Keep number words as "
+    "number words rather than converting them to digits.",
 }
+
+
+PROTECTED_URL_PATTERN = re.compile(r"https?://[^\s)]+")
+PROTECTED_NUMBER_PATTERN = re.compile(
+    r"(?:\d{1,3}(?:[ \u00a0]\d{3})+|\d+(?:[.,/—–-]\d+)*)"
+)
+PROTECTED_MARKER_PATTERN = re.compile(r"ZXQ(?:URL|NUM)[A-Z]+QXZ")
+
+
+def _alphabetic_index(index: int) -> str:
+    """Return a stable, digit-free spreadsheet-style index (A, B, ..., AA)."""
+    if index < 0:
+        raise ValueError("Protected-token index must be non-negative")
+    value = index + 1
+    result = ""
+    while value:
+        value, remainder = divmod(value - 1, 26)
+        result = chr(ord("A") + remainder) + result
+    return result
+
+
+def protect_translation_body(body: str) -> tuple[str, dict[str, str]]:
+    """Replace exact URLs and numeric forms with unique, digit-free markers."""
+    replacements: dict[str, str] = {}
+    counters = {"URL": 0, "NUM": 0}
+
+    def replace(kind: str):
+        def callback(match: re.Match[str]) -> str:
+            while True:
+                marker = f"ZXQ{kind}{_alphabetic_index(counters[kind])}QXZ"
+                counters[kind] += 1
+                if marker not in body and marker not in replacements:
+                    break
+            replacements[marker] = match.group(0)
+            return marker
+
+        return callback
+
+    protected = PROTECTED_URL_PATTERN.sub(replace("URL"), body)
+    protected = PROTECTED_NUMBER_PATTERN.sub(replace("NUM"), protected)
+    if re.search(r"\d", protected):
+        raise ValueError("A digit remained outside the protected-token encoding")
+    return protected, replacements
+
+
+def restore_translation_body(
+    body: str,
+    replacements: dict[str, str],
+    *,
+    reject_unprotected_digits: bool = False,
+) -> str:
+    """Restore protected values only when every issued marker survived exactly once."""
+    if reject_unprotected_digits and re.search(r"\d", body):
+        raise ValueError("Translation introduced a digit outside protected tokens")
+    restored = body
+    for marker, original in replacements.items():
+        count = restored.count(marker)
+        if count != 1:
+            raise ValueError(
+                f"Protected translation token {marker} occurs {count} times; expected exactly once"
+            )
+        restored = restored.replace(marker, original, 1)
+    unexpected = sorted(set(PROTECTED_MARKER_PATTERN.findall(restored)))
+    if unexpected:
+        raise ValueError(f"Unexpected protected translation tokens: {unexpected}")
+    return restored
 
 
 def prompt_version(source_locale: str, target_locale: str) -> str:
@@ -166,7 +254,7 @@ def translation_fidelity_checks(
 ) -> dict[str, Any]:
     source_urls = Counter(re.findall(r"https?://[^\s)]+", body))
     translated_urls = Counter(re.findall(r"https?://[^\s)]+", translated["body"]))
-    number_pattern = r"(?<!\w)(?:\d{1,3}(?:[ ,.\u00a0]\d{3})+|\d+(?:[.,]\d+)?)"
+    number_pattern = PROTECTED_NUMBER_PATTERN.pattern
 
     def normalized_numbers(text: str, locale: str) -> Counter[str]:
         normalized: list[str] = []
@@ -195,8 +283,12 @@ def translation_fidelity_checks(
             flags=re.IGNORECASE,
         )
     )
-    source_numbers = normalized_numbers(body, source_locale)
-    translated_numbers = normalized_numbers(translated["body"], target_locale)
+    source_numbers = normalized_numbers(
+        PROTECTED_URL_PATTERN.sub("", body), source_locale
+    )
+    translated_numbers = normalized_numbers(
+        PROTECTED_URL_PATTERN.sub("", translated["body"]), target_locale
+    )
     body_ratio = len(translated["body"].strip()) / max(1, len(body.strip()))
     checks = {
         "nonemptyFields": all(
@@ -311,6 +403,16 @@ class PermanentTranslationError(RuntimeError):
         super().__init__(reason)
         self.reason = reason
         self.diagnostics = diagnostics or {}
+
+
+class ProtectedTokenError(ValueError):
+    """The provider returned a usable response but violated a protected-token contract."""
+
+    def __init__(self, reason: str, actual_model: str, usage: dict[str, Any]):
+        super().__init__(reason)
+        self.reason = reason
+        self.actual_model = actual_model
+        self.usage = usage
 
 
 def available_model_ids(api_key: str) -> set[str]:
@@ -517,12 +619,16 @@ def request_translation(
     fidelity_feedback: str | None = None,
 ) -> tuple[dict, str, dict[str, Any]]:
     system_prompt = system_prompt_for(source_locale, target_locale, prompt_version_value)
+    request_body_text = body
+    protected_replacements: dict[str, str] = {}
+    if prompt_version_value in {"translation-pl-en-v4", "translation-pl-en-v5"}:
+        request_body_text, protected_replacements = protect_translation_body(body)
     user_payload = {
         "id": activity_id,
         "title": metadata["title"],
         "traits": metadata.get("traits", []),
         "section": metadata.get("section", ""),
-        "body": body,
+        "body": request_body_text,
     }
     max_output_tokens = translation_output_token_budget(user_payload)
     effective_system_prompt = system_prompt
@@ -570,19 +676,30 @@ def request_translation(
     actual_model = result.get("model")
     if not isinstance(actual_model, str) or not actual_model.strip():
         raise ValueError("Mistral response lacks the actual model identifier")
-    translated = parse_json_content(choice["message"]["content"])
     billing_mode = str(
         source_translation_policy(
             str(metadata["sourceId"]), target_locale
         ).get("billingMode")
         or DEFAULT_BILLING_MODE
     )
-    return translated, actual_model, usage_record(
+    usage = usage_record(
         result.get("usage") or {},
         model,
         request_max_output_tokens=max_output_tokens,
         billing_mode=billing_mode,
     )
+    translated = parse_json_content(choice["message"]["content"])
+    if protected_replacements:
+        try:
+            translated["body"] = restore_translation_body(
+                translated["body"],
+                protected_replacements,
+                reject_unprotected_digits=prompt_version_value
+                == "translation-pl-en-v5",
+            )
+        except ValueError as error:
+            raise ProtectedTokenError(str(error), actual_model, usage) from error
+    return translated, actual_model, usage
 
 
 def current_translation(
@@ -775,22 +892,56 @@ def translate_one(
         request_budget_required=requirements["requestBudgetRequired"],
     ):
         return activity_id, None, None
-    translated, actual_model, usage = request_translation(
-        api_key,
-        model,
-        activity_id,
-        metadata,
-        body,
-        source_locale,
-        target_locale,
-        requirements["expectedPrompt"] or prompt_version(source_locale, target_locale),
+    selected_prompt = requirements["expectedPrompt"] or prompt_version(
+        source_locale, target_locale
     )
+    request_retried = False
+    try:
+        translated, actual_model, usage = request_translation(
+            api_key,
+            model,
+            activity_id,
+            metadata,
+            body,
+            source_locale,
+            target_locale,
+            selected_prompt,
+        )
+    except ProtectedTokenError as first_error:
+        request_retried = True
+        feedback = (
+            "The previous candidate violated the protected-token contract. Copy every ZXQ...QXZ "
+            "token exactly once and do not introduce any digit outside those tokens."
+        )
+        try:
+            translated, actual_model, corrected_usage = request_translation(
+                api_key,
+                model,
+                activity_id,
+                metadata,
+                body,
+                source_locale,
+                target_locale,
+                selected_prompt,
+                fidelity_feedback=feedback,
+            )
+        except ProtectedTokenError as second_error:
+            raise ValueError(
+                f"Translation violated the protected-token contract twice for {activity_id}: "
+                f"{second_error.reason}"
+            ) from second_error
+        usage = combine_usage_records([first_error.usage, corrected_usage])
     translated, deterministic_repairs = deterministic_translation_repairs(
         metadata, body, translated, target_locale
     )
     fidelity = translation_fidelity_checks(metadata, body, translated, target_locale)
     if not fidelity["automaticPass"]:
         failed = sorted(key for key, value in fidelity.items() if isinstance(value, bool) and not value)
+        if request_retried:
+            raise ValueError(
+                f"Translation failed after the protected-token retry for {activity_id}: "
+                f"{', '.join(failed)}"
+            )
         exact_numeric_tokens = re.findall(
             r"(?<!\w)(?:\d{1,3}(?:[ ,.\u00a0]\d{3})+|\d+(?:[.,]\d+)?)",
             body,
@@ -810,7 +961,7 @@ def translate_one(
             body,
             source_locale,
             target_locale,
-            requirements["expectedPrompt"] or prompt_version(source_locale, target_locale),
+            selected_prompt,
             fidelity_feedback=feedback,
         )
         corrected, corrected_repairs = deterministic_translation_repairs(

@@ -10,9 +10,9 @@ activeRun:
   sourceUnitCount: 11
   pullRequestPolicy: one-at-end-of-run
   candidateCount: 760
-  importedActivityCount: 74
+  importedActivityCount: 154
   deferredSourceUnitCount: 2
-  nextStep: review-and-import-mojmir-candidates
+  nextStep: review-and-import-jasinski-candidates
   nextHumanGates: []
 subjects:
   - id: robert-baden-powell

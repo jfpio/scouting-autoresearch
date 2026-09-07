@@ -4,7 +4,7 @@
   "sourceTitle": "Ćwiczenia i zabawy skautowe",
   "authorStatement": "Herman Mojmir",
   "year": 1912,
-  "status": "candidate-inventory-complete-record-review-pending",
+  "status": "complete-imported",
   "sourceText": {
     "classification": "mistral-ocr-scratch-only",
     "storage": "scratch-only",
@@ -41,7 +41,7 @@
   "selection": {
     "productionKind": "game",
     "candidateCount": 85,
-    "importedActivityCount": 0,
+    "importedActivityCount": 80,
     "rightsScope": "Game prose in the Polona object explicitly marked public domain; non-game media remain outside the product scope.",
     "rightsStatus": "public-domain",
     "rightsEvidencePolicy": "explicit-library-public-domain-status-is-ground-truth",
@@ -56,7 +56,8 @@
     "humanReviewRequiredBeforeFullTextPublication": false,
     "knownComponentExceptions": [
       "The book cites Baden-Powell, Seton and other collections as sources; retain these signals as provenance and similarity evidence."
-    ]
+    ],
+    "recordReviewRequired": false
   },
   "ocrUsage": {
     "pagesProcessed": 77,
@@ -86,7 +87,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 1,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Gra Morgana",
@@ -108,7 +109,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 2,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Błędny rycerz",
@@ -132,7 +133,8 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 3,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "educational exhortation without a bounded game procedure"
     },
     {
       "titleRaw": "Cwiczenia sluchu",
@@ -154,7 +156,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 4,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Cwiczenia wechu",
@@ -176,7 +178,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 5,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Cwiczenia wzroku",
@@ -198,7 +200,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 6,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Ognisko na wyścigi",
@@ -220,7 +222,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 7,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Wyprawa po rosliny",
@@ -242,7 +244,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 8,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Poczta skautowa",
@@ -264,7 +266,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 9,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Pamiętanie sladów",
@@ -286,7 +288,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 10,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Rysunek sladu",
@@ -308,7 +310,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 11,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Podchodzenie strazy",
@@ -330,7 +332,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 12,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Jaka dlugosc?",
@@ -352,7 +354,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 13,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Wyszukać polnoc",
@@ -374,7 +376,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 14,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Czytanie mapy",
@@ -396,7 +398,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 15,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Blisko-daleko",
@@ -418,7 +420,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 16,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Szukanie naparstka",
@@ -440,7 +442,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 17,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Zarys najbliszsej okolicy obozu",
@@ -462,7 +464,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 18,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Gra sygnalowa",
@@ -484,7 +486,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 19,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Pajak i mucha",
@@ -506,7 +508,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 20,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Proceder kozacki w stepie",
@@ -528,7 +530,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 21,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Proceder kozacki w okopach",
@@ -550,7 +552,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 22,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Wyczha na kota",
@@ -574,7 +576,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 23,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Zbieranie baweiny",
@@ -596,7 +598,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 24,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Ucieczka sybiraka",
@@ -618,7 +620,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 25,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Tatarskie zacieranie sladów",
@@ -640,7 +642,8 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 26,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "historical tracking technique and quotation referring to other games, not self-contained rules"
     },
     {
       "titleRaw": "Na wyprzódki z wywiadami",
@@ -665,7 +668,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 27,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Lapaj zlodzieja",
@@ -689,7 +692,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 28,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Za sladem przywodnika w mieść",
@@ -713,7 +716,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 29,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Wyprawa do bieguna",
@@ -735,7 +738,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 30,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Lapanka w mieść",
@@ -757,7 +760,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 31,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Zazule",
@@ -781,7 +784,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 32,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Fort snieżny",
@@ -805,7 +808,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 33,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Ukosy",
@@ -827,7 +830,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 34,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Skrzetuski ze Zbaraża",
@@ -849,7 +852,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 35,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Dwaj gońcy z depe-szami",
@@ -871,7 +874,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 36,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Polaczenia sprzymierzonych",
@@ -893,7 +896,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 37,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Polaczenia z odcietym oddzialem",
@@ -915,7 +918,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 38,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Zabieranie choragiewek",
@@ -937,7 +940,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 39,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "List zdrajcy",
@@ -959,7 +962,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 40,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Przerwanie telegrafu",
@@ -981,7 +984,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 41,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Polowanie na lisa",
@@ -1003,7 +1006,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 42,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Zwiady",
@@ -1025,7 +1028,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 43,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Zasadzka",
@@ -1047,7 +1050,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 44,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Szukanie instruktora",
@@ -1071,7 +1074,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 45,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Za skarbem",
@@ -1095,7 +1098,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 46,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Podarte pismo",
@@ -1117,7 +1120,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 47,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Testament Woroby",
@@ -1139,7 +1142,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 48,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Rozpoznaniefotografii",
@@ -1161,7 +1164,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 49,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Zwiady w miecie",
@@ -1183,7 +1186,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 50,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Cygaro zdrajca",
@@ -1205,7 +1208,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 51,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Efialtes w nocy",
@@ -1227,7 +1230,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 52,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Cwiczenia sluchu w nocy",
@@ -1249,7 +1252,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 53,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Tropienie za węchem w nocy",
@@ -1271,7 +1274,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 54,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Pościg za sladem swiatla",
@@ -1293,7 +1296,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 55,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Ocena odlegosci swiatla",
@@ -1317,7 +1320,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 56,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Nocne Straze",
@@ -1341,7 +1344,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 57,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Spóro Morskie Oko",
@@ -1363,7 +1366,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 58,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Pionierzy. W puszczy",
@@ -1385,7 +1388,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 59,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Cwiczenia fizyczne w obozie",
@@ -1407,7 +1410,8 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 60,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "catalogue of physical exercises and general training advice, not one bounded game"
     },
     {
       "titleRaw": "Rozstrzelanie",
@@ -1431,7 +1435,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 61,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Oblawa na misia",
@@ -1453,7 +1457,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 62,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Pojedyńczy na niedzwiedzia",
@@ -1475,7 +1479,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 63,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Polowanie na slonia afrykańskikiego",
@@ -1497,7 +1501,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 64,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Polowanie na slonia indyjskiego",
@@ -1519,7 +1523,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 65,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Polowanie na tygrysa",
@@ -1541,7 +1545,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 66,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Walka bykow",
@@ -1563,7 +1567,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 67,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Dloniowka. Koszykowa. Nożna",
@@ -1585,7 +1589,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 68,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Pilka dmuchana",
@@ -1607,7 +1611,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 69,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Cwiczenia ratownicze",
@@ -1629,7 +1633,8 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 70,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "collection of rescue drills and safety instruction, not one bounded game"
     },
     {
       "titleRaw": "Cwiczenia pierwszej pomocy",
@@ -1651,7 +1656,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 71,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Podwórze folwarku",
@@ -1675,7 +1680,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 72,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Posiedzenia i dyskusye",
@@ -1699,7 +1704,8 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 73,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "rejected-not-game",
+      "recordReviewReason": "meeting and discussion format, not a bounded game"
     },
     {
       "titleRaw": "Szachy skautowe",
@@ -1721,7 +1727,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 74,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Malarze",
@@ -1745,7 +1751,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 75,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Gry towarzyskie, sekretarz",
@@ -1767,7 +1773,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 76,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Pierscionek",
@@ -1789,7 +1795,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 77,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Adwokat",
@@ -1811,7 +1817,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 78,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Sasiad",
@@ -1833,7 +1839,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 79,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Liczenie do dziesieciu",
@@ -1855,7 +1861,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 80,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Wzburzone morze",
@@ -1877,7 +1883,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 81,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Gluchoniemi",
@@ -1901,7 +1907,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 82,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Tak i nie",
@@ -1923,7 +1929,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 83,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Rzemioslo (szewc)",
@@ -1945,7 +1951,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 84,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     },
     {
       "titleRaw": "Zadania fantowe",
@@ -1969,7 +1975,7 @@
       ],
       "boundaryStatus": "bounded-by-approved-range-end",
       "number": 85,
-      "recordReviewStatus": "pending-agent-review"
+      "recordReviewStatus": "accepted-game"
     }
   ]
 }
