@@ -75,7 +75,7 @@ def main() -> None:
     kind_counts = {
         locale: {
             kind: sum(kind in record.get("kinds", []) for record in records)
-            for kind in ("game", "trial")
+            for kind in ("game", "trial", "scout-course")
         }
         for locale, records in records_by_locale.items()
     }
@@ -119,10 +119,12 @@ def main() -> None:
         "all/index.html": totals["pl"],
         "games/index.html": kind_counts["pl"]["game"],
         "trials/index.html": kind_counts["pl"]["trial"],
+        "courses/index.html": kind_counts["pl"]["scout-course"],
         "en/index.html": totals["en"],
         "en/all/index.html": totals["en"],
         "en/games/index.html": kind_counts["en"]["game"],
         "en/trials/index.html": kind_counts["en"]["trial"],
+        "en/courses/index.html": kind_counts["en"]["scout-course"],
     }
     metric_errors = []
     for path, expected in expected_cards.items():
@@ -201,7 +203,13 @@ def main() -> None:
     }
     for locale, prefix in (("pl", ""), ("en", "en/")):
         expected_phrases = disclosure_checks[locale]
-        for route in ("index.html", "all/index.html", "games/index.html", "trials/index.html"):
+        for route in (
+            "index.html",
+            "all/index.html",
+            "games/index.html",
+            "trials/index.html",
+            "courses/index.html",
+        ):
             path = prefix + route
             rendered_path = DIST / path
             if not rendered_path.exists():
@@ -265,7 +273,8 @@ def main() -> None:
     print(f"Internal link check passed: {checked} links and assets across {len(html_paths)} pages.")
     print(
         f"Rendered explorer check passed: {totals['pl']} total, "
-        f"{kind_counts['pl']['game']} games and {kind_counts['pl']['trial']} trials "
+        f"{kind_counts['pl']['game']} games, {kind_counts['pl']['trial']} trials and "
+        f"{kind_counts['pl']['scout-course']} scout courses "
         "in both languages; Pagefind present."
     )
     print(

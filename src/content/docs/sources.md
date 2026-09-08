@@ -1,9 +1,9 @@
 ---
-title: "Źródła"
+title: "Książki"
 description: "Pełne teksty są publikowane wyłącznie dla wydań z potwierdzonym statusem domeny publicznej. Oznaczenie praw przypisujemy instytucji źródłowej."
 ---
 
-# Źródła
+# Książki
 
 Pełne teksty są publikowane wyłącznie dla wydań z potwierdzonym statusem domeny publicznej. Oznaczenie praw przypisujemy instytucji źródłowej.
 
@@ -13,7 +13,7 @@ Pełne teksty są publikowane wyłącznie dla wydań z potwierdzonym statusem do
 
 English text explicitly attributed to Ernest Thompson Seton on printed pages 291-319; Project Gutenberg marks eBook 29558 Public domain in the USA, and the approved life-plus-70 policy applies in Poland/EU.
 
-[Rekord źródłowy](https://www.gutenberg.org/ebooks/29558) · [Wydanie cyfrowe](https://www.gutenberg.org/files/29558/29558-h/29558-h.htm)
+[Pokaż aktywności (33)](/scouting-autoresearch/all/?book=Boy%20Scouts%20Handbook%3A%20The%20Games) · [Rekord źródłowy](https://www.gutenberg.org/ebooks/29558) · [Wydanie cyfrowe](https://www.gutenberg.org/files/29558/29558-h/29558-h.htm)
 
 ## Gry i zabawy w izbie harcerskiej
 
@@ -21,7 +21,7 @@ English text explicitly attributed to Ernest Thompson Seton on printed pages 291
 
 „Domena Publiczna” — oznaczenie konkretnego obiektu w Polonie
 
-[Rekord źródłowy](https://polona.pl/preview/f8a00528-6a07-4916-9a76-c1e094e317da) · [Wydanie cyfrowe](https://polona.pl/preview/f8a00528-6a07-4916-9a76-c1e094e317da)
+[Pokaż aktywności (175)](/scouting-autoresearch/all/?book=Gry%20i%20zabawy%20w%20izbie%20harcerskiej) · [Rekord źródłowy](https://polona.pl/preview/f8a00528-6a07-4916-9a76-c1e094e317da) · [Wydanie cyfrowe](https://polona.pl/preview/f8a00528-6a07-4916-9a76-c1e094e317da)
 
 ## Harcerz w polu: zabawy i gry terenowe
 
@@ -29,7 +29,7 @@ English text explicitly attributed to Ernest Thompson Seton on printed pages 291
 
 „Domena publiczna” — oznaczenie rekordu Polony
 
-[Rekord źródłowy](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0) · [Wydanie cyfrowe](https://jfpio.github.io/harcerz-w-polu/)
+[Pokaż aktywności (117)](/scouting-autoresearch/all/?book=Harcerz%20w%20polu%3A%20zabawy%20i%20gry%20terenowe) · [Rekord źródłowy](https://polona.pl/item-view/0782bd3a-4d20-41be-86f8-bcdfc65555c5?page=0) · [Wydanie cyfrowe](https://jfpio.github.io/harcerz-w-polu/)
 
 ## Gry i ćwiczenia terenowe (Harce terenowe)
 
@@ -37,7 +37,7 @@ English text explicitly attributed to Ernest Thompson Seton on printed pages 291
 
 „Domena Publiczna” — oznaczenie konkretnego obiektu w Polonie
 
-[Rekord źródłowy](https://polona.pl/preview/b1600bcb-668f-4daf-a37b-81fade26971f) · [Wydanie cyfrowe](https://polona.pl/preview/b1600bcb-668f-4daf-a37b-81fade26971f)
+[Pokaż aktywności (153)](/scouting-autoresearch/all/?book=Gry%20i%20%C4%87wiczenia%20terenowe%20%28Harce%20terenowe%29) · [Rekord źródłowy](https://polona.pl/preview/b1600bcb-668f-4daf-a37b-81fade26971f) · [Wydanie cyfrowe](https://polona.pl/preview/b1600bcb-668f-4daf-a37b-81fade26971f)
 
 ## Ćwiczenia i zabawy skautowe
 
@@ -45,7 +45,7 @@ English text explicitly attributed to Ernest Thompson Seton on printed pages 291
 
 „Domena Publiczna” — oznaczenie konkretnego obiektu w Polonie
 
-[Rekord źródłowy](https://polona.pl/preview/71788615-5b35-4973-88c0-f6e1550be578) · [Wydanie cyfrowe](https://polona.pl/preview/71788615-5b35-4973-88c0-f6e1550be578)
+[Pokaż aktywności (80)](/scouting-autoresearch/all/?book=%C4%86wiczenia%20i%20zabawy%20skautowe) · [Rekord źródłowy](https://polona.pl/preview/71788615-5b35-4973-88c0-f6e1550be578) · [Wydanie cyfrowe](https://polona.pl/preview/71788615-5b35-4973-88c0-f6e1550be578)
 
 ## Młoda drużyna
 
@@ -53,7 +53,7 @@ English text explicitly attributed to Ernest Thompson Seton on printed pages 291
 
 „Domena publiczna” — oznaczenie konkretnego obiektu w Podlaskiej Bibliotece Cyfrowej
 
-[Rekord źródłowy](https://pbc.biaman.pl/dlibra/publication/29783/edition/28922) · [Wydanie cyfrowe](https://pbc.biaman.pl/dlibra/publication/29783/edition/28922)
+[Pokaż aktywności (61)](/scouting-autoresearch/all/?book=M%C5%82oda%20dru%C5%BCyna) · [Rekord źródłowy](https://pbc.biaman.pl/dlibra/publication/29783/edition/28922) · [Wydanie cyfrowe](https://pbc.biaman.pl/dlibra/publication/29783/edition/28922)
 
 ## Zabawy i gry ruchowe dzieci i młodzieży
 
@@ -61,7 +61,7 @@ English text explicitly attributed to Ernest Thompson Seton on printed pages 291
 
 „Domena publiczna (public domain)” — oznaczenie konkretnego obiektu w KPBC
 
-[Rekord źródłowy](https://kpbc.umk.pl/dlibra/publication/183639/edition/193867) · [Wydanie cyfrowe](https://kpbc.umk.pl/dlibra/publication/183639/edition/193867)
+[Pokaż aktywności (117)](/scouting-autoresearch/all/?book=Zabawy%20i%20gry%20ruchowe%20dzieci%20i%20m%C5%82odzie%C5%BCy) · [Rekord źródłowy](https://kpbc.umk.pl/dlibra/publication/183639/edition/193867) · [Wydanie cyfrowe](https://kpbc.umk.pl/dlibra/publication/183639/edition/193867)
 
 ## Harce młodzieży polskiej
 
@@ -69,7 +69,7 @@ English text explicitly attributed to Ernest Thompson Seton on printed pages 291
 
 „domena publiczna” — oznaczenie konkretnego obiektu w WBC
 
-[Rekord źródłowy](https://www.wbc.poznan.pl/publication/515207/edition/440525/) · [Wydanie cyfrowe](https://www.wbc.poznan.pl/publication/515207/edition/440525/)
+[Pokaż aktywności (36)](/scouting-autoresearch/all/?book=Harce%20m%C5%82odzie%C5%BCy%20polskiej) · [Rekord źródłowy](https://www.wbc.poznan.pl/publication/515207/edition/440525/) · [Wydanie cyfrowe](https://www.wbc.poznan.pl/publication/515207/edition/440525/)
 
 ## Próby wodzów
 
@@ -77,7 +77,7 @@ English text explicitly attributed to Ernest Thompson Seton on printed pages 291
 
 „Domena Publiczna” — oznaczenie rekordu Polony
 
-[Rekord źródłowy](https://polona.pl/item-view/55e3bbc2-7804-485e-88c7-e9c7ebf672bf?page=0) · [Wydanie cyfrowe](https://jfpio.github.io/proby-wodzow/)
+[Pokaż aktywności (85)](/scouting-autoresearch/all/?book=Pr%C3%B3by%20wodz%C3%B3w) · [Rekord źródłowy](https://polona.pl/item-view/55e3bbc2-7804-485e-88c7-e9c7ebf672bf?page=0) · [Wydanie cyfrowe](https://jfpio.github.io/proby-wodzow/)
 
 ## Szkoła harcerza
 
@@ -85,7 +85,7 @@ English text explicitly attributed to Ernest Thompson Seton on printed pages 291
 
 „domena publiczna” — oznaczenie konkretnego obiektu w Śląskiej Bibliotece Cyfrowej
 
-[Rekord źródłowy](https://www.sbc.org.pl/dlibra/publication/68754/edition/64835) · [Wydanie cyfrowe](https://www.sbc.org.pl/dlibra/publication/68754/edition/64835)
+[Pokaż aktywności (34)](/scouting-autoresearch/all/?book=Szko%C5%82a%20harcerza) · [Rekord źródłowy](https://www.sbc.org.pl/dlibra/publication/68754/edition/64835) · [Wydanie cyfrowe](https://www.sbc.org.pl/dlibra/publication/68754/edition/64835)
 
 ## Scouting for Boys
 
@@ -93,7 +93,7 @@ English text explicitly attributed to Ernest Thompson Seton on printed pages 291
 
 Original English text by Robert Baden-Powell; Project Gutenberg marks eBook 65993 Public domain in the USA, and the approved life-plus-70 policy applies in Poland/EU.
 
-[Rekord źródłowy](https://www.gutenberg.org/ebooks/65993) · [Wydanie cyfrowe](https://www.gutenberg.org/files/65993/65993-h/65993-h.htm)
+[Pokaż aktywności (49)](/scouting-autoresearch/all/?book=Scouting%20for%20Boys) · [Rekord źródłowy](https://www.gutenberg.org/ebooks/65993) · [Wydanie cyfrowe](https://www.gutenberg.org/files/65993/65993-h/65993-h.htm)
 
 ## W gromadzie zuchów
 
@@ -101,4 +101,4 @@ Original English text by Robert Baden-Powell; Project Gutenberg marks eBook 6599
 
 „Domena Publiczna” — oznaczenie konkretnego obiektu w Polonie
 
-[Rekord źródłowy](https://polona.pl/preview/3f71abd7-af13-4f31-9b48-cab79f380362) · [Wydanie cyfrowe](https://polona.pl/preview/3f71abd7-af13-4f31-9b48-cab79f380362)
+[Pokaż aktywności (74)](/scouting-autoresearch/all/?book=W%20gromadzie%20zuch%C3%B3w) · [Rekord źródłowy](https://polona.pl/preview/3f71abd7-af13-4f31-9b48-cab79f380362) · [Wydanie cyfrowe](https://polona.pl/preview/3f71abd7-af13-4f31-9b48-cab79f380362)

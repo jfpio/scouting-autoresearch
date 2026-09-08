@@ -142,11 +142,12 @@ class ImportV3OcrGamesTests(unittest.TestCase):
             {3, 26, 60, 70, 73},
         )
 
-    def test_jasinski_review_keeps_scout_courses_outside_game_only_scope(self):
+    def test_jasinski_review_imports_whole_scout_courses_as_their_own_kind(self):
         plan = IMPORT_PLANS["jasinski-field-games-1938"]
-        self.assertEqual(len(plan.accepted_numbers), 138)
+        self.assertEqual(len(plan.accepted_numbers), 153)
+        self.assertEqual(plan.scout_course_numbers, tuple(range(171, 186)))
         rejected = {number for number, _ in plan.rejected_reasons}
-        self.assertTrue(set(range(171, 186)).issubset(rejected))
+        self.assertTrue(set(range(171, 186)).isdisjoint(rejected))
         self.assertTrue(set(range(186, 197)).issubset(plan.accepted_numbers))
 
     def test_dabrowski_review_keeps_only_bounded_games_and_competitive_exercises(self):

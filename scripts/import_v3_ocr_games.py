@@ -68,6 +68,7 @@ class ImportPlan:
     title_overrides: tuple[tuple[int, str], ...] = ()
     heading_is_body_numbers: tuple[int, ...] = ()
     use_inventory_section: bool = False
+    scout_course_numbers: tuple[int, ...] = ()
 
 
 JASINSKI_REJECTED_REASONS = (
@@ -85,13 +86,6 @@ JASINSKI_REJECTED_REASONS = (
     *(
         (number, "interview topic or editorial guidance, not a bounded game")
         for number in range(150, 171)
-    ),
-    *(
-        (
-            number,
-            "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope",
-        )
-        for number in range(171, 186)
     ),
 )
 
@@ -261,7 +255,7 @@ IMPORT_PLANS = {
         ),
         rights_statement="„Domena Publiczna” — oznaczenie konkretnego obiektu w Polonie",
         accessed_on="2026-09-07",
-        extraction_recipe="v3-bounded-ocr-game-import-v3",
+        extraction_recipe="v3-bounded-ocr-activity-import-v4",
         accepted_numbers=tuple(
             number
             for number in range(1, 197)
@@ -272,10 +266,9 @@ IMPORT_PLANS = {
         join_soft_wraps=True,
         smoke_numbers=(1, 32, 89, 123, 149, 196),
         selection_basis=(
-            "source-numbered entries with a bounded, executable game or competitive exercise; "
-            "lists, reconnaissance prompts, interview topics, cross-reference-only variants and "
-            "whole scout-course proposals are retained in the review report but excluded from the "
-            "current game-only production scope"
+            "source-numbered entries with a bounded, executable game or competitive exercise, "
+            "plus source-labelled whole scout-course proposals; lists, reconnaissance prompts, "
+            "interview topics and cross-reference-only variants remain excluded"
         ),
         translation_prompt="translation-pl-en-v5",
         repeated_header_patterns=(r"^Gry i ćwiczenia terenowe\.\s*\d*$",),
@@ -286,6 +279,7 @@ IMPORT_PLANS = {
         preserve_inline_heading_body=True,
         use_inventory_title=True,
         inline_only_numbers=(36,),
+        scout_course_numbers=tuple(range(171, 186)),
     ),
     "dabrowski-indoor-games-1934": ImportPlan(
         prefix="gih",
@@ -717,9 +711,10 @@ def import_source(source_id: str) -> dict[str, Any]:
             f"({facsimile_url}).*"
         )
         body = f"{source_body}\n\n{source_note}"
+        kinds = ["scout-course"] if number in plan.scout_course_numbers else ["game"]
         metadata = {
             "id": activity_id,
-            "kinds": ["game"],
+            "kinds": kinds,
             "sourceId": source_id,
             "originalLanguage": "pl",
             "title": title,
@@ -746,6 +741,7 @@ def import_source(source_id: str) -> dict[str, Any]:
         output_records.append((VAULT / "activities" / f"{activity_id}.md", metadata, body))
         activity_report = {
             "id": activity_id,
+            "kinds": kinds,
             "candidateNumber": number,
             "title": title,
             "viewStart": start[0],
@@ -833,9 +829,17 @@ def import_source(source_id: str) -> dict[str, Any]:
     )
     dump_markdown(VAULT / "sources" / f"{source_id}.md", source_metadata, source_body)
 
+    scout_course_numbers = set(plan.scout_course_numbers)
     selection = {
         "candidateCount": len(candidates),
-        "acceptedGameCount": len(activities),
+        "acceptedGameCount": sum(
+            int(activity["candidateNumber"] not in scout_course_numbers)
+            for activity in activities
+        ),
+        "acceptedScoutCourseCount": sum(
+            int(activity["candidateNumber"] in scout_course_numbers)
+            for activity in activities
+        ),
         "rejectedCount": len(candidates) - len(activities),
         "basis": plan.selection_basis,
     }
@@ -896,7 +900,12 @@ def import_source(source_id: str) -> dict[str, Any]:
     rejected_reasons = dict(plan.rejected_reasons)
     for item in report["candidates"]:
         number = int(item["number"])
-        item["recordReviewStatus"] = "accepted-game" if number in accepted_numbers else "rejected-not-game"
+        if number in scout_course_numbers:
+            item["recordReviewStatus"] = "accepted-scout-course"
+        else:
+            item["recordReviewStatus"] = (
+                "accepted-game" if number in accepted_numbers else "rejected-not-activity"
+            )
         if number in rejected_reasons:
             item["recordReviewReason"] = rejected_reasons[number]
         else:
@@ -937,7 +946,9 @@ def main() -> None:
                 {
                     "mode": "dry-run",
                     "sourceId": args.source_id,
-                    "acceptedGameCount": len(plan.accepted_numbers),
+                    "acceptedGameCount": len(plan.accepted_numbers)
+                    - len(plan.scout_course_numbers),
+                    "acceptedScoutCourseCount": len(plan.scout_course_numbers),
                 },
                 indent=2,
             )

@@ -7,15 +7,85 @@ import html
 import json
 import re
 import shutil
+import unicodedata
+from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 
-from common import GENERATED, PUBLIC_DATA, ROOT, VAULT, load_markdown, write_json
+from common import GENERATED, PUBLIC_DATA, ROOT, VAULT, load_markdown, read_json, write_json
 from similar_activities import add_similarity_links
 
 
 DOCS = ROOT / "src" / "content" / "docs"
 SITE_ROOT = "https://jfpio.github.io/scouting-autoresearch"
+TRAIT_ALIASES = ROOT / "config" / "trait-filter-aliases-v1.json"
+
+
+def normalize_trait_term(value: str) -> str:
+    return " ".join(unicodedata.normalize("NFKC", value).split()).casefold()
+
+
+def display_trait(value: str) -> str:
+    normalized = " ".join(unicodedata.normalize("NFKC", value).split())
+    return normalized[:1].upper() + normalized[1:]
+
+
+def apply_filter_traits(records: list[dict]) -> None:
+    """Add a search-only facet layer while preserving source and translated traits."""
+    config = read_json(TRAIT_ALIASES)
+    facets = {facet["id"]: facet for facet in config["facets"]}
+    aliases: dict[tuple[str, str], str] = {}
+    for facet in facets.values():
+        for source_locale, terms in facet.get("terms", {}).items():
+            for term in terms:
+                key = (source_locale, normalize_trait_term(term))
+                if key in aliases:
+                    raise RuntimeError(f"Duplicate trait alias: {source_locale}/{term}")
+                aliases[key] = facet["id"]
+    compounds = {
+        (source_locale, normalize_trait_term(term)): facet_ids
+        for source_locale, mapping in config.get("compoundTerms", {}).items()
+        for term, facet_ids in mapping.items()
+    }
+
+    def facet_ids(source_locale: str, source_term: str) -> list[str]:
+        key = (source_locale, normalize_trait_term(source_term))
+        if key in compounds:
+            return compounds[key]
+        if key in aliases:
+            return [aliases[key]]
+        return [f"source:{source_locale}:{key[1]}"]
+
+    candidates: dict[tuple[str, str], Counter[str]] = defaultdict(Counter)
+    for record in records:
+        source_terms = record["_sourceTraits"]
+        localized_terms = record["traits"]
+        if len(source_terms) != len(localized_terms):
+            raise RuntimeError(f"Trait count differs for {record['id']}/{record['locale']}")
+        for source_term, localized_term in zip(source_terms, localized_terms, strict=True):
+            for facet_id in facet_ids(record["_sourceTraitLocale"], source_term):
+                if facet_id.startswith("source:"):
+                    candidates[(facet_id, record["locale"])][localized_term] += 1
+
+    labels: dict[tuple[str, str], str] = {}
+    for facet_id, facet in facets.items():
+        for locale in ("pl", "en"):
+            labels[(facet_id, locale)] = facet["labels"][locale]
+    for key, values in candidates.items():
+        preferred = sorted(values.items(), key=lambda item: (-item[1], normalize_trait_term(item[0]), item[0]))[0][0]
+        labels[key] = display_trait(preferred)
+
+    for record in records:
+        filter_traits: list[str] = []
+        for source_term in record["_sourceTraits"]:
+            for facet_id in facet_ids(record["_sourceTraitLocale"], source_term):
+                label = labels[(facet_id, record["locale"])]
+                if label not in filter_traits:
+                    filter_traits.append(label)
+        record["filterTraits"] = filter_traits
+        record.pop("_sourceTraits")
+        record.pop("_sourceTraitLocale")
 
 
 def yaml_scalar(value: str) -> str:
@@ -117,6 +187,8 @@ def load_records(*, include_similarities: bool = True) -> tuple[list[dict], list
             "transcriptionStatus": metadata["transcriptionStatus"],
             "safetyStatus": metadata["safetyStatus"],
             "originalLanguage": metadata["originalLanguage"],
+            "_sourceTraits": metadata.get("traits", []),
+            "_sourceTraitLocale": original_locale,
         }
         if original_locale in {"pl", "en"}:
             original = translated_record(
@@ -153,6 +225,7 @@ def load_records(*, include_similarities: bool = True) -> tuple[list[dict], list
             (polish if target_locale == "pl" else english).append(translated)
     polish = sorted(polish, key=lambda item: item["id"])
     english = sorted(english, key=lambda item: item["id"])
+    apply_filter_traits([*polish, *english])
     if include_similarities:
         add_similarity_links(polish, "pl")
         add_similarity_links(english, "en")
@@ -192,8 +265,17 @@ def activity_page(record: dict, *, locale: str) -> str:
     kind_labels = {
         "game": "gra",
         "trial": "próba",
+        "scout-course": "bieg harcerski",
     }
-    kinds = ", ".join(kind_labels.get(value, value) if is_pl else value for value in record["kinds"])
+    english_kind_labels = {
+        "game": "game",
+        "trial": "trial",
+        "scout-course": "scout course",
+    }
+    kinds = ", ".join(
+        kind_labels.get(value, value) if is_pl else english_kind_labels.get(value, value)
+        for value in record["kinds"]
+    )
     traits = ", ".join(record["traits"]) or ("Nie podano w źródle" if is_pl else "Not stated in the source")
     machine = ""
     if record["translationStatus"] == "machine-translation":
@@ -322,12 +404,13 @@ def explorer_page(locale: str, *, activity_count: int, source_count: int, kind: 
         None: ("Wszystkie aktywności", "All activities"),
         "game": ("Gry", "Games"),
         "trial": ("Próby", "Trials"),
+        "scout-course": ("Biegi harcerskie", "Scout courses"),
     }
     title = ("Znajdź aktywność" if is_pl else "Find an activity") if home else titles[kind][0 if is_pl else 1]
     description = (
-        "Przeszukuj historyczne gry i próby według treści, cech, autora, książki, roku oraz działu."
+        "Przeszukuj historyczne gry, próby i biegi według treści, cech, autora, książki oraz roku."
         if is_pl
-        else "Search historical games and trials by text, traits, author, book, year, and section."
+        else "Search historical games, trials, and scout courses by text, traits, author, book, and year."
     )
     component_path = "../../components/ActivityExplorer.astro" if locale == "pl" else "../../../components/ActivityExplorer.astro"
     hero = ""
@@ -360,16 +443,23 @@ def explorer_page(locale: str, *, activity_count: int, source_count: int, kind: 
     )
 
 
-def sources_page(locale: str, sources: dict[str, dict]) -> str:
+def explorer_filter_url(locale: str, facet: str, value: str) -> str:
+    prefix = "/scouting-autoresearch/en/all/" if locale == "en" else "/scouting-autoresearch/all/"
+    return f"{prefix}?{facet}={quote(str(value), safe='')}"
+
+
+def sources_page(locale: str, sources: dict[str, dict], records: list[dict]) -> str:
     is_pl = locale == "pl"
-    title = "Źródła" if is_pl else "Sources"
+    title = "Książki" if is_pl else "Books"
     intro = (
         "Pełne teksty są publikowane wyłącznie dla wydań z potwierdzonym statusem domeny publicznej. Oznaczenie praw przypisujemy instytucji źródłowej."
         if is_pl
         else "Full text is published only for editions with confirmed public-domain status. Rights statements are attributed to the source institution."
     )
     lines = ["---", f"title: {yaml_scalar(title)}", f"description: {yaml_scalar(intro)}", "---", "", f"# {title}", "", intro, ""]
+    activity_counts = Counter(record["sourceId"] for record in records)
     for source in sources.values():
+        count = activity_counts[source["id"]]
         lines += [
             f"## {source['title']}",
             "",
@@ -377,8 +467,36 @@ def sources_page(locale: str, sources: dict[str, dict]) -> str:
             "",
             f"{source['rightsStatement']}",
             "",
+            f"[{'Pokaż aktywności' if is_pl else 'Show activities'} ({count})]({explorer_filter_url(locale, 'book', source['title'])}) · "
             f"[{'Rekord źródłowy' if is_pl else 'Source record'}]({source['sourceUrl']}) · "
             f"[{'Wydanie cyfrowe' if is_pl else 'Digital edition'}]({source['digitalEditionUrl']})",
+            "",
+        ]
+    return "\n".join(lines)
+
+
+def authors_page(locale: str, sources: dict[str, dict], records: list[dict]) -> str:
+    is_pl = locale == "pl"
+    title = "Autorzy" if is_pl else "Authors"
+    intro = (
+        "Autorstwo zachowujemy dokładnie tak, jak opisano je dla danego źródła; nie rozdzielamy automatycznie współautorów ani prac zbiorowych."
+        if is_pl
+        else "Authorship is preserved exactly as recorded for each source; co-authors and collective works are not split automatically."
+    )
+    records_by_source = Counter(record["sourceId"] for record in records)
+    sources_by_author: dict[str, list[dict]] = defaultdict(list)
+    for source in sources.values():
+        sources_by_author[source["author"]].append(source)
+    lines = ["---", f"title: {yaml_scalar(title)}", f"description: {yaml_scalar(intro)}", "---", "", f"# {title}", "", intro, ""]
+    for author in sorted(sources_by_author, key=lambda value: value.casefold()):
+        author_sources = sorted(sources_by_author[author], key=lambda source: (source["year"], source["title"]))
+        count = sum(records_by_source[source["id"]] for source in author_sources)
+        lines += [
+            f"## {author}",
+            "",
+            f"[{'Pokaż aktywności' if is_pl else 'Show activities'} ({count})]({explorer_filter_url(locale, 'author', author)})",
+            "",
+            *[f"- *{source['title']}* ({source['year']}) — {records_by_source[source['id']]}" for source in author_sources],
             "",
         ]
     return "\n".join(lines)
@@ -452,14 +570,18 @@ def write_docs(polish: list[dict], english: list[dict], sources: dict[str, dict]
     (DOCS / "games.mdx").write_text(explorer_page("pl", kind="game", **page_args), encoding="utf-8")
     (DOCS / "map.mdx").write_text(semantic_map_page("pl"), encoding="utf-8")
     (DOCS / "trials.mdx").write_text(explorer_page("pl", kind="trial", **page_args), encoding="utf-8")
-    (DOCS / "sources.md").write_text(sources_page("pl", sources), encoding="utf-8")
+    (DOCS / "courses.mdx").write_text(explorer_page("pl", kind="scout-course", **page_args), encoding="utf-8")
+    (DOCS / "sources.md").write_text(sources_page("pl", sources, polish), encoding="utf-8")
+    (DOCS / "authors.md").write_text(authors_page("pl", sources, polish), encoding="utf-8")
     (DOCS / "about.md").write_text(about_page("pl"), encoding="utf-8")
     (DOCS / "en" / "index.mdx").write_text(explorer_page("en", home=True, **page_args), encoding="utf-8")
     (DOCS / "en" / "all.mdx").write_text(explorer_page("en", **page_args), encoding="utf-8")
     (DOCS / "en" / "games.mdx").write_text(explorer_page("en", kind="game", **page_args), encoding="utf-8")
     (DOCS / "en" / "map.mdx").write_text(semantic_map_page("en"), encoding="utf-8")
     (DOCS / "en" / "trials.mdx").write_text(explorer_page("en", kind="trial", **page_args), encoding="utf-8")
-    (DOCS / "en" / "sources.md").write_text(sources_page("en", sources), encoding="utf-8")
+    (DOCS / "en" / "courses.mdx").write_text(explorer_page("en", kind="scout-course", **page_args), encoding="utf-8")
+    (DOCS / "en" / "sources.md").write_text(sources_page("en", sources, english), encoding="utf-8")
+    (DOCS / "en" / "authors.md").write_text(authors_page("en", sources, english), encoding="utf-8")
     (DOCS / "en" / "about.md").write_text(about_page("en"), encoding="utf-8")
     (DOCS / "404.md").write_text(
         '---\ntitle: "Nie znaleziono strony"\ndescription: "Żądana strona nie istnieje."\nsidebar:\n  hidden: true\n---\n\n# Nie znaleziono strony\n\n[Wróć do wyszukiwarki](/scouting-autoresearch/).\n',

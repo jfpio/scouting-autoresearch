@@ -3,8 +3,8 @@
   "algorithmVersion": "tfidf-word-unigram-bigram-cosine-v1",
   "comparisonLocale": "en",
   "crossSourceOnly": true,
-  "activityCount": 999,
-  "corpusDigest": "ce5af06fe6b8de2f98f8497606bc6f5cffbe291563c457b8b76dafb8d4613c29",
+  "activityCount": 1014,
+  "corpusDigest": "202f022870d43c319c9e4340c8afb669c3dc4f380eb5faf42f331620a7dfcfe6",
   "candidateThreshold": 0.09,
   "maxCandidates": 50,
   "candidateCount": 50,
@@ -16,7 +16,7 @@
       "rightId": "shc-034",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Two Couriers with Dispatches",
-      "tfidfCosine": 0.91068726,
+      "tfidfCosine": 0.91067546,
       "decision": "human-review-required"
     },
     {
@@ -26,7 +26,7 @@
       "rightId": "shc-002",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Finding the Thimble",
-      "tfidfCosine": 0.89999608,
+      "tfidfCosine": 0.90001043,
       "decision": "human-review-required"
     },
     {
@@ -36,7 +36,7 @@
       "rightId": "shc-023",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Campfire Race",
-      "tfidfCosine": 0.86679941,
+      "tfidfCosine": 0.86631843,
       "decision": "human-review-required"
     },
     {
@@ -46,7 +46,7 @@
       "rightId": "shc-032",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Drawing a Track",
-      "tfidfCosine": 0.83718676,
+      "tfidfCosine": 0.83715418,
       "decision": "human-review-required"
     },
     {
@@ -56,7 +56,7 @@
       "rightId": "shc-020",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Expedition for Plants",
-      "tfidfCosine": 0.82166506,
+      "tfidfCosine": 0.82169337,
       "decision": "human-review-required"
     },
     {
@@ -66,7 +66,7 @@
       "rightId": "shc-035",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Fox Hunt",
-      "tfidfCosine": 0.78946783,
+      "tfidfCosine": 0.78952126,
       "decision": "human-review-required"
     },
     {
@@ -76,7 +76,7 @@
       "rightId": "shc-024",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Near — Far",
-      "tfidfCosine": 0.78118891,
+      "tfidfCosine": 0.78117651,
       "decision": "human-review-required"
     },
     {
@@ -86,7 +86,7 @@
       "rightId": "shc-033",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Snow Fortress",
-      "tfidfCosine": 0.77861832,
+      "tfidfCosine": 0.77864148,
       "decision": "human-review-required"
     },
     {
@@ -96,7 +96,7 @@
       "rightId": "shc-008",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Morgana's Game",
-      "tfidfCosine": 0.77596633,
+      "tfidfCosine": 0.77606934,
       "decision": "human-review-required"
     },
     {
@@ -106,7 +106,7 @@
       "rightId": "shc-022",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Collecting Cotton",
-      "tfidfCosine": 0.77056954,
+      "tfidfCosine": 0.77070791,
       "decision": "human-review-required"
     },
     {
@@ -116,7 +116,7 @@
       "rightId": "shc-031",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "The Urban Roundup",
-      "tfidfCosine": 0.7670147,
+      "tfidfCosine": 0.76747141,
       "decision": "human-review-required"
     },
     {
@@ -126,7 +126,7 @@
       "rightId": "shc-027",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Tracking Footprints",
-      "tfidfCosine": 0.75662567,
+      "tfidfCosine": 0.75680119,
       "decision": "human-review-required"
     },
     {
@@ -136,7 +136,7 @@
       "rightId": "shc-028",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Approaching the Guard",
-      "tfidfCosine": 0.6994733,
+      "tfidfCosine": 0.69955397,
       "decision": "human-review-required"
     },
     {
@@ -146,7 +146,7 @@
       "rightId": "shc-040",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "The Escape of the Siberian Deportee",
-      "tfidfCosine": 0.68807972,
+      "tfidfCosine": 0.68823068,
       "decision": "human-review-required"
     },
     {
@@ -156,7 +156,7 @@
       "rightId": "shc-006",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Scent Exercise",
-      "tfidfCosine": 0.66527298,
+      "tfidfCosine": 0.66517646,
       "decision": "human-review-required"
     },
     {
@@ -166,7 +166,7 @@
       "rightId": "shc-038",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Urban Reconnaissance",
-      "tfidfCosine": 0.65211654,
+      "tfidfCosine": 0.65202089,
       "decision": "human-review-required"
     },
     {
@@ -176,7 +176,7 @@
       "rightId": "shc-016",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Bullfight",
-      "tfidfCosine": 0.59549448,
+      "tfidfCosine": 0.595588,
       "decision": "human-review-required"
     },
     {
@@ -186,7 +186,7 @@
       "rightId": "shc-039",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Expedition to the Pole",
-      "tfidfCosine": 0.52147307,
+      "tfidfCosine": 0.52137057,
       "decision": "human-review-required"
     },
     {
@@ -196,7 +196,7 @@
       "rightId": "shc-037",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Cossack Maneuver in the Steppe",
-      "tfidfCosine": 0.49688511,
+      "tfidfCosine": 0.49681581,
       "decision": "human-review-required"
     },
     {
@@ -206,7 +206,7 @@
       "rightId": "shc-003",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Kim's Game",
-      "tfidfCosine": 0.45796639,
+      "tfidfCosine": 0.45811077,
       "decision": "human-review-required"
     },
     {
@@ -216,7 +216,7 @@
       "rightId": "shc-029",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Stalking Game",
-      "tfidfCosine": 0.44245155,
+      "tfidfCosine": 0.44246403,
       "decision": "human-review-required"
     },
     {
@@ -226,7 +226,7 @@
       "rightId": "shc-036",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "The Spider and the Fly",
-      "tfidfCosine": 0.4193223,
+      "tfidfCosine": 0.41952814,
       "decision": "human-review-required"
     },
     {
@@ -236,7 +236,7 @@
       "rightId": "shc-018",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Approaching the Blindfolded",
-      "tfidfCosine": 0.4169205,
+      "tfidfCosine": 0.41708461,
       "decision": "human-review-required"
     },
     {
@@ -246,7 +246,7 @@
       "rightId": "shc-036",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "The Spider and the Fly",
-      "tfidfCosine": 0.4143201,
+      "tfidfCosine": 0.41431125,
       "decision": "human-review-required"
     },
     {
@@ -256,7 +256,7 @@
       "rightId": "sfb-020",
       "rightSourceId": "sfb-1908",
       "rightTitle": "Scout Hunting",
-      "tfidfCosine": 0.38473805,
+      "tfidfCosine": 0.38519436,
       "decision": "human-review-required"
     },
     {
@@ -266,7 +266,7 @@
       "rightId": "hmp-034",
       "rightSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
       "rightTitle": "The Spider and the Fly",
-      "tfidfCosine": 0.32148141,
+      "tfidfCosine": 0.32170723,
       "decision": "human-review-required"
     },
     {
@@ -276,7 +276,7 @@
       "rightId": "shc-002",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Finding the Thimble",
-      "tfidfCosine": 0.30064876,
+      "tfidfCosine": 0.30076602,
       "decision": "human-review-required"
     },
     {
@@ -286,7 +286,7 @@
       "rightId": "shc-033",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Snow Fortress",
-      "tfidfCosine": 0.2985949,
+      "tfidfCosine": 0.29850828,
       "decision": "human-review-required"
     },
     {
@@ -296,7 +296,7 @@
       "rightId": "sfb-018",
       "rightSourceId": "sfb-1908",
       "rightTitle": "Smugglers Over the Border",
-      "tfidfCosine": 0.29687068,
+      "tfidfCosine": 0.29702493,
       "decision": "human-review-required"
     },
     {
@@ -306,7 +306,7 @@
       "rightId": "hmp-018",
       "rightSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
       "rightTitle": "Seek the Thimble",
-      "tfidfCosine": 0.29023664,
+      "tfidfCosine": 0.29036321,
       "decision": "human-review-required"
     },
     {
@@ -316,7 +316,7 @@
       "rightId": "hmp-002",
       "rightSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
       "rightTitle": "Snow Fortress",
-      "tfidfCosine": 0.28387834,
+      "tfidfCosine": 0.28377453,
       "decision": "human-review-required"
     },
     {
@@ -326,7 +326,7 @@
       "rightId": "mdr-002",
       "rightSourceId": "pawelek-young-troop-1919",
       "rightTitle": "Finding the Thimble",
-      "tfidfCosine": 0.27788579,
+      "tfidfCosine": 0.27775916,
       "decision": "human-review-required"
     },
     {
@@ -336,7 +336,7 @@
       "rightId": "hmp-008",
       "rightSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
       "rightTitle": "Where is North?",
-      "tfidfCosine": 0.26441396,
+      "tfidfCosine": 0.26463412,
       "decision": "human-review-required"
     },
     {
@@ -346,17 +346,7 @@
       "rightId": "sfb-050",
       "rightSourceId": "sfb-1908",
       "rightTitle": "Scouting Race",
-      "tfidfCosine": 0.26201599,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "mdr-002",
-      "leftSourceId": "pawelek-young-troop-1919",
-      "leftTitle": "Finding the Thimble",
-      "rightId": "shc-002",
-      "rightSourceId": "sedlaczek-scout-school-1921",
-      "rightTitle": "Finding the Thimble",
-      "tfidfCosine": 0.25753927,
+      "tfidfCosine": 0.26194379,
       "decision": "human-review-required"
     },
     {
@@ -366,7 +356,17 @@
       "rightId": "gih-020",
       "rightSourceId": "dabrowski-indoor-games-1934",
       "rightTitle": "The Ring",
-      "tfidfCosine": 0.25740928,
+      "tfidfCosine": 0.25768854,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "mdr-002",
+      "leftSourceId": "pawelek-young-troop-1919",
+      "leftTitle": "Finding the Thimble",
+      "rightId": "shc-002",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Finding the Thimble",
+      "tfidfCosine": 0.25736292,
       "decision": "human-review-required"
     },
     {
@@ -376,7 +376,7 @@
       "rightId": "sfb-047",
       "rightSourceId": "sfb-1908",
       "rightTitle": "Flag Raiding",
-      "tfidfCosine": 0.25577657,
+      "tfidfCosine": 0.25592013,
       "decision": "human-review-required"
     },
     {
@@ -386,7 +386,7 @@
       "rightId": "shc-019",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Sneaking Past (Wall of the Blind)",
-      "tfidfCosine": 0.25423145,
+      "tfidfCosine": 0.25438464,
       "decision": "human-review-required"
     },
     {
@@ -396,7 +396,7 @@
       "rightId": "mdr-025",
       "rightSourceId": "pawelek-young-troop-1919",
       "rightTitle": "Yes and No",
-      "tfidfCosine": 0.24964227,
+      "tfidfCosine": 0.24989277,
       "decision": "human-review-required"
     },
     {
@@ -406,7 +406,7 @@
       "rightId": "sfb-009",
       "rightSourceId": "sfb-1908",
       "rightTitle": "Thimble Finding",
-      "tfidfCosine": 0.24941927,
+      "tfidfCosine": 0.24962269,
       "decision": "human-review-required"
     },
     {
@@ -416,7 +416,7 @@
       "rightId": "shc-012",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Luring with Feints (Cossacks and Tatars)",
-      "tfidfCosine": 0.24685932,
+      "tfidfCosine": 0.24693099,
       "decision": "human-review-required"
     },
     {
@@ -426,7 +426,7 @@
       "rightId": "shc-004",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Finding the Watch",
-      "tfidfCosine": 0.2442399,
+      "tfidfCosine": 0.24433259,
       "decision": "human-review-required"
     },
     {
@@ -436,7 +436,7 @@
       "rightId": "sfb-010",
       "rightSourceId": "sfb-1908",
       "rightTitle": "Shop Window",
-      "tfidfCosine": 0.23983221,
+      "tfidfCosine": 0.23888099,
       "decision": "human-review-required"
     },
     {
@@ -446,7 +446,7 @@
       "rightId": "sfb-003",
       "rightSourceId": "sfb-1908",
       "rightTitle": "Siberian Man Hunt",
-      "tfidfCosine": 0.2339778,
+      "tfidfCosine": 0.2340933,
       "decision": "human-review-required"
     },
     {
@@ -456,7 +456,7 @@
       "rightId": "shc-016",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "Bullfight",
-      "tfidfCosine": 0.2301507,
+      "tfidfCosine": 0.23036169,
       "decision": "human-review-required"
     },
     {
@@ -466,7 +466,7 @@
       "rightId": "shc-040",
       "rightSourceId": "sedlaczek-scout-school-1921",
       "rightTitle": "The Escape of the Siberian Deportee",
-      "tfidfCosine": 0.22884363,
+      "tfidfCosine": 0.22892112,
       "decision": "human-review-required"
     },
     {
@@ -476,7 +476,7 @@
       "rightId": "sfb-024",
       "rightSourceId": "sfb-1908",
       "rightTitle": "Lion Hunting",
-      "tfidfCosine": 0.22842566,
+      "tfidfCosine": 0.22876243,
       "decision": "human-review-required"
     },
     {
@@ -486,7 +486,7 @@
       "rightId": "sfb-031",
       "rightSourceId": "sfb-1908",
       "rightTitle": "Find the North",
-      "tfidfCosine": 0.2256255,
+      "tfidfCosine": 0.22559507,
       "decision": "human-review-required"
     },
     {
@@ -496,7 +496,7 @@
       "rightId": "sfb-043",
       "rightSourceId": "sfb-1908",
       "rightTitle": "French and English, or Tug of War",
-      "tfidfCosine": 0.22442225,
+      "tfidfCosine": 0.22478272,
       "decision": "human-review-required"
     },
     {
@@ -506,7 +506,7 @@
       "rightId": "hwp-041",
       "rightSourceId": "hwp-1946",
       "rightTitle": "Will-o'-the-wisp",
-      "tfidfCosine": 0.22363969,
+      "tfidfCosine": 0.2237828,
       "decision": "human-review-required"
     }
   ],

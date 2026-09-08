@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "approvedBy": "repository-owner",
+  "approvedAt": "2026-09-08",
+  "sourceTermsRemainUnchanged": true,
+  "facets": [
+    {
+      "id": "composure",
+      "labels": {"pl": "Opanowanie", "en": "Composure"},
+      "terms": {"pl": ["opanowanie", "opanowanie się"]}
+    },
+    {
+      "id": "movement-control",
+      "labels": {"pl": "Opanowanie ruchów", "en": "Movement control"},
+      "terms": {"pl": ["opanowanie ruchów", "opanowanie ruchów ciała"]}
+    },
+    {
+      "id": "distance-estimation",
+      "labels": {"pl": "Ocena odległości", "en": "Distance estimation"},
+      "terms": {"pl": ["ocena odległość", "ocena odległości"]}
+    },
+    {
+      "id": "decision-speed",
+      "labels": {"pl": "Szybkość decyzji", "en": "Decision speed"},
+      "terms": {"pl": ["szybka decyzja", "szybkość decyzji"]}
+    },
+    {
+      "id": "orientation",
+      "labels": {"pl": "Orientowanie się", "en": "Orientation"},
+      "terms": {"pl": ["orjentowanie się", "orjentowanie się w terenie"]}
+    },
+    {
+      "id": "time-estimation",
+      "labels": {"pl": "Ocena czasu", "en": "Time estimation"},
+      "terms": {"pl": ["ocena czasu"]}
+    },
+    {
+      "id": "alertness",
+      "labels": {"pl": "Bystrość", "en": "Alertness"},
+      "terms": {"pl": ["bystrość"]}
+    },
+    {
+      "id": "self-reliance",
+      "labels": {"pl": "Samowystarczalność", "en": "Self-reliance"},
+      "terms": {"pl": ["samowystarczalność"]}
+    },
+    {
+      "id": "resourcefulness",
+      "labels": {"pl": "Zaradność", "en": "Resourcefulness"},
+      "terms": {"pl": ["zaradność"]}
+    },
+    {
+      "id": "willpower",
+      "labels": {"pl": "Siła woli", "en": "Willpower"},
+      "terms": {"pl": ["siła woli"]}
+    },
+    {
+      "id": "patience",
+      "labels": {"pl": "Cierpliwość", "en": "Patience"},
+      "terms": {"pl": ["cierpliwość"]}
+    },
+    {
+      "id": "dexterity",
+      "labels": {"pl": "Zręczność", "en": "Dexterity"},
+      "terms": {"pl": ["zręczność"]}
+    },
+    {
+      "id": "muscle-strength",
+      "labels": {"pl": "Siła mięśni", "en": "Muscle strength"},
+      "terms": {"pl": ["siła mięśni"]}
+    },
+    {
+      "id": "ingenuity",
+      "labels": {"pl": "Pomysłowość", "en": "Ingenuity"},
+      "terms": {"pl": ["pomysłowość"]}
+    }
+  ],
+  "compoundTerms": {
+    "pl": {
+      "ocena odległości i czasu": ["distance-estimation", "time-estimation"],
+      "orjentowanie się bystrość": ["orientation", "alertness"],
+      "samowystarczalność. zaradność": ["self-reliance", "resourcefulness"],
+      "siła woli cierpliwość": ["willpower", "patience"],
+      "zręczność siła mięśni": ["dexterity", "muscle-strength"],
+      "opanowanie się pomysłowość": ["composure", "ingenuity"]
+    }
+  }
+}

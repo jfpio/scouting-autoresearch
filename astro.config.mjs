@@ -12,6 +12,9 @@ export default defineConfig({
       title: 'Scouting Autoresearch',
       description: 'Otwarta, dwujęzyczna baza historycznych gier i prób harcerskich.',
       customCss: ['./src/styles/site.css'],
+      components: {
+        Header: './src/components/SiteHeader.astro',
+      },
       locales: {
         root: { label: 'Polski', lang: 'pl' },
         en: { label: 'English', lang: 'en' },
@@ -45,7 +48,9 @@ export default defineConfig({
             { slug: 'games' },
             { slug: 'map' },
             { slug: 'trials' },
+            { slug: 'courses' },
             { slug: 'sources' },
+            { slug: 'authors' },
             { slug: 'about' },
           ],
         },

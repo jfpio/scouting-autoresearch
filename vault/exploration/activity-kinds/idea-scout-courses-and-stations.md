@@ -10,7 +10,12 @@ appliesTo:
   - corpus
 relatedSourceIds:
   - jasinski-field-games-1938
-evidenceActivityIds: []
+evidenceActivityIds:
+  - gct-171
+  - gct-172
+  - gct-173
+  - gct-174
+  - gct-175
 reviewRequired: true
 sourceType: editorial-hypothesis
 ---
@@ -56,27 +61,30 @@ wieloetykietowy na granicy z `trial`: punkt biegu będący jednocześnie próbą
 obie etykiety, jeżeli każde z tych znaczeń ma osobną podstawę źródłową albo zostało ręcznie
 potwierdzone. Nie należy rozstrzygać kolizji przez automatyczne wybranie tylko jednej z nich.
 
-Ta decyzja ustala kierunek modelu, ale nie zatwierdza jeszcze produkcyjnej migracji schematu
-ani automatycznego przypisania etykiet konkretnym rekordom.
+Właściciel 8 września 2026 r. zatwierdził produkcyjną migrację samego rodzaju
+`scout-course` oraz piętnaście całych biegów Jasińskiego (`gct-171`–`gct-185`). Decyzję
+zapisano w `vault/reviews/accepted/v3-scout-course-production-2026-09.md`. Nie zatwierdzono
+jeszcze produkcyjnego rodzaju `scout-course-station`, dzielenia biegów na punkty ani relacji
+całość–część.
 
 ## Materiał dowodowy do przeglądu
 
 Raport `data/reports/jasinski-field-games-1938-candidates.json` zawiera kandydatury 171–185,
-odpowiadające źródłowym nagłówkom „Bieg 1”–„Bieg 15”. W V3-R1 pozostają one poza importem
-produkcyjnym, ponieważ bieżący manifest dopuszcza wyłącznie `game`. Mogą dostarczyć co
-najmniej pięciu przykładów `scout-course`; osobne punkty wymagają jeszcze deterministycznego
-wydzielenia z wnętrza biegów i sprawdzenia ich granic w skanie.
+odpowiadające źródłowym nagłówkom „Bieg 1”–„Bieg 15”. V3-R1 zachował je poza korpusem,
+natomiast późniejsza decyzja produkcyjna pozwoliła zaimportować je jako `scout-course`.
+Osobne punkty nadal wymagają deterministycznego wydzielenia z wnętrza biegów i sprawdzenia
+ich granic w skanie.
 
 ## Pytania do decyzji
 
-1. Czy bieg ma być rekordem z relacją `has-part` do rekordów punktów, czy relacja
+1. Czy bieg ma być rekordem z relacją `has-part` do przyszłych rekordów punktów, czy relacja
    całość–część ma być reprezentowana inaczej?
 2. Czy punkt może istnieć samodzielnie bez rodzica-biegu?
-3. Czy po akceptacji nowego rodzaju mapa semantyczna ma objąć także biegi i punkty, czy
-   zachować osobne warstwy?
+3. Czy w następnym etapie mapa semantyczna ma objąć także biegi i punkty, czy zachować
+   osobne warstwy?
 
 ## Warunek akceptacji
 
-Przed zmianą schematu trzeba wskazać lub utworzyć identyfikatory co najmniej pięciu przykładów
-i dwóch kontrprzykładów, sprawdzić dwujęzyczne etykiety, ustalić model relacji całość–część
-oraz uzyskać decyzję człowieka. Do tego czasu oba rodzaje pozostają hipotezą redakcyjną.
+Rodzaj `scout-course` spełnił warunek przykładów, etykiet i decyzji człowieka. Przed
+wprowadzeniem `scout-course-station` trzeba nadal wskazać kontrprzykłady, ustalić model
+relacji całość–część i uzyskać osobną decyzję człowieka.

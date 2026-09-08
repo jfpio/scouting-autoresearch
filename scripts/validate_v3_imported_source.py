@@ -50,7 +50,10 @@ def imported_source_errors(source_id: str) -> list[str]:
     for path in activity_paths:
         metadata, body = load_markdown(path)
         require(metadata.get("id") == path.stem, f"{path.stem}: ID/path mismatch")
-        require(metadata.get("kinds") == ["game"], f"{path.stem}: not a single game")
+        require(
+            metadata.get("kinds") in (["game"], ["scout-course"]),
+            f"{path.stem}: not a supported single activity kind",
+        )
         require(metadata.get("rightsStatus") == "public-domain", f"{path.stem}: rights are not public-domain")
         require(bool(metadata.get("printedPages")), f"{path.stem}: printed pages are missing")
         require(
@@ -109,7 +112,7 @@ def main() -> None:
     source = read_json(
         ROOT / "data" / "reports" / f"{args.source_id}-extraction.json"
     )
-    print(f"V3 source validation passed: {args.source_id}, {source['activityCount']} games")
+    print(f"V3 source validation passed: {args.source_id}, {source['activityCount']} activities")
 
 
 if __name__ == "__main__":
