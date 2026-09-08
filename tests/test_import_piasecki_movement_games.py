@@ -5,17 +5,41 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from import_piasecki_movement_games import build_import
+from common import ROOT, VAULT, load_markdown, persisted_artifact_path, read_json
+from import_piasecki_movement_games import INSPECTION_PATH, build_import
+
+
+def load_published_import():
+    extraction = read_json(ROOT / "data" / "reports" / "piasecki-movement-games-1922-extraction.json")
+    source, _body = load_markdown(VAULT / "sources" / "piasecki-movement-games-1922.md")
+    outputs = []
+    for path in sorted((VAULT / "activities").glob("zgr-*.md")):
+        metadata, body = load_markdown(path)
+        outputs.append((path, metadata, body))
+    return extraction, outputs, source
+
+
+def source_artifact_available():
+    inspection = read_json(INSPECTION_PATH)
+    return persisted_artifact_path(inspection["embeddedText"]).is_file()
 
 
 class ImportPiaseckiMovementGamesTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.extraction, outputs, cls.source = build_import()
+        cls.extraction, outputs, cls.source = load_published_import()
         cls.activities = {
             metadata["id"]: (metadata, body)
             for _path, metadata, body in outputs
         }
+
+    @unittest.skipUnless(source_artifact_available(), "requires the ignored source artifact")
+    def test_importer_reproduces_published_activity_ids(self):
+        _extraction, outputs, _source = build_import()
+        self.assertEqual(
+            [metadata["id"] for _path, metadata, _body in outputs],
+            sorted(self.activities),
+        )
 
     def test_review_keeps_117_self_contained_games(self):
         self.assertEqual(self.extraction["activityCount"], 117)
