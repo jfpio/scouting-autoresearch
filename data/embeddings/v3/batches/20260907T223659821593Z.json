@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "semantic-map-v3-embeddings",
+  "batchId": "20260907T223659821593Z",
+  "generatedAt": "2026-09-07T22:36:59.821593+00:00",
+  "sourceId": "jasinski-field-games-1938",
+  "modelRequested": "mistral-embed-2312",
+  "model": "mistral-embed-2312",
+  "dimensions": 1024,
+  "recipeVersion": "bilingual-game-context-v1",
+  "billingMode": "education-credit",
+  "modelAccess": {
+    "checked": true,
+    "modelId": "mistral-embed-2312"
+  },
+  "referencePriceUsdPerMillionInputTokens": 0.1,
+  "referencePriceSource": "https://docs.mistral.ai/models/mistral-embed-23-12",
+  "referencePriceAccessedOn": "2026-09-04",
+  "activityIds": [
+    "gct-001"
+  ],
+  "usage": {
+    "promptTokens": 894,
+    "billedCostUsd": null,
+    "referenceCostUsd": 8.94e-05
+  }
+}

@@ -88,8 +88,8 @@ class SemanticMapAnalysisTests(unittest.TestCase):
         self.assertTrue(report["proposalOnly"])
         self.assertTrue(report["reviewRequired"])
         self.assertEqual(report["productionRelationsWritten"], [])
-        self.assertEqual(len(report["points"]), 199)
-        self.assertEqual(len(report["nearestNeighbors"]), 199)
+        self.assertEqual(len(report["points"]), 914)
+        self.assertEqual(len(report["nearestNeighbors"]), len(report["points"]))
         self.assertTrue(report["algorithmicCandidates"])
         self.assertTrue(
             all(

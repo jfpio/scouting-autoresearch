@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-pdf-game-discovery",
+  "status": "invalid-response",
+  "reason": "response-failed-structural-or-locator-validation",
+  "validationError": "Discovery boundary line is not present in the excerpt",
+  "responseContentStored": false,
+  "sourceId": "piasecki-movement-games-1922",
+  "range": "p141-150",
+  "pageStart": 141,
+  "pageEnd": 150,
+  "sourceSha256": "4f5379ad1a683a7f9f741f4a12b26f2ffffa97820f2f90b7145e8ff8e98ee51f",
+  "inputHash": "d1de548c105974097941f278ba4e969db49e95453a3674699ff83e48b6078341",
+  "modelRequested": "mistral-large-2512",
+  "model": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "promptVersion": "v3-pdf-game-line-locators-v4",
+  "generatedAt": "2026-09-06T18:59:35.151856+00:00",
+  "usage": {
+    "promptTokens": 8221,
+    "completionTokens": 142,
+    "requestMaxOutputTokens": 4391,
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "inputPriceUsdPerMillionTokens": 0.5,
+    "outputPriceUsdPerMillionTokens": 1.5,
+    "referenceCostUsd": 0.0043235,
+    "priceSource": "https://docs.mistral.ai/inference/pricing",
+    "priceAccessedOn": "2026-09-04"
+  }
+}

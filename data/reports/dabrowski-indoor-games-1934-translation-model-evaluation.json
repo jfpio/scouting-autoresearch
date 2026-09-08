@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "translation-model-evaluation",
+  "evaluationId": "dabrowski-indoor-large-vs-small-v1",
+  "sourceId": "dabrowski-indoor-games-1934",
+  "targetLocale": "en",
+  "promptVersion": "translation-pl-en-v5",
+  "promptEncoding": "protected-values-v2",
+  "status": "complete",
+  "configHash": "a49becd142a24f3f8f93ac6fed8b44c6de9352941c51508e26b86eef42a45849",
+  "productionCandidate": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "candidates": [
+    "mistral-large-2512",
+    "mistral-small-2603"
+  ],
+  "activityIds": [
+    "gih-006",
+    "gih-043",
+    "gih-119",
+    "gih-138",
+    "gih-162",
+    "gih-170"
+  ],
+  "completedPairs": [
+    "mistral-large-2512:gih-006",
+    "mistral-large-2512:gih-043",
+    "mistral-large-2512:gih-119",
+    "mistral-large-2512:gih-138",
+    "mistral-large-2512:gih-162",
+    "mistral-large-2512:gih-170",
+    "mistral-small-2603:gih-006",
+    "mistral-small-2603:gih-043",
+    "mistral-small-2603:gih-119",
+    "mistral-small-2603:gih-138",
+    "mistral-small-2603:gih-162",
+    "mistral-small-2603:gih-170"
+  ],
+  "pendingPairs": [],
+  "usageByModel": {
+    "mistral-large-2512": {
+      "promptTokens": 3311,
+      "completionTokens": 1593,
+      "referenceCostUsd": 0.004045
+    },
+    "mistral-small-2603": {
+      "promptTokens": 3311,
+      "completionTokens": 1523,
+      "referenceCostUsd": 0.00141045
+    }
+  },
+  "automaticFailurePairs": [],
+  "humanReviewRequired": true,
+  "resultPathUnderScratch": "scouting-autoresearch/model-evaluations/dabrowski-indoor-large-vs-small-v1/results.json"
+}

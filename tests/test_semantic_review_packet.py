@@ -20,9 +20,9 @@ class SemanticReviewPacketTests(unittest.TestCase):
         cls.report = build_report(cls.config)
         cls.note = build_markdown(cls.report)
 
-    def test_packet_contains_all_thirty_pending_pairs_without_production_links(self):
-        self.assertEqual(self.report["selection"]["candidateCount"], 30)
-        self.assertEqual(len(self.report["candidates"]), 30)
+    def test_packet_contains_all_pending_pairs_without_production_links(self):
+        self.assertEqual(self.report["selection"]["candidateCount"], 50)
+        self.assertEqual(len(self.report["candidates"]), 50)
         self.assertTrue(self.report["proposalOnly"])
         self.assertTrue(self.report["humanApprovalRequired"])
         self.assertFalse(self.report["publicSiteExposure"])
@@ -40,12 +40,12 @@ class SemanticReviewPacketTests(unittest.TestCase):
 
     def test_top_pair_has_bilingual_context_and_reciprocal_rank_one(self):
         candidate = self.report["candidates"][0]
-        self.assertEqual(candidate["activityIds"], ["bsh-036", "hwp-057"])
-        self.assertEqual(candidate["neighborRanks"], {"bsh-036": 1, "hwp-057": 1})
-        self.assertEqual(candidate["cosineSimilarity"], 0.97639163)
+        self.assertEqual(candidate["activityIds"], ["ciz-042", "shc-035"])
+        self.assertEqual(candidate["neighborRanks"], {"ciz-042": 1, "shc-035": 1})
+        self.assertEqual(candidate["cosineSimilarity"], 0.99924048)
         self.assertEqual(
             [activity["localized"]["en"]["title"] for activity in candidate["activities"]],
-            ["The Treasure Hunt", "Treasure Hunt"],
+            ["Fox Hunt", "Fox Hunt"],
         )
         for activity in candidate["activities"]:
             self.assertTrue(activity["localized"]["pl"]["summary"])
@@ -67,10 +67,10 @@ class SemanticReviewPacketTests(unittest.TestCase):
 
     def test_review_note_marks_source_data_and_decisions(self):
         self.assertIn("niezaufanymi danymi źródłowymi", self.note)
-        self.assertEqual(self.note.count("**Decyzja człowieka:** `pending`"), 30)
-        self.assertEqual(self.note.count("**Uzasadnienie:** —"), 30)
-        self.assertIn("../../activities/bsh-036.md", self.note)
-        self.assertIn("../../activities/hwp-057.md", self.note)
+        self.assertEqual(self.note.count("**Decyzja człowieka:** `pending`"), 50)
+        self.assertEqual(self.note.count("**Uzasadnienie:** —"), 50)
+        self.assertIn("../../activities/ciz-042.md", self.note)
+        self.assertIn("../../activities/shc-035.md", self.note)
 
     def test_config_rejects_public_exposure_and_partial_selection(self):
         config = copy.deepcopy(self.config)
@@ -92,7 +92,7 @@ class SemanticReviewPacketTests(unittest.TestCase):
                 build_markdown(build_report(self.config)),
             ),
         )
-        self.assertEqual(checkpoint["candidateCount"], 30)
+        self.assertEqual(checkpoint["candidateCount"], 50)
         self.assertTrue(checkpoint["humanApprovalRequired"])
         self.assertFalse(checkpoint["publicSiteExposure"])
         self.assertEqual(checkpoint["productionRelationsWritten"], [])

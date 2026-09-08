@@ -1,0 +1,41 @@
+schemaVersion: 1
+sourceId: sedlaczek-scout-school-1921
+model: mistral-ocr-4-1
+request:
+  recipeVersion: mistral-ocr-image-v1
+  includeBlocks: true
+  confidenceScoresGranularity: page
+execution:
+  executionReady: true
+  approvedViewRanges:
+    - [16, 16]
+    - [56, 57]
+    - [66, 66]
+    - [71, 72]
+    - [84, 84]
+    - [93, 95]
+    - [112, 113]
+    - [119, 120]
+    - [130, 131]
+    - [139, 141]
+    - [148, 148]
+    - [169, 170]
+    - [180, 181]
+    - [189, 190]
+    - [196, 197]
+    - [199, 200]
+    - [208, 209]
+    - [217, 218]
+  inputDirectoryUnderArtifacts: sources/sedlaczek-scout-school-1921
+  requireExplicitExecute: true
+  requireExactModelAccessCheck: true
+  sequentialRequests: true
+  billingMode: education-credit
+  enforceReferenceCostLimit: true
+  maxReferenceCostUsd: 10
+  resultsUnderArtifacts: ocr
+pricing:
+  mode: standard
+  usdPer1000Pages: 4.0
+  source: https://docs.mistral.ai/models/ocr-4-1
+  accessedOn: 2026-09-05

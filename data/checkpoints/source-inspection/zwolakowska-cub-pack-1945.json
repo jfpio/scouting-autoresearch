@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-polona-source-inspection",
+  "sourceId": "zwolakowska-cub-pack-1945",
+  "status": "complete",
+  "classification": "collective-work-component-map-required",
+  "acquisition": {
+    "checkpoint": "data/checkpoints/source-acquisition/zwolakowska-cub-pack-1945.json",
+    "status": "complete",
+    "completedImageCount": 328,
+    "sourceFilesCommittedToRepository": 0
+  },
+  "visualScopeReview": {
+    "status": "complete",
+    "reviewedAt": "2026-09-07",
+    "contactSheetJobId": "22091510",
+    "contactSheetScratchRelativePath": "scouting-autoresearch/runs/zwolakowska-cub-pack-1945/contact-sheet/22091510/contact-sheet-view-order.jpg",
+    "contactSheetSha256": "cc9eebd5dd889bbbebd5b11130765a888686357fdb25ab47de3b94f0b3b33d75",
+    "approvedOcrViewRanges": [[293, 324]],
+    "approvedOcrViewCount": 32,
+    "scopeBasis": [
+      "view 293 begins the chapter Gry zuchow on printed page 289",
+      "views 294-321 contain the chapter introduction and individual game descriptions",
+      "view 322 contains a categorized index of known movement games used in cub packs",
+      "views 323-324 contain the table of contents needed to verify chapter boundaries"
+    ],
+    "excludedBlocks": [
+      "all chapters before Gry zuchow",
+      "photographs and illustrations as publishable components",
+      "stories, fairy tales, songs and separately contributed material outside the game chapter"
+    ]
+  },
+  "componentEvidence": {
+    "editionStatement": "collective work edited by Jadwiga Zwolakowska; the edition credits multiple contributed and reprinted components",
+    "gameChapterCredit": "Hanna Kopciowna signs the introduction immediately before Dzial I on view 294",
+    "interpretation": "the signature is evidence for component research, not yet proof that she authored every game description",
+    "requiredResearch": [
+      "identify Hanna Kopciowna unambiguously",
+      "establish a reliable death date or other applicable rights basis",
+      "determine whether the signature covers the entire game chapter or only its introduction and selection"
+    ]
+  },
+  "publicationGate": "per-item-rights-and-component-authorship",
+  "rawOcrPurpose": "component-authorship mapping and candidate inventory only until the publication gate is satisfied",
+  "completedAt": "2026-09-07",
+  "sourceFilesCommittedToRepository": 0
+}

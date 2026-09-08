@@ -205,7 +205,7 @@ def build_dimension_report(
             locale = str(record["originalLanguage"])
             matched_patterns = [
                 str(pattern["id"])
-                for pattern in value["patterns"][locale]
+                for pattern in value["patterns"].get(locale, [])
                 if re.search(str(pattern["regex"]), str(record["text"]), flags=re.IGNORECASE)
             ]
             if not matched_patterns:
@@ -318,7 +318,7 @@ def build_report(config: dict[str, Any], records: list[dict[str, Any]]) -> dict[
     activity_ids = [str(record["activityId"]) for record in records]
     if len(activity_ids) != len(set(activity_ids)):
         raise ValueError("V3 facet-audit corpus contains duplicate activity IDs")
-    if any(record.get("originalLanguage") not in {"pl", "en"} for record in records):
+    if any(record.get("originalLanguage") not in {"pl", "en", "fr"} for record in records):
         raise ValueError("V3 facet-audit corpus contains an unsupported source language")
 
     corpus_evidence = [
@@ -362,6 +362,10 @@ def build_report(config: dict[str, Any], records: list[dict[str, Any]]) -> dict[
             "textScope": "source-title-and-source-body-without-provenance-footer",
             "lexicalSignalsOnly": True,
             "absenceIsNotNegativeEvidence": True,
+            "patternLocales": ["pl", "en"],
+            "languagesWithoutPatterns": sorted(
+                set(language_counts) - {"pl", "en"}
+            ),
             "multiValueSignalsAreNotNecessarilyConflicts": True,
             "searchDifferentiationIsNotObservedUserValue": True,
             "humanSearchValueRubric": config["searchValueRubric"],

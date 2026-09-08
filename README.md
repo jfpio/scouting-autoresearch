@@ -59,8 +59,8 @@ rekordy z aktualnym hashem. Tłumaczenia V0 pozostają przypisane do
 modelem produkcyjnym dla `sfb-1908` jest zatwierdzony `mistral-large-2512`, bez włączania
 `reasoning_effort`.
 
-Import Project Gutenberg korzysta z jawnego manifestu, przypiętego SHA-256 i cache'u poza
-repozytorium. Na Heliosie:
+Import Project Gutenberg korzysta z jawnego manifestu, przypiętego SHA-256 i trwałego
+cache'u w ignorowanym katalogu `artifacts/`. Na Heliosie:
 
 ```bash
 module purge
@@ -72,8 +72,8 @@ python scripts/evaluate_translation_models.py --execute
 python scripts/translate.py --source-id sfb-1908
 ```
 
-Importer zapisuje w repozytorium tylko wybrane rekordy i raport proweniencji; pobrany HTML
-pozostaje w `$SCRATCH`. Tłumacz działa sekwencyjnie, po każdym sukcesie zapisuje atomowo
+Importer zapisuje w Git tylko wybrane rekordy i raport proweniencji; pobrany HTML pozostaje
+w `artifacts/sources/`. Tłumacz działa sekwencyjnie, po każdym sukcesie zapisuje atomowo
 rekord i checkpoint, a przy `429` kończy proces z `nextRetryAt` zamiast utrzymywać go w uśpieniu.
 Termin pochodzi bezpośrednio z poprawnego `Retry-After`; gdy nagłówka nie ma albo jest błędny,
 pipeline stosuje godzinny fallback.
@@ -292,21 +292,37 @@ publikacji pełnego tekstu jest ustalana osobno.
 Metadane Project Gutenberg pobiera `scripts/gutenberg_metadata.py` z oficjalnych rekordów
 RDF pojedynczych eBooków. Adapter nie crawluje stron katalogowych przeznaczonych dla ludzi,
 waliduje identyfikator rekordu, ogranicza odpowiedź do 2 MiB, przypina SHA-256 wejścia i
-atomowo przechowuje cache pod `$SCRATCH/scouting-autoresearch/sources/`. Przykład lekkiego
+atomowo przechowuje cache pod `artifacts/metadata/`. Przykład lekkiego
 wywołania na węźle logowania:
 
 ```bash
-python scripts/gutenberg_metadata.py --ebook-id 65993 --output "$SCRATCH/scouting-autoresearch/metadata/pg-65993.json"
+python scripts/gutenberg_metadata.py --ebook-id 65993 --output "artifacts/metadata/pg-65993.json"
 ```
 
 Wynik jest wyłącznie rekordem odkrywania. Oznaczenie praw z RDF nadal wymaga zastosowania
 zatwierdzonej reguły kolekcji, ustalenia autorstwa właściwego składnika oraz zachowania
 osobnej bramki dla konkretnej edycji i jej wkładów.
 
+Zatwierdzone jednostki polskie V3-R1 pobiera `scripts/acquire_v3_sources.py`. Adapter
+ponownie rozwiązuje rekord biblioteczny, ogranicza przekierowania do wpisanego hosta,
+sprawdza rozmiar i sygnaturę pliku oraz zapisuje surowe PDF-y, DjVu, obrazy IIIF i metadane
+w `artifacts/sources/`. Katalog leży przy repozytorium na Group Storage, ale jest w całości
+ignorowany przez Git. Checkpoint z hashami pozostaje wersjonowany. Zablokowane przez
+`robots.txt` ZIP-y PBC Rzeszów są odrzucane przed wykonaniem.
+
+```bash
+python scripts/acquire_v3_sources.py --source-id jasinski-field-games-1938
+sbatch --export=ALL,SOURCE_ID=jasinski-field-games-1938,LIMIT=1 \
+  jobs/helios/v3-acquire-source.slurm
+```
+
+Pierwsze polecenie jest dry-runem. `LIMIT=1` stanowi smoke test jednego widoku Polony;
+pełny przebieg na węźle CPU pomija ten parametr i respektuje limit kolekcji.
+
 Adapter `scripts/gallica.py` pobiera tylko obiekt mający dokładne `itemApproval` w rejestrze.
 Adresy paginacji, widoku IIIF i PDF-u wyprowadza z zatwierdzonego identyfikatora, nie pozwala
-zapisać wyniku poza `$SCRATCH/scouting-autoresearch/`, ogranicza rozmiar odpowiedzi,
-sprawdza typ i sygnaturę pliku oraz zapisuje go atomowo. Stan dostawcy w scratch wymusza
+zapisać źródła poza `artifacts/sources/`, ogranicza rozmiar odpowiedzi, sprawdza typ i
+sygnaturę pliku oraz zapisuje go atomowo. Stan dostawcy w scratch wymusza
 minimalny odstęp wynikający z `rateLimitPerMinute` bez usypiania procesu. Bez `--execute` wykonuje tylko
 dry-run. Dla pełnego dokumentu respektuje `nextRetryAt` checkpointu, po `429` lub `5xx`
 zapisuje wyłącznie bezpieczną diagnostykę i termin podany przez dostawcę albo godzinny
@@ -350,14 +366,26 @@ również domyślnie działający jako dry-run:
 ```bash
 python scripts/mistral_ocr.py \
   --config config/ocr/chamarande-1934.yaml \
-  --image "$SCRATCH/scouting-autoresearch/sources/chamarande-1934/f19-1200.jpg"
+  --image "artifacts/sources/chamarande-1934/f19-1200.jpg"
 ```
 
 `--execute` najpierw sprawdza dokładny model przez `/v1/models`, a potem przetwarza obrazy
-sekwencyjnie. Surowe odpowiedzi zostają w scratch; śledzony checkpoint zapisuje hashe,
+sekwencyjnie. Surowe odpowiedzi zostają w `artifacts/ocr/`; śledzony checkpoint zapisuje hashe,
 liczbę stron, bezpieczne dane retry, rozliczenie `education-credit` i egzekwowany limit
-kosztu referencyjnego. Produkcyjne wykonanie pozostaje zablokowane przez `executionReady`
-do czasu ustalenia i wpisania zakresów widoków zawierających wyłącznie zatwierdzoną prozę.
+kosztu referencyjnego. Produkcyjne wykonanie jest możliwe tylko dla zatwierdzonych zakresów
+widoków; pozostałe obrazy oraz wyłączone bloki nie mogą wejść do publikowanego korpusu.
+
+`artifacts/` jest lokalnym magazynem badawczym, a nie częścią historii Git. Zawiera
+`sources/<source-id>/` z pobranymi książkami i skanami, `ocr/<source-id>/` z niezmienionymi
+odpowiedziami OCR oraz `inspection/<source-id>/` z warstwami tekstowymi używanymi do
+ponownej kontroli. Checkpointy wersjonują ich ścieżki, hashe, model i recepturę. Buildy,
+miniatury, logi i inne łatwo odtwarzalne wyniki pozostają w `$SCRATCH/scouting-autoresearch/`.
+Spójność całego magazynu albo jednego źródła można sprawdzić bez wywoływania API:
+
+```bash
+python scripts/verify_research_artifacts.py
+python scripts/verify_research_artifacts.py --source-id piasecki-movement-games-1922
+```
 
 ## Licencje i bezpieczeństwo
 

@@ -37,7 +37,7 @@ class V3FacetAuditTests(unittest.TestCase):
         return set(value["activityIds"])
 
     def test_report_covers_all_games_without_assigning_facets(self):
-        self.assertEqual(len(self.records), 199)
+        self.assertEqual(len(self.records), 914)
         self.assertEqual(
             self.report["corpus"]["activityIds"],
             sorted(record["activityId"] for record in self.records),
@@ -71,9 +71,17 @@ class V3FacetAuditTests(unittest.TestCase):
             self.assertIsNone(dimension["editorialCostProxy"]["estimatedMinutes"])
 
     def test_report_exposes_source_bias_and_non_user_value_proxies(self):
+        source_count = len({record["sourceId"] for record in self.records})
+        language_count = len(
+            {record["originalLanguage"] for record in self.records}
+        )
         for dimension in self.report["dimensions"]:
-            self.assertEqual(len(dimension["signalCoverage"]["bySource"]), 3)
-            self.assertEqual(len(dimension["signalCoverage"]["byLanguage"]), 2)
+            self.assertEqual(
+                len(dimension["signalCoverage"]["bySource"]), source_count
+            )
+            self.assertEqual(
+                len(dimension["signalCoverage"]["byLanguage"]), language_count
+            )
             self.assertIn(
                 "not-observed-user-value",
                 dimension["searchDifferentiationProxy"]["interpretation"],
@@ -100,6 +108,27 @@ class V3FacetAuditTests(unittest.TestCase):
         config["dimensions"][0]["values"][0]["patterns"]["pl"][0]["regex"] = ""
         with self.assertRaisesRegex(ValueError, "empty pl regex"):
             build_report(config, self.records)
+
+    def test_french_records_are_reported_without_guessing_lexical_patterns(self):
+        records = self.records + [
+            {
+                "activityId": "cha-001",
+                "sourceId": "chamarande-1934",
+                "sourceHash": "sha256:french",
+                "originalLanguage": "fr",
+                "title": "Jeu de nuit",
+                "body": "Deux patrouilles poursuivent un joueur avec une lampe.",
+            }
+        ]
+        report = build_report(self.config, records)
+        self.assertEqual(report["method"]["languagesWithoutPatterns"], ["fr"])
+        for dimension in report["dimensions"]:
+            signaled = {
+                activity_id
+                for value in dimension["values"]
+                for activity_id in value["activityIds"]
+            }
+            self.assertNotIn("cha-001", signaled)
 
     def test_checkpoint_is_deterministic_and_human_gated(self):
         checkpoint = build_checkpoint(self.report)

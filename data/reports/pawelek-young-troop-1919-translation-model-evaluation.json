@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "translation-model-evaluation",
+  "evaluationId": "pawelek-young-troop-large-vs-small-v1",
+  "sourceId": "pawelek-young-troop-1919",
+  "targetLocale": "en",
+  "promptVersion": "translation-pl-en-v5",
+  "promptEncoding": "protected-values-v2",
+  "status": "complete",
+  "configHash": "42245f6a607a0519c1567c160b0dca55e620c8290ce57702c16203160a7ba8c9",
+  "productionCandidate": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "candidates": [
+    "mistral-large-2512",
+    "mistral-small-2603"
+  ],
+  "activityIds": [
+    "mdr-001",
+    "mdr-029",
+    "mdr-043",
+    "mdr-063",
+    "mdr-075",
+    "mdr-103"
+  ],
+  "completedPairs": [
+    "mistral-large-2512:mdr-001",
+    "mistral-large-2512:mdr-029",
+    "mistral-large-2512:mdr-043",
+    "mistral-large-2512:mdr-063",
+    "mistral-large-2512:mdr-075",
+    "mistral-large-2512:mdr-103",
+    "mistral-small-2603:mdr-001",
+    "mistral-small-2603:mdr-029",
+    "mistral-small-2603:mdr-043",
+    "mistral-small-2603:mdr-063",
+    "mistral-small-2603:mdr-075",
+    "mistral-small-2603:mdr-103"
+  ],
+  "pendingPairs": [],
+  "usageByModel": {
+    "mistral-large-2512": {
+      "promptTokens": 5043,
+      "completionTokens": 2815,
+      "referenceCostUsd": 0.006744
+    },
+    "mistral-small-2603": {
+      "promptTokens": 5043,
+      "completionTokens": 2846,
+      "referenceCostUsd": 0.00246405
+    }
+  },
+  "automaticFailurePairs": [
+    "mistral-small-2603:mdr-063"
+  ],
+  "humanReviewRequired": true,
+  "resultPathUnderScratch": "scouting-autoresearch/model-evaluations/pawelek-young-troop-large-vs-small-v1/results.json"
+}

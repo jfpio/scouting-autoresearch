@@ -1,0 +1,43 @@
+schemaVersion: 1
+id: piasecki-schreiber-large-vs-small-v1
+sourceId: piasecki-schreiber-polish-scoutcraft-1917
+status: approved-run-scope
+productionCandidate: mistral-large-2512
+candidates:
+  - mistral-large-2512
+  - mistral-small-2603
+targetLocale: en
+promptVersion: translation-pl-en-v5
+promptEncoding: protected-values-v2
+pipelineRepairs: deterministic-contract-v1
+reasoningMode: disabled
+activityIds:
+  - hmp-001
+  - hmp-006
+  - hmp-012
+  - hmp-024
+  - hmp-035
+  - hmp-039
+sampleRationale:
+  hmp-001: outdoor expedition scenario with distances and archaic spelling
+  hmp-006: observation game with a tabular source omission
+  hmp-012: long messenger game with historical framing, scoring and measurements
+  hmp-024: short sensory game with comparative distance estimates
+  hmp-035: long multi-patrol capture-the-flag game with scoring and an omitted diagram
+  hmp-039: rescue race with safety-sensitive historical wording
+criteria:
+  - complete-meaning
+  - no-summary-or-modernization
+  - numbers-and-units-preserved
+  - markdown-and-urls-preserved
+  - natural-english
+execution:
+  maxActivities: 6
+  maxModels: 2
+  sequentialRequests: true
+  requireExplicitExecute: true
+  continueOnAutomaticPass: true
+  billingMode: education-credit
+  enforceReferenceCostLimit: true
+  maxReferenceCostUsd: 10
+  resultsUnderScratch: scouting-autoresearch/model-evaluations

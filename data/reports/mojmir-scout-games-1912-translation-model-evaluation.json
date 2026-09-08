@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "translation-model-evaluation",
+  "evaluationId": "mojmir-large-vs-small-v5",
+  "sourceId": "mojmir-scout-games-1912",
+  "targetLocale": "en",
+  "promptVersion": "translation-pl-en-v5",
+  "promptEncoding": "protected-values-v2",
+  "status": "complete",
+  "configHash": "1f3df301357487af5d8ff399e3fb4f23a992a36f117bcbbdd525f1b2a8e4da33",
+  "productionCandidate": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "candidates": [
+    "mistral-large-2512",
+    "mistral-small-2603"
+  ],
+  "activityIds": [
+    "ciz-001",
+    "ciz-012",
+    "ciz-027",
+    "ciz-046",
+    "ciz-059",
+    "ciz-085"
+  ],
+  "completedPairs": [
+    "mistral-large-2512:ciz-001",
+    "mistral-large-2512:ciz-012",
+    "mistral-large-2512:ciz-027",
+    "mistral-large-2512:ciz-046",
+    "mistral-large-2512:ciz-059",
+    "mistral-large-2512:ciz-085",
+    "mistral-small-2603:ciz-001",
+    "mistral-small-2603:ciz-012",
+    "mistral-small-2603:ciz-027",
+    "mistral-small-2603:ciz-046",
+    "mistral-small-2603:ciz-059",
+    "mistral-small-2603:ciz-085"
+  ],
+  "pendingPairs": [],
+  "usageByModel": {
+    "mistral-large-2512": {
+      "promptTokens": 6896,
+      "completionTokens": 4273,
+      "referenceCostUsd": 0.0098575
+    },
+    "mistral-small-2603": {
+      "promptTokens": 6896,
+      "completionTokens": 4405,
+      "referenceCostUsd": 0.0036774
+    }
+  },
+  "automaticFailurePairs": [
+    "mistral-large-2512:ciz-085",
+    "mistral-small-2603:ciz-027",
+    "mistral-small-2603:ciz-085"
+  ],
+  "humanReviewRequired": true,
+  "resultPathUnderScratch": "scouting-autoresearch/model-evaluations/mojmir-large-vs-small-v5/results.json"
+}

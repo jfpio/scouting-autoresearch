@@ -1,0 +1,43 @@
+schemaVersion: 1
+id: mojmir-large-vs-small-v5
+sourceId: mojmir-scout-games-1912
+status: approved-run-scope
+productionCandidate: mistral-large-2512
+candidates:
+  - mistral-large-2512
+  - mistral-small-2603
+targetLocale: en
+promptVersion: translation-pl-en-v5
+promptEncoding: protected-values-v2
+pipelineRepairs: deterministic-contract-v1
+reasoningMode: disabled
+activityIds:
+  - ciz-001
+  - ciz-012
+  - ciz-027
+  - ciz-046
+  - ciz-059
+  - ciz-085
+sampleRationale:
+  ciz-001: short rules with several quantities
+  ciz-012: multi-part field game with a variant and scoring
+  ciz-027: quotation marks, timed starts and observation details
+  ciz-046: three long variants with ciphers and routes
+  ciz-059: long composite pioneering activity
+  ciz-085: longest record with a numbered list and archaic vocabulary
+criteria:
+  - complete-meaning
+  - no-summary-or-modernization
+  - numbers-and-units-preserved
+  - markdown-and-urls-preserved
+  - natural-english
+execution:
+  maxActivities: 6
+  maxModels: 2
+  sequentialRequests: true
+  requireExplicitExecute: true
+  continueOnAutomaticPass: true
+  billingMode: education-credit
+  enforceReferenceCostLimit: true
+  maxReferenceCostUsd: 10
+  resultsUnderScratch: scouting-autoresearch/model-evaluations

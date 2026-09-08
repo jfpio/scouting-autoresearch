@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "semantic-map-v3-embeddings",
+  "batchId": "20260907T225557750957Z",
+  "generatedAt": "2026-09-07T22:55:57.750957+00:00",
+  "sourceId": "pawelek-young-troop-1919",
+  "modelRequested": "mistral-embed-2312",
+  "model": "mistral-embed-2312",
+  "dimensions": 1024,
+  "recipeVersion": "bilingual-game-context-v1",
+  "billingMode": "education-credit",
+  "modelAccess": {
+    "checked": true,
+    "modelId": "mistral-embed-2312"
+  },
+  "referencePriceUsdPerMillionInputTokens": 0.1,
+  "referencePriceSource": "https://docs.mistral.ai/models/mistral-embed-23-12",
+  "referencePriceAccessedOn": "2026-09-04",
+  "activityIds": [
+    "mdr-082",
+    "mdr-083",
+    "mdr-084",
+    "mdr-085",
+    "mdr-092",
+    "mdr-093",
+    "mdr-094",
+    "mdr-097",
+    "mdr-101",
+    "mdr-103",
+    "mdr-106"
+  ],
+  "usage": {
+    "promptTokens": 2496,
+    "billedCostUsd": null,
+    "referenceCostUsd": 0.0002496
+  }
+}

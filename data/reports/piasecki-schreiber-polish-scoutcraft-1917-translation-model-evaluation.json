@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "translation-model-evaluation",
+  "evaluationId": "piasecki-schreiber-large-vs-small-v1",
+  "sourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+  "targetLocale": "en",
+  "promptVersion": "translation-pl-en-v5",
+  "promptEncoding": "protected-values-v2",
+  "status": "complete",
+  "configHash": "a6d6c68f3b8132d0f79235c7c29247334836e70a6ad51a19edc714c3b976a0c4",
+  "productionCandidate": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "candidates": [
+    "mistral-large-2512",
+    "mistral-small-2603"
+  ],
+  "activityIds": [
+    "hmp-001",
+    "hmp-006",
+    "hmp-012",
+    "hmp-024",
+    "hmp-035",
+    "hmp-039"
+  ],
+  "completedPairs": [
+    "mistral-large-2512:hmp-001",
+    "mistral-large-2512:hmp-006",
+    "mistral-large-2512:hmp-012",
+    "mistral-large-2512:hmp-024",
+    "mistral-large-2512:hmp-035",
+    "mistral-large-2512:hmp-039",
+    "mistral-small-2603:hmp-001",
+    "mistral-small-2603:hmp-006",
+    "mistral-small-2603:hmp-012",
+    "mistral-small-2603:hmp-024",
+    "mistral-small-2603:hmp-035",
+    "mistral-small-2603:hmp-039"
+  ],
+  "pendingPairs": [],
+  "usageByModel": {
+    "mistral-large-2512": {
+      "promptTokens": 4035,
+      "completionTokens": 2013,
+      "referenceCostUsd": 0.005037
+    },
+    "mistral-small-2603": {
+      "promptTokens": 4035,
+      "completionTokens": 1995,
+      "referenceCostUsd": 0.00180225
+    }
+  },
+  "automaticFailurePairs": [
+    "mistral-small-2603:hmp-012",
+    "mistral-small-2603:hmp-024"
+  ],
+  "humanReviewRequired": true,
+  "resultPathUnderScratch": "scouting-autoresearch/model-evaluations/piasecki-schreiber-large-vs-small-v1/results.json"
+}

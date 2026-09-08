@@ -13,7 +13,7 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from build_content import activity_page, load_records
+from build_content import activity_page, load_records, strip_trailing_whitespace
 from common import dump_markdown, load_markdown, source_hash
 from import_sources import clean_game_body
 from gutenberg import Block, fetch, parse_html, parse_text
@@ -29,18 +29,33 @@ from translate import (
     PermanentTranslationError,
     available_model_ids,
     advance_translation_state,
+    advance_failed_translation_usage,
     combine_usage_records,
     current_translation,
+    deterministic_translation_repairs,
     ensure_models_available,
     parse_json_content,
+    protect_translation_body,
+    request_translation_preserving_paragraphs,
+    request_translation_in_chunks,
+    request_reference_cost_upper_bound,
+    restore_translation_body,
     retry_at_from_headers,
     safe_http_diagnostics,
+    translation_fidelity_checks,
     translation_output_token_budget,
+    translation_attempt_reference_cost_upper_bound,
+    translation_target,
+    translation_targets,
     usage_record,
 )
 
 
 class PipelineTests(unittest.TestCase):
+    def test_generated_text_strips_only_trailing_whitespace(self):
+        value = "first  \n  second\t\n   \n"
+        self.assertEqual(strip_trailing_whitespace(value), "first\n  second\n\n")
+
     def test_markdown_round_trip(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "record.md"
@@ -66,6 +81,86 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(payload["title"], "Fire")
         with self.assertRaises(ValueError):
             parse_json_content('{"title":"Fire","body":"Text","traits":[],"section":"Trials","extra":true}')
+
+    def test_translation_protected_tokens_round_trip_exact_values(self):
+        source = (
+            "Biegnij 400—1500 kroków, potem 1/2 drogi. "
+            "Skan: https://example.test/view/40?part=1."
+        )
+        protected, replacements = protect_translation_body(source)
+        self.assertNotRegex(protected, r"\d")
+        self.assertNotIn("https://", protected)
+        self.assertEqual(len(replacements), 3)
+        translated = protected.replace("Biegnij", "Run").replace("kroków", "paces")
+        self.assertEqual(
+            restore_translation_body(
+                translated,
+                replacements,
+                reject_unprotected_digits=True,
+            ),
+            "Run 400—1500 paces, potem 1/2 drogi. "
+            "Skan: https://example.test/view/40?part=1.",
+        )
+
+    def test_translation_protected_tokens_reject_missing_marker(self):
+        protected, replacements = protect_translation_body("Idź 1/2 drogi.")
+        marker = next(iter(replacements))
+        with self.assertRaisesRegex(ValueError, "expected exactly once"):
+            restore_translation_body(protected.replace(marker, ""), replacements)
+
+    def test_translation_protected_tokens_reject_new_digits(self):
+        protected, replacements = protect_translation_body("Trzy kroki.")
+        with self.assertRaisesRegex(ValueError, "introduced a digit"):
+            restore_translation_body(
+                f"{protected} 2",
+                replacements,
+                reject_unprotected_digits=True,
+            )
+
+    def test_translation_protected_tokens_reject_invented_outer_wrapper(self):
+        protected, replacements = protect_translation_body("Idź 3 kroki.")
+        wrapped = protected.replace("ZXQNUMAQXZ", "ZXQZXQNUMAQXZQXZ")
+        with self.assertRaisesRegex(ValueError, "malformed protected-token wrapper"):
+            restore_translation_body(
+                wrapped,
+                replacements,
+                reject_unprotected_digits=True,
+            )
+
+    def test_translation_protected_tokens_preserve_superscript_footnotes(self):
+        protected, replacements = protect_translation_body("Goniec¹ i łącznik².")
+        self.assertNotIn("¹", protected)
+        self.assertNotIn("²", protected)
+        self.assertEqual(len(replacements), 2)
+        self.assertEqual(
+            restore_translation_body(protected, replacements, reject_unprotected_digits=True),
+            "Goniec¹ i łącznik².",
+        )
+
+    def test_translation_protected_tokens_preserve_roman_numerals(self):
+        protected, replacements = protect_translation_body("W wieku XVI, część V a.")
+        self.assertNotIn("XVI", protected)
+        self.assertNotRegex(protected, r"(?<!\w)V(?!\w)")
+        self.assertEqual(
+            restore_translation_body(protected, replacements, reject_unprotected_digits=True),
+            "W wieku XVI, część V a.",
+        )
+
+    def test_translation_retry_can_protect_paragraph_breaks(self):
+        source = "Pierwszy akapit.\n\nDrugi akapit."
+        protected, replacements = protect_translation_body(
+            source, protect_paragraph_breaks=True
+        )
+        self.assertRegex(protected, r"ZXQBR[A-Z]+QXZ")
+        self.assertEqual(
+            restore_translation_body(
+                protected.replace("Drugi", "\n\nDrugi"),
+                replacements,
+                reject_unprotected_digits=True,
+                normalize_unprotected_paragraph_breaks=True,
+            ),
+            source,
+        )
 
     def test_translation_cooldown_uses_provider_value_or_one_hour_fallback(self):
         now = datetime(2026, 9, 3, tzinfo=UTC)
@@ -123,6 +218,138 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(combined["requestMaxOutputTokensTotal"], 1152)
         self.assertIsNone(combined["billedCostUsd"])
 
+        nested = combine_usage_records([combined, first])
+        self.assertEqual(nested["requestAttempts"], 3)
+        self.assertEqual(nested["requestMaxOutputTokens"], 640)
+        self.assertEqual(nested["requestMaxOutputTokensTotal"], 1664)
+
+    def test_paragraph_retry_preserves_full_context_and_combines_usage(self):
+        metadata = {
+            "id": "a",
+            "sourceId": "test-source",
+            "title": "Tytuł",
+            "traits": [],
+            "section": "Gry",
+            "originalLanguage": "pl",
+        }
+        replies = [(
+            {"title": "Title", "traits": [], "section": "Games", "body": "First.\n\nSecond."},
+            "mistral-large-2512",
+            usage_record(
+                {"prompt_tokens": 100, "completion_tokens": 20},
+                request_max_output_tokens=512,
+            ),
+        )]
+        with patch("translate.request_translation", side_effect=replies) as request:
+            translated, actual_model, usage = request_translation_preserving_paragraphs(
+                "secret",
+                "mistral-large-2512",
+                "a",
+                metadata,
+                "Pierwszy.\n\nDrugi.",
+                "pl",
+                "en",
+                "translation-pl-en-v5",
+            )
+        self.assertEqual(request.call_count, 1)
+        self.assertEqual(request.call_args.args[4], "Pierwszy.\n\nDrugi.")
+        self.assertTrue(request.call_args.kwargs["protect_paragraph_breaks"])
+        self.assertEqual(translated["body"], "First.\n\nSecond.")
+        self.assertEqual(actual_model, "mistral-large-2512")
+        self.assertNotIn("requestAttempts", usage)
+
+    def test_oversized_translation_fallback_uses_multi_paragraph_chunks(self):
+        metadata = {
+            "id": "a",
+            "sourceId": "test-source",
+            "title": "Długa gra",
+            "traits": [],
+            "section": "Gry",
+            "originalLanguage": "pl",
+        }
+        body = f"{'A' * 3000}\n\n{'B' * 3000}\n\n{'C' * 100}"
+
+        def reply(*args, **kwargs):
+            chunk = args[4]
+            return (
+                {"title": "Long Game", "traits": [], "section": "Games", "body": chunk},
+                "mistral-large-2512",
+                usage_record(
+                    {"prompt_tokens": 100, "completion_tokens": 20},
+                    request_max_output_tokens=512,
+                ),
+            )
+
+        with patch("translate.request_translation", side_effect=reply) as request:
+            translated, actual_model, usage = request_translation_in_chunks(
+                "secret",
+                "mistral-large-2512",
+                "a",
+                metadata,
+                body,
+                "pl",
+                "en",
+                "translation-pl-en-v5",
+            )
+        self.assertEqual(request.call_count, 2)
+        self.assertEqual(translated["body"], body)
+        self.assertEqual(actual_model, "mistral-large-2512")
+        self.assertEqual(usage["requestAttempts"], 2)
+        self.assertTrue(
+            all(call.kwargs["protect_paragraph_breaks"] for call in request.call_args_list)
+        )
+
+    def test_translation_cost_reservation_covers_full_and_paragraph_retries(self):
+        metadata = {
+            "originalLanguage": "pl",
+            "id": "a",
+            "title": "Tytuł",
+            "traits": [],
+            "section": "Gry",
+        }
+        body = "Pierwszy.\n\nDrugi."
+        full = request_reference_cost_upper_bound(
+            metadata, body, "mistral-large-2512", "en"
+        )
+        self.assertEqual(
+            translation_attempt_reference_cost_upper_bound(
+                metadata, body, "mistral-large-2512", "en"
+            ),
+            round(6 * full, 8),
+        )
+
+    def test_failed_translation_usage_is_counted_without_marking_activity_complete(self):
+        state = {
+            "selectedActivityIds": ["a"],
+            "completedActivityIds": [],
+            "pendingActivityIds": ["a"],
+            "models": [],
+            "usage": {
+                "promptTokens": 0,
+                "completionTokens": 0,
+                "requestMaxOutputTokens": 0,
+                "referenceCostUsd": 0.0,
+                "billingMode": "education-credit",
+            },
+        }
+        usage = combine_usage_records(
+            [
+                usage_record(
+                    {"prompt_tokens": 100, "completion_tokens": 50},
+                    request_max_output_tokens=512,
+                ),
+                usage_record(
+                    {"prompt_tokens": 120, "completion_tokens": 60},
+                    request_max_output_tokens=640,
+                ),
+            ]
+        )
+        advance_failed_translation_usage(state, "mistral-large-2512", usage)
+        self.assertEqual(state["completedActivityIds"], [])
+        self.assertEqual(state["failedRequestUsage"]["requestAttempts"], 2)
+        self.assertEqual(state["usage"]["promptTokens"], 220)
+        self.assertEqual(state["usage"]["requestMaxOutputTokens"], 1152)
+
     def test_translation_output_budget_scales_and_is_bounded(self):
         self.assertEqual(translation_output_token_budget({"body": "short"}), MIN_OUTPUT_TOKENS)
         scaled = translation_output_token_budget({"body": "x" * 4000})
@@ -131,6 +358,77 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(
             translation_output_token_budget({"body": "x" * 100_000}),
             MAX_OUTPUT_TOKENS,
+        )
+
+    def test_translation_repair_restores_a_source_digit_without_touching_urls(self):
+        source = "Idź 40 kroków. https://example.test/40"
+        translated = {
+            "title": "Test",
+            "section": "Games",
+            "traits": ["invented"],
+            "body": "Walk forty paces. https://example.test/40",
+        }
+        repaired, repairs = deterministic_translation_repairs(
+            {"traits": []}, source, translated, "en"
+        )
+        self.assertEqual(repaired["traits"], [])
+        self.assertEqual(repaired["body"], "Walk 40 paces. https://example.test/40")
+        self.assertEqual(
+            repairs,
+            ["reset-invented-empty-traits", "restore-source-digit:40:1"],
+        )
+        protected_repaired, protected_repairs = deterministic_translation_repairs(
+            {"traits": []},
+            source,
+            translated,
+            "en",
+            repair_number_words=False,
+        )
+        self.assertEqual(protected_repaired["body"], translated["body"])
+        self.assertEqual(protected_repairs, ["reset-invented-empty-traits"])
+
+    def test_french_source_requires_an_explicit_supported_target(self):
+        self.assertEqual(translation_targets("fr"), ("pl", "en"))
+        self.assertEqual(translation_target("fr", "pl"), "pl")
+        self.assertEqual(translation_target("fr", "en"), "en")
+        with self.assertRaisesRegex(ValueError, "multiple targets"):
+            translation_target("fr")
+        with self.assertRaisesRegex(ValueError, "fr->fr"):
+            translation_target("fr", "fr")
+
+    def test_french_feminine_scout_terms_are_not_flagged_as_invented(self):
+        checks = translation_fidelity_checks(
+            {"originalLanguage": "fr", "traits": []},
+            "Deux éclaireuses commencent le jeu.",
+            {
+                "title": "Gra harcerek",
+                "section": "Gry",
+                "traits": [],
+                "body": "Dwie harcerki rozpoczynają grę.",
+            },
+            "pl",
+        )
+        self.assertTrue(checks["noInventedFemaleScout"])
+
+    def test_translation_url_fidelity_ignores_only_surrounding_punctuation(self):
+        metadata = {"originalLanguage": "pl", "traits": []}
+        source = "Zobacz [skan](https://example.test/item/123)."
+        translated = {
+            "title": "Scan",
+            "section": "Source",
+            "traits": [],
+            "body": "See the scan: https://example.test/item/123, now.",
+        }
+        self.assertTrue(
+            translation_fidelity_checks(metadata, source, translated, "en")[
+                "urlsPreserved"
+            ]
+        )
+        translated["body"] += " https://invented.test"
+        self.assertFalse(
+            translation_fidelity_checks(metadata, source, translated, "en")[
+                "urlsPreserved"
+            ]
         )
 
     def test_translation_http_diagnostics_are_allowlisted(self):
@@ -267,6 +565,42 @@ class PipelineTests(unittest.TestCase):
         )
         self.assertTrue(grouped_checks["numbersPreserved"])
 
+        range_spacing_checks = translation_quality_checks(
+            {"traits": [], "originalLanguage": "pl"},
+            "Obozy są odległe o 5 — 10 km.",
+            {
+                "title": "Camps",
+                "section": "Games",
+                "traits": [],
+                "body": "The camps are 5–10 km apart.",
+            },
+            "en",
+        )
+        self.assertTrue(range_spacing_checks["numbersPreserved"])
+
+        retained_source_grouping_checks = translation_quality_checks(
+            {"traits": [], "originalLanguage": "pl"},
+            "Użyj mapy 1 : 100.000.",
+            {
+                "title": "Map",
+                "section": "Games",
+                "traits": [],
+                "body": "Use a 1 : 100.000 map.",
+            },
+            "en",
+        )
+        self.assertTrue(retained_source_grouping_checks["numbersPreserved"])
+
+    def test_mojmir_translation_evaluation_pins_v5_protected_values(self):
+        root = Path(__file__).resolve().parents[1]
+        config = load_evaluation_config(
+            root / "config" / "v3-mojmir-translation-model-evaluation.yaml"
+        )
+        self.assertEqual(config["promptVersion"], "translation-pl-en-v5")
+        self.assertEqual(config["promptEncoding"], "protected-values-v2")
+        self.assertEqual(config["productionCandidate"], "mistral-large-2512")
+        self.assertEqual(len(config["activityIds"]), 6)
+
     def test_translation_model_evaluation_checkpoints_permanent_provider_errors(self):
         config = {
             "id": "evaluation",
@@ -354,6 +688,110 @@ class PipelineTests(unittest.TestCase):
         self.assertIn("[Digital edition]", rendered)
         self.assertIn("[Source record]", rendered)
         self.assertIn("[p. 52]", rendered)
+
+    def test_french_source_is_embedded_on_both_translation_pages(self):
+        record = {
+            "id": "cha-001",
+            "kinds": ["game"],
+            "sourceId": "chamarande-1934",
+            "author": "Jacques Sevin",
+            "sourceTitle": "Chamarande",
+            "sourceActivityTitle": "Jeu de piste",
+            "sourceText": "Texte source français.",
+            "year": 1934,
+            "printedPages": [10],
+            "pdfPages": [],
+            "sourceUrl": "https://gallica.bnf.fr/ark:/12148/bpt6k3373518k",
+            "digitalEditionUrl": "https://gallica.bnf.fr/ark:/12148/bpt6k3373518k",
+            "facsimileUrl": "https://gallica.bnf.fr/ark:/12148/bpt6k3373518k/f10.item",
+            "transcriptionStatus": "ocr-corrected",
+            "safetyStatus": "historical-unreviewed",
+            "originalLanguage": "fr",
+            "locale": "pl",
+            "title": "Gra tropicielska",
+            "body": "Polskie tłumaczenie.",
+            "summary": "Polskie tłumaczenie.",
+            "traits": [],
+            "translationStatus": "machine-translation",
+            "translationModel": "mistral-large-2512",
+        }
+        polish = activity_page(record, locale="pl")
+        english = activity_page(
+            {
+                **record,
+                "locale": "en",
+                "title": "Tracking game",
+                "body": "English translation.",
+                "summary": "English translation.",
+            },
+            locale="en",
+        )
+        self.assertIn('href="#source-text"', polish)
+        self.assertIn("Przeczytaj tekst źródłowy po francusku", polish)
+        self.assertIn('<span id="source-text"></span>', polish)
+        self.assertIn("Francuski tekst źródłowy", polish)
+        self.assertIn("Texte source français.", polish)
+        self.assertIn("Read the source French transcription", english)
+        self.assertIn("French source text", english)
+        self.assertIn("Texte source français.", english)
+
+    def test_load_records_pairs_a_french_source_with_two_translations(self):
+        with tempfile.TemporaryDirectory() as directory:
+            vault = Path(directory)
+            source = {
+                "id": "source-fr",
+                "author": "Auteur",
+                "title": "Livre",
+                "year": 1934,
+                "publisher": "Éditeur",
+            }
+            activity = {
+                "id": "fr-001",
+                "kinds": ["game"],
+                "sourceId": "source-fr",
+                "originalLanguage": "fr",
+                "title": "Titre source",
+                "traits": [],
+                "section": "Section",
+                "printedPages": [1],
+                "sourceUrl": "https://example.test/source",
+                "digitalEditionUrl": "https://example.test/text",
+                "facsimileUrl": "https://example.test/text#page=1",
+                "sourceRevision": "sha256:source",
+                "sourceHash": "hash",
+                "rightsStatus": "public-domain",
+                "transcriptionStatus": "ocr-corrected",
+                "safetyStatus": "historical-unreviewed",
+            }
+            translations = {
+                "pl": ("Tytuł", "Polskie tłumaczenie."),
+                "en": ("Title", "English translation."),
+            }
+            dump_markdown(vault / "sources" / "source-fr.md", source, "Source.")
+            dump_markdown(vault / "activities" / "fr-001.md", activity, "Texte français.")
+            for locale, (title, body) in translations.items():
+                dump_markdown(
+                    vault / "translations" / locale / "fr-001.md",
+                    {
+                        "activityId": "fr-001",
+                        "locale": locale,
+                        "title": title,
+                        "traits": [],
+                        "section": "Section",
+                        "model": "mistral-large-2512",
+                        "promptVersion": f"translation-fr-{locale}-v1",
+                        "generatedAt": "2026-09-06",
+                        "sourceHash": "hash",
+                        "status": "machine-translation",
+                    },
+                    body,
+                )
+            with patch("build_content.VAULT", vault):
+                polish, english, _ = load_records(include_similarities=False)
+            self.assertEqual(polish[0]["sourceText"], "Texte français.")
+            self.assertEqual(english[0]["sourceText"], "Texte français.")
+            self.assertEqual(polish[0]["translationStatus"], "machine-translation")
+            self.assertEqual(english[0]["translationStatus"], "machine-translation")
 
     def test_load_records_pairs_an_english_source_with_its_polish_translation(self):
         with tempfile.TemporaryDirectory() as directory:

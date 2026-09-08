@@ -1,0 +1,2081 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "jasinski-field-games-1938",
+  "sourceSha256": "343cbd8c75a7f45eadd3b85f86bba8211f9bba665b9d92ce37b70bf619f58573",
+  "parserVersion": "v3-bounded-ocr-game-import-v3",
+  "reviewRequired": false,
+  "activityCount": 138,
+  "wholeSourceCopiedToRepository": false,
+  "selection": {
+    "candidateCount": 196,
+    "acceptedGameCount": 138,
+    "rejectedCount": 58,
+    "basis": "source-numbered entries with a bounded, executable game or competitive exercise; lists, reconnaissance prompts, interview topics, cross-reference-only variants and whole scout-course proposals are retained in the review report but excluded from the current game-only production scope",
+    "rejectedCandidates": [
+      {
+        "candidateNumber": 65,
+        "reason": "composite instructional essay with an embedded example but no bounded standalone game block"
+      },
+      {
+        "candidateNumber": 77,
+        "reason": "cross-reference-only variant without a self-contained procedure"
+      },
+      {
+        "candidateNumber": 100,
+        "reason": "heading-only signal without a bounded procedure"
+      },
+      {
+        "candidateNumber": 116,
+        "reason": "fragment of a service-task list, not a self-contained game"
+      },
+      {
+        "candidateNumber": 117,
+        "reason": "fragment of a service-task list, not a self-contained game"
+      },
+      {
+        "candidateNumber": 118,
+        "reason": "fragment of a service-task list, not a self-contained game"
+      },
+      {
+        "candidateNumber": 119,
+        "reason": "fragment of a service-task list, not a self-contained game"
+      },
+      {
+        "candidateNumber": 120,
+        "reason": "fragment of a service-task list, not a self-contained game"
+      },
+      {
+        "candidateNumber": 121,
+        "reason": "fragment of a service-task list, not a self-contained game"
+      },
+      {
+        "candidateNumber": 122,
+        "reason": "fragment of a service-task list, not a self-contained game"
+      },
+      {
+        "candidateNumber": 137,
+        "reason": "reconnaissance checklist without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 138,
+        "reason": "reconnaissance checklist without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 139,
+        "reason": "reconnaissance checklist without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 140,
+        "reason": "reconnaissance checklist without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 141,
+        "reason": "reconnaissance checklist without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 142,
+        "reason": "reconnaissance checklist without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 143,
+        "reason": "reconnaissance checklist without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 144,
+        "reason": "reconnaissance checklist without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 145,
+        "reason": "reconnaissance checklist without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 146,
+        "reason": "reconnaissance checklist without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 147,
+        "reason": "reconnaissance checklist without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 148,
+        "reason": "reconnaissance checklist without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 150,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 151,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 152,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 153,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 154,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 155,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 156,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 157,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 158,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 159,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 160,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 161,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 162,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 163,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 164,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 165,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 166,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 167,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 168,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 169,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 170,
+        "reason": "interview topic or editorial guidance, not a bounded game"
+      },
+      {
+        "candidateNumber": 171,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 172,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 173,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 174,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 175,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 176,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 177,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 178,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 179,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 180,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 181,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 182,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 183,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 184,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      },
+      {
+        "candidateNumber": 185,
+        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      }
+    ]
+  },
+  "transcriptionEvidence": {
+    "sourceStatement": "Mistral OCR output from pinned page images; raw responses remain in the gitignored artifacts store on Group Storage.",
+    "sourceLocation": "https://polona.pl/preview/b1600bcb-668f-4daf-a37b-81fade26971f",
+    "deterministicNormalization": [
+      "omit the repeated activity heading represented in frontmatter",
+      "omit isolated numeric printed-page furniture",
+      "omit the following section heading when it falls inside the preceding block",
+      "omit source-specific repeated running headers matched by pinned patterns",
+      "truncate a candidate at the first pinned following chapter or subsection heading",
+      "join OCR soft line wraps and dehyphenate lowercase word continuations",
+      "join a page-break blank line only before a lowercase sentence continuation, including after comma, semicolon or colon",
+      "preserve spelling, punctuation and paragraph order without modernization"
+    ],
+    "lexicalModernization": false
+  },
+  "deduplication": {
+    "exactBodyMatches": [],
+    "nearDuplicateCandidates": []
+  },
+  "activities": [
+    {
+      "id": "gct-001",
+      "candidateNumber": 1,
+      "title": "Szukanie przedmiotu przyrodniczego w terenie, na określonej powierzchni",
+      "viewStart": 89,
+      "viewEnd": 90,
+      "printedPages": [
+        81,
+        82
+      ],
+      "sourceBlockSha256": "29d274a444977578c6f916acad9c19b4d07f9ce000ce952e5a3d89e595869011",
+      "publishedSourceHash": "5fb43e7ee286ce40d077b51550c1ea8d773f1bdfcec71f632c790876d08eacd3"
+    },
+    {
+      "id": "gct-002",
+      "candidateNumber": 2,
+      "title": "Szukanie przedmiotów terenowych, jak np",
+      "viewStart": 90,
+      "viewEnd": 90,
+      "printedPages": [
+        82
+      ],
+      "sourceBlockSha256": "afe0d88db25c219af1981328bd27180693eb2dac5d7e2d39d0fadffbd91942cf",
+      "publishedSourceHash": "cde5706fb1b9870fb83f5f7ad4f88717842aa8a7e0cc3f8eb85a56afe475678f"
+    },
+    {
+      "id": "gct-003",
+      "candidateNumber": 3,
+      "title": "Poszukiwanie osób zaginionych",
+      "viewStart": 90,
+      "viewEnd": 91,
+      "printedPages": [
+        82,
+        83
+      ],
+      "sourceBlockSha256": "9ed92ba1ad13443da4ff4aea9db7a3651e76a0ac03419345e8af287d70712e72",
+      "publishedSourceHash": "0bd8d46ed180447af9643ce4f2c5bd81f7c91b5f9818d804561aaafea3422c14"
+    },
+    {
+      "id": "gct-004",
+      "candidateNumber": 4,
+      "title": "Poszukiwanie tropów",
+      "viewStart": 91,
+      "viewEnd": 91,
+      "printedPages": [
+        83
+      ],
+      "sourceBlockSha256": "96c1f57acf7a91f30c4a19f3daabbc4e452c6d7ccb5726d9b0c59c0108311db5",
+      "publishedSourceHash": "93d3ebe7ff49f4044a0e393dd6448d90bfeecfa61366a7f460bb15d13edc9d4b"
+    },
+    {
+      "id": "gct-005",
+      "candidateNumber": 5,
+      "title": "Poszukiwanie obiektów miejskich",
+      "viewStart": 91,
+      "viewEnd": 92,
+      "printedPages": [
+        83,
+        84
+      ],
+      "sourceBlockSha256": "5034f2b69b05dfc3b856539112183a6817c821d8009ec9c1dc8b6e2437ac717f",
+      "publishedSourceHash": "5ca022472fbe9b074db28c5891fe621cc8c273db0ec735e7d6f0897a8544845e",
+      "truncatedBeforeHeading": {
+        "locator": "view-0092-l0005",
+        "heading": "II. Obserwacyjne."
+      }
+    },
+    {
+      "id": "gct-006",
+      "candidateNumber": 6,
+      "title": "W marszu",
+      "viewStart": 92,
+      "viewEnd": 93,
+      "printedPages": [
+        84,
+        85
+      ],
+      "sourceBlockSha256": "ebe285619dd97b84c5da6a9bcfb6e24119b8b8e7112619b933222cdc8346652f",
+      "publishedSourceHash": "c02fc1ae123aa1bb7be06272cdd426a25f8d1d1c775b39bb912ac779a16911b0"
+    },
+    {
+      "id": "gct-007",
+      "candidateNumber": 7,
+      "title": "Na przebywanej drodze",
+      "viewStart": 93,
+      "viewEnd": 93,
+      "printedPages": [
+        85
+      ],
+      "sourceBlockSha256": "63a95e61af052b5d6c2a32994f82f92617af68897b4cdc9b71a05947c6f2c892",
+      "publishedSourceHash": "fb7003e52538e6da7c1a14efcb5c239f96c19dfe406dbd65b32ff1ba1cfc513d"
+    },
+    {
+      "id": "gct-008",
+      "candidateNumber": 8,
+      "title": "Ze wzgórza",
+      "viewStart": 93,
+      "viewEnd": 94,
+      "printedPages": [
+        85,
+        86
+      ],
+      "sourceBlockSha256": "86940b3d9343bfd128476695dd0d54bf451392d6c366c719df1c6f236dfe7880",
+      "publishedSourceHash": "7f19f8e0f4ebe79dc8b0fc184497b322d612243c7a700072b087370ec7b4827b"
+    },
+    {
+      "id": "gct-009",
+      "candidateNumber": 9,
+      "title": "Obserwacja niezapowiedziana",
+      "viewStart": 94,
+      "viewEnd": 94,
+      "printedPages": [
+        86
+      ],
+      "sourceBlockSha256": "d0fe9d74eb594bb91451c3ecc595ce8b7a3b23715e5a1434c78d53db04aa6987",
+      "publishedSourceHash": "a8b6bcc9e2d6dfa5ad1cf748875f3fb4356d2f521e1885c01eb9d7c0f403b18b",
+      "truncatedBeforeHeading": {
+        "locator": "view-0094-l0011",
+        "heading": "III. Obserwacyjno-pamięciowe."
+      }
+    },
+    {
+      "id": "gct-010",
+      "candidateNumber": 10,
+      "title": "Kim przyrodniczy",
+      "viewStart": 94,
+      "viewEnd": 95,
+      "printedPages": [
+        86,
+        87
+      ],
+      "sourceBlockSha256": "cbf5895282172ed562953531f46069c75cc8b222a7c77bb5f69f7217c65eb9e9",
+      "publishedSourceHash": "6269b3503ae92d223dd8449adc2ace6648059ea3c4cd2202e50ca2de13df4e9f"
+    },
+    {
+      "id": "gct-011",
+      "candidateNumber": 11,
+      "title": "Kim terenowy",
+      "viewStart": 96,
+      "viewEnd": 96,
+      "printedPages": [
+        88
+      ],
+      "sourceBlockSha256": "c248e7f59a81339cfc6a0df137e9876e4e0e6221ad880950533c39024cf0b87c",
+      "publishedSourceHash": "084be161041274a8fb49933bbcf6e4406513c62aac96537f16d07d62d8862fe5"
+    },
+    {
+      "id": "gct-012",
+      "candidateNumber": 12,
+      "title": "Kim ustawienia",
+      "viewStart": 97,
+      "viewEnd": 97,
+      "printedPages": [
+        89
+      ],
+      "sourceBlockSha256": "2fc5e9e69eec7e3eb1912bb610a9f94ea8da375072f21cb1c79851ddf3d4c009",
+      "publishedSourceHash": "1fb91cbd797faf9f46970837147265e2ccd094782c33840789cca41f53ad8a53",
+      "truncatedBeforeHeading": {
+        "locator": "view-0097-l0005",
+        "heading": "IV. Podchody"
+      }
+    },
+    {
+      "id": "gct-013",
+      "candidateNumber": 13,
+      "title": "Szukanie gwiżdżącego:",
+      "viewStart": 97,
+      "viewEnd": 97,
+      "printedPages": [
+        89
+      ],
+      "sourceBlockSha256": "87b52137d0d6dfc2a7469dc491f3580378b01426c9162a469c2e66402741a08d",
+      "publishedSourceHash": "ecb7ed65deb9e98b1a232d99342c65287f93112c9dd67545629b5bb3a74cab81"
+    },
+    {
+      "id": "gct-014",
+      "candidateNumber": 14,
+      "title": "Polowanie na zwierza",
+      "viewStart": 97,
+      "viewEnd": 97,
+      "printedPages": [
+        89
+      ],
+      "sourceBlockSha256": "f106e29530f086ad72512a429d9449f77a10940f5a65842526f064aef9e00c62",
+      "publishedSourceHash": "27a90327d6793e370db60dd455e92f87548ba1be1fa9602902aedbd8ade3ecd4"
+    },
+    {
+      "id": "gct-015",
+      "candidateNumber": 15,
+      "title": "Na pomoc",
+      "viewStart": 97,
+      "viewEnd": 98,
+      "printedPages": [
+        89,
+        90
+      ],
+      "sourceBlockSha256": "29659e13d118a77a2b898d3e77c6a4b4f10916432f3505d85b7d299bae158437",
+      "publishedSourceHash": "37a621488262774888843eeb1089a504fe812987eea27f59ef21ceed892b2d65"
+    },
+    {
+      "id": "gct-016",
+      "candidateNumber": 16,
+      "title": "Ubezpieczenie",
+      "viewStart": 98,
+      "viewEnd": 98,
+      "printedPages": [
+        90
+      ],
+      "sourceBlockSha256": "d808dc35c2e1908446aba5ba3ba1202b32c47b885e030f136a59e5d827656eef",
+      "publishedSourceHash": "178b80c980d1b4b6819196694dc934f1a8dc01a0b05c31c2bc3203c79e4542f5"
+    },
+    {
+      "id": "gct-017",
+      "candidateNumber": 17,
+      "title": "Podsłuch środków lokomocji",
+      "viewStart": 98,
+      "viewEnd": 99,
+      "printedPages": [
+        90,
+        91
+      ],
+      "sourceBlockSha256": "3d6fa4942c8ff1cb32d5455f629c2dae5b9191b6a694ff70e388ea26ef4b56a5",
+      "publishedSourceHash": "0199666830f81431332485b58dc613d97f71158bd500e6c2496943bbdcb17db0"
+    },
+    {
+      "id": "gct-018",
+      "candidateNumber": 18,
+      "title": "Podstuchy rozmów",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        91
+      ],
+      "sourceBlockSha256": "3615f55370702b27df4fc9f0980864dfd9db3a7dd682ebc968cc55a47daddc44",
+      "publishedSourceHash": "f28253a52ab433e1fbcdf132bb82003f365345b3d5f9558f3af49d99a8673b52"
+    },
+    {
+      "id": "gct-019",
+      "candidateNumber": 19,
+      "title": "Podstuchy telefonu",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        91
+      ],
+      "sourceBlockSha256": "fb49c881ac84271bdcb70453b044185cb28b0a55856a606af0f086c0fe721c33",
+      "publishedSourceHash": "476fbb364ab7d215ed80196476d999d8b94e8b143d4f03fdbfef07657bb7a143"
+    },
+    {
+      "id": "gct-020",
+      "candidateNumber": 20,
+      "title": "Podchodzenie wartowników:",
+      "viewStart": 99,
+      "viewEnd": 99,
+      "printedPages": [
+        91
+      ],
+      "sourceBlockSha256": "e61b59bdaa1b36969a6c09ea1818046a25f711be6d1eea982399e5f9eb06bf15",
+      "publishedSourceHash": "8898fdc02fcdde5354793a8879c8e688ed107c7bc1fbfd6145e93d63e3e608de"
+    },
+    {
+      "id": "gct-021",
+      "candidateNumber": 21,
+      "title": "Podchodzenie obozu (stworzyć opowieść na tle wojen polsko-tatarskich)",
+      "viewStart": 100,
+      "viewEnd": 100,
+      "printedPages": [
+        92
+      ],
+      "sourceBlockSha256": "b94900177fc7eb617feef82c7d0d6c8545363137bb1ecc768ae092f8f9ec5b7c",
+      "publishedSourceHash": "3cdbab83ce4ae121ba42cc9501e5aa3989cd6b65177643987c67e048a0d07600"
+    },
+    {
+      "id": "gct-022",
+      "candidateNumber": 22,
+      "title": "Wieści ze Zbaraża",
+      "viewStart": 101,
+      "viewEnd": 101,
+      "printedPages": [
+        93
+      ],
+      "sourceBlockSha256": "88a08be4faf831c8bc7beb819bdc02461f3a82b0820c406130ed62e4e042e582",
+      "publishedSourceHash": "eda9d22e5ef13140bed4f91ab0ba123f2d3ba99c32bbf280fbb634cd187a91b3"
+    },
+    {
+      "id": "gct-023",
+      "candidateNumber": 23,
+      "title": "Obrona linii telegraficznej",
+      "viewStart": 101,
+      "viewEnd": 102,
+      "printedPages": [
+        93,
+        94
+      ],
+      "sourceBlockSha256": "2fdbcc689df38432971f7d3d7371e3b670ecc464eaeea3dd0c1eead2e1a4573a",
+      "publishedSourceHash": "54066ab39ff1c8f4b168043243695335badb8ab03e6ad1505ec4d203be72162d"
+    },
+    {
+      "id": "gct-024",
+      "candidateNumber": 24,
+      "title": "Przekradanie się P",
+      "viewStart": 102,
+      "viewEnd": 102,
+      "printedPages": [
+        94
+      ],
+      "sourceBlockSha256": "8d2e9208d94946b7d991fac22c5caa7f39546d9a855af335effa9d4f33ae6272",
+      "publishedSourceHash": "4c0c8c9c6e0a83086fc87621706d259ab66e0c1d6dc8e40103ecb5941142900e"
+    },
+    {
+      "id": "gct-025",
+      "candidateNumber": 25,
+      "title": "Przekradanie z przebieraniem się",
+      "viewStart": 102,
+      "viewEnd": 103,
+      "printedPages": [
+        94,
+        95
+      ],
+      "sourceBlockSha256": "e58d059985f1401efb08f4b9b13a14dea4717dd2b5ff671e35acfe87a2182348",
+      "publishedSourceHash": "ac73db3eaa534e0a70fa8f883f2d1e304e9210a1580a4bd59ad893446ac69971"
+    },
+    {
+      "id": "gct-026",
+      "candidateNumber": 26,
+      "title": "Śledzenie",
+      "viewStart": 103,
+      "viewEnd": 104,
+      "printedPages": [
+        95,
+        96
+      ],
+      "sourceBlockSha256": "5acf9b4d5697459ec9cd38baa812740bd90839525f426162e85ef114546f77d1",
+      "publishedSourceHash": "2dbf86319cdcbea7c64c8e36e95991998695cbb22e9d3e4c0f44965c9ab71411"
+    },
+    {
+      "id": "gct-027",
+      "candidateNumber": 27,
+      "title": "Walka dwóch partyj",
+      "viewStart": 104,
+      "viewEnd": 105,
+      "printedPages": [
+        96,
+        97
+      ],
+      "sourceBlockSha256": "b888ac7f04de4a6ebb315c83d3b9cb53a8fc0db4c515e4af304453f7ca26c1cd",
+      "publishedSourceHash": "2408b9c6b64f028db37ecb611d5a9b2a2ea1420e4b419f3d3a624641c7292e18"
+    },
+    {
+      "id": "gct-028",
+      "candidateNumber": 28,
+      "title": "Goniec",
+      "viewStart": 105,
+      "viewEnd": 105,
+      "printedPages": [
+        97
+      ],
+      "sourceBlockSha256": "8560f79eb23cc780df3995fb43a0a50b778f10ed60be5e69fd03ddd1d5de98c3",
+      "publishedSourceHash": "222dd40de54e51868b3253d1be955d8d7ba90c69d20ee846d57e35dcc748160f"
+    },
+    {
+      "id": "gct-029",
+      "candidateNumber": 29,
+      "title": "Zasadzka",
+      "viewStart": 105,
+      "viewEnd": 106,
+      "printedPages": [
+        97,
+        98
+      ],
+      "sourceBlockSha256": "2c65945edb0416a436d53ca32fc4dc54aa611c3baae1d7c43681707ddb5e9213",
+      "publishedSourceHash": "b6399132494f82ff18f699b89223ca55e94ca0c52b6d3a9184965e9dfde075fe",
+      "truncatedBeforeHeading": {
+        "locator": "view-0106-l0005",
+        "heading": "V. Tropienia."
+      }
+    },
+    {
+      "id": "gct-030",
+      "candidateNumber": 30,
+      "title": "Marsz za zauważonymi na drodze śladami ludzi (odróżnić ślady mężczyzn, kobiet, dzieci), koni (rodzaj chodu — stęp, kłus, galop — i jego kierunek), samochodów, rowerów (kierunek jazdy)",
+      "viewStart": 106,
+      "viewEnd": 106,
+      "printedPages": [
+        98
+      ],
+      "sourceBlockSha256": "1ebc82093f5d4eeda83e0af8f8b381b6a35ad342af9effabff0aee1b9213b05e",
+      "publishedSourceHash": "042493f20ca70910342691534b119ddb30b961bb1b9fb452681fdd19b773aad7"
+    },
+    {
+      "id": "gct-031",
+      "candidateNumber": 31,
+      "title": "Marsz za śladami ptaków",
+      "viewStart": 106,
+      "viewEnd": 106,
+      "printedPages": [
+        98
+      ],
+      "sourceBlockSha256": "f7636a4a1d41afd89883058c81ee6b358a3550f17fcbbcd202315d0439562e71",
+      "publishedSourceHash": "73c27d46a6d08f05824ab7f5bea89cae20d1297655073a0113d3e8efd5f1ce3b"
+    },
+    {
+      "id": "gct-032",
+      "candidateNumber": 32,
+      "title": "Obserwacja i marsz za tropami zwierząt: saren i dzików, zajęcy, bądź innej dziczyzny (łatwo je odszukać na brzegach rzek i jezior, położonych wśród lasów)",
+      "viewStart": 106,
+      "viewEnd": 106,
+      "printedPages": [
+        98
+      ],
+      "sourceBlockSha256": "5aebe29898b44f3141d06e6b59e576d8702201d861352cbea26c4078bc38ff19",
+      "publishedSourceHash": "cfcf126ba56aa609c122079f874960ef7d174438496b5604952de85a3daf2f27"
+    },
+    {
+      "id": "gct-033",
+      "candidateNumber": 33,
+      "title": "Tropienie śladów psa, który idzie ze swym właścicielem (któryś z członków organizacji posiadający psa) po wyznaczonej przez instruktora trasie",
+      "viewStart": 106,
+      "viewEnd": 106,
+      "printedPages": [
+        98
+      ],
+      "sourceBlockSha256": "04653baa9dff6f0498eaed3a60343986d19db9bbb6757316da6cb1f327a2f62a",
+      "publishedSourceHash": "e72c1a721808514632359ced1e65a381857b2754bd29077f416778cc427b4d3e"
+    },
+    {
+      "id": "gct-034",
+      "candidateNumber": 34,
+      "title": "Często na wsi będzie możliwe tropienie, podobnie jak psa, konia z jeźdźcem",
+      "viewStart": 106,
+      "viewEnd": 107,
+      "printedPages": [
+        98,
+        99
+      ],
+      "sourceBlockSha256": "59c77fdeadf191862cff98a210a69dc6241acde48590498493f9675b74b36cd8",
+      "publishedSourceHash": "b96bd2824746be0713ada75200375f4e6d4e3ddd75556c8345ea7997664015cd"
+    },
+    {
+      "id": "gct-035",
+      "candidateNumber": 35,
+      "title": "Tropienie śladów grupy wysłanej",
+      "viewStart": 107,
+      "viewEnd": 107,
+      "printedPages": [
+        99
+      ],
+      "sourceBlockSha256": "90042fea845fd026beb92b9d7216100a4d73d5423f28f552c9dc9b91a0e5f303",
+      "publishedSourceHash": "723be670c0c712fcec48b44d228fe166d2e57644abfd894faa09efd0d3d69218"
+    },
+    {
+      "id": "gct-036",
+      "candidateNumber": 36,
+      "title": "Ucieczka powstańca",
+      "viewStart": 107,
+      "viewEnd": 107,
+      "printedPages": [
+        99
+      ],
+      "sourceBlockSha256": "a13987d443eec9a3712a55aa0cf001e0631521aae50fadd856d860b7d95b94b0",
+      "publishedSourceHash": "e226f401660b2636ec1b9b2b673150ddc1788bb30b6dfce1733f22affd5cfc00",
+      "truncatedBeforeHeading": {
+        "locator": "view-0108-l0032",
+        "heading": "Tropienie według śladów sztucznych."
+      }
+    },
+    {
+      "id": "gct-037",
+      "candidateNumber": 37,
+      "title": "Odszukiwanie śladów",
+      "viewStart": 113,
+      "viewEnd": 114,
+      "printedPages": [
+        105,
+        106
+      ],
+      "sourceBlockSha256": "ae10bd1fb00fa2b05be8ec83ab9e02385a81750f2098842185ed00ea4155a1f5",
+      "publishedSourceHash": "03d0c37c594b2fe348e7907269b42c357bebc79c87281d9ac07998bc796a7b6f"
+    },
+    {
+      "id": "gct-038",
+      "candidateNumber": 38,
+      "title": "Na znakach przyjaciół",
+      "viewStart": 114,
+      "viewEnd": 115,
+      "printedPages": [
+        106,
+        107
+      ],
+      "sourceBlockSha256": "fa265c115f51d2e0df9a2f042180c1e5e4ac704b2aa591bd95b63a997169f6c8",
+      "publishedSourceHash": "1e5fec341b186d96e2a21b1a8a78940400ccd8729f6c63d073fe65d84b4a0b35"
+    },
+    {
+      "id": "gct-039",
+      "candidateNumber": 39,
+      "title": "W pogoni za lisem",
+      "viewStart": 115,
+      "viewEnd": 116,
+      "printedPages": [
+        107,
+        108
+      ],
+      "sourceBlockSha256": "bc93bb094bdd6d19bd520566ff201898a00c7ddad14964f41a6c71cf959a5fd8",
+      "publishedSourceHash": "a980427c5038ed04aa6c2eefab175c7f0c6e74f80dfd4d35aa94dd8824b47843"
+    },
+    {
+      "id": "gct-040",
+      "candidateNumber": 40,
+      "title": "Wyprawa arktyczna",
+      "viewStart": 116,
+      "viewEnd": 116,
+      "printedPages": [
+        108
+      ],
+      "sourceBlockSha256": "c164473cf1b8fe1ddd277e1c92641c7c27a00d0f459a331d8aa0a0ad2e3ef71f",
+      "publishedSourceHash": "6b2519bb08c1bba0561f4b1f1d693120853cde0b5a1ba5e429770202181eb4f2"
+    },
+    {
+      "id": "gct-041",
+      "candidateNumber": 41,
+      "title": "Zdobycie bieguna",
+      "viewStart": 116,
+      "viewEnd": 117,
+      "printedPages": [
+        108,
+        109
+      ],
+      "sourceBlockSha256": "e0079fda489a752b82e92b54d005f5017d0f9ec5dfb9e36b22334675488fbe65",
+      "publishedSourceHash": "f1e08e6bef938d1aa7829fc4bf0a7e3599f55c109ec054044936afb9ee7652fe"
+    },
+    {
+      "id": "gct-042",
+      "candidateNumber": 42,
+      "title": "Obława",
+      "viewStart": 117,
+      "viewEnd": 117,
+      "printedPages": [
+        109
+      ],
+      "sourceBlockSha256": "7bc968988b85f438949a7b7bb8e174590357af6d078823490a7dc9e82dd6af32",
+      "publishedSourceHash": "5e6985842a9df71a51277c4469e64493e904d7d051c571e96062d57f9da9150d"
+    },
+    {
+      "id": "gct-043",
+      "candidateNumber": 43,
+      "title": "Różnymi drogami do jednego celu",
+      "viewStart": 117,
+      "viewEnd": 118,
+      "printedPages": [
+        109,
+        110
+      ],
+      "sourceBlockSha256": "37686d0179d455f502e9a7fe9fd1f28e74470cdd6905080c701caad69f15bf2f",
+      "publishedSourceHash": "52cec65808ac2f530b47595a65e2f940f6d25fd1858a9b35bf1151469882459a"
+    },
+    {
+      "id": "gct-044",
+      "candidateNumber": 44,
+      "title": "Po śladach",
+      "viewStart": 118,
+      "viewEnd": 119,
+      "printedPages": [
+        110,
+        111
+      ],
+      "sourceBlockSha256": "181bb5329385e85c7ca44c065ca18db5d61a1eed4449b6cf031b5162a83b4c7e",
+      "publishedSourceHash": "63596f2459f0a7c082c3373e6e5237dc942a5110cde831614856529486f85962"
+    },
+    {
+      "id": "gct-045",
+      "candidateNumber": 45,
+      "title": "Odnalezienie wywiezionego towaru",
+      "viewStart": 119,
+      "viewEnd": 120,
+      "printedPages": [
+        111,
+        112
+      ],
+      "sourceBlockSha256": "32865ad958c2dc6051dd6c53097c5a6833b47857a4236e59f50409e6db8c67bf",
+      "publishedSourceHash": "0a14188dcf5ff3e42bb30fdc78205e59741b96d1e01f5d0baa5f00367ea96c00"
+    },
+    {
+      "id": "gct-046",
+      "candidateNumber": 46,
+      "title": "Za tropami zwierzyny",
+      "viewStart": 120,
+      "viewEnd": 122,
+      "printedPages": [
+        112,
+        113,
+        114
+      ],
+      "sourceBlockSha256": "6b5923a6ee30eea5809d681adef9be1fafaee4a1f34729a8501bd0486f0e6efd",
+      "publishedSourceHash": "45234d3f7ff528332fdab179b62ba13d30b2d35634c5661c470d38b2dc49a782"
+    },
+    {
+      "id": "gct-047",
+      "candidateNumber": 47,
+      "title": "Po śladach rannego i zbłąkanego",
+      "viewStart": 122,
+      "viewEnd": 122,
+      "printedPages": [
+        114
+      ],
+      "sourceBlockSha256": "5ef34fb35da82a6bb8611c17685f4cac788c3484f53b66c875bb401500deeb0b",
+      "publishedSourceHash": "f2c40655e559a72cd16d4f647efcbfd9a9cdd6af95c606ea5e3a45a4ec453f4f"
+    },
+    {
+      "id": "gct-048",
+      "candidateNumber": 48,
+      "title": "Odnalezienie człowieka, który stracił pamięć",
+      "viewStart": 122,
+      "viewEnd": 123,
+      "printedPages": [
+        114,
+        115
+      ],
+      "sourceBlockSha256": "154ff078f59b3e56947ac00ae7c7dfb67bb7352f03069eade07c76e732362bb0",
+      "publishedSourceHash": "15d87329849260fd0e2ae1fd1fc8e9f3607bc174ce55a0e221c7c000ab8add42"
+    },
+    {
+      "id": "gct-049",
+      "candidateNumber": 49,
+      "title": "Historia na piasku:",
+      "viewStart": 123,
+      "viewEnd": 123,
+      "printedPages": [
+        115
+      ],
+      "sourceBlockSha256": "7c9be9a888adada7f88b5f61c6fa93c913e0e123751a2f24fa5a6fc206be0cad",
+      "publishedSourceHash": "0c35bb5ddf0d6f1f7927e85405f15cc6ae8ac20de3bccb81c5f080d108eb3784"
+    },
+    {
+      "id": "gct-050",
+      "candidateNumber": 50,
+      "title": "Historia na śniegu",
+      "viewStart": 123,
+      "viewEnd": 124,
+      "printedPages": [
+        115,
+        116
+      ],
+      "sourceBlockSha256": "15ca93612bae797fa6f550d8dfcfcad2cd728f53edd42d032e25cdebab06eba5",
+      "publishedSourceHash": "8c2892e623433de8a1580ff45a14ade38291981e4a8a5e59a79360488d6fa59b"
+    },
+    {
+      "id": "gct-051",
+      "candidateNumber": 51,
+      "title": "Historia prawdziwa",
+      "viewStart": 124,
+      "viewEnd": 124,
+      "printedPages": [
+        116
+      ],
+      "sourceBlockSha256": "bc0d046bde4b6842e73a40c79a3819902e2f51734906cff660bbd8d527a1dfd0",
+      "publishedSourceHash": "aafa2be6dcd83cdc8fa9b17330b0b5d21632901130f1a0639331c5150d9ea3b9",
+      "truncatedBeforeHeading": {
+        "locator": "view-0125-l0001",
+        "heading": "GRY I ĆWICZENIA TERENOWE WYŻSZEGO STOPNIA, BEZPOŚREDNIO PRZYGOTOWUJĄCE MŁODZIEŻ DO OBRONY KRAJU"
+      }
+    },
+    {
+      "id": "gct-052",
+      "candidateNumber": 52,
+      "title": "Podczas marszu",
+      "viewStart": 125,
+      "viewEnd": 125,
+      "printedPages": [
+        117
+      ],
+      "sourceBlockSha256": "161ca10465f34a8fc68061bca7882eb8d5e5ce697718b866a06c63ff346abc20",
+      "publishedSourceHash": "2066f5e4fbb944ad263e9a2a2f82bad721c8075bbc1cbb6146f0b1321dffbb94"
+    },
+    {
+      "id": "gct-053",
+      "candidateNumber": 53,
+      "title": "Z pewnego punktu",
+      "viewStart": 125,
+      "viewEnd": 126,
+      "printedPages": [
+        117,
+        118
+      ],
+      "sourceBlockSha256": "e669b2adb33627f335b8f7e5da916dd7ba7729c1e6d3fe9d1b10ef8c01a10a6f",
+      "publishedSourceHash": "384901157f10c9c0487a8cc1f42750f3bebae759ef877033a538d36bd4192161"
+    },
+    {
+      "id": "gct-054",
+      "candidateNumber": 54,
+      "title": "Obserwacja nieprzyjaciela",
+      "viewStart": 126,
+      "viewEnd": 126,
+      "printedPages": [
+        118
+      ],
+      "sourceBlockSha256": "1d6df91dcc1a4bb73a447e84f3a0b85280a7eea5aa099d448f7880bff6e90da7",
+      "publishedSourceHash": "bbc1069bef8521d710b3bf3acc8ab176aee5d258f30c5584ec51bddf7e31d065"
+    },
+    {
+      "id": "gct-055",
+      "candidateNumber": 55,
+      "title": "Mierzenie odległości",
+      "viewStart": 126,
+      "viewEnd": 127,
+      "printedPages": [
+        118,
+        119
+      ],
+      "sourceBlockSha256": "4969448ac6936652f61f7c0ca8d8b2a7952c8d598a500ad32ba93e1c46fcd6c3",
+      "publishedSourceHash": "219b0ce5e51acbf93675148d80cb919c7c15a6619df29a6685478debaa67613c"
+    },
+    {
+      "id": "gct-056",
+      "candidateNumber": 56,
+      "title": "Obserwacja ukrytych",
+      "viewStart": 127,
+      "viewEnd": 127,
+      "printedPages": [
+        119
+      ],
+      "sourceBlockSha256": "7143d0134dac352050fb6894d178d455d8fa919e276ef37d8f9c56d9fd63fac5",
+      "publishedSourceHash": "d5d28a4ff9a081f7cb09af11f15bc8f12d5c2d2a513ba78efa01d29de86d4ad2"
+    },
+    {
+      "id": "gct-057",
+      "candidateNumber": 57,
+      "title": "Określenie położenia przy pomocy palców",
+      "viewStart": 127,
+      "viewEnd": 127,
+      "printedPages": [
+        119
+      ],
+      "sourceBlockSha256": "fe56f83139051d0251840da7e18b680d59294c3949ca96a9688a5c47f1b7d5bb",
+      "publishedSourceHash": "1a3b3311fb21533e24e4f5ad6cc784e61497ef14f4920f1cddde03ee169ed4d7"
+    },
+    {
+      "id": "gct-058",
+      "candidateNumber": 58,
+      "title": "Nieprzyjaciel w dużej odległości na przedpolu",
+      "viewStart": 127,
+      "viewEnd": 128,
+      "printedPages": [
+        119,
+        120
+      ],
+      "sourceBlockSha256": "b0c74f87d73807f3aee434a317421fca767f41fd679b600c5ea16e383fb16d47",
+      "publishedSourceHash": "4e4d1fcf28630b60dd6a2adf990096d86d85989239e4efac211641de84bd25b3",
+      "truncatedBeforeHeading": {
+        "locator": "view-0128-l0005",
+        "heading": "VII. Pomiary."
+      }
+    },
+    {
+      "id": "gct-059",
+      "candidateNumber": 59,
+      "title": "Mierzenie szerokości",
+      "viewStart": 128,
+      "viewEnd": 129,
+      "printedPages": [
+        120,
+        121
+      ],
+      "sourceBlockSha256": "d646455cc0b780aa5466e055e8103c30fb72f2c79c1b924f14986202c0d40b51",
+      "publishedSourceHash": "37a375b67d7bf03a3c23f73362a3596ae2a53f101a819fcc5a9f92771f053899"
+    },
+    {
+      "id": "gct-060",
+      "candidateNumber": 60,
+      "title": "Wytyczanie linii",
+      "viewStart": 129,
+      "viewEnd": 130,
+      "printedPages": [
+        121,
+        122
+      ],
+      "sourceBlockSha256": "220c4b5f4969acb133719118968fddf2306f8550dfb70dcd30e6e275d6da8e63",
+      "publishedSourceHash": "f8fad4b7072181c56d59fee8bae74f272c716d7a45ca3308998c998cc1905a6b"
+    },
+    {
+      "id": "gct-061",
+      "candidateNumber": 61,
+      "title": "Wyznaczenie kąta prostego w terenie (ryc",
+      "viewStart": 130,
+      "viewEnd": 132,
+      "printedPages": [
+        122,
+        123,
+        124
+      ],
+      "sourceBlockSha256": "a1c722527664cb447e581032e73fc9a70844686f651542b49889eee5111cc462",
+      "publishedSourceHash": "23bf86858d75ef2ff03a1e6fa9c8808f04014302807b3d693c851f2045d7e75f"
+    },
+    {
+      "id": "gct-062",
+      "candidateNumber": 62,
+      "title": "Obliczenie szybkości prądu wody",
+      "viewStart": 132,
+      "viewEnd": 133,
+      "printedPages": [
+        124,
+        125
+      ],
+      "sourceBlockSha256": "91c205c8388d37a24671372e758945ac5b983a8c6c692bea6360c352ec0db802",
+      "publishedSourceHash": "61459a18409e9221e4acea64dd3febd253c6ff29abde155fc82e56a5b0646138"
+    },
+    {
+      "id": "gct-063",
+      "candidateNumber": 63,
+      "title": "Zmierzenie głębokości wody",
+      "viewStart": 133,
+      "viewEnd": 133,
+      "printedPages": [
+        125
+      ],
+      "sourceBlockSha256": "838ff186d80d9e4ee8aadf9789a708122e5964aebb9a7f47bb63714ca61d8f37",
+      "publishedSourceHash": "d9cd45d18185746538c2735c126bcc7ac967c42d3442654fa48870d249b4f841"
+    },
+    {
+      "id": "gct-064",
+      "candidateNumber": 64,
+      "title": "Określenie kierunku wiatru",
+      "viewStart": 133,
+      "viewEnd": 134,
+      "printedPages": [
+        125,
+        126
+      ],
+      "sourceBlockSha256": "6771a39c92c10ccfb410eddb85731a0f2190e1544768597bb52087054e873f32",
+      "publishedSourceHash": "35bd6f0058cda17a1c8267e064f97749db7904f5ef3df6c7488b52c3a3907b86"
+    },
+    {
+      "id": "gct-066",
+      "candidateNumber": 66,
+      "title": "Zdolność obliczania długości drogi według przebytego czasu",
+      "viewStart": 137,
+      "viewEnd": 137,
+      "printedPages": [
+        129
+      ],
+      "sourceBlockSha256": "e08dc829e51e3845f4ea6d315e346476fc72c2a175769c4dc27bacb95df744cb",
+      "publishedSourceHash": "01b988b60dadecb8599a769fb69bad8c13d4596e124d9483c085952d1b8fd32c",
+      "truncatedBeforeHeading": {
+        "locator": "view-0137-l0005",
+        "heading": "VIII. Terenoznawcze (orientacyjne)."
+      }
+    },
+    {
+      "id": "gct-067",
+      "candidateNumber": 67,
+      "title": "Wskazanie kierunku (w terenie zakrytym), w jakim zostawiono: miasto, szkołę, rynek, wieś itp",
+      "viewStart": 139,
+      "viewEnd": 139,
+      "printedPages": [
+        131
+      ],
+      "sourceBlockSha256": "2a11e2da26bf3ee7496eadcc1eef9b19bee32f13c7c36e554c3fd3171afdfe57",
+      "publishedSourceHash": "4f808dd0b4f996a6258cc323d416a2e46a5f79c932c89006cd238c8ced0b2070"
+    },
+    {
+      "id": "gct-068",
+      "candidateNumber": 68,
+      "title": "Ustalenie dokładnego kierunku Pn — Pd przy pomocy zjawisk przyrodniczych",
+      "viewStart": 139,
+      "viewEnd": 140,
+      "printedPages": [
+        131,
+        132
+      ],
+      "sourceBlockSha256": "74e297e52d1b4a77cb071ee66598682feb0a7e30cf0a8cbeb2c837217b96db95",
+      "publishedSourceHash": "e7f3ae062334e54c07e58bb0644cd60490a4dff796dceac2e38a8cf66e3a6ee9"
+    },
+    {
+      "id": "gct-069",
+      "candidateNumber": 69,
+      "title": "Ustalenie dokładnego kierunku Pn — Pd przy pomocy przyborów:",
+      "viewStart": 140,
+      "viewEnd": 141,
+      "printedPages": [
+        132,
+        133
+      ],
+      "sourceBlockSha256": "8bdb04beb5ffbb9fb34aa08eb90241bcd2225df7cc4729a8f63ab1c130cd6a38",
+      "publishedSourceHash": "7bfdd5f49c557c982f19d806fa5ede456621c8b699e1075fa38d78e08ca2878b"
+    },
+    {
+      "id": "gct-070",
+      "candidateNumber": 70,
+      "title": "Marsz na przełaj według własnego cienia",
+      "viewStart": 141,
+      "viewEnd": 142,
+      "printedPages": [
+        133,
+        134
+      ],
+      "sourceBlockSha256": "62bd9fa415e751a84a9dea3ba0991ce8d8db1efd49c3fea8365b76d910cd17db",
+      "publishedSourceHash": "4e36b212d83e4c7dd5e526249f88eac3ba4f5371780a459a4de5d6b4b98c10d3"
+    },
+    {
+      "id": "gct-071",
+      "candidateNumber": 71,
+      "title": "Marsz na przełaj według stron świata i punktów terenowych",
+      "viewStart": 142,
+      "viewEnd": 144,
+      "printedPages": [
+        134,
+        135,
+        136
+      ],
+      "sourceBlockSha256": "9c916f69cd095d1d2ace7a8da7b4bf8608217913e89efcdcfdb2da3f2d995229",
+      "publishedSourceHash": "0c0b6b1229a83d390bf6d06f7da3c74898e57c4c3f861c9f5102c3836423fcc6"
+    },
+    {
+      "id": "gct-072",
+      "candidateNumber": 72,
+      "title": "Wydobycie utopionego",
+      "viewStart": 144,
+      "viewEnd": 144,
+      "printedPages": [
+        136
+      ],
+      "sourceBlockSha256": "eea0c84857723d08a93ea3230b895135fb8bd94f8a1157333bcfa2f24fa55d41",
+      "publishedSourceHash": "c0f29c4d49d819dfa530c06006f08de268d59f36c1354d1d311a8199f162c4dc"
+    },
+    {
+      "id": "gct-073",
+      "candidateNumber": 73,
+      "title": "Poszukiwanie rozbitków",
+      "viewStart": 145,
+      "viewEnd": 145,
+      "printedPages": [
+        137
+      ],
+      "sourceBlockSha256": "888f3bfa7ff142f12bd65e534c0307b15e1bd0fa51caf015f88b37a9014b1253",
+      "publishedSourceHash": "f1eb4a4434bd1c0b2d6045820bf62d6b2767e4ea3ef39df4072ec76d2fc1f5ef"
+    },
+    {
+      "id": "gct-074",
+      "candidateNumber": 74,
+      "title": "Polowanie na foki",
+      "viewStart": 145,
+      "viewEnd": 145,
+      "printedPages": [
+        137
+      ],
+      "sourceBlockSha256": "9e47943ac61433f2391069ccc1b80544c6907daaad748cbf834a38fa310ea3a8",
+      "publishedSourceHash": "1f5ba680f4c0c067b33f6ee9600e2eb4dd45ff983fbd7607d5b1ecd3e58219ba"
+    },
+    {
+      "id": "gct-075",
+      "candidateNumber": 75,
+      "title": "Polowanie na wieloryba, którym będzie albo większa belka, albo opona samochodowa",
+      "viewStart": 145,
+      "viewEnd": 145,
+      "printedPages": [
+        137
+      ],
+      "sourceBlockSha256": "baf6910144a7fb78f29d8ef74c022e283b5d95590c4a6ac2c0a8d58447374fe3",
+      "publishedSourceHash": "714f83397de84ff72b16d8211ff0f3f375b609bc0f37cf17acfd50c2b725499d"
+    },
+    {
+      "id": "gct-076",
+      "candidateNumber": 76,
+      "title": "Obrona portów",
+      "viewStart": 145,
+      "viewEnd": 146,
+      "printedPages": [
+        137,
+        138
+      ],
+      "sourceBlockSha256": "aba6d951a997edc1a91b5132a22886aa6e13ca153bb01bda4627df069daf7494",
+      "publishedSourceHash": "3d30d97c5ef7c78a9803043d25f07b3e241e1c80614cca6266070d50ff36e743"
+    },
+    {
+      "id": "gct-078",
+      "candidateNumber": 78,
+      "title": "Polowanie na lisa",
+      "viewStart": 147,
+      "viewEnd": 148,
+      "printedPages": [
+        139,
+        140
+      ],
+      "sourceBlockSha256": "7903f3f986be59e0711fec9535fe87420e00572d6c66d197fab4137725e28dbf",
+      "publishedSourceHash": "e9f4638ecf41c6c00fd262c2d2c8c45d58510a87fd6897e09fa40f8b9e7b4dab"
+    },
+    {
+      "id": "gct-079",
+      "candidateNumber": 79,
+      "title": "Zwiad wsi",
+      "viewStart": 148,
+      "viewEnd": 149,
+      "printedPages": [
+        140,
+        141
+      ],
+      "sourceBlockSha256": "cb06638ec0ac9a33974374e625525d9539c9c5c6f0d46e0f6ca021e2a4ec65bd",
+      "publishedSourceHash": "fa254c76e70e210234fb5f4b2235b4233aabd9580ec1fba23e0a0ef6a3488a28"
+    },
+    {
+      "id": "gct-080",
+      "candidateNumber": 80,
+      "title": "Powrót tą samą drogą",
+      "viewStart": 149,
+      "viewEnd": 150,
+      "printedPages": [
+        141,
+        142
+      ],
+      "sourceBlockSha256": "4cfab163885d3a4e6f946f75c51035e2c3881280eaadf954e2442ef18aa263e7",
+      "publishedSourceHash": "67e0e109fab84254aaed7909a6cc010aa6b55a358425c2e29b0d8671a6efd581"
+    },
+    {
+      "id": "gct-081",
+      "candidateNumber": 81,
+      "title": "Umiejętność informowania o przebytej drodze",
+      "viewStart": 150,
+      "viewEnd": 150,
+      "printedPages": [
+        142
+      ],
+      "sourceBlockSha256": "0792cef6f251400b7d9d4882ecccd5337abab26a4c8190e4714d79a6c66fe2ca",
+      "publishedSourceHash": "bbcf275a81ba65936ee96dd1976f3e30d1894db57a2087897b332b747a8e4ff0"
+    },
+    {
+      "id": "gct-082",
+      "candidateNumber": 82,
+      "title": "Marsz według ślepego szkicu, który otrzymują poszczególne grupy (gra możliwa do zastoso-",
+      "viewStart": 150,
+      "viewEnd": 152,
+      "printedPages": [
+        142,
+        143,
+        144
+      ],
+      "sourceBlockSha256": "f5d253f8ed35e22ab99617015a5408623a56306feb1ed315fc5ae648fa77d4ed",
+      "publishedSourceHash": "4f5286a84626a50dca34a95b1726d7777902e24045121d1bc712b358a77585be"
+    },
+    {
+      "id": "gct-083",
+      "candidateNumber": 83,
+      "title": "Marsz według mapy",
+      "viewStart": 152,
+      "viewEnd": 153,
+      "printedPages": [
+        144,
+        145
+      ],
+      "sourceBlockSha256": "e633e55856d0e39de70812ededa19f87f9063e3e999be067c05f37b05bd5b412",
+      "publishedSourceHash": "04456ecdbbc32ca982cd274fd0f1cca582150489b1c38ca96bfc2a5f57eb34e2"
+    },
+    {
+      "id": "gct-084",
+      "candidateNumber": 84,
+      "title": "Kontrola mapy i marszu",
+      "viewStart": 153,
+      "viewEnd": 153,
+      "printedPages": [
+        145
+      ],
+      "sourceBlockSha256": "810eede5a5e18d271d611ce42085de32e42a436e4e4a55a28819eaf84e287ee5",
+      "publishedSourceHash": "2c09a5a1876424f02b2dabc005c9a8a0cd110c9a63291967eed451c484d45601"
+    },
+    {
+      "id": "gct-085",
+      "candidateNumber": 85,
+      "title": "Kima terenoznawczego¹)",
+      "viewStart": 154,
+      "viewEnd": 155,
+      "printedPages": [
+        146,
+        147
+      ],
+      "sourceBlockSha256": "b2f68c265678f5638a1a4ad4827687fc72bae46851029be568d354084b1341b0",
+      "publishedSourceHash": "b9b777bfe8bd22fd9028aa42a574a46652c49b3797b8516717ab1ddbbd2d96ad"
+    },
+    {
+      "id": "gct-086",
+      "candidateNumber": 86,
+      "title": "Dyktanda topograficznego",
+      "viewStart": 155,
+      "viewEnd": 155,
+      "printedPages": [
+        147
+      ],
+      "sourceBlockSha256": "2da027858ad5cb3631facf6266a37c017c7094c81bd7b3c2149c9439d03aabe7",
+      "publishedSourceHash": "43e625d6510c233eea612de1e1d2fce478e3b598f96a0bb2ea2d01286922d4b2"
+    },
+    {
+      "id": "gct-087",
+      "candidateNumber": 87,
+      "title": "W marszu po drodze",
+      "viewStart": 155,
+      "viewEnd": 158,
+      "printedPages": [
+        147,
+        148,
+        149,
+        150
+      ],
+      "sourceBlockSha256": "718d0140086afcf7cc88f5bad478cd7b544da608adcb548f80acd82c1c940fa3",
+      "publishedSourceHash": "fc4e6103a4857edcc2e173e18dc7c410ae84a438ec52852237d4c02e777ff6f2"
+    },
+    {
+      "id": "gct-088",
+      "candidateNumber": 88,
+      "title": "Marsz na przełaj, według znaków topograficznych",
+      "viewStart": 158,
+      "viewEnd": 161,
+      "printedPages": [
+        150,
+        151,
+        152,
+        153
+      ],
+      "sourceBlockSha256": "a10af3bf51ed220ed574a2997f05141e42b37a7d5887061f98a3d2bd815591e1",
+      "publishedSourceHash": "ff1ab7ee0b79e712eee61bd0fdffe080b07aa583b3499bfdbb73936a8ff1d8cf"
+    },
+    {
+      "id": "gct-089",
+      "candidateNumber": 89,
+      "title": "Tworzenie linii obronnej",
+      "viewStart": 161,
+      "viewEnd": 163,
+      "printedPages": [
+        153,
+        154,
+        155
+      ],
+      "sourceBlockSha256": "80be586d9086a330fde209268574e0cb74a7eaa7cd3906145aec1b68af1363ef",
+      "publishedSourceHash": "c17d94115a1f5b7e1d47cdabb47e9e2e1eaa77ba66fee671f83fb674da5d6106",
+      "truncatedBeforeHeading": {
+        "locator": "view-0163-l0005",
+        "heading": "IX. Szukanie skarbów."
+      }
+    },
+    {
+      "id": "gct-090",
+      "candidateNumber": 90,
+      "title": "Skarb Irokezów",
+      "viewStart": 166,
+      "viewEnd": 168,
+      "printedPages": [
+        158,
+        159,
+        160
+      ],
+      "sourceBlockSha256": "78c5f369b005a5d1ff6bb6b786b1e5b204c3a65566ed591d2a1b846379a83174",
+      "publishedSourceHash": "7c09c435c620a293385b59d3da8d0d85c66de52809c1dc0078f9905a212136b2"
+    },
+    {
+      "id": "gct-091",
+      "candidateNumber": 91,
+      "title": "Skarb zbójników",
+      "viewStart": 168,
+      "viewEnd": 169,
+      "printedPages": [
+        160,
+        161
+      ],
+      "sourceBlockSha256": "5da50d15175d12f3d0eaf254f5889df1702344b20059c2e24cf92a0ac3d5dc01",
+      "publishedSourceHash": "a75c6688bd9aaefd729b2e418f262cb06c52fe43a6e47bd1a69f06fa091c7575"
+    },
+    {
+      "id": "gct-092",
+      "candidateNumber": 92,
+      "title": "Ukryte karabiny „peowiaków”",
+      "viewStart": 169,
+      "viewEnd": 170,
+      "printedPages": [
+        161,
+        162
+      ],
+      "sourceBlockSha256": "04406bf846fa196ed2b062a69093566af195beb939741a68b3989085fa75ee81",
+      "publishedSourceHash": "771a0bc318644aece31a51108e972366b1d362621a8b19ac47e177ad24ee018d"
+    },
+    {
+      "id": "gct-093",
+      "candidateNumber": 93,
+      "title": "Kto pierwszy?",
+      "viewStart": 170,
+      "viewEnd": 171,
+      "printedPages": [
+        162,
+        163
+      ],
+      "sourceBlockSha256": "affabd16a4f8ed98e4770d5f0c5501870591f546ea926bae0108fe77a72716b8",
+      "publishedSourceHash": "9574d48be95bbe420137f0e70d497b0b8a8b3438cf6e53b3219e75917631f32d"
+    },
+    {
+      "id": "gct-094",
+      "candidateNumber": 94,
+      "title": "Marsze kierunkowe w mieście",
+      "viewStart": 171,
+      "viewEnd": 172,
+      "printedPages": [
+        163,
+        164
+      ],
+      "sourceBlockSha256": "909ba8d5d558cc4f1af468f6a0ef8de966650dc30577984a51067eb4cfde4bca",
+      "publishedSourceHash": "ecf31c3fafecc32c8b971e652c9164adf4a505e0e73f0fd1d53656f7bf388363"
+    },
+    {
+      "id": "gct-095",
+      "candidateNumber": 95,
+      "title": "Na ratunek",
+      "viewStart": 172,
+      "viewEnd": 172,
+      "printedPages": [
+        164
+      ],
+      "sourceBlockSha256": "c85813cad8075c17862262914068c177e51907dce555353d336beb4fa444a408",
+      "publishedSourceHash": "b3452b1968cc9073d18d6a8175137ecd304f2b938dd126ab03dd4d39f09c8b9d"
+    },
+    {
+      "id": "gct-096",
+      "candidateNumber": 96,
+      "title": "Na rozpoznaniu",
+      "viewStart": 172,
+      "viewEnd": 173,
+      "printedPages": [
+        164,
+        165
+      ],
+      "sourceBlockSha256": "ee75878b1587dac0780926b8cffc51c893de0844a71ac72c70b6528763b58169",
+      "publishedSourceHash": "249e0591fcc23b57c947cdb0e30ce3667bfeb523fa9763e7e076404353c44aa8"
+    },
+    {
+      "id": "gct-097",
+      "candidateNumber": 97,
+      "title": "Zbieranie wiadomości",
+      "viewStart": 173,
+      "viewEnd": 173,
+      "printedPages": [
+        165
+      ],
+      "sourceBlockSha256": "aa628aefb0951023e1ad45b672aa227924ad1be23509e7fbb09b1323b89af656",
+      "publishedSourceHash": "f31251d9fbb95d8a2a3d5063bb97c2977453a01559ac8689373abb82f30c9146",
+      "truncatedBeforeHeading": {
+        "locator": "view-0173-l0013",
+        "heading": "X. Łączność."
+      }
+    },
+    {
+      "id": "gct-098",
+      "candidateNumber": 98,
+      "title": "Służba gońców",
+      "viewStart": 174,
+      "viewEnd": 176,
+      "printedPages": [
+        166,
+        167,
+        168
+      ],
+      "sourceBlockSha256": "2bdff93535b90c72ce9027bdeddc25072c6e7ccc5328b702dff174e66c6f53d8",
+      "publishedSourceHash": "fa6c769d1658c35db259de44449d1601e4fdbfa0818ca083e0537d78d30de555"
+    },
+    {
+      "id": "gct-099",
+      "candidateNumber": 99,
+      "title": "Sygnały wzrokowe i słuchowe w marszu",
+      "viewStart": 177,
+      "viewEnd": 180,
+      "printedPages": [
+        169,
+        170,
+        171,
+        172
+      ],
+      "sourceBlockSha256": "4cd270e9a548c7646c782e889bcd82b1d0eb7902f1243c8224553e84c869221b",
+      "publishedSourceHash": "c3dcb5a773f5494838c82c4f084f1ea30373527ba300a38a2a4960ef0ed872ec"
+    },
+    {
+      "id": "gct-101",
+      "candidateNumber": 101,
+      "title": "Kima sygnalizacyjnego",
+      "viewStart": 180,
+      "viewEnd": 182,
+      "printedPages": [
+        172,
+        173,
+        174
+      ],
+      "sourceBlockSha256": "94542357a2671cbd7ee488f6873437d1662e59edc52f4af1d76b07e86c387594",
+      "publishedSourceHash": "2e9408b3a9bec1b982df18f5575a76eb60b51878488247817560b7060c253e31"
+    },
+    {
+      "id": "gct-102",
+      "candidateNumber": 102,
+      "title": "Ustawianie znaków",
+      "viewStart": 182,
+      "viewEnd": 183,
+      "printedPages": [
+        174,
+        175
+      ],
+      "sourceBlockSha256": "064c66c35525b7599f5e5e439b4653d5a1d7bb171266c12088b652b85ad47251",
+      "publishedSourceHash": "a154b5ca9f1b4375bec3c765837dd5b78439b89ae566af11c5906088db4e2c47"
+    },
+    {
+      "id": "gct-103",
+      "candidateNumber": 103,
+      "title": "Piłka sygnalizacyjna",
+      "viewStart": 183,
+      "viewEnd": 183,
+      "printedPages": [
+        175
+      ],
+      "sourceBlockSha256": "cbb84a4cd8f0235336a4345851b5f47f67d14fabbb74f946ec3b9eb048263ac7",
+      "publishedSourceHash": "1a2cd8a5d1e3b7a21c899f5117c50dca2d1b253954300ec6cb9ca1f5ef58f503"
+    },
+    {
+      "id": "gct-104",
+      "candidateNumber": 104,
+      "title": "Zbiorowe odczytanie depeszy",
+      "viewStart": 183,
+      "viewEnd": 183,
+      "printedPages": [
+        175
+      ],
+      "sourceBlockSha256": "4a91769f51926bd2e4b254f59de330e31d9a514ff0934db16fc57cf9f6680557",
+      "publishedSourceHash": "5ab2ea90442cf724aa763064b62557798c46cf2f785e57f95d45c0dbfe72629d"
+    },
+    {
+      "id": "gct-105",
+      "candidateNumber": 105,
+      "title": "Eliminacja",
+      "viewStart": 184,
+      "viewEnd": 184,
+      "printedPages": [
+        176
+      ],
+      "sourceBlockSha256": "bd7fa2f7094bb7ca3480bb05b43f6250c14d5da7e73c443c3bb9d04d9782b235",
+      "publishedSourceHash": "ddbc43ea45e396c9fb32093075ba909bfb7afc7409d0eda9a98e54e9de2de108"
+    },
+    {
+      "id": "gct-106",
+      "candidateNumber": 106,
+      "title": "Bieg rozstawny sygnalizacyjny",
+      "viewStart": 184,
+      "viewEnd": 185,
+      "printedPages": [
+        176,
+        177
+      ],
+      "sourceBlockSha256": "22914f3ba3c96bb983939ffad6681be8e78643c4ddcf8b6fb4348c3f8534ff23",
+      "publishedSourceHash": "fb3d6bd6a04caf1c26c8ec6fa7b9ddda598fc2c240cb15f708d77a2ecb1d4e71"
+    },
+    {
+      "id": "gct-107",
+      "candidateNumber": 107,
+      "title": "Odczytanie tajnych depesz",
+      "viewStart": 185,
+      "viewEnd": 186,
+      "printedPages": [
+        177,
+        178
+      ],
+      "sourceBlockSha256": "dbedc781b1af0e07245fb4e6f9e5af3e7294bf4f58bb5b429c6dadf7f2944543",
+      "publishedSourceHash": "e18c9fbb56a5435727b7f7aa6278572552a1046d7f8be9fe6f10aa1d1f9735e3"
+    },
+    {
+      "id": "gct-108",
+      "candidateNumber": 108,
+      "title": "Indywidualne zawody w odbiorze depeszy",
+      "viewStart": 186,
+      "viewEnd": 186,
+      "printedPages": [
+        178
+      ],
+      "sourceBlockSha256": "d7ec9c466c72513df720c81bc938e9041d2d92c1c445f50acc66f4b6b2e53c9b",
+      "publishedSourceHash": "970e02f873b5bef68c5bc74bfd002c4ab3f5e3d4b7a6762dbab49cf6e4e330b9"
+    },
+    {
+      "id": "gct-109",
+      "candidateNumber": 109,
+      "title": "Kto prędzej?",
+      "viewStart": 186,
+      "viewEnd": 188,
+      "printedPages": [
+        178,
+        179,
+        180
+      ],
+      "sourceBlockSha256": "2b4c6bbe89d411f4c6e9c7389cdb8191eab58e0db90315a72f5a1cfdf4320fcf",
+      "publishedSourceHash": "9b5d7e3fb03156eb6d7976287398ad38cdf1a57cf1cd5d7746969ef3f1a47549"
+    },
+    {
+      "id": "gct-110",
+      "candidateNumber": 110,
+      "title": "Wyścig łańcucha stacyj sygnalizacyjnych",
+      "viewStart": 188,
+      "viewEnd": 188,
+      "printedPages": [
+        180
+      ],
+      "sourceBlockSha256": "09d76c7a37f98b992a911dd98d218d296fa5c12cb822d552bb7d47b17fd2c534",
+      "publishedSourceHash": "e0a83d2fc1e086d8477b82de95d8fbe6f43e93fa9634bcaeef7eca77f3fee4cc"
+    },
+    {
+      "id": "gct-111",
+      "candidateNumber": 111,
+      "title": "Podpatrzenie sygnalizacji nieprzyjacielskiej",
+      "viewStart": 188,
+      "viewEnd": 189,
+      "printedPages": [
+        180,
+        181
+      ],
+      "sourceBlockSha256": "cd8a1cd0be0a4b8861a57ef78d0c59449c674e6111722a97aa6695c7dcd26121",
+      "publishedSourceHash": "2d845df126d54c3e7cc3f9259034e1d3c1de869e273b01858ac971aef7b913fb"
+    },
+    {
+      "id": "gct-112",
+      "candidateNumber": 112,
+      "title": "Łowcy słoni",
+      "viewStart": 189,
+      "viewEnd": 190,
+      "printedPages": [
+        181,
+        182
+      ],
+      "sourceBlockSha256": "26a00b6a2a91fb33e543c72bc1c9febee628759b0433bb71d03c65656d74859c",
+      "publishedSourceHash": "4751ec170cb7ca4b2097ae530617b7b002bd549f125ee19d40ad060c026929ae"
+    },
+    {
+      "id": "gct-113",
+      "candidateNumber": 113,
+      "title": "Tit, Taa",
+      "viewStart": 190,
+      "viewEnd": 191,
+      "printedPages": [
+        182,
+        183
+      ],
+      "sourceBlockSha256": "f58b450d86f5a538751fba4e79ae8a7d3fa6f310c5271178ecaae60023fc7ee2",
+      "publishedSourceHash": "877b2eed8f81f3dd57855a57de6f05f5a9d37d998d80cf82c6a1770dd0d3727c"
+    },
+    {
+      "id": "gct-114",
+      "candidateNumber": 114,
+      "title": "Most zerwany — wstrzymać pociąg",
+      "viewStart": 191,
+      "viewEnd": 192,
+      "printedPages": [
+        183,
+        184
+      ],
+      "sourceBlockSha256": "7332006fb0e55318cb5231aba5d56815dfb05e2b2139897f10d2188022f96255",
+      "publishedSourceHash": "09c32ac24184441b1d69ce5b653b4cbabc440b90e212dc270814223b4d63e345"
+    },
+    {
+      "id": "gct-115",
+      "candidateNumber": 115,
+      "title": "Zajmowanie stanowisk",
+      "viewStart": 192,
+      "viewEnd": 194,
+      "printedPages": [
+        184,
+        185,
+        186
+      ],
+      "sourceBlockSha256": "4cb34ad26d73f9eb1f4a1a94a4715a216bad6874b73eb3c0bb6ebcfd02bce7c2",
+      "publishedSourceHash": "9ebd2c8da35c6c60b1c7cedf383e38be36481961a899c28dca1392b598cb193a",
+      "truncatedBeforeHeading": {
+        "locator": "view-0194-l0003",
+        "heading": "XI. Dobre uczynki."
+      }
+    },
+    {
+      "id": "gct-123",
+      "candidateNumber": 123,
+      "title": "Zbieranie chrabąszczy",
+      "viewStart": 194,
+      "viewEnd": 194,
+      "printedPages": [
+        186
+      ],
+      "sourceBlockSha256": "26a939991f0eb9317591c939576535add07347f4863ac3b54108611902e4c1ff",
+      "publishedSourceHash": "3135ede230c242c0fbf686ad5c631f97efad1a8a2fefcaa4fa4913262d3bb0dc"
+    },
+    {
+      "id": "gct-124",
+      "candidateNumber": 124,
+      "title": "Zbieranie papierów",
+      "viewStart": 194,
+      "viewEnd": 195,
+      "printedPages": [
+        186,
+        187
+      ],
+      "sourceBlockSha256": "a11e380aebc42ba08189114198a67a8f2ced1f1da7a875858f096931b55dc915",
+      "publishedSourceHash": "c898d567a27992e8793fdbb3c18a5901e69b13e83b2cd6c9e1a440f3878b7202"
+    },
+    {
+      "id": "gct-125",
+      "candidateNumber": 125,
+      "title": "Przenoszenie chorych:",
+      "viewStart": 195,
+      "viewEnd": 195,
+      "printedPages": [
+        187
+      ],
+      "sourceBlockSha256": "e2a608c38979abb5edbde079b122aa8bd86c0bc1c0e3ef9f3e15a14319d819e5",
+      "publishedSourceHash": "8b6090cde1f2a0dd1e6bb8de5decad18abe7ec9e56b909315e707f5e20d1be19"
+    },
+    {
+      "id": "gct-126",
+      "candidateNumber": 126,
+      "title": "Zbieranie rannych z pola bitwy",
+      "viewStart": 195,
+      "viewEnd": 196,
+      "printedPages": [
+        187,
+        188
+      ],
+      "sourceBlockSha256": "f4c9a3945cf997d9390869af260cfa5561eea1a261d54c624a0b087d0c9d9c6b",
+      "publishedSourceHash": "b54be4ad0cdf2329c0aa8f28f7cefa44944cb0e630ca8474d57fc2411a148242"
+    },
+    {
+      "id": "gct-127",
+      "candidateNumber": 127,
+      "title": "Zbieranie zagazowanych",
+      "viewStart": 196,
+      "viewEnd": 196,
+      "printedPages": [
+        188
+      ],
+      "sourceBlockSha256": "0564de78cc20f96040068bc8facff68cf5d53e2289d8a5aba94580c6072e535f",
+      "publishedSourceHash": "145a9649ab4e9291d340e9b335449e4c33d56549d0a0b35eb856c57ec44b21e0"
+    },
+    {
+      "id": "gct-128",
+      "candidateNumber": 128,
+      "title": "Na ratunek lotnikowi",
+      "viewStart": 196,
+      "viewEnd": 197,
+      "printedPages": [
+        188,
+        189
+      ],
+      "sourceBlockSha256": "0711fa642f42468ac868f7924a638702d8c573e92a79fbf2988ab12a02b101dc",
+      "publishedSourceHash": "85f9426a253d1989d236347c5e144ee15ba2256e463d49edb44d2a8d1a1cd4b1"
+    },
+    {
+      "id": "gct-129",
+      "candidateNumber": 129,
+      "title": "Ratowanie płonących",
+      "viewStart": 197,
+      "viewEnd": 197,
+      "printedPages": [
+        189
+      ],
+      "sourceBlockSha256": "1f4394e90596dabcd878b48c402e8e331804c538035f8a34838a989f7d3ba95e",
+      "publishedSourceHash": "56e350138faf4fa9435c1bb97e052fc826e814b095dff208a146f12bd81ff9df"
+    },
+    {
+      "id": "gct-130",
+      "candidateNumber": 130,
+      "title": "Złamanie nogi",
+      "viewStart": 197,
+      "viewEnd": 198,
+      "printedPages": [
+        189,
+        190
+      ],
+      "sourceBlockSha256": "251ba8d65b48822d7b7b62cf18e0abf0304c7f4a17766f142a171bc3da05924f",
+      "publishedSourceHash": "d90be92c77d70a59a3acd6eba81a2c1e815bbf5547b95ac0c43eb277d97cd9e2"
+    },
+    {
+      "id": "gct-131",
+      "candidateNumber": 131,
+      "title": "Katastrofa",
+      "viewStart": 198,
+      "viewEnd": 198,
+      "printedPages": [
+        190
+      ],
+      "sourceBlockSha256": "844a9f4b91b112f0d8f35e88660d54075664686a66e18a452850057fa4c8bfdc",
+      "publishedSourceHash": "36c047b1eff69f86f0542359f5b61cf6070a7836efa5e47af8c4ba13dcab92da",
+      "truncatedBeforeHeading": {
+        "locator": "view-0198-l0009",
+        "heading": "XII. Patrolowanie i zwiady."
+      }
+    },
+    {
+      "id": "gct-132",
+      "candidateNumber": 132,
+      "title": "Doskonałość krycia się",
+      "viewStart": 202,
+      "viewEnd": 202,
+      "printedPages": [
+        194
+      ],
+      "sourceBlockSha256": "eb1f41eee345a63fe6a22a628fde561cdc0af04d09fb112fc16501c8c670faa6",
+      "publishedSourceHash": "c434bdfffc76912be9c37b32cea4909815bdf9ae745806174e02c1a182b992ef"
+    },
+    {
+      "id": "gct-133",
+      "candidateNumber": 133,
+      "title": "Zasadzka",
+      "viewStart": 202,
+      "viewEnd": 202,
+      "printedPages": [
+        194
+      ],
+      "sourceBlockSha256": "faf725373ab9de28fc9e8c8ff8e31c7f976908d212a83aee8fb67bed4462dd6b",
+      "publishedSourceHash": "792a0b63f6bfc3aa6603b884b334a0d6d7fa933dfc499917905e7e16ead0e22f"
+    },
+    {
+      "id": "gct-134",
+      "candidateNumber": 134,
+      "title": "Najlepszy meldunek",
+      "viewStart": 202,
+      "viewEnd": 203,
+      "printedPages": [
+        194,
+        195
+      ],
+      "sourceBlockSha256": "8d6bc693bbe12ad8d654e1be1366904c70f96450f4b34d145cab56ab01e6910e",
+      "publishedSourceHash": "80b884b8095a89351cf872381570006a65d4aef868b405b17372148fed6cc977"
+    },
+    {
+      "id": "gct-135",
+      "candidateNumber": 135,
+      "title": "Patrole nieprzyjacielskie w terenie",
+      "viewStart": 203,
+      "viewEnd": 203,
+      "printedPages": [
+        195
+      ],
+      "sourceBlockSha256": "e2f5578a993f94e99206fb9ccb890cec185fd8e8a6d113dbccac0e0b11d8cbfb",
+      "publishedSourceHash": "d5a717657ac752595430fe53e341404cdb3169997a3b385d1ae2a94e39a1e44d"
+    },
+    {
+      "id": "gct-136",
+      "candidateNumber": 136,
+      "title": "Podejście nieprzyjaciela",
+      "viewStart": 204,
+      "viewEnd": 205,
+      "printedPages": [
+        196,
+        197
+      ],
+      "sourceBlockSha256": "e79cd7b78fd9b799aa27381e083a1eb6051b97db6243e5ed0c1498725b321d69",
+      "publishedSourceHash": "53383b2710358eee8283ec1945bdc712f85dcedd333aebf2f1d442db3e85eb84"
+    },
+    {
+      "id": "gct-149",
+      "candidateNumber": 149,
+      "title": "Zwiad mostu przez nieprzyjacielskie patrole",
+      "viewStart": 207,
+      "viewEnd": 208,
+      "printedPages": [
+        199,
+        200
+      ],
+      "sourceBlockSha256": "2138143147b274fc5d6ab77ca1bb4d818e4143f024ce660fc8ba9447ba8b43a2",
+      "publishedSourceHash": "5a88eedb2100099170319ad58739e8815dfc311870e7a6ce0ee09b01ed7173f9",
+      "truncatedBeforeHeading": {
+        "locator": "view-0208-l0011",
+        "heading": "XIII. Wywiady."
+      }
+    },
+    {
+      "id": "gct-186",
+      "candidateNumber": 186,
+      "title": "Walki rzutne:",
+      "viewStart": 233,
+      "viewEnd": 233,
+      "printedPages": [
+        225
+      ],
+      "sourceBlockSha256": "ac627e3c0930b5e282355e47a55404914bc387d8361892ba13401e9fdb97d056",
+      "publishedSourceHash": "0df0644552253f85c87271bd9fb08f5411004c34c91cd115b9e697695dc35d2b"
+    },
+    {
+      "id": "gct-187",
+      "candidateNumber": 187,
+      "title": "Zdobycie chorągiewek:",
+      "viewStart": 234,
+      "viewEnd": 235,
+      "printedPages": [
+        226,
+        227
+      ],
+      "sourceBlockSha256": "09fcad390fd0c884504c0828af26699b0a7c1ed8d72aab535d1d3ce471254955",
+      "publishedSourceHash": "766ecd5e9c83ec4aade536ab9c3dfde81cd7b9e254d47b2360ff15c747a4aaa1"
+    },
+    {
+      "id": "gct-188",
+      "candidateNumber": 188,
+      "title": "Przejście szpiegów przez granicę",
+      "viewStart": 235,
+      "viewEnd": 236,
+      "printedPages": [
+        227,
+        228
+      ],
+      "sourceBlockSha256": "5e47be7a2351b819d6c3eab3dd6683547f1218b0baf4300d68ebc33edea5b625",
+      "publishedSourceHash": "0c6b87ff3e045c3ba9d5c9c4eb85a23d4bd614164521617dfd62c54a8ec461df"
+    },
+    {
+      "id": "gct-189",
+      "candidateNumber": 189,
+      "title": "Patrole nieprzyjacielskie",
+      "viewStart": 236,
+      "viewEnd": 236,
+      "printedPages": [
+        228
+      ],
+      "sourceBlockSha256": "f4663ff43b9f656a0fca2babe865e9219c6f580307e04ae0242ddea7cb6043f9",
+      "publishedSourceHash": "8ab76f4e4851eae15850f7e56e8ef816985aea2b2de4789e714d6a08cf6d85a9"
+    },
+    {
+      "id": "gct-190",
+      "candidateNumber": 190,
+      "title": "Na drogach swego patrolu",
+      "viewStart": 236,
+      "viewEnd": 237,
+      "printedPages": [
+        228,
+        229
+      ],
+      "sourceBlockSha256": "a9e139243452bb2d80d9b920667e4ed420c801f17499a7ba41716e5a30c49df1",
+      "publishedSourceHash": "2facda921dd73909e744e8357dd54aaaed2c91dc3020b743d6f83f0c5decfc4d"
+    },
+    {
+      "id": "gct-191",
+      "candidateNumber": 191,
+      "title": "Napad na biwak",
+      "viewStart": 237,
+      "viewEnd": 238,
+      "printedPages": [
+        229,
+        230
+      ],
+      "sourceBlockSha256": "77636729e33206c906cdbcfebad2344dd18cddc9be01feccd1b728407b18600b",
+      "publishedSourceHash": "7e472c725fc9a844d1c1862a54e91d71ed8ad1464a63dd4b226e7499e6bc2e2c"
+    },
+    {
+      "id": "gct-192",
+      "candidateNumber": 192,
+      "title": "Wymknięcie się z terenu zagrożonego, zamykanego obręczą nacierających patroli",
+      "viewStart": 238,
+      "viewEnd": 239,
+      "printedPages": [
+        230,
+        231
+      ],
+      "sourceBlockSha256": "566d9f3c2509f2380c80558501f71f0b0256d1145939710b8a8241bd3ab3e6ae",
+      "publishedSourceHash": "3982575d0a581da4dc031df630abf557a1687ed7d76a7ad372922c9485f384c7"
+    },
+    {
+      "id": "gct-193",
+      "candidateNumber": 193,
+      "title": "Otwarcie drogi zamkniętej przez nieprzyjaciela",
+      "viewStart": 239,
+      "viewEnd": 241,
+      "printedPages": [
+        231,
+        232,
+        233
+      ],
+      "sourceBlockSha256": "3bb2beb3ca0f21da2d3ab3f278768b9dbcbff6ba90977ee2db2fb49b72a38ceb",
+      "publishedSourceHash": "d99c44f84851677c313ede74ecf3e3f3e7d198b9b0ffc95ff3f461bd04d81189"
+    },
+    {
+      "id": "gct-194",
+      "candidateNumber": 194,
+      "title": "Strzelanie myśliwskie",
+      "viewStart": 241,
+      "viewEnd": 242,
+      "printedPages": [
+        233,
+        234
+      ],
+      "sourceBlockSha256": "7b6572967df59ad01af95c41a3bdc75f5b0cc7f7257d0df5ea64b2e95e20e3c2",
+      "publishedSourceHash": "e853246e20a92156311234836a05fd65b6977f015225956af1df1723e771a62a"
+    },
+    {
+      "id": "gct-195",
+      "candidateNumber": 195,
+      "title": "Wiadomości o nieprzyjacielu",
+      "viewStart": 243,
+      "viewEnd": 244,
+      "printedPages": [
+        235,
+        236
+      ],
+      "sourceBlockSha256": "af7c06ce4e38e65974caa86290a6ee5cfef320038675ec9c5a600aa88e03f63f",
+      "publishedSourceHash": "257af6ba924110a14176d2e932b17bdb50365b565eee2382bac3d25a7f272b60"
+    },
+    {
+      "id": "gct-196",
+      "candidateNumber": 196,
+      "title": "Kilkudniowa wojna",
+      "viewStart": 244,
+      "viewEnd": 247,
+      "printedPages": [
+        236,
+        237,
+        238,
+        239
+      ],
+      "sourceBlockSha256": "e734d93183fdf6b143c77414f8862deb09cdcde359aeaeb05c36d828b7706300",
+      "publishedSourceHash": "3ad3aed9a4b48954c3be5d243b59afbdb67ea1084c2535271d5c59cc0d893571",
+      "truncatedBeforeHeading": {
+        "locator": "view-0248-l0001",
+        "heading": "XVI. Harce bojowe."
+      }
+    }
+  ]
+}

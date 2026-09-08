@@ -6,13 +6,12 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import os
 import xml.etree.ElementTree as ET
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from common import ROOT, read_json, write_json
+from common import ROOT, artifact_relative_path, read_json, write_json
 from gallica import (
     DEFAULT_CHECKPOINT_DIR,
     GallicaFetchError,
@@ -137,9 +136,7 @@ def record_view_success(
             "view": view,
             "status": "complete",
             "url": result["url"],
-            "scratchRelativePath": str(
-                Path(result["path"]).resolve().relative_to(Path(os.environ["SCRATCH"]).resolve())
-            ),
+            "artifactRelativePath": artifact_relative_path(Path(result["path"])),
             "sha256": result["sha256"],
             "bytes": result["bytes"],
             "retrievedAt": result.get("retrievedAt")

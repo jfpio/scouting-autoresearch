@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-pdf-game-discovery",
+  "status": "complete",
+  "sourceId": "piasecki-movement-games-1922",
+  "range": "p132-141",
+  "pageStart": 132,
+  "pageEnd": 141,
+  "sourceSha256": "4f5379ad1a683a7f9f741f4a12b26f2ffffa97820f2f90b7145e8ff8e98ee51f",
+  "inputHash": "0ee4beb523058101531c0985665b6127c798811ae5f06d7dfb7dc99f26ba8540",
+  "modelRequested": "mistral-large-2512",
+  "model": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "promptVersion": "v3-pdf-game-line-locators-v4",
+  "generatedAt": "2026-09-06T18:59:31.886253+00:00",
+  "games": [
+    {
+      "title": "Klasy proste",
+      "pageStart": 132,
+      "pageEnd": 132,
+      "startLine": "p0132-l0007",
+      "endLine": "p0132-l0031",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "84. Klasy",
+      "notes": "Includes setup, player actions, objective, scoring, and end condition for a hopscotch variant."
+    },
+    {
+      "title": "Klasy z „kłem“ i „morzem“",
+      "pageStart": 133,
+      "pageEnd": 133,
+      "startLine": "p0133-l0005",
+      "endLine": "p0133-l0020",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "84. Klasy",
+      "notes": "Describes a variant of hopscotch with additional rules for jumps and designated areas."
+    },
+    {
+      "title": "Klasy „żydowskie“",
+      "pageStart": 133,
+      "pageEnd": 133,
+      "startLine": "p0133-l0021",
+      "endLine": "p0133-l0026",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "84. Klasy",
+      "notes": "Describes a hopscotch variant with a more complex layout and difficult jumps."
+    },
+    {
+      "title": "Zegar (Warszawa), czyli Ślimak (Lwów)",
+      "pageStart": 133,
+      "pageEnd": 134,
+      "startLine": "p0133-l0027",
+      "endLine": "p0134-l0014",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "84. Klasy",
+      "notes": "Describes a spiral hopscotch variant with rules for claiming and using 'houses'."
+    },
+    {
+      "title": "Zajączek",
+      "pageStart": 134,
+      "pageEnd": 135,
+      "startLine": "p0134-l0018",
+      "endLine": "p0135-l0004",
+      "printedAttribution": "explicitly-credited",
+      "attributionEvidenceLine": "p0134-l0016",
+      "section": "85. Zajączek",
+      "notes": "Includes setup, player actions, objective, and end condition for a rhythmic jumping game."
+    },
+    {
+      "title": "Przeskok z oparciem",
+      "pageStart": 135,
+      "pageEnd": 135,
+      "startLine": "p0135-l0010",
+      "endLine": "p0135-l0023",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "86. Przeskok",
+      "notes": "Describes a jumping game with a line of players, including setup, actions, and progression."
+    },
+    {
+      "title": "Przeskok bez oparcia",
+      "pageStart": 135,
+      "pageEnd": 135,
+      "startLine": "p0135-l0024",
+      "endLine": "p0135-l0028",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "86. Przeskok",
+      "notes": "Describes a more advanced version of Przeskok without hand support."
+    },
+    {
+      "title": "Nożna w kole",
+      "pageStart": 136,
+      "pageEnd": 136,
+      "startLine": "p0136-l0009",
+      "endLine": "p0136-l0023",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "87. Nożna w kole",
+      "notes": "Describes a circle-based ball game with rules for kicking, rotation, and use of hands."
+    },
+    {
+      "title": "Nożna z wieżą",
+      "pageStart": 137,
+      "pageEnd": 137,
+      "startLine": "p0137-l0003",
+      "endLine": "p0137-l0016",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "88. Nożna z wieżą",
+      "notes": "Describes a ball game with a central tower, including setup, objective, and rules for rotation."
+    },
+    {
+      "title": "Podaj dalej",
+      "pageStart": 137,
+      "pageEnd": 138,
+      "startLine": "p0137-l0017",
+      "endLine": "p0138-l0011",
+      "printedAttribution": "explicitly-credited",
+      "attributionEvidenceLine": "p0137-l0018",
+      "section": "89. Podaj dalej",
+      "notes": "Describes a continuous ball-passing game with rules for movement and restrictions."
+    },
+    {
+      "title": "Nożna z bramą",
+      "pageStart": 138,
+      "pageEnd": 139,
+      "startLine": "p0138-l0012",
+      "endLine": "p0139-l0027",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "90. Nożna z bramą",
+      "notes": "Describes a goal-based ball game with rules for scoring, player roles, and referee duties."
+    }
+  ],
+  "usage": {
+    "promptTokens": 7507,
+    "completionTokens": 1466,
+    "requestMaxOutputTokens": 3848,
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "inputPriceUsdPerMillionTokens": 0.5,
+    "outputPriceUsdPerMillionTokens": 1.5,
+    "referenceCostUsd": 0.0059525,
+    "priceSource": "https://docs.mistral.ai/inference/pricing",
+    "priceAccessedOn": "2026-09-04"
+  }
+}

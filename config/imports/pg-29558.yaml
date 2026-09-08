@@ -43,7 +43,8 @@ source:
     billingMode: education-credit
     enforceReferenceCostLimit: true
     maxReferenceCostUsd: 10
-    modelEvaluation: config/translation-model-evaluations/bsh-1911-large-vs-small.yaml
+    legacyModelEvaluation: config/translation-model-evaluations/bsh-1911-large-vs-small.yaml
+    legacyModelEvaluationLimitation: predates-deterministic-contract-v1
     report: data/reports/bsh-1911-seton-games-translation-en-pl.json
     priceAccessedOn: "2026-09-04"
 download:

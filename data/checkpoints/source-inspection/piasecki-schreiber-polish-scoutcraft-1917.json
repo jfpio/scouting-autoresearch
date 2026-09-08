@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-source-pdf-inspection",
+  "sourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+  "status": "complete",
+  "classification": "embedded-text-available",
+  "sourcePdf": {
+    "artifactRelativePath": "artifacts/sources/piasecki-schreiber-polish-scoutcraft-1917/source.pdf",
+    "sha256": "d25eae2d2949f877fec6fe0ad77f2fba19ba4c4fc4aa459d9cd65a6193181128",
+    "bytes": 17609844
+  },
+  "pdf": {
+    "tagged": "no",
+    "pages": 304,
+    "encrypted": "no",
+    "pageSize": "268.32 x 440.16 pts",
+    "pdfVersion": "1.3"
+  },
+  "embeddedText": {
+    "artifactRelativePath": "artifacts/inspection/piasecki-schreiber-polish-scoutcraft-1917/pdftotext-layout.txt",
+    "sha256": "c42c772d5d91d8adba550a5d32837e58f3fc8c43190a68da9e63f1d73b7b582b",
+    "bytes": 381269,
+    "characters": 358438,
+    "nonWhitespaceCharacters": 269486,
+    "lines": 9046,
+    "replacementCharacters": 0
+  },
+  "slurm": {
+    "jobId": "22076172",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "node": "x1001c0s3b0n0",
+    "architecture": "x86_64",
+    "gitRevision": "a35ff3365c018852b91bae2e5a86ddf871c46774"
+  },
+  "completedAt": "2026-09-06T18:27:33.970949+00:00",
+  "sourceFilesCommittedToRepository": 0
+}

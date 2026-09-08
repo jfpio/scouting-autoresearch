@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-source-pdf-inspection",
+  "sourceId": "piasecki-movement-games-1922",
+  "status": "complete",
+  "classification": "embedded-text-available",
+  "sourcePdf": {
+    "artifactRelativePath": "artifacts/sources/piasecki-movement-games-1922/source.pdf",
+    "sha256": "fefea3f451c5903f796a4331cc8b21d8f4dbc4b6465ed9d394a62c93f26c6c34",
+    "bytes": 24544678
+  },
+  "pdf": {
+    "tagged": "yes",
+    "pages": 239,
+    "encrypted": "no",
+    "pageSize": "379.7 x 465.6 pts",
+    "pdfVersion": "1.5"
+  },
+  "embeddedText": {
+    "artifactRelativePath": "artifacts/inspection/piasecki-movement-games-1922/pdftotext-layout.txt",
+    "sha256": "4f5379ad1a683a7f9f741f4a12b26f2ffffa97820f2f90b7145e8ff8e98ee51f",
+    "bytes": 320226,
+    "characters": 300191,
+    "nonWhitespaceCharacters": 222696,
+    "lines": 7706,
+    "replacementCharacters": 0
+  },
+  "slurm": {
+    "jobId": "22076170",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "node": "x1001c0s3b0n0",
+    "architecture": "x86_64",
+    "gitRevision": "a35ff3365c018852b91bae2e5a86ddf871c46774"
+  },
+  "completedAt": "2026-09-06T18:27:35.880831+00:00",
+  "sourceFilesCommittedToRepository": 0
+}

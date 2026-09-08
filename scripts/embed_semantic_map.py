@@ -131,6 +131,8 @@ def translation_locale(source_locale: str) -> str:
         return "en"
     if source_locale == "en":
         return "pl"
+    if source_locale == "fr":
+        return "pl"
     raise ValueError(f"Unsupported semantic-map source language: {source_locale}")
 
 
@@ -680,7 +682,10 @@ def main() -> None:
     batch.pop("items")
     write_json(BATCH_DIR / f"{batch_id}.json", batch)
 
-    report = write_progress_report(config, activity_items(config), generated_at=generated_at)
+    # Activity and translation content is immutable during one embedding invocation.
+    # Reuse the already validated inventory instead of rereading every Markdown file
+    # from Group Storage after the API response.
+    report = write_progress_report(config, items, generated_at=generated_at)
     source_report = next(entry for entry in report["sources"] if entry["sourceId"] == source_id)
     next_source_id = next(
         (entry["sourceId"] for entry in report["sources"] if entry["remaining"] > 0), None

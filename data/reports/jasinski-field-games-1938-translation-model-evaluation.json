@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "translation-model-evaluation",
+  "evaluationId": "jasinski-large-vs-small-v5",
+  "sourceId": "jasinski-field-games-1938",
+  "targetLocale": "en",
+  "promptVersion": "translation-pl-en-v5",
+  "promptEncoding": "protected-values-v2",
+  "status": "complete",
+  "configHash": "086019ca9af77d0e936273d04818a04ed555ec0e5436026f65642203673322e6",
+  "productionCandidate": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "candidates": [
+    "mistral-large-2512",
+    "mistral-small-2603"
+  ],
+  "activityIds": [
+    "gct-001",
+    "gct-032",
+    "gct-089",
+    "gct-123",
+    "gct-149",
+    "gct-196"
+  ],
+  "completedPairs": [
+    "mistral-large-2512:gct-001",
+    "mistral-large-2512:gct-032",
+    "mistral-large-2512:gct-089",
+    "mistral-large-2512:gct-123",
+    "mistral-large-2512:gct-149",
+    "mistral-large-2512:gct-196",
+    "mistral-small-2603:gct-001",
+    "mistral-small-2603:gct-032",
+    "mistral-small-2603:gct-089",
+    "mistral-small-2603:gct-123",
+    "mistral-small-2603:gct-149",
+    "mistral-small-2603:gct-196"
+  ],
+  "pendingPairs": [],
+  "usageByModel": {
+    "mistral-large-2512": {
+      "promptTokens": 5133,
+      "completionTokens": 2760,
+      "referenceCostUsd": 0.0067065
+    },
+    "mistral-small-2603": {
+      "promptTokens": 5133,
+      "completionTokens": 2761,
+      "referenceCostUsd": 0.00242655
+    }
+  },
+  "automaticFailurePairs": [
+    "mistral-small-2603:gct-196"
+  ],
+  "humanReviewRequired": true,
+  "resultPathUnderScratch": "scouting-autoresearch/model-evaluations/jasinski-large-vs-small-v5/results.json"
+}

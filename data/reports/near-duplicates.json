@@ -3,12 +3,502 @@
   "algorithmVersion": "tfidf-word-unigram-bigram-cosine-v1",
   "comparisonLocale": "en",
   "crossSourceOnly": true,
-  "activityCount": 284,
-  "corpusDigest": "34af80b83153bd38c8c1a76cc9bfa33587b13d6fce5e43cbb81a0aec3fec7441",
+  "activityCount": 999,
+  "corpusDigest": "ce5af06fe6b8de2f98f8497606bc6f5cffbe291563c457b8b76dafb8d4613c29",
   "candidateThreshold": 0.09,
   "maxCandidates": 50,
-  "candidateCount": 18,
+  "candidateCount": 50,
   "candidates": [
+    {
+      "leftId": "ciz-036",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Two Couriers with Dispatches",
+      "rightId": "shc-034",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Two Couriers with Dispatches",
+      "tfidfCosine": 0.91068726,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-017",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Finding the Thimble",
+      "rightId": "shc-002",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Finding the Thimble",
+      "tfidfCosine": 0.89999608,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-007",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Campfire Race",
+      "rightId": "shc-023",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Campfire Race",
+      "tfidfCosine": 0.86679941,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-011",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Drawing the Track",
+      "rightId": "shc-032",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Drawing a Track",
+      "tfidfCosine": 0.83718676,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-008",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Expedition for Plants",
+      "rightId": "shc-020",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Expedition for Plants",
+      "tfidfCosine": 0.82166506,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-042",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Fox Hunt",
+      "rightId": "shc-035",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Fox Hunt",
+      "tfidfCosine": 0.78946783,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-016",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Near and Far",
+      "rightId": "shc-024",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Near — Far",
+      "tfidfCosine": 0.78118891,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-033",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Snow Fortress",
+      "rightId": "shc-033",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Snow Fortress",
+      "tfidfCosine": 0.77861832,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-002",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Morgana's Game",
+      "rightId": "shc-008",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Morgana's Game",
+      "tfidfCosine": 0.77596633,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-024",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Collecting Cotton",
+      "rightId": "shc-022",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Collecting Cotton",
+      "tfidfCosine": 0.77056954,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-031",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "The Round-Up in the City",
+      "rightId": "shc-031",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "The Urban Roundup",
+      "tfidfCosine": 0.7670147,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-010",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Tracking Footprints",
+      "rightId": "shc-027",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Tracking Footprints",
+      "tfidfCosine": 0.75662567,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-012",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Approaching the Guard",
+      "rightId": "shc-028",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Approaching the Guard",
+      "tfidfCosine": 0.6994733,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-025",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "The Escape of a Siberian. (Lion Hunt)",
+      "rightId": "shc-040",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "The Escape of the Siberian Deportee",
+      "tfidfCosine": 0.68807972,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-005",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Scent Exercises",
+      "rightId": "shc-006",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Scent Exercise",
+      "tfidfCosine": 0.66527298,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-050",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Urban Tracking Games",
+      "rightId": "shc-038",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Urban Reconnaissance",
+      "tfidfCosine": 0.65211654,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-067",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Bullfight",
+      "rightId": "shc-016",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Bullfight",
+      "tfidfCosine": 0.59549448,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-030",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Expedition to the Pole",
+      "rightId": "shc-039",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Expedition to the Pole",
+      "tfidfCosine": 0.52147307,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-021",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Cossack Maneuver in the Steppe",
+      "rightId": "shc-037",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Cossack Maneuver in the Steppe",
+      "tfidfCosine": 0.49688511,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-001",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Kim's Game",
+      "rightId": "shc-003",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Kim's Game",
+      "tfidfCosine": 0.45796639,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-012",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Approaching the Guard",
+      "rightId": "shc-029",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Stalking Game",
+      "tfidfCosine": 0.44245155,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-020",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "The Spider and the Fly",
+      "rightId": "shc-036",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "The Spider and the Fly",
+      "tfidfCosine": 0.4193223,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-004",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Hearing Exercise",
+      "rightId": "shc-018",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Approaching the Blindfolded",
+      "tfidfCosine": 0.4169205,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "hmp-034",
+      "leftSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "leftTitle": "The Spider and the Fly",
+      "rightId": "shc-036",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "The Spider and the Fly",
+      "tfidfCosine": 0.4143201,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "hmp-029",
+      "leftSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "leftTitle": "Hunter and Scout",
+      "rightId": "sfb-020",
+      "rightSourceId": "sfb-1908",
+      "rightTitle": "Scout Hunting",
+      "tfidfCosine": 0.38473805,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-020",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "The Spider and the Fly",
+      "rightId": "hmp-034",
+      "rightSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "rightTitle": "The Spider and the Fly",
+      "tfidfCosine": 0.32148141,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "hmp-018",
+      "leftSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "leftTitle": "Seek the Thimble",
+      "rightId": "shc-002",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Finding the Thimble",
+      "tfidfCosine": 0.30064876,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "hmp-002",
+      "leftSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "leftTitle": "Snow Fortress",
+      "rightId": "shc-033",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Snow Fortress",
+      "tfidfCosine": 0.2985949,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "hmp-028",
+      "leftSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "leftTitle": "Smugglers",
+      "rightId": "sfb-018",
+      "rightSourceId": "sfb-1908",
+      "rightTitle": "Smugglers Over the Border",
+      "tfidfCosine": 0.29687068,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-017",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Finding the Thimble",
+      "rightId": "hmp-018",
+      "rightSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "rightTitle": "Seek the Thimble",
+      "tfidfCosine": 0.29023664,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-033",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Snow Fortress",
+      "rightId": "hmp-002",
+      "rightSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "rightTitle": "Snow Fortress",
+      "tfidfCosine": 0.28387834,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-017",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Finding the Thimble",
+      "rightId": "mdr-002",
+      "rightSourceId": "pawelek-young-troop-1919",
+      "rightTitle": "Finding the Thimble",
+      "tfidfCosine": 0.27788579,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-014",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Finding North",
+      "rightId": "hmp-008",
+      "rightSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "rightTitle": "Where is North?",
+      "tfidfCosine": 0.26441396,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "hmp-014",
+      "leftSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "leftTitle": "Scout Race",
+      "rightId": "sfb-050",
+      "rightSourceId": "sfb-1908",
+      "rightTitle": "Scouting Race",
+      "tfidfCosine": 0.26201599,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "mdr-002",
+      "leftSourceId": "pawelek-young-troop-1919",
+      "leftTitle": "Finding the Thimble",
+      "rightId": "shc-002",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Finding the Thimble",
+      "tfidfCosine": 0.25753927,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-077",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "The Ring",
+      "rightId": "gih-020",
+      "rightSourceId": "dabrowski-indoor-games-1934",
+      "rightTitle": "The Ring",
+      "tfidfCosine": 0.25740928,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "hmp-035",
+      "leftSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "leftTitle": "Flag Capture",
+      "rightId": "sfb-047",
+      "rightSourceId": "sfb-1908",
+      "rightTitle": "Flag Raiding",
+      "tfidfCosine": 0.25577657,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "gih-052",
+      "leftSourceId": "dabrowski-indoor-games-1934",
+      "leftTitle": "Wall of the Blind",
+      "rightId": "shc-019",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Sneaking Past (Wall of the Blind)",
+      "tfidfCosine": 0.25423145,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "ciz-083",
+      "leftSourceId": "mojmir-scout-games-1912",
+      "leftTitle": "Yes and No",
+      "rightId": "mdr-025",
+      "rightSourceId": "pawelek-young-troop-1919",
+      "rightTitle": "Yes and No",
+      "tfidfCosine": 0.24964227,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "hmp-018",
+      "leftSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "leftTitle": "Seek the Thimble",
+      "rightId": "sfb-009",
+      "rightSourceId": "sfb-1908",
+      "rightTitle": "Thimble Finding",
+      "tfidfCosine": 0.24941927,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "gih-082",
+      "leftSourceId": "dabrowski-indoor-games-1934",
+      "leftTitle": "Cossack and Tatar",
+      "rightId": "shc-012",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Luring with Feints (Cossacks and Tatars)",
+      "tfidfCosine": 0.24685932,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "gih-046",
+      "leftSourceId": "dabrowski-indoor-games-1934",
+      "leftTitle": "Finding the Watch in the Room (with Variation)",
+      "rightId": "shc-004",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Finding the Watch",
+      "tfidfCosine": 0.2442399,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "hmp-019",
+      "leftSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "leftTitle": "Shop Windows",
+      "rightId": "sfb-010",
+      "rightSourceId": "sfb-1908",
+      "rightTitle": "Shop Window",
+      "tfidfCosine": 0.23983221,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "hmp-003",
+      "leftSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "leftTitle": "The Escape of a Siberian Exile",
+      "rightId": "sfb-003",
+      "rightSourceId": "sfb-1908",
+      "rightTitle": "Siberian Man Hunt",
+      "tfidfCosine": 0.2339778,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "gih-079",
+      "leftSourceId": "dabrowski-indoor-games-1934",
+      "leftTitle": "Bullfights",
+      "rightId": "shc-016",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "Bullfight",
+      "tfidfCosine": 0.2301507,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "mdr-044",
+      "leftSourceId": "pawelek-young-troop-1919",
+      "leftTitle": "The Escape of a Siberian Deportee",
+      "rightId": "shc-040",
+      "rightSourceId": "sedlaczek-scout-school-1921",
+      "rightTitle": "The Escape of the Siberian Deportee",
+      "tfidfCosine": 0.22884363,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "hmp-036",
+      "leftSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "leftTitle": "Bear Hunt",
+      "rightId": "sfb-024",
+      "rightSourceId": "sfb-1908",
+      "rightTitle": "Lion Hunting",
+      "tfidfCosine": 0.22842566,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "hmp-008",
+      "leftSourceId": "piasecki-schreiber-polish-scoutcraft-1917",
+      "leftTitle": "Where is North?",
+      "rightId": "sfb-031",
+      "rightSourceId": "sfb-1908",
+      "rightTitle": "Find the North",
+      "tfidfCosine": 0.2256255,
+      "decision": "human-review-required"
+    },
+    {
+      "leftId": "mdr-080",
+      "leftSourceId": "pawelek-young-troop-1919",
+      "leftTitle": "Tug-of-War Troop",
+      "rightId": "sfb-043",
+      "rightSourceId": "sfb-1908",
+      "rightTitle": "French and English, or Tug of War",
+      "tfidfCosine": 0.22442225,
+      "decision": "human-review-required"
+    },
     {
       "leftId": "bsh-037",
       "leftSourceId": "bsh-1911-seton-games",
@@ -16,177 +506,7 @@
       "rightId": "hwp-041",
       "rightSourceId": "hwp-1946",
       "rightTitle": "Will-o'-the-wisp",
-      "tfidfCosine": 0.23061245,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "hwp-003",
-      "leftSourceId": "hwp-1946",
-      "leftTitle": "Determining the Cardinal Directions",
-      "rightId": "sfb-031",
-      "rightSourceId": "sfb-1908",
-      "rightTitle": "Find the North",
-      "tfidfCosine": 0.1339046,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "hwp-097",
-      "leftSourceId": "hwp-1946",
-      "leftTitle": "Courier",
-      "rightId": "sfb-032",
-      "rightSourceId": "sfb-1908",
-      "rightTitle": "Dispatch Running",
-      "tfidfCosine": 0.12106944,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "bsh-038",
-      "leftSourceId": "bsh-1911-seton-games",
-      "leftTitle": "Treasure Island",
-      "rightId": "hwp-057",
-      "rightSourceId": "hwp-1946",
-      "rightTitle": "Treasure Hunt",
-      "tfidfCosine": 0.11565374,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "bsh-036",
-      "leftSourceId": "bsh-1911-seton-games",
-      "leftTitle": "The Treasure Hunt",
-      "rightId": "hwp-057",
-      "rightSourceId": "hwp-1946",
-      "rightTitle": "Treasure Hunt",
-      "tfidfCosine": 0.11529301,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "bsh-012",
-      "leftSourceId": "bsh-1911-seton-games",
-      "leftTitle": "The Man-Hunt",
-      "rightId": "sfb-032",
-      "rightSourceId": "sfb-1908",
-      "rightTitle": "Dispatch Running",
-      "tfidfCosine": 0.11444406,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "bsh-012",
-      "leftSourceId": "bsh-1911-seton-games",
-      "leftTitle": "The Man-Hunt",
-      "rightId": "sfb-020",
-      "rightSourceId": "sfb-1908",
-      "rightTitle": "Scout Hunting",
-      "tfidfCosine": 0.1048461,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "hwp-082",
-      "leftSourceId": "hwp-1946",
-      "leftTitle": "Between Outposts",
-      "rightId": "sfb-047",
-      "rightSourceId": "sfb-1908",
-      "rightTitle": "Flag Raiding",
-      "tfidfCosine": 0.10343913,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "hwp-029",
-      "leftSourceId": "hwp-1946",
-      "leftTitle": "From Outpost to Outpost",
-      "rightId": "sfb-030",
-      "rightSourceId": "sfb-1908",
-      "rightTitle": "Judging Distance",
-      "tfidfCosine": 0.10132331,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "bsh-013",
-      "leftSourceId": "bsh-1911-seton-games",
-      "leftTitle": "Hunt the Coon",
-      "rightId": "sfb-009",
-      "rightSourceId": "sfb-1908",
-      "rightTitle": "Thimble Finding",
-      "tfidfCosine": 0.09891066,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "bsh-036",
-      "leftSourceId": "bsh-1911-seton-games",
-      "leftTitle": "The Treasure Hunt",
-      "rightId": "hwp-052",
-      "rightSourceId": "hwp-1946",
-      "rightTitle": "On the Trail",
-      "tfidfCosine": 0.09579371,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "hwp-099",
-      "leftSourceId": "hwp-1946",
-      "leftTitle": "Transport",
-      "rightId": "pw-071",
-      "rightSourceId": "pw-1935",
-      "rightTitle": "Wheel from the Cart",
-      "tfidfCosine": 0.09495872,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "hwp-085",
-      "leftSourceId": "hwp-1946",
-      "leftTitle": "For the Flags",
-      "rightId": "sfb-047",
-      "rightSourceId": "sfb-1908",
-      "rightTitle": "Flag Raiding",
-      "tfidfCosine": 0.09321107,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "hwp-012",
-      "leftSourceId": "hwp-1946",
-      "leftTitle": "Finding the Way",
-      "rightId": "sfb-051",
-      "rightSourceId": "sfb-1908",
-      "rightTitle": "On Trek",
-      "tfidfCosine": 0.09150818,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "hwp-063",
-      "leftSourceId": "hwp-1946",
-      "leftTitle": "At the Whistle",
-      "rightId": "sfb-003",
-      "rightSourceId": "sfb-1908",
-      "rightTitle": "Siberian Man Hunt",
-      "tfidfCosine": 0.09102775,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "hwp-068",
-      "leftSourceId": "hwp-1946",
-      "leftTitle": "Learning to Approach Stealthily",
-      "rightId": "sfb-026",
-      "rightSourceId": "sfb-1908",
-      "rightTitle": "Night Patrolling",
-      "tfidfCosine": 0.09045615,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "hwp-087",
-      "leftSourceId": "hwp-1946",
-      "leftTitle": "Across the Border",
-      "rightId": "sfb-018",
-      "rightSourceId": "sfb-1908",
-      "rightTitle": "Smugglers Over the Border",
-      "tfidfCosine": 0.09045263,
-      "decision": "human-review-required"
-    },
-    {
-      "leftId": "hwp-084",
-      "leftSourceId": "hwp-1946",
-      "leftTitle": "Siege of the Fortress",
-      "rightId": "sfb-002",
-      "rightSourceId": "sfb-1908",
-      "rightTitle": "Snow Fort",
-      "tfidfCosine": 0.09034138,
+      "tfidfCosine": 0.22363969,
       "decision": "human-review-required"
     }
   ],

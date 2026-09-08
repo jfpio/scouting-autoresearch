@@ -89,9 +89,13 @@ def load_records(*, include_similarities: bool = True) -> tuple[list[dict], list
         metadata, body = load_markdown(path)
         source = sources[metadata["sourceId"]]
         original_locale = metadata["originalLanguage"]
-        if original_locale not in {"pl", "en"}:
+        if original_locale not in {"pl", "en", "fr"}:
             raise RuntimeError(f"Unsupported source language in {path.name}: {original_locale}")
-        target_locale = "en" if original_locale == "pl" else "pl"
+        target_locales = {
+            "pl": ("en",),
+            "en": ("pl",),
+            "fr": ("pl", "en"),
+        }[original_locale]
         common = {
             "id": metadata["id"],
             "kinds": metadata["kinds"],
@@ -114,22 +118,39 @@ def load_records(*, include_similarities: bool = True) -> tuple[list[dict], list
             "safetyStatus": metadata["safetyStatus"],
             "originalLanguage": metadata["originalLanguage"],
         }
-        original = translated_record({**metadata, "status": "source-text"}, body, common, original_locale)
-        translation_path = VAULT / "translations" / target_locale / path.name
-        if not translation_path.exists():
-            raise RuntimeError(f"Missing {target_locale} translation: {translation_path.name}")
-        translation, translated_body = load_markdown(translation_path)
-        if translation.get("activityId") != metadata["id"]:
-            raise RuntimeError(f"Translation activity ID mismatch: {translation_path.name}")
-        if translation.get("sourceHash") != metadata["sourceHash"]:
-            raise RuntimeError(f"Stale translation: {translation_path.name}")
-        if translation.get("locale") != target_locale:
-            raise RuntimeError(f"Wrong translation locale: {translation_path.name}")
-        if translation.get("status") != "machine-translation":
-            raise RuntimeError(f"Wrong translation status: {translation_path.name}")
-        translated = translated_record(translation, translated_body, common, target_locale)
-        (polish if original_locale == "pl" else english).append(original)
-        (polish if target_locale == "pl" else english).append(translated)
+        if original_locale in {"pl", "en"}:
+            original = translated_record(
+                {**metadata, "status": "source-text"}, body, common, original_locale
+            )
+            (polish if original_locale == "pl" else english).append(original)
+        for target_locale in target_locales:
+            translation_path = VAULT / "translations" / target_locale / path.name
+            if not translation_path.exists():
+                raise RuntimeError(f"Missing {target_locale} translation: {translation_path.name}")
+            translation, translated_body = load_markdown(translation_path)
+            if translation.get("activityId") != metadata["id"]:
+                raise RuntimeError(f"Translation activity ID mismatch: {translation_path.name}")
+            if translation.get("sourceHash") != metadata["sourceHash"]:
+                raise RuntimeError(f"Stale translation: {translation_path.name}")
+            if translation.get("locale") != target_locale:
+                raise RuntimeError(f"Wrong translation locale: {translation_path.name}")
+            if translation.get("status") != "machine-translation":
+                raise RuntimeError(f"Wrong translation status: {translation_path.name}")
+            translated = translated_record(
+                translation, translated_body, common, target_locale
+            )
+            if original_locale == "fr":
+                translated.update(
+                    {
+                        "sourceActivityTitle": metadata["title"],
+                        "sourceText": body,
+                        "sourceTextUrl": (
+                            f"{SITE_ROOT}/{'en/' if target_locale == 'en' else ''}"
+                            f"activities/{metadata['id']}/#source-text"
+                        ),
+                    }
+                )
+            (polish if target_locale == "pl" else english).append(translated)
     polish = sorted(polish, key=lambda item: item["id"])
     english = sorted(english, key=lambda item: item["id"])
     if include_similarities:
@@ -176,12 +197,22 @@ def activity_page(record: dict, *, locale: str) -> str:
     traits = ", ".join(record["traits"]) or ("Nie podano w źródle" if is_pl else "Not stated in the source")
     machine = ""
     if record["translationStatus"] == "machine-translation":
-        source_locale_name = "angielski" if is_pl else "Polish"
-        source_path = (
-            f"{SITE_ROOT}/en/activities/{record['id']}/"
-            if record["originalLanguage"] == "en"
-            else f"{SITE_ROOT}/activities/{record['id']}/"
-        )
+        source_locale_names = {
+            "pl": ("polsku", "Polish"),
+            "en": ("angielsku", "English"),
+            "fr": ("francusku", "French"),
+        }
+        source_locale_pl, source_locale_en = source_locale_names[
+            record["originalLanguage"]
+        ]
+        if record["originalLanguage"] == "fr":
+            source_path = "#source-text"
+        else:
+            source_path = (
+                f"{SITE_ROOT}/en/activities/{record['id']}/"
+                if record["originalLanguage"] == "en"
+                else f"{SITE_ROOT}/activities/{record['id']}/"
+            )
         machine = (
             f'<div class="machine-notice"><strong>{"Tłumaczenie automatyczne." if is_pl else "Automatic translation."}</strong> '
             + (
@@ -189,7 +220,7 @@ def activity_page(record: dict, *, locale: str) -> str:
                 if is_pl
                 else f'This English text was generated automatically with <code>{record["translationModel"]}</code> and has not been verified by a person. '
             )
-            + f'<a href="{source_path}">{"Przeczytaj tekst źródłowy po angielsku" if is_pl else f"Read the source {source_locale_name} transcription"}</a>; '
+            + f'<a href="{source_path}">{f"Przeczytaj tekst źródłowy po {source_locale_pl}" if is_pl else f"Read the source {source_locale_en} transcription"}</a>; '
             + ("odnośnik do wydania źródłowego znajduje się w metadanych poniżej.</div>\n\n" if is_pl else "the source edition is linked in the metadata below.</div>\n\n")
         )
     warning = (
@@ -241,6 +272,18 @@ def activity_page(record: dict, *, locale: str) -> str:
             f'<div class="similar-notice"><strong>{similar_heading}.</strong> '
             f"{similar_intro}<ul>{similar_items}</ul></div>\n\n"
         )
+    source_appendix = ""
+    if (
+        record["translationStatus"] == "machine-translation"
+        and record["originalLanguage"] == "fr"
+    ):
+        heading = "Francuski tekst źródłowy" if is_pl else "French source text"
+        source_appendix = (
+            '\n\n<span id="source-text"></span>\n\n'
+            f"## {heading}\n\n"
+            f"**{record['sourceActivityTitle']}**\n\n"
+            f"{record['sourceText'].strip()}"
+        )
     return (
         frontmatter(record, locale=locale)
         + "\n\n"
@@ -268,6 +311,7 @@ def activity_page(record: dict, *, locale: str) -> str:
         + (("Treść źródłowa" if is_pl else "Source text") if record["translationStatus"] == "source-text" else ("Tekst przetłumaczony" if is_pl else "Translated text"))
         + "\n\n"
         + record["body"].strip()
+        + source_appendix
         + "\n"
     )
 
@@ -290,9 +334,9 @@ def explorer_page(locale: str, *, activity_count: int, source_count: int, kind: 
     if home:
         eyebrow = "OTWARTA BAZA WIEDZY · V0" if is_pl else "OPEN KNOWLEDGE BASE · V0"
         text = (
-            f"{activity_count} aktywności z {source_count} książek w domenie publicznej. Teksty źródłowe po polsku lub angielsku mają automatyczne tłumaczenie na drugi język."
+            f"{activity_count} aktywności z {source_count} książek w domenie publicznej. Teksty źródłowe po polsku, angielsku lub francusku mają automatyczne warstwy polskie i angielskie."
             if is_pl
-            else f"{activity_count} activities from {source_count} public-domain books. Polish or English source texts have machine translations into the other language."
+            else f"{activity_count} activities from {source_count} public-domain books. Polish, English, or French source texts have Polish and English machine-translation layers."
         )
         hero = f'<p class="eyebrow">{eyebrow}</p>\n\n# {title}\n\n{text}\n\n'
     else:
@@ -432,7 +476,16 @@ def write_docs(polish: list[dict], english: list[dict], sources: dict[str, dict]
 
 
 def public_record(record: dict) -> dict:
-    return {key: value for key, value in record.items() if key != "searchText"}
+    return {
+        key: value
+        for key, value in record.items()
+        if key not in {"searchText", "sourceText"}
+    }
+
+
+def strip_trailing_whitespace(value: str) -> str:
+    """Keep source line breaks while avoiding whitespace-only export changes."""
+    return "\n".join(line.rstrip() for line in value.split("\n"))
 
 
 def write_exports(polish: list[dict], english: list[dict], sources: dict[str, dict]) -> None:
@@ -488,7 +541,16 @@ def write_exports(polish: list[dict], english: list[dict], sources: dict[str, di
             en["body"],
             "",
         ]
-    (public / "llms-full.txt").write_text("\n".join(full), encoding="utf-8")
+        if pl["originalLanguage"] == "fr":
+            full += [
+                "### Français — texte source",
+                "",
+                pl["sourceText"],
+                "",
+            ]
+    (public / "llms-full.txt").write_text(
+        strip_trailing_whitespace("\n".join(full)), encoding="utf-8"
+    )
     (public / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")
 
 

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "chamarande-1934",
+  "sourceTitle": "Chamarande",
+  "author": "Jacques Sevin",
+  "editionYear": 1934,
+  "sourceUrl": "https://gallica.bnf.fr/ark:/12148/bpt6k3373518k",
+  "digitalEditionIdentifier": "bpt6k3373518k",
+  "reviewedAt": "2026-09-06",
+  "reviewScope": {
+    "productionKind": "game",
+    "approvedViewCount": 113,
+    "approvedPrintedPages": ["9-36", "47-81", "83", "85-95", "97-134"],
+    "pageOrdering": "numeric printed-page labels from the pinned Gallica pagination service",
+    "componentScope": "original French prose explicitly attributable to Jacques Sevin",
+    "scopeReview": "vault/reviews/accepted/chamarande-1934-prose-scope.md"
+  },
+  "ocr": {
+    "provider": "mistral",
+    "endpoint": "/v1/ocr",
+    "model": "mistral-ocr-4-1",
+    "recipeVersion": "mistral-ocr-image-v1",
+    "status": "complete",
+    "completedApprovedViewCount": 113,
+    "markdownCharactersReviewed": 190852,
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "productionReferenceCostUsd": 0.452,
+    "smokeReferenceCostUsd": 0.004,
+    "totalReferenceCostUsd": 0.456,
+    "rawResponsesStorage": "repository-artifacts-gitignored-group-storage"
+  },
+  "selection": {
+    "criterion": "A production record must describe a self-contained game rather than merely name a game, report that games occurred, or narrate a camp programme.",
+    "candidatePassagesReviewed": [
+      {
+        "printedPages": [54],
+        "gallicaViews": [54],
+        "finding": "Reports that renewed games and camp-fire items formed part of a wolf-cub training course, without identifying or explaining a game."
+      },
+      {
+        "printedPages": [57],
+        "gallicaViews": [57],
+        "finding": "A participant reflects on the educational value of exercises and games; it supplies no game rules and belongs to an excluded quoted testimonial."
+      },
+      {
+        "printedPages": [73, 77, 78],
+        "gallicaViews": [97, 101, 102],
+        "finding": "Describes aggregate programme items, Jungle dramatizations, festivities and learning through play, but not enough rules to reproduce a discrete game."
+      },
+      {
+        "printedPages": [90],
+        "gallicaViews": [118],
+        "finding": "Mentions that a small group constrained the games in a course; no game is described."
+      },
+      {
+        "printedPages": [109],
+        "gallicaViews": [141],
+        "finding": "Notes that some demonstrations and games require more participants; no individual game is identified or described."
+      },
+      {
+        "printedPages": [125],
+        "gallicaViews": [161],
+        "finding": "Uses play metaphorically while discussing adult trainees; it is not an activity description."
+      }
+    ],
+    "termEvidence": {
+      "printedPagesContainingJeuOrJeux": [12, 21, 25, 48, 51, 53, 54, 57, 60, 64, 66, 73, 76, 77, 78, 79, 90, 92, 98, 99, 101, 109, 111, 125, 130],
+      "note": "Every occurrence was reviewed in page context; the list is discovery evidence, not a claim that each page contains a candidate game."
+    },
+    "excludedMaterialHandling": {
+      "mixedPageBlocks": "kept in private repository artifacts and excluded according to the accepted component-scope review",
+      "wholeExcludedPages": "not sent to the production extraction scope",
+      "foreignOrAnonymousTextCommitted": false
+    }
+  },
+  "result": {
+    "status": "zero-yield",
+    "gameCandidateCount": 0,
+    "importedActivityCount": 0,
+    "reason": "The approved prose is a historical account of the camp school. It contains programme-level mentions of games but no self-contained game rules eligible for the V3-R1 production corpus."
+  }
+}

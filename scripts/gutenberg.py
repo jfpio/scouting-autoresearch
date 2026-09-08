@@ -5,12 +5,13 @@ from __future__ import annotations
 
 import argparse
 import hashlib
-import os
 import re
 import urllib.request
 from dataclasses import dataclass
 from html.parser import HTMLParser
 from pathlib import Path
+
+from common import ARTIFACTS
 
 
 USER_AGENT = "scouting-autoresearch/0.1 (+https://github.com/jfpio/scouting-autoresearch)"
@@ -152,10 +153,7 @@ def parse_text(data: bytes) -> list[Block]:
 
 
 def default_cache_path(ebook_id: str, suffix: str = ".htm") -> Path:
-    scratch = os.environ.get("SCRATCH")
-    if not scratch:
-        raise RuntimeError("SCRATCH is not set; pass --output explicitly")
-    return Path(scratch) / "scouting-autoresearch" / "sources" / f"pg-{ebook_id}" / f"{ebook_id}{suffix}"
+    return ARTIFACTS / "sources" / f"pg-{ebook_id}" / f"{ebook_id}{suffix}"
 
 
 def fetch(url: str, output: Path, expected_sha256: str) -> str:

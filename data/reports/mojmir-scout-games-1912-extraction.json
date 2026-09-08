@@ -1,0 +1,1080 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "mojmir-scout-games-1912",
+  "sourceSha256": "6978e3fc39a1492b3b67635abc17cffd710c0662f72f97afa1c9a0507994cde5",
+  "parserVersion": "v3-bounded-ocr-game-import-v2",
+  "reviewRequired": false,
+  "activityCount": 80,
+  "wholeSourceCopiedToRepository": false,
+  "selection": {
+    "candidateCount": 85,
+    "acceptedGameCount": 80,
+    "rejectedCount": 5,
+    "basis": "source-numbered entries with a bounded, executable game or competitive exercise; advice, drill catalogues and non-game meeting formats are excluded",
+    "rejectedCandidates": [
+      {
+        "candidateNumber": 3,
+        "reason": "educational exhortation without a bounded game procedure"
+      },
+      {
+        "candidateNumber": 26,
+        "reason": "historical tracking technique and quotation referring to other games, not self-contained rules"
+      },
+      {
+        "candidateNumber": 60,
+        "reason": "catalogue of physical exercises and general training advice, not one bounded game"
+      },
+      {
+        "candidateNumber": 70,
+        "reason": "collection of rescue drills and safety instruction, not one bounded game"
+      },
+      {
+        "candidateNumber": 73,
+        "reason": "meeting and discussion format, not a bounded game"
+      }
+    ]
+  },
+  "transcriptionEvidence": {
+    "sourceStatement": "Mistral OCR output from pinned page images; raw responses remain in the gitignored artifacts store on Group Storage.",
+    "sourceLocation": "https://polona.pl/preview/71788615-5b35-4973-88c0-f6e1550be578",
+    "deterministicNormalization": [
+      "omit the repeated activity heading represented in frontmatter",
+      "omit isolated numeric printed-page furniture",
+      "omit the following section heading when it falls inside the preceding block",
+      "omit non-text illustration placeholders while retaining page provenance",
+      "omit source-specific repeated running headers",
+      "join OCR soft line wraps and dehyphenate lowercase word continuations",
+      "join a page-break blank line only before a lowercase sentence continuation, including after comma, semicolon or colon",
+      "preserve spelling, punctuation and paragraph order without modernization"
+    ],
+    "lexicalModernization": false
+  },
+  "deduplication": {
+    "exactBodyMatches": [],
+    "nearDuplicateCandidates": []
+  },
+  "activities": [
+    {
+      "id": "ciz-001",
+      "candidateNumber": 1,
+      "title": "Gra Kima",
+      "viewStart": 13,
+      "viewEnd": 13,
+      "printedPages": [
+        1
+      ],
+      "sourceBlockSha256": "86060935dcb147a4622c66cbf262ebfda2263bbbbe736f338b7ecf5966da0948",
+      "publishedSourceHash": "9e6654129b96e28ca37d6371d3a908232ed7f4bf46b1e9e71c9a795eaf2e00ab"
+    },
+    {
+      "id": "ciz-002",
+      "candidateNumber": 2,
+      "title": "Gra Morgana",
+      "viewStart": 13,
+      "viewEnd": 14,
+      "printedPages": [
+        1,
+        2
+      ],
+      "sourceBlockSha256": "d634b1f077ade9a5cf1c948ba0c043eb35ef2e41418905463fdb3ece3a784a19",
+      "publishedSourceHash": "72076be53f08b225a78969b03f7a253984cfa3dad9bc91052172cc95713306e2"
+    },
+    {
+      "id": "ciz-004",
+      "candidateNumber": 4,
+      "title": "Ćwiczenie słuchu",
+      "viewStart": 15,
+      "viewEnd": 16,
+      "printedPages": [
+        3,
+        4
+      ],
+      "sourceBlockSha256": "95d427e56dcce402cf0e0fe113a00d9a01d08976fa10aa56dd46ff90bc03c0ad",
+      "publishedSourceHash": "0a3ebad67da67f2e8e85206890cc2a05a33eaaa929b4dde121c739c561ae5c38"
+    },
+    {
+      "id": "ciz-005",
+      "candidateNumber": 5,
+      "title": "Ćwiczenia węchu",
+      "viewStart": 16,
+      "viewEnd": 16,
+      "printedPages": [
+        4
+      ],
+      "sourceBlockSha256": "cd91df6ca545ebed1412cff853944c72ba4ed25740fa306b130f23767c4f63ec",
+      "publishedSourceHash": "0c1f41db7599d3d144867c38f7fd517d4a75d78c9fd26d82c561ace471d996b9"
+    },
+    {
+      "id": "ciz-006",
+      "candidateNumber": 6,
+      "title": "Ćwiczenie wzroku",
+      "viewStart": 16,
+      "viewEnd": 17,
+      "printedPages": [
+        4,
+        5
+      ],
+      "sourceBlockSha256": "32c6b68608aa60a0f953a18840c7150c22a141834e69d5188ddd9ff3349e30a4",
+      "publishedSourceHash": "cd846b6d0364b4506fbb39b4efdddc813a221a153f57f88bb95667258e8527e8"
+    },
+    {
+      "id": "ciz-007",
+      "candidateNumber": 7,
+      "title": "Ognisko na wyścigi",
+      "viewStart": 17,
+      "viewEnd": 17,
+      "printedPages": [
+        5
+      ],
+      "sourceBlockSha256": "3201990090903263b36db54c8d8f66c36c178bfe9c80db1a103720af4a75e5f3",
+      "publishedSourceHash": "6a755ec4c4b12410c3d6cf877e0e0a07aa32531e1f4dad3fefb95f205824e45e"
+    },
+    {
+      "id": "ciz-008",
+      "candidateNumber": 8,
+      "title": "Wyprawa po rośliny",
+      "viewStart": 17,
+      "viewEnd": 17,
+      "printedPages": [
+        5
+      ],
+      "sourceBlockSha256": "81065c520cc2a51646ab86662d5ed0bd5334fdd907119454213b07366035f211",
+      "publishedSourceHash": "d1d9f48f54832963cb765fe13d5b21d73d5e492f2f5ab9ec7936127b0bf33989"
+    },
+    {
+      "id": "ciz-009",
+      "candidateNumber": 9,
+      "title": "Poczta skautowa (pieszo lub na kołach)",
+      "viewStart": 17,
+      "viewEnd": 18,
+      "printedPages": [
+        5,
+        6
+      ],
+      "sourceBlockSha256": "e90e5141705dc75ef819af6242295ad88557b126e95c7ba0d5cf5c01a9387ad8",
+      "publishedSourceHash": "81d1ca2451e086eab96bb1fb008fe0466b55c43ebc324d2daa90f93b78953875"
+    },
+    {
+      "id": "ciz-010",
+      "candidateNumber": 10,
+      "title": "Pamiętanie śladów",
+      "viewStart": 18,
+      "viewEnd": 18,
+      "printedPages": [
+        6
+      ],
+      "sourceBlockSha256": "92134757dd7cb880dd0cd833e9d935b3ebd639ffa7da30f9bdac81c65d87ac65",
+      "publishedSourceHash": "540553dd6c3aea3d5f45413a0b8b05d52c9c85204939e2d188c6603d29a281ef"
+    },
+    {
+      "id": "ciz-011",
+      "candidateNumber": 11,
+      "title": "Rysunek śladu",
+      "viewStart": 18,
+      "viewEnd": 18,
+      "printedPages": [
+        6
+      ],
+      "sourceBlockSha256": "1b4cff9e718ff3031a8999bf34c64ac24903fd64bd7bd8cc2846c55ad67bc843",
+      "publishedSourceHash": "fb4c55e9376d79bc4e0899c84d23d364911fcd48daedebe5916ffa43ad4220bd"
+    },
+    {
+      "id": "ciz-012",
+      "candidateNumber": 12,
+      "title": "Podchodzenie straży",
+      "viewStart": 18,
+      "viewEnd": 19,
+      "printedPages": [
+        6,
+        7
+      ],
+      "sourceBlockSha256": "f4d80aea52af17b4bf21de7470befa66dd7f151d79b76d9a1c3d54fd7da4f1bd",
+      "publishedSourceHash": "3c201457589f9ff6cdfb55276273f171a98024e15f83011d4458ccb69d758304"
+    },
+    {
+      "id": "ciz-013",
+      "candidateNumber": 13,
+      "title": "Jaka długość?",
+      "viewStart": 19,
+      "viewEnd": 20,
+      "printedPages": [
+        7,
+        8
+      ],
+      "sourceBlockSha256": "c350f599fe1946f0681681b450f42d4300420cab46ffc66fcde899b744d55366",
+      "publishedSourceHash": "eea9459ddab43833f0d72b3088361d89b5e6a2e527f6acae0a27e8cf322651a7"
+    },
+    {
+      "id": "ciz-014",
+      "candidateNumber": 14,
+      "title": "Wyszukać północ",
+      "viewStart": 20,
+      "viewEnd": 20,
+      "printedPages": [
+        8
+      ],
+      "sourceBlockSha256": "43f0e2b36f07b278e57c2d6edf0ed07efb1614340fd8eea6aa3af45d07980f64",
+      "publishedSourceHash": "0b782b55a16c11be2cf83c388b9ec9f62beeaac42ca1522f2db3fa5313a4879d"
+    },
+    {
+      "id": "ciz-015",
+      "candidateNumber": 15,
+      "title": "Czytanie mapy",
+      "viewStart": 20,
+      "viewEnd": 21,
+      "printedPages": [
+        8,
+        9
+      ],
+      "sourceBlockSha256": "2019bfde941aca560ab03af01a6e02a0a5c690b759628a19648d5b9f22561e73",
+      "publishedSourceHash": "ebdc0865c285009cb0ffb1bef5b970acc7231f8ed4098a992f9e4b09c5140138"
+    },
+    {
+      "id": "ciz-016",
+      "candidateNumber": 16,
+      "title": "Blisko-daleko",
+      "viewStart": 21,
+      "viewEnd": 22,
+      "printedPages": [
+        9,
+        10
+      ],
+      "sourceBlockSha256": "0299d90410bd28c7af79eaf19a4ea7720ddf480734243d59169a1a395de2de4f",
+      "publishedSourceHash": "99372f1cb5fe40b0a26f92d6836219cf1362ce60740c6f2a1f2ea6cb320e81c3"
+    },
+    {
+      "id": "ciz-017",
+      "candidateNumber": 17,
+      "title": "Szukanie naparstka",
+      "viewStart": 22,
+      "viewEnd": 22,
+      "printedPages": [
+        10
+      ],
+      "sourceBlockSha256": "e9e3543eb87b3c6c7cc77ebb3b5238c9d69e6c9a2e9e5fff606f31e0674818ad",
+      "publishedSourceHash": "ac449437fcbf107fe29a341b6099eef8fa49898f8eb0a1e25b870fe98e84b7ae"
+    },
+    {
+      "id": "ciz-018",
+      "candidateNumber": 18,
+      "title": "Zarys najbliższej okolicy obozu (croquis)",
+      "viewStart": 22,
+      "viewEnd": 23,
+      "printedPages": [
+        10,
+        11
+      ],
+      "sourceBlockSha256": "3c84916e9cdcdcfccb0a8290c8847a01550253b0acee574e58c178124bf16936",
+      "publishedSourceHash": "77166e5975f5c12c1b9a33847be47c09cfffa6f3ee33f2694165fb85606d9847"
+    },
+    {
+      "id": "ciz-019",
+      "candidateNumber": 19,
+      "title": "Gra sygnałowa",
+      "viewStart": 23,
+      "viewEnd": 24,
+      "printedPages": [
+        11,
+        12
+      ],
+      "sourceBlockSha256": "32bb9c428365cc8d445b58b477c1fd9928e6bf923a66ff6d19630c6412304357",
+      "publishedSourceHash": "ab8b7e5b87484a43f60d5b6b9825d8a5cfd243d2f98e495899d0c0fefa60e025"
+    },
+    {
+      "id": "ciz-020",
+      "candidateNumber": 20,
+      "title": "Pająk i mucha",
+      "viewStart": 24,
+      "viewEnd": 24,
+      "printedPages": [
+        12
+      ],
+      "sourceBlockSha256": "11c93143cd9c6d370a1d395a283a74188f8b237d36be0f564f327b7a7f804f74",
+      "publishedSourceHash": "b3b374a6364615ff28b778ddb3b58135b57ccab73a5702f20b7000e852368886"
+    },
+    {
+      "id": "ciz-021",
+      "candidateNumber": 21,
+      "title": "Kozacki proceder w stepie",
+      "viewStart": 24,
+      "viewEnd": 25,
+      "printedPages": [
+        12,
+        13
+      ],
+      "sourceBlockSha256": "89dda30ef4cafae83e022d95ee4662cbf6e888928a7e29d6c1a8f2fae624463f",
+      "publishedSourceHash": "1782627c61b386236ea788b19f3a2419707dda1603d346834df8a2774cd037e7"
+    },
+    {
+      "id": "ciz-022",
+      "candidateNumber": 22,
+      "title": "Kozacki proceder w okopach",
+      "viewStart": 25,
+      "viewEnd": 27,
+      "printedPages": [
+        13,
+        14,
+        15
+      ],
+      "sourceBlockSha256": "15237e1b9cad9f0a6580041b7c515b61b3093afc786d23c4a76a1276f556a2c4",
+      "publishedSourceHash": "91f131b82fbcd4b5e6ba667bac0522000b2ee5046b85a2589d7bc6a052d12a57"
+    },
+    {
+      "id": "ciz-023",
+      "candidateNumber": 23,
+      "title": "Wyczha na kota",
+      "viewStart": 27,
+      "viewEnd": 28,
+      "printedPages": [
+        15,
+        16
+      ],
+      "sourceBlockSha256": "9f5d3351cf894b391bec8782c7d12b93b20d10f5502019b1418b2b0ef6bf5b5e",
+      "publishedSourceHash": "29cee244a654cdb22d9f129167d4bc152d9423ecdaee582b298017d74c154492"
+    },
+    {
+      "id": "ciz-024",
+      "candidateNumber": 24,
+      "title": "Zbieranie bawełny",
+      "viewStart": 28,
+      "viewEnd": 29,
+      "printedPages": [
+        16,
+        17
+      ],
+      "sourceBlockSha256": "a0c2cf9b5ccd20fa2666b001fbea4cfb4df53a5964ed30a4fce248ba066dc4b4",
+      "publishedSourceHash": "891d22b22be418379225a3dacbd74f1fc19fd2ca84864ece6552e915c4529ac3"
+    },
+    {
+      "id": "ciz-025",
+      "candidateNumber": 25,
+      "title": "Ucieczka sybiraka. (Polowanie na lwa)",
+      "viewStart": 29,
+      "viewEnd": 29,
+      "printedPages": [
+        17
+      ],
+      "sourceBlockSha256": "99930e91666ced8802c3670362dac38a0297455b99b391ef58234615b570311a",
+      "publishedSourceHash": "c7c2ae0cf6cc533976dc6653067f9a6969d2f572b6a870c4287f684aba1a1ed8"
+    },
+    {
+      "id": "ciz-027",
+      "candidateNumber": 27,
+      "title": "Na wyprzódki z wywiadami",
+      "viewStart": 30,
+      "viewEnd": 31,
+      "printedPages": [
+        18,
+        19
+      ],
+      "sourceBlockSha256": "cf58872b2cd49a9091939dae8d766fa522be3fea79128ddf5bfab64515e65626",
+      "publishedSourceHash": "1d1701d6ba641c8f4972711be174c85c33e37d0ce9efa9eeba000e6904b55c75"
+    },
+    {
+      "id": "ciz-028",
+      "candidateNumber": 28,
+      "title": "Łapaj złodzieja",
+      "viewStart": 31,
+      "viewEnd": 32,
+      "printedPages": [
+        19,
+        20
+      ],
+      "sourceBlockSha256": "a2801b5fcfa5fdc4625390821e1bf0d511bd812e3bb32b59c80b565264e17bde",
+      "publishedSourceHash": "b73e15c48a61c232d40f6d667524af020fa2d26f265a7c1103a3a28078c142f9"
+    },
+    {
+      "id": "ciz-029",
+      "candidateNumber": 29,
+      "title": "Za śladem przewodnika w mieście",
+      "viewStart": 32,
+      "viewEnd": 32,
+      "printedPages": [
+        20
+      ],
+      "sourceBlockSha256": "bad87b5d74b78c5aa7aede461e22a1c355eb97baa854a9ab7ee26f6f96b75d9c",
+      "publishedSourceHash": "c6e5a7a0cb8c2a6329f25e98310ce089d5b3a20755556a854d12693b0e22b213"
+    },
+    {
+      "id": "ciz-030",
+      "candidateNumber": 30,
+      "title": "Wyprawa do bieguna",
+      "viewStart": 32,
+      "viewEnd": 33,
+      "printedPages": [
+        20,
+        21
+      ],
+      "sourceBlockSha256": "79a5fea8d84497202e86105c5118a542d1e09064e02d6771d7244131d9db04c6",
+      "publishedSourceHash": "1489c213fbc5ac40acf76281a786a57cf2f1a735f5042f6975f07515a7e8f4df"
+    },
+    {
+      "id": "ciz-031",
+      "candidateNumber": 31,
+      "title": "Łapanka w mieście",
+      "viewStart": 33,
+      "viewEnd": 34,
+      "printedPages": [
+        21,
+        22
+      ],
+      "sourceBlockSha256": "134f2bf8492787399c94cf704ca0c63434774064806896a35ff0e86d86a34c2a",
+      "publishedSourceHash": "a0de9ab5ef3b38e1466a73f5fe5051d7758dc875b52eae8be4af3ffc3c0d70f7"
+    },
+    {
+      "id": "ciz-032",
+      "candidateNumber": 32,
+      "title": "Zazule",
+      "viewStart": 34,
+      "viewEnd": 35,
+      "printedPages": [
+        22,
+        23
+      ],
+      "sourceBlockSha256": "117f843f810655e251aa34380562f892ea99c1a9158170afdb2df9d5d5e417e5",
+      "publishedSourceHash": "99f4cad4690c04d6c6f4b02cfb0913ff2d7abb3d9bb7e01bd5be6bb83a3e83e7"
+    },
+    {
+      "id": "ciz-033",
+      "candidateNumber": 33,
+      "title": "Fort śnieżny",
+      "viewStart": 35,
+      "viewEnd": 36,
+      "printedPages": [
+        23,
+        24
+      ],
+      "sourceBlockSha256": "940b245ee26ce69d35c4ef32550bc69c4b9d625d78531b6b107703690abcee2e",
+      "publishedSourceHash": "b93b995de0e865927d5bd48d928dafe0b2926b58ecd7eaad12d09fbd8ba07fa0"
+    },
+    {
+      "id": "ciz-034",
+      "candidateNumber": 34,
+      "title": "Ukosy",
+      "viewStart": 36,
+      "viewEnd": 36,
+      "printedPages": [
+        24
+      ],
+      "sourceBlockSha256": "170a65f0962c63714ee8077445b46663d20ebf10e83c911a38bd415c164a905e",
+      "publishedSourceHash": "085fd0b856451db3dad2da96775f390433b0e3ff7331155ceef93a51d2244a6c"
+    },
+    {
+      "id": "ciz-035",
+      "candidateNumber": 35,
+      "title": "Skrzetuski ze Zbaraża",
+      "viewStart": 36,
+      "viewEnd": 37,
+      "printedPages": [
+        24,
+        25
+      ],
+      "sourceBlockSha256": "69819d2ca01e04b8a10b1122a63a0efacbc4bbd04951be78aa0af934a4f55536",
+      "publishedSourceHash": "b609639dff284e6f3a8516ac4694289334d80e1b32aa7c6f9f21a0a775408818"
+    },
+    {
+      "id": "ciz-036",
+      "candidateNumber": 36,
+      "title": "Dwaj gońcy z depeszami",
+      "viewStart": 37,
+      "viewEnd": 38,
+      "printedPages": [
+        25,
+        26
+      ],
+      "sourceBlockSha256": "60155769d90d6286090699c13d63ed2767107c17dcf1e5d6e68ad07504dac9cf",
+      "publishedSourceHash": "72c87057c64f857f726e753a1b29bea1a0c3f4e1f9a3a8ad58ff416921c3cdf1"
+    },
+    {
+      "id": "ciz-037",
+      "candidateNumber": 37,
+      "title": "Połączenie sprzymierzonych",
+      "viewStart": 38,
+      "viewEnd": 38,
+      "printedPages": [
+        26
+      ],
+      "sourceBlockSha256": "d6ba8836a7051452396d58398e0a0cdcc532bae64693c4057b6376dceb2ac1ae",
+      "publishedSourceHash": "171255ac52bb27336096a471cba30bb07f62e91f967f3bc092c05db0833137e1"
+    },
+    {
+      "id": "ciz-038",
+      "candidateNumber": 38,
+      "title": "Połączenie z odciętym oddziałem",
+      "viewStart": 38,
+      "viewEnd": 40,
+      "printedPages": [
+        26,
+        27,
+        28
+      ],
+      "sourceBlockSha256": "265d8c1a413145099cdd89522f08193f2fa38a9526963660d001dad782d2f3c8",
+      "publishedSourceHash": "43159a00556c3b88b7665b16696a74ac75fd37f78912e7bd95d963a753d5bcd4"
+    },
+    {
+      "id": "ciz-039",
+      "candidateNumber": 39,
+      "title": "Zabieranie chorągiewek",
+      "viewStart": 40,
+      "viewEnd": 42,
+      "printedPages": [
+        28,
+        29,
+        30
+      ],
+      "sourceBlockSha256": "793995ed461dcef7d23bb7fcb59dd2b2c9322b6ac7720817fff25b5331de5fa9",
+      "publishedSourceHash": "5eaf808ea7ea7f223bdeee3e5f54a9da9a118a5518b5e8302ff9c2dc8bb55854"
+    },
+    {
+      "id": "ciz-040",
+      "candidateNumber": 40,
+      "title": "List zdrajcy",
+      "viewStart": 42,
+      "viewEnd": 44,
+      "printedPages": [
+        30,
+        31,
+        32
+      ],
+      "sourceBlockSha256": "0e23223feff900ca074adf000898c8f6937d4ba891d71cf5ced0b5f508af173c",
+      "publishedSourceHash": "0dca033236628f5f0a09abecab413f6941442627fd6d6e03edc9a8f9f6c9b19f"
+    },
+    {
+      "id": "ciz-041",
+      "candidateNumber": 41,
+      "title": "Przerwanie telegrafu",
+      "viewStart": 44,
+      "viewEnd": 44,
+      "printedPages": [
+        32
+      ],
+      "sourceBlockSha256": "2d8046919b18800534e5a0d1f53f2c39426bb57feb4f5b625a1049a94d11f81f",
+      "publishedSourceHash": "1b664fc33d824c99d1c02f90b9f48f7337511aa036c0cf63c4d021fcd71e309b"
+    },
+    {
+      "id": "ciz-042",
+      "candidateNumber": 42,
+      "title": "Polowanie na lisa",
+      "viewStart": 44,
+      "viewEnd": 45,
+      "printedPages": [
+        32,
+        33
+      ],
+      "sourceBlockSha256": "c630843d4781157bb617e031fc249e1a3d88602381ea482b302b50ec55232375",
+      "publishedSourceHash": "10929abbd59d5e3e272338fa2fc48c5de72d4c9adda2b3b79a5a2b3b632a3207"
+    },
+    {
+      "id": "ciz-043",
+      "candidateNumber": 43,
+      "title": "Zwiady",
+      "viewStart": 45,
+      "viewEnd": 46,
+      "printedPages": [
+        33,
+        34
+      ],
+      "sourceBlockSha256": "728f58e3fa3c3ccf03d22b1c4074ef4ab67b4735963f2be243a2f8edd0e9ea12",
+      "publishedSourceHash": "478ee2911f60ffc8eef5b09f8b465626383a2e461ef493d97e5b0d8ee7e4835d"
+    },
+    {
+      "id": "ciz-044",
+      "candidateNumber": 44,
+      "title": "Zasadzka",
+      "viewStart": 46,
+      "viewEnd": 47,
+      "printedPages": [
+        34,
+        35
+      ],
+      "sourceBlockSha256": "28548c2771237478fbdd3e9c2d08a937724849af44400271223dfd1ff7138979",
+      "publishedSourceHash": "a33fe8967b66d0162aa9feed8e105616f043200af233f613b6f587607b1cbec6"
+    },
+    {
+      "id": "ciz-045",
+      "candidateNumber": 45,
+      "title": "Szukanie Instruktora",
+      "viewStart": 47,
+      "viewEnd": 48,
+      "printedPages": [
+        35,
+        36
+      ],
+      "sourceBlockSha256": "3fd0a38958d739cef5665efd71ab7aa2e4fb719bebfec12367a35a9054ddc4da",
+      "publishedSourceHash": "a9b01848d67664b151bb379621775f64d18dc253715676892cb7e8f4e2e86265"
+    },
+    {
+      "id": "ciz-046",
+      "candidateNumber": 46,
+      "title": "Za skarbem",
+      "viewStart": 48,
+      "viewEnd": 49,
+      "printedPages": [
+        36,
+        37
+      ],
+      "sourceBlockSha256": "1680aa0b6bb5a267a50d0abc1c1f5df4b79e7e7ec5e1d569328524e0f72e2e63",
+      "publishedSourceHash": "53783d2acba89d37407257f21b8e103b14d44f94ed4fc9d78a34370dd0f04b1a"
+    },
+    {
+      "id": "ciz-047",
+      "candidateNumber": 47,
+      "title": "Podarte pismo",
+      "viewStart": 49,
+      "viewEnd": 50,
+      "printedPages": [
+        37,
+        38
+      ],
+      "sourceBlockSha256": "52b379700f6cb09f4b2c458b4856fb83d7d4a5fb2cdc8d0dcf7b9430f999d4a1",
+      "publishedSourceHash": "c804ec39f9b92aa12330458dad96d781044b50034e9ac3add848a0df1c8fef7f"
+    },
+    {
+      "id": "ciz-048",
+      "candidateNumber": 48,
+      "title": "Testament Woroby",
+      "viewStart": 50,
+      "viewEnd": 51,
+      "printedPages": [
+        38,
+        39
+      ],
+      "sourceBlockSha256": "3b4224a6f382d619cbfc1dade8c45b0511ad5e4aa6e08641619aef090d406170",
+      "publishedSourceHash": "985af247ed814c1e7b790f98e266c517185830aa5b70fd3b61d69077b6cc5327"
+    },
+    {
+      "id": "ciz-049",
+      "candidateNumber": 49,
+      "title": "Rozpoznanie fotografii",
+      "viewStart": 51,
+      "viewEnd": 51,
+      "printedPages": [
+        39
+      ],
+      "sourceBlockSha256": "7e158fa9b5ed132ef9941492726d359eaf6e6271bfe59b81d19e87d66bcb45de",
+      "publishedSourceHash": "32ae5db3a6e999630a5400fe6ff3b5b3f9d741ab0ee9c8787101f8f10e6e6e54"
+    },
+    {
+      "id": "ciz-050",
+      "candidateNumber": 50,
+      "title": "Zwiady w mieście",
+      "viewStart": 51,
+      "viewEnd": 52,
+      "printedPages": [
+        39,
+        40
+      ],
+      "sourceBlockSha256": "d33d10f1acb5d88bc5d102730f1f14677da6432e881708600d2d8ccfafc2f924",
+      "publishedSourceHash": "6f29b90ab6807516ccaf539cc996fe78e30eca7484f2ab2f338085524a84edf5"
+    },
+    {
+      "id": "ciz-051",
+      "candidateNumber": 51,
+      "title": "Cygaro zdrajcą",
+      "viewStart": 52,
+      "viewEnd": 52,
+      "printedPages": [
+        40
+      ],
+      "sourceBlockSha256": "e28f76d508daa6d9492bf8964a3489395754eedbca58f23fc960afd3928e932f",
+      "publishedSourceHash": "6c61d501cfeb78cc5602922af1681b294845b29d85f7a94e52dbe99793fd460e"
+    },
+    {
+      "id": "ciz-052",
+      "candidateNumber": 52,
+      "title": "Efialtes w nocy",
+      "viewStart": 52,
+      "viewEnd": 53,
+      "printedPages": [
+        40,
+        41
+      ],
+      "sourceBlockSha256": "5fb1b49f79270944e1e6d0318c007eb2dc5f0f9554c6afe5dd2cebb9079c7d0d",
+      "publishedSourceHash": "781bb17d891e846876f3f194f36aed588b0e05049196b14ce34542b6120d3276"
+    },
+    {
+      "id": "ciz-053",
+      "candidateNumber": 53,
+      "title": "Ćwiczenie słuchu w nocy",
+      "viewStart": 53,
+      "viewEnd": 53,
+      "printedPages": [
+        41
+      ],
+      "sourceBlockSha256": "4f86c4036c7d6ba413366637773c07bacf200c6648f2135ef634cac8a669db94",
+      "publishedSourceHash": "ab087e9317fbe2f6bdbd6d21ad5e977a5151a9345f203dc047ad3c738f3d18fd"
+    },
+    {
+      "id": "ciz-054",
+      "candidateNumber": 54,
+      "title": "Tropienie za węchem w nocy",
+      "viewStart": 53,
+      "viewEnd": 54,
+      "printedPages": [
+        41,
+        42
+      ],
+      "sourceBlockSha256": "0ce7067a02305b86aa03c01838f7a5545e4fc6cb21444f79f0d349a9392dc9bb",
+      "publishedSourceHash": "1b212fe158faa8dae7fbfec8e4f0e677917fc1e7a3818e349f74c971c154a9c8"
+    },
+    {
+      "id": "ciz-055",
+      "candidateNumber": 55,
+      "title": "Pościg za śladem światła",
+      "viewStart": 54,
+      "viewEnd": 55,
+      "printedPages": [
+        42,
+        43
+      ],
+      "sourceBlockSha256": "5730652282415471faa0635ca478a9cab8ed8a078a21a2819290924738ca440d",
+      "publishedSourceHash": "5e43bb62f675177b64291df619fe08b8cb6b3019533f959b079e642a2136fd29"
+    },
+    {
+      "id": "ciz-056",
+      "candidateNumber": 56,
+      "title": "Ocenianie odległości świateł (Błędny ognik)",
+      "viewStart": 55,
+      "viewEnd": 55,
+      "printedPages": [
+        43
+      ],
+      "sourceBlockSha256": "cc3e2e7eed8f63b7f6401e2fb93aa6c7aa16b5092c2d5155a272969f190712c9",
+      "publishedSourceHash": "ac04f12eb1e6b1de75bc16cb7f1b89fb70e8f9cdb4271d011cabb1e0cf3d2401"
+    },
+    {
+      "id": "ciz-057",
+      "candidateNumber": 57,
+      "title": "Nocne straże",
+      "viewStart": 55,
+      "viewEnd": 56,
+      "printedPages": [
+        43,
+        44
+      ],
+      "sourceBlockSha256": "a84fa4863c4f946fd75613b5aa9cda4a45ec78d2a0695a2a064e0651d685b560",
+      "publishedSourceHash": "b3299bd89e015c452d07fa27b7fce9f23a10bc19c9e603242723f60b4c993d31"
+    },
+    {
+      "id": "ciz-058",
+      "candidateNumber": 58,
+      "title": "Spór o Morskie Oko",
+      "viewStart": 56,
+      "viewEnd": 57,
+      "printedPages": [
+        44,
+        45
+      ],
+      "sourceBlockSha256": "5dd318ab0b59f9a187ce7c5f895886b8ddd48afb23322728c04250550f08141b",
+      "publishedSourceHash": "1bee1f14ca74450665b51763b8b6623f9ec965d0eab3b4d501cb2e7455d5ed42"
+    },
+    {
+      "id": "ciz-059",
+      "candidateNumber": 59,
+      "title": "Pionierzy. W puszczy",
+      "viewStart": 57,
+      "viewEnd": 58,
+      "printedPages": [
+        45,
+        46
+      ],
+      "sourceBlockSha256": "0d0c6ed7c3445fa7ebaedde202518f0d0cd97882190fc8ecd03f7e2dd3b54473",
+      "publishedSourceHash": "9e243ee95c1df7df4e0260a6093816b66070616779e4ca2c56bf155f31d6610c"
+    },
+    {
+      "id": "ciz-061",
+      "candidateNumber": 61,
+      "title": "Rozstrzelanie",
+      "viewStart": 61,
+      "viewEnd": 61,
+      "printedPages": [
+        49
+      ],
+      "sourceBlockSha256": "18e6da2cadd3559c65645d197fdcb1c46457302e0108eda6f8f00b966a4a8460",
+      "publishedSourceHash": "dc70acad7b89665c326d5b0446d37ee1990ee10ffac0d80b03f82a2f81ffcf4a"
+    },
+    {
+      "id": "ciz-062",
+      "candidateNumber": 62,
+      "title": "Obława na misia",
+      "viewStart": 61,
+      "viewEnd": 62,
+      "printedPages": [
+        49,
+        50
+      ],
+      "sourceBlockSha256": "0bb81d36e53c6fa3cc4e5a5033fcbffb0c2fdb1b876ee5a7dbf41f8554bafc3a",
+      "publishedSourceHash": "0fd1e9967165cd2d34d757c001d696de9d5c97984e56b39985124193dba4f73b"
+    },
+    {
+      "id": "ciz-063",
+      "candidateNumber": 63,
+      "title": "Pojedyńczo na niedźwiedzia",
+      "viewStart": 62,
+      "viewEnd": 63,
+      "printedPages": [
+        50,
+        51
+      ],
+      "sourceBlockSha256": "f086f71f497dec2e8bd94c623eb4cccb1bd25fa27eda018b3a750144caacc467",
+      "publishedSourceHash": "8e55cdd36a16e518471f250d5c7372cc41cc3d03e7c609b3b0bc8c243d124b71"
+    },
+    {
+      "id": "ciz-064",
+      "candidateNumber": 64,
+      "title": "Polowanie na słonia afrykańskiego",
+      "viewStart": 63,
+      "viewEnd": 64,
+      "printedPages": [
+        51,
+        52
+      ],
+      "sourceBlockSha256": "f881312b643e322739b78aa73a0d69eceab755df118e51d49b3a10cd4f4ce1ae",
+      "publishedSourceHash": "e5322c9c8fda01962cbdaea49512a41fa806b39c8e60440d8d823c10add40ecb"
+    },
+    {
+      "id": "ciz-065",
+      "candidateNumber": 65,
+      "title": "Polowanie na słonia indyjskiego",
+      "viewStart": 64,
+      "viewEnd": 64,
+      "printedPages": [
+        52
+      ],
+      "sourceBlockSha256": "4974c9f2f5eea64b5aadb6e60db1365d77a44d3ac1b3ef749e9dc91dd3b5a2fc",
+      "publishedSourceHash": "2180d3d78db31f4ab6bbab369b7fe0394f4438d40fdd3ceadb90c06b00c81c56"
+    },
+    {
+      "id": "ciz-066",
+      "candidateNumber": 66,
+      "title": "Polowanie na tygrysa",
+      "viewStart": 64,
+      "viewEnd": 65,
+      "printedPages": [
+        52,
+        53
+      ],
+      "sourceBlockSha256": "698015d36d353fa941e49d12ce905f184bfb54712784905c21431872a40e91fd",
+      "publishedSourceHash": "931cb1280c26129af1c61d8ee25ddcf1787cfa078eda6c719bc696b0d7acdb27"
+    },
+    {
+      "id": "ciz-067",
+      "candidateNumber": 67,
+      "title": "Walka byków",
+      "viewStart": 65,
+      "viewEnd": 66,
+      "printedPages": [
+        53,
+        54
+      ],
+      "sourceBlockSha256": "c8c211c6fc6209c22481fd3ab35fa35ff25f0b2754b8065710ed9a1091b9e64c",
+      "publishedSourceHash": "9b95f46e9ce7d96f5136a161596406a46d778a0848ff544318c06b2a6a5e503d"
+    },
+    {
+      "id": "ciz-068",
+      "candidateNumber": 68,
+      "title": "Dłoniówka (odmiana pięstówki)",
+      "viewStart": 66,
+      "viewEnd": 67,
+      "printedPages": [
+        54,
+        55
+      ],
+      "sourceBlockSha256": "e1d610c190cefe0abf5e3c2d6bbef738b339cd477a9723345448747ffe3873f2",
+      "publishedSourceHash": "71b592c6890a3bfca26789017fc4200ee67b9620d4edb764148d1c8bb03aeaa0"
+    },
+    {
+      "id": "ciz-069",
+      "candidateNumber": 69,
+      "title": "Piłka dmuchana",
+      "viewStart": 67,
+      "viewEnd": 67,
+      "printedPages": [
+        55
+      ],
+      "sourceBlockSha256": "56aa61ff53258eebfb692c381c7f1ef4c903a41103ddfce0234b44950f974ae0",
+      "publishedSourceHash": "8e1a125e16d71a6b116e13778bbf9178d2956748bcb229c805976435363f3a53"
+    },
+    {
+      "id": "ciz-071",
+      "candidateNumber": 71,
+      "title": "Ćwiczenia pierwszej pomocy. Służba zdrowia",
+      "viewStart": 71,
+      "viewEnd": 72,
+      "printedPages": [
+        59,
+        60
+      ],
+      "sourceBlockSha256": "0fab0a4216c0c2b51c587fb529ef722274cec44e3ceed74536a0fb6de375fde9",
+      "publishedSourceHash": "4aaacd164f4b8dba19fd1810f52012edb20bee6da90e83d9dc7a403d413065a7"
+    },
+    {
+      "id": "ciz-072",
+      "candidateNumber": 72,
+      "title": "Podwórze folwarku",
+      "viewStart": 72,
+      "viewEnd": 73,
+      "printedPages": [
+        60,
+        61
+      ],
+      "sourceBlockSha256": "eb2fa7c15911071e43217baf9481e918b979ff0d0d4329ea8a9bc4bc497da40e",
+      "publishedSourceHash": "f6da2fc30d8fb532856c811d732d8ebe978d214a248b2dd19a0983b40062cdf1"
+    },
+    {
+      "id": "ciz-074",
+      "candidateNumber": 74,
+      "title": "Szachy skautowe",
+      "viewStart": 74,
+      "viewEnd": 75,
+      "printedPages": [
+        62,
+        63
+      ],
+      "sourceBlockSha256": "2b174f8956d15f176d665d32eec6dba196a1c13f5f04c97dbe34b719ee77a380",
+      "publishedSourceHash": "938a43ca04aafcf57a5a07f58836934f90117f7ce8580b2c114d46762f9a72d3"
+    },
+    {
+      "id": "ciz-075",
+      "candidateNumber": 75,
+      "title": "Malarze",
+      "viewStart": 75,
+      "viewEnd": 75,
+      "printedPages": [
+        63
+      ],
+      "sourceBlockSha256": "9a337bbab25849b7d9aae980070ca42744e3973888e9101a04432f30fd31478e",
+      "publishedSourceHash": "d2766a13e253310be76426c4280808ddb269d84b5b3d27be7afaae0cdb773131"
+    },
+    {
+      "id": "ciz-076",
+      "candidateNumber": 76,
+      "title": "Sekretarz",
+      "viewStart": 75,
+      "viewEnd": 76,
+      "printedPages": [
+        63,
+        64
+      ],
+      "sourceBlockSha256": "9ef29b53e5dd0f22c9df3ee2d78e16af167fd3bf255fbaa7dc69601221fd7ddb",
+      "publishedSourceHash": "feaff2ff60b7c438e402cb9591505f7718f7fc57f441f0329665346479a26ce8"
+    },
+    {
+      "id": "ciz-077",
+      "candidateNumber": 77,
+      "title": "Pierścionek",
+      "viewStart": 76,
+      "viewEnd": 76,
+      "printedPages": [
+        64
+      ],
+      "sourceBlockSha256": "5da43a46890fb32849edf5c7a387d3e9d0c6dda272f52c9b724b018738353b1e",
+      "publishedSourceHash": "038e16b63a1da121628451bee6ea59a518cc82198b7df935ae1df26ed9cc905c"
+    },
+    {
+      "id": "ciz-078",
+      "candidateNumber": 78,
+      "title": "Adwokat",
+      "viewStart": 76,
+      "viewEnd": 77,
+      "printedPages": [
+        64,
+        65
+      ],
+      "sourceBlockSha256": "d4056b24ab6f4c483511d519012d9ed90bbcb7deb9b757f1a6c2d9aab43a2c9e",
+      "publishedSourceHash": "64f421d9b20c52e1140f2cbe44930cd3fa724fa5c56cc061f614eb04ad4fd5e4"
+    },
+    {
+      "id": "ciz-079",
+      "candidateNumber": 79,
+      "title": "Sąsiad",
+      "viewStart": 77,
+      "viewEnd": 77,
+      "printedPages": [
+        65
+      ],
+      "sourceBlockSha256": "fa00bebadc9ae14636acc812414c49bd8d5cdc234d818fbde5195d74f4a9cac3",
+      "publishedSourceHash": "9f4eb3e04092499ac40125d6d2c0bfd7f1be7e55c1cc64780113a3dd410a1c68"
+    },
+    {
+      "id": "ciz-080",
+      "candidateNumber": 80,
+      "title": "Liczenie do dziesięciu",
+      "viewStart": 77,
+      "viewEnd": 78,
+      "printedPages": [
+        65,
+        66
+      ],
+      "sourceBlockSha256": "75c2e66162cd10a77550e74dee448257c1e698722eb99775162699f6e14e908c",
+      "publishedSourceHash": "54ecd1d132c3a0c3117af5888e193be3de5d7041d2d5f7561b00808b60de610c"
+    },
+    {
+      "id": "ciz-081",
+      "candidateNumber": 81,
+      "title": "Wzburzone morze",
+      "viewStart": 78,
+      "viewEnd": 79,
+      "printedPages": [
+        66,
+        67
+      ],
+      "sourceBlockSha256": "4c6c4f52cefc9f358a33e83f22dc9ce705b312e4166d54e828ee0db2042e11a1",
+      "publishedSourceHash": "cec1906c402d3046e654591d10d22a13c50a545542413d6cac1b1e9b223fcafa"
+    },
+    {
+      "id": "ciz-082",
+      "candidateNumber": 82,
+      "title": "Głuchoniemi",
+      "viewStart": 79,
+      "viewEnd": 80,
+      "printedPages": [
+        67,
+        68
+      ],
+      "sourceBlockSha256": "e363eeccc68b3bbf7094ffefd73f26f994b74d0b5b8c6c5873182dbda3e26b11",
+      "publishedSourceHash": "193788e8585c65058d372ffadfb42db7462df51302b7a620c3b07ecd94ec563b"
+    },
+    {
+      "id": "ciz-083",
+      "candidateNumber": 83,
+      "title": "Tak i nie",
+      "viewStart": 80,
+      "viewEnd": 80,
+      "printedPages": [
+        68
+      ],
+      "sourceBlockSha256": "4e8ef5705faf8e6fa7d682e838776f12250dad076a848d29ec0e376ad6dc2deb",
+      "publishedSourceHash": "b9330088f36d947f0a85412cba967347722106768bb6476188fd6cc8506b784f"
+    },
+    {
+      "id": "ciz-084",
+      "candidateNumber": 84,
+      "title": "Rzemiosło (szewc)",
+      "viewStart": 80,
+      "viewEnd": 83,
+      "printedPages": [
+        68,
+        69,
+        70,
+        71
+      ],
+      "sourceBlockSha256": "399ccd650b4628f019b676d460f0f63e61ebf49b6754717789b4efd9c864992d",
+      "publishedSourceHash": "98131a58f62b77db196a97f13881f7878d80db53606741a62cd72b5693d6ecc4"
+    },
+    {
+      "id": "ciz-085",
+      "candidateNumber": 85,
+      "title": "Wykupno fantów",
+      "viewStart": 83,
+      "viewEnd": 85,
+      "printedPages": [
+        71,
+        72,
+        73
+      ],
+      "sourceBlockSha256": "a03424af04ff81202fa6b89e59282c8ddc7e7afee5b4818fee758fd2a06079ab",
+      "publishedSourceHash": "578f9a760f5b57c0d8473ee51319f2ffa936b3f99e0703f7703f8bc43b143232"
+    }
+  ]
+}

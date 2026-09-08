@@ -1,0 +1,2265 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "dabrowski-indoor-games-1934",
+  "sourceSha256": "0e91f7259f17db5c0845c0b415b5295d1ff7d105cc3fc2d0e0356998aa34d624",
+  "parserVersion": "v3-bounded-ocr-game-import-v4",
+  "reviewRequired": false,
+  "activityCount": 175,
+  "wholeSourceCopiedToRepository": false,
+  "selection": {
+    "candidateCount": 184,
+    "acceptedGameCount": 175,
+    "rejectedCount": 9,
+    "basis": "source-indexed entries with a bounded, executable game or competitive exercise; cross-references, performances, general guidance and catalogues of multiple unseparated ideas remain in the review report but are excluded from the current game-only production scope",
+    "rejectedCandidates": [
+      {
+        "candidateNumber": 55,
+        "reason": "source names a commonly known game but supplies no self-contained procedure"
+      },
+      {
+        "candidateNumber": 116,
+        "reason": "song dramatization without game rules or a competitive procedure"
+      },
+      {
+        "candidateNumber": 129,
+        "reason": "educational performance proposal without game rules or a competitive procedure"
+      },
+      {
+        "candidateNumber": 133,
+        "reason": "general knot-training advice and an external reference, not a bounded game"
+      },
+      {
+        "candidateNumber": 139,
+        "reason": "catalogue of distinct handicraft contest ideas, not one bounded game"
+      },
+      {
+        "candidateNumber": 140,
+        "reason": "catalogue of distinct self-reliance contest ideas, not one bounded game"
+      },
+      {
+        "candidateNumber": 141,
+        "reason": "catalogue of distinct nature-game ideas, not one bounded game"
+      },
+      {
+        "candidateNumber": 143,
+        "reason": "catalogue of distinct drawing contest ideas, not one bounded game"
+      },
+      {
+        "candidateNumber": 159,
+        "reason": "general field-signalling guidance without a self-contained game procedure"
+      }
+    ]
+  },
+  "transcriptionEvidence": {
+    "sourceStatement": "Mistral OCR output from pinned page images; raw responses remain in the gitignored artifacts store on Group Storage.",
+    "sourceLocation": "https://polona.pl/preview/f8a00528-6a07-4916-9a76-c1e094e317da",
+    "deterministicNormalization": [
+      "omit the repeated activity heading represented in frontmatter",
+      "omit isolated numeric printed-page furniture",
+      "omit the following section heading when it falls inside the preceding block",
+      "truncate a candidate at the first pinned following chapter or subsection heading",
+      "join OCR soft line wraps and dehyphenate lowercase word continuations",
+      "join a page-break blank line only before a lowercase sentence continuation, including after comma, semicolon or colon",
+      "preserve spelling, punctuation and paragraph order without modernization"
+    ],
+    "lexicalModernization": false
+  },
+  "deduplication": {
+    "exactBodyMatches": [],
+    "nearDuplicateCandidates": []
+  },
+  "activities": [
+    {
+      "id": "gih-001",
+      "candidateNumber": 1,
+      "title": "Gra Kima",
+      "viewStart": 12,
+      "viewEnd": 12,
+      "printedPages": [
+        10
+      ],
+      "sourceBlockSha256": "c6516e722fadae274fcfaffbafad3befb8229738b30252a95c8e3151c6f854bb",
+      "publishedSourceHash": "309f5c44166ad8a7a27ee9c6fdb23bc7605fa0d15647edb587d5ff0aadc4fdb3"
+    },
+    {
+      "id": "gih-002",
+      "candidateNumber": 2,
+      "title": "Gra Kima obrazowa",
+      "viewStart": 12,
+      "viewEnd": 14,
+      "printedPages": [
+        10,
+        11,
+        12
+      ],
+      "sourceBlockSha256": "4fd6618e7e01ce925db076fedcff82cb21d88d46ecc7c3f3ce8e85586653141b",
+      "publishedSourceHash": "bba5ee7aa52ce070b36d464d5c339aa142f8773e0ca477bbb1ef4814e85e8695"
+    },
+    {
+      "id": "gih-003",
+      "candidateNumber": 3,
+      "title": "Gra Morgana",
+      "viewStart": 15,
+      "viewEnd": 15,
+      "printedPages": [
+        13
+      ],
+      "sourceBlockSha256": "cdc0cd160eb080afa764e7ff2ff6259e6d65452e881610bc8cc4a0dec5b351fb",
+      "publishedSourceHash": "a40075c1a9f58acdd22aaa8d682b9b222142b3721814327034791626fdf1236d"
+    },
+    {
+      "id": "gih-004",
+      "candidateNumber": 4,
+      "title": "Odrysuj ścianę",
+      "viewStart": 15,
+      "viewEnd": 15,
+      "printedPages": [
+        13
+      ],
+      "sourceBlockSha256": "4f13ee626af0a6ce868ae1a6328245f9a1c024ccd03ad506df87d51362b9085f",
+      "publishedSourceHash": "d778a04a0587ed4aeabb2e60d6307e4e16ccadae638d602540c65c241733b080"
+    },
+    {
+      "id": "gih-005",
+      "candidateNumber": 5,
+      "title": "Zmiany w izbie",
+      "viewStart": 15,
+      "viewEnd": 15,
+      "printedPages": [
+        13
+      ],
+      "sourceBlockSha256": "25caeaa7538d730d6eb14f00453624b20db0ec143cd0471321c18af0ae434dc2",
+      "publishedSourceHash": "f2a69e244f78073ff76d3684747420cd1e613c73c41403256c3b72267c408c12"
+    },
+    {
+      "id": "gih-006",
+      "candidateNumber": 6,
+      "title": "Kto przybył — kto ubył?",
+      "viewStart": 15,
+      "viewEnd": 15,
+      "printedPages": [
+        13
+      ],
+      "sourceBlockSha256": "898dd8dfae7d238cd98fe6842db83a0537aa3c63f8a4f5422f8f16164e17103d",
+      "publishedSourceHash": "cad0c3f8b1faa2b16072c089c51100ffd0750f8743a46991ab9014d8b464423d"
+    },
+    {
+      "id": "gih-007",
+      "candidateNumber": 7,
+      "title": "Kim rąk",
+      "viewStart": 15,
+      "viewEnd": 15,
+      "printedPages": [
+        13
+      ],
+      "sourceBlockSha256": "889ebe50a56e6d7e295bc813d54805525a8b2bd0683a26b98080315b79235394",
+      "publishedSourceHash": "2ce1ef40bbafe153f1e62f55d666748e0f671c08f8df6daded96643dea7bb21d"
+    },
+    {
+      "id": "gih-008",
+      "candidateNumber": 8,
+      "title": "Opisywanie pocztówki",
+      "viewStart": 15,
+      "viewEnd": 16,
+      "printedPages": [
+        13,
+        14
+      ],
+      "sourceBlockSha256": "9dce03bd0b5e735ea44e4e4a2320028e872479f9dfa43c540a5f067e175e5395",
+      "publishedSourceHash": "f2b9f25ca0e1c107f6c764ab46a117b5cfd4f6a365deae6558b0fb3385bb5ed9"
+    },
+    {
+      "id": "gih-009",
+      "candidateNumber": 9,
+      "title": "Nabieranie",
+      "viewStart": 16,
+      "viewEnd": 16,
+      "printedPages": [
+        14
+      ],
+      "sourceBlockSha256": "52d78e20d8b69d258c3ad96f090b03ed0d0c5f506d4483a974f74a334fa2123c",
+      "publishedSourceHash": "d5ff80cc209c1f4041a63e8adeff3bfbde970f4a154ac127950a35153f90b96a"
+    },
+    {
+      "id": "gih-010",
+      "candidateNumber": 10,
+      "title": "Pamięciowe",
+      "viewStart": 16,
+      "viewEnd": 17,
+      "printedPages": [
+        14,
+        15
+      ],
+      "sourceBlockSha256": "c5edfe3b8e6d523164ae0cd891a40d8099c71ffc25230abac9ec0dd3b0620410",
+      "publishedSourceHash": "860fb6ebdd0f290c3189c901c4c47dd17b876fdcf3fff2c931bb71dda6d16e82",
+      "truncatedBeforeHeading": {
+        "locator": "view-0017-l0003",
+        "heading": "**Gry ćwiczące spostrzegawczość.**"
+      }
+    },
+    {
+      "id": "gih-011",
+      "candidateNumber": 11,
+      "title": "Szukanie przedmiotu",
+      "viewStart": 17,
+      "viewEnd": 17,
+      "printedPages": [
+        15
+      ],
+      "sourceBlockSha256": "4ee9bb67bbe454d612eeea9cc41fc15f5180a560e7d0c3a2d10e41d77bc35c8f",
+      "publishedSourceHash": "d68933db9ffbb0cf7878d1434e39d83e88e3212199b12b8063ab9a082a7e5188"
+    },
+    {
+      "id": "gih-012",
+      "candidateNumber": 12,
+      "title": "Szukanie monet",
+      "viewStart": 17,
+      "viewEnd": 17,
+      "printedPages": [
+        15
+      ],
+      "sourceBlockSha256": "6902e9c3fc576a2598e37710323ccab3d42c8727057b8c942d716cc88bab3daa",
+      "publishedSourceHash": "63d48d3aec41218045538f8beb5fba9b58d09e3f4e1d00c4c05802053f987f8d"
+    },
+    {
+      "id": "gih-013",
+      "candidateNumber": 13,
+      "title": "Stwierdzenie nieporządku",
+      "viewStart": 17,
+      "viewEnd": 17,
+      "printedPages": [
+        15
+      ],
+      "sourceBlockSha256": "d743b9d685f2d1d104d613fe21a79c78df86200cd2aaa2054db33022d815170e",
+      "publishedSourceHash": "5f34ca3b69dcd211cbdcc80dfc21e8914a1364e1b5205f3b9100c01d349921b4"
+    },
+    {
+      "id": "gih-014",
+      "candidateNumber": 14,
+      "title": "Blisko — daleko",
+      "viewStart": 18,
+      "viewEnd": 18,
+      "printedPages": [
+        16
+      ],
+      "sourceBlockSha256": "b30265858a49309a480ffd65eab8b5694e9e9eb0158fbc0038cc3cb60b83acba",
+      "publishedSourceHash": "7bfdc9ecb166e73c1f9ca3dd24665dc2cbd295852d97aa8e159c3d558ebf1114"
+    },
+    {
+      "id": "gih-015",
+      "candidateNumber": 15,
+      "title": "Zmiany w ubraniu",
+      "viewStart": 18,
+      "viewEnd": 18,
+      "printedPages": [
+        16
+      ],
+      "sourceBlockSha256": "03113f0d1b3472226c8dead49c6d5ab82198d9ad7750bb6b9c2f77ca7cfefd38",
+      "publishedSourceHash": "8eeaeee7b6cf46ec13256850498c3a608f76633fcb4e83b38ccbed82c00305fa"
+    },
+    {
+      "id": "gih-016",
+      "candidateNumber": 16,
+      "title": "Warjaci",
+      "viewStart": 18,
+      "viewEnd": 19,
+      "printedPages": [
+        16,
+        17
+      ],
+      "sourceBlockSha256": "de4025ea0de86d0004cf7f1593662e503d2f730ca7d5ef1f1542f3ce25c62c12",
+      "publishedSourceHash": "d829ae3e43ba095df69a9600bf029be2c21af5bebe2c6d0d4ef64f1ef8b510f8"
+    },
+    {
+      "id": "gih-017",
+      "candidateNumber": 17,
+      "title": "Nawprost — nakrzyż",
+      "viewStart": 19,
+      "viewEnd": 19,
+      "printedPages": [
+        17
+      ],
+      "sourceBlockSha256": "03017275b6f99644bab45c5737aa32d21e0fba692ebe33031d1f72e5be26c308",
+      "publishedSourceHash": "2bcd9c192e4206cc29c30d18008919ec814ae5fd996e335777b68726de682bf9"
+    },
+    {
+      "id": "gih-018",
+      "candidateNumber": 18,
+      "title": "Dukat I",
+      "viewStart": 19,
+      "viewEnd": 20,
+      "printedPages": [
+        17,
+        18
+      ],
+      "sourceBlockSha256": "50555d05e1fd5cf0ca9e0fe4258106341983f6ebcbf4e58185b1d543f6d00022",
+      "publishedSourceHash": "711e754e70f8ed0344659db12613eb1448f928bf8163b606f35bf12c2b382802"
+    },
+    {
+      "id": "gih-019",
+      "candidateNumber": 19,
+      "title": "Burza na morzu",
+      "viewStart": 20,
+      "viewEnd": 20,
+      "printedPages": [
+        18
+      ],
+      "sourceBlockSha256": "359b59a38196dc8b5bb33c6ffb991ddb9c604e63f9c386eb4b5337bd4fa2f3db",
+      "publishedSourceHash": "a58591475cd89c1d2d7969c887f3c7f5f6f492aaef7896e3f10924fce59ada2d"
+    },
+    {
+      "id": "gih-020",
+      "candidateNumber": 20,
+      "title": "Pierścionek",
+      "viewStart": 20,
+      "viewEnd": 20,
+      "printedPages": [
+        18
+      ],
+      "sourceBlockSha256": "3f570d83f70a6996b3d7a30d02bdad8fe919487509d94a9275c012cc0856d81c",
+      "publishedSourceHash": "0e0702d03aa20429e5f12dd53bc600c243dacb24f79e594f204af590d0ca47fe"
+    },
+    {
+      "id": "gih-021",
+      "candidateNumber": 21,
+      "title": "Elektryczna chusteczka",
+      "viewStart": 21,
+      "viewEnd": 21,
+      "printedPages": [
+        19
+      ],
+      "sourceBlockSha256": "241b3870fda2aef2e109974ebc0871cb13712add776c619004f9b7e295a8333a",
+      "publishedSourceHash": "9b13d35e6022eb18b1a688191fbc036eb88937d629b6d7ae858203980e058cf4"
+    },
+    {
+      "id": "gih-022",
+      "candidateNumber": 22,
+      "title": "Bum stukany",
+      "viewStart": 21,
+      "viewEnd": 21,
+      "printedPages": [
+        19
+      ],
+      "sourceBlockSha256": "a3c4ea7cc9f50a96a11c31ae9658f9ea42921432c8ff79d1b612bbc35e0d2a7f",
+      "publishedSourceHash": "63087575ad9335d6b0be3307e978b56b3f2f018a6b71469e886defe363f08d88"
+    },
+    {
+      "id": "gih-023",
+      "candidateNumber": 23,
+      "title": "Kury — koguty (z odmianą)",
+      "viewStart": 21,
+      "viewEnd": 21,
+      "printedPages": [
+        19
+      ],
+      "sourceBlockSha256": "9dcabc3c0bde7563f266a056558820393d8da49da1d8612f9d9799e3895112d0",
+      "publishedSourceHash": "20817906d57aef09a5e41cd2dbd7bcda23f0d826aea4316a3f6ddb863bc4a89e"
+    },
+    {
+      "id": "gih-024",
+      "candidateNumber": 24,
+      "title": "Do wody",
+      "viewStart": 22,
+      "viewEnd": 22,
+      "printedPages": [
+        20
+      ],
+      "sourceBlockSha256": "dc02467a395634e8a86f2ab4e20d9f738195a2c63f284f9302756bc18aa8776d",
+      "publishedSourceHash": "c8c249e8059b0e7ee865420957c5580fc07621aa2acf10aa6e0a94ab9d348cf2"
+    },
+    {
+      "id": "gih-025",
+      "candidateNumber": 25,
+      "title": "Puść — trzymaj!",
+      "viewStart": 22,
+      "viewEnd": 22,
+      "printedPages": [
+        20
+      ],
+      "sourceBlockSha256": "30beb553253fdc7b746e5703b72ad47848bb1545090e011f8d91650f4daa6d8d",
+      "publishedSourceHash": "d907c9d5d6087d4189eb67530c79277cd6a8a6c7f12b5911d52a62703731053b"
+    },
+    {
+      "id": "gih-026",
+      "candidateNumber": 26,
+      "title": "Z rozkazu druha",
+      "viewStart": 22,
+      "viewEnd": 22,
+      "printedPages": [
+        20
+      ],
+      "sourceBlockSha256": "1bad07f764833e441c855f682d993f5ccbcf7e647d93280f1e362e5fb8ca6f61",
+      "publishedSourceHash": "7d9171666873ef123be63cd77eaa52c4b66e84e9887cdbc3c11177d12c30fc9d"
+    },
+    {
+      "id": "gih-027",
+      "candidateNumber": 27,
+      "title": "Nos, podłoga, lampa",
+      "viewStart": 22,
+      "viewEnd": 23,
+      "printedPages": [
+        20,
+        21
+      ],
+      "sourceBlockSha256": "8e1c2b931e3b45f2fb11fd84ebd5fef0862db58e17a6b658a838c1880562056c",
+      "publishedSourceHash": "54b00f5119c07174b8d3c5dbfd3ff9f23c16947a25dbbdc72b3a76df7525a581"
+    },
+    {
+      "id": "gih-028",
+      "candidateNumber": 28,
+      "title": "Rób to — rób tak!",
+      "viewStart": 23,
+      "viewEnd": 23,
+      "printedPages": [
+        21
+      ],
+      "sourceBlockSha256": "0878e19f754641045b7eb55dd472770af1f210eacb42bbec2fca5a2b438e60fe",
+      "publishedSourceHash": "328fc829c5bb571058dc5ba6354c37c01cd1c13381dca4af1a5b5e7eac1b7e3b",
+      "truncatedBeforeHeading": {
+        "locator": "view-0023-l0007",
+        "heading": "**Gry ćwiczące domyślność, wnioskowanie.**"
+      }
+    },
+    {
+      "id": "gih-029",
+      "candidateNumber": 29,
+      "title": "Rozrzucone sylaby",
+      "viewStart": 23,
+      "viewEnd": 23,
+      "printedPages": [
+        21
+      ],
+      "sourceBlockSha256": "66f2eb5cc0325c57a9254ea2e25e5b96bfe0270483274ff5f2fb7bf39d31a50c",
+      "publishedSourceHash": "ea5dea6f7c65290447ae562125c55ebec5a929962a3a6ac025f678a332a2890d"
+    },
+    {
+      "id": "gih-030",
+      "candidateNumber": 30,
+      "title": "Rozrzucone wyrazy",
+      "viewStart": 23,
+      "viewEnd": 23,
+      "printedPages": [
+        21
+      ],
+      "sourceBlockSha256": "7334a50b0ae6a28563bb92dfb847ed09264139e34f5b8c2ba2707cb163dc7e7b",
+      "publishedSourceHash": "7213ab86f86fbf4e1fa0f3b04ff097e569cfb71e93305b505389f7ee02f5da68"
+    },
+    {
+      "id": "gih-031",
+      "candidateNumber": 31,
+      "title": "List na bibule",
+      "viewStart": 23,
+      "viewEnd": 23,
+      "printedPages": [
+        21
+      ],
+      "sourceBlockSha256": "4baae48754789913106b3e557292877aa1dbab13c5c4f7f4c0618c065b1b2e26",
+      "publishedSourceHash": "1ce3ce5dcc5302f0903a8cceb6e09bd40688caf81af172959e6b2b4bbfc86445"
+    },
+    {
+      "id": "gih-032",
+      "candidateNumber": 32,
+      "title": "Listy szyfrowe",
+      "viewStart": 23,
+      "viewEnd": 23,
+      "printedPages": [
+        21
+      ],
+      "sourceBlockSha256": "ec0ae4d4b67e40277031d946fdc73de1e1f83e05a2fda14aa8c879f5eeebc568",
+      "publishedSourceHash": "cbc0395aa15f975b385f122d204746bcff2657f2b9ba4c976ce669b226196833"
+    },
+    {
+      "id": "gih-033",
+      "candidateNumber": 33,
+      "title": "Utracona pamięć",
+      "viewStart": 24,
+      "viewEnd": 24,
+      "printedPages": [
+        22
+      ],
+      "sourceBlockSha256": "807eef872a67df9dae10e7bd167196fd4e793e5af2795759fb4817b9331887c2",
+      "publishedSourceHash": "04aa96e43aa334634dc84c384ad5e36c3292f9daf0de7f13e97f7a9f14c6d065"
+    },
+    {
+      "id": "gih-034",
+      "candidateNumber": 34,
+      "title": "Badanie szpiegowskie",
+      "viewStart": 24,
+      "viewEnd": 24,
+      "printedPages": [
+        22
+      ],
+      "sourceBlockSha256": "e25a6655cfc78af391e29427d1fdd1d5f095652d4e15f310c189c460b82e2f4e",
+      "publishedSourceHash": "783546b93f1b692677917eb1e97540255e6f8ca441822474d753f05f029716f5"
+    },
+    {
+      "id": "gih-035",
+      "candidateNumber": 35,
+      "title": "Kryminalna scena",
+      "viewStart": 24,
+      "viewEnd": 24,
+      "printedPages": [
+        22
+      ],
+      "sourceBlockSha256": "bf86bf970eb44dbbb579e700fce365547d3670c080a402eaf07c2e8d3c6440b9",
+      "publishedSourceHash": "ff78206353eb2954322c24772d02c164cd885e7f35978a1a7921a0731e514048"
+    },
+    {
+      "id": "gih-036",
+      "candidateNumber": 36,
+      "title": "Opowiadanie nielogiczne",
+      "viewStart": 24,
+      "viewEnd": 24,
+      "printedPages": [
+        22
+      ],
+      "sourceBlockSha256": "8ebf9622c0e0ba6ecaf33ec82c5d9c7d7f49be20e28902acb7ac986e77e44536",
+      "publishedSourceHash": "d6a05b1120407b88079ba501beeb21be839ec482a791f16bf130ca3ea5ed0afc"
+    },
+    {
+      "id": "gih-037",
+      "candidateNumber": 37,
+      "title": "Obraz nielogiczny",
+      "viewStart": 24,
+      "viewEnd": 25,
+      "printedPages": [
+        22,
+        23
+      ],
+      "sourceBlockSha256": "b6d953afb94e9069147598a095a9aefbd06cfe1a948b8245c8e5955a43c2656f",
+      "publishedSourceHash": "50f536f3f7a65a133ea2cf8a694444955828c0eb47e0411b247d51c36c97eb53",
+      "truncatedBeforeHeading": {
+        "locator": "view-0025-l0003",
+        "heading": "**Gry ćwiczące rozdwojenie uwagi.**"
+      }
+    },
+    {
+      "id": "gih-038",
+      "candidateNumber": 38,
+      "title": "Liczenie wspak",
+      "viewStart": 25,
+      "viewEnd": 25,
+      "printedPages": [
+        23
+      ],
+      "sourceBlockSha256": "7093882d5fc5da34b3cc81db664e7c7dbd1622ea6e4fa376119ea23e43faa227",
+      "publishedSourceHash": "2b63cb68d9854bd95b60c687eda7d69ee6d777a716ebb5d8c8d470419768e5dc"
+    },
+    {
+      "id": "gih-039",
+      "candidateNumber": 39,
+      "title": "Licz poeto",
+      "viewStart": 25,
+      "viewEnd": 25,
+      "printedPages": [
+        23
+      ],
+      "sourceBlockSha256": "88a2a0145f51b47cc858943b1326485612cc1ddf35fcc7f0195084942ad27d0e",
+      "publishedSourceHash": "25e4cfc786bbcd47102870cf6eb5a14cd021aa33e167be2b7fdafd1f6cb8c16f"
+    },
+    {
+      "id": "gih-040",
+      "candidateNumber": 40,
+      "title": "Złodziej w izbie",
+      "viewStart": 25,
+      "viewEnd": 25,
+      "printedPages": [
+        23
+      ],
+      "sourceBlockSha256": "c2b07b448f98d79c7ceef483c41aa094fa16e1f70494dea72dc772d31a3f3d80",
+      "publishedSourceHash": "a581af5ed34b228e8ec3e0918d79683d6568a164eb9b1eb71c2236a20e5dd153"
+    },
+    {
+      "id": "gih-041",
+      "candidateNumber": 41,
+      "title": "Bum",
+      "viewStart": 26,
+      "viewEnd": 26,
+      "printedPages": [
+        24
+      ],
+      "sourceBlockSha256": "d86beee8d198cad4cbe9ffbcc3239ac61da04c18577b2f5f1c0fc870760f08ac",
+      "publishedSourceHash": "f96ce7ed7579bebb65a494ae31e2f7dbf5c0fb3eca3885f821ba01001675a710"
+    },
+    {
+      "id": "gih-042",
+      "candidateNumber": 42,
+      "title": "Bum — bam",
+      "viewStart": 26,
+      "viewEnd": 26,
+      "printedPages": [
+        24
+      ],
+      "sourceBlockSha256": "39107063be8c800d54734573fa9877ad5bbb98c042bec939ee87a44564027cab",
+      "publishedSourceHash": "469dd746b3bd26c956ac1ed053aa748d4f3b20736f40acdbfe269ffef070c6a0",
+      "truncatedBeforeHeading": {
+        "locator": "view-0026-l0024",
+        "heading": "**Gry ćwiczące zmysł słuchu"
+      }
+    },
+    {
+      "id": "gih-043",
+      "candidateNumber": 43,
+      "title": "Szeptane rozkazy (z odmianą)",
+      "viewStart": 26,
+      "viewEnd": 27,
+      "printedPages": [
+        24,
+        25
+      ],
+      "sourceBlockSha256": "967d0f74846ddba4d7fb220bee30ee87ea88c21a88d12ba972768da812cd7893",
+      "publishedSourceHash": "ab5dd91fcf771276a1a50f09ca81425e55ab63667fad45cb619f19dbb80ce4d0"
+    },
+    {
+      "id": "gih-044",
+      "candidateNumber": 44,
+      "title": "Telefon na odległość",
+      "viewStart": 27,
+      "viewEnd": 27,
+      "printedPages": [
+        25
+      ],
+      "sourceBlockSha256": "45d1e7b8778a77beeef0ae01e5733ff6b696cb629687ced1f1361a016ad87a5d",
+      "publishedSourceHash": "62c9e4a82f1e1b910f136a5d911596301902ed12b3a52e1be6451f4e518495d4"
+    },
+    {
+      "id": "gih-045",
+      "candidateNumber": 45,
+      "title": "Szukanie zegarka pod czapkami",
+      "viewStart": 27,
+      "viewEnd": 27,
+      "printedPages": [
+        25
+      ],
+      "sourceBlockSha256": "1af6ca9684907b15ce0b833a852ac93ba08df5ff66c4c595437f4f9843807813",
+      "publishedSourceHash": "330165ecc4c9b0b132e8618f0a5e5048a1012e205ed49a60336dbb821692fa9a"
+    },
+    {
+      "id": "gih-046",
+      "candidateNumber": 46,
+      "title": "Szukanie zegarka w izbie (z odmianą)",
+      "viewStart": 27,
+      "viewEnd": 28,
+      "printedPages": [
+        25,
+        26
+      ],
+      "sourceBlockSha256": "532304242c1417d9cf4937dc8be94f2351a76f041a027849ff39824a909fda00",
+      "publishedSourceHash": "818da8ac8a936dbda1b2c60f16b156007a135fc0fbf17771f60c9dc115a2f8ba"
+    },
+    {
+      "id": "gih-047",
+      "candidateNumber": 47,
+      "title": "Wykradzenie przedmiotu",
+      "viewStart": 28,
+      "viewEnd": 28,
+      "printedPages": [
+        26
+      ],
+      "sourceBlockSha256": "f028c35940b0bc5f5d717c84d449e4358e27524139a6586ce3c723972373b97b",
+      "publishedSourceHash": "acd560641d53e82f48cd5975fefa969296ccdd7baf56b928d4ad577b0240b7cd"
+    },
+    {
+      "id": "gih-048",
+      "candidateNumber": 48,
+      "title": "Obóz ślepych",
+      "viewStart": 28,
+      "viewEnd": 29,
+      "printedPages": [
+        26,
+        27
+      ],
+      "sourceBlockSha256": "40a00a56889fc4beef778480d4ddea187a7445a30ab9aa7ed24e14d04f834f32",
+      "publishedSourceHash": "0427bc4483c7d288e1eec5db4f5b45ef5ff925ff0d71b6e6cb9c03acde20f6ce"
+    },
+    {
+      "id": "gih-049",
+      "candidateNumber": 49,
+      "title": "Włamywacze",
+      "viewStart": 29,
+      "viewEnd": 29,
+      "printedPages": [
+        27
+      ],
+      "sourceBlockSha256": "828f7b2a4140fe7dbd81215f12dae2fe1add62fb79dd3382d3f444abbd082643",
+      "publishedSourceHash": "1ea5e2d0feec53d6c0e26b274057554e152489124e85211fab18f6bb813f366c"
+    },
+    {
+      "id": "gih-050",
+      "candidateNumber": 50,
+      "title": "Wyrazy (z odmianą)",
+      "viewStart": 29,
+      "viewEnd": 29,
+      "printedPages": [
+        27
+      ],
+      "sourceBlockSha256": "9ed4835df84ead8c067ede29b1e9105efb8b09292f938ecde5edc649031916a5",
+      "publishedSourceHash": "784e5a221d3e07700449f31986df7c4e4ab62257f73bc71e779eb371e6c36f42"
+    },
+    {
+      "id": "gih-051",
+      "candidateNumber": 51,
+      "title": "Łodzie podwodne",
+      "viewStart": 29,
+      "viewEnd": 30,
+      "printedPages": [
+        27,
+        28
+      ],
+      "sourceBlockSha256": "8e3fbf28d77ea9efbe8570904b3f0d75e569a2952f4e90c0d431ae0dd59132d7",
+      "publishedSourceHash": "79cbaf32765abc462d13b546d82b54e7ef8e4e5ec66f807955a63cfaa3103d71"
+    },
+    {
+      "id": "gih-052",
+      "candidateNumber": 52,
+      "title": "Mur ślepych",
+      "viewStart": 30,
+      "viewEnd": 30,
+      "printedPages": [
+        28
+      ],
+      "sourceBlockSha256": "4205793a9a716011b0d4c6550e34a852cf05bb42ee495c275d2106673b7d7402",
+      "publishedSourceHash": "234fdebf8dd7a1ac5e4ad20cc7025fd9adf102a47598b4b1eae3474a21e40b86"
+    },
+    {
+      "id": "gih-053",
+      "candidateNumber": 53,
+      "title": "Przechodzenie przez izbę",
+      "viewStart": 30,
+      "viewEnd": 30,
+      "printedPages": [
+        28
+      ],
+      "sourceBlockSha256": "057d78aba30e11e3ad4aad240793fc7ef05472b49fd0392ae5036c5183593b1a",
+      "publishedSourceHash": "ceb41a1758a1abb1b44a23538d3ea035d663c18058109f2179bce8c67ed38521"
+    },
+    {
+      "id": "gih-054",
+      "candidateNumber": 54,
+      "title": "Gdzieżeś Jakóbku?",
+      "viewStart": 30,
+      "viewEnd": 31,
+      "printedPages": [
+        28,
+        29
+      ],
+      "sourceBlockSha256": "a03816941fa0efdc53cdbc111eccefea7a4387690847a4f514c4c4b038962078",
+      "publishedSourceHash": "c71c3e27d49ecace8c9c4cce8662d49cd8c34b3d7ef84cd1fd4fcfa0dbb88455"
+    },
+    {
+      "id": "gih-056",
+      "candidateNumber": 56,
+      "title": "Pogoń za głosem",
+      "viewStart": 31,
+      "viewEnd": 31,
+      "printedPages": [
+        29
+      ],
+      "sourceBlockSha256": "cf4689c37f303ebfba6b1513dca55e59c32e215d46d18c970caf3318e6bb63bb",
+      "publishedSourceHash": "00b77ffe1e708df5f37d62cc1b09e0d64c321ead09632953e320dd7d57c2af14"
+    },
+    {
+      "id": "gih-057",
+      "candidateNumber": 57,
+      "title": "Gra Kima uderzeń (z odmianą)",
+      "viewStart": 31,
+      "viewEnd": 31,
+      "printedPages": [
+        29
+      ],
+      "sourceBlockSha256": "9a30bddb987122bb03c6957e01c413a30424ef7ea3ad176dba074cfd3061116a",
+      "publishedSourceHash": "181576864694605aa5b25044501dffdc09da2246e518e20a5007a84832762037"
+    },
+    {
+      "id": "gih-058",
+      "candidateNumber": 58,
+      "title": "Poznaj po głosie",
+      "viewStart": 32,
+      "viewEnd": 32,
+      "printedPages": [
+        30
+      ],
+      "sourceBlockSha256": "77d9232d1a6f17dc601147b8e3a744934405ebe0e53ff4b15cca0c00c3471273",
+      "publishedSourceHash": "0748708b186cfd30943aab943c85dfee03ca99140e6bda52d71af1a5ae506d85"
+    },
+    {
+      "id": "gih-059",
+      "candidateNumber": 59,
+      "title": "Poznaj po chodzie",
+      "viewStart": 32,
+      "viewEnd": 32,
+      "printedPages": [
+        30
+      ],
+      "sourceBlockSha256": "bf3682326b556c668993617665e1587ce62125c75510bfca036aedba9093a6a6",
+      "publishedSourceHash": "677c7750235a149f61b328134b16aa3a2975eada8d62a219ce99abee60d533a0"
+    },
+    {
+      "id": "gih-060",
+      "candidateNumber": 60,
+      "title": "Gra Kima zegarków",
+      "viewStart": 32,
+      "viewEnd": 32,
+      "printedPages": [
+        30
+      ],
+      "sourceBlockSha256": "b9b04e9051874ad00aa378286dbae90db6cafb38f7b430384f4a292ab8c5a422",
+      "publishedSourceHash": "6bd3fa94f2367a3785ed0a24e3a5cdc19a08cf1a93f53f0c1774602c973797d6"
+    },
+    {
+      "id": "gih-061",
+      "candidateNumber": 61,
+      "title": "Szukanie przy dźwiękach",
+      "viewStart": 32,
+      "viewEnd": 32,
+      "printedPages": [
+        30
+      ],
+      "sourceBlockSha256": "4de469f730aa0e28092d1c84dba2939aeb2b1aadcfafeab4f4871edef91b2488",
+      "publishedSourceHash": "2a47d147076ced416f2721e25e6be80769534cd8343290a5e0b33db79e67d810"
+    },
+    {
+      "id": "gih-062",
+      "candidateNumber": 62,
+      "title": "Depesza więźnia",
+      "viewStart": 32,
+      "viewEnd": 32,
+      "printedPages": [
+        30
+      ],
+      "sourceBlockSha256": "bd9c0887be695d8696e802ddf9a75ea610b73bc0f3acb328304da69cd1d3c8fe",
+      "publishedSourceHash": "660fd3b295818a4f58c212c4f49618345dacb119eb4de2df989f0793678eb6f4"
+    },
+    {
+      "id": "gih-063",
+      "candidateNumber": 63,
+      "title": "Poszedł Marek",
+      "viewStart": 33,
+      "viewEnd": 33,
+      "printedPages": [
+        31
+      ],
+      "sourceBlockSha256": "1ac7f81b80adbf0dbc9dbff5d19b913374b7234265e758fca79e40804cac54de",
+      "publishedSourceHash": "363d5aa03dd7a2c4ffac65d6a880fd26e3f056dad6f9d6c898f14873e3549606"
+    },
+    {
+      "id": "gih-064",
+      "candidateNumber": 64,
+      "title": "Kto to powiedział?",
+      "viewStart": 33,
+      "viewEnd": 33,
+      "printedPages": [
+        31
+      ],
+      "sourceBlockSha256": "be024045421704ad6c676c1cc5031a4180a986788bcdd633f46365ab9f9dd26d",
+      "publishedSourceHash": "dadd564ad7ff91ea25562511bfc24100215c472d1e907ff1b31d5cb1a5a3f2ec",
+      "truncatedBeforeHeading": {
+        "locator": "view-0033-l0009",
+        "heading": "Gry ćwiczące zmysł dotyku."
+      }
+    },
+    {
+      "id": "gih-065",
+      "candidateNumber": 65,
+      "title": "Gra Kima dotykowa",
+      "viewStart": 33,
+      "viewEnd": 34,
+      "printedPages": [
+        31,
+        32
+      ],
+      "sourceBlockSha256": "59a392938065015b39005dff1839039acdb5d6cfef094b1d547a6cf787e76d20",
+      "publishedSourceHash": "3c14bf61b9948b9e5b80b3017ec577f0568b330641648b97cc4a8b0ce74c8276"
+    },
+    {
+      "id": "gih-066",
+      "candidateNumber": 66,
+      "title": "Fasola pod kocem",
+      "viewStart": 34,
+      "viewEnd": 34,
+      "printedPages": [
+        32
+      ],
+      "sourceBlockSha256": "8070b3397e2fb31af6cf062070cd263e38cbae8e1203f8a84bdfe7f64114df8b",
+      "publishedSourceHash": "bfbe2ac8d1d72eabc153b72d497c4f050f1326d404d9348e86fb2841bca6174d"
+    },
+    {
+      "id": "gih-067",
+      "candidateNumber": 67,
+      "title": "Rozpoznawanie monet",
+      "viewStart": 34,
+      "viewEnd": 34,
+      "printedPages": [
+        32
+      ],
+      "sourceBlockSha256": "90e51bd5ca15e8b4c39aff4e3dfaf6061bf7eb1c20513678b3d1295f7dbea19d",
+      "publishedSourceHash": "ff7c921dfe1edaf73356daa237cf85c09457d26638f465ac13c92057da59e359"
+    },
+    {
+      "id": "gih-068",
+      "candidateNumber": 68,
+      "title": "List na sznurku",
+      "viewStart": 34,
+      "viewEnd": 35,
+      "printedPages": [
+        32,
+        33
+      ],
+      "sourceBlockSha256": "70673413dd7636081eecfc185f20a6bcb2f6c49f959f9873d731da8a2b68824e",
+      "publishedSourceHash": "584e3d60492cfa940316fb05c47fd7388a6a7362bdb62e15d16d14fe8fefc1ce"
+    },
+    {
+      "id": "gih-069",
+      "candidateNumber": 69,
+      "title": "Poznaj po ubraniu (z odmianą)",
+      "viewStart": 35,
+      "viewEnd": 35,
+      "printedPages": [
+        33
+      ],
+      "sourceBlockSha256": "cffe99dd030d8b17b77d03c3c87b292afb769c6c99f5fbf1c998651afc272e08",
+      "publishedSourceHash": "6e333d01cccf56ec8e12724e34e704f6fcbd7ce5bf4c902ce5947befd3a90eca",
+      "truncatedBeforeHeading": {
+        "locator": "view-0035-l0009",
+        "heading": "**Gry ćwiczące zręczność i zwinność.**"
+      }
+    },
+    {
+      "id": "gih-070",
+      "candidateNumber": 70,
+      "title": "Wąż na uwięzi",
+      "viewStart": 35,
+      "viewEnd": 35,
+      "printedPages": [
+        33
+      ],
+      "sourceBlockSha256": "afb49ea0941e998dae248257be9cd17f12727f1310788c5cc480bfafe41f48c0",
+      "publishedSourceHash": "134989add01e8ce4d00db7c5b5f6c3f5d17330bc7082b1853c50144b34b78856"
+    },
+    {
+      "id": "gih-071",
+      "candidateNumber": 71,
+      "title": "Jeleń i wilk",
+      "viewStart": 35,
+      "viewEnd": 35,
+      "printedPages": [
+        33
+      ],
+      "sourceBlockSha256": "56ac0afaa631dbf8337c530c08ce9c79c8b62a2685fa0d3462c02feed777baa4",
+      "publishedSourceHash": "bbae9ba9a69326fcef701f2b1edd349ed591d8afaf05a6a83d611680d14e2f8b"
+    },
+    {
+      "id": "gih-072",
+      "candidateNumber": 72,
+      "title": "Przeciąganie w szeregach",
+      "viewStart": 36,
+      "viewEnd": 36,
+      "printedPages": [
+        34
+      ],
+      "sourceBlockSha256": "ad27fc550c5bc32b649b5d4193e4f76d3a304f83813ba464684175bd6ec03328",
+      "publishedSourceHash": "3b326badc35e2a12cac2e45bc7bcc5ee26585a7857bad258b688f1158ff94d0d"
+    },
+    {
+      "id": "gih-073",
+      "candidateNumber": 73,
+      "title": "Dmuchany football",
+      "viewStart": 36,
+      "viewEnd": 36,
+      "printedPages": [
+        34
+      ],
+      "sourceBlockSha256": "e13ba59db27277623ef893c93403d6794c1498ef06a9d2c8c1811bb1bdc82fe9",
+      "publishedSourceHash": "f81e8ae10ef5111eb55e7e4a965df83bb29b8ee30cde82f14cee329002891ced"
+    },
+    {
+      "id": "gih-074",
+      "candidateNumber": 74,
+      "title": "Przedmuchiwanie piórka",
+      "viewStart": 36,
+      "viewEnd": 36,
+      "printedPages": [
+        34
+      ],
+      "sourceBlockSha256": "9d8e790c6ca590aa962bae7af29f258a2f51aa964fc3415a24bc1e022b67789d",
+      "publishedSourceHash": "ee97c7f2be491b588d008c4ecd923d110a004e2c4595d5f208a10c245988a236"
+    },
+    {
+      "id": "gih-075",
+      "candidateNumber": 75,
+      "title": "Walka wężów",
+      "viewStart": 36,
+      "viewEnd": 36,
+      "printedPages": [
+        34
+      ],
+      "sourceBlockSha256": "b63f051c54c9ad93f1fe1e1a77889a6dec4551185e9812f8501785e738e79915",
+      "publishedSourceHash": "5c50a3810fdc7e1777fc33da7e58495494920c854792300368005a473b451d5f"
+    },
+    {
+      "id": "gih-076",
+      "candidateNumber": 76,
+      "title": "Piłka do czapki",
+      "viewStart": 37,
+      "viewEnd": 37,
+      "printedPages": [
+        35
+      ],
+      "sourceBlockSha256": "ced13f822d3e96ba11afaaf9210101ab549f45d52573f6206a45fe3f66e946c4",
+      "publishedSourceHash": "b47a8a9f1a20201272854d0d224e89e451159c6a38a5dd2c375b0d2a08eddcc7"
+    },
+    {
+      "id": "gih-077",
+      "candidateNumber": 77,
+      "title": "Wyścig tkacki",
+      "viewStart": 37,
+      "viewEnd": 37,
+      "printedPages": [
+        35
+      ],
+      "sourceBlockSha256": "4564cae6414817407013cfcee8caebe4799bc519cb382c184434e9033ae68608",
+      "publishedSourceHash": "4ee1c1b340a6b8951ed7e68365c94675827d409cf7a613b958a02ed53af86eb8"
+    },
+    {
+      "id": "gih-078",
+      "candidateNumber": 78,
+      "title": "Wańka-wstańka",
+      "viewStart": 37,
+      "viewEnd": 38,
+      "printedPages": [
+        35,
+        36
+      ],
+      "sourceBlockSha256": "694cb0efdff91962952b1a55d2531ba8f9d1556a2c5f69bec7ff337ef64284e9",
+      "publishedSourceHash": "9fd98e74978450756dc74eeef8dbb9b3bf0eb529d625007baef077c264f0d916"
+    },
+    {
+      "id": "gih-079",
+      "candidateNumber": 79,
+      "title": "Walki byków",
+      "viewStart": 38,
+      "viewEnd": 38,
+      "printedPages": [
+        36
+      ],
+      "sourceBlockSha256": "e57f34e2bf8456d9b2f46c9db6e1deb1f83a1d2abdf2ba3287fd0e874c797c15",
+      "publishedSourceHash": "82c35873129ba010f827f8dcca94dc897b7ff0b20ead7918b8930b3f223d6e30"
+    },
+    {
+      "id": "gih-080",
+      "candidateNumber": 80,
+      "title": "Szczur",
+      "viewStart": 38,
+      "viewEnd": 38,
+      "printedPages": [
+        36
+      ],
+      "sourceBlockSha256": "61768f7539fe6c0e9dbd98bb8947a20cd2c2471bffa508c5c6b7a300350e9415",
+      "publishedSourceHash": "6dd27978f4472eb028702fb71ccf879152f24ae50740d8c26e13531f73785a6d"
+    },
+    {
+      "id": "gih-081",
+      "candidateNumber": 81,
+      "title": "Drogocenny kij",
+      "viewStart": 38,
+      "viewEnd": 39,
+      "printedPages": [
+        36,
+        37
+      ],
+      "sourceBlockSha256": "feaba85a22ccba44880b9645eeb825cab871072034b40207df6ffec680f23705",
+      "publishedSourceHash": "7e4db010dbb1896f28a646ac73d392b9c325a4c0dd95605c7d90dff0b84bd7e2"
+    },
+    {
+      "id": "gih-082",
+      "candidateNumber": 82,
+      "title": "Kozak i Tatarzyn",
+      "viewStart": 39,
+      "viewEnd": 39,
+      "printedPages": [
+        37
+      ],
+      "sourceBlockSha256": "791bee5696dfd98362f3a98bc7daaf592d42a22829b5cdbcb2e78b1990b8783e",
+      "publishedSourceHash": "3597b5da5627c04553ebc61adf816a4fbb166117f40e99bca8a0904763f15cdb"
+    },
+    {
+      "id": "gih-083",
+      "candidateNumber": 83,
+      "title": "Rabuś jabłek",
+      "viewStart": 39,
+      "viewEnd": 39,
+      "printedPages": [
+        37
+      ],
+      "sourceBlockSha256": "470ba4aef871b7c18e856c357ff6886b514f71fb00435b3f38091a36135b1eca",
+      "publishedSourceHash": "4bffc6b76de1cc7d91277f3e9acc34cb00aba9d2acde5014b57825ca12e5b2f5"
+    },
+    {
+      "id": "gih-084",
+      "candidateNumber": 84,
+      "title": "Raz-dwa-trzy",
+      "viewStart": 40,
+      "viewEnd": 40,
+      "printedPages": [
+        38
+      ],
+      "sourceBlockSha256": "d8dc2dc7defbb0c884ba2fa53f45204e60d496a74c96a34b5af237a9309c04b8",
+      "publishedSourceHash": "eb1e13597ec75753d577620beb1a6c3210e548621bf46e2a5c2ac53de4e4a334"
+    },
+    {
+      "id": "gih-085",
+      "candidateNumber": 85,
+      "title": "Przeszkody w mgle",
+      "viewStart": 40,
+      "viewEnd": 40,
+      "printedPages": [
+        38
+      ],
+      "sourceBlockSha256": "2ba657c488800720a3ba1b9f7fa19d68176fd420eab0b79660536949e5c20c2a",
+      "publishedSourceHash": "e40e0cc6163bd24c784e3d38b9bb4a7d7270d094331a490a0790f15eb78bc8eb",
+      "truncatedBeforeHeading": {
+        "locator": "view-0040-l0009",
+        "heading": "Gry towarzyskie."
+      }
+    },
+    {
+      "id": "gih-086",
+      "candidateNumber": 86,
+      "title": "Tak — nie!",
+      "viewStart": 40,
+      "viewEnd": 40,
+      "printedPages": [
+        38
+      ],
+      "sourceBlockSha256": "761bf24d432891207b3e927c332cc03ec006861a9866f5f963ddd4631dd0abef",
+      "publishedSourceHash": "d8d1f13f9632cba9c845cfb073a63d8342c316d5c124d6e6df578c414287a7d7"
+    },
+    {
+      "id": "gih-087",
+      "candidateNumber": 87,
+      "title": "Co to?",
+      "viewStart": 41,
+      "viewEnd": 41,
+      "printedPages": [
+        39
+      ],
+      "sourceBlockSha256": "40d3de59e238828b5517cc70761b1671606cb20e95ba8411a1ab2f7db282fa9c",
+      "publishedSourceHash": "6939837b63450ff037cd4f80e73c7bbe965a151b1fe172ce1d54da99200b168e"
+    },
+    {
+      "id": "gih-088",
+      "candidateNumber": 88,
+      "title": "Mama — tata",
+      "viewStart": 41,
+      "viewEnd": 41,
+      "printedPages": [
+        39
+      ],
+      "sourceBlockSha256": "5346617a9722f8b82ebe5e58ccaf8ff7ca7fa643b49dc5b9a39b2a6d26ddbb77",
+      "publishedSourceHash": "f1faaf7fe0a03972f432b44e2bd85b07fcd9bf9b682d85852a7df25b1fecf83a"
+    },
+    {
+      "id": "gih-089",
+      "candidateNumber": 89,
+      "title": "Moja Mimi",
+      "viewStart": 41,
+      "viewEnd": 42,
+      "printedPages": [
+        39,
+        40
+      ],
+      "sourceBlockSha256": "de9225670c06a0838f3e9c8999c832f00f6961e7eef7cf7fc4012ec4983c591e",
+      "publishedSourceHash": "d9b40c420cad3a12d0580d4d7f67f1afebd451e9a2f518bcee46c4b646c44c9f"
+    },
+    {
+      "id": "gih-090",
+      "candidateNumber": 90,
+      "title": "Przysłowia",
+      "viewStart": 42,
+      "viewEnd": 42,
+      "printedPages": [
+        40
+      ],
+      "sourceBlockSha256": "22214b0c538fe18a738c93eb3f4970f80774f97f6d01d75381b575b9d5a09dc1",
+      "publishedSourceHash": "6d40171aeaca19c4ac725a6d2d04a9588495abe39848ee094d71cd66e4e006cd"
+    },
+    {
+      "id": "gih-091",
+      "candidateNumber": 91,
+      "title": "Inteligencja",
+      "viewStart": 42,
+      "viewEnd": 42,
+      "printedPages": [
+        40
+      ],
+      "sourceBlockSha256": "8c3f90de347a23b45ec7260666689c5f0c82bc70d898ad188b6827f50c0775ea",
+      "publishedSourceHash": "8df28fb60fced24011622e1321c956fc37f8a37206ddb0bc8429917f3b416d43"
+    },
+    {
+      "id": "gih-092",
+      "candidateNumber": 92,
+      "title": "Czem okręt naładowany?",
+      "viewStart": 43,
+      "viewEnd": 43,
+      "printedPages": [
+        41
+      ],
+      "sourceBlockSha256": "0ac98e2ee0aa056101fa453a47f85909f4785bc388e4038c1557db775f45ed88",
+      "publishedSourceHash": "9b88b8464a181de6051b0b4c01100f013ad49bca4f9f22e2fa597d371b6c1213"
+    },
+    {
+      "id": "gih-093",
+      "candidateNumber": 93,
+      "title": "Abecadłówka",
+      "viewStart": 43,
+      "viewEnd": 43,
+      "printedPages": [
+        41
+      ],
+      "sourceBlockSha256": "2ebdf8ece86ec5c08f0e9b12c806ad52b777c3a6331055337042ada52fcd5592",
+      "publishedSourceHash": "12f706360cda67dcd0ac0d96b5aa3f83d886d6bc6400aa9ac45c14534f0df19d"
+    },
+    {
+      "id": "gih-094",
+      "candidateNumber": 94,
+      "title": "Okręt C",
+      "viewStart": 43,
+      "viewEnd": 44,
+      "printedPages": [
+        41,
+        42
+      ],
+      "sourceBlockSha256": "ec9437194df392ab13b829f29893ca0e6aa8c9aa90a11785cb902ae96af58653",
+      "publishedSourceHash": "f9b7b38a59c69d5f6004ae4d61a4786b492f1867c5260c29652c4d46d47fe957"
+    },
+    {
+      "id": "gih-095",
+      "candidateNumber": 95,
+      "title": "Wielcy ludzie",
+      "viewStart": 44,
+      "viewEnd": 44,
+      "printedPages": [
+        42
+      ],
+      "sourceBlockSha256": "1b5dbfca014576a74f4c098a8196a31b172786407764a3b55884b7fdbdaf2218",
+      "publishedSourceHash": "2ab125782fda7edc4869a1655e5d9e01908c1deea695e54ecc9cca7acbb5df5a"
+    },
+    {
+      "id": "gih-096",
+      "candidateNumber": 96,
+      "title": "Łańcuch sylab",
+      "viewStart": 44,
+      "viewEnd": 44,
+      "printedPages": [
+        42
+      ],
+      "sourceBlockSha256": "0fb5caed483dce4f2ddfb29f957d56a0bc8b2cb4167c9c8719b2d5682111f22f",
+      "publishedSourceHash": "562b348dec85ad6176145bf247de911ed2302b18a69040188365603b0550985e"
+    },
+    {
+      "id": "gih-097",
+      "candidateNumber": 97,
+      "title": "Pięciominutówka",
+      "viewStart": 44,
+      "viewEnd": 45,
+      "printedPages": [
+        42,
+        43
+      ],
+      "sourceBlockSha256": "76034584400db69db3c41f4fdcf3d848c56875a1f5bbf68ed42bdc6f9d474a2a",
+      "publishedSourceHash": "fd739152454f5a60f788d34926f1183b7cd15bb2ff75ff717722baaac436f06c"
+    },
+    {
+      "id": "gih-098",
+      "candidateNumber": 98,
+      "title": "Czarna magja (z odmianą)",
+      "viewStart": 45,
+      "viewEnd": 45,
+      "printedPages": [
+        43
+      ],
+      "sourceBlockSha256": "213584d552c3f4f116d111e6a55d165058807ea2fcd723330842b59d569a2ade",
+      "publishedSourceHash": "cc2bfebc3c36e421f18c4824e8e4b75074588a815bf234de4b7c12fefe5ec525"
+    },
+    {
+      "id": "gih-099",
+      "candidateNumber": 99,
+      "title": "Spowiedź",
+      "viewStart": 45,
+      "viewEnd": 45,
+      "printedPages": [
+        43
+      ],
+      "sourceBlockSha256": "431772a83e507c32ebdd100a079746f0a876c23da25bb4468322aa98e2e53b78",
+      "publishedSourceHash": "51368fec000d659b932fca6bd737b8401be29499312461959772341b9f81d96c"
+    },
+    {
+      "id": "gih-100",
+      "candidateNumber": 100,
+      "title": "Sąd I",
+      "viewStart": 46,
+      "viewEnd": 46,
+      "printedPages": [
+        44
+      ],
+      "sourceBlockSha256": "b173c5bc8a6d5d5b94888cf100fcfada51e7fe4d7ae79c1ca7ce275c2a6ebb27",
+      "publishedSourceHash": "cfdbbf8dab2293b749d866791766651be4fd4976053516d0f154b7d5cc7dcc11"
+    },
+    {
+      "id": "gih-101",
+      "candidateNumber": 101,
+      "title": "Klub świstaków",
+      "viewStart": 46,
+      "viewEnd": 46,
+      "printedPages": [
+        44
+      ],
+      "sourceBlockSha256": "b9cb61203e5eefa4ef2656a399e96393376e33ff4686ca4b6deb93ba6b07e170",
+      "publishedSourceHash": "4545138c14ec64c9999372ec52bc03363deb5c9db78616266c5f28f866193f0f"
+    },
+    {
+      "id": "gih-102",
+      "candidateNumber": 102,
+      "title": "Sekretarz",
+      "viewStart": 46,
+      "viewEnd": 47,
+      "printedPages": [
+        44,
+        45
+      ],
+      "sourceBlockSha256": "d0451805520c3898890abd36af78b68b969bebafc73badf5f79fe09db85f241e",
+      "publishedSourceHash": "a1a23e995328a7a78374f9dc3f777298a96c5e98ec9782a3639d9493cb1a66af"
+    },
+    {
+      "id": "gih-103",
+      "candidateNumber": 103,
+      "title": "Testament",
+      "viewStart": 47,
+      "viewEnd": 47,
+      "printedPages": [
+        45
+      ],
+      "sourceBlockSha256": "4fb06ec8ba01f9f8853f26db77d63d37d6d785f4c6fbeb7ca8703ce84bdf5f96",
+      "publishedSourceHash": "ab18e17746f1d955660064ab01ce6f731eb599cec2a4ffb84802f3b970fac009"
+    },
+    {
+      "id": "gih-104",
+      "candidateNumber": 104,
+      "title": "Poeta",
+      "viewStart": 47,
+      "viewEnd": 47,
+      "printedPages": [
+        45
+      ],
+      "sourceBlockSha256": "a33982e4c4d80adbed69a786e3e3d1f47dc0d10c648fd565bd2d6710d8b0fe63",
+      "publishedSourceHash": "70465de604d37ec5751efd82fd4cc0129b9ed2314c62e6b2b0b7d5b7166e5c8f"
+    },
+    {
+      "id": "gih-105",
+      "candidateNumber": 105,
+      "title": "Coby-gdyby",
+      "viewStart": 48,
+      "viewEnd": 48,
+      "printedPages": [
+        46
+      ],
+      "sourceBlockSha256": "45f449d4acd296f2ecc72b7dd15240ca38b0c1e724618e0386883dd57302b1fe",
+      "publishedSourceHash": "5f92e9b39d399caa568fc572bf4d2fa77e2fc3a960e0e2db0ea79af6598f8ee3"
+    },
+    {
+      "id": "gih-106",
+      "candidateNumber": 106,
+      "title": "Miau",
+      "viewStart": 48,
+      "viewEnd": 48,
+      "printedPages": [
+        46
+      ],
+      "sourceBlockSha256": "d7a2cc894de864794ab601a5031ca8c2a0e84cc3447954ce93ba33b591528ccb",
+      "publishedSourceHash": "880fec07642cc8d366ac1f27ed54e7a3578b67fd662710af90f17d0848a283e7"
+    },
+    {
+      "id": "gih-107",
+      "candidateNumber": 107,
+      "title": "Stajnia bawołów",
+      "viewStart": 48,
+      "viewEnd": 49,
+      "printedPages": [
+        46,
+        47
+      ],
+      "sourceBlockSha256": "d29c78b34b5c9778113eda01f90de0bceeefffc774b7a8fe22f31abed8c1dd41",
+      "publishedSourceHash": "cfcc7381025b39eeb01c7a2b9b9782621aa770dfcd2caa2e8eef25bb56ddd739"
+    },
+    {
+      "id": "gih-108",
+      "candidateNumber": 108,
+      "title": "Perskie oko",
+      "viewStart": 49,
+      "viewEnd": 49,
+      "printedPages": [
+        47
+      ],
+      "sourceBlockSha256": "3d91fa1ef8f4a941b7bf2524aa9a86754be01d29296869a246c59037cfdfefea",
+      "publishedSourceHash": "1b782c306701eaf71ba980e79f23b4b8448041d09942f55aa38bcd8b6f1b0272"
+    },
+    {
+      "id": "gih-109",
+      "candidateNumber": 109,
+      "title": "Tak — nie II",
+      "viewStart": 49,
+      "viewEnd": 49,
+      "printedPages": [
+        47
+      ],
+      "sourceBlockSha256": "8948c63b212e18a4c0ab78d9d8b34c34a780c513a66f50e26a351374f5d9ed3e",
+      "publishedSourceHash": "1a7677a74383c40f4fd8a0a40b012d494c89bfdcfd0eb52d0dc5b80e2f707b7c"
+    },
+    {
+      "id": "gih-110",
+      "candidateNumber": 110,
+      "title": "Adwokat",
+      "viewStart": 49,
+      "viewEnd": 49,
+      "printedPages": [
+        47
+      ],
+      "sourceBlockSha256": "f16439685d14b23607f522f2a4c18957bdb3ff219d223d5efa842f46c3ab1b3d",
+      "publishedSourceHash": "c9226b9023fb7a4e368f2765c08ae3081602b0c2c8c930e386b17e4fbafa36d1"
+    },
+    {
+      "id": "gih-111",
+      "candidateNumber": 111,
+      "title": "Wielcy ludzie II",
+      "viewStart": 49,
+      "viewEnd": 50,
+      "printedPages": [
+        47,
+        48
+      ],
+      "sourceBlockSha256": "2cfe4a93791a94c4aa95d6cadf6c479e147d9bdbc1a687a2fc076134171373d5",
+      "publishedSourceHash": "39a95a0248cbcb7455802be4343008afe7bf84734ad28a8f214126a78a187344"
+    },
+    {
+      "id": "gih-112",
+      "candidateNumber": 112,
+      "title": "Sąd II",
+      "viewStart": 50,
+      "viewEnd": 50,
+      "printedPages": [
+        48
+      ],
+      "sourceBlockSha256": "91a39471420e646760410203d331604d377618704e1e1aee1668d31babd4a50a",
+      "publishedSourceHash": "9fa07c41da723dbc4804a3409a6d206b1d94a353bd2fb21ca2f569e8679d55bd",
+      "truncatedBeforeHeading": {
+        "locator": "view-0050-l0007",
+        "heading": "**Gry służące do ćwiczeń na stopie młodzika.**"
+      }
+    },
+    {
+      "id": "gih-113",
+      "candidateNumber": 113,
+      "title": "Konkurs masztów",
+      "viewStart": 51,
+      "viewEnd": 51,
+      "printedPages": [
+        49
+      ],
+      "sourceBlockSha256": "83422606d2f5292236151eecb27f4b5d8012effb450fc6714f6130b4f7e7fbb3",
+      "publishedSourceHash": "2822bf26492a81e1132804c201fe497b5b4ce637713384cd479f5ba5ec58802b"
+    },
+    {
+      "id": "gih-114",
+      "candidateNumber": 114,
+      "title": "Obrazek nielogiczny",
+      "viewStart": 51,
+      "viewEnd": 51,
+      "printedPages": [
+        49
+      ],
+      "sourceBlockSha256": "a951d7c7b1d5d65321dcf7c7890b87146aa39fbc218ff6983b7e66f28f7a2eae",
+      "publishedSourceHash": "fa5cb31e9df4a350cb042d9dcd3e48060506e8a5ae215d6a42674cb1f3cf0468"
+    },
+    {
+      "id": "gih-115",
+      "candidateNumber": 115,
+      "title": "Zawody śpiewackie",
+      "viewStart": 51,
+      "viewEnd": 51,
+      "printedPages": [
+        49
+      ],
+      "sourceBlockSha256": "95b07741c74d5398dc71c105df89eddd677de49f4772671c3604910c1a076696",
+      "publishedSourceHash": "0e624da68b90a651c399e06d50186f18225f70f81cbe81993902b6f35c8c3de5"
+    },
+    {
+      "id": "gih-117",
+      "candidateNumber": 117,
+      "title": "Odrysowanie Zamku",
+      "viewStart": 52,
+      "viewEnd": 52,
+      "printedPages": [
+        50
+      ],
+      "sourceBlockSha256": "3410be9392d9ceb1eb89397551d1136b12cf1e0754a639140f4ed94180f3d51f",
+      "publishedSourceHash": "9ca9e89c3b40d2a5eed2dfa037dcab8fe57a1d70f836588c138082fcbc013c24"
+    },
+    {
+      "id": "gih-118",
+      "candidateNumber": 118,
+      "title": "Ślepe mapy",
+      "viewStart": 52,
+      "viewEnd": 52,
+      "printedPages": [
+        50
+      ],
+      "sourceBlockSha256": "a900ff0b4cb0496ba99e42c286fa0d954a52967f122b158af14d835e206e84a6",
+      "publishedSourceHash": "642aedb9e94c502f07d1f92fb44bf85474758b2d3edb65923be51183d4379387"
+    },
+    {
+      "id": "gih-119",
+      "candidateNumber": 119,
+      "title": "Kwartety",
+      "viewStart": 52,
+      "viewEnd": 53,
+      "printedPages": [
+        50,
+        51
+      ],
+      "sourceBlockSha256": "dcfb1c72828a6557ce5875fddab577ddbceb470739435baff85f464e563d4792",
+      "publishedSourceHash": "3b5b3579396740d20fa8d2c02756d9e744a00fef658cf7ebdca34e349068f91c"
+    },
+    {
+      "id": "gih-120",
+      "candidateNumber": 120,
+      "title": "Pamiętnik",
+      "viewStart": 53,
+      "viewEnd": 53,
+      "printedPages": [
+        51
+      ],
+      "sourceBlockSha256": "f61ee9365513cb489cf2b3119dca6836792132bd05dbfefb8cf50b3b6080b060",
+      "publishedSourceHash": "d4e873266aedbea9acd64c51a618d4a8f535fef129b2168e0b194b1c26d1331b"
+    },
+    {
+      "id": "gih-121",
+      "candidateNumber": 121,
+      "title": "Przykłady",
+      "viewStart": 53,
+      "viewEnd": 54,
+      "printedPages": [
+        51,
+        52
+      ],
+      "sourceBlockSha256": "3dddbaefb625912fc2e5a84a417dd54d31360a85dced5bbbb58bd3b9bb341495",
+      "publishedSourceHash": "b97d001e6b4c4a8392deb676801925df8fc15bbe5590ab5388331146c53f2d5f"
+    },
+    {
+      "id": "gih-122",
+      "candidateNumber": 122,
+      "title": "Podarty list",
+      "viewStart": 54,
+      "viewEnd": 54,
+      "printedPages": [
+        52
+      ],
+      "sourceBlockSha256": "088c73979774d33648b08617d51395ebbb6b1812b8dc1978dad688138a0b67b6",
+      "publishedSourceHash": "5feeebb82c91e71ef7cd039e4531b95831f51acc2fd5c83d443f69393aeb9f59"
+    },
+    {
+      "id": "gih-123",
+      "candidateNumber": 123,
+      "title": "Gra Kima Prawa",
+      "viewStart": 54,
+      "viewEnd": 55,
+      "printedPages": [
+        52,
+        53
+      ],
+      "sourceBlockSha256": "1d0856019465fbc1be37852ab4cd79c8a3e22a7fc11a535d8c0f7ef27ccc3fd0",
+      "publishedSourceHash": "88a83d73883378feaa859bb8ad0c6127d4359eda5dd361eb56d49aa9f7dd7f03"
+    },
+    {
+      "id": "gih-124",
+      "candidateNumber": 124,
+      "title": "Krzyż Harcerski",
+      "viewStart": 55,
+      "viewEnd": 55,
+      "printedPages": [
+        53
+      ],
+      "sourceBlockSha256": "8dd7f2a2bb9fa313811b04bfbfe5b36786cffe7aa2a6a3f0b229686235702d9b",
+      "publishedSourceHash": "1563c2ff5d05411d2235a940c5128ca5088478e6409ef0effceb032ba9ec525e"
+    },
+    {
+      "id": "gih-125",
+      "candidateNumber": 125,
+      "title": "Kto pod kim?",
+      "viewStart": 55,
+      "viewEnd": 55,
+      "printedPages": [
+        53
+      ],
+      "sourceBlockSha256": "2893cfe7bb9b58a1e37602ae4a1d4dba2d7c57af63970989f00623d328199122",
+      "publishedSourceHash": "0be70c21867d82b7180af2a290749d15af0cd52ab766d3bfa8ebfe5818fe7ea2"
+    },
+    {
+      "id": "gih-126",
+      "candidateNumber": 126,
+      "title": "Zmiany w mundurze",
+      "viewStart": 56,
+      "viewEnd": 56,
+      "printedPages": [
+        54
+      ],
+      "sourceBlockSha256": "e5f7dcb73593b4e1cc9ed9a07a285dc9f26a8ae250cf03d10230610e9781f724",
+      "publishedSourceHash": "9871740a7380cc9f27f4e878145e02938e1d1463d9a4321eefcc45d9d16e37d9"
+    },
+    {
+      "id": "gih-127",
+      "candidateNumber": 127,
+      "title": "Alarm na planie",
+      "viewStart": 56,
+      "viewEnd": 56,
+      "printedPages": [
+        54
+      ],
+      "sourceBlockSha256": "b47c3f8ad512c2bf58c999309d432ccbc7015f39fb195dbfa6f56a6d91e21c2a",
+      "publishedSourceHash": "9c1d6897012896b8023b1c927567fd7c6267e08f7c95ba7319440e31d1c9e71d"
+    },
+    {
+      "id": "gih-128",
+      "candidateNumber": 128,
+      "title": "Roztrzepany sekretarz",
+      "viewStart": 57,
+      "viewEnd": 57,
+      "printedPages": [
+        55
+      ],
+      "sourceBlockSha256": "5597b42d028b6f3ab49078ad8cdce3d6e3f1e5e8c55aceacb6039e9f95119b62",
+      "publishedSourceHash": "06af6110303a74565537b0a8b835dfa4d39291fa0037e03f659c3217b73517ec"
+    },
+    {
+      "id": "gih-130",
+      "candidateNumber": 130,
+      "title": "Plan dzielnicy",
+      "viewStart": 57,
+      "viewEnd": 57,
+      "printedPages": [
+        55
+      ],
+      "sourceBlockSha256": "c7c424d7ebf33443432a8ae1529f2965f1b30ef3c77b3f0b0f9bf0c3a7130b67",
+      "publishedSourceHash": "c221ce021049de1871cd8e60e1086ff4c1048bd6c03a8b83c4c9f35c48e8106f"
+    },
+    {
+      "id": "gih-131",
+      "candidateNumber": 131,
+      "title": "Nagły wybuch",
+      "viewStart": 57,
+      "viewEnd": 57,
+      "printedPages": [
+        55
+      ],
+      "sourceBlockSha256": "c488dfbaf284086bc13d0753c840c39b231d93026eecc3109c78eb80ef2c206d",
+      "publishedSourceHash": "788627aa2abe05cd726a551cf260973e77f52594bd9c8ea61ed26f592eacd064"
+    },
+    {
+      "id": "gih-132",
+      "candidateNumber": 132,
+      "title": "Zastęp inwalidów",
+      "viewStart": 58,
+      "viewEnd": 58,
+      "printedPages": [
+        56
+      ],
+      "sourceBlockSha256": "2346d54c789eba10bb5dd275d8c566798adac0362267380c32a6c31da9735ae8",
+      "publishedSourceHash": "b9e5b0f73784aba6f468ee63fd46eba44ed4253f727e9c57aee18bfa2756f0c2"
+    },
+    {
+      "id": "gih-134",
+      "candidateNumber": 134,
+      "title": "Okręty",
+      "viewStart": 58,
+      "viewEnd": 58,
+      "printedPages": [
+        56
+      ],
+      "sourceBlockSha256": "c6508b52e7da7b48a342be99b067bb3eeb19f53ef8feacf94899c0a13e657209",
+      "publishedSourceHash": "c868c77df0e0dde4d31a917e502e616605ad4477845abd9b778da837bc4033fd"
+    },
+    {
+      "id": "gih-135",
+      "candidateNumber": 135,
+      "title": "Morze",
+      "viewStart": 58,
+      "viewEnd": 59,
+      "printedPages": [
+        56,
+        57
+      ],
+      "sourceBlockSha256": "a8163037337ee68c627c8d3afd61d89b6de77cc8f4c58c3ba124daab0547bac8",
+      "publishedSourceHash": "6b98e5d06454234a2d6101987730b0f52b998398e47e793a19c5d2685fe15e3d"
+    },
+    {
+      "id": "gih-136",
+      "candidateNumber": 136,
+      "title": "Węzły poomacku",
+      "viewStart": 59,
+      "viewEnd": 59,
+      "printedPages": [
+        57
+      ],
+      "sourceBlockSha256": "e3d40b486e46382b322a30c692846fcc9269fd5ac61c53725ae680c6eafa4cf5",
+      "publishedSourceHash": "8dec3eba33cdc94afbf9aa987ee0bab3e96506ef082be420c2ef94b890eb38e7"
+    },
+    {
+      "id": "gih-137",
+      "candidateNumber": 137,
+      "title": "Wycieczka",
+      "viewStart": 59,
+      "viewEnd": 59,
+      "printedPages": [
+        57
+      ],
+      "sourceBlockSha256": "9200309876014e8865339203e91cf4fcf5bad85ca7a40a3ba94e9f285cc34223",
+      "publishedSourceHash": "5af38e2775d80653c5c0429cd5e05233b06677903d02bbab3bc4e66dbeffbc8b"
+    },
+    {
+      "id": "gih-138",
+      "candidateNumber": 138,
+      "title": "Most",
+      "viewStart": 59,
+      "viewEnd": 60,
+      "printedPages": [
+        57,
+        58
+      ],
+      "sourceBlockSha256": "214bb5f3d6b2cbf67df1fd716f4280622e44c3d5eccadc7b6093f45723f9a3d7",
+      "publishedSourceHash": "185873a4a8c78154c480624c9af9ab057b03611879751273181a5d2a5ef74834"
+    },
+    {
+      "id": "gih-142",
+      "candidateNumber": 142,
+      "title": "Marsz z kompasem",
+      "viewStart": 60,
+      "viewEnd": 61,
+      "printedPages": [
+        58,
+        59
+      ],
+      "sourceBlockSha256": "712ac82cf0bd31336579b6824d65c1db69a5524ded77f866102a1ab6737fc424",
+      "publishedSourceHash": "801570d52aac4887e37f3eea3cbbe0a8f45842a4eb3df8f53cf80908533920c1"
+    },
+    {
+      "id": "gih-144",
+      "candidateNumber": 144,
+      "title": "Musztra",
+      "viewStart": 61,
+      "viewEnd": 61,
+      "printedPages": [
+        59
+      ],
+      "sourceBlockSha256": "61e6b033549346f24a2e2926d7c48edf85683a3b23a480b9e2b0d450cbd4b2c0",
+      "publishedSourceHash": "3bad12f4273bed2281ab781d3a2646dd8f797cf556d8dfb3ef866a23c574fb11"
+    },
+    {
+      "id": "gih-145",
+      "candidateNumber": 145,
+      "title": "Listy indyjskie",
+      "viewStart": 61,
+      "viewEnd": 61,
+      "printedPages": [
+        59
+      ],
+      "sourceBlockSha256": "15d4cd78dfe5f9e3db2507558d1ed5cdbf15c380d6590cbc0a985aa1ef11e09d",
+      "publishedSourceHash": "98e0154c4490a613e11fe04b5b708ea8c5db1438db536f0b0472adb091006ffc"
+    },
+    {
+      "id": "gih-146",
+      "candidateNumber": 146,
+      "title": "Wyprawa Indjan",
+      "viewStart": 61,
+      "viewEnd": 61,
+      "printedPages": [
+        59
+      ],
+      "sourceBlockSha256": "3c850c72aef7ba61e8302d9364365dc78aea4f0a66a5547ad6fa348d1afb31b1",
+      "publishedSourceHash": "738700efc13322ee66fa301cd099235383569c156b33dc3afd3c5fead3c8a711",
+      "truncatedBeforeHeading": {
+        "locator": "view-0062-l0001",
+        "heading": "Gry służące do ćwiczenia się w sygnalizacji."
+      }
+    },
+    {
+      "id": "gih-147",
+      "candidateNumber": 147,
+      "title": "Odrzucanie liter",
+      "viewStart": 65,
+      "viewEnd": 65,
+      "printedPages": [
+        63
+      ],
+      "sourceBlockSha256": "03a06abd0e0dc3c9cc6d504f3e94bcd0741ce26932bec25247aa41c9c1267685",
+      "publishedSourceHash": "62c4cfdc6a8f462b6e3472b62a48cc1c0ce4937eba91844604dda47b12f4b27c"
+    },
+    {
+      "id": "gih-148",
+      "candidateNumber": 148,
+      "title": "Zmiana miejsc",
+      "viewStart": 65,
+      "viewEnd": 65,
+      "printedPages": [
+        63
+      ],
+      "sourceBlockSha256": "7539aab6280b4fb9ddce81bd8c15d7caf7d6337702d803774e755fc9ef4113b3",
+      "publishedSourceHash": "53eca69be1e179adf01895ee2b146e3cec4291dc2dcefba050b8545a903ce581"
+    },
+    {
+      "id": "gih-149",
+      "candidateNumber": 149,
+      "title": "Czem okręt naładowany? II",
+      "viewStart": 65,
+      "viewEnd": 66,
+      "printedPages": [
+        63,
+        64
+      ],
+      "sourceBlockSha256": "e40189c6c5668284e612060c414980d27f6971f11d12de8e4d7ef3402680875a",
+      "publishedSourceHash": "1857c87db5e8860c311575ca86e4fb014d944d5101299af64fee82b54c6677fe"
+    },
+    {
+      "id": "gih-150",
+      "candidateNumber": 150,
+      "title": "Kropki — kreski",
+      "viewStart": 66,
+      "viewEnd": 66,
+      "printedPages": [
+        64
+      ],
+      "sourceBlockSha256": "47d07a5df6ebfecc8ddec41c93cbf2ce74619c81cfb703b1c7fce77b3430ab78",
+      "publishedSourceHash": "9b0d46be9a304d75264acbdef31922cd484f0da580b2d6834db297332b93a21f"
+    },
+    {
+      "id": "gih-151",
+      "candidateNumber": 151,
+      "title": "Wyścig par",
+      "viewStart": 66,
+      "viewEnd": 67,
+      "printedPages": [
+        64,
+        65
+      ],
+      "sourceBlockSha256": "e7025e609661ac58d11e2801911560902e6337803010fa490a0babeeeecae0c7",
+      "publishedSourceHash": "8dda78483d20b61cfcbf202821e9ec94f99e74e2e49ec9fb8feac97c228524e7"
+    },
+    {
+      "id": "gih-152",
+      "candidateNumber": 152,
+      "title": "Klub sygnalistów",
+      "viewStart": 67,
+      "viewEnd": 67,
+      "printedPages": [
+        65
+      ],
+      "sourceBlockSha256": "e187e6a7c09296fa9702824aca3219530094aa823ac3fa1d3856bb7f6aef0902",
+      "publishedSourceHash": "a2d4dec6d56201b861492cb7758e3bcc46453008ca3b8461829f0b49150a7d47"
+    },
+    {
+      "id": "gih-153",
+      "candidateNumber": 153,
+      "title": "Gra Kima sygnalizacyjna",
+      "viewStart": 67,
+      "viewEnd": 67,
+      "printedPages": [
+        65
+      ],
+      "sourceBlockSha256": "2415f3d384d4551784250a2827d7d4791d21aee533fef4ade9b1f933f78e0c53",
+      "publishedSourceHash": "c8cdce41bd6ac281107707424344ac0b302e68d970fee0100f4430c75a10867a"
+    },
+    {
+      "id": "gih-154",
+      "candidateNumber": 154,
+      "title": "Składanie wyrazów",
+      "viewStart": 67,
+      "viewEnd": 68,
+      "printedPages": [
+        65,
+        66
+      ],
+      "sourceBlockSha256": "24c28c2e9151fca24ec9164484917f554493a76929b07e6a1700833756abf265",
+      "publishedSourceHash": "af9e3ffd90a4c00446f85a6b585f569f21502057e9b3812fc87949fdad378e5b"
+    },
+    {
+      "id": "gih-155",
+      "candidateNumber": 155,
+      "title": "List roztargnionego",
+      "viewStart": 68,
+      "viewEnd": 68,
+      "printedPages": [
+        66
+      ],
+      "sourceBlockSha256": "ac96b7ad694b787ae2f93dec49db4131c5e3d60147192f5c4cf5b356a6159560",
+      "publishedSourceHash": "bba05578452059b66bebf8f6ab70ddc3213f47ab89404f316fb306106a582b8e"
+    },
+    {
+      "id": "gih-156",
+      "candidateNumber": 156,
+      "title": "Pięciominutówka II",
+      "viewStart": 68,
+      "viewEnd": 68,
+      "printedPages": [
+        66
+      ],
+      "sourceBlockSha256": "5df4cc25bf0aeb1fda8980cedea0994a1934a63698cb73a4b633232a075bcbc2",
+      "publishedSourceHash": "a6f2c636d6e8e6acec131c16dbd51ebc90676faf45b539124ad96df5c722d521",
+      "truncatedBeforeHeading": {
+        "locator": "view-0068-l0013",
+        "heading": "Ranny w górach."
+      }
+    },
+    {
+      "id": "gih-157",
+      "candidateNumber": 157,
+      "title": "Zadanie łączności",
+      "viewStart": 68,
+      "viewEnd": 69,
+      "printedPages": [
+        66,
+        67
+      ],
+      "sourceBlockSha256": "f86b0c93ee38527ed9c3d92ab99d6187ea62fadd0a40f25f4f63899680ea0b8b",
+      "publishedSourceHash": "4560741df9fed51f82d3f78866cfbb799c195db4ad035bd423c38a68cff728ca"
+    },
+    {
+      "id": "gih-158",
+      "candidateNumber": 158,
+      "title": "List więźnia",
+      "viewStart": 69,
+      "viewEnd": 70,
+      "printedPages": [
+        67,
+        68
+      ],
+      "sourceBlockSha256": "9148a57c88f537852b477efc003fd02b9e3789d127fea9b6e03265119c53b844",
+      "publishedSourceHash": "bad9cbe5e5856cf82d47fbcb88fd4ddd547f0aa6014e4596779c586e57b053a5"
+    },
+    {
+      "id": "gih-160",
+      "candidateNumber": 160,
+      "title": "Wyścig depesz",
+      "viewStart": 71,
+      "viewEnd": 71,
+      "printedPages": [
+        69
+      ],
+      "sourceBlockSha256": "329f68e15018a947dca4cb02c18e01478a11b036a8265424db2029a089dc73df",
+      "publishedSourceHash": "b42f875d6bf1453809ad5d9339b914e56c4713741449a6731eebaaea5508cbf1"
+    },
+    {
+      "id": "gih-161",
+      "candidateNumber": 161,
+      "title": "Pogoń za zbiegami",
+      "viewStart": 71,
+      "viewEnd": 71,
+      "printedPages": [
+        69
+      ],
+      "sourceBlockSha256": "07e54b0b6200135686f6e56fc159f89750c4daef2365d4c6dabfdcb5a79cb647",
+      "publishedSourceHash": "bc8a020a0104efaa3d5afdcd66244b5a98e845279daf5e1b9933677d17d20c5e"
+    },
+    {
+      "id": "gih-162",
+      "candidateNumber": 162,
+      "title": "Oblężenie Czorsztyna",
+      "viewStart": 71,
+      "viewEnd": 72,
+      "printedPages": [
+        69,
+        70
+      ],
+      "sourceBlockSha256": "8eca86eb1a496fcb804b0c3ff18bac4b2b14b18f0e9b222a949d90ac86775c40",
+      "publishedSourceHash": "0b9e4bb435ac7b69f691b3fd293c58438c14d4838511bd2d4cf00f5628fd323d",
+      "truncatedBeforeHeading": {
+        "locator": "view-0072-l0008",
+        "heading": "Gry służące do ćwiczenia się"
+      }
+    },
+    {
+      "id": "gih-163",
+      "candidateNumber": 163,
+      "title": "Kim — Aptekarz I",
+      "viewStart": 73,
+      "viewEnd": 73,
+      "printedPages": [
+        71
+      ],
+      "sourceBlockSha256": "0688b9833cf483848099fede27607137e76c46f37bed7c508f08377f6b3a724b",
+      "publishedSourceHash": "662f80773eb368446d0f920fdad1df9e251fa8e92efa621e1104ec0926728361"
+    },
+    {
+      "id": "gih-164",
+      "candidateNumber": 164,
+      "title": "Kim — Aptekarz II",
+      "viewStart": 73,
+      "viewEnd": 74,
+      "printedPages": [
+        71,
+        72
+      ],
+      "sourceBlockSha256": "8d3af2e3b4ea8fd810b66debe32264d185ab961f4049e17e8636c84a34dd9cc3",
+      "publishedSourceHash": "38f2a5e064541f6bf8320a00aaac82465f0d57503ef5126d2600fe962c44fbec"
+    },
+    {
+      "id": "gih-165",
+      "candidateNumber": 165,
+      "title": "Tragiczna historja",
+      "viewStart": 74,
+      "viewEnd": 74,
+      "printedPages": [
+        72
+      ],
+      "sourceBlockSha256": "41d264645dffad3df8048d134285235a2abca314b95a94079b9a9baeb96b18ed",
+      "publishedSourceHash": "0e2659e89a33c1122361cbf5b0e24f0418743fed963e44087da8545703062e0f"
+    },
+    {
+      "id": "gih-166",
+      "candidateNumber": 166,
+      "title": "Na miejscu wypadku",
+      "viewStart": 74,
+      "viewEnd": 74,
+      "printedPages": [
+        72
+      ],
+      "sourceBlockSha256": "ed47a92437b0cb10f8a9ffdfe7b6c67195460d77190e7c06b7fb5abc1b230620",
+      "publishedSourceHash": "9d243de5b745f0361b5e0a616a5793d3550fc37a7eb6850f202febb33b71ca80"
+    },
+    {
+      "id": "gih-167",
+      "candidateNumber": 167,
+      "title": "Nagły wypadek",
+      "viewStart": 74,
+      "viewEnd": 74,
+      "printedPages": [
+        72
+      ],
+      "sourceBlockSha256": "b49d9d29aa638f515bbd8fd52e24ca1deb32193aea3576bed1f7fc69f06d2e6f",
+      "publishedSourceHash": "8194b9fcebfc4b944cbbc8609be5c38977be07cbc83d57f0fdf4176d45fab8eb"
+    },
+    {
+      "id": "gih-168",
+      "candidateNumber": 168,
+      "title": "Wyścig noszy",
+      "viewStart": 74,
+      "viewEnd": 74,
+      "printedPages": [
+        72
+      ],
+      "sourceBlockSha256": "821ca447604c747c21bfb54a37ceb01fec890613ad27de4a0cd6bb4427eadf13",
+      "publishedSourceHash": "638559ab16e31bcabbbed2ce1b6b1f97c6ec31dc78d6cadff8e57b64a8198c50"
+    },
+    {
+      "id": "gih-169",
+      "candidateNumber": 169,
+      "title": "Katastrofa",
+      "viewStart": 75,
+      "viewEnd": 75,
+      "printedPages": [
+        73
+      ],
+      "sourceBlockSha256": "777d7aaed7d8797ae4bfeddfff1652738640d44f4725047d5b0f9a24eb7226b9",
+      "publishedSourceHash": "e58c426fd91e13c5d7df439a57f858545752383dad41a8e3c5e599ee88729803"
+    },
+    {
+      "id": "gih-170",
+      "candidateNumber": 170,
+      "title": "Ranny w górach",
+      "viewStart": 75,
+      "viewEnd": 75,
+      "printedPages": [
+        73
+      ],
+      "sourceBlockSha256": "42707d942265221a915f407aed4031ae2b538f2145a97361b8d4009b315db12a",
+      "publishedSourceHash": "67b74fa853e5562b4b3f281472d383389f121d1218e871d29d0b556ff8ea2585"
+    },
+    {
+      "id": "gih-171",
+      "candidateNumber": 171,
+      "title": "Wstrząs wewnętrzny",
+      "viewStart": 75,
+      "viewEnd": 76,
+      "printedPages": [
+        73,
+        74
+      ],
+      "sourceBlockSha256": "136b599c9ea597a8c997fe22b5aaa2ff2b9f484c0b9b0b8525e52005cb967a2b",
+      "publishedSourceHash": "d4679796698396d5caeaf085d9b000d951c909b8708f8baed670561aea6d3fba",
+      "truncatedBeforeHeading": {
+        "locator": "view-0076-l0004",
+        "heading": "**Inne gry.**"
+      }
+    },
+    {
+      "id": "gih-172",
+      "candidateNumber": 172,
+      "title": "Rozkazy radjowe (z odmianami)",
+      "viewStart": 77,
+      "viewEnd": 77,
+      "printedPages": [
+        75
+      ],
+      "sourceBlockSha256": "36107738e7025686e0da02cb7951e16888f1f0bd56ab7e50b256a25cbc522a50",
+      "publishedSourceHash": "59c2f64a32cb33b5db165cba5f774fd2b95ee7b33a24a64e2b429f7efb0d3158"
+    },
+    {
+      "id": "gih-173",
+      "candidateNumber": 173,
+      "title": "Podróż babci naokoło stołu (z odmianą)",
+      "viewStart": 77,
+      "viewEnd": 77,
+      "printedPages": [
+        75
+      ],
+      "sourceBlockSha256": "d4103ba38bc323d14097f793342a1aa0ce0c18e3dd22fb0e4faed77cbc95a4da",
+      "publishedSourceHash": "6305de3b9f7244ab5636435ab218aa4d575332de5f2659042f972ce89f634370"
+    },
+    {
+      "id": "gih-174",
+      "candidateNumber": 174,
+      "title": "Rysowanie planów",
+      "viewStart": 77,
+      "viewEnd": 78,
+      "printedPages": [
+        75,
+        76
+      ],
+      "sourceBlockSha256": "cc8524bf99e9e3c4f31733208f3a911f2e9de6d01857f5a37edefdd7050d6203",
+      "publishedSourceHash": "954dd9123c69ae8fcc9261b228954ed54ff0cc9a2482cd110ce48cb9d99710e1"
+    },
+    {
+      "id": "gih-175",
+      "candidateNumber": 175,
+      "title": "Góry mądrości",
+      "viewStart": 78,
+      "viewEnd": 78,
+      "printedPages": [
+        76
+      ],
+      "sourceBlockSha256": "65e7cf18450d23baa1c6394812eadf9ed0886a5689af819e48fd446895372714",
+      "publishedSourceHash": "95f82465fa0a4f4478f1ac960f40e8bcdc9b7d766dcfa01f20e2d8c236a1b20b"
+    },
+    {
+      "id": "gih-176",
+      "candidateNumber": 176,
+      "title": "Sygnalizacja na szkicu (z odmianą)",
+      "viewStart": 78,
+      "viewEnd": 78,
+      "printedPages": [
+        76
+      ],
+      "sourceBlockSha256": "44fb13f78274e5dffbf9b14987ee7b5ac3245db88f59416758184a1771fcc29b",
+      "publishedSourceHash": "43ac4c90ad579151d83b99775780f097d21fe25c903368f15d59748f25e41b75"
+    },
+    {
+      "id": "gih-177",
+      "candidateNumber": 177,
+      "title": "Gra Kima terenoznawcza",
+      "viewStart": 78,
+      "viewEnd": 79,
+      "printedPages": [
+        76,
+        77
+      ],
+      "sourceBlockSha256": "ee572f7742224496781ccf68f4c8d63c198436df69be1f1c784484d9ac407dcd",
+      "publishedSourceHash": "52ed1dc43db66a5bbae2cdfb2b5c7663060f3d8189d61272ee50c99d545aab9d"
+    },
+    {
+      "id": "gih-178",
+      "candidateNumber": 178,
+      "title": "Loteryjka terenoznawcy",
+      "viewStart": 79,
+      "viewEnd": 79,
+      "printedPages": [
+        77
+      ],
+      "sourceBlockSha256": "498061455ef5d6ab38192c877b7558246445ec784aa31ba74222cad09a542de4",
+      "publishedSourceHash": "4cc8587223f9d0f37f6b497c516cdcfcffa86065c18be5372826d54989cc017a"
+    },
+    {
+      "id": "gih-179",
+      "candidateNumber": 179,
+      "title": "Dyktando terenoznawcze",
+      "viewStart": 79,
+      "viewEnd": 79,
+      "printedPages": [
+        77
+      ],
+      "sourceBlockSha256": "6871344655dbcf64b3b44332e674174b581e74777c9950af4fd58399c431b6db",
+      "publishedSourceHash": "133241697defe15a4221c24e5ba4a6d1e907c2e2731db5b0612489b8b2ba76df"
+    },
+    {
+      "id": "gih-180",
+      "candidateNumber": 180,
+      "title": "Szkic z błędem",
+      "viewStart": 79,
+      "viewEnd": 80,
+      "printedPages": [
+        77,
+        78
+      ],
+      "sourceBlockSha256": "b95bd0bef317071b58744fe9dc9f1d1f2de6546ff2f8bb25f4d9ebae047e827a",
+      "publishedSourceHash": "ecd3bfab43f019f4db7047f96cef832d98f166e0816686e432e141640d5c71d4"
+    },
+    {
+      "id": "gih-181",
+      "candidateNumber": 181,
+      "title": "Wczytaj się w mapę (z odmianą)",
+      "viewStart": 80,
+      "viewEnd": 80,
+      "printedPages": [
+        78
+      ],
+      "sourceBlockSha256": "9da87df42eb3d7813b4faa918b3319b7290c315a4951fcd411061c1c6fa56e9b",
+      "publishedSourceHash": "2523a01c87265cc8c18e7e171780409cc23ce5a861cff4682090c3560c5b5773"
+    },
+    {
+      "id": "gih-182",
+      "candidateNumber": 182,
+      "title": "Spacer po mapie",
+      "viewStart": 80,
+      "viewEnd": 80,
+      "printedPages": [
+        78
+      ],
+      "sourceBlockSha256": "f405f24d058dbd445faaa5bc893c2c8568719816155f6f9a9c3b52bff334a6af",
+      "publishedSourceHash": "cea7ad4660968ab1893b80eb1e35ed3d673ede048643a56f4747e8d06525c3bd"
+    },
+    {
+      "id": "gih-183",
+      "candidateNumber": 183,
+      "title": "Określ kierunek",
+      "viewStart": 80,
+      "viewEnd": 80,
+      "printedPages": [
+        78
+      ],
+      "sourceBlockSha256": "d65679019c87fe9bbc45bfbb5fdca38773f727865aac50b0b70782f3a084210b",
+      "publishedSourceHash": "dad6e0c48328bc1bf0841aea74b972b84b7de0562889b677a787d11452c1de01"
+    },
+    {
+      "id": "gih-184",
+      "candidateNumber": 184,
+      "title": "Dokąd dojdziesz?",
+      "viewStart": 80,
+      "viewEnd": 80,
+      "printedPages": [
+        78
+      ],
+      "sourceBlockSha256": "b37ea25a8fd2995382ae49bf2feec544230497c271854c81caf3a0b848f5473f",
+      "publishedSourceHash": "665860490a0c51a3d511bfd1d52a2e21c1d2f63ca6acf622117a93041ec35086",
+      "truncatedBeforeHeading": {
+        "locator": "view-0080-l0021",
+        "heading": "**Zastosowanie w terenie.**"
+      }
+    }
+  ]
+}

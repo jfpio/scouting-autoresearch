@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "semantic-map-v3-embeddings",
+  "batchId": "20260907T225521004045Z",
+  "generatedAt": "2026-09-07T22:55:21.004045+00:00",
+  "sourceId": "piasecki-movement-games-1922",
+  "modelRequested": "mistral-embed-2312",
+  "model": "mistral-embed-2312",
+  "dimensions": 1024,
+  "recipeVersion": "bilingual-game-context-v1",
+  "billingMode": "education-credit",
+  "modelAccess": {
+    "checked": true,
+    "modelId": "mistral-embed-2312"
+  },
+  "referencePriceUsdPerMillionInputTokens": 0.1,
+  "referencePriceSource": "https://docs.mistral.ai/models/mistral-embed-23-12",
+  "referencePriceAccessedOn": "2026-09-04",
+  "activityIds": [
+    "zgr-115",
+    "zgr-116",
+    "zgr-117",
+    "zgr-118",
+    "zgr-119",
+    "zgr-120",
+    "zgr-121",
+    "zgr-122",
+    "zgr-123",
+    "zgr-124",
+    "zgr-125",
+    "zgr-127",
+    "zgr-128",
+    "zgr-129",
+    "zgr-130",
+    "zgr-131",
+    "zgr-133"
+  ],
+  "usage": {
+    "promptTokens": 13996,
+    "billedCostUsd": null,
+    "referenceCostUsd": 0.0013996
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-source-expansion",
+  "runId": "v3-source-expansion-2026-09",
+  "milestone": "V3-R1",
+  "status": "complete",
+  "manifestPath": "config/v3-source-expansion.yaml",
+  "reviewRecord": "vault/reviews/inbox/v3-source-expansion-2026-09.md",
+  "reportPath": "data/reports/v3-source-expansion-2026-09.json",
+  "preparedAt": "2026-09-06",
+  "baseline": {
+    "activityCount": 284,
+    "gameCount": 199,
+    "sourceCount": 4
+  },
+  "preparation": {
+    "frenchPipeline": {
+      "status": "complete",
+      "directions": ["fr-pl", "fr-en"],
+      "reasoningMode": "disabled"
+    },
+    "metadataAndRightsResearch": {
+      "status": "human-approved",
+      "reviewRecord": "vault/reviews/accepted/v3-polish-sources-acquisition.md",
+      "corrections": [
+        "Piasecki movement-games edition corrected from 1920 coauthored to 1922 Piasecki-only",
+        "Młoda drużyna URL corrected to publication 29783 edition 28922",
+        "Harce młodzieży polskiej retargeted to open WBC edition 515207/440525",
+        "Four legacy Polona IDs resolved to current UUID records",
+        "Gry i zabawy w izbie harcerskiej retargeted from a robots-blocked PBC ZIP to the exact 1934 second edition in Polona"
+      ]
+    },
+    "acquisitionPreparation": {
+      "status": "approved-scope-executed-for-eight-polish-sources",
+      "contentDownloadsPerformed": 10,
+      "sourceUnitsWithCompletedAcquisition": 8,
+      "incompleteIndirectDjvuIndexesDownloaded": 2,
+      "regionalDirectArtifactLinksDiscovered": 7,
+      "directArtifactCandidatesActionableAfterApproval": 4,
+      "automatedFetchBlockedByRobots": 2,
+      "robotsBlockedLinksWithPermittedAlternative": 1,
+      "polonaRecordsRequiringPost-approvalResolution": 0,
+      "preFetchedGallicaSources": 1,
+      "rawArtifactsStorage": "repository-artifacts-gitignored-group-storage",
+      "executionAdapterStatus": "implemented-and-smoke-tested",
+      "acquisitionSmokeJobId": "22076104"
+    },
+    "heliosSiteSmoke": {
+      "status": "passed",
+      "jobId": "22070124",
+      "architecture": "x86_64",
+      "python": "3.12.3",
+      "node": "22.19.0",
+      "renderedPages": 584,
+      "checkedLinksAndAssets": 17272
+    }
+  },
+  "candidateInventory": {
+    "status": "complete-for-acquired-sources",
+    "candidateCount": 867,
+    "importedActivityCount": 715,
+    "metadataOnly": true,
+    "rawOcrStorage": "repository-artifacts-gitignored-group-storage",
+    "componentReviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md",
+    "ocr": {
+      "model": "mistral-ocr-4-1",
+      "billingMode": "education-credit",
+      "processedViewCount": 653,
+      "referenceCostUsd": 2.616,
+      "referenceCostLimitUsd": 10.0
+    }
+  },
+  "corpusAnalysis": {
+    "status": "complete-human-review-required",
+    "gameCount": 914,
+    "participantLexicalSignalCount": 321,
+    "participantNumericSignalCount": 91,
+    "practicalFacetDimensionCount": 12,
+    "semanticCandidateCount": 50,
+    "approvedRelationCount": 1,
+    "productionFieldsWritten": []
+  },
+  "semanticMap": {
+    "status": "complete",
+    "gameCount": 914,
+    "embeddingModel": "mistral-embed-2312",
+    "embeddingDimensions": 1024,
+    "embeddingRequestCount": 26,
+    "embeddingPromptTokens": 502704,
+    "embeddingReferenceCostUsd": 0.0502704,
+    "trustworthinessAt10": 0.81327401,
+    "minimumStabilitySpearman": 0.74052282,
+    "minimumMeanNeighborRetentionAt10": 0.51126915
+  },
+  "validation": {
+    "status": "passed",
+    "targetedV3Tests": "passed",
+    "fullUnitTestCount": 275,
+    "fullUnitTestSlurmJobId": "22127543",
+    "fullUnitTestExitCode": "0:0",
+    "repositoryValidation": "passed",
+    "repositoryValidationSlurmJobId": "22127572",
+    "siteBuildSlurmJobId": "22127572",
+    "renderedPageCount": 2014,
+    "checkedLinkAndAssetCount": 60887
+  },
+  "humanGates": [
+    {
+      "id": "historyczna-directory-access",
+      "status": "approved",
+      "approvedAt": "2026-09-06",
+      "approvedBy": "repository-owner"
+    },
+    {
+      "id": "chamarande-ocr-page-scope",
+      "status": "approved",
+      "approvedAt": "2026-09-06",
+      "approvedBy": "repository-owner"
+    },
+    {
+      "id": "polish-source-acquisition-and-rights",
+      "status": "approved",
+      "approvedAt": "2026-09-06",
+      "approvedBy": "repository-owner"
+    },
+    {
+      "id": "durable-research-artifact-storage",
+      "status": "approved",
+      "approvedAt": "2026-09-07",
+      "approvedBy": "repository-owner",
+      "decision": "repository-artifacts-gitignored-group-storage",
+      "reviewRecord": "vault/reviews/accepted/v3-durable-artifact-storage-2026-09.md"
+    },
+    {
+      "id": "per-item-rights-and-component-authorship",
+      "status": "approved",
+      "approvedAt": "2026-09-07",
+      "approvedBy": "repository-owner",
+      "decision": "explicit-library-public-domain-status-is-ground-truth",
+      "reviewRecord": "vault/reviews/accepted/v3-component-authorship-2026-09.md"
+    },
+    {
+      "id": "pbc-direct-djvu-artifacts",
+      "status": "approved",
+      "approvedAt": "2026-09-07",
+      "approvedBy": "repository-owner",
+      "reviewRecord": "vault/reviews/accepted/pbc-direct-djvu-alternatives.md"
+    }
+  ],
+  "sourceUnits": [
+    {"id": "jasinski-field-games-1938", "status": "imported", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/jasinski-field-games-1938.json", "candidateReport": "data/reports/jasinski-field-games-1938-candidates.json", "extractionReport": "data/reports/jasinski-field-games-1938-extraction.json", "translationReport": "data/reports/jasinski-field-games-1938-translation-pl-en.json", "modelEvaluationReport": "data/reports/jasinski-field-games-1938-translation-model-evaluation.json", "candidateCount": 196, "importedActivityCount": 138, "ocrReferenceCostUsd": 0.9, "translationReferenceCostUsd": 0.125461, "modelEvaluationReferenceCostUsd": 0.00913305, "sourceValidation": {"status": "passed", "validator": "scripts/validate_v3_imported_source.py", "targetedTestCount": 14, "validatedAt": "2026-09-07"}},
+    {"id": "mojmir-scout-games-1912", "status": "imported", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/mojmir-scout-games-1912.json", "candidateReport": "data/reports/mojmir-scout-games-1912-candidates.json", "extractionReport": "data/reports/mojmir-scout-games-1912-extraction.json", "translationReport": "data/reports/mojmir-scout-games-1912-translation-pl-en.json", "modelEvaluationReport": "data/reports/mojmir-scout-games-1912-translation-model-evaluation.json", "candidateCount": 85, "importedActivityCount": 80, "ocrReferenceCostUsd": 0.308, "translationReferenceCostUsd": 0.078892, "modelEvaluationReferenceCostUsd": 0.0135349, "sourceValidation": {"status": "passed", "validator": "scripts/validate_v3_imported_source.py", "targetedTestCount": 11, "validatedAt": "2026-09-07"}},
+    {"id": "dabrowski-indoor-games-1934", "status": "imported", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/dabrowski-indoor-games-1934.json", "candidateReport": "data/reports/dabrowski-indoor-games-1934-candidates.json", "extractionReport": "data/reports/dabrowski-indoor-games-1934-extraction.json", "translationReport": "data/reports/dabrowski-indoor-games-1934-translation-pl-en.json", "modelEvaluationReport": "data/reports/dabrowski-indoor-games-1934-translation-model-evaluation.json", "candidateCount": 184, "importedActivityCount": 175, "ocrReferenceCostUsd": 0.344, "translationReferenceCostUsd": 0.0948105, "modelEvaluationReferenceCostUsd": 0.00545545, "sourceValidation": {"status": "passed", "validator": "scripts/validate_v3_imported_source.py", "targetedTestCount": 39, "validatedAt": "2026-09-07"}},
+    {"id": "piasecki-movement-games-1922", "status": "imported", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-movement-games-1922.json", "candidateReport": "data/reports/piasecki-movement-games-1922-candidates.json", "extractionReport": "data/reports/piasecki-movement-games-1922-extraction.json", "translationReport": "data/reports/piasecki-movement-games-1922-translation-pl-en.json", "modelEvaluationReport": "data/reports/piasecki-movement-games-1922-translation-model-evaluation.json", "candidateCount": 133, "importedActivityCount": 117, "translationReferenceCostUsd": 0.2930155, "modelEvaluationReferenceCostUsd": 0.04826205, "untrackedFailedTranslationReferenceCostUpperBoundUsd": 0.017268, "sourceValidation": {"status": "passed", "validator": "scripts/validate_v3_imported_source.py", "targetedTestCount": 8, "validatedAt": "2026-09-07"}},
+    {"id": "dabrowski-winter-games-1935", "status": "skipped-with-reason", "alternativeReview": "vault/reviews/accepted/pbc-direct-djvu-alternatives.md", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/dabrowski-winter-games-1935.json", "candidateCount": 0, "importedActivityCount": 0, "terminalReason": "Owner deferred both PBC sources from the current V3 run after the direct URL proved to be an indirect DjVu index."},
+    {"id": "pawelek-young-troop-1919", "status": "imported", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/pawelek-young-troop-1919.json", "candidateReport": "data/reports/pawelek-young-troop-1919-candidates.json", "extractionReport": "data/reports/pawelek-young-troop-1919-extraction.json", "translationReport": "data/reports/pawelek-young-troop-1919-translation-pl-en.json", "modelEvaluationReport": "data/reports/pawelek-young-troop-1919-translation-model-evaluation.json", "candidateCount": 115, "importedActivityCount": 61, "ocrReferenceCostUsd": 0.344, "translationReferenceCostUsd": 0.0304275, "modelEvaluationReferenceCostUsd": 0.00920805, "sourceValidation": {"status": "passed", "validator": "scripts/validate_v3_imported_source.py", "targetedTestCount": 27, "validatedAt": "2026-09-07"}},
+    {"id": "zwolakowska-cub-pack-1945", "status": "imported", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/zwolakowska-cub-pack-1945.json", "candidateReport": "data/reports/zwolakowska-cub-pack-1945-candidates.json", "extractionReport": "data/reports/zwolakowska-cub-pack-1945-extraction.json", "translationReport": "data/reports/zwolakowska-cub-pack-1945-translation-pl-en.json", "candidateCount": 74, "importedActivityCount": 74, "ocrReferenceCostUsd": 0.128, "translationReferenceCostUsd": 0.049881, "sourceValidation": {"status": "passed", "validator": "scripts/validate_v3_imported_source.py", "targetedTestCount": 6, "validatedAt": "2026-09-07"}},
+    {"id": "sedlaczek-fieldcraft-method-1935", "status": "skipped-with-reason", "alternativeReview": "vault/reviews/accepted/pbc-direct-djvu-alternatives.md", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/sedlaczek-fieldcraft-method-1935.json", "candidateCount": 0, "importedActivityCount": 0, "terminalReason": "Owner deferred both PBC sources from the current V3 run after the direct URL proved to be an indirect DjVu index."},
+    {"id": "piasecki-schreiber-polish-scoutcraft-1917", "status": "imported", "inspectionCheckpoint": "data/checkpoints/source-inspection/piasecki-schreiber-polish-scoutcraft-1917.json", "candidateReport": "data/reports/piasecki-schreiber-polish-scoutcraft-1917-candidates.json", "extractionReport": "data/reports/piasecki-schreiber-polish-scoutcraft-1917-extraction.json", "translationReport": "data/reports/piasecki-schreiber-polish-scoutcraft-1917-translation-pl-en.json", "modelEvaluationReport": "data/reports/piasecki-schreiber-polish-scoutcraft-1917-translation-model-evaluation.json", "candidateCount": 40, "importedActivityCount": 36, "translationReferenceCostUsd": 0.0235865, "modelEvaluationReferenceCostUsd": 0.00683925, "untrackedFailedTranslationReferenceCostUpperBoundUsd": 0.010041, "sourceValidation": {"status": "passed", "validator": "scripts/validate_v3_imported_source.py", "targetedTestCount": 8, "validatedAt": "2026-09-07"}},
+    {"id": "sedlaczek-scout-school-1921", "status": "imported", "inspectionCheckpoint": "data/checkpoints/source-inspection/sedlaczek-scout-school-1921.json", "acquisitionCheckpoint": "data/checkpoints/source-acquisition/sedlaczek-scout-school-1921.json", "candidateReport": "data/reports/sedlaczek-scout-school-1921-candidates.json", "extractionReport": "data/reports/sedlaczek-scout-school-1921-extraction.json", "translationReport": "data/reports/sedlaczek-scout-school-1921-translation-pl-en.json", "candidateCount": 40, "importedActivityCount": 34, "ocrReferenceCostUsd": 0.136, "translationReferenceCostUsd": 0.02857, "sourceValidation": {"status": "passed", "validator": "scripts/validate_v3_imported_source.py", "targetedTestCount": 5, "validatedAt": "2026-09-08"}},
+    {"id": "chamarande-1934", "status": "zero-yield", "ocrCheckpoint": "data/checkpoints/gallica-fetch/chamarande-1934.json", "extractionReport": "data/reports/chamarande-1934-extraction.json", "candidateCount": 0, "importedActivityCount": 0, "referenceCostUsd": 0.456, "terminalReason": "The approved prose contains programme-level mentions of games but no self-contained game rules."}
+  ],
+  "nextStep": "publish-final-v3-r1-pull-request",
+  "pullRequestOpened": false
+}

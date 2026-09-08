@@ -55,6 +55,25 @@ class V3ParticipantAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "empty pl regex"):
             build_report(config, self.records)
 
+    def test_french_records_are_reported_without_guessing_lexical_patterns(self):
+        records = self.records + [
+            {
+                "activityId": "cha-001",
+                "sourceId": "chamarande-1934",
+                "sourceHash": "sha256:french",
+                "originalLanguage": "fr",
+                "body": "Deux patrouilles et trois joueurs.",
+            }
+        ]
+        report = build_report(self.config, records)
+        self.assertEqual(report["method"]["languagesWithoutPatterns"], ["fr"])
+        self.assertNotIn(
+            "cha-001", report["lexicalSignalCoverage"]["activityIdsWithAnySignal"]
+        )
+        self.assertNotIn(
+            "cha-001", report["numericParticipantSignals"]["activityIds"]
+        )
+
     def test_checkpoint_is_deterministic_and_human_gated(self):
         checkpoint = build_checkpoint(self.report)
         self.assertEqual(checkpoint, build_checkpoint(build_report(self.config, self.records)))

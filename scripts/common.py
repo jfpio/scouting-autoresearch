@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from pathlib import Path
 from typing import Any
 
@@ -12,6 +13,47 @@ ROOT = Path(__file__).resolve().parents[1]
 VAULT = ROOT / "vault"
 GENERATED = ROOT / "data" / "generated"
 PUBLIC_DATA = ROOT / "public" / "data"
+ARTIFACTS = ROOT / "artifacts"
+
+
+def assert_artifact_path(path: Path) -> Path:
+    resolved = path.resolve()
+    try:
+        resolved.relative_to(ARTIFACTS.resolve())
+    except ValueError as error:
+        raise ValueError(f"Path is outside the repository artifact store: {path}") from error
+    return resolved
+
+
+def artifact_relative_path(path: Path) -> str:
+    return str(assert_artifact_path(path).relative_to(ROOT.resolve()))
+
+
+def persisted_artifact_path(record: dict[str, Any]) -> Path:
+    """Resolve a durable artifact, with a read-only fallback for legacy scratch records."""
+    relative = record.get("artifactRelativePath")
+    if relative:
+        return assert_artifact_path(ROOT / str(relative))
+
+    legacy = record.get("scratchRelativePath")
+    if not legacy:
+        raise ValueError("Artifact record has no persisted path")
+    legacy_path = Path(str(legacy))
+    parts = legacy_path.parts
+    if len(parts) >= 2 and parts[0] == "scouting-autoresearch":
+        durable = assert_artifact_path(ARTIFACTS.joinpath(*parts[1:]))
+        if durable.exists():
+            return durable
+    scratch = os.environ.get("SCRATCH")
+    if scratch:
+        candidate = (Path(scratch) / legacy_path).resolve()
+        allowed = (Path(scratch) / "scouting-autoresearch").resolve()
+        try:
+            candidate.relative_to(allowed)
+        except ValueError as error:
+            raise ValueError("Legacy artifact path is outside project scratch") from error
+        return candidate
+    raise ValueError("Legacy artifact is absent from the durable store and SCRATCH is not set")
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -53,6 +95,10 @@ def load_markdown(path: Path) -> tuple[dict[str, Any], str]:
 
 def read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def read_yaml(path: Path) -> Any:
+    return yaml.safe_load(path.read_text(encoding="utf-8"))
 
 
 def write_json(path: Path, value: Any) -> None:

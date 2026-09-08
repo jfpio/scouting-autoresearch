@@ -28,7 +28,13 @@ class SevinFetchCheckpointTests(unittest.TestCase):
             return
         self.assertIn(
             checkpoint["status"],
-            {"view-fetch-in-progress", "views-fetched", "page-scope-review-pending"},
+            {
+                "view-fetch-in-progress",
+                "views-fetched",
+                "page-scope-review-pending",
+                "ocr-ready",
+                "zero-yield",
+            },
         )
         self.assertEqual(
             checkpoint["fetchStrategy"],
@@ -39,7 +45,8 @@ class SevinFetchCheckpointTests(unittest.TestCase):
         self.assertEqual(view_fetch["completedViews"], len(view_fetch["items"]))
         self.assertGreater(view_fetch["completedViews"], 0)
         self.assertEqual(
-            checkpoint["status"] in {"views-fetched", "page-scope-review-pending"},
+            checkpoint["status"]
+            in {"views-fetched", "page-scope-review-pending", "ocr-ready", "zero-yield"},
             view_fetch["completedViews"] == view_fetch["totalViews"],
         )
 
@@ -60,12 +67,15 @@ class SevinFetchCheckpointTests(unittest.TestCase):
         self.assertEqual(view_fetch["failedViewAttempts"], 0)
         datetime.fromisoformat(view_fetch["completedAt"])
 
-    def test_smoke_downloads_stay_outside_repository(self):
+    def test_smoke_downloads_stay_outside_git_in_repository_artifacts(self):
         checkpoint = self.checkpoint
         self.assertEqual(checkpoint["sourceFilesCommittedToRepository"], 0)
         self.assertFalse(checkpoint["fullTextCommittedToRepository"])
         self.assertFalse(checkpoint["fullDocument"]["persisted"])
-        self.assertEqual(checkpoint["scratchRelativeDirectory"], "scouting-autoresearch/sources/chamarande-1934")
+        self.assertEqual(
+            checkpoint["artifactRelativeDirectory"],
+            "artifacts/sources/chamarande-1934",
+        )
         self.assertEqual(len(checkpoint["downloadedViewSmoke"]), 3)
         self.assertTrue(all(len(item["sha256"]) == 64 for item in checkpoint["downloadedViewSmoke"]))
 
@@ -173,7 +183,7 @@ class SevinFetchCheckpointTests(unittest.TestCase):
         )
         self.assertEqual(run["sourceFilesCommittedToRepository"], 0)
 
-    def test_prose_scope_is_only_a_human_review_proposal(self):
+    def test_prose_scope_is_human_approved_and_execution_ready(self):
         review_path = ROOT / self.checkpoint["componentScopeReview"]["reviewPath"]
         review, body = load_markdown(review_path)
         proposed = review["proposedOcrScope"]
@@ -181,27 +191,24 @@ class SevinFetchCheckpointTests(unittest.TestCase):
         proposed_count = sum(end - start + 1 for start, end in proposed_ranges)
 
         self.assertEqual(review["recordType"], "source-component-scope")
-        self.assertEqual(review["status"], "proposed")
-        self.assertTrue(review["reviewRequired"])
-        self.assertFalse(review["humanApproved"])
-        self.assertFalse(proposed["executionReady"])
+        self.assertEqual(review["status"], "accepted")
+        self.assertFalse(review["reviewRequired"])
+        self.assertTrue(review["humanApproved"])
+        self.assertTrue(proposed["executionReady"])
         self.assertEqual(proposed_count, 113)
         self.assertEqual(proposed_count, proposed["proposedViewCount"])
         self.assertEqual(proposed["plannedModel"], "mistral-ocr-4-1")
         self.assertEqual(proposed["referenceCostEstimateUsd"], 0.452)
         self.assertIsNone(proposed["billedCostUsd"])
-        self.assertEqual(
-            proposed_ranges,
-            self.checkpoint["componentScopeReview"]["proposedViewRanges"],
-        )
+        self.assertEqual(proposed_ranges, self.checkpoint["componentScopeReview"]["proposedViewRanges"])
         self.assertTrue(self.checkpoint["componentScopeReview"]["mixedPageBlockReviewRequired"])
-        self.assertIn("propozycją, nie zgodą", body)
+        self.assertIn("Właściciel zatwierdził ten zakres", body)
 
         ocr = yaml.safe_load(
             (ROOT / "config" / "ocr" / "chamarande-1934.yaml").read_text(encoding="utf-8")
         )
-        self.assertFalse(ocr["execution"]["executionReady"])
-        self.assertEqual(ocr["execution"]["approvedViewRanges"], [])
+        self.assertTrue(ocr["execution"]["executionReady"])
+        self.assertEqual(ocr["execution"]["approvedViewRanges"], proposed_ranges)
 
     def test_reuse_scope_remains_component_limited(self):
         checkpoint = self.checkpoint
@@ -209,15 +216,15 @@ class SevinFetchCheckpointTests(unittest.TestCase):
         self.assertIn("music", checkpoint["excludedComponents"])
         self.assertIn("Source gallica.bnf.fr", checkpoint["requiredAttribution"])
 
-    def test_rights_are_approved_but_page_scope_remains_human_gated(self):
+    def test_rights_and_page_scope_are_human_approved(self):
         decision = self.checkpoint["rightsDecision"]
         self.assertEqual(decision["status"], "human-approved")
         self.assertEqual(decision["date"], "2026-09-06")
         self.assertEqual(decision["rightsStatus"], "public-domain")
         self.assertEqual(decision["jurisdictions"], ["PL", "EU"])
-        self.assertTrue(decision["pageScopeStillRequiresHumanApproval"])
-        self.assertFalse(self.checkpoint["componentScopeReview"]["humanApproved"])
-        self.assertFalse(self.checkpoint["componentScopeReview"]["ocrExecutionReady"])
+        self.assertFalse(decision["pageScopeStillRequiresHumanApproval"])
+        self.assertTrue(self.checkpoint["componentScopeReview"]["humanApproved"])
+        self.assertTrue(self.checkpoint["componentScopeReview"]["ocrExecutionReady"])
 
 
 if __name__ == "__main__":

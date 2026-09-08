@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-pdf-game-discovery",
+  "status": "complete",
+  "sourceId": "piasecki-movement-games-1922",
+  "range": "p087-096",
+  "pageStart": 87,
+  "pageEnd": 96,
+  "sourceSha256": "4f5379ad1a683a7f9f741f4a12b26f2ffffa97820f2f90b7145e8ff8e98ee51f",
+  "inputHash": "2f992d73ee285e41148f92df4106a502c931a498b2628d2a84f42ab76a60741d",
+  "modelRequested": "mistral-large-2512",
+  "model": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "promptVersion": "v3-pdf-game-line-locators-v3",
+  "generatedAt": "2026-09-06T18:57:17.464009+00:00",
+  "games": [
+    {
+      "title": "Swaty",
+      "pageStart": 87,
+      "pageEnd": 88,
+      "startLine": "p0087-l0018",
+      "endLine": "p0088-l0028",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "",
+      "notes": ""
+    },
+    {
+      "title": "Dyna",
+      "pageStart": 88,
+      "pageEnd": 89,
+      "startLine": "p0088-l0029",
+      "endLine": "p0089-l0019",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "",
+      "notes": ""
+    },
+    {
+      "title": "Kokoszka",
+      "pageStart": 89,
+      "pageEnd": 90,
+      "startLine": "p0089-l0020",
+      "endLine": "p0090-l0014",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "",
+      "notes": ""
+    },
+    {
+      "title": "Chaber",
+      "pageStart": 90,
+      "pageEnd": 91,
+      "startLine": "p0090-l0015",
+      "endLine": "p0091-l0032",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "",
+      "notes": ""
+    },
+    {
+      "title": "Zajączki",
+      "pageStart": 92,
+      "pageEnd": 94,
+      "startLine": "p0092-l0003",
+      "endLine": "p0094-l0016",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "III. Gry bieżne",
+      "notes": ""
+    },
+    {
+      "title": "Bóbr",
+      "pageStart": 94,
+      "pageEnd": 95,
+      "startLine": "p0094-l0033",
+      "endLine": "p0095-l0012",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "III. Gry bieżne",
+      "notes": ""
+    },
+    {
+      "title": "Krycie",
+      "pageStart": 95,
+      "pageEnd": 95,
+      "startLine": "p0095-l0013",
+      "endLine": "p0095-l0029",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "III. Gry bieżne",
+      "notes": ""
+    },
+    {
+      "title": "Zbójcy i hajducy",
+      "pageStart": 96,
+      "pageEnd": 96,
+      "startLine": "p0096-l0002",
+      "endLine": "p0096-l0030",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "III. Gry bieżne",
+      "notes": ""
+    }
+  ],
+  "usage": {
+    "promptTokens": 7230,
+    "completionTokens": 822,
+    "requestMaxOutputTokens": 3601,
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "inputPriceUsdPerMillionTokens": 0.5,
+    "outputPriceUsdPerMillionTokens": 1.5,
+    "referenceCostUsd": 0.004848,
+    "priceSource": "https://docs.mistral.ai/inference/pricing",
+    "priceAccessedOn": "2026-09-04"
+  }
+}

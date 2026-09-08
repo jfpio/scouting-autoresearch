@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-pdf-game-discovery",
+  "status": "complete",
+  "sourceId": "piasecki-movement-games-1922",
+  "range": "p060-069",
+  "pageStart": 60,
+  "pageEnd": 69,
+  "sourceSha256": "4f5379ad1a683a7f9f741f4a12b26f2ffffa97820f2f90b7145e8ff8e98ee51f",
+  "inputHash": "b0da7ccc05374e8a060d332b00cfe9f1a1abdda7e0581f28b26480b3fddfc483",
+  "modelRequested": "mistral-large-2512",
+  "model": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "promptVersion": "v3-pdf-game-line-locators-v3",
+  "generatedAt": "2026-09-06T18:56:15.880438+00:00",
+  "games": [
+    {
+      "title": "Ptaszek",
+      "pageStart": 60,
+      "pageEnd": 61,
+      "startLine": "p0060-l0010",
+      "endLine": "p0061-l0015",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "1. Zabawy i gry chodne (Korowody)",
+      "notes": ""
+    },
+    {
+      "title": "Bąk",
+      "pageStart": 61,
+      "pageEnd": 61,
+      "startLine": "p0061-l0016",
+      "endLine": "p0061-l0023",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "1. Zabawy i gry chodne (Korowody)",
+      "notes": ""
+    },
+    {
+      "title": "Chusteczka jedwabna",
+      "pageStart": 61,
+      "pageEnd": 62,
+      "startLine": "p0061-l0024",
+      "endLine": "p0062-l0019",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "1. Zabawy i gry chodne (Korowody)",
+      "notes": ""
+    },
+    {
+      "title": "Stoi różyczka",
+      "pageStart": 62,
+      "pageEnd": 63,
+      "startLine": "p0062-l0020",
+      "endLine": "p0063-l0009",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "1. Zabawy i gry chodne (Korowody)",
+      "notes": ""
+    },
+    {
+      "title": "Juljanka",
+      "pageStart": 63,
+      "pageEnd": 63,
+      "startLine": "p0063-l0010",
+      "endLine": "p0063-l0024",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "1. Zabawy i gry chodne (Korowody)",
+      "notes": ""
+    },
+    {
+      "title": "Naokoło wędrują",
+      "pageStart": 63,
+      "pageEnd": 64,
+      "startLine": "p0063-l0025",
+      "endLine": "p0064-l0024",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "1. Zabawy i gry chodne (Korowody)",
+      "notes": ""
+    },
+    {
+      "title": "Ogrodniczka",
+      "pageStart": 65,
+      "pageEnd": 65,
+      "startLine": "p0065-l0002",
+      "endLine": "p0065-l0014",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "1. Zabawy i gry chodne (Korowody)",
+      "notes": ""
+    },
+    {
+      "title": "Konopki",
+      "pageStart": 65,
+      "pageEnd": 66,
+      "startLine": "p0065-l0015",
+      "endLine": "p0066-l0020",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "1. Zabawy i gry chodne (Korowody)",
+      "notes": ""
+    },
+    {
+      "title": "Zameczek",
+      "pageStart": 66,
+      "pageEnd": 67,
+      "startLine": "p0066-l0021",
+      "endLine": "p0067-l0013",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "1. Zabawy i gry chodne (Korowody)",
+      "notes": ""
+    },
+    {
+      "title": "Jawor",
+      "pageStart": 67,
+      "pageEnd": 68,
+      "startLine": "p0067-l0014",
+      "endLine": "p0068-l0026",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "1. Zabawy i gry chodne (Korowody)",
+      "notes": ""
+    },
+    {
+      "title": "Liwu gąski",
+      "pageStart": 68,
+      "pageEnd": 69,
+      "startLine": "p0068-l0027",
+      "endLine": "p0069-l0031",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "1. Zabawy i gry chodne (Korowody)",
+      "notes": ""
+    }
+  ],
+  "usage": {
+    "promptTokens": 6827,
+    "completionTokens": 1258,
+    "requestMaxOutputTokens": 3342,
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "inputPriceUsdPerMillionTokens": 0.5,
+    "outputPriceUsdPerMillionTokens": 1.5,
+    "referenceCostUsd": 0.0053005,
+    "priceSource": "https://docs.mistral.ai/inference/pricing",
+    "priceAccessedOn": "2026-09-04"
+  }
+}

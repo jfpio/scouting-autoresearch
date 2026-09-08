@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-pdf-game-discovery",
+  "status": "complete",
+  "sourceId": "piasecki-movement-games-1922",
+  "range": "p078-087",
+  "pageStart": 78,
+  "pageEnd": 87,
+  "sourceSha256": "4f5379ad1a683a7f9f741f4a12b26f2ffffa97820f2f90b7145e8ff8e98ee51f",
+  "inputHash": "a61197d2800b780a9bf61cd9f5b43abfdbba91321be2f86d8032ef818b1f6c84",
+  "modelRequested": "mistral-large-2512",
+  "model": "mistral-large-2512",
+  "reasoningMode": "disabled",
+  "promptVersion": "v3-pdf-game-line-locators-v3",
+  "generatedAt": "2026-09-06T18:57:08.693126+00:00",
+  "games": [
+    {
+      "title": "Wybór",
+      "pageStart": 78,
+      "pageEnd": 79,
+      "startLine": "p0078-l0008",
+      "endLine": "p0079-l0003",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "",
+      "notes": "Game involves girls forming a circle, singing, and mimicking professions with movements."
+    },
+    {
+      "title": "Wdowa na wydaniu",
+      "pageStart": 79,
+      "pageEnd": 80,
+      "startLine": "p0079-l0030",
+      "endLine": "p0080-l0034",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "",
+      "notes": "Game involves a circle of girls with a 'widow' in the center and her daughters on the perimeter, with singing, role-playing, and a defined end condition."
+    },
+    {
+      "title": "Przepiórka",
+      "pageStart": 81,
+      "pageEnd": 84,
+      "startLine": "p0081-l0005",
+      "endLine": "p0084-l0003",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "II. Zabawy i gry taneczne",
+      "notes": "Game with multiple variants involving dancing, chasing, and role-switching based on song lyrics and regional rules."
+    },
+    {
+      "title": "Gąska",
+      "pageStart": 84,
+      "pageEnd": 84,
+      "startLine": "p0084-l0004",
+      "endLine": "p0084-l0021",
+      "printedAttribution": "explicitly-credited",
+      "attributionEvidenceLine": "p0084-l0005",
+      "section": "",
+      "notes": "Game described by Ł. Gołębiowski, involving girls forming a circle, choosing dance figures, and pairing up with a defined end condition."
+    },
+    {
+      "title": "Pasterz",
+      "pageStart": 84,
+      "pageEnd": 84,
+      "startLine": "p0084-l0022",
+      "endLine": "p0084-l0032",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "",
+      "notes": "Wedding game involving pairs dancing in a circle with a 'shepherd' in the center who signals partner-switching."
+    },
+    {
+      "title": "Róża",
+      "pageStart": 85,
+      "pageEnd": 86,
+      "startLine": "p0085-l0002",
+      "endLine": "p0086-l0030",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "",
+      "notes": "Game with two variants involving girls forming circles, singing, bowing, kissing, dancing, and swapping places."
+    },
+    {
+      "title": "Ksieni",
+      "pageStart": 86,
+      "pageEnd": 87,
+      "startLine": "p0086-l0031",
+      "endLine": "p0087-l0017",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "",
+      "notes": "Game involving two circles, singing, and transferring participants from one circle to another until a defined end condition is met."
+    },
+    {
+      "title": "Swaty",
+      "pageStart": 87,
+      "pageEnd": 87,
+      "startLine": "p0087-l0018",
+      "endLine": "p0087-l0030",
+      "printedAttribution": "traditional-or-source-derived",
+      "attributionEvidenceLine": "",
+      "section": "",
+      "notes": "Game involving two rows of girls representing matchmakers and a bride's family, moving and singing in a defined pattern."
+    }
+  ],
+  "usage": {
+    "promptTokens": 7335,
+    "completionTokens": 1006,
+    "requestMaxOutputTokens": 3592,
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "inputPriceUsdPerMillionTokens": 0.5,
+    "outputPriceUsdPerMillionTokens": 1.5,
+    "referenceCostUsd": 0.0051765,
+    "priceSource": "https://docs.mistral.ai/inference/pricing",
+    "priceAccessedOn": "2026-09-04"
+  }
+}

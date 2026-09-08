@@ -11,6 +11,7 @@ appliesTo:
 relatedSourceIds:
   - hwp-1946
   - pw-1935
+  - jasinski-field-games-1938
 evidenceActivityIds: []
 reviewRequired: true
 sourceType: editorial-hypothesis
@@ -26,6 +27,13 @@ Eksploracja może zapisywać kandydatury na kolejne rodzaje aktywności. Pierwsz
 - **służba / service** — działanie przynoszące korzyść komuś poza wykonawcą,
 - **obrzęd / ceremony** — forma wspólnotowa lub symboliczna, a nie zadanie sprawnościowe,
 - **gawęda lub rozmowa / story or discussion** — aktywność refleksyjna prowadzona słowem.
+- **bieg harcerski / scout course** — zaplanowana sekwencja zadań lub punktów wykonywana
+  w trasie albo w ustalonej kolejności,
+- **punkt biegu / scout-course station** — pojedyncze zadanie przedstawione przez źródło
+  jako element biegu, a nie każde zadanie, które współcześnie dałoby się tak wykorzystać.
+
+Rozwinięcie granic dwóch ostatnich kandydatur, wraz z przykładami z Jasińskiego i relacją do
+prób, znajduje się w [[idea-scout-courses-and-stations]].
 
 Lista jest robocza i niewyczerpująca. Rodzaje nie muszą być rozłączne: pojedynczy rekord może
 otrzymać kilka etykiet, o ile każda ma udokumentowane zastosowanie.

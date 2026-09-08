@@ -1,6 +1,5 @@
 import hashlib
 import json
-import os
 import sys
 import tempfile
 import unittest
@@ -31,7 +30,7 @@ class GallicaViewTests(unittest.TestCase):
     def pagination(self, directory: str, count: int = 3) -> Path:
         path = (
             Path(directory)
-            / "scouting-autoresearch"
+            / "artifacts"
             / "sources"
             / SOURCE_ID
             / "pagination.xml"
@@ -57,8 +56,10 @@ class GallicaViewTests(unittest.TestCase):
         return path
 
     def test_pagination_requires_exact_identifier_count_and_order(self):
-        with tempfile.TemporaryDirectory() as directory, patch.dict(
-            os.environ, {"SCRATCH": directory}
+        with tempfile.TemporaryDirectory() as directory, patch(
+            "common.ROOT", Path(directory)
+        ), patch("common.ARTIFACTS", Path(directory) / "artifacts"), patch(
+            "gallica.ARTIFACTS", Path(directory) / "artifacts"
         ):
             path = self.pagination(directory)
             self.assertEqual(pagination_views(SOURCE_ID), 3)
@@ -87,13 +88,15 @@ class GallicaViewTests(unittest.TestCase):
             self.assertFalse(valid_cached_view(path))
 
     def test_only_checkpointed_cache_is_reusable(self):
-        with tempfile.TemporaryDirectory() as directory, patch.dict(
-            os.environ, {"SCRATCH": directory}
+        with tempfile.TemporaryDirectory() as directory, patch(
+            "common.ROOT", Path(directory)
+        ), patch("common.ARTIFACTS", Path(directory) / "artifacts"), patch(
+            "gallica.ARTIFACTS", Path(directory) / "artifacts"
         ):
             self.pagination(directory)
             source = (
                 Path(directory)
-                / "scouting-autoresearch"
+                / "artifacts"
                 / "sources"
                 / SOURCE_ID
             )
@@ -120,8 +123,10 @@ class GallicaViewTests(unittest.TestCase):
 
     def test_next_view_and_success_checkpoint_are_resumable(self):
         item = load_approved_item(SOURCE_ID)
-        with tempfile.TemporaryDirectory() as directory, patch.dict(
-            os.environ, {"SCRATCH": directory}
+        with tempfile.TemporaryDirectory() as directory, patch(
+            "common.ROOT", Path(directory)
+        ), patch("common.ARTIFACTS", Path(directory) / "artifacts"), patch(
+            "gallica.ARTIFACTS", Path(directory) / "artifacts"
         ):
             self.pagination(directory)
             checkpoint = self.checkpoint(directory)
@@ -129,7 +134,7 @@ class GallicaViewTests(unittest.TestCase):
             for view in range(1, 4):
                 output = (
                     Path(directory)
-                    / "scouting-autoresearch"
+                    / "artifacts"
                     / "sources"
                     / SOURCE_ID
                     / f"f{view}-1200.jpg"
@@ -153,8 +158,10 @@ class GallicaViewTests(unittest.TestCase):
 
     def test_reused_smoke_view_preserves_original_retrieval_time(self):
         item = load_approved_item(SOURCE_ID)
-        with tempfile.TemporaryDirectory() as directory, patch.dict(
-            os.environ, {"SCRATCH": directory}
+        with tempfile.TemporaryDirectory() as directory, patch(
+            "common.ROOT", Path(directory)
+        ), patch("common.ARTIFACTS", Path(directory) / "artifacts"), patch(
+            "gallica.ARTIFACTS", Path(directory) / "artifacts"
         ):
             self.pagination(directory, count=20)
             checkpoint = self.checkpoint(directory)
@@ -169,7 +176,7 @@ class GallicaViewTests(unittest.TestCase):
             checkpoint.write_text(json.dumps(payload), encoding="utf-8")
             output = (
                 Path(directory)
-                / "scouting-autoresearch"
+                / "artifacts"
                 / "sources"
                 / SOURCE_ID
                 / "f13-1200.jpg"

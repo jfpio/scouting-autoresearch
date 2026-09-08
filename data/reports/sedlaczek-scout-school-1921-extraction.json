@@ -1,0 +1,764 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "sedlaczek-scout-school-1921",
+  "sourceSha256": "4f6d7e5a7c52761249a2eb62ba481fc9c0d5a849e5054cac1d43ff3140ad4c41",
+  "parserVersion": "sedlaczek-1921-reviewed-character-spans-v1",
+  "reviewRequired": false,
+  "activityCount": 34,
+  "wholeSourceCopiedToRepository": false,
+  "selection": {
+    "candidateCount": 40,
+    "acceptedGameCount": 34,
+    "rejectedCount": 6,
+    "basis": "bounded, executable game or competitive exercise verified against Mistral OCR and rendered facsimile pages",
+    "rejectedCandidates": [
+      {
+        "candidateNumber": 1,
+        "reason": "short observation drill without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 7,
+        "reason": "drawing exercise without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 9,
+        "reason": "measurement drill without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 21,
+        "reason": "distance-estimation drill without a game or competitive procedure"
+      },
+      {
+        "candidateNumber": 25,
+        "reason": "running technique and practice advice, not a bounded game"
+      },
+      {
+        "candidateNumber": 30,
+        "reason": "urban reconnaissance checklist without a game or competitive procedure"
+      }
+    ]
+  },
+  "transcriptionEvidence": {
+    "sourceStatement": "Pinned Mistral OCR responses and rendered pages stored in gitignored repository artifacts on Group Storage.",
+    "sourceLocation": "https://www.sbc.org.pl/Content/64835/PDF/64835.pdf",
+    "ocrModel": "mistral-ocr-4-1",
+    "ocrRecipeVersion": "mistral-ocr-image-v1",
+    "ocrViewCount": 34,
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "referenceCostUsd": 0.136,
+    "deterministicNormalization": [
+      "select pinned character spans from exact OCR responses",
+      "omit the activity heading represented in frontmatter",
+      "omit isolated printed-page numbers and pinned footnote or editorial ranges",
+      "join OCR soft wraps and dehyphenate lowercase word continuations",
+      "apply only facsimile-confirmed OCR corrections listed per activity",
+      "preserve source spelling and wording without lexical modernization"
+    ],
+    "lexicalModernization": false
+  },
+  "deduplication": {
+    "exactBodyMatches": [],
+    "nearDuplicateCandidates": []
+  },
+  "activities": [
+    {
+      "id": "shc-002",
+      "candidateNumber": 2,
+      "title": "Szukanie naparstka",
+      "startView": 56,
+      "endView": 57,
+      "startPattern": "^2\\. Szukanie naparstka\\.",
+      "endPattern": "^\\*\\*Pieśni\\.\\*\\*",
+      "pdfPages": [
+        56,
+        57
+      ],
+      "printedPages": [
+        55,
+        56
+      ],
+      "rawSourceBlockSha256": "b0c9a723a60ad4a84b8377ded229c8d7c01bddae5369ee3367c426ec6d6706fe",
+      "publishedSourceHash": "09b2908fb00fc123477ad92a50083cbf97d0a05f96fa1e91e43373f2f59bb9f3",
+      "excludedPatterns": [
+        "^\\*\\*\\) Tyle tylko można było pisać .+$"
+      ],
+      "facsimileConfirmedCorrections": [
+        {
+          "ocr": "Zastępowy kaźne na pare minut opuscić izbe swemu zastȩpowi, a sam tymczasem kładzie na parstek",
+          "source": "Zastępowy każe na parę minut opuścić izbę swemu zastępowi, a sam tymczasem kładzie naparstek"
+        },
+        {
+          "ocr": "kawełek",
+          "source": "kawałek"
+        }
+      ]
+    },
+    {
+      "id": "shc-003",
+      "candidateNumber": 3,
+      "title": "Kim",
+      "startView": 66,
+      "endView": 66,
+      "startPattern": "^# K i m\\.$",
+      "endPattern": "^Uprawiając grę Kima",
+      "pdfPages": [
+        66
+      ],
+      "printedPages": [
+        65
+      ],
+      "rawSourceBlockSha256": "5183bb518d6eacd4261219ae0a61200635295b2e7085f3b9095d98c22f5fc9b8",
+      "publishedSourceHash": "b5926371573db84d0132bfc1a2072a7e8fdd4106da16bb684dc375c32f701598"
+    },
+    {
+      "id": "shc-004",
+      "candidateNumber": 4,
+      "title": "Szukanie zegarka",
+      "startView": 71,
+      "endView": 71,
+      "startPattern": "^Ćwiczenie pokojowe\\. 1\\. Szukanie zegarka\\.",
+      "endPattern": "^2\\. Nielad na stole\\.",
+      "pdfPages": [
+        71
+      ],
+      "printedPages": [
+        70
+      ],
+      "rawSourceBlockSha256": "38fbcacbc6e897ea47cd40ad4082a5782b6022d15817b55201af1065da4b82f8",
+      "publishedSourceHash": "4b82151ff8129e5b1a1416b74b9ad74c6502f8194262cc52e36c8e7726153d07"
+    },
+    {
+      "id": "shc-005",
+      "candidateNumber": 5,
+      "title": "Nieład na stole",
+      "startView": 71,
+      "endView": 71,
+      "startPattern": "^2\\. Nielad na stole\\.",
+      "endPattern": "^Rysowanie znaków patrolowych\\.",
+      "pdfPages": [
+        71
+      ],
+      "printedPages": [
+        70
+      ],
+      "rawSourceBlockSha256": "7aeca9bb1f97bc045062a6b7d79221b58bce1fe1e2f7560094f264204389a6a1",
+      "publishedSourceHash": "9a60a4ddf3e0d2fb671ac0b11f341170090cf2c3d8045b93183114123be8ad96"
+    },
+    {
+      "id": "shc-006",
+      "candidateNumber": 6,
+      "title": "Ćwiczenie węchu",
+      "startView": 93,
+      "endView": 93,
+      "startPattern": "^2\\. Ćwiczenie węchu\\.",
+      "endPattern": "^Organizowanie pracy\\.",
+      "pdfPages": [
+        93
+      ],
+      "printedPages": [
+        92
+      ],
+      "rawSourceBlockSha256": "e9f0a58d3b406be3c81db62f0f889288b853da9a9e9082804d9c96a251122b6f",
+      "publishedSourceHash": "aeed3d5184f0a7b4c90659431fbabb699719f653f71477cece9f94411236bb8d"
+    },
+    {
+      "id": "shc-008",
+      "candidateNumber": 8,
+      "title": "Gra Morgana",
+      "startView": 130,
+      "endView": 130,
+      "startPattern": "^4\\) Gra Morgana\\.",
+      "endPattern": "^# Wycieczka\\.",
+      "pdfPages": [
+        130
+      ],
+      "printedPages": [
+        129
+      ],
+      "rawSourceBlockSha256": "2c091ec902b0657873cfecd56d805708bd5e3d94a5e3a0763338bcfaa2b8c894",
+      "publishedSourceHash": "ca025685ac420d35159e2483cf01feeece0ec8b5471340e85709b092b602aa3d"
+    },
+    {
+      "id": "shc-010",
+      "candidateNumber": 10,
+      "title": "Karton Bineta",
+      "startView": 180,
+      "endView": 181,
+      "startPattern": "^\\*Karton Bineta\\.\\*",
+      "endPattern": "^Obserwowanie obrazków",
+      "pdfPages": [
+        180,
+        181
+      ],
+      "printedPages": [
+        179,
+        180
+      ],
+      "rawSourceBlockSha256": "dcb7ba8f0516023492671730d1b554d48854d5642f516b190ce193901be2621c",
+      "publishedSourceHash": "941503c2622da14bf3c84660c301b9bfdb01c39dae2d06126953b9ee2ca1869b"
+    },
+    {
+      "id": "shc-011",
+      "candidateNumber": 11,
+      "title": "Dobieranie barw",
+      "startView": 189,
+      "endView": 189,
+      "startPattern": "^\\*Ćwiczenia pokojowe\\.\\* 1\\) Dobieranie barw\\.",
+      "endPattern": "^2\\) Rysowanie z pamięci",
+      "pdfPages": [
+        189
+      ],
+      "printedPages": [
+        188
+      ],
+      "rawSourceBlockSha256": "cb8f30fa12e7aa2209745f6ec6b8545be4e4a8d72fe6e921bb26491721685bda",
+      "publishedSourceHash": "1d8b287f94d89a44ecfb8be57526d346bd0817c599827d34052ef1c721b84457"
+    },
+    {
+      "id": "shc-012",
+      "candidateNumber": 12,
+      "title": "Podrywka ze zwodzeniem (Kozacy i Tatarzy)",
+      "startView": 71,
+      "endView": 72,
+      "startPattern": "^3\\. Podrywka ze zwodzeniem\\.",
+      "endPattern": "4\\. \\*Ciuc u-babka\\*\\.",
+      "pdfPages": [
+        71,
+        72
+      ],
+      "printedPages": [
+        70,
+        71
+      ],
+      "rawSourceBlockSha256": "ff2e8b1a38de6293754353d291fabf116811023883feeec40fa0dcd4ba3c5499",
+      "publishedSourceHash": "4c8e4fabd02d8653bb4e079767e173dd392ac1e05289eef33f5cbf6dd7a95dfc"
+    },
+    {
+      "id": "shc-013",
+      "candidateNumber": 13,
+      "title": "Ciuciu babka",
+      "startView": 72,
+      "endView": 72,
+      "startPattern": "4\\. \\*Ciuc u-babka\\*\\.",
+      "endPattern": "5\\. Kucie 120\\.",
+      "pdfPages": [
+        72
+      ],
+      "printedPages": [
+        71
+      ],
+      "rawSourceBlockSha256": "855e9386720e388db80607b0431c6b9ce1266c44987084332be3c80c7bc15ba5",
+      "publishedSourceHash": "d731aca27d6f5144780f84d61d23d0d8ac98f69c29fd08c36d52f907ec3ed286"
+    },
+    {
+      "id": "shc-014",
+      "candidateNumber": 14,
+      "title": "Bieg rozstawny",
+      "startView": 95,
+      "endView": 95,
+      "startPattern": "2\\. Bieg rozstawny 65\\.",
+      "endPattern": "3\\) \\*Dołki\\* 126\\.",
+      "pdfPages": [
+        95
+      ],
+      "printedPages": [
+        94
+      ],
+      "rawSourceBlockSha256": "a64d1e2abf1b6c8b4077c3b24f89000b984b9d5d4a320092fba3061f170f80ca",
+      "publishedSourceHash": "b4357279f318f68bb343fc7520cd8c20cdd852660d4f131e841c6b4251180bb7"
+    },
+    {
+      "id": "shc-015",
+      "candidateNumber": 15,
+      "title": "Ptasznik",
+      "startView": 140,
+      "endView": 140,
+      "startPattern": "^Ptasznik\\.",
+      "endPattern": "Walka byków\\.",
+      "pdfPages": [
+        140
+      ],
+      "printedPages": [
+        139
+      ],
+      "rawSourceBlockSha256": "2928b4df7d615404213ce153eec9c53f0f92bd4fe5f92011cbb365d6565ab175",
+      "publishedSourceHash": "1db50c6c64a721428078cef9b4e0045c9d9e323af59550ee07b688a28e9dd344"
+    },
+    {
+      "id": "shc-016",
+      "candidateNumber": 16,
+      "title": "Walka byków",
+      "startView": 140,
+      "endView": 141,
+      "startPattern": "Walka byków\\.",
+      "endPattern": null,
+      "pdfPages": [
+        140,
+        141
+      ],
+      "printedPages": [
+        139,
+        140
+      ],
+      "rawSourceBlockSha256": "8dae6b8c92322617e8499624c475c6c45965c82b1b16351676e695e76d790a02",
+      "publishedSourceHash": "89bf44acf30f2af9cf80105b06d5db2c40e0fe5fa750e1e884e5867c8a2c9cf5",
+      "facsimileConfirmedCorrections": [
+        {
+          "ocr": "chustka bykowi",
+          "source": "chustką bykowi"
+        },
+        {
+          "ocr": "druga połowy gry",
+          "source": "druga połowa gry"
+        }
+      ]
+    },
+    {
+      "id": "shc-017",
+      "candidateNumber": 17,
+      "title": "Polowanie na jelenia",
+      "startView": 16,
+      "endView": 16,
+      "startPattern": "^3\\. W porze poobiedniej",
+      "endPattern": "^W podobny sposób",
+      "pdfPages": [
+        16
+      ],
+      "printedPages": [
+        15
+      ],
+      "rawSourceBlockSha256": "972050991746fec7334d736f819009dcdc553e60c76006e1fef55648a36745c4",
+      "publishedSourceHash": "ff83c046a7d0e81fe776f868c5f757c16377d8c118abbf63adcfea56cddd9fde",
+      "facsimileConfirmedCorrections": [
+        {
+          "ocr": "połowanie na jelenia",
+          "source": "polowanie na jelenia"
+        },
+        {
+          "ocr": "„jelen”",
+          "source": "„jeleń”"
+        }
+      ]
+    },
+    {
+      "id": "shc-018",
+      "candidateNumber": 18,
+      "title": "Podchodzenie ślepego",
+      "startView": 84,
+      "endView": 84,
+      "startPattern": "^2\\. \\*Podchodzenie ślepego\\.\\*",
+      "endPattern": "^4\\. \\*Przekradanka\\*",
+      "pdfPages": [
+        84
+      ],
+      "printedPages": [
+        83
+      ],
+      "rawSourceBlockSha256": "55330dc82b4b489ca8de6746c85eb0c75cab37ae586f2e36668ae418be7f59a3",
+      "publishedSourceHash": "83e517fc30f0ee3b0dcfbe7db8d2661e588c2a2d54d111d8a952ab69e1d18ccb"
+    },
+    {
+      "id": "shc-019",
+      "candidateNumber": 19,
+      "title": "Przedkradanka (mur ślepych)",
+      "startView": 84,
+      "endView": 84,
+      "startPattern": "^4\\. \\*Przekradanka\\* \\(mur ślepych\\)\\.",
+      "endPattern": "^5\\. \\*Wyprawa po rośliny\\*",
+      "pdfPages": [
+        84
+      ],
+      "printedPages": [
+        83
+      ],
+      "rawSourceBlockSha256": "c22062154c1345e79acf3e7ecbad8945954a12b579258741693f9155578ae9c9",
+      "publishedSourceHash": "7d0c73d74825248a9a30adb0a9ea9f3691d6af4d951d62af9c499d0d901af179"
+    },
+    {
+      "id": "shc-020",
+      "candidateNumber": 20,
+      "title": "Wyprawa po rośliny",
+      "startView": 84,
+      "endView": 84,
+      "startPattern": "^5\\. \\*Wyprawa po rośliny\\*,",
+      "endPattern": "^\\*Gry ruchowe\\.\\*",
+      "pdfPages": [
+        84
+      ],
+      "printedPages": [
+        83
+      ],
+      "rawSourceBlockSha256": "6a84cca8d63a38389e78e16a0d06e5e2ae19e332c8e539f6168578de234006f0",
+      "publishedSourceHash": "a2e59dd300e1ea899abaccc4e94cdb1a559fbb09ac6ce933f456f85907f20d38"
+    },
+    {
+      "id": "shc-022",
+      "candidateNumber": 22,
+      "title": "Zbieranie bawełny",
+      "startView": 94,
+      "endView": 94,
+      "startPattern": "^\\*Zbieranie bawełny\\.\\*",
+      "endPattern": null,
+      "pdfPages": [
+        94
+      ],
+      "printedPages": [
+        93
+      ],
+      "rawSourceBlockSha256": "7243f8a39ec9fb3a2a34c5c0594944e255a7d5abf547837b78a4d7e9598d3f58",
+      "publishedSourceHash": "d56982c7aa7908a3fc3a5b06e176298dca7c5eb81b2f83cc6489deaa75e115c8"
+    },
+    {
+      "id": "shc-023",
+      "candidateNumber": 23,
+      "title": "Ognisko na wyścigi",
+      "startView": 95,
+      "endView": 95,
+      "startPattern": "^3\\. \\*Ognisko na wyścigi\\.\\*",
+      "endPattern": "^\\*Gry ruchowe\\.\\*",
+      "pdfPages": [
+        95
+      ],
+      "printedPages": [
+        94
+      ],
+      "rawSourceBlockSha256": "3730f1dd302ac5f875d6bb1a6a24cc4a364dc28a014867f48f03fac5621439b9",
+      "publishedSourceHash": "09c07e07e847bf4e8ee9e2d14eb99e8b0a1cb6db209d7bbd4be859dd403b53de",
+      "facsimileConfirmedCorrections": [
+        {
+          "ocr": "wyteżających zabawach",
+          "source": "wytężających zabawach"
+        }
+      ]
+    },
+    {
+      "id": "shc-024",
+      "candidateNumber": 24,
+      "title": "Blisko — daleko",
+      "startView": 112,
+      "endView": 113,
+      "startPattern": "3\\. Blisko daleko\\.",
+      "endPattern": "^\\*Bieg harcowy\\.\\*",
+      "pdfPages": [
+        112,
+        113
+      ],
+      "printedPages": [
+        111,
+        112
+      ],
+      "rawSourceBlockSha256": "07570f033526da7ecf25c1417271f631d473357b27ec8b7e4e0b438518c2731e",
+      "publishedSourceHash": "22d2dd6522beb943d5594d13b2b39de9971c9e389cc528a448f45c610d86d2dc",
+      "facsimileConfirmedCorrections": [
+        {
+          "ocr": "kogutów pialo",
+          "source": "kogutów piało"
+        }
+      ]
+    },
+    {
+      "id": "shc-026",
+      "candidateNumber": 26,
+      "title": "Tropienie za skrawkami (zając)",
+      "startView": 119,
+      "endView": 119,
+      "startPattern": "^1\\) Tropienie za skrawkami \\(Zając\\) \\(przygotowanie do biegu na przełaj\\)\\.",
+      "endPattern": "^2\\) Pamiętanie śladów\\.",
+      "pdfPages": [
+        119
+      ],
+      "printedPages": [
+        118
+      ],
+      "rawSourceBlockSha256": "00a541a67ba8e04f6eebfb769990b356bfd15d7c422d0bdc98e0595a7e5ae84f",
+      "publishedSourceHash": "0c5e7cd7cad31f30e651cf311418a26b95bd47721a4013da0e201cbec38487d5"
+    },
+    {
+      "id": "shc-027",
+      "candidateNumber": 27,
+      "title": "Pamiętanie śladów",
+      "startView": 119,
+      "endView": 120,
+      "startPattern": "^2\\) Pamiętanie śladów\\.",
+      "endPattern": "^4\\) \\*Polowanie na jelenia\\*",
+      "pdfPages": [
+        119,
+        120
+      ],
+      "printedPages": [
+        118,
+        119
+      ],
+      "rawSourceBlockSha256": "f0b16f8459eb8a24ce9016e269455a05c49ed47957e2fa41e3005f0f765e7733",
+      "publishedSourceHash": "a07f84b75eba72dcc1b369a9f5f3cebae7eb234a8fe11df95ddff8a359bc7007"
+    },
+    {
+      "id": "shc-028",
+      "candidateNumber": 28,
+      "title": "Podchodzenie straży",
+      "startView": 130,
+      "endView": 131,
+      "startPattern": "^1\\) Podchodzenie straży\\.",
+      "endPattern": "^Odmianą tej gry jest: podchodzenie zwierzyny\\.",
+      "pdfPages": [
+        130,
+        131
+      ],
+      "printedPages": [
+        129,
+        130
+      ],
+      "rawSourceBlockSha256": "bc990fad80a28969ea1d91c3abb33e32cf8bea6393f8f5c31531ecf371d3f61c",
+      "publishedSourceHash": "7688ad87f1d111a3265c6ca1225de7a0ee047022e41173b9eca8b043f6a16f53"
+    },
+    {
+      "id": "shc-029",
+      "candidateNumber": 29,
+      "title": "Podchodzenie zwierzyny",
+      "startView": 131,
+      "endView": 131,
+      "startPattern": "^Odmianą tej gry jest: podchodzenie zwierzyny\\.",
+      "endPattern": null,
+      "pdfPages": [
+        131
+      ],
+      "printedPages": [
+        130
+      ],
+      "rawSourceBlockSha256": "30b8ff902e7e3e46d5e0f37fff8d977538a812aa2bb227c62310ebc6540d3dfe",
+      "publishedSourceHash": "c4be32465001f9f349b704d785282bb54adbf51586a36950ab62f8d89c97f1c5",
+      "facsimileConfirmedCorrections": [
+        {
+          "ocr": "zrządka porosły",
+          "source": "zrzadka porosły"
+        },
+        {
+          "ocr": "starałą się",
+          "source": "starają się"
+        }
+      ]
+    },
+    {
+      "id": "shc-031",
+      "candidateNumber": 31,
+      "title": "Łapanka w mieście",
+      "startView": 169,
+      "endView": 170,
+      "startPattern": "^# Łapanka w mieście\\.$",
+      "endPattern": null,
+      "pdfPages": [
+        169,
+        170
+      ],
+      "printedPages": [
+        168,
+        169
+      ],
+      "rawSourceBlockSha256": "e4ec854b0477e498bc57efc53c3811ad66e217ca847e1d23611717cdfeeb1bec",
+      "publishedSourceHash": "f8f8d0016ce749793f7e85546be0a638c09b0893ceea40196c109f059e985fb6",
+      "facsimileConfirmedCorrections": [
+        {
+          "ocr": "w tem przepuszczeniu",
+          "source": "w tem przypuszczeniu"
+        }
+      ]
+    },
+    {
+      "id": "shc-032",
+      "candidateNumber": 32,
+      "title": "Rysunek śladu",
+      "startView": 181,
+      "endView": 181,
+      "startPattern": "^1\\) Tropienie po śniegu\\. 2\\) Rysunek śladu\\.",
+      "endPattern": "^Gry ruchowe\\.",
+      "pdfPages": [
+        181
+      ],
+      "printedPages": [
+        180
+      ],
+      "rawSourceBlockSha256": "e71999da1960c47dc6441ce0a18cc4cfa4a7609a116c4523c497fd2f9da8fd69",
+      "publishedSourceHash": "ad083c3d3852a499e8b02eef2d32e06f548d74a3fef8b5b0fb61714755709cf0"
+    },
+    {
+      "id": "shc-033",
+      "candidateNumber": 33,
+      "title": "Fort śnieżny",
+      "startView": 189,
+      "endView": 190,
+      "startPattern": "^Fort śnieżny\\.",
+      "endPattern": "^Dwaj gońce z depeszami\\.",
+      "pdfPages": [
+        189,
+        190
+      ],
+      "printedPages": [
+        188,
+        189
+      ],
+      "rawSourceBlockSha256": "1d6c2c35e898be230f52ca7124726ad1cefdf3dbe3cf9b5605a6d32a840c950c",
+      "publishedSourceHash": "e6b03bb8f5f7c8305adaac1c871fea99ae646f24123733dafe267a8db834a549"
+    },
+    {
+      "id": "shc-034",
+      "candidateNumber": 34,
+      "title": "Dwaj gońce z depeszami",
+      "startView": 190,
+      "endView": 190,
+      "startPattern": "^Dwaj gońce z depeszami\\.",
+      "endPattern": null,
+      "pdfPages": [
+        190
+      ],
+      "printedPages": [
+        189
+      ],
+      "rawSourceBlockSha256": "c80c063b1f6ac466bed1c0b98ea90728d02aeb9b6d6ae5d7dda76c7354939b62",
+      "publishedSourceHash": "6d08dae720a11d4f377596925fff219f4437f7c00117d9300772702244084112",
+      "facsimileConfirmedCorrections": [
+        {
+          "ocr": "drużyńowy",
+          "source": "drużynowy"
+        }
+      ]
+    },
+    {
+      "id": "shc-035",
+      "candidateNumber": 35,
+      "title": "Polowanie na lisa",
+      "startView": 196,
+      "endView": 197,
+      "startPattern": "^1\\) Polowanie na lisa\\.",
+      "endPattern": "^2\\) Fort śnieżny\\.",
+      "pdfPages": [
+        196,
+        197
+      ],
+      "printedPages": [
+        195,
+        196
+      ],
+      "rawSourceBlockSha256": "055e817ea1b05aa3e17a98db669a8abe5f2cf9d84e2f5405c5e6e4276d6f6587",
+      "publishedSourceHash": "96cb19b7694247fb957c780bedcdfd370f552d6b9ed5a463ef80f74e047b2e82",
+      "excludedPatterns": [
+        "^1\\) Przeczytaj: Baden-Powell .+$"
+      ],
+      "facsimileConfirmedCorrections": [
+        {
+          "ocr": "wytepienia",
+          "source": "wytępienia"
+        }
+      ]
+    },
+    {
+      "id": "shc-036",
+      "candidateNumber": 36,
+      "title": "Pająk i mucha",
+      "startView": 199,
+      "endView": 199,
+      "startPattern": "^### \\*Pająk i muchą\\.\\*$",
+      "endPattern": "^\\*Kozacki proceder w stepie\\.\\*",
+      "pdfPages": [
+        199
+      ],
+      "printedPages": [
+        198
+      ],
+      "rawSourceBlockSha256": "d16cd1b1269132a8598463198162c49c15059ce8337b1e1bcec0091568cde8c9",
+      "publishedSourceHash": "c097bbde6b9d25a0be66e4cde58914a102a8f7b6618df74b69f9960be1685ddd",
+      "facsimileConfirmedCorrections": [
+        {
+          "ocr": "ta wykrywa",
+          "source": "ta wygrywa"
+        }
+      ]
+    },
+    {
+      "id": "shc-037",
+      "candidateNumber": 37,
+      "title": "Kozacki proceder w stepie",
+      "startView": 199,
+      "endView": 200,
+      "startPattern": "^\\*Kozacki proceder w stepie\\.\\*",
+      "endPattern": null,
+      "pdfPages": [
+        199,
+        200
+      ],
+      "printedPages": [
+        198,
+        199
+      ],
+      "rawSourceBlockSha256": "9dc1271cdf9f30d4694464011cc2cfe3fbca9e7d5166e4bbef3f7763122c52b7",
+      "publishedSourceHash": "9c526715cdc19d5e70de9925b1713c30e6b7ffadc2c09c36ff325107bb4757dc",
+      "excludedPatterns": [
+        "^\\*\\) Szereg takich gier .+$"
+      ],
+      "facsimileConfirmedCorrections": [
+        {
+          "ocr": "wyteżają wzrok",
+          "source": "wytężają wzrok"
+        }
+      ]
+    },
+    {
+      "id": "shc-038",
+      "candidateNumber": 38,
+      "title": "Zwiady w mieście",
+      "startView": 208,
+      "endView": 209,
+      "startPattern": "^1\\) \\*Zwiady w mieście\\.\\*",
+      "endPattern": "^2\\) \\*Wyprawa do bieguna\\.\\*",
+      "pdfPages": [
+        208,
+        209
+      ],
+      "printedPages": [
+        207,
+        208
+      ],
+      "rawSourceBlockSha256": "b1bb9a116acb81c6ee93f592dc7495d08f196bdb6161cf10ecb3502682061351",
+      "publishedSourceHash": "fd2eedb1ec8be8c71f14bfc5b2f83636137bcb4eaecd0f4d5dd44ec2afad5a34",
+      "excludedPatterns": [
+        "^\\*\\) Baden-Powell: Odezwa na zlot w Birmingham\\.$"
+      ]
+    },
+    {
+      "id": "shc-039",
+      "candidateNumber": 39,
+      "title": "Wyprawa do bieguna",
+      "startView": 209,
+      "endView": 209,
+      "startPattern": "^2\\) \\*Wyprawa do bieguna\\.\\*",
+      "endPattern": null,
+      "pdfPages": [
+        209
+      ],
+      "printedPages": [
+        208
+      ],
+      "rawSourceBlockSha256": "1e15f84f2f23ce42860b713584ee6a1b8eafd57fbfbaad5330e29e0513da310b",
+      "publishedSourceHash": "1ffb31701da71486025d961946f2d085c6e7b2aa8d44dd86959b8224756ea13b"
+    },
+    {
+      "id": "shc-040",
+      "candidateNumber": 40,
+      "title": "Ucieczka Sybiraka",
+      "startView": 217,
+      "endView": 218,
+      "startPattern": "^\\*Ucieczka Sybiraka\\.\\*",
+      "endPattern": "^## Próba i przyrzeczenie\\.",
+      "pdfPages": [
+        217,
+        218
+      ],
+      "printedPages": [
+        216,
+        217
+      ],
+      "rawSourceBlockSha256": "d888e121444aac69664e4b8720fc47ad3e8848a8cd19f8ab67496644ac794696",
+      "publishedSourceHash": "992cf5e36492546e5875ac8a2ec9437bf40a955ac90fc5ba00181a54ecf4bc91"
+    }
+  ]
+}

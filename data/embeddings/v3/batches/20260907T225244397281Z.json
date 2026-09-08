@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "semantic-map-v3-embeddings",
+  "batchId": "20260907T225244397281Z",
+  "generatedAt": "2026-09-07T22:52:44.397281+00:00",
+  "sourceId": "dabrowski-indoor-games-1934",
+  "modelRequested": "mistral-embed-2312",
+  "model": "mistral-embed-2312",
+  "dimensions": 1024,
+  "recipeVersion": "bilingual-game-context-v1",
+  "billingMode": "education-credit",
+  "modelAccess": {
+    "checked": true,
+    "modelId": "mistral-embed-2312"
+  },
+  "referencePriceUsdPerMillionInputTokens": 0.1,
+  "referencePriceSource": "https://docs.mistral.ai/models/mistral-embed-23-12",
+  "referencePriceAccessedOn": "2026-09-04",
+  "activityIds": [
+    "gih-160",
+    "gih-161",
+    "gih-162",
+    "gih-163",
+    "gih-164",
+    "gih-165",
+    "gih-166",
+    "gih-167",
+    "gih-168",
+    "gih-169",
+    "gih-170",
+    "gih-171",
+    "gih-172",
+    "gih-173",
+    "gih-174",
+    "gih-175",
+    "gih-176",
+    "gih-177",
+    "gih-178",
+    "gih-179",
+    "gih-180",
+    "gih-181",
+    "gih-182",
+    "gih-183",
+    "gih-184"
+  ],
+  "usage": {
+    "promptTokens": 7135,
+    "billedCostUsd": null,
+    "referenceCostUsd": 0.0007135
+  }
+}

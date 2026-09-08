@@ -39,7 +39,8 @@ translationPolicy:
   billingMode: education-credit
   enforceReferenceCostLimit: true
   maxReferenceCostUsd: 10
-  modelEvaluation: config/translation-model-evaluations/bsh-1911-large-vs-small.yaml
+  legacyModelEvaluation: config/translation-model-evaluations/bsh-1911-large-vs-small.yaml
+  legacyModelEvaluationLimitation: predates-deterministic-contract-v1
   report: data/reports/bsh-1911-seton-games-translation-en-pl.json
   priceAccessedOn: '2026-09-04'
 sourceRevision: sha256:f6ba6ea041a93d91c060b64bbc39b7361bab94085466b1ad39d27512f48b4791

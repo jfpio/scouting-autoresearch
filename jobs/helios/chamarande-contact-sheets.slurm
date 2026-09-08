@@ -16,7 +16,7 @@ module purge
 module load GCCcore/14.3.0 ImageMagick/7.1.2-7
 
 task_repo="${SLURM_SUBMIT_DIR}"
-source_dir="${SCRATCH}/scouting-autoresearch/sources/chamarande-1934"
+source_dir="${task_repo}/artifacts/sources/chamarande-1934"
 run_root="${SCRATCH}/scouting-autoresearch/runs/chamarande-1934"
 result_dir="${run_root}/iiif-contact-full/${SLURM_JOB_ID}"
 expected_view_count=188

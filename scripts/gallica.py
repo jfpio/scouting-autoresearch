@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch one explicitly approved Gallica artifact into scratch with a resumable checkpoint."""
+"""Fetch one approved Gallica artifact into the durable local artifact store."""
 
 from __future__ import annotations
 
@@ -19,7 +19,14 @@ from urllib.parse import urlparse
 
 import yaml
 
-from common import ROOT, read_json, write_json
+from common import (
+    ARTIFACTS,
+    ROOT,
+    artifact_relative_path,
+    assert_artifact_path,
+    read_json,
+    write_json,
+)
 
 
 COLLECTION_ID = "gallica-bnf"
@@ -120,10 +127,7 @@ def artifact_url(item: ApprovedItem, artifact: str, view: int | None = None) -> 
 
 
 def default_output(item: ApprovedItem, artifact: str, view: int | None = None) -> Path:
-    scratch = os.environ.get("SCRATCH")
-    if not scratch:
-        raise RuntimeError("SCRATCH is not set")
-    directory = Path(scratch) / "scouting-autoresearch" / "sources" / item.source_id
+    directory = ARTIFACTS / "sources" / item.source_id
     if artifact == "pagination":
         return directory / "pagination.xml"
     if artifact == "pdf":
@@ -140,7 +144,14 @@ def default_provider_state_path() -> Path:
     return Path(scratch) / "scouting-autoresearch" / "provider-state" / "gallica-bnf.json"
 
 
-def assert_scratch_output(path: Path) -> None:
+def assert_artifact_output(path: Path) -> None:
+    try:
+        assert_artifact_path(path)
+    except ValueError as error:
+        raise RuntimeError("Gallica artifacts must be stored under repository artifacts/") from error
+
+
+def assert_scratch_state_path(path: Path) -> None:
     scratch = os.environ.get("SCRATCH")
     if not scratch:
         raise RuntimeError("SCRATCH is not set")
@@ -149,7 +160,7 @@ def assert_scratch_output(path: Path) -> None:
     try:
         resolved.relative_to(allowed)
     except ValueError as error:
-        raise RuntimeError("Gallica artifacts must be stored under SCRATCH/scouting-autoresearch") from error
+        raise RuntimeError("Gallica provider state must be stored under SCRATCH/scouting-autoresearch") from error
 
 
 def _normalized_headers(headers: Mapping[str, str]) -> dict[str, str]:
@@ -234,7 +245,7 @@ def fetch_artifact(
     refresh: bool = False,
     now: datetime | None = None,
 ) -> dict[str, Any]:
-    assert_scratch_output(output)
+    assert_artifact_output(output)
     if output.exists() and not refresh:
         data = output.read_bytes()
         _validate_signature(data, artifact)
@@ -323,7 +334,7 @@ def reserve_request_slot(
 ) -> datetime | None:
     """Atomically reserve one provider request slot without sleeping on the login node."""
 
-    assert_scratch_output(state_path)
+    assert_scratch_state_path(state_path)
     if rate_limit_per_minute <= 0:
         raise ValueError("Rate limit must be positive")
     state_path.parent.mkdir(parents=True, exist_ok=True)
@@ -359,12 +370,6 @@ def record_pdf_success(
 ) -> None:
     checkpoint = read_json(checkpoint_path)
     prior_attempts = (checkpoint.get("fullDocument") or {}).get("attempts", [])
-    scratch = os.environ.get("SCRATCH")
-    if not scratch:
-        raise RuntimeError("SCRATCH is not set")
-    scratch_relative_path = str(
-        Path(result["path"]).resolve().relative_to(Path(scratch).resolve())
-    )
     checkpoint["status"] = "fetched"
     checkpoint.pop("reason", None)
     checkpoint.pop("nextRetryAt", None)
@@ -372,7 +377,7 @@ def record_pdf_success(
         "url": result["url"],
         "status": "complete",
         "persisted": True,
-        "scratchRelativePath": scratch_relative_path,
+        "artifactRelativePath": artifact_relative_path(Path(result["path"])),
         "sha256": result["sha256"],
         "bytes": result["bytes"],
         "contentType": result.get("contentType", "application/pdf"),
@@ -438,7 +443,7 @@ def main() -> None:
     item = load_approved_item(args.source_id)
     url = artifact_url(item, args.artifact, args.view)
     output = args.output or default_output(item, args.artifact, args.view)
-    assert_scratch_output(output)
+    assert_artifact_output(output)
     checkpoint_path = args.checkpoint or DEFAULT_CHECKPOINT_DIR / f"{item.source_id}.json"
     checkpoint = read_json(checkpoint_path) if checkpoint_path.exists() else {}
     now = datetime.now(UTC)

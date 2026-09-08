@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-source-acquisition",
+  "sourceId": "sedlaczek-fieldcraft-method-1935",
+  "collectionId": "pbc-rzeszow",
+  "status": "skipped-with-reason",
+  "sourceFilesCommittedToRepository": 0,
+  "items": [
+    {
+      "kind": "djvu",
+      "status": "index-only-incomplete-source",
+      "url": "https://www.pbc.rzeszow.pl/Content/10606/DjVu/metodyka_harcow.djvu",
+      "finalUrl": "https://www.pbc.rzeszow.pl/Content/10606/DjVu/metodyka_harcow.djvu",
+      "artifactRelativePath": "artifacts/sources/sedlaczek-fieldcraft-method-1935/source.djvu",
+      "bytes": 290,
+      "sha256": "8384cf0c4cdd091dcb35cdf1bf1e017b3e11b5a0681adde0807900fd907506ef",
+      "contentType": "image/x.djvu",
+      "retrievedAt": "2026-09-07T11:08:19.665906+00:00"
+    }
+  ],
+  "terminalReason": "Owner deferred both PBC sources from the current V3 run after this URL proved to be an indirect multipage DjVu index rather than a complete book.",
+  "artifactAssessment": "indirect-multipage-djvu-index",
+  "method": "direct-djvu-from-official-reader",
+  "recordResolution": {
+    "recordUrl": "https://www.pbc.rzeszow.pl/dlibra/publication/edition/10606/content",
+    "recordFinalUrl": "https://www.pbc.rzeszow.pl/dlibra/publication/edition/10606/content",
+    "recordContentType": "text/html",
+    "recordSha256": "5673d41fc2df60de7b22bfd1e22e66ce42a0df63e632d7a89b8989a1a446d592",
+    "recordBytes": 23757,
+    "resolvedAt": "2026-09-07T11:08:19.558192+00:00"
+  },
+  "skippedAt": "2026-09-07"
+}

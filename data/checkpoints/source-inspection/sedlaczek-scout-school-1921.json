@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "v3-source-pdf-inspection",
+  "sourceId": "sedlaczek-scout-school-1921",
+  "status": "complete",
+  "classification": "embedded-text-available",
+  "sourcePdf": {
+    "artifactRelativePath": "artifacts/sources/sedlaczek-scout-school-1921/source.pdf",
+    "sha256": "59cfdfd261159903296525a07ee4db106afa1b424a281165cf686882dd982e12",
+    "bytes": 17602211
+  },
+  "pdf": {
+    "tagged": "yes",
+    "pages": 229,
+    "encrypted": "no",
+    "pageSize": "396.7 x 553.9 pts",
+    "pdfVersion": "1.5"
+  },
+  "embeddedText": {
+    "artifactRelativePath": "artifacts/inspection/sedlaczek-scout-school-1921/pdftotext-layout.txt",
+    "sha256": "7c3cbd6f8a54b1ce1a5d93b69dc494c2d6d7f3ed83aeb7406dedb3f008c1eb27",
+    "bytes": 510982,
+    "characters": 477559,
+    "nonWhitespaceCharacters": 369301,
+    "lines": 9386,
+    "replacementCharacters": 0
+  },
+  "slurm": {
+    "jobId": "22076173",
+    "partition": "plgrid",
+    "account": "plgcredibleai2026-cpu",
+    "node": "x1001c0s3b0n0",
+    "architecture": "x86_64",
+    "gitRevision": "a35ff3365c018852b91bae2e5a86ddf871c46774"
+  },
+  "completedAt": "2026-09-06T18:27:33.506455+00:00",
+  "sourceFilesCommittedToRepository": 0
+}
