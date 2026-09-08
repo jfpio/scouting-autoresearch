@@ -1438,6 +1438,54 @@ def translation_state(
     }
 
 
+def atomic_translation_paths(
+    all_paths: list[Path],
+    *,
+    source_id: str,
+    source_locale: str,
+    target_locale: str,
+    model: str,
+) -> list[Path]:
+    """Return the complete source/direction unit represented by a partial run."""
+    atomic_paths: list[Path] = []
+    for path in all_paths:
+        metadata, _ = load_markdown(path)
+        if (
+            metadata.get("sourceId") != source_id
+            or metadata.get("originalLanguage") != source_locale
+        ):
+            continue
+        if target_locale not in translation_targets(source_locale):
+            continue
+        if resolved_translation_model(metadata, None, target_locale) != model:
+            continue
+        atomic_paths.append(path)
+    return atomic_paths
+
+
+def carry_failed_request_usage(
+    state: dict[str, Any], prior_checkpoint: dict[str, Any]
+) -> None:
+    """Carry billable failed attempts without narrowing the source checkpoint."""
+    prior_failed = prior_checkpoint.get("failedRequestUsage")
+    if isinstance(prior_failed, dict):
+        state["failedRequestUsage"] = prior_failed
+        totals = state["usage"]
+        totals["promptTokens"] += int(prior_failed.get("promptTokens", 0))
+        totals["completionTokens"] += int(prior_failed.get("completionTokens", 0))
+        totals["requestMaxOutputTokens"] += int(
+            prior_failed.get("requestMaxOutputTokens", 0)
+        )
+        totals["referenceCostUsd"] = round(
+            float(totals["referenceCostUsd"])
+            + float(prior_failed.get("referenceCostUsd", 0)),
+            8,
+        )
+    prior_untracked = prior_checkpoint.get("untrackedHistoricalFailedRequestUsage")
+    if isinstance(prior_untracked, dict):
+        state["untrackedHistoricalFailedRequestUsage"] = prior_untracked
+
+
 def advance_translation_state(
     state: dict[str, Any],
     activity_id: str,
@@ -1573,7 +1621,8 @@ def main() -> None:
     parser.add_argument("--source-id")
     parser.add_argument("--target-locale", choices=("pl", "en"))
     args = parser.parse_args()
-    paths = sorted((VAULT / "activities").glob("*.md"))
+    all_paths = sorted((VAULT / "activities").glob("*.md"))
+    paths = all_paths
     if args.ids:
         wanted = set(args.ids)
         paths = [path for path in paths if path.stem in wanted]
@@ -1640,9 +1689,54 @@ def main() -> None:
             "rerun with --source-id and --target-locale"
         )
     if not stale_groups:
+        # A partial --ids/--limit run must never leave an atomic source report
+        # narrowed to only the selected records.
+        for source_id, source_locale, target_locale, model in source_groups:
+            atomic_paths = atomic_translation_paths(
+                all_paths,
+                source_id=source_id,
+                source_locale=source_locale,
+                target_locale=target_locale,
+                model=model,
+            )
+            state_path = checkpoint_path(source_id, source_locale, target_locale)
+            state = translation_state(atomic_paths, model, target_locale)
+            if state_path.exists():
+                prior_checkpoint = read_json(state_path)
+                if (
+                    prior_checkpoint.get("sourceId") == source_id
+                    and prior_checkpoint.get("targetLocale") == target_locale
+                    and prior_checkpoint.get("modelRequested") == model
+                ):
+                    carry_failed_request_usage(state, prior_checkpoint)
+            if state["pendingActivityIds"]:
+                continue
+            final_checkpoint = write_checkpoint(
+                state_path,
+                status="complete",
+                source_id=source_id,
+                source_locale=source_locale,
+                target_locale=target_locale,
+                model=model,
+                paths=atomic_paths,
+                state=state,
+            )
+            write_json(
+                report_path(source_id, source_locale, target_locale),
+                {**final_checkpoint, "generatedAt": date.today().isoformat()},
+            )
         print(f"Translations current: {len(paths)}/{len(paths)}")
         return
-    (source_id, source_locale, target_locale, model), paths = next(iter(stale_groups.items()))
+    (source_id, source_locale, target_locale, model), work_paths = next(
+        iter(stale_groups.items())
+    )
+    paths = atomic_translation_paths(
+        all_paths,
+        source_id=source_id,
+        source_locale=source_locale,
+        target_locale=target_locale,
+        model=model,
+    )
     state_path = checkpoint_path(source_id, source_locale, target_locale)
     retry_at = active_retry(state_path)
     if retry_at:
@@ -1652,28 +1746,12 @@ def main() -> None:
     state = translation_state(paths, model, target_locale)
     if state_path.exists():
         prior_checkpoint = read_json(state_path)
-        prior_failed = prior_checkpoint.get("failedRequestUsage")
         if (
-            isinstance(prior_failed, dict)
-            and prior_checkpoint.get("sourceId") == source_id
+            prior_checkpoint.get("sourceId") == source_id
             and prior_checkpoint.get("targetLocale") == target_locale
             and prior_checkpoint.get("modelRequested") == model
         ):
-            state["failedRequestUsage"] = prior_failed
-            totals = state["usage"]
-            totals["promptTokens"] += int(prior_failed.get("promptTokens", 0))
-            totals["completionTokens"] += int(prior_failed.get("completionTokens", 0))
-            totals["requestMaxOutputTokens"] += int(
-                prior_failed.get("requestMaxOutputTokens", 0)
-            )
-            totals["referenceCostUsd"] = round(
-                float(totals["referenceCostUsd"])
-                + float(prior_failed.get("referenceCostUsd", 0)),
-                8,
-            )
-        prior_untracked = prior_checkpoint.get("untrackedHistoricalFailedRequestUsage")
-        if isinstance(prior_untracked, dict):
-            state["untrackedHistoricalFailedRequestUsage"] = prior_untracked
+            carry_failed_request_usage(state, prior_checkpoint)
     try:
         ensure_models_available(api_key, {model})
     except TransientTranslationError as error:
@@ -1717,7 +1795,7 @@ def main() -> None:
         paths=paths,
         state=state,
     )
-    for path in paths:
+    for path in work_paths:
         try:
             metadata, body = load_markdown(path)
             enforce_reference_cost_limit(
@@ -1813,9 +1891,22 @@ def main() -> None:
     if errors:
         write_json(
             error_report_path(source_id, source_locale, target_locale),
-            {"modelRequested": model, "selected": len(paths), "completed": completed, "errors": errors},
+            {"modelRequested": model, "selected": len(work_paths), "completed": completed, "errors": errors},
         )
         raise SystemExit(f"{len(errors)} translations failed; rerun to resume")
+    if state["pendingActivityIds"]:
+        write_checkpoint(
+            state_path,
+            status="in-progress",
+            source_id=source_id,
+            source_locale=source_locale,
+            target_locale=target_locale,
+            model=model,
+            paths=paths,
+            state=state,
+        )
+        print(f"Translations current: {completed}/{len(paths)}")
+        return
     final_checkpoint = write_checkpoint(
         state_path,
         status="complete",

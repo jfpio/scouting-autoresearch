@@ -35,7 +35,7 @@
     ]
   },
   "transcriptionEvidence": {
-    "sourceStatement": "Mistral OCR output from pinned Polona IIIF page images; raw responses remain in private repository artifacts.",
+    "sourceStatement": "Mistral OCR output from pinned page images; raw responses remain in the gitignored artifacts store on Group Storage.",
     "sourceLocation": "https://polona.pl/preview/71788615-5b35-4973-88c0-f6e1550be578",
     "deterministicNormalization": [
       "omit the repeated activity heading represented in frontmatter",
@@ -44,7 +44,7 @@
       "omit non-text illustration placeholders while retaining page provenance",
       "omit source-specific repeated running headers",
       "join OCR soft line wraps and dehyphenate lowercase word continuations",
-      "join a page-break blank line only when it interrupts a word-continuing sentence",
+      "join a page-break blank line only before a lowercase sentence continuation, including after comma, semicolon or colon",
       "preserve spelling, punctuation and paragraph order without modernization"
     ],
     "lexicalModernization": false
@@ -152,7 +152,7 @@
         6
       ],
       "sourceBlockSha256": "e90e5141705dc75ef819af6242295ad88557b126e95c7ba0d5cf5c01a9387ad8",
-      "publishedSourceHash": "2215a9109ac0e3ab19a08758f80dfab82e0635aaa73b6f0074f0a139179e097f"
+      "publishedSourceHash": "81d1ca2451e086eab96bb1fb008fe0466b55c43ebc324d2daa90f93b78953875"
     },
     {
       "id": "ciz-010",
@@ -355,7 +355,7 @@
         17
       ],
       "sourceBlockSha256": "99930e91666ced8802c3670362dac38a0297455b99b391ef58234615b570311a",
-      "publishedSourceHash": "672a8ba75eb45bfd002c8196e84f1950d14a5ab81ebc9ac6b1d26b22e669b8ca"
+      "publishedSourceHash": "c7c2ae0cf6cc533976dc6653067f9a6969d2f572b6a870c4287f684aba1a1ed8"
     },
     {
       "id": "ciz-027",

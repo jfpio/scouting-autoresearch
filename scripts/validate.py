@@ -89,7 +89,17 @@ def source_translation_policies(source: dict[str, Any]) -> list[dict[str, Any]]:
 def repository_files() -> tuple[list[Path], list[Path]]:
     files: list[Path] = []
     nested_git: list[Path] = []
-    skipped = {"node_modules", ".venv", ".git", "dist", ".astro", "__pycache__"}
+    skipped = {
+        "node_modules",
+        ".venv",
+        ".git",
+        "dist",
+        ".astro",
+        "__pycache__",
+        # Durable source/OCR artifacts live beside the checkout on Group Storage,
+        # but are intentionally excluded from Git and publication.
+        "artifacts",
+    }
     for current, directories, names in os.walk(ROOT):
         current_path = Path(current)
         for directory in directories:
@@ -474,6 +484,11 @@ def main() -> None:
             )
             for activity_id in expected_ids
         )
+        failed_request_usage = report.get("failedRequestUsage") or {}
+        expected_prompt_tokens += int(failed_request_usage.get("promptTokens", 0))
+        expected_completion_tokens += int(
+            failed_request_usage.get("completionTokens", 0)
+        )
         expected_request_max_output_tokens = sum(
             int(
                 (
@@ -485,6 +500,9 @@ def main() -> None:
             )
             for activity_id in expected_ids
         )
+        expected_request_max_output_tokens += int(
+            failed_request_usage.get("requestMaxOutputTokens", 0)
+        )
         expected_reference_cost = round(
             sum(
                 float(
@@ -494,7 +512,8 @@ def main() -> None:
                     ).get("referenceCostUsd", 0)
                 )
                 for activity_id in expected_ids
-            ),
+            )
+            + float(failed_request_usage.get("referenceCostUsd", 0)),
             8,
         )
         report_usage = report.get("usage") or {}
@@ -736,6 +755,7 @@ def main() -> None:
 
     semantic_batches = load_semantic_map_batches()
     semantic_batch_by_id: dict[str, dict] = {}
+    latest_semantic_batch_by_activity: dict[str, str] = {}
     for batch in semantic_batches:
         batch_id = batch.get("batchId")
         require(bool(batch_id), "V3 embedding batch lacks an ID", errors)
@@ -805,12 +825,8 @@ def main() -> None:
                 f"V3 batch {batch_id} lacks cache {activity_id}",
                 errors,
             )
-            if activity_id in semantic_batch_ids_by_activity:
-                require(
-                    semantic_batch_ids_by_activity[activity_id] == batch_id,
-                    f"V3 batch/cache mismatch for {activity_id}",
-                    errors,
-                )
+            if isinstance(activity_id, str) and isinstance(batch_id, str):
+                latest_semantic_batch_by_activity[activity_id] = batch_id
 
     for activity_id, batch_id in semantic_batch_ids_by_activity.items():
         require(batch_id in semantic_batch_by_id, f"V3 cache {activity_id} lacks its batch ledger", errors)
@@ -820,6 +836,11 @@ def main() -> None:
                 f"V3 cache {activity_id} is absent from batch {batch_id}",
                 errors,
             )
+        require(
+            latest_semantic_batch_by_activity.get(activity_id) == batch_id,
+            f"V3 cache {activity_id} does not point to its latest batch ledger",
+            errors,
+        )
 
     for source_id in semantic_config["corpus"]["sourceOrder"]:
         source_ids = {

@@ -18,7 +18,7 @@ relations:
     evidence:
       report: data/reports/near-duplicates.json
       algorithmVersion: tfidf-word-unigram-bigram-cosine-v1
-      tfidfCosine: 0.23061245
+      tfidfCosine: 0.22363969
     notes:
       pl: >-
         Oba warianty opisują nocny pościg za harcerzami przekazującymi sobie latarkę i

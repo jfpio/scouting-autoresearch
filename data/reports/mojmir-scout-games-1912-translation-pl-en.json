@@ -176,11 +176,11 @@
     "mistral-large-2512"
   ],
   "usage": {
-    "promptTokens": 61032,
-    "completionTokens": 32227,
-    "requestMaxOutputTokens": 81959,
+    "promptTokens": 61052,
+    "completionTokens": 32244,
+    "requestMaxOutputTokens": 81984,
     "billedCostUsd": null,
-    "referenceCostUsd": 0.0788565,
+    "referenceCostUsd": 0.078892,
     "billingMode": "education-credit",
     "inputPriceUsdPerMillionTokens": 0.5,
     "outputPriceUsdPerMillionTokens": 1.5,
@@ -190,5 +190,5 @@
     "maxReferenceCostUsd": 10
   },
   "reasoningMode": "disabled",
-  "generatedAt": "2026-09-07"
+  "generatedAt": "2026-09-08"
 }

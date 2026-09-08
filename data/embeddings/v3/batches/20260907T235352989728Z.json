@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "semantic-map-v3-embeddings",
+  "batchId": "20260907T235352989728Z",
+  "generatedAt": "2026-09-07T23:53:52.989728+00:00",
+  "sourceId": "mojmir-scout-games-1912",
+  "modelRequested": "mistral-embed-2312",
+  "model": "mistral-embed-2312",
+  "dimensions": 1024,
+  "recipeVersion": "bilingual-game-context-v1",
+  "billingMode": "education-credit",
+  "modelAccess": {
+    "checked": true,
+    "modelId": "mistral-embed-2312"
+  },
+  "referencePriceUsdPerMillionInputTokens": 0.1,
+  "referencePriceSource": "https://docs.mistral.ai/models/mistral-embed-23-12",
+  "referencePriceAccessedOn": "2026-09-04",
+  "activityIds": [
+    "ciz-009",
+    "ciz-025"
+  ],
+  "usage": {
+    "promptTokens": 965,
+    "billedCostUsd": null,
+    "referenceCostUsd": 9.65e-05
+  }
+}

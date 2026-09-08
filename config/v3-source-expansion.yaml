@@ -1,7 +1,7 @@
 schemaVersion: 1
 runId: v3-source-expansion-2026-09
 milestone: V3-R1
-status: active
+status: complete
 baseline:
   activityCount: 284
   gameCount: 199

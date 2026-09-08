@@ -13,7 +13,7 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from build_content import activity_page, load_records
+from build_content import activity_page, load_records, strip_trailing_whitespace
 from common import dump_markdown, load_markdown, source_hash
 from import_sources import clean_game_body
 from gutenberg import Block, fetch, parse_html, parse_text
@@ -52,6 +52,10 @@ from translate import (
 
 
 class PipelineTests(unittest.TestCase):
+    def test_generated_text_strips_only_trailing_whitespace(self):
+        value = "first  \n  second\t\n   \n"
+        self.assertEqual(strip_trailing_whitespace(value), "first\n  second\n\n")
+
     def test_markdown_round_trip(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "record.md"

@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "pipeline": "semantic-map-v3-embeddings",
   "status": "complete",
-  "generatedAt": "2026-09-07T23:00:38.057865+00:00",
-  "corpusDigest": "b3ee5f2b9dbc41c666b8fb7b1f096bcdff27770b461041c1a8e860c84ce40a83",
+  "generatedAt": "2026-09-07T23:53:52.989728+00:00",
+  "corpusDigest": "168e61d1252922b26a0dc1e8021d2a79c4f482fe13f9ef74dc28a838c7a853e0",
   "cacheNamespace": "data/embeddings/v3",
   "modelRequested": "mistral-embed-2312",
   "dimensions": 1024,
@@ -1969,7 +1969,8 @@
     "20260907T225712691468Z",
     "20260907T225805370180Z",
     "20260907T225928840031Z",
-    "20260907T230038057865Z"
+    "20260907T230038057865Z",
+    "20260907T235352989728Z"
   ],
   "costAccounting": {
     "billingMode": "education-credit",
@@ -1978,13 +1979,13 @@
     "referencePriceSource": "https://docs.mistral.ai/models/mistral-embed-23-12",
     "referencePriceAccessedOn": "2026-09-04",
     "maxTotalReferenceCostUsd": 10.0,
-    "referenceCostRemainingUsd": 9.9498261
+    "referenceCostRemainingUsd": 9.9497296
   },
   "usage": {
-    "requests": 25,
-    "documentsProcessed": 914,
-    "promptTokens": 501739,
+    "requests": 26,
+    "documentsProcessed": 916,
+    "promptTokens": 502704,
     "billedCostUsd": null,
-    "referenceCostUsd": 0.0501739
+    "referenceCostUsd": 0.0502704
   }
 }

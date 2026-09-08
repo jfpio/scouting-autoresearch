@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Import reviewed V3 game blocks from pinned OCR responses in scratch.
+"""Import reviewed V3 game blocks from pinned OCR responses in durable artifacts.
 
-The raw OCR and page images stay outside the repository. Imported activity files
-contain only bounded game blocks plus provenance links to the exact library object
-and starting facsimile image.
+The raw OCR and page images stay in the Git-ignored ``artifacts/`` tree beside the
+checkout. Imported activity files contain only bounded game blocks plus provenance
+links to the exact library object and starting facsimile image.
 """
 
 from __future__ import annotations
@@ -705,10 +705,15 @@ def import_source(source_id: str) -> dict[str, Any]:
             if source_id == "pawelek-young-troop-1919"
             else "Polona / Biblioteka Narodowa"
         )
+        rights_label = (
+            "Domena publiczna"
+            if source_id == "pawelek-young-troop-1919"
+            else "Domena Publiczna"
+        )
         source_note = (
             "---\n\n"
             f"*Źródło skanu: [{provider_name}]({plan.source_url}), "
-            f"oznaczenie „Domena publiczna”. [Zobacz skan — widok {start[0]}]"
+            f"oznaczenie „{rights_label}”. [Zobacz skan — widok {start[0]}]"
             f"({facsimile_url}).*"
         )
         body = f"{source_body}\n\n{source_note}"
@@ -733,6 +738,7 @@ def import_source(source_id: str) -> dict[str, Any]:
             "sourceUrl": plan.source_url,
             "digitalEditionUrl": plan.source_url,
             "facsimileUrl": facsimile_url,
+            "sourceBlockSha256": raw_hash,
             "sourceHash": source_hash(title, body),
             "participantScales": ["unknown"],
             "participantScaleBasis": "unknown",

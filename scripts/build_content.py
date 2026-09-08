@@ -483,6 +483,11 @@ def public_record(record: dict) -> dict:
     }
 
 
+def strip_trailing_whitespace(value: str) -> str:
+    """Keep source line breaks while avoiding whitespace-only export changes."""
+    return "\n".join(line.rstrip() for line in value.split("\n"))
+
+
 def write_exports(polish: list[dict], english: list[dict], sources: dict[str, dict]) -> None:
     GENERATED.mkdir(parents=True, exist_ok=True)
     PUBLIC_DATA.mkdir(parents=True, exist_ok=True)
@@ -543,7 +548,9 @@ def write_exports(polish: list[dict], english: list[dict], sources: dict[str, di
                 pl["sourceText"],
                 "",
             ]
-    (public / "llms-full.txt").write_text("\n".join(full), encoding="utf-8")
+    (public / "llms-full.txt").write_text(
+        strip_trailing_whitespace("\n".join(full)), encoding="utf-8"
+    )
     (public / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")
 
 

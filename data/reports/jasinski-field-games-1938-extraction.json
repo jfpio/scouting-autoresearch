@@ -247,7 +247,7 @@
     ]
   },
   "transcriptionEvidence": {
-    "sourceStatement": "Mistral OCR output from pinned Polona IIIF page images; raw responses remain in private repository artifacts.",
+    "sourceStatement": "Mistral OCR output from pinned page images; raw responses remain in the gitignored artifacts store on Group Storage.",
     "sourceLocation": "https://polona.pl/preview/b1600bcb-668f-4daf-a37b-81fade26971f",
     "deterministicNormalization": [
       "omit the repeated activity heading represented in frontmatter",

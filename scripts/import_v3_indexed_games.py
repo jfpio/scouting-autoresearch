@@ -271,6 +271,7 @@ def build_import() -> tuple[dict[str, Any], list[tuple[Path, dict[str, Any], str
             "digitalEditionUrl": SOURCE_URL,
             "facsimileUrl": facsimile_url,
             "sourceRevision": revision,
+            "sourceBlockSha256": reviewed_hash,
             "participantScales": ["unknown"],
             "participantScaleBasis": "unknown",
         }

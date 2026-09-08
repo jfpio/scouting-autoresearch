@@ -2,7 +2,7 @@ schemaVersion: 1
 activeRun:
   id: v3-source-expansion-2026-09
   milestone: V3-R1
-  status: active
+  status: complete
   manifest: config/v3-source-expansion.yaml
   checkpoint: data/checkpoints/research-runs/v3-source-expansion-2026-09.json
   reviewRecord: vault/reviews/inbox/v3-source-expansion-2026-09.md
@@ -12,7 +12,7 @@ activeRun:
   candidateCount: 867
   importedActivityCount: 715
   deferredSourceUnitCount: 2
-  nextStep: run-v3-corpus-audits-and-semantic-map
+  nextStep: publish-final-v3-r1-pull-request
   nextHumanGates: []
 subjects:
   - id: robert-baden-powell

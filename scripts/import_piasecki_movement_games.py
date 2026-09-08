@@ -547,6 +547,7 @@ def build_import() -> tuple[dict[str, Any], list[tuple[Path, dict[str, Any], str
             "digitalEditionUrl": SOURCE_URL,
             "facsimileUrl": facsimile_url,
             "sourceRevision": revision,
+            "sourceBlockSha256": reviewed_hash,
             "participantScales": ["unknown"],
             "participantScaleBasis": "unknown",
         }
@@ -698,7 +699,26 @@ def execute_import() -> dict[str, Any]:
         else:
             candidate.pop("recordReviewReason", None)
         candidate["separateLyricsOrVerseReviewRequired"] = number in OMITTED_RANGES
-    report["status"] = "record-review-complete-original-imported-translation-pending"
+    expected_activity_ids = sorted(item["id"] for item in extraction["activities"])
+    translation_report_path = (
+        ROOT / "data" / "reports" / f"{SOURCE_ID}-translation-pl-en.json"
+    )
+    translation_complete = False
+    if translation_report_path.is_file():
+        translation_report = read_json(translation_report_path)
+        translation_complete = (
+            translation_report.get("status") == "complete"
+            and translation_report.get("selectedActivityIds")
+            == expected_activity_ids
+            and translation_report.get("completedActivityIds")
+            == expected_activity_ids
+            and translation_report.get("pendingActivityIds") == []
+        )
+    report["status"] = (
+        "complete-imported"
+        if translation_complete
+        else "record-review-complete-original-imported-translation-pending"
+    )
     report["selection"]["importedActivityCount"] = len(outputs)
     report["selection"]["recordReviewRequired"] = False
     report["selection"]["musicOrLyricsOmittedCandidateCount"] = len(OMITTED_RANGES)

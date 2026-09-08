@@ -47,7 +47,7 @@ translationPolicy:
 
 # Gry i ćwiczenia terenowe (Harce terenowe)
 
-Źródło bibliograficzne dla gier wyodrębnionych z obiektu bibliotecznego jawnie oznaczonego jako domena publiczna. Obrazy stron i pełna książka pozostają poza repozytorium.
+Źródło bibliograficzne dla gier wyodrębnionych z obiektu bibliotecznego jawnie oznaczonego jako domena publiczna. Obrazy stron, OCR i pełna książka pozostają w ignorowanym przez Git katalogu `artifacts/` przy checkoutcie na Group Storage.
 
 - [Rekord cyfrowy w Polonie](https://polona.pl/preview/b1600bcb-668f-4daf-a37b-81fade26971f)
 - [Dokładny dowód statusu prawnego](https://polona.pl/api/library-object-query/digital-objects/b1600bcb-668f-4daf-a37b-81fade26971f)

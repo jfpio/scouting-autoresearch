@@ -17,7 +17,7 @@ module load GCCcore/13.3.0 Python/3.12.3
 
 task_repo="${SLURM_SUBMIT_DIR}"
 npm_cache="${SCRATCH}/scouting-autoresearch/npm-cache"
-python_venv="${SCRATCH}/scouting-autoresearch/venvs/x86_64-py312-semantic-v3"
+python_venv="${SCRATCH}/scouting-autoresearch/venvs/x86_64-py312"
 nvm_root="${SCRATCH}/scouting-autoresearch/nvm-x86_64"
 node_version="22.19.0"
 work_dir="${SCRATCH}/scouting-autoresearch/web/x86_64-node22"
@@ -36,6 +36,9 @@ remove_generated_tree() {
 }
 
 cleanup() {
+  remove_generated_tree "${work_dir}/artifacts"
+  remove_generated_tree "${work_dir}/data/embeddings"
+  remove_generated_tree "${work_dir}/vault"
   remove_generated_tree "${work_dir}/node_modules"
   remove_generated_tree "${work_dir}/dist"
   remove_generated_tree "${work_dir}/.astro"
@@ -77,9 +80,15 @@ printf 'partition=%s account=%s cpus=%s memory=%s\n' \
 
 # Generated source files belong to the working branch; binary build artifacts do not.
 python "${task_repo}/scripts/build_content.py"
+remove_generated_tree "${work_dir}/artifacts"
+remove_generated_tree "${work_dir}/data/embeddings"
+remove_generated_tree "${work_dir}/vault"
 rsync -a --delete \
   --exclude='.package-lock.sha256' \
   --exclude='.git/' \
+  --exclude='artifacts/' \
+  --exclude='data/embeddings/' \
+  --exclude='vault/' \
   --exclude='.astro/' \
   --exclude='dist/' \
   --exclude='node_modules/' \
@@ -103,6 +112,6 @@ if [[ ! -f "${dependency_archive}" || "${cached_lock_hash}" != "${current_lock_h
 fi
 npm run build
 python scripts/check_links.py
-python scripts/validate.py
+python "${task_repo}/scripts/validate.py"
 
 printf 'status=passed\n'

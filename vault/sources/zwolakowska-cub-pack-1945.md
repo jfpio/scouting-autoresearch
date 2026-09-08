@@ -47,7 +47,7 @@ translationPolicy:
 
 # W gromadzie zuchów
 
-Źródło bibliograficzne dla gier wyodrębnionych z obiektu bibliotecznego jawnie oznaczonego jako domena publiczna. Obrazy stron i pełna książka pozostają poza repozytorium.
+Źródło bibliograficzne dla gier wyodrębnionych z obiektu bibliotecznego jawnie oznaczonego jako domena publiczna. Obrazy stron, OCR i pełna książka pozostają w ignorowanym przez Git katalogu `artifacts/` przy checkoutcie na Group Storage.
 
 - [Rekord cyfrowy w Polonie](https://polona.pl/preview/3f71abd7-af13-4f31-9b48-cab79f380362)
 - [Dokładny dowód statusu prawnego](https://polona.pl/api/library-object-query/digital-objects/3f71abd7-af13-4f31-9b48-cab79f380362)

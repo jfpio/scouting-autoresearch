@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "runId": "v3-source-expansion-2026-09",
   "milestone": "V3-R1",
-  "status": "active-human-gates-approved",
+  "status": "complete-ready-for-final-pr",
   "baseline": {
     "activityCount": 284,
     "gameCount": 199,
@@ -10,7 +10,7 @@
   },
   "sourceOutcomes": [
     {"sourceId": "jasinski-field-games-1938", "status": "imported", "candidateCount": 196, "importedActivityCount": 138, "ocrReferenceCostUsd": 0.9, "translationReferenceCostUsd": 0.125461, "modelEvaluationReferenceCostUsd": 0.00913305, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
-    {"sourceId": "mojmir-scout-games-1912", "status": "imported", "candidateCount": 85, "importedActivityCount": 80, "ocrReferenceCostUsd": 0.308, "translationReferenceCostUsd": 0.0788565, "modelEvaluationReferenceCostUsd": 0.0135349, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
+    {"sourceId": "mojmir-scout-games-1912", "status": "imported", "candidateCount": 85, "importedActivityCount": 80, "ocrReferenceCostUsd": 0.308, "translationReferenceCostUsd": 0.078892, "modelEvaluationReferenceCostUsd": 0.0135349, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
     {"sourceId": "dabrowski-indoor-games-1934", "status": "imported", "candidateCount": 184, "importedActivityCount": 175, "ocrReferenceCostUsd": 0.344, "translationReferenceCostUsd": 0.0948105, "modelEvaluationReferenceCostUsd": 0.00545545, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
     {"sourceId": "piasecki-movement-games-1922", "status": "imported", "candidateCount": 133, "importedActivityCount": 117, "translationReferenceCostUsd": 0.2930155, "modelEvaluationReferenceCostUsd": 0.04826205, "untrackedFailedTranslationReferenceCostUpperBoundUsd": 0.017268, "translationModel": "mistral-large-2512", "translationPromptVersion": "translation-pl-en-v5", "sourceValidation": "passed"},
     {"sourceId": "dabrowski-winter-games-1935", "status": "skipped-with-reason", "candidateCount": 0, "importedActivityCount": 0, "reason": "Owner deferred both PBC sources from the current V3 run after the direct URL proved to be an indirect DjVu index."},
@@ -74,8 +74,13 @@
     "sedlaczek-fieldcraft-method-1935": "skipped in this run by owner decision; approved direct URL is only an indirect DjVu index"
   },
   "exactDuplicatesAndCloseVariantCandidates": {
-    "status": "pending-corpus-wide-audit",
-    "reason": "All eligible records are imported; corpus-wide similarity analysis is the next run step."
+    "status": "complete-human-review-pending",
+    "automaticMerges": 0,
+    "approvedProductionRelations": 1,
+    "tfidfCandidateCount": 50,
+    "semanticCandidateCount": 50,
+    "semanticReviewPacket": "data/reports/semantic-map-v3-review-packet.json",
+    "reason": "Candidates remain proposals; only the previously owner-approved bsh-037/hwp-041 relation is public."
   },
   "ocrAndTranslationModels": {
     "ocrModel": "mistral-ocr-4-1",
@@ -89,32 +94,73 @@
     "ocrProcessedViewCount": 653,
     "ocrReferenceCostUsd": 2.616,
     "referenceCostLimitUsd": 10.0,
-    "translationPromptTokens": 354830,
-    "translationCompletionTokens": 169452,
-    "translationReferenceCostUsd": 0.7246085,
+    "translationPromptTokens": 568113,
+    "translationCompletionTokens": 293725,
+    "translationRequestedOutputTokens": 719039,
+    "translationReferenceCostUsd": 0.724644,
     "completedModelEvaluationReferenceCostUsd": 0.09243275,
-    "untrackedFailedTranslationReferenceCostUpperBoundUsd": 0.027309
+    "untrackedFailedTranslationReferenceCostUpperBoundUsd": 0.027309,
+    "semanticEmbeddingPromptTokens": 502704,
+    "semanticEmbeddingRequests": 26,
+    "semanticEmbeddingDocumentsProcessedIncludingTwoRefreshes": 916,
+    "semanticEmbeddingReferenceCostUsd": 0.0502704,
+    "knownReferenceCostUsd": 3.48334715,
+    "knownPlusUntrackedUpperBoundUsd": 3.51065615
+  },
+  "participantAndFacetAudits": {
+    "status": "complete-human-review-required",
+    "gameCount": 914,
+    "participantLexicalSignalCount": 321,
+    "participantNumericSignalCount": 91,
+    "practicalFacetDimensionCount": 12,
+    "productionFieldsWritten": [],
+    "participantReport": "data/reports/v3-participant-input-audit.json",
+    "facetReport": "data/reports/v3-practical-facet-audit.json",
+    "nextStep": "Human review decides which scales and facets merit manual annotation; no automated signal became a production assignment."
+  },
+  "semanticMap": {
+    "status": "complete",
+    "gameCount": 914,
+    "embeddingModel": "mistral-embed-2312",
+    "embeddingDimensions": 1024,
+    "recipeVersion": "bilingual-game-context-v1",
+    "projection": "umap-learn-0.5.12-cosine-2d",
+    "trustworthinessAt10": 0.81327401,
+    "minimumStabilitySpearman": 0.74052282,
+    "minimumMeanNeighborRetentionAt10": 0.51126915,
+    "candidateCount": 50,
+    "approvedRelationCount": 1,
+    "unreviewedCandidatesPubliclyExposed": false
   },
   "validationResults": {
-    "status": "pending-after-corpus-expansion",
-    "targetedV3Tests": {"status": "passed", "testCount": 44},
+    "status": "passed",
+    "targetedV3Tests": {"status": "passed"},
     "fullUnitTests": {
       "status": "passed",
-      "testCount": 220,
-      "slurmJobId": "22097463",
+      "testCount": 275,
+      "slurmJobId": "22127543",
       "exitCode": "0:0",
-      "elapsed": "00:00:42",
-      "testRuntimeSeconds": 7.416
+      "elapsed": "00:02:47",
+      "testRuntimeSeconds": 26.089
     },
     "repositoryValidation": {
       "status": "passed",
       "command": "python scripts/validate.py",
-      "slurmJobId": "22097463",
+      "slurmJobId": "22127572",
       "exitCode": "0:0"
+    },
+    "siteBuild": {
+      "status": "passed",
+      "slurmJobId": "22127572",
+      "renderedPageCount": 2014,
+      "checkedLinkAndAssetCount": 60887,
+      "renderedActivityCount": 999,
+      "renderedSemanticMapPointCount": 914
     }
   },
   "unresolvedIssues": [
-    "Corpus-wide duplicate candidate review, participant-scale classification and semantic-map rebuild remain pending."
+    "Fifty semantic similarity candidates require human review before any additional production relation can be written.",
+    "Participant-scale and practical-facet audits require human review before manual annotation or production filter changes."
   ],
   "pullRequestOpened": false
 }

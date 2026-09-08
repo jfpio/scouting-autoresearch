@@ -47,7 +47,7 @@ translationPolicy:
 
 # Gry i zabawy w izbie harcerskiej
 
-Źródło bibliograficzne dla gier wyodrębnionych z obiektu bibliotecznego jawnie oznaczonego jako domena publiczna. Obrazy stron i pełna książka pozostają poza repozytorium.
+Źródło bibliograficzne dla gier wyodrębnionych z obiektu bibliotecznego jawnie oznaczonego jako domena publiczna. Obrazy stron, OCR i pełna książka pozostają w ignorowanym przez Git katalogu `artifacts/` przy checkoutcie na Group Storage.
 
 - [Rekord cyfrowy w Polonie](https://polona.pl/preview/f8a00528-6a07-4916-9a76-c1e094e317da)
 - [Dokładny dowód statusu prawnego](https://polona.pl/api/library-object-query/digital-objects/f8a00528-6a07-4916-9a76-c1e094e317da)

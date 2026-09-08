@@ -1,7 +1,7 @@
 ---
 id: v3-source-expansion-2026-09
 recordType: research-run-review
-status: active
+status: ready-for-final-review
 createdAt: "2026-09-06"
 reviewRequired: false
 manifest: config/v3-source-expansion.yaml
@@ -18,9 +18,9 @@ approvedHumanDecisions:
     reviewRecord: vault/reviews/accepted/v3-polish-sources-acquisition.md
 approvedAt: "2026-09-06"
 approvedBy: repository-owner
-candidateCount: 760
-importedActivityCount: 0
-ocrReferenceCostUsd: 2.48
+candidateCount: 867
+importedActivityCount: 715
+ocrReferenceCostUsd: 2.616
 ---
 
 # V3-R1 — rozszerzenie korpusu przed mapą semantyczną
@@ -79,13 +79,13 @@ pull requestem. Pośrednie PR-y per książka są wyłączone.
 Samo zatwierdzenie tych trzech bramek nie zatwierdza wynikowych aktywności ani końcowej
 publikacji. Te decyzje pozostają widoczne w jednym raporcie i końcowym PR-ze V3-R1.
 
-## Stan wykonania 7 września 2026
+## Stan końcowy 8 września 2026
 
 - Osiem dostępnych polskich książek zostało pobranych, przeniesionych do trwałego
   `artifacts/` i zinwentaryzowanych.
-- Mistral OCR przetworzył 506 polskich widoków za koszt referencyjny 2,024 USD. Razem ze 113
-  widokami *Chamarande* OCR objął 619 widoków za 2,480 USD. Nie wystąpił `429`.
-- W ośmiu książkach znaleziono 760 lokalizatorów kandydatów na gry. Pełna treść nie trafiła
+- Mistral OCR przetworzył 540 polskich widoków za koszt referencyjny 2,160 USD. Razem ze 113
+  widokami *Chamarande* OCR objął 653 widoki za 2,616 USD. Nie wystąpił `429`.
+- W ośmiu książkach znaleziono 867 lokalizatorów kandydatów na gry. Pełna treść nie trafiła
   do repozytorium; raporty zawierają tylko metadane, lokalizatory i hashe.
 - *Chamarande* zakończyło się prawidłowym wynikiem zero-yield: zatwierdzona proza opisuje
   program i wspomina gry, lecz nie zawiera samodzielnych reguł gry.
@@ -95,10 +95,16 @@ publikacji. Te decyzje pozostają widoczne w jednym raporcie i końcowym PR-ze V
 - Właściciel zatwierdził oznaczenie konkretnego obiektu przez bibliotekę cyfrową jako
   rozstrzygający dowód domeny publicznej. Decyzja i skutek dla ośmiu zinwentaryzowanych
   książek są zapisane w `vault/reviews/accepted/v3-component-authorship-2026-09.md`.
-- Ukierunkowane testy V3 przeszły `25/25`, pełny zestaw przeszedł `220/220` na CPU node w
-  jobie Slurm `22097463`, a `python scripts/validate.py` zakończył się powodzeniem.
+- Zaimportowano 715 nowych gier i ich angielskie tłumaczenia, co zwiększyło korpus do 999
+  aktywności, w tym 914 gier i 85 prób, z 12 źródeł domeny publicznej.
+- Mapa V3 obejmuje dokładnie 914 gier. Powstał dwujęzyczny pakiet 50 kandydatur podobieństwa;
+  żadna nie została automatycznie opublikowana jako relacja produkcyjna.
+- Audyty uczestników i 12 praktycznych faset obejmują pełne 914 gier i pozostają propozycjami
+  wymagającymi decyzji człowieka przed zmianą schematu lub filtrów.
+- Pełny zestaw przeszedł `275/275` na CPU node w jobie Slurm `22127543`. Końcowy build w
+  jobie `22127572` utworzył 2014 stron, sprawdził 60 887 linków i assetów oraz zakończył
+  powodzeniem `scripts/validate.py`.
 
-Wszystkie bramki są rozstrzygnięte. Agent może przejść do przeglądu granic i importu gier z
-ośmiu pozyskanych polskich książek, tłumaczeń, relacji podobieństwa, skal liczby uczestników
-oraz przebudowy embeddingów i mapy semantycznej. PR nadal powstanie tylko jeden, po
-osiągnięciu stanu terminalnego przez wszystkie jednostki manifestu.
+Wszystkie jednostki i bramki runu mają wynik terminalny. Do decyzji człowieka pozostają
+pakiet kandydatur podobnych gier oraz wybór skal uczestników i faset, które warto poddać
+ręcznej anotacji. Nie blokuje to publikacji V3-R1: końcowy PR jest jedynym PR-em runu.
