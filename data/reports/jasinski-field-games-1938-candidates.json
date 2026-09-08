@@ -45,7 +45,7 @@
   "selection": {
     "productionKind": "game",
     "candidateCount": 196,
-    "importedActivityCount": 138,
+    "importedActivityCount": 153,
     "rightsScope": "Game prose in the Polona object explicitly marked public domain; non-game media remain outside the product scope.",
     "rightsStatus": "public-domain",
     "rightsEvidencePolicy": "explicit-library-public-domain-status-is-ground-truth",
@@ -1589,7 +1589,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 65,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "composite instructional essay with an embedded example but no bounded standalone game block"
     },
     {
@@ -1877,7 +1877,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 77,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "cross-reference-only variant without a self-contained procedure"
     },
     {
@@ -2449,7 +2449,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 100,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "heading-only signal without a bounded procedure"
     },
     {
@@ -2828,7 +2828,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 116,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "fragment of a service-task list, not a self-contained game"
     },
     {
@@ -2852,7 +2852,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 117,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "fragment of a service-task list, not a self-contained game"
     },
     {
@@ -2876,7 +2876,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 118,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "fragment of a service-task list, not a self-contained game"
     },
     {
@@ -2900,7 +2900,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 119,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "fragment of a service-task list, not a self-contained game"
     },
     {
@@ -2924,7 +2924,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 120,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "fragment of a service-task list, not a self-contained game"
     },
     {
@@ -2948,7 +2948,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 121,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "fragment of a service-task list, not a self-contained game"
     },
     {
@@ -2972,7 +2972,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 122,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "fragment of a service-task list, not a self-contained game"
     },
     {
@@ -3325,7 +3325,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 137,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "reconnaissance checklist without a game or competitive procedure"
     },
     {
@@ -3349,7 +3349,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 138,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "reconnaissance checklist without a game or competitive procedure"
     },
     {
@@ -3373,7 +3373,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 139,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "reconnaissance checklist without a game or competitive procedure"
     },
     {
@@ -3397,7 +3397,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 140,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "reconnaissance checklist without a game or competitive procedure"
     },
     {
@@ -3421,7 +3421,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 141,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "reconnaissance checklist without a game or competitive procedure"
     },
     {
@@ -3445,7 +3445,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 142,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "reconnaissance checklist without a game or competitive procedure"
     },
     {
@@ -3469,7 +3469,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 143,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "reconnaissance checklist without a game or competitive procedure"
     },
     {
@@ -3493,7 +3493,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 144,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "reconnaissance checklist without a game or competitive procedure"
     },
     {
@@ -3517,7 +3517,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 145,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "reconnaissance checklist without a game or competitive procedure"
     },
     {
@@ -3541,7 +3541,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 146,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "reconnaissance checklist without a game or competitive procedure"
     },
     {
@@ -3565,7 +3565,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 147,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "reconnaissance checklist without a game or competitive procedure"
     },
     {
@@ -3589,7 +3589,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 148,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "reconnaissance checklist without a game or competitive procedure"
     },
     {
@@ -3636,7 +3636,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 150,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3660,7 +3660,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 151,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3684,7 +3684,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 152,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3708,7 +3708,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 153,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3732,7 +3732,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 154,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3756,7 +3756,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 155,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3780,7 +3780,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 156,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3804,7 +3804,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 157,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3828,7 +3828,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 158,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3852,7 +3852,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 159,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3876,7 +3876,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 160,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3900,7 +3900,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 161,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3924,7 +3924,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 162,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3948,7 +3948,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 163,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3972,7 +3972,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 164,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -3998,7 +3998,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 165,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -4026,7 +4026,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 166,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -4050,7 +4050,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 167,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -4074,7 +4074,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 168,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -4098,7 +4098,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 169,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -4124,7 +4124,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 170,
-      "recordReviewStatus": "rejected-not-game",
+      "recordReviewStatus": "rejected-not-activity",
       "recordReviewReason": "interview topic or editorial guidance, not a bounded game"
     },
     {
@@ -4148,8 +4148,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 171,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": "Bieg 2",
@@ -4174,8 +4173,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 172,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": "Bieg 3",
@@ -4198,8 +4196,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 173,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": "Bieg 4",
@@ -4222,8 +4219,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 174,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": "Bieg 5",
@@ -4246,8 +4242,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 175,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": "Bieg 6",
@@ -4270,8 +4265,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 176,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": "Bieg 7",
@@ -4294,8 +4288,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 177,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": "Bieg 8",
@@ -4318,8 +4311,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 178,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": "Bieg 9",
@@ -4342,8 +4334,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 179,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": "Bieg 10",
@@ -4366,8 +4357,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 180,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": "Bieg 11",
@@ -4390,8 +4380,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 181,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": "Bieg 12",
@@ -4414,8 +4403,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 182,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": "Bieg 13",
@@ -4440,8 +4428,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 183,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": "Bieg 14",
@@ -4466,8 +4453,7 @@
       ],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 184,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": "Bieg 15",
@@ -4490,8 +4476,7 @@
       "componentRiskSignalIds": [],
       "boundaryStatus": "bounded-by-next-heading",
       "number": 185,
-      "recordReviewStatus": "rejected-not-game",
-      "recordReviewReason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
+      "recordReviewStatus": "accepted-scout-course"
     },
     {
       "sourceNumber": 1,

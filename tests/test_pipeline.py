@@ -13,7 +13,15 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from build_content import activity_page, load_records, strip_trailing_whitespace
+from build_content import (
+    activity_page,
+    apply_filter_traits,
+    authors_page,
+    explorer_page,
+    load_records,
+    sources_page,
+    strip_trailing_whitespace,
+)
 from common import dump_markdown, load_markdown, source_hash
 from import_sources import clean_game_body
 from gutenberg import Block, fetch, parse_html, parse_text
@@ -52,6 +60,55 @@ from translate import (
 
 
 class PipelineTests(unittest.TestCase):
+    def test_filter_traits_normalize_case_and_preserve_source_terms(self):
+        records = [
+            {"id": "a", "locale": "pl", "traits": ["Spryt"], "_sourceTraits": ["Spryt"], "_sourceTraitLocale": "pl"},
+            {"id": "b", "locale": "pl", "traits": ["spryt"], "_sourceTraits": ["spryt"], "_sourceTraitLocale": "pl"},
+        ]
+        apply_filter_traits(records)
+        self.assertEqual(records[0]["filterTraits"], ["Spryt"])
+        self.assertEqual(records[1]["filterTraits"], ["Spryt"])
+        self.assertEqual(records[0]["traits"], ["Spryt"])
+        self.assertEqual(records[1]["traits"], ["spryt"])
+
+    def test_filter_traits_expand_approved_compounds(self):
+        records = [
+            {
+                "id": "a",
+                "locale": "pl",
+                "traits": ["Siła woli cierpliwość", "opanowanie się pomysłowość"],
+                "_sourceTraits": ["Siła woli cierpliwość", "opanowanie się pomysłowość"],
+                "_sourceTraitLocale": "pl",
+            },
+            {
+                "id": "a",
+                "locale": "en",
+                "traits": ["Willpower and patience", "Self-control and ingenuity"],
+                "_sourceTraits": ["Siła woli cierpliwość", "opanowanie się pomysłowość"],
+                "_sourceTraitLocale": "pl",
+            },
+        ]
+        apply_filter_traits(records)
+        self.assertEqual(records[0]["filterTraits"], ["Siła woli", "Cierpliwość", "Opanowanie", "Pomysłowość"])
+        self.assertEqual(records[1]["filterTraits"], ["Willpower", "Patience", "Composure", "Ingenuity"])
+
+    def test_explorer_pages_and_catalogs_publish_courses_books_and_authors(self):
+        source = {
+            "id": "source-1",
+            "title": "Książka",
+            "author": "Autor",
+            "year": 1930,
+            "publicationPlace": "Poznań",
+            "publisher": "Wydawca",
+            "rightsStatement": "Domena publiczna",
+            "sourceUrl": "https://example.test/source",
+            "digitalEditionUrl": "https://example.test/book",
+        }
+        record = {"sourceId": "source-1"}
+        self.assertIn('kind="scout-course"', explorer_page("pl", activity_count=1, source_count=1, kind="scout-course"))
+        self.assertIn("# Książki", sources_page("pl", {"source-1": source}, [record]))
+        self.assertIn("# Autorzy", authors_page("pl", {"source-1": source}, [record]))
+
     def test_generated_text_strips_only_trailing_whitespace(self):
         value = "first  \n  second\t\n   \n"
         self.assertEqual(strip_trailing_whitespace(value), "first\n  second\n\n")

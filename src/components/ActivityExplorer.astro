@@ -4,7 +4,7 @@ import activitiesEn from '../../data/generated/activities.en.json';
 
 interface Props {
   locale?: 'pl' | 'en';
-  kind?: 'game' | 'trial';
+  kind?: 'game' | 'trial' | 'scout-course';
 }
 
 const { locale = 'pl', kind } = Astro.props;
@@ -15,56 +15,102 @@ const options = (key) => [...new Set(activities.map((item) => item[key]).filter(
 const authors = options('author');
 const books = options('sourceTitle');
 const years = options('year');
-const sections = options('section');
-const traits = [...new Set(activities.flatMap((item) => item.traits))].sort((a, b) => a.localeCompare(b, locale));
-const searchableText = (item) => [item.title, item.body, ...item.traits, item.section, item.author, item.sourceTitle].filter(Boolean).join(' ');
+const traits = [...new Set(activities.flatMap((item) => item.filterTraits))].sort((a, b) => a.localeCompare(b, locale));
+const searchableText = (item) => [item.title, item.body, ...item.traits, ...item.filterTraits, item.author, item.sourceTitle].filter(Boolean).join(' ');
 const basePath = locale === 'en' ? '/scouting-autoresearch/en/activities/' : '/scouting-autoresearch/activities/';
 const labels = isPl
-  ? { search: 'Szukaj w tytule, treści i cechach', placeholder: 'np. ogień, tropienie, cierpliwość', kind: 'Rodzaj', allKinds: 'Wszystkie rodzaje', game: 'Gra', trial: 'Próba', trait: 'Cecha', allTraits: 'Wszystkie cechy', author: 'Autor', allAuthors: 'Wszyscy autorzy', book: 'Książka', allBooks: 'Wszystkie książki', year: 'Rok', allYears: 'Wszystkie lata', section: 'Dział', allSections: 'Wszystkie działy', clear: 'Wyczyść filtry', results: 'aktywności', noResults: 'Brak aktywności pasujących do filtrów.', machine: 'Tłumaczenie automatyczne', original: 'Tekst źródłowy', safety: 'Wymaga współczesnej oceny ryzyka', read: 'Czytaj' }
-  : { search: 'Search titles, text, and traits', placeholder: 'e.g. fire, tracking, patience', kind: 'Type', allKinds: 'All types', game: 'Game', trial: 'Trial', trait: 'Trait', allTraits: 'All traits', author: 'Author', allAuthors: 'All authors', book: 'Book', allBooks: 'All books', year: 'Year', allYears: 'All years', section: 'Section', allSections: 'All sections', clear: 'Clear filters', results: 'activities', noResults: 'No activities match these filters.', machine: 'Automatic translation', original: 'Source text', safety: 'Modern risk assessment required', read: 'Read' };
+  ? {
+      search: 'Szukaj w tytule, treści i cechach', placeholder: 'np. ogień, tropienie, cierpliwość',
+      kind: 'Rodzaj', game: 'Gra', trial: 'Próba', 'scout-course': 'Bieg harcerski',
+      trait: 'Cecha', author: 'Autor', book: 'Książka', year: 'Rok',
+      choose: 'Wybierz', selected: 'wybrano', clear: 'Wyczyść filtry', remove: 'Usuń filtr',
+      results: 'aktywności', noResults: 'Brak aktywności pasujących do filtrów.',
+      machine: 'Tłumaczenie automatyczne', original: 'Tekst źródłowy', read: 'Czytaj',
+    }
+  : {
+      search: 'Search titles, text, and traits', placeholder: 'e.g. fire, tracking, patience',
+      kind: 'Type', game: 'Game', trial: 'Trial', 'scout-course': 'Scout course',
+      trait: 'Trait', author: 'Author', book: 'Book', year: 'Year',
+      choose: 'Choose', selected: 'selected', clear: 'Clear filters', remove: 'Remove filter',
+      results: 'activities', noResults: 'No activities match these filters.',
+      machine: 'Automatic translation', original: 'Source text', read: 'Read',
+    };
 const kindLabel = (value) => labels[value] || value;
 const kinds = [...new Set(activities.flatMap((item) => item.kinds))].sort((a, b) => kindLabel(a).localeCompare(kindLabel(b), locale));
+const facetLabels = { kind: labels.kind, trait: labels.trait, author: labels.author, book: labels.book, year: labels.year };
 ---
 
-<section class="activity-explorer" data-explorer data-locale={locale}>
+<section
+  class="activity-explorer"
+  data-explorer
+  data-locale={locale}
+  data-facet-labels={JSON.stringify(facetLabels)}
+  data-remove-label={labels.remove}
+>
   <div class="filter-panel">
     <div class="filter-toolbar">
       <label class="search-field">
         <span>{labels.search}</span>
-        <input type="search" data-filter="query" placeholder={labels.placeholder} autocomplete="off" />
+        <input type="search" data-query placeholder={labels.placeholder} autocomplete="off" />
       </label>
       <button type="button" class="clear-filters" data-clear>{labels.clear}</button>
     </div>
     <div class="filter-grid">
-      {!kind && <label><span>{labels.kind}</span><select data-filter="kind"><option value="">{labels.allKinds}</option>{kinds.map((value) => <option value={value}>{kindLabel(value)}</option>)}</select></label>}
-      <label><span>{labels.trait}</span><select data-filter="trait"><option value="">{labels.allTraits}</option>{traits.map((value) => <option value={value}>{value}</option>)}</select></label>
-      <label><span>{labels.author}</span><select data-filter="author"><option value="">{labels.allAuthors}</option>{authors.map((value) => <option value={value}>{value}</option>)}</select></label>
-      <label><span>{labels.book}</span><select data-filter="book"><option value="">{labels.allBooks}</option>{books.map((value) => <option value={value}>{value}</option>)}</select></label>
-      <label><span>{labels.year}</span><select data-filter="year"><option value="">{labels.allYears}</option>{years.map((value) => <option value={value}>{value}</option>)}</select></label>
-      <label><span>{labels.section}</span><select data-filter="section"><option value="">{labels.allSections}</option>{sections.map((value) => <option value={value}>{value}</option>)}</select></label>
+      {!kind && (
+        <details class="multi-filter" data-filter-menu="kind">
+          <summary><span>{labels.kind}</span><span class="selection-count" data-selection-count>{labels.choose}</span></summary>
+          <div class="filter-options" role="group" aria-label={labels.kind}>
+            {kinds.map((value) => <label><input type="checkbox" data-filter="kind" value={value} /><span>{kindLabel(value)}</span></label>)}
+          </div>
+        </details>
+      )}
+      <details class="multi-filter" data-filter-menu="trait">
+        <summary><span>{labels.trait}</span><span class="selection-count" data-selection-count>{labels.choose}</span></summary>
+        <div class="filter-options filter-options-long" role="group" aria-label={labels.trait}>
+          {traits.map((value) => <label><input type="checkbox" data-filter="trait" value={value} /><span>{value}</span></label>)}
+        </div>
+      </details>
+      <details class="multi-filter" data-filter-menu="author">
+        <summary><span>{labels.author}</span><span class="selection-count" data-selection-count>{labels.choose}</span></summary>
+        <div class="filter-options" role="group" aria-label={labels.author}>
+          {authors.map((value) => <label><input type="checkbox" data-filter="author" value={value} /><span>{value}</span></label>)}
+        </div>
+      </details>
+      <details class="multi-filter" data-filter-menu="book">
+        <summary><span>{labels.book}</span><span class="selection-count" data-selection-count>{labels.choose}</span></summary>
+        <div class="filter-options filter-options-long" role="group" aria-label={labels.book}>
+          {books.map((value) => <label><input type="checkbox" data-filter="book" value={value} /><span>{value}</span></label>)}
+        </div>
+      </details>
+      <details class="multi-filter" data-filter-menu="year">
+        <summary><span>{labels.year}</span><span class="selection-count" data-selection-count>{labels.choose}</span></summary>
+        <div class="filter-options" role="group" aria-label={labels.year}>
+          {years.map((value) => <label><input type="checkbox" data-filter="year" value={String(value)} /><span>{value}</span></label>)}
+        </div>
+      </details>
     </div>
+    <div class="selected-filters" data-selected-filters hidden aria-live="polite"></div>
   </div>
 
-  <div class="results-heading"><strong><span data-count>{activities.length}</span> {labels.results}</strong></div>
+  <div class="results-heading" aria-live="polite"><strong><span data-count>{activities.length}</span> {labels.results}</strong></div>
   <div class="activity-grid" data-grid>
     {activities.map((item) => (
       <article
         class="activity-card"
         data-card
         data-search={searchableText(item)}
-        data-kinds={item.kinds.join('|')}
-        data-traits={item.traits.join('|')}
-        data-author={item.author}
-        data-book={item.sourceTitle}
-        data-year={String(item.year)}
-        data-section={item.section}
+        data-kinds={JSON.stringify(item.kinds)}
+        data-traits={JSON.stringify(item.filterTraits)}
+        data-author={JSON.stringify([item.author])}
+        data-book={JSON.stringify([item.sourceTitle])}
+        data-year={JSON.stringify([String(item.year)])}
       >
         <div class="card-topline">
           <span class={`kind-badge kind-${item.kinds[0]}`}>{item.kinds.map(kindLabel).join(' · ')}</span>
           <span class="activity-id">{item.id}</span>
         </div>
         <h2><a href={`${basePath}${item.id}/`}>{item.title}</a></h2>
-        {item.traits.length > 0 && <ul class="trait-list">{item.traits.slice(0, 5).map((trait) => <li>{trait}</li>)}</ul>}
+        {item.filterTraits.length > 0 && <ul class="trait-list">{item.filterTraits.slice(0, 5).map((trait) => <li>{trait}</li>)}</ul>}
         <p class="card-preview">{item.summary}</p>
         <p class="source-line"><strong>{item.author}</strong> · <cite>{item.sourceTitle}</cite> · {item.year}</p>
         <div class="card-footer">
@@ -79,34 +125,107 @@ const kinds = [...new Set(activities.flatMap((item) => item.kinds))].sort((a, b)
 
 <script>
   const normalize = (value) => value.toLocaleLowerCase('pl').normalize('NFKD').replace(/\p{Diacritic}/gu, '');
+  const decodeValues = (card, key) => JSON.parse(card.dataset[key] || '[]');
+
   document.querySelectorAll('[data-explorer]').forEach((explorer) => {
-    const fields = [...explorer.querySelectorAll('[data-filter]')];
+    const query = explorer.querySelector('[data-query]');
+    const checkboxes = [...explorer.querySelectorAll('input[type="checkbox"][data-filter]')];
     const cards = [...explorer.querySelectorAll('[data-card]')];
     const count = explorer.querySelector('[data-count]');
     const empty = explorer.querySelector('[data-empty]');
-    const apply = () => {
-      const values = Object.fromEntries(fields.map((field) => [field.dataset.filter, field.value]));
+    const chips = explorer.querySelector('[data-selected-filters]');
+    const clear = explorer.querySelector('[data-clear]');
+    const facetLabels = JSON.parse(explorer.dataset.facetLabels || '{}');
+    const removeLabel = explorer.dataset.removeLabel || 'Remove filter';
+    const selectedLabel = explorer.dataset.locale === 'pl' ? 'wybrano' : 'selected';
+    const chooseLabel = explorer.dataset.locale === 'pl' ? 'Wybierz' : 'Choose';
+
+    const selectedValues = () => {
+      const values = {};
+      checkboxes.filter((input) => input.checked).forEach((input) => {
+        (values[input.dataset.filter] ||= []).push(input.value);
+      });
+      return values;
+    };
+
+    const optionLabel = (input) => input.parentElement?.querySelector('span')?.textContent || input.value;
+
+    const renderSelections = (values) => {
+      chips.replaceChildren();
+      checkboxes.filter((input) => input.checked).forEach((input) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'filter-chip';
+        button.dataset.removeFilter = input.dataset.filter;
+        button.dataset.removeValue = input.value;
+        button.setAttribute('aria-label', `${removeLabel}: ${facetLabels[input.dataset.filter]} ${optionLabel(input)}`);
+        button.append(document.createTextNode(`${facetLabels[input.dataset.filter]}: ${optionLabel(input)} `));
+        const mark = document.createElement('span');
+        mark.setAttribute('aria-hidden', 'true');
+        mark.textContent = '×';
+        button.append(mark);
+        chips.append(button);
+      });
+      chips.hidden = chips.childElementCount === 0;
+      explorer.querySelectorAll('[data-filter-menu]').forEach((menu) => {
+        const facet = menu.dataset.filterMenu;
+        const total = values[facet]?.length || 0;
+        menu.querySelector('[data-selection-count]').textContent = total ? `${total} ${selectedLabel}` : chooseLabel;
+      });
+    };
+
+    const apply = ({ updateUrl = true } = {}) => {
+      const values = selectedValues();
+      const needle = normalize(query.value || '');
       let visible = 0;
       cards.forEach((card) => {
-        const matches = (!values.query || normalize(card.dataset.search || '').includes(normalize(values.query)))
-          && (!values.kind || (card.dataset.kinds || '').split('|').includes(values.kind))
-          && (!values.trait || (card.dataset.traits || '').split('|').includes(values.trait))
-          && (!values.author || card.dataset.author === values.author)
-          && (!values.book || card.dataset.book === values.book)
-          && (!values.year || card.dataset.year === values.year)
-          && (!values.section || card.dataset.section === values.section);
+        const matchesQuery = !needle || normalize(card.dataset.search || '').includes(needle);
+        const matchesFacets = Object.entries(values).every(([facet, wanted]) => {
+          const dataKey = facet === 'trait' ? 'traits' : facet === 'kind' ? 'kinds' : facet;
+          const actual = decodeValues(card, dataKey);
+          return wanted.some((value) => actual.includes(value));
+        });
+        const matches = matchesQuery && matchesFacets;
         card.hidden = !matches;
         if (matches) visible += 1;
       });
       count.textContent = String(visible);
       empty.hidden = visible !== 0;
-      const params = new URLSearchParams();
-      Object.entries(values).forEach(([key, value]) => value && params.set(key, value));
-      history.replaceState(null, '', `${location.pathname}${params.size ? `?${params}` : ''}`);
+      clear.disabled = !query.value && checkboxes.every((input) => !input.checked);
+      renderSelections(values);
+      if (updateUrl) {
+        const params = new URLSearchParams();
+        if (query.value) params.set('query', query.value);
+        Object.entries(values).forEach(([facet, selected]) => selected.forEach((value) => params.append(facet, value)));
+        history.replaceState(null, '', `${location.pathname}${params.size ? `?${params}` : ''}`);
+      }
     };
-    const initial = new URLSearchParams(location.search);
-    fields.forEach((field) => { if (initial.has(field.dataset.filter)) field.value = initial.get(field.dataset.filter); field.addEventListener('input', apply); });
-    explorer.querySelector('[data-clear]').addEventListener('click', () => { fields.forEach((field) => { field.value = ''; }); apply(); });
-    apply();
+
+    const restoreFromUrl = () => {
+      const params = new URLSearchParams(location.search);
+      query.value = params.get('query') || '';
+      checkboxes.forEach((input) => { input.checked = params.getAll(input.dataset.filter).includes(input.value); });
+      apply({ updateUrl: false });
+    };
+
+    query.addEventListener('input', () => apply());
+    checkboxes.forEach((input) => input.addEventListener('change', () => apply()));
+    clear.addEventListener('click', () => {
+      query.value = '';
+      checkboxes.forEach((input) => { input.checked = false; });
+      apply();
+    });
+    chips.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-remove-filter]');
+      if (!button) return;
+      const input = checkboxes.find((candidate) => candidate.dataset.filter === button.dataset.removeFilter && candidate.value === button.dataset.removeValue);
+      if (input) input.checked = false;
+      apply();
+    });
+    explorer.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') explorer.querySelectorAll('details[open]').forEach((menu) => menu.removeAttribute('open'));
+    });
+    window.addEventListener('popstate', restoreFromUrl);
+    restoreFromUrl();
   });
 </script>

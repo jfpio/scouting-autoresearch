@@ -22,7 +22,7 @@ sourceUrl: https://polona.pl/preview/b1600bcb-668f-4daf-a37b-81fade26971f
 digitalEditionUrl: https://polona.pl/preview/b1600bcb-668f-4daf-a37b-81fade26971f
 imageServiceEvidenceUrl: https://polona.pl/iiif/3/06ed63ed-8fec-44da-80f0-616709b216a3/full/1600,/0/default.jpg
 accessedOn: '2026-09-07'
-sourceRevision: sha256:343cbd8c75a7f45eadd3b85f86bba8211f9bba665b9d92ce37b70bf619f58573
+sourceRevision: sha256:bf2885109f2e398fda96967dbd4950d224b3e2a5468c9c10e5692658995ec5ba
 extractionReport: data/reports/jasinski-field-games-1938-extraction.json
 translationPolicy:
   targetLocale: en

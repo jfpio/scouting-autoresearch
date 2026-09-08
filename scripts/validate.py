@@ -218,7 +218,7 @@ def main() -> None:
             errors,
         )
         require(
-            set(kinds).issubset({"game", "trial"}),
+            set(kinds).issubset({"game", "trial", "scout-course"}),
             f"Unapproved production activity kind in {path.name}: {kinds}",
             errors,
         )
@@ -1361,7 +1361,8 @@ def main() -> None:
             require(len(lines) == len(activity_paths), f"{locale} JSONL has {len(lines)} lines", errors)
 
     docs = list((ROOT / "src" / "content" / "docs").rglob("*.md")) + list((ROOT / "src" / "content" / "docs").rglob("*.mdx"))
-    expected_docs = 16 + 2 * len(activity_paths)
+    # Ten collection pages per locale plus one page per activity and locale.
+    expected_docs = 20 + 2 * len(activity_paths)
     require(len(docs) == expected_docs, f"Expected {expected_docs} generated docs, found {len(docs)}", errors)
     for path in docs:
         text = path.read_text(encoding="utf-8")

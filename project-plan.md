@@ -361,3 +361,16 @@ review participant scale → version input recipe → embed every game
   jako niezatwierdzone,
 - zmiana samego stylu lub ponowny build nie uruchamia embedding API,
 - mapa ma działającą alternatywę listową oraz podstawową obsługę klawiatury.
+
+### Etap V3-R2 — nawigacja, filtry i biegi harcerskie
+
+Po V3-R1 serwis otrzymuje wspólną nawigację do aktywności, istniejącej mapy, książek,
+autorów i informacji o projekcie oraz wielowartościowe filtry z widocznymi, usuwalnymi
+wyborami. Źródłowe działy pozostają w danych proweniencji, ale nie są publicznym filtrem.
+Cechy źródłowe pozostają bez zmian, a osobna wersjonowana warstwa filtrów scala różnice
+wielkości liter i jawnie zatwierdzone aliasy.
+
+Etap wprowadza produkcyjny rodzaj `scout-course` i piętnaście całych biegów Jasińskiego.
+Nie dzieli ich jeszcze na punkty. Nie przebudowuje mapy semantycznej, jej embeddingów,
+legendy ani filtrów; w tej fazie istniejący widok mapy otrzymuje wyłącznie odnośnik w
+nawigacji. Naprawa i dalszy rozwój mapy należą do następnej fazy.

@@ -1,16 +1,17 @@
 {
   "schemaVersion": 1,
   "sourceId": "jasinski-field-games-1938",
-  "sourceSha256": "343cbd8c75a7f45eadd3b85f86bba8211f9bba665b9d92ce37b70bf619f58573",
-  "parserVersion": "v3-bounded-ocr-game-import-v3",
+  "sourceSha256": "bf2885109f2e398fda96967dbd4950d224b3e2a5468c9c10e5692658995ec5ba",
+  "parserVersion": "v3-bounded-ocr-activity-import-v4",
   "reviewRequired": false,
-  "activityCount": 138,
+  "activityCount": 153,
   "wholeSourceCopiedToRepository": false,
   "selection": {
     "candidateCount": 196,
     "acceptedGameCount": 138,
-    "rejectedCount": 58,
-    "basis": "source-numbered entries with a bounded, executable game or competitive exercise; lists, reconnaissance prompts, interview topics, cross-reference-only variants and whole scout-course proposals are retained in the review report but excluded from the current game-only production scope",
+    "acceptedScoutCourseCount": 15,
+    "rejectedCount": 43,
+    "basis": "source-numbered entries with a bounded, executable game or competitive exercise, plus source-labelled whole scout-course proposals; lists, reconnaissance prompts, interview topics and cross-reference-only variants remain excluded",
     "rejectedCandidates": [
       {
         "candidateNumber": 65,
@@ -183,66 +184,6 @@
       {
         "candidateNumber": 170,
         "reason": "interview topic or editorial guidance, not a bounded game"
-      },
-      {
-        "candidateNumber": 171,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
-      },
-      {
-        "candidateNumber": 172,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
-      },
-      {
-        "candidateNumber": 173,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
-      },
-      {
-        "candidateNumber": 174,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
-      },
-      {
-        "candidateNumber": 175,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
-      },
-      {
-        "candidateNumber": 176,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
-      },
-      {
-        "candidateNumber": 177,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
-      },
-      {
-        "candidateNumber": 178,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
-      },
-      {
-        "candidateNumber": 179,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
-      },
-      {
-        "candidateNumber": 180,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
-      },
-      {
-        "candidateNumber": 181,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
-      },
-      {
-        "candidateNumber": 182,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
-      },
-      {
-        "candidateNumber": 183,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
-      },
-      {
-        "candidateNumber": 184,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
-      },
-      {
-        "candidateNumber": 185,
-        "reason": "source-labelled scout-course proposal composed of multiple tasks; retained as evidence for the proposed scout-course kind outside the current game-only production scope"
       }
     ]
   },
@@ -268,6 +209,9 @@
   "activities": [
     {
       "id": "gct-001",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 1,
       "title": "Szukanie przedmiotu przyrodniczego w terenie, na określonej powierzchni",
       "viewStart": 89,
@@ -281,6 +225,9 @@
     },
     {
       "id": "gct-002",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 2,
       "title": "Szukanie przedmiotów terenowych, jak np",
       "viewStart": 90,
@@ -293,6 +240,9 @@
     },
     {
       "id": "gct-003",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 3,
       "title": "Poszukiwanie osób zaginionych",
       "viewStart": 90,
@@ -306,6 +256,9 @@
     },
     {
       "id": "gct-004",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 4,
       "title": "Poszukiwanie tropów",
       "viewStart": 91,
@@ -318,6 +271,9 @@
     },
     {
       "id": "gct-005",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 5,
       "title": "Poszukiwanie obiektów miejskich",
       "viewStart": 91,
@@ -335,6 +291,9 @@
     },
     {
       "id": "gct-006",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 6,
       "title": "W marszu",
       "viewStart": 92,
@@ -348,6 +307,9 @@
     },
     {
       "id": "gct-007",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 7,
       "title": "Na przebywanej drodze",
       "viewStart": 93,
@@ -360,6 +322,9 @@
     },
     {
       "id": "gct-008",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 8,
       "title": "Ze wzgórza",
       "viewStart": 93,
@@ -373,6 +338,9 @@
     },
     {
       "id": "gct-009",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 9,
       "title": "Obserwacja niezapowiedziana",
       "viewStart": 94,
@@ -389,6 +357,9 @@
     },
     {
       "id": "gct-010",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 10,
       "title": "Kim przyrodniczy",
       "viewStart": 94,
@@ -402,6 +373,9 @@
     },
     {
       "id": "gct-011",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 11,
       "title": "Kim terenowy",
       "viewStart": 96,
@@ -414,6 +388,9 @@
     },
     {
       "id": "gct-012",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 12,
       "title": "Kim ustawienia",
       "viewStart": 97,
@@ -430,6 +407,9 @@
     },
     {
       "id": "gct-013",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 13,
       "title": "Szukanie gwiżdżącego:",
       "viewStart": 97,
@@ -442,6 +422,9 @@
     },
     {
       "id": "gct-014",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 14,
       "title": "Polowanie na zwierza",
       "viewStart": 97,
@@ -454,6 +437,9 @@
     },
     {
       "id": "gct-015",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 15,
       "title": "Na pomoc",
       "viewStart": 97,
@@ -467,6 +453,9 @@
     },
     {
       "id": "gct-016",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 16,
       "title": "Ubezpieczenie",
       "viewStart": 98,
@@ -479,6 +468,9 @@
     },
     {
       "id": "gct-017",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 17,
       "title": "Podsłuch środków lokomocji",
       "viewStart": 98,
@@ -492,6 +484,9 @@
     },
     {
       "id": "gct-018",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 18,
       "title": "Podstuchy rozmów",
       "viewStart": 99,
@@ -504,6 +499,9 @@
     },
     {
       "id": "gct-019",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 19,
       "title": "Podstuchy telefonu",
       "viewStart": 99,
@@ -516,6 +514,9 @@
     },
     {
       "id": "gct-020",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 20,
       "title": "Podchodzenie wartowników:",
       "viewStart": 99,
@@ -528,6 +529,9 @@
     },
     {
       "id": "gct-021",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 21,
       "title": "Podchodzenie obozu (stworzyć opowieść na tle wojen polsko-tatarskich)",
       "viewStart": 100,
@@ -540,6 +544,9 @@
     },
     {
       "id": "gct-022",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 22,
       "title": "Wieści ze Zbaraża",
       "viewStart": 101,
@@ -552,6 +559,9 @@
     },
     {
       "id": "gct-023",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 23,
       "title": "Obrona linii telegraficznej",
       "viewStart": 101,
@@ -565,6 +575,9 @@
     },
     {
       "id": "gct-024",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 24,
       "title": "Przekradanie się P",
       "viewStart": 102,
@@ -577,6 +590,9 @@
     },
     {
       "id": "gct-025",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 25,
       "title": "Przekradanie z przebieraniem się",
       "viewStart": 102,
@@ -590,6 +606,9 @@
     },
     {
       "id": "gct-026",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 26,
       "title": "Śledzenie",
       "viewStart": 103,
@@ -603,6 +622,9 @@
     },
     {
       "id": "gct-027",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 27,
       "title": "Walka dwóch partyj",
       "viewStart": 104,
@@ -616,6 +638,9 @@
     },
     {
       "id": "gct-028",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 28,
       "title": "Goniec",
       "viewStart": 105,
@@ -628,6 +653,9 @@
     },
     {
       "id": "gct-029",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 29,
       "title": "Zasadzka",
       "viewStart": 105,
@@ -645,6 +673,9 @@
     },
     {
       "id": "gct-030",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 30,
       "title": "Marsz za zauważonymi na drodze śladami ludzi (odróżnić ślady mężczyzn, kobiet, dzieci), koni (rodzaj chodu — stęp, kłus, galop — i jego kierunek), samochodów, rowerów (kierunek jazdy)",
       "viewStart": 106,
@@ -657,6 +688,9 @@
     },
     {
       "id": "gct-031",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 31,
       "title": "Marsz za śladami ptaków",
       "viewStart": 106,
@@ -669,6 +703,9 @@
     },
     {
       "id": "gct-032",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 32,
       "title": "Obserwacja i marsz za tropami zwierząt: saren i dzików, zajęcy, bądź innej dziczyzny (łatwo je odszukać na brzegach rzek i jezior, położonych wśród lasów)",
       "viewStart": 106,
@@ -681,6 +718,9 @@
     },
     {
       "id": "gct-033",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 33,
       "title": "Tropienie śladów psa, który idzie ze swym właścicielem (któryś z członków organizacji posiadający psa) po wyznaczonej przez instruktora trasie",
       "viewStart": 106,
@@ -693,6 +733,9 @@
     },
     {
       "id": "gct-034",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 34,
       "title": "Często na wsi będzie możliwe tropienie, podobnie jak psa, konia z jeźdźcem",
       "viewStart": 106,
@@ -706,6 +749,9 @@
     },
     {
       "id": "gct-035",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 35,
       "title": "Tropienie śladów grupy wysłanej",
       "viewStart": 107,
@@ -718,6 +764,9 @@
     },
     {
       "id": "gct-036",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 36,
       "title": "Ucieczka powstańca",
       "viewStart": 107,
@@ -734,6 +783,9 @@
     },
     {
       "id": "gct-037",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 37,
       "title": "Odszukiwanie śladów",
       "viewStart": 113,
@@ -747,6 +799,9 @@
     },
     {
       "id": "gct-038",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 38,
       "title": "Na znakach przyjaciół",
       "viewStart": 114,
@@ -760,6 +815,9 @@
     },
     {
       "id": "gct-039",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 39,
       "title": "W pogoni za lisem",
       "viewStart": 115,
@@ -773,6 +831,9 @@
     },
     {
       "id": "gct-040",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 40,
       "title": "Wyprawa arktyczna",
       "viewStart": 116,
@@ -785,6 +846,9 @@
     },
     {
       "id": "gct-041",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 41,
       "title": "Zdobycie bieguna",
       "viewStart": 116,
@@ -798,6 +862,9 @@
     },
     {
       "id": "gct-042",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 42,
       "title": "Obława",
       "viewStart": 117,
@@ -810,6 +877,9 @@
     },
     {
       "id": "gct-043",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 43,
       "title": "Różnymi drogami do jednego celu",
       "viewStart": 117,
@@ -823,6 +893,9 @@
     },
     {
       "id": "gct-044",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 44,
       "title": "Po śladach",
       "viewStart": 118,
@@ -836,6 +909,9 @@
     },
     {
       "id": "gct-045",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 45,
       "title": "Odnalezienie wywiezionego towaru",
       "viewStart": 119,
@@ -849,6 +925,9 @@
     },
     {
       "id": "gct-046",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 46,
       "title": "Za tropami zwierzyny",
       "viewStart": 120,
@@ -863,6 +942,9 @@
     },
     {
       "id": "gct-047",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 47,
       "title": "Po śladach rannego i zbłąkanego",
       "viewStart": 122,
@@ -875,6 +957,9 @@
     },
     {
       "id": "gct-048",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 48,
       "title": "Odnalezienie człowieka, który stracił pamięć",
       "viewStart": 122,
@@ -888,6 +973,9 @@
     },
     {
       "id": "gct-049",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 49,
       "title": "Historia na piasku:",
       "viewStart": 123,
@@ -900,6 +988,9 @@
     },
     {
       "id": "gct-050",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 50,
       "title": "Historia na śniegu",
       "viewStart": 123,
@@ -913,6 +1004,9 @@
     },
     {
       "id": "gct-051",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 51,
       "title": "Historia prawdziwa",
       "viewStart": 124,
@@ -929,6 +1023,9 @@
     },
     {
       "id": "gct-052",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 52,
       "title": "Podczas marszu",
       "viewStart": 125,
@@ -941,6 +1038,9 @@
     },
     {
       "id": "gct-053",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 53,
       "title": "Z pewnego punktu",
       "viewStart": 125,
@@ -954,6 +1054,9 @@
     },
     {
       "id": "gct-054",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 54,
       "title": "Obserwacja nieprzyjaciela",
       "viewStart": 126,
@@ -966,6 +1069,9 @@
     },
     {
       "id": "gct-055",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 55,
       "title": "Mierzenie odległości",
       "viewStart": 126,
@@ -979,6 +1085,9 @@
     },
     {
       "id": "gct-056",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 56,
       "title": "Obserwacja ukrytych",
       "viewStart": 127,
@@ -991,6 +1100,9 @@
     },
     {
       "id": "gct-057",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 57,
       "title": "Określenie położenia przy pomocy palców",
       "viewStart": 127,
@@ -1003,6 +1115,9 @@
     },
     {
       "id": "gct-058",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 58,
       "title": "Nieprzyjaciel w dużej odległości na przedpolu",
       "viewStart": 127,
@@ -1020,6 +1135,9 @@
     },
     {
       "id": "gct-059",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 59,
       "title": "Mierzenie szerokości",
       "viewStart": 128,
@@ -1033,6 +1151,9 @@
     },
     {
       "id": "gct-060",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 60,
       "title": "Wytyczanie linii",
       "viewStart": 129,
@@ -1046,6 +1167,9 @@
     },
     {
       "id": "gct-061",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 61,
       "title": "Wyznaczenie kąta prostego w terenie (ryc",
       "viewStart": 130,
@@ -1060,6 +1184,9 @@
     },
     {
       "id": "gct-062",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 62,
       "title": "Obliczenie szybkości prądu wody",
       "viewStart": 132,
@@ -1073,6 +1200,9 @@
     },
     {
       "id": "gct-063",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 63,
       "title": "Zmierzenie głębokości wody",
       "viewStart": 133,
@@ -1085,6 +1215,9 @@
     },
     {
       "id": "gct-064",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 64,
       "title": "Określenie kierunku wiatru",
       "viewStart": 133,
@@ -1098,6 +1231,9 @@
     },
     {
       "id": "gct-066",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 66,
       "title": "Zdolność obliczania długości drogi według przebytego czasu",
       "viewStart": 137,
@@ -1114,6 +1250,9 @@
     },
     {
       "id": "gct-067",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 67,
       "title": "Wskazanie kierunku (w terenie zakrytym), w jakim zostawiono: miasto, szkołę, rynek, wieś itp",
       "viewStart": 139,
@@ -1126,6 +1265,9 @@
     },
     {
       "id": "gct-068",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 68,
       "title": "Ustalenie dokładnego kierunku Pn — Pd przy pomocy zjawisk przyrodniczych",
       "viewStart": 139,
@@ -1139,6 +1281,9 @@
     },
     {
       "id": "gct-069",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 69,
       "title": "Ustalenie dokładnego kierunku Pn — Pd przy pomocy przyborów:",
       "viewStart": 140,
@@ -1152,6 +1297,9 @@
     },
     {
       "id": "gct-070",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 70,
       "title": "Marsz na przełaj według własnego cienia",
       "viewStart": 141,
@@ -1165,6 +1313,9 @@
     },
     {
       "id": "gct-071",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 71,
       "title": "Marsz na przełaj według stron świata i punktów terenowych",
       "viewStart": 142,
@@ -1179,6 +1330,9 @@
     },
     {
       "id": "gct-072",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 72,
       "title": "Wydobycie utopionego",
       "viewStart": 144,
@@ -1191,6 +1345,9 @@
     },
     {
       "id": "gct-073",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 73,
       "title": "Poszukiwanie rozbitków",
       "viewStart": 145,
@@ -1203,6 +1360,9 @@
     },
     {
       "id": "gct-074",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 74,
       "title": "Polowanie na foki",
       "viewStart": 145,
@@ -1215,6 +1375,9 @@
     },
     {
       "id": "gct-075",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 75,
       "title": "Polowanie na wieloryba, którym będzie albo większa belka, albo opona samochodowa",
       "viewStart": 145,
@@ -1227,6 +1390,9 @@
     },
     {
       "id": "gct-076",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 76,
       "title": "Obrona portów",
       "viewStart": 145,
@@ -1240,6 +1406,9 @@
     },
     {
       "id": "gct-078",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 78,
       "title": "Polowanie na lisa",
       "viewStart": 147,
@@ -1253,6 +1422,9 @@
     },
     {
       "id": "gct-079",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 79,
       "title": "Zwiad wsi",
       "viewStart": 148,
@@ -1266,6 +1438,9 @@
     },
     {
       "id": "gct-080",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 80,
       "title": "Powrót tą samą drogą",
       "viewStart": 149,
@@ -1279,6 +1454,9 @@
     },
     {
       "id": "gct-081",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 81,
       "title": "Umiejętność informowania o przebytej drodze",
       "viewStart": 150,
@@ -1291,6 +1469,9 @@
     },
     {
       "id": "gct-082",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 82,
       "title": "Marsz według ślepego szkicu, który otrzymują poszczególne grupy (gra możliwa do zastoso-",
       "viewStart": 150,
@@ -1305,6 +1486,9 @@
     },
     {
       "id": "gct-083",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 83,
       "title": "Marsz według mapy",
       "viewStart": 152,
@@ -1318,6 +1502,9 @@
     },
     {
       "id": "gct-084",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 84,
       "title": "Kontrola mapy i marszu",
       "viewStart": 153,
@@ -1330,6 +1517,9 @@
     },
     {
       "id": "gct-085",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 85,
       "title": "Kima terenoznawczego¹)",
       "viewStart": 154,
@@ -1343,6 +1533,9 @@
     },
     {
       "id": "gct-086",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 86,
       "title": "Dyktanda topograficznego",
       "viewStart": 155,
@@ -1355,6 +1548,9 @@
     },
     {
       "id": "gct-087",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 87,
       "title": "W marszu po drodze",
       "viewStart": 155,
@@ -1370,6 +1566,9 @@
     },
     {
       "id": "gct-088",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 88,
       "title": "Marsz na przełaj, według znaków topograficznych",
       "viewStart": 158,
@@ -1385,6 +1584,9 @@
     },
     {
       "id": "gct-089",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 89,
       "title": "Tworzenie linii obronnej",
       "viewStart": 161,
@@ -1403,6 +1605,9 @@
     },
     {
       "id": "gct-090",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 90,
       "title": "Skarb Irokezów",
       "viewStart": 166,
@@ -1417,6 +1622,9 @@
     },
     {
       "id": "gct-091",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 91,
       "title": "Skarb zbójników",
       "viewStart": 168,
@@ -1430,6 +1638,9 @@
     },
     {
       "id": "gct-092",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 92,
       "title": "Ukryte karabiny „peowiaków”",
       "viewStart": 169,
@@ -1443,6 +1654,9 @@
     },
     {
       "id": "gct-093",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 93,
       "title": "Kto pierwszy?",
       "viewStart": 170,
@@ -1456,6 +1670,9 @@
     },
     {
       "id": "gct-094",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 94,
       "title": "Marsze kierunkowe w mieście",
       "viewStart": 171,
@@ -1469,6 +1686,9 @@
     },
     {
       "id": "gct-095",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 95,
       "title": "Na ratunek",
       "viewStart": 172,
@@ -1481,6 +1701,9 @@
     },
     {
       "id": "gct-096",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 96,
       "title": "Na rozpoznaniu",
       "viewStart": 172,
@@ -1494,6 +1717,9 @@
     },
     {
       "id": "gct-097",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 97,
       "title": "Zbieranie wiadomości",
       "viewStart": 173,
@@ -1510,6 +1736,9 @@
     },
     {
       "id": "gct-098",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 98,
       "title": "Służba gońców",
       "viewStart": 174,
@@ -1524,6 +1753,9 @@
     },
     {
       "id": "gct-099",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 99,
       "title": "Sygnały wzrokowe i słuchowe w marszu",
       "viewStart": 177,
@@ -1539,6 +1771,9 @@
     },
     {
       "id": "gct-101",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 101,
       "title": "Kima sygnalizacyjnego",
       "viewStart": 180,
@@ -1553,6 +1788,9 @@
     },
     {
       "id": "gct-102",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 102,
       "title": "Ustawianie znaków",
       "viewStart": 182,
@@ -1566,6 +1804,9 @@
     },
     {
       "id": "gct-103",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 103,
       "title": "Piłka sygnalizacyjna",
       "viewStart": 183,
@@ -1578,6 +1819,9 @@
     },
     {
       "id": "gct-104",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 104,
       "title": "Zbiorowe odczytanie depeszy",
       "viewStart": 183,
@@ -1590,6 +1834,9 @@
     },
     {
       "id": "gct-105",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 105,
       "title": "Eliminacja",
       "viewStart": 184,
@@ -1602,6 +1849,9 @@
     },
     {
       "id": "gct-106",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 106,
       "title": "Bieg rozstawny sygnalizacyjny",
       "viewStart": 184,
@@ -1615,6 +1865,9 @@
     },
     {
       "id": "gct-107",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 107,
       "title": "Odczytanie tajnych depesz",
       "viewStart": 185,
@@ -1628,6 +1881,9 @@
     },
     {
       "id": "gct-108",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 108,
       "title": "Indywidualne zawody w odbiorze depeszy",
       "viewStart": 186,
@@ -1640,6 +1896,9 @@
     },
     {
       "id": "gct-109",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 109,
       "title": "Kto prędzej?",
       "viewStart": 186,
@@ -1654,6 +1913,9 @@
     },
     {
       "id": "gct-110",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 110,
       "title": "Wyścig łańcucha stacyj sygnalizacyjnych",
       "viewStart": 188,
@@ -1666,6 +1928,9 @@
     },
     {
       "id": "gct-111",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 111,
       "title": "Podpatrzenie sygnalizacji nieprzyjacielskiej",
       "viewStart": 188,
@@ -1679,6 +1944,9 @@
     },
     {
       "id": "gct-112",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 112,
       "title": "Łowcy słoni",
       "viewStart": 189,
@@ -1692,6 +1960,9 @@
     },
     {
       "id": "gct-113",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 113,
       "title": "Tit, Taa",
       "viewStart": 190,
@@ -1705,6 +1976,9 @@
     },
     {
       "id": "gct-114",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 114,
       "title": "Most zerwany — wstrzymać pociąg",
       "viewStart": 191,
@@ -1718,6 +1992,9 @@
     },
     {
       "id": "gct-115",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 115,
       "title": "Zajmowanie stanowisk",
       "viewStart": 192,
@@ -1736,6 +2013,9 @@
     },
     {
       "id": "gct-123",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 123,
       "title": "Zbieranie chrabąszczy",
       "viewStart": 194,
@@ -1748,6 +2028,9 @@
     },
     {
       "id": "gct-124",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 124,
       "title": "Zbieranie papierów",
       "viewStart": 194,
@@ -1761,6 +2044,9 @@
     },
     {
       "id": "gct-125",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 125,
       "title": "Przenoszenie chorych:",
       "viewStart": 195,
@@ -1773,6 +2059,9 @@
     },
     {
       "id": "gct-126",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 126,
       "title": "Zbieranie rannych z pola bitwy",
       "viewStart": 195,
@@ -1786,6 +2075,9 @@
     },
     {
       "id": "gct-127",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 127,
       "title": "Zbieranie zagazowanych",
       "viewStart": 196,
@@ -1798,6 +2090,9 @@
     },
     {
       "id": "gct-128",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 128,
       "title": "Na ratunek lotnikowi",
       "viewStart": 196,
@@ -1811,6 +2106,9 @@
     },
     {
       "id": "gct-129",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 129,
       "title": "Ratowanie płonących",
       "viewStart": 197,
@@ -1823,6 +2121,9 @@
     },
     {
       "id": "gct-130",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 130,
       "title": "Złamanie nogi",
       "viewStart": 197,
@@ -1836,6 +2137,9 @@
     },
     {
       "id": "gct-131",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 131,
       "title": "Katastrofa",
       "viewStart": 198,
@@ -1852,6 +2156,9 @@
     },
     {
       "id": "gct-132",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 132,
       "title": "Doskonałość krycia się",
       "viewStart": 202,
@@ -1864,6 +2171,9 @@
     },
     {
       "id": "gct-133",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 133,
       "title": "Zasadzka",
       "viewStart": 202,
@@ -1876,6 +2186,9 @@
     },
     {
       "id": "gct-134",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 134,
       "title": "Najlepszy meldunek",
       "viewStart": 202,
@@ -1889,6 +2202,9 @@
     },
     {
       "id": "gct-135",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 135,
       "title": "Patrole nieprzyjacielskie w terenie",
       "viewStart": 203,
@@ -1901,6 +2217,9 @@
     },
     {
       "id": "gct-136",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 136,
       "title": "Podejście nieprzyjaciela",
       "viewStart": 204,
@@ -1914,6 +2233,9 @@
     },
     {
       "id": "gct-149",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 149,
       "title": "Zwiad mostu przez nieprzyjacielskie patrole",
       "viewStart": 207,
@@ -1930,7 +2252,244 @@
       }
     },
     {
+      "id": "gct-171",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 171,
+      "title": "Bieg 1",
+      "viewStart": 227,
+      "viewEnd": 227,
+      "printedPages": [
+        219
+      ],
+      "sourceBlockSha256": "4858a1750510bfbb26c98c22dc3f5e487366eb9307f2642f97ff51e819479e92",
+      "publishedSourceHash": "b01f1b847b8649e4b35b1df125bf7cdb9df3ab8c1d77fb85209b9c491736e9ad"
+    },
+    {
+      "id": "gct-172",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 172,
+      "title": "Bieg 2",
+      "viewStart": 227,
+      "viewEnd": 227,
+      "printedPages": [
+        219
+      ],
+      "sourceBlockSha256": "8554c2a2e48822a4291e6ca33f39e1c12ab2c60d3edfeb00c63dcc78590978e2",
+      "publishedSourceHash": "22218fe483ab101c5176bc484ed892d12eb6707f891ff39d4cc09b6b9141cd0b"
+    },
+    {
+      "id": "gct-173",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 173,
+      "title": "Bieg 3",
+      "viewStart": 227,
+      "viewEnd": 228,
+      "printedPages": [
+        219,
+        220
+      ],
+      "sourceBlockSha256": "c6dd8b3e55fa5b6ab4032745003823ec42a45e87f072148070664828fdede9a9",
+      "publishedSourceHash": "3bedea5fcb67d1b955d870afdd94be0dbcb1346e9cbbc2f962706b21ac9a47a1"
+    },
+    {
+      "id": "gct-174",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 174,
+      "title": "Bieg 4",
+      "viewStart": 228,
+      "viewEnd": 228,
+      "printedPages": [
+        220
+      ],
+      "sourceBlockSha256": "a533797a8e4a65f6a53f98d2a8a3c60fbf051dedc5300efca222ce7b3559dd2c",
+      "publishedSourceHash": "50e663ff22d8cb69e4c3d717dd5f52faa5ff2c23e11b3254df9ab19522a5d998"
+    },
+    {
+      "id": "gct-175",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 175,
+      "title": "Bieg 5",
+      "viewStart": 228,
+      "viewEnd": 228,
+      "printedPages": [
+        220
+      ],
+      "sourceBlockSha256": "65aa046c75f2210fd57cf41c557de7a4e3bf6a2af96f5439240feaef076f576f",
+      "publishedSourceHash": "b61557f1638d1f93b5294749dd50e03eec87cafac129987d2d3df32805ad6b66"
+    },
+    {
+      "id": "gct-176",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 176,
+      "title": "Bieg 6",
+      "viewStart": 228,
+      "viewEnd": 229,
+      "printedPages": [
+        220,
+        221
+      ],
+      "sourceBlockSha256": "fa23a4b98e2aca6b15af132b29c9e170efabe72b6deea89b17c3656f9cfe67ff",
+      "publishedSourceHash": "0cc8a9ef54812f36dd3e416bd2bae6f96ee80dd624330dc1882445168b39e5f6"
+    },
+    {
+      "id": "gct-177",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 177,
+      "title": "Bieg 7",
+      "viewStart": 229,
+      "viewEnd": 229,
+      "printedPages": [
+        221
+      ],
+      "sourceBlockSha256": "0d649fb00e7100fa6e60e632be0d9b329dfaee15b27c21f100c852e9061dc203",
+      "publishedSourceHash": "533f0c6bc1b32eea2bb472b99e7d6ca4cad318c1fceba4ecd0ef55589e406341"
+    },
+    {
+      "id": "gct-178",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 178,
+      "title": "Bieg 8 indywidualny",
+      "viewStart": 229,
+      "viewEnd": 229,
+      "printedPages": [
+        221
+      ],
+      "sourceBlockSha256": "701b5a977b924be68da79627897422c911169f5727edfaf5f6f86774e9d878a9",
+      "publishedSourceHash": "95d7bfa16689156104ef058d6cfa32e649c1b84c34e9a048916d68a8180decb5"
+    },
+    {
+      "id": "gct-179",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 179,
+      "title": "Bieg 9 (dla ćwików harc.)",
+      "viewStart": 229,
+      "viewEnd": 230,
+      "printedPages": [
+        221,
+        222
+      ],
+      "sourceBlockSha256": "3025403d3ea98ed5c5fe0633130765efb576c72c6c211130b7da081d22afd473",
+      "publishedSourceHash": "c9f504fce70c70e52002acbf7578eeb89d43ed132754ca3eacc9184fa5050aab"
+    },
+    {
+      "id": "gct-180",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 180,
+      "title": "Bieg 10 (dla ćwików harcerskich)",
+      "viewStart": 230,
+      "viewEnd": 230,
+      "printedPages": [
+        222
+      ],
+      "sourceBlockSha256": "dbadd302f973692644d50881451c54c416e1c49ef10a0829364679c1326b42db",
+      "publishedSourceHash": "ba426de1ed98abf3803e594f165ff8a96993c557d5750e43cf8de65238622054"
+    },
+    {
+      "id": "gct-181",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 181,
+      "title": "Bieg 11 (z przyspos. wojsk.)",
+      "viewStart": 230,
+      "viewEnd": 231,
+      "printedPages": [
+        222,
+        223
+      ],
+      "sourceBlockSha256": "932473cbff87223cd15b60bd5d727b8758fe289b1714eb22b8857a59d66eb1c3",
+      "publishedSourceHash": "254c595ae4e1dd266b19f0384b031f0908194aff3d0568b4c3f2c24f47e5e993"
+    },
+    {
+      "id": "gct-182",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 182,
+      "title": "Bieg 12 (na śniegu)",
+      "viewStart": 231,
+      "viewEnd": 231,
+      "printedPages": [
+        223
+      ],
+      "sourceBlockSha256": "6bd8f75d3c41ab96d73a1898e63f2fe6d4849bbec41287037840d0020e51bbeb",
+      "publishedSourceHash": "a635fef3910e91808f58b4d832f96585f87334287e2e69bd630e2288aa93beaf"
+    },
+    {
+      "id": "gct-183",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 183,
+      "title": "Bieg 13 (na wodzie)",
+      "viewStart": 231,
+      "viewEnd": 232,
+      "printedPages": [
+        223,
+        224
+      ],
+      "sourceBlockSha256": "1557016195046237018753c9d48be4a78a7a9023d10a421f8105c6a112ebf2f0",
+      "publishedSourceHash": "a1bac8f9adfa14203392f287a31e575183654933d870fe8bb030c8e576722155"
+    },
+    {
+      "id": "gct-184",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 184,
+      "title": "Bieg 14 (w mieście)",
+      "viewStart": 232,
+      "viewEnd": 232,
+      "printedPages": [
+        224
+      ],
+      "sourceBlockSha256": "0609e6862d61ca64319184d9744ff8c52dc3c093f85bcc8977f9fea98cfe1c3e",
+      "publishedSourceHash": "92ba0e0bbad2f716011af62175236cef7252f1cec140fd91f6b17d86a46e7fc2"
+    },
+    {
+      "id": "gct-185",
+      "kinds": [
+        "scout-course"
+      ],
+      "candidateNumber": 185,
+      "title": "Bieg 15 (kolarski)",
+      "viewStart": 232,
+      "viewEnd": 232,
+      "printedPages": [
+        224
+      ],
+      "sourceBlockSha256": "a8353f91afd4afede5ab1aeecfe7eb12de5b2b99454643ca2311f039b7d3d81a",
+      "publishedSourceHash": "7d180f7867537ec56603bf1044b7c5da669b326f0a47ff0b477f3df881fdb78c",
+      "truncatedBeforeHeading": {
+        "locator": "view-0233-l0001",
+        "heading": "XV. Gry wojenne."
+      }
+    },
+    {
       "id": "gct-186",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 186,
       "title": "Walki rzutne:",
       "viewStart": 233,
@@ -1943,6 +2502,9 @@
     },
     {
       "id": "gct-187",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 187,
       "title": "Zdobycie chorągiewek:",
       "viewStart": 234,
@@ -1956,6 +2518,9 @@
     },
     {
       "id": "gct-188",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 188,
       "title": "Przejście szpiegów przez granicę",
       "viewStart": 235,
@@ -1969,6 +2534,9 @@
     },
     {
       "id": "gct-189",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 189,
       "title": "Patrole nieprzyjacielskie",
       "viewStart": 236,
@@ -1981,6 +2549,9 @@
     },
     {
       "id": "gct-190",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 190,
       "title": "Na drogach swego patrolu",
       "viewStart": 236,
@@ -1994,6 +2565,9 @@
     },
     {
       "id": "gct-191",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 191,
       "title": "Napad na biwak",
       "viewStart": 237,
@@ -2007,6 +2581,9 @@
     },
     {
       "id": "gct-192",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 192,
       "title": "Wymknięcie się z terenu zagrożonego, zamykanego obręczą nacierających patroli",
       "viewStart": 238,
@@ -2020,6 +2597,9 @@
     },
     {
       "id": "gct-193",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 193,
       "title": "Otwarcie drogi zamkniętej przez nieprzyjaciela",
       "viewStart": 239,
@@ -2034,6 +2614,9 @@
     },
     {
       "id": "gct-194",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 194,
       "title": "Strzelanie myśliwskie",
       "viewStart": 241,
@@ -2047,6 +2630,9 @@
     },
     {
       "id": "gct-195",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 195,
       "title": "Wiadomości o nieprzyjacielu",
       "viewStart": 243,
@@ -2060,6 +2646,9 @@
     },
     {
       "id": "gct-196",
+      "kinds": [
+        "game"
+      ],
       "candidateNumber": 196,
       "title": "Kilkudniowa wojna",
       "viewStart": 244,

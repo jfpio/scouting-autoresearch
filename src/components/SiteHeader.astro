@@ -1,0 +1,66 @@
+---
+import LanguageSelect from 'virtual:starlight/components/LanguageSelect';
+import Search from 'virtual:starlight/components/Search';
+import SiteTitle from 'virtual:starlight/components/SiteTitle';
+import SocialIcons from 'virtual:starlight/components/SocialIcons';
+import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
+
+const pathname = Astro.url.pathname;
+const isEnglish = pathname.startsWith('/scouting-autoresearch/en');
+const prefix = isEnglish ? '/scouting-autoresearch/en' : '/scouting-autoresearch';
+const links = isEnglish
+  ? [
+      ['Activities', `${prefix}/`],
+      ['Semantic map', `${prefix}/map/`],
+      ['Books', `${prefix}/sources/`],
+      ['Authors', `${prefix}/authors/`],
+      ['About', `${prefix}/about/`],
+    ]
+  : [
+      ['Aktywności', `${prefix}/`],
+      ['Mapa semantyczna', `${prefix}/map/`],
+      ['Książki', `${prefix}/sources/`],
+      ['Autorzy', `${prefix}/authors/`],
+      ['O projekcie', `${prefix}/about/`],
+    ];
+const isActive = (href) => href === `${prefix}/`
+  ? pathname === href || ['all', 'games', 'trials', 'courses', 'activities'].some((segment) => pathname.startsWith(`${prefix}/${segment}`))
+  : pathname.startsWith(href);
+---
+
+<div class="site-header">
+  <div class="title-wrapper"><SiteTitle /></div>
+  <nav class="primary-tabs" aria-label={isEnglish ? 'Primary navigation' : 'Nawigacja główna'}>
+    {links.map(([label, href]) => (
+      <a href={href} aria-current={isActive(href) ? 'page' : undefined}>{label}</a>
+    ))}
+  </nav>
+  <div class="header-tools">
+    <Search />
+    <SocialIcons />
+    <ThemeSelect />
+    <LanguageSelect />
+  </div>
+</div>
+
+<style>
+  .site-header { display: grid; grid-template-columns: auto minmax(24rem, 1fr) auto; align-items: center; gap: 1rem; width: 100%; height: 100%; padding-inline: var(--sl-content-pad-x); }
+  .title-wrapper, .header-tools { display: flex; align-items: center; min-width: 0; }
+  .header-tools { justify-content: flex-end; gap: .25rem; }
+  .primary-tabs { display: flex; justify-content: center; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+  .primary-tabs::-webkit-scrollbar { display: none; }
+  .primary-tabs a { flex: none; padding: .5rem .65rem; border-radius: .45rem; color: var(--sl-color-gray-2); font-size: .78rem; font-weight: 700; line-height: 1.15; text-decoration: none; white-space: nowrap; }
+  .primary-tabs a:hover { color: var(--sl-color-accent-high); background: var(--sl-color-gray-6); }
+  .primary-tabs a[aria-current='page'] { color: var(--sl-color-accent-high); background: var(--sl-color-accent-low); }
+  @media (max-width: 72rem) {
+    .site-header { grid-template-columns: auto minmax(16rem, 1fr) auto; gap: .5rem; }
+    .primary-tabs { justify-content: flex-start; }
+    .primary-tabs a { padding-inline: .48rem; font-size: .72rem; }
+  }
+  @media (max-width: 50rem) {
+    .site-header { grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: 3.5rem 2.75rem; height: 100%; padding-inline: 1rem; }
+    .primary-tabs { grid-column: 1 / -1; grid-row: 2; width: calc(100% + 2rem); margin-inline: -1rem; padding: .2rem 1rem; border-top: 1px solid var(--sl-color-gray-5); border-bottom: 1px solid var(--sl-color-gray-5); background: var(--sl-color-bg-nav); }
+    .header-tools { grid-column: 2; grid-row: 1; }
+    .title-wrapper { grid-column: 1; grid-row: 1; }
+  }
+</style>

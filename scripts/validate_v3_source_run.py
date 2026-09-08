@@ -441,12 +441,31 @@ def v3_source_run_errors(
                 f"{unit.get('id')}: candidate report status differs from the source-unit stage",
             )
         if unit.get("status") in {"translating", "imported"}:
+            candidates = candidate_payload.get("candidates") or []
+            accepted_game_count = sum(
+                item.get("recordReviewStatus") == "accepted-game"
+                for item in candidates
+            )
+            accepted_activity_count = sum(
+                item.get("recordReviewStatus")
+                in {"accepted-game", "accepted-scout-course"}
+                for item in candidates
+            )
             require(
-                selection.get("importedActivityCount") == unit.get("importedActivityCount")
+                # The V3-R1 checkpoint remains the historical count of imported games.
+                # Later, separately approved activity kinds may extend the source report.
+                accepted_game_count == unit.get("importedActivityCount")
+                and selection.get("importedActivityCount") == accepted_activity_count
                 and all(
                     item.get("recordReviewStatus")
-                    in {"accepted-game", "rejected-not-game", "rejected-uncertain-boundary"}
-                    for item in candidate_payload.get("candidates") or []
+                    in {
+                        "accepted-game",
+                        "accepted-scout-course",
+                        "rejected-not-game",
+                        "rejected-not-activity",
+                        "rejected-uncertain-boundary",
+                    }
+                    for item in candidates
                 ),
                 f"{unit.get('id')}: completed record review is inconsistent",
             )

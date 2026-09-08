@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "runId": "v3-r2-navigation-filters-courses-2026-09",
+  "status": "complete",
+  "completedAt": "2026-09-08",
+  "scope": {
+    "sourceUnits": [
+      {
+        "sourceId": "jasinski-field-games-1938",
+        "title": "Gry i ćwiczenia terenowe (Harce terenowe)",
+        "author": "Jan Jasiński",
+        "institution": "Polona",
+        "rightsStatus": "public-domain",
+        "rightsStatement": "Domena Publiczna",
+        "rightsEvidenceUrl": "https://polona.pl/api/library-object-query/digital-objects/b1600bcb-668f-4daf-a37b-81fade26971f"
+      }
+    ],
+    "addedActivityKind": "scout-course",
+    "addedActivityCount": 15,
+    "addedActivityIds": [
+      "gct-171",
+      "gct-172",
+      "gct-173",
+      "gct-174",
+      "gct-175",
+      "gct-176",
+      "gct-177",
+      "gct-178",
+      "gct-179",
+      "gct-180",
+      "gct-181",
+      "gct-182",
+      "gct-183",
+      "gct-184",
+      "gct-185"
+    ],
+    "stationRecordsCreated": 0,
+    "mapNavigationOnly": true,
+    "semanticMapInputsChanged": false
+  },
+  "corpusAfterRun": {
+    "activityCountPerLocale": 1014,
+    "translationCount": 1014,
+    "publicDomainSourceCount": 12,
+    "kindCounts": {
+      "game": 914,
+      "trial": 85,
+      "scout-course": 15
+    }
+  },
+  "translation": {
+    "sourceLocale": "pl",
+    "targetLocale": "en",
+    "modelRequested": "mistral-large-2512",
+    "actualModels": [
+      "mistral-large-2512"
+    ],
+    "promptVersion": "translation-pl-en-v5",
+    "reasoningMode": "disabled",
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "promptTokens": 9949,
+    "completionTokens": 4208,
+    "requestMaxOutputTokens": 9107,
+    "referenceCostUsd": 0.0112865,
+    "referenceCostLimitUsd": 10
+  },
+  "siteChanges": {
+    "navigationTabs": [
+      "activities",
+      "semantic-map",
+      "books",
+      "authors",
+      "about"
+    ],
+    "newCollectionPages": [
+      "courses",
+      "authors"
+    ],
+    "multiselectFacets": [
+      "kind",
+      "trait",
+      "author",
+      "book",
+      "year"
+    ],
+    "facetCombination": {
+      "withinFacet": "or",
+      "betweenFacets": "and"
+    },
+    "selectedFiltersVisibleAsRemovableChips": true,
+    "sectionRemovedFromPublicFiltersAndSearch": true,
+    "sourceTraitsPreserved": true,
+    "normalizedFilterTraitsAdded": true
+  },
+  "duplicates": {
+    "candidateCount": 50,
+    "automaticMerges": [],
+    "approvedRelations": 1,
+    "reviewRequired": true
+  },
+  "semanticMap": {
+    "deferredToNextPhase": true,
+    "navigationLinkAdded": true,
+    "componentChanged": false,
+    "configurationChanged": false,
+    "analysisChanged": false,
+    "existingMapPointCount": 914
+  },
+  "validation": {
+    "siteGenerationSlurmJobId": "22135816",
+    "siteGenerationState": "COMPLETED",
+    "nearDuplicateRefreshSlurmJobId": "22135273",
+    "nearDuplicateRefreshState": "COMPLETED",
+    "nearDuplicateFinalRefreshMode": "login-node-lightweight-validation-fallback",
+    "slurmStartFailuresAfterWhitespaceCleanup": [
+      "22136016",
+      "22136149",
+      "22136157",
+      "22136238"
+    ],
+    "slurmStartFailureSignal": "0:53-before-script-start",
+    "buildAndValidationSlurmJobId": "22135724",
+    "buildAndValidationState": "COMPLETED",
+    "architecture": "x86_64",
+    "cpus": 1,
+    "unitTests": {
+      "run": 284,
+      "passed": 282,
+      "skipped": 2,
+      "failed": 0
+    },
+    "sourceValidation": "passed",
+    "repositoryValidation": "passed",
+    "finalRepositoryValidationMode": "login-node-local-tmp-fallback-after-slurm-start-failures",
+    "astroBuild": "passed",
+    "generatedHtmlPages": 2048,
+    "internalLinksChecked": 76176,
+    "internalLinkCheck": "passed"
+  },
+  "deferred": [
+    "Do not split the 15 whole scout courses into approximately 107 station records in this phase.",
+    "Do not create embeddings for the new scout-course records in this phase.",
+    "Do not change semantic-map data, projection, component, legend or filters in this phase.",
+    "Keep all 50 algorithmic near-duplicate candidates behind human review."
+  ],
+  "unresolvedIssues": [
+    "Source OCR remains explicitly unreviewed and is linked to the Polona facsimile.",
+    "The station-level activity model and whole-part relations require a later editorial decision.",
+    "Semantic-map expansion and repair are deferred to the next phase."
+  ]
+}
