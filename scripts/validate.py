@@ -26,6 +26,7 @@ from audit_v3_facets import load_config as load_v3_facet_config
 from audit_v3_facets import load_game_records as load_v3_facet_records
 from analyze_duplicates import REPORT_PATH as NEAR_DUPLICATE_REPORT_PATH
 from analyze_duplicates import build_report as build_duplicate_report
+from analyze_duplicates import reports_equivalent as duplicate_reports_equivalent
 from analyze_taxonomy import REPORT_PATH as TAXONOMY_ANALYSIS_PATH
 from analyze_taxonomy import build_analysis, load_usage
 from build_pilot_report import build_report as build_pilot_report
@@ -616,7 +617,7 @@ def main() -> None:
         near_duplicate_report = read_json(NEAR_DUPLICATE_REPORT_PATH)
         expected_duplicate_report = build_duplicate_report()
         require(
-            near_duplicate_report == expected_duplicate_report,
+            duplicate_reports_equivalent(near_duplicate_report, expected_duplicate_report),
             "Near-duplicate report is stale or nondeterministic",
             errors,
         )

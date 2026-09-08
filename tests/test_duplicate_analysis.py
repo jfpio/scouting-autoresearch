@@ -4,7 +4,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from analyze_duplicates import cosine, normalized_vectors, strip_provenance_footer, terms
+from analyze_duplicates import cosine, normalized_vectors, reports_equivalent, strip_provenance_footer, terms
 
 
 class DuplicateAnalysisTests(unittest.TestCase):
@@ -31,6 +31,28 @@ class DuplicateAnalysisTests(unittest.TestCase):
         ]
         vectors = normalized_vectors(records, 2)
         self.assertEqual(cosine(vectors["a"], vectors["b"]), 0.0)
+
+    def test_report_comparison_tolerates_only_tiny_score_drift(self):
+        expected = {
+            "schemaVersion": 1,
+            "candidateCount": 1,
+            "candidates": [{"leftId": "a", "rightId": "b", "tfidfCosine": 0.12345678}],
+        }
+        tiny_drift = {
+            **expected,
+            "candidates": [{"leftId": "a", "rightId": "b", "tfidfCosine": 0.12345679}],
+        }
+        material_drift = {
+            **expected,
+            "candidates": [{"leftId": "a", "rightId": "b", "tfidfCosine": 0.1235}],
+        }
+        changed_pair = {
+            **expected,
+            "candidates": [{"leftId": "a", "rightId": "c", "tfidfCosine": 0.12345678}],
+        }
+        self.assertTrue(reports_equivalent(tiny_drift, expected))
+        self.assertFalse(reports_equivalent(material_drift, expected))
+        self.assertFalse(reports_equivalent(changed_pair, expected))
 
 
 if __name__ == "__main__":

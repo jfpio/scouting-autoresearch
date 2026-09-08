@@ -101,6 +101,40 @@ def cosine(left: dict[str, float], right: dict[str, float]) -> float:
     return sum(weight * right.get(term, 0.0) for term, weight in left.items())
 
 
+def reports_equivalent(
+    actual: dict[str, Any],
+    expected: dict[str, Any],
+    *,
+    score_abs_tolerance: float = 1e-7,
+) -> bool:
+    """Compare reports strictly except for portable floating-point score drift."""
+    actual_summary = {key: value for key, value in actual.items() if key != "candidates"}
+    expected_summary = {key: value for key, value in expected.items() if key != "candidates"}
+    if actual_summary != expected_summary:
+        return False
+    actual_candidates = actual.get("candidates") or []
+    expected_candidates = expected.get("candidates") or []
+    if len(actual_candidates) != len(expected_candidates):
+        return False
+    for actual_item, expected_item in zip(actual_candidates, expected_candidates, strict=True):
+        actual_evidence = {key: value for key, value in actual_item.items() if key != "tfidfCosine"}
+        expected_evidence = {key: value for key, value in expected_item.items() if key != "tfidfCosine"}
+        if actual_evidence != expected_evidence:
+            return False
+        actual_score = actual_item.get("tfidfCosine")
+        expected_score = expected_item.get("tfidfCosine")
+        if not isinstance(actual_score, (int, float)) or not isinstance(expected_score, (int, float)):
+            return False
+        if not math.isclose(
+            float(actual_score),
+            float(expected_score),
+            rel_tol=0.0,
+            abs_tol=score_abs_tolerance,
+        ):
+            return False
+    return True
+
+
 def build_report(config: dict[str, Any] | None = None) -> dict[str, Any]:
     config = config or load_config()
     locale = config["comparisonLocale"]
@@ -172,7 +206,9 @@ def main() -> None:
     args = parser.parse_args()
     report = build_report()
     if args.check:
-        if not args.output.is_file() or json.loads(args.output.read_text(encoding="utf-8")) != report:
+        if not args.output.is_file() or not reports_equivalent(
+            json.loads(args.output.read_text(encoding="utf-8")), report
+        ):
             raise SystemExit(f"Near-duplicate report is missing or stale: {args.output}")
         print(f"Near-duplicate report is current: {report['candidateCount']} candidate(s).")
         return
