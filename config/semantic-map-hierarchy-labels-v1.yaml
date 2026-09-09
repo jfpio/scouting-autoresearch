@@ -1,9 +1,413 @@
 schemaVersion: 1
 registryId: semantic-map-hierarchy-labels-v1
-status: human-review-required
+status: human-approved
 selection: config/semantic-map-hierarchy-selection-v1.yaml
 proposalReport: data/reports/semantic-map-hierarchy-label-proposals-v1.json
 corpusDigest: 168e61d1252922b26a0dc1e8021d2a79c4f482fe13f9ef74dc28a838c7a853e0
 scope: navigational-cluster-presentation-only
 humanApprovalRequired: true
-approvedLabels: []
+approvedBy: repository-owner
+approvedAt: '2026-09-09T18:08:31+02:00'
+approvedLabels:
+- clusterId: top-01
+  level: top
+  status: human-approved
+  proposalInputHash: 0841f3922134f9be1e7268844d3edf8cffd8912c4786265a4a6a9fcf31a71488
+  namePl: Gry obserwacyjno-terenowe z elementem wędrówki
+  descriptionPl: Zabawy i gry wymagające spostrzegawczości, zapamiętywania lub śledzenia
+    śladów w plenerze lub w pomieszczeniu.
+  nameEn: Observational and Trail-Following Field Games
+  descriptionEn: Games and activities involving keen observation, memorization, or
+    tracking trails indoors or outdoors.
+- clusterId: top-02
+  level: top
+  status: human-approved
+  proposalInputHash: 2b943c759185842da2b1456bcf6c4ce182898b3f9906475a8245e94704c5b09a
+  namePl: Gry nawigacyjne i obserwacyjne w terenie
+  descriptionPl: Zabawy i ćwiczenia polegające na orientacji, śledzeniu oraz dokumentowaniu
+    tras i obiektów w naturalnym otoczeniu.
+  nameEn: Field Navigation and Observation Games
+  descriptionEn: Games and exercises focused on orientation, tracking, and documenting
+    routes and objects in a natural environment.
+- clusterId: top-03
+  level: top
+  status: human-approved
+  proposalInputHash: e087e054c6447f624ecb211a1ba03d3f4d2432402e17dba0692c44942e8fb814
+  namePl: Gry zmysłowe i sygnalizacyjne w terenie
+  descriptionPl: Zabawy rozwijające spostrzegawczość, słuch, wzrok oraz umiejętność
+    przekazywania sygnałów w warunkach dziennych i nocnych.
+  nameEn: Sensory and Signaling Field Games
+  descriptionEn: Games enhancing observation, hearing, vision, and the ability to
+    transmit signals in both daytime and nighttime conditions.
+- clusterId: top-04
+  level: top
+  status: human-approved
+  proposalInputHash: e1b23f55b9f445728265f752da7338b32edf0a229ab6ffa2fe7b40c39298d69d
+  namePl: Gry pamięciowe i poszukiwawcze w przestrzeni zamkniętej i otwartej
+  descriptionPl: Zabawy polegające na zapamiętywaniu, identyfikowaniu lub odnajdywaniu
+    obiektów, tekstów lub zmian w otoczeniu, zarówno w pomieszczeniach, jak i na terenie
+    otwartym.
+  nameEn: Memory and Search Games in Enclosed and Open Spaces
+  descriptionEn: Activities involving memorization, identification, or retrieval of
+    objects, texts, or environmental changes in both indoor and outdoor settings.
+- clusterId: top-05
+  level: top
+  status: human-approved
+  proposalInputHash: 954d09d83605a39e2b4b4ea90c019bd699e96ed4a7e679c016f5077f57df6f64
+  namePl: Gry zbieracko-rozpoznawcze w kole i na otwartej przestrzeni
+  descriptionPl: Zabawy polegające na odnajdywaniu, gromadzeniu i rozróżnianiu drobnych
+    przedmiotów lub elementów w ramach interakcji grupowej lub rywalizacji.
+  nameEn: Collection and Recognition Games in Circles and Open Spaces
+  descriptionEn: Games involving finding, gathering, and distinguishing small objects
+    or elements as part of group interaction or competition.
+- clusterId: top-06
+  level: top
+  status: human-approved
+  proposalInputHash: 2593587aefb95775efab8e9954c454131aa96e0e6ab28887bf9f683f80afaa5e
+  namePl: Gry taktyczne i infiltracyjne w terenie
+  descriptionPl: Zabawy polegające na skrytym lub zorganizowanym działaniu zespołowym
+    w celu przechwycenia, obrony lub przekazania obiektów i wiadomości w przestrzeni
+    otwartej.
+  nameEn: Tactical and Infiltration Field Games
+  descriptionEn: Games involving covert or organized team actions to capture, defend,
+    or relay objects and messages in open terrain.
+- clusterId: top-07
+  level: top
+  status: human-approved
+  proposalInputHash: b7152dd3d9e25c1b9663ee5e4511b09f553be6dad0ff3a0f2545a21d8fef11d7
+  namePl: Gry obserwacyjno-reakcyjne w terenie i zamkniętej przestrzeni
+  descriptionPl: Zabawy wymagające szybkiej obserwacji, zapamiętywania lub natychmiastowej
+    reakcji na bodźce wizualne, sytuacyjne lub zespołowe.
+  nameEn: Observational and Reactive Games in Field and Enclosed Spaces
+  descriptionEn: Games requiring quick observation, memorization, or immediate response
+    to visual, situational, or team-based stimuli.
+- clusterId: top-08
+  level: top
+  status: human-approved
+  proposalInputHash: 0b218d870c3b3c3306c9776b000fcc5c6bb5ec07b274026cb8f66789ba9951f0
+  namePl: Gry eliminacyjne i pościgowe w kole oraz terenie
+  descriptionPl: Zabawy polegające na wykluczaniu uczestników lub ściganiu ich w zorganizowanych
+    formacjach kołowych bądź naturalnym otoczeniu.
+  nameEn: Elimination and Pursuit Games in Circles and Field Settings
+  descriptionEn: Games involving participant elimination or chasing within structured
+    circular formations or natural environments.
+- clusterId: fine-01
+  level: fine
+  status: human-approved
+  proposalInputHash: 668c0453d98b2e1ca52a07956293a2ae0df36b3d92ae9fbe4706340ed38e4149
+  namePl: Gry pamięciowe Kima
+  descriptionPl: Zabawy oparte na zapamiętywaniu i rozpoznawaniu przedmiotów, dźwięków
+    lub obrazów w określonym czasie.
+  nameEn: Kim’s Memory Games
+  descriptionEn: Games focused on memorizing and recognizing objects, sounds, or images
+    within a set time.
+- clusterId: fine-02
+  level: fine
+  status: human-approved
+  proposalInputHash: da9c16edc0fc45f12c801da6b465f91f16bf8956ac2cadae6d5a1b376b0daa7f
+  namePl: Marsze i ćwiczenia nawigacyjne z mapą
+  descriptionPl: Zabawy polegające na orientacji w terenie przy użyciu mapy, szkicu
+    lub jej odtwarzaniu.
+  nameEn: Map-Based Navigation and March Exercises
+  descriptionEn: Activities involving terrain orientation using a map, sketch, or
+    map reconstruction.
+- clusterId: fine-03
+  level: fine
+  status: human-approved
+  proposalInputHash: b7c7ca8fc0d98cc2800fb6bf6eaa9f778a28506a1497c1728b6d217f60b850e5
+  namePl: Tropienie i śledzenie śladów
+  descriptionPl: Zabawy polegające na oznaczaniu, odnajdywaniu i interpretacji śladów
+    pozostawionych przez ludzi lub przedmioty w terenie.
+  nameEn: Trail Tracking and Following
+  descriptionEn: Games involving marking, finding, and interpreting trails left by
+    people or objects in the field.
+- clusterId: fine-04
+  level: fine
+  status: human-approved
+  proposalInputHash: 13388a8fd0ca960d72f475effed89c24f6b6bf0516f3d2b82a6d4e64d056b68d
+  namePl: Orientacja w terenie bez przyrządów
+  descriptionPl: Ćwiczenia polegające na wyznaczaniu kierunków i położenia obiektów
+    przy użyciu naturalnych metod lub improwizowanych miar.
+  nameEn: Natural Field Orientation
+  descriptionEn: Exercises focused on determining directions and object positions
+    using natural methods or improvised measures.
+- clusterId: fine-05
+  level: fine
+  status: human-approved
+  proposalInputHash: 62ee763ccf41dcf03564a762c7193fc79e0865d64a76c7e05cce06fdba70bad2
+  namePl: Symulowane wyprawy polarne z sankami
+  descriptionPl: Zorganizowane gry terenowe polegające na ciągnięciu sanek z zaopatrzeniem
+    i śledzeniu śladów w warunkach zimowych lub symulowanych.
+  nameEn: Simulated Polar Expeditions with Sleds
+  descriptionEn: Organized field games involving pulling sleds loaded with supplies
+    and tracking trails in winter or simulated conditions.
+- clusterId: fine-06
+  level: fine
+  status: human-approved
+  proposalInputHash: 0433447e0b66a4acb22c4463e9256d1deb1549150857969bb110a0279844e464
+  namePl: Nawigacyjne szkicowanie tras
+  descriptionPl: Zadania polegające na zapamiętywaniu, odtwarzaniu lub dokumentowaniu
+    przebytej drogi za pomocą prostych szkiców terenowych.
+  nameEn: Navigational Route Sketching
+  descriptionEn: Tasks involving memorizing, recreating, or documenting traveled paths
+    using simple terrain sketches.
+- clusterId: fine-07
+  level: fine
+  status: human-approved
+  proposalInputHash: d067aa171e2ac4b724bf0ade3e0c691e667338aec9f624d843ebbbcea8a080d2
+  namePl: Zabawy na spostrzegawczość z ukrytymi elementami
+  descriptionPl: Uczestnicy obserwują, zapamiętują lub odtwarzają krótko prezentowane
+    przedmioty, obrazki lub sytuacje.
+  nameEn: Observation Games with Hidden Elements
+  descriptionEn: Participants observe, memorize, or reconstruct briefly presented
+    objects, images, or scenarios.
+- clusterId: fine-08
+  level: fine
+  status: human-approved
+  proposalInputHash: 351372439504bd7b766f90f11c4e71b162ab757c171adcc395283a01faebc6e8
+  namePl: Ocenianie odległości wzrokiem i krokiem
+  descriptionPl: Zabawy polegające na szacowaniu odległości do obiektów lub punktów
+    w terenie za pomocą wzroku i pomiaru krokami.
+  nameEn: Visual and Pacing Distance Estimation
+  descriptionEn: Games focused on estimating distances to objects or points in the
+    field using visual judgment and step measurement.
+- clusterId: fine-09
+  level: fine
+  status: human-approved
+  proposalInputHash: 923c6c110ca1fee7e2cbf00208cfa621fc27ed4baac7c4f7001fd353ec0eac20
+  namePl: Poszukiwanie ukrytych przedmiotów w pomieszczeniu
+  descriptionPl: Zabawy polegające na odnajdywaniu schowanych lub zmienionych elementów
+    w zamkniętej przestrzeni przy użyciu spostrzegawczości i wskazówek.
+  nameEn: Indoor Hidden Object Searches
+  descriptionEn: Games involving finding hidden or altered items within an enclosed
+    space using observation and clues.
+- clusterId: fine-10
+  level: fine
+  status: human-approved
+  proposalInputHash: af429be0e3cec5d7cf9dd7f1c4d59852068bb37f1b598172f98995662668e24f
+  namePl: Gry sygnalizacyjne z alfabetem
+  descriptionPl: Zabawy polegające na przekazywaniu liter alfabetu za pomocą sygnałów
+    wizualnych lub dźwiękowych.
+  nameEn: Alphabet Signaling Games
+  descriptionEn: Games involving the transmission of alphabet letters using visual
+    or sound signals.
+- clusterId: fine-11
+  level: fine
+  status: human-approved
+  proposalInputHash: 6ccf96b46daadd0a2ebfb573ef488e41bef75439f3d9865669f8348d857d982d
+  namePl: Poszukiwanie widocznych drobiazgów
+  descriptionPl: Zabawa polegająca na odnajdywaniu małych przedmiotów umieszczonych
+    w widocznym, lecz łatwym do przeoczenia miejscu.
+  nameEn: Visible Small Object Searches
+  descriptionEn: A game involving finding small objects placed in a visible but easily
+    overlooked spot.
+- clusterId: fine-12
+  level: fine
+  status: human-approved
+  proposalInputHash: 7d394ec7a244bf1e4f27fff83aff14d6885f8dd398a66fa53499b369b8d3a51a
+  namePl: Rozpoznawanie i opisywanie obiektów z pamięci
+  descriptionPl: Uczestnicy identyfikują lub opisują z pamięci obiekty, zdania lub
+    hierarchie po krótkiej obserwacji lub wysłuchaniu.
+  nameEn: Memory-Based Object and Statement Identification
+  descriptionEn: Participants identify or describe objects, statements, or hierarchies
+    from memory after brief observation or listening.
+- clusterId: fine-13
+  level: fine
+  status: human-approved
+  proposalInputHash: ecb4d35dd92fa1d558ff5605683a13a465e87997a207a6b759594b13543704c4
+  namePl: Ćwiczenia słuchu i spostrzegawczości nocnej
+  descriptionPl: Zabawy polegające na wyostrzaniu zmysłów słuchu i wzroku w warunkach
+    ograniczonej widoczności lub po zmroku.
+  nameEn: Nighttime Hearing and Observation Exercises
+  descriptionEn: Activities focused on sharpening hearing and visual senses in low-light
+    or nighttime conditions.
+- clusterId: fine-14
+  level: fine
+  status: human-approved
+  proposalInputHash: 18f6179f908d762dd953d70b4a1b4050649c31fbe3a0c4d37e0fd7bac0e450f8
+  namePl: Zabawy z układaniem i rekonstrukcją tekstu
+  descriptionPl: Uczestnicy odtwarzają z pamięci lub składają z części wcześniej podane
+    zdania, polecenia lub listy wyrazów.
+  nameEn: Text Reconstruction and Assembly Games
+  descriptionEn: Participants reconstruct from memory or assemble previously given
+    sentences, orders, or word lists from fragments.
+- clusterId: fine-15
+  level: fine
+  status: human-approved
+  proposalInputHash: f24c3a9e0ed9bf9b0a9d06d19a674e8ea6fc4c13f3b8dcefe972b2550e37a0b4
+  namePl: Ukrywanie i odnajdywanie obiektów w terenie
+  descriptionPl: Zabawy polegające na maskowaniu lub ukrywaniu przedmiotów w naturalnym
+    otoczeniu i ich późniejszym odnajdywaniu przez uczestników.
+  nameEn: Field Concealment and Object Recovery Games
+  descriptionEn: Activities involving hiding or concealing objects in a natural environment
+    and their subsequent discovery by participants.
+- clusterId: fine-16
+  level: fine
+  status: human-approved
+  proposalInputHash: 7578a119050f65263a15cc4238bf7bcf318cf58e7c91e2b54e821a1e2164f95c
+  namePl: Zabawy w kole z centralną postacią
+  descriptionPl: Gry, w których uczestnicy tworzą koło, a wybrana osoba w środku pełni
+    kluczową rolę lub interakcję z resztą grupy.
+  nameEn: Circle Games with a Central Figure
+  descriptionEn: Games where participants form a circle, and a chosen individual in
+    the center plays a key role or interacts with the rest of the group.
+- clusterId: fine-17
+  level: fine
+  status: human-approved
+  proposalInputHash: 69ba3538cd450f9a7355ac06ac843f220ac1d1a5d68ee8000649ea2b84b8149a
+  namePl: Zbieranie i segregacja drobnych przedmiotów
+  descriptionPl: Zabawy polegające na gromadzeniu i rozróżnianiu małych przedmiotów
+    w określonym czasie lub według zadanych kryteriów.
+  nameEn: Collecting and Sorting Small Objects
+  descriptionEn: Games involving gathering and distinguishing small items within a
+    set time or according to specified criteria.
+- clusterId: fine-18
+  level: fine
+  status: human-approved
+  proposalInputHash: a9d165c4839e1e85b1d24ab3cab8ffcbc8dcfd876342b11f7263cd36277eb8e7
+  namePl: Podchodzenie i skradanie się w terenie
+  descriptionPl: Zabawy polegające na ukrytym zbliżaniu się do wyznaczonego celu lub
+    osoby z wykorzystaniem naturalnych osłon terenu.
+  nameEn: Field Stealth and Stalking Games
+  descriptionEn: Games involving concealed movement toward a designated target or
+    person using natural terrain cover.
+- clusterId: fine-19
+  level: fine
+  status: human-approved
+  proposalInputHash: 5c9453a1bc26bab29a9e369b0a172386efc386c5ea06915bbaf7241f415ec21e
+  namePl: Przekradanie się i infiltracja w terenie
+  descriptionPl: Zabawy polegające na skrytym poruszaniu się w celu pokonania wart
+    lub dotarcia do chronionego obiektu.
+  nameEn: Field Infiltration and Stealth Games
+  descriptionEn: Games involving covert movement to bypass guards or reach a protected
+    object.
+- clusterId: fine-20
+  level: fine
+  status: human-approved
+  proposalInputHash: ac1a1d2d5ce7edb7aa5c8865ba008fb7c84ec8c2e0594d6450109fb9d43e35f6
+  namePl: Rozpoznawanie i opisywanie napotkanych osób
+  descriptionPl: Zabawy polegające na obserwacji i szczegółowym opisie nieznajomych
+    osób napotkanych w terenie lub odgrywających role przechodniów.
+  nameEn: Encountered Person Identification and Description
+  descriptionEn: Games involving observation and detailed description of strangers
+    encountered in the field or role-playing as passers-by.
+- clusterId: fine-21
+  level: fine
+  status: human-approved
+  proposalInputHash: f046158be221390f268087b836810c620cd6dfc154ff63486db1a84cd7eb8968
+  namePl: Gry zespołowe z piłką i kijem
+  descriptionPl: Zabawy polegające na rzucaniu, uderzaniu lub odbijaniu piłki kijem
+    lub ręką w ramach rywalizacji drużynowej.
+  nameEn: Team Ball and Bat Games
+  descriptionEn: Games involving throwing, hitting, or bouncing a ball with a bat
+    or hand as part of team competition.
+- clusterId: fine-22
+  level: fine
+  status: human-approved
+  proposalInputHash: 9a1d19e5c5c0c5f5abffb1bbc95de506c973419d3dcb5b6e2862ab8cc46a5359
+  namePl: Gry gończe i przekazywanie wiadomości
+  descriptionPl: Zabawy polegające na szybkim przekazywaniu ustnych lub sygnalizowanych
+    wiadomości między uczestnikami na określonym dystansie.
+  nameEn: Messenger and Dispatch Relay Games
+  descriptionEn: Games involving the rapid transmission of verbal or signaled messages
+    between participants over a set distance.
+- clusterId: fine-23
+  level: fine
+  status: human-approved
+  proposalInputHash: d3c362e25f1295b8150b5506d6a1c75a759a35b5b5d141b0d297ba548089cbd5
+  namePl: Zapisywanie i rekonstrukcja obserwowanych wystaw
+  descriptionPl: Uczestnicy przez krótki czas obserwują wystawę sklepową lub układ
+    przedmiotów, a następnie spisują lub odtwarzają zapamiętane elementy.
+  nameEn: Observed Display Recording and Reconstruction
+  descriptionEn: Participants briefly observe a shop display or object arrangement,
+    then write down or recreate the remembered elements.
+- clusterId: fine-24
+  level: fine
+  status: human-approved
+  proposalInputHash: 361fbfd073324a7302ea867abfaf88d5db1d9bc7992d4f95a9923c1644108444
+  namePl: Taktyczne gry obronne i blokady terenowe
+  descriptionPl: Zorganizowane symulacje obrony kluczowych punktów lub przełamywania
+    blokad w terenie z udziałem dwóch rywalizujących drużyn.
+  nameEn: Tactical Defensive and Blockade Games
+  descriptionEn: Organized simulations of defending key points or breaking through
+    blockades in the field involving two competing teams.
+- clusterId: fine-25
+  level: fine
+  status: human-approved
+  proposalInputHash: de0e16767e9c9681a5d78af77b4c14465c7a04f9fc37695b6aa8aa851111f768
+  namePl: Gry liczbowe z wykluczaniem
+  descriptionPl: Zabawy, w których uczestnicy kolejno wymieniają liczby, zastępując
+    określone z nich słowami, a pomyłka eliminuje z gry.
+  nameEn: Elimination Number Substitution Games
+  descriptionEn: Games where participants take turns reciting numbers, replacing specific
+    ones with words, and mistakes result in elimination.
+- clusterId: fine-26
+  level: fine
+  status: human-approved
+  proposalInputHash: 7648fc6aec2fab97be490babbe3753c7fd6eed275b316113863106d13431e07c
+  namePl: Symulowane sytuacje ratownicze
+  descriptionPl: Uczestnicy reagują na inscenizowane wypadki lub nagłe zdarzenia,
+    udzielając pierwszej pomocy lub podejmując szybkie decyzje.
+  nameEn: Simulated Rescue Scenarios
+  descriptionEn: Participants respond to staged accidents or emergencies by providing
+    first aid or making rapid decisions.
+- clusterId: fine-27
+  level: fine
+  status: human-approved
+  proposalInputHash: b2ebc2e7fe015bf02354e7d7731d24246fd76bfc2a0f1adabead054096806710
+  namePl: Zabawy w kole z prześladowaniem i ucieczką
+  descriptionPl: Gry, w których uczestnicy w kole unikają schwytania lub wyeliminowania
+    przez centralną postać lub zwierzę.
+  nameEn: Circle Chase and Escape Games
+  descriptionEn: Games where participants in a circle evade capture or elimination
+    by a central figure or animal.
+- clusterId: fine-28
+  level: fine
+  status: human-approved
+  proposalInputHash: e5c714c14613b77afdbba53519b50508155e4e37861cf7c5b6e40941686c020a
+  namePl: Gry rzutne z piłkami i przedmiotami
+  descriptionPl: Zawodnicy rywalizują w precyzyjnym lub siłowym rzucaniu piłek oraz
+    lekkich przedmiotów w kierunku celu lub między drużynami.
+  nameEn: Ball and Object Throwing Games
+  descriptionEn: Participants compete in precise or forceful throwing of balls and
+    lightweight objects toward targets or between teams.
+- clusterId: fine-29
+  level: fine
+  status: human-approved
+  proposalInputHash: 670119b0740e77c4e7ceb01e05489156976f0db541fe69263f5f4753efd5add0
+  namePl: Wyścigi i biegi zespołowe w kole
+  descriptionPl: Zabawy polegające na szybkim przemieszczaniu się w kole lub między
+    uczestnikami w odpowiedzi na sygnał.
+  nameEn: Circle and Team Relay Races
+  descriptionEn: Games involving rapid movement within a circle or between participants
+    in response to a signal.
+- clusterId: fine-30
+  level: fine
+  status: human-approved
+  proposalInputHash: d557603c9750e6a62c32dd63ed83ca5a3f838dc7f01ffd06d438409fb36e149f
+  namePl: Gry przechwytywania symbolicznych obiektów
+  descriptionPl: Zespoły rywalizują o zdobycie lub obronę flag, chorągwi lub umownych
+    zasobów w terenie.
+  nameEn: Symbolic Object Capture Games
+  descriptionEn: Teams compete to seize or defend flags, banners, or conventional
+    resources in the field.
+- clusterId: fine-31
+  level: fine
+  status: human-approved
+  proposalInputHash: 85c94768d4b8c35fd8d599961945f21391c9451a48f0a006121ed7bec35a16ff
+  namePl: Pościgi i polowania w terenie
+  descriptionPl: Zabawy polegające na ściganiu i tropieniu wyznaczonej osoby lub grupy
+    w naturalnym otoczeniu z wykorzystaniem ukrycia i taktyki.
+  nameEn: Field Pursuit and Hunting Games
+  descriptionEn: Games involving chasing and tracking a designated individual or group
+    in a natural setting using concealment and tactics.
+- clusterId: fine-32
+  level: fine
+  status: human-approved
+  proposalInputHash: 583a3b28869cb64159f4d3bd2d521fc1c4137295eb7e268213dfcd11cca045f9
+  namePl: Polowania na duże zwierzęta w terenie
+  descriptionPl: Zabawy terenowe polegające na tropieniu, osaczaniu lub łapaniu symbolicznego
+    dużego zwierzęcia przez grupę uczestników.
+  nameEn: Large Animal Hunting Games in the Field
+  descriptionEn: Field games involving tracking, cornering, or capturing a symbolic
+    large animal by a group of participants.
