@@ -41,6 +41,18 @@ class HierarchyComparisonTests(unittest.TestCase):
         self.assertNotIn("cdn.", rendered.lower())
         self.assertNotIn("<script src=", rendered.lower())
 
+    def test_label_review_mode_keeps_proposals_explicit(self):
+        payload = build_payload(include_label_proposals=True)
+        self.assertTrue(payload["labelReview"])
+        amber = next(item for item in payload["variants"] if item["id"] == "candidate-amber")
+        blue = next(item for item in payload["variants"] if item["id"] == "candidate-blue")
+        self.assertEqual(len(amber["labels"]["fine"]), 32)
+        self.assertEqual(len(amber["labels"]["top"]), 8)
+        self.assertIsNone(blue["labels"])
+        rendered = render_html(payload)
+        self.assertIn("Nazwy LLM oczekują na zatwierdzenie człowieka", rendered)
+        self.assertIn("Gry pamięciowe Kima", rendered)
+
 
 if __name__ == "__main__":
     unittest.main()

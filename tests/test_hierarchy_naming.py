@@ -11,6 +11,7 @@ from name_hierarchy_clusters import (
     parse_response,
     prompt_payload,
     reference_upper_bound,
+    update_totals,
 )
 
 
@@ -79,6 +80,18 @@ class HierarchyNamingTests(unittest.TestCase):
         self.assertIsNone(execution["billedCostUsd"])
         self.assertEqual(execution["maxReferenceCostUsd"], 10)
         self.assertTrue(execution["checkpointAfterEverySuccess"])
+
+    def test_ledger_totals_count_billable_contract_failures(self):
+        ledger = {
+            "entries": [
+                {"usage": {"promptTokens": 10, "completionTokens": 2, "referenceCostUsd": 0.1}},
+                {"status": "rejected-contract", "usage": {"promptTokens": 5, "completionTokens": 1, "referenceCostUsd": 0.05}},
+            ]
+        }
+        update_totals(ledger)
+        self.assertEqual(ledger["totals"]["requests"], 2)
+        self.assertEqual(ledger["totals"]["promptTokens"], 15)
+        self.assertEqual(ledger["totals"]["referenceCostUsd"], 0.15)
 
 
 if __name__ == "__main__":

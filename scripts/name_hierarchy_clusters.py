@@ -319,6 +319,20 @@ def load_report(config: dict[str, Any], selection: dict[str, Any]) -> dict[str, 
                     != input_hash(config, selection, request_payload)
                 ):
                     raise ValueError(f"Hierarchy label cache is stale: {level}/{cluster_id}")
+                cached_unit = {
+                    "clusterId": cluster_id,
+                    "allowedRepresentativeIds": request_payload.get("allowedRepresentativeIds") or [],
+                }
+                try:
+                    parse_response(
+                        json.dumps(item.get("response"), ensure_ascii=False),
+                        cached_unit,
+                        request_payload.get("reservedNames") or [],
+                    )
+                except (TypeError, ValueError, json.JSONDecodeError) as error:
+                    raise ValueError(
+                        f"Hierarchy label cache violates its response contract: {level}/{cluster_id}"
+                    ) from error
         return report
     return {
         "schemaVersion": 1,
@@ -514,18 +528,87 @@ def persist(
     )
 
 
+def validate_complete(
+    config: dict[str, Any], selection: dict[str, Any], variant: dict[str, Any]
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    report = load_report(config, selection)
+    ledger = load_ledger(config, selection)
+    if report.get("status") != "human-review-required":
+        raise ValueError("Hierarchy label proposals are not complete")
+    expected_fine = {item["fineClusterId"] for item in variant["fineClusters"]}
+    expected_top = {item["topClusterId"] for item in variant["topClusters"]}
+    if set(report["fine"]) != expected_fine or set(report["top"]) != expected_top:
+        raise ValueError("Hierarchy label proposals do not cover 32 fine and 8 top clusters")
+    entries = ledger.get("entries") or []
+    successful = [item for item in entries if item.get("status", "success") != "rejected-contract"]
+    if len(successful) != 40 or len({(item["level"], item["clusterId"]) for item in successful}) != 40:
+        raise ValueError("Hierarchy label ledger does not contain 40 unique successes")
+    if any(
+        item.get("modelRequested") != config["model"]
+        or item.get("model") != config["model"]
+        or item.get("temperature") != 0
+        or item.get("reasoningEffort") != "omitted"
+        or item.get("promptVersion") != config["promptVersion"]
+        for item in successful
+    ):
+        raise ValueError("Hierarchy label ledger violates the pinned generation contract")
+    update_totals(ledger)
+    if ledger["totals"]["requests"] != len(entries):
+        raise ValueError("Hierarchy label ledger totals are stale")
+    if float(ledger["totals"]["referenceCostUsd"]) > float(config["execution"]["maxReferenceCostUsd"]):
+        raise ValueError("Hierarchy label ledger exceeds the reference-cost limit")
+    access = ledger.get("modelAccess") or {}
+    if access.get("checked") is not True or access.get("modelId") != config["model"]:
+        raise ValueError("Hierarchy label ledger lacks the exact model-access check")
+    expected_note = review_markdown(report, ledger)
+    note_path = ROOT / config["reviewNote"]
+    if not note_path.is_file() or note_path.read_text(encoding="utf-8") != expected_note:
+        raise ValueError("Hierarchy label review note is missing or stale")
+    registry = load_yaml(ROOT / config["approvedRegistry"])
+    if registry.get("status") != "human-review-required" or registry.get("approvedLabels") != []:
+        raise ValueError("Unapproved hierarchy labels leaked into the public registry")
+    return report, ledger
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--execute", action="store_true")
     parser.add_argument("--limit", type=int, default=1)
+    parser.add_argument("--check", action="store_true")
+    parser.add_argument("--probe-model-access", action="store_true")
     args = parser.parse_args()
+    if sum(bool(value) for value in (args.execute, args.check, args.probe_model_access)) > 1:
+        parser.error("--execute, --check and --probe-model-access are mutually exclusive")
     if not 1 <= args.limit <= 40:
         parser.error("--limit must be between 1 and 40")
     config = load_configuration()
     selection, variant = approved_variant(config)
+    if args.check:
+        report, ledger = validate_complete(config, selection, variant)
+        print(
+            f"Hierarchy label proposals are current: {len(report['fine'])} fine, "
+            f"{len(report['top'])} top, ${ledger['totals']['referenceCostUsd']:.8f} reference cost"
+        )
+        return
     activities = activity_index(config)
     report = load_report(config, selection)
     ledger = load_ledger(config, selection)
+    if args.probe_model_access:
+        api_key = load_secret()
+        ensure_models_available(api_key, {config["model"]})
+        ledger["modelAccess"] = {
+            "checked": True,
+            "checkedAt": datetime.now(UTC).isoformat(),
+            "modelId": config["model"],
+            "available": True,
+        }
+        write_json(ROOT / config["ledger"], ledger)
+        update_checkpoint({
+            "labelingModelAccess": ledger["modelAccess"],
+            "nextStep": "Validate completed hierarchy label proposals.",
+        })
+        print(json.dumps(ledger["modelAccess"], ensure_ascii=False, indent=2))
+        return
     fine_cache = report["fine"]
     units = ordered_units(variant, activities, fine_cache)
     pending = [unit for unit in units if unit["clusterId"] not in report[unit["level"]]]
@@ -572,6 +655,13 @@ def main() -> None:
             "nextStep": "Owner decision required for permanent model-access failure.",
         })
         raise SystemExit("Permanent Mistral model-access failure; checkpoint saved") from error
+    ledger["modelAccess"] = {
+        "checked": True,
+        "checkedAt": datetime.now(UTC).isoformat(),
+        "modelId": config["model"],
+        "available": True,
+    }
+    write_json(ROOT / config["ledger"], ledger)
 
     for unit in selected:
         reserved = proposed_names(report, unit["level"])

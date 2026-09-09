@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "pipeline": "semantic-map-hierarchy-pilot-v1",
-  "status": "human-review-required",
-  "updatedAt": "2026-09-09T15:49:55+02:00",
+  "status": "human-label-review-required",
+  "updatedAt": "2026-09-09T14:04:33.794323+00:00",
   "branch": "codex/autoresearch-2026-09-09-hierarchic-map-pilot",
   "baseCommit": "16b15452e3a69643e73e1fc0ef8f0d02dbba3800",
   "corpusActivities": 914,
@@ -31,11 +31,21 @@
   },
   "comparisonArtifact": {
     "path": "artifacts/hierarchic-map-pilot/cluster-comparison.html",
-    "sha256": "d50c178c7e7d202ec8d457718e389d0a9420f1856013619fccf715a8c23ea2fc",
-    "bytes": 618992,
+    "sha256": "90bb118aa0424136d6df7691194ba13a8366ca2c1436f71535b2b1dfbb4b7a3a",
+    "bytes": 620843,
     "points": 914,
     "variants": 2,
     "selfContained": true
+  },
+  "labelReviewArtifact": {
+    "path": "artifacts/hierarchic-map-pilot/label-review.html",
+    "sha256": "93e90f653085601ceca61a48de51dc599df5f3a87604263a3c7703d24727177f",
+    "bytes": 647690,
+    "points": 914,
+    "fineLabelProposals": 32,
+    "topLabelProposals": 8,
+    "selfContained": true,
+    "publicationStatus": "human-review-required"
   },
   "reportSha256": "ec8c42fdc95e07670a748c429204fc9e76f259a53f9c12c438f07d65109a271a",
   "reviewPacketSha256": "14698463ce562b62174ae7576cb0e66eeec1164a1dea9892fea99fb63c492d3f",
@@ -47,5 +57,21 @@
     "algorithm": "kmeans-on-umap-2d",
     "scope": "navigational-cluster-presentation-only"
   },
-  "nextStep": "Generate 32 fine and 8 top bilingual label proposals with mistral-large-2512."
+  "nextStep": "Validate completed hierarchy label proposals.",
+  "labeling": {
+    "modelRequested": "mistral-large-2512",
+    "promptVersion": "semantic-map-cluster-labels-bilingual-v1",
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "fineCompleted": 32,
+    "topCompleted": 8,
+    "referenceCostUsd": 0.087434,
+    "nextRetryAt": null
+  },
+  "labelingModelAccess": {
+    "checked": true,
+    "checkedAt": "2026-09-09T14:04:33.781183+00:00",
+    "modelId": "mistral-large-2512",
+    "available": true
+  }
 }
