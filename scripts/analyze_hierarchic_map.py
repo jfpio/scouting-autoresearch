@@ -24,6 +24,7 @@ from sklearn.metrics import adjusted_rand_score, silhouette_score
 from analyze_semantic_map import load_current_caches
 from common import ROOT, VAULT, load_markdown, read_json, write_json
 from embed_semantic_map import activity_items, canonical_hash, corpus_digest, load_config
+from render_hierarchy_review import review_markdown
 
 
 BASE_REPORT_PATH = ROOT / "data" / "reports" / "semantic-map-v3-analysis.json"
@@ -287,50 +288,6 @@ def review_view(report: dict[str, Any], summaries: dict[str, dict[str, Any]]) ->
         ],
         "variants": variants,
     }
-
-
-def review_markdown(review: dict[str, Any]) -> str:
-    lines = [
-        "---",
-        "title: Ślepa recenzja klastrów mapy semantycznej V1",
-        "status: human-review-required",
-        "sourceType: algorithmic-proposal",
-        "---",
-        "",
-        "# Ślepa recenzja klastrów mapy semantycznej V1",
-        "",
-        "Wybierz jeden wariant na podstawie spójności grup, nie nazwy algorytmu. "
-        "Pełne próbki znajdują się w `data/reports/semantic-map-hierarchy-review-v1.json`.",
-        "",
-    ]
-    for variant in review["variants"]:
-        metrics = variant["metrics"]
-        lines.extend(
-            [
-                f"## {variant['blindVariantId']}",
-                "",
-                f"- kwalifikuje się do recenzji: `{str(variant['eligibleForHumanReview']).lower()}`",
-                f"- semantic silhouette: `{metrics['semanticSilhouette']}`",
-                f"- visual silhouette: `{metrics['visualSilhouette']}`",
-                f"- najmniejszy klaster: `{metrics['minimumFineClusterSize']}`",
-                f"- minimalne ARI: `{metrics['minimumAdjustedRandIndex']}`",
-                "",
-            ]
-        )
-    lines.extend(
-        [
-            "## Decyzja właściciela",
-            "",
-            "- [ ] wybieram `candidate-amber`",
-            "- [ ] wybieram `candidate-blue`",
-            "- [ ] odrzucam oba warianty",
-            "",
-            "Ta decyzja zatwierdza wyłącznie wariant geometrii do dalszego nazywania. "
-            "Nie zatwierdza nazw, filtrów ani klasyfikacji historycznej.",
-            "",
-        ]
-    )
-    return "\n".join(lines)
 
 
 def build_reports(generated_at: str) -> tuple[dict[str, Any], dict[str, Any], str]:

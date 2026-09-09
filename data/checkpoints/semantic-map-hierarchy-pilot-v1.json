@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "pipeline": "semantic-map-hierarchy-pilot-v1",
   "status": "human-review-required",
-  "updatedAt": "2026-09-09T14:15:16+02:00",
+  "updatedAt": "2026-09-09T15:19:42+02:00",
   "branch": "codex/autoresearch-2026-09-09-hierarchic-map-pilot",
   "baseCommit": "16b15452e3a69643e73e1fc0ef8f0d02dbba3800",
   "corpusActivities": 914,
@@ -21,6 +21,13 @@
     "testsRun": 289,
     "testsSkipped": 2,
     "validation": "passed"
+  },
+  "reviewRendererSmokeJob": {
+    "jobId": "22217634",
+    "state": "COMPLETED",
+    "exitCode": "0:0",
+    "testsRun": 5,
+    "reviewMarkdownSha256": "299d0ec1a623eb5260f436fd82338177c32c77e3a3d735b3d9d68883d21289e8"
   },
   "reportSha256": "ec8c42fdc95e07670a748c429204fc9e76f259a53f9c12c438f07d65109a271a",
   "reviewPacketSha256": "14698463ce562b62174ae7576cb0e66eeec1164a1dea9892fea99fb63c492d3f",

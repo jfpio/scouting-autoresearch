@@ -8,6 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
 from analyze_hierarchic_map import canonical_labels, fit_labels, source_concentration
 from embed_semantic_map import load_config
+from render_hierarchy_review import review_markdown
 
 
 class HierarchicMapTests(unittest.TestCase):
@@ -45,6 +46,39 @@ class HierarchicMapTests(unittest.TestCase):
         self.assertLessEqual(metrics["maximumLargestSourceShare"], 1)
         self.assertGreaterEqual(metrics["meanNormalizedSourceEntropy"], 0)
         self.assertLessEqual(metrics["meanNormalizedSourceEntropy"], 1)
+
+    def test_review_markdown_exposes_blind_cluster_samples(self):
+        item = {"activityId": "game-1", "title": "Gra | próba"}
+        review = {
+            "expertReviewQuestions": ["Czy widać gry leśne?"],
+            "variants": [
+                {
+                    "blindVariantId": "candidate-test",
+                    "eligibleForHumanReview": True,
+                    "metrics": {
+                        "semanticSilhouette": 0.1,
+                        "visualSilhouette": 0.2,
+                        "minimumFineClusterSize": 5,
+                        "minimumAdjustedRandIndex": 0.8,
+                    },
+                    "fineClusters": [
+                        {
+                            "fineClusterId": "fine-01",
+                            "topClusterId": "top-01",
+                            "size": 5,
+                            "central": [item],
+                            "boundary": [item],
+                            "nearestOutside": [item],
+                        }
+                    ],
+                }
+            ],
+        }
+        rendered = review_markdown(review)
+        self.assertIn("candidate-test", rendered)
+        self.assertIn("`fine-01`", rendered)
+        self.assertIn("Gra &#124; próba", rendered)
+        self.assertIn("Czy widać gry leśne?", rendered)
 
 
 if __name__ == "__main__":
