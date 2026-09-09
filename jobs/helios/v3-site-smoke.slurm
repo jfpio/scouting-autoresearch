@@ -120,4 +120,10 @@ npm run build
 python scripts/check_links.py
 python "${task_repo}/scripts/validate.py"
 
+# Preserve the verified static build under a job-specific scratch path for manual review.
+site_preview="${SCRATCH}/scouting-autoresearch/site-previews/${SLURM_JOB_ID}"
+mkdir -p "${site_preview}"
+rsync -a dist/ "${site_preview}/"
+printf 'site_preview=%s\n' "${site_preview}"
+
 printf 'status=passed\n'
