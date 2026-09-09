@@ -45,8 +45,14 @@ cleanup() {
 }
 trap cleanup EXIT
 
-if [[ "$(git -C "${task_repo}" branch --show-current)" != "codex/autoresearch-2026-09-06-v3-sources" ]]; then
-  printf 'Unexpected branch: %s\n' "$(git -C "${task_repo}" branch --show-current)" >&2
+expected_branch="${EXPECTED_BRANCH:-}"
+if [[ -z "${expected_branch}" ]]; then
+  printf 'EXPECTED_BRANCH must name the exact non-default branch under test.\n' >&2
+  exit 2
+fi
+current_branch="$(git -C "${task_repo}" branch --show-current)"
+if [[ "${current_branch}" != "${expected_branch}" || "${current_branch}" == "main" ]]; then
+  printf 'Unexpected branch: %s (expected %s)\n' "${current_branch}" "${expected_branch}" >&2
   exit 2
 fi
 if [[ ! -x "${python_venv}/bin/python" ]]; then
@@ -113,5 +119,11 @@ fi
 npm run build
 python scripts/check_links.py
 python "${task_repo}/scripts/validate.py"
+
+# Preserve the verified static build under a job-specific scratch path for manual review.
+site_preview="${SCRATCH}/scouting-autoresearch/site-previews/${SLURM_JOB_ID}"
+mkdir -p "${site_preview}"
+rsync -a dist/ "${site_preview}/"
+printf 'site_preview=%s\n' "${site_preview}"
 
 printf 'status=passed\n'

@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "semantic-map-hierarchy-pilot-v1",
+  "status": "pull-request-ready",
+  "updatedAt": "2026-09-09T18:35:51+02:00",
+  "branch": "codex/autoresearch-2026-09-09-hierarchic-map-pilot",
+  "baseCommit": "16b15452e3a69643e73e1fc0ef8f0d02dbba3800",
+  "corpusActivities": 914,
+  "smokeJob": {
+    "jobId": "22212365",
+    "state": "COMPLETED",
+    "exitCode": "0:0",
+    "points": 64,
+    "fineClusters": 8,
+    "topClusters": 2
+  },
+  "fullJob": {
+    "jobId": "22212656",
+    "state": "COMPLETED",
+    "exitCode": "0:0",
+    "testsRun": 289,
+    "testsSkipped": 2,
+    "validation": "passed"
+  },
+  "reviewRendererSmokeJob": {
+    "jobId": "22217634",
+    "state": "COMPLETED",
+    "exitCode": "0:0",
+    "testsRun": 5,
+    "reviewMarkdownSha256": "299d0ec1a623eb5260f436fd82338177c32c77e3a3d735b3d9d68883d21289e8"
+  },
+  "dataMapPlotSmokeJob": {
+    "jobId": "22221919",
+    "state": "COMPLETED",
+    "exitCode": "0:0",
+    "points": 64,
+    "files": 4,
+    "dataMapPlotVersion": "0.7.3",
+    "testsRun": 11,
+    "maxRssKiB": 475960,
+    "htmlSha256": "e952968c123ab4a4237d62d20d3c83a95217d78713d397e07664b5d409842403",
+    "externalResourceTags": 0
+  },
+  "preapprovalValidationJob": {
+    "jobId": "22222813",
+    "state": "COMPLETED",
+    "exitCode": "0:0",
+    "testsRun": 312,
+    "testsSkipped": 2,
+    "validation": "passed",
+    "maxRssKiB": 346608
+  },
+  "publicationValidationJob": {
+    "jobId": "22224210",
+    "state": "COMPLETED",
+    "exitCode": "0:0",
+    "elapsed": "00:03:47",
+    "testsRun": 316,
+    "testsSkipped": 2,
+    "validation": "passed",
+    "maxRssKiB": 681156,
+    "points": 914,
+    "generatedFiles": 90
+  },
+  "siteValidationJob": {
+    "jobId": "22224351",
+    "state": "COMPLETED",
+    "exitCode": "0:0",
+    "elapsed": "00:02:24",
+    "maxRssKiB": 1988976,
+    "pagesBuilt": 2048,
+    "linksAndAssetsChecked": 74356,
+    "validation": "passed",
+    "previewPath": "/net/scratch/hscra/plgrid/plgjfpio/scouting-autoresearch/site-previews/22224351"
+  },
+  "comparisonArtifact": {
+    "path": "artifacts/hierarchic-map-pilot/cluster-comparison.html",
+    "sha256": "90bb118aa0424136d6df7691194ba13a8366ca2c1436f71535b2b1dfbb4b7a3a",
+    "bytes": 620843,
+    "points": 914,
+    "variants": 2,
+    "selfContained": true
+  },
+  "labelReviewArtifact": {
+    "path": "artifacts/hierarchic-map-pilot/label-review.html",
+    "sha256": "93e90f653085601ceca61a48de51dc599df5f3a87604263a3c7703d24727177f",
+    "bytes": 647690,
+    "points": 914,
+    "fineLabelProposals": 32,
+    "topLabelProposals": 8,
+    "selfContained": true,
+    "publicationStatus": "human-approved"
+  },
+  "reportSha256": "ec8c42fdc95e07670a748c429204fc9e76f259a53f9c12c438f07d65109a271a",
+  "reviewPacketSha256": "14698463ce562b62174ae7576cb0e66eeec1164a1dea9892fea99fb63c492d3f",
+  "selection": {
+    "status": "human-approved",
+    "approvedBy": "repository-owner",
+    "approvedAt": "2026-09-09T15:49:55+02:00",
+    "blindVariantId": "candidate-amber",
+    "algorithm": "kmeans-on-umap-2d",
+    "scope": "navigational-cluster-presentation-only"
+  },
+  "nextStep": "Open the single pilot pull request, wait for green CI, and merge it without deleting the branch.",
+  "labelApproval": {
+    "status": "human-approved",
+    "approvedBy": "repository-owner",
+    "approvedAt": "2026-09-09T18:08:31+02:00",
+    "fineLabels": 32,
+    "topLabels": 8,
+    "scope": "navigational-cluster-presentation-only"
+  },
+  "publication": {
+    "reportPath": "data/reports/semantic-map-hierarchy-public-v1.json",
+    "reportSha256": "e52c4bdbdc8d4c9c77c715d5836a97bdf215e0b3afee55578a34761d03089037",
+    "polishMapSha256": "3939bde5810b3cdefc3abdbf5cd17422b4d3ed39f610409cebed227c196f287a",
+    "englishMapSha256": "e95dd0330a4f3ef5f1ea9f087fe4e29e9005f56b8449ac699ebda14c2e2158aa",
+    "txtBundlesPerLocale": 40,
+    "txtBundlesTotal": 80,
+    "genericSafetyWarningRemoved": true
+  },
+  "humanReview": {
+    "hierarchyAndLabelsApprovedBy": "repository-owner",
+    "approvedAt": "2026-09-09T18:08:31+02:00",
+    "reviewArtifact": "artifacts/hierarchic-map-pilot/label-review.html",
+    "productionRoutesHttpSmoke": "passed",
+    "productionRoutesChecked": [
+      "/scouting-autoresearch/map/",
+      "/scouting-autoresearch/semantic-map/pl/",
+      "/scouting-autoresearch/semantic-map/en/",
+      "/scouting-autoresearch/semantic-map/pl/downloads/fine/fine-01.txt"
+    ]
+  },
+  "labeling": {
+    "modelRequested": "mistral-large-2512",
+    "promptVersion": "semantic-map-cluster-labels-bilingual-v1",
+    "billingMode": "education-credit",
+    "billedCostUsd": null,
+    "fineCompleted": 32,
+    "topCompleted": 8,
+    "referenceCostUsd": 0.087434,
+    "nextRetryAt": null
+  },
+  "labelingModelAccess": {
+    "checked": true,
+    "checkedAt": "2026-09-09T14:04:33.781183+00:00",
+    "modelId": "mistral-large-2512",
+    "available": true
+  }
+}

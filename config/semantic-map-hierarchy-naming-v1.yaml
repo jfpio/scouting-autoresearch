@@ -1,0 +1,34 @@
+schemaVersion: 1
+namingId: semantic-map-hierarchy-naming-v1
+status: approved-to-run
+selection: config/semantic-map-hierarchy-selection-v1.yaml
+analysisReport: data/reports/semantic-map-hierarchy-pilot-v1.json
+polishExport: data/generated/activities.pl.json
+englishExport: data/generated/activities.en.json
+proposalReport: data/reports/semantic-map-hierarchy-label-proposals-v1.json
+ledger: data/reports/semantic-map-hierarchy-label-ledger-v1.json
+reviewNote: vault/reviews/inbox/semantic-map-hierarchy-labels-v1.md
+approvedRegistry: config/semantic-map-hierarchy-labels-v1.yaml
+model: mistral-large-2512
+promptVersion: semantic-map-cluster-labels-bilingual-v1
+reasoningMode: disabled
+temperature: 0
+fineMaxOutputTokens: 800
+topMaxOutputTokens: 1000
+representativeSummaryCharacters: 360
+inputPriceUsdPerMillionTokens: 0.5
+outputPriceUsdPerMillionTokens: 1.5
+priceSource: https://docs.mistral.ai/inference/pricing
+priceAccessedOn: "2026-09-04"
+execution:
+  sequentialRequests: true
+  expectedFineRequests: 32
+  expectedTopRequests: 8
+  billingMode: education-credit
+  billedCostUsd: null
+  requireExactModelAccessCheck: true
+  enforceReferenceCostLimit: true
+  maxReferenceCostUsd: 10
+  checkpointAfterEverySuccess: true
+  cacheByInputHash: true
+  reasoningEffortParameter: forbidden

@@ -67,6 +67,16 @@ from validate_protected_source_policy import validate_protected_source_policy
 from validate_v3_source_run import validate_v3_source_run
 from similar_activities import load_config as load_similarity_config
 from similar_activities import validate_similar_activity_relations
+from render_semantic_map import (
+    HIERARCHY_REPORT_PATH,
+    LABEL_REGISTRY_PATH,
+    PROPOSAL_REPORT_PATH,
+    PUBLICATION_REPORT_PATH,
+    SELECTION_PATH,
+    approved_label_map,
+    build_publication_report,
+    read_yaml as read_semantic_yaml,
+)
 
 
 SEMANTIC_MAP_ANALYSIS_PATH = ROOT / "data" / "reports" / "semantic-map-v3-analysis.json"
@@ -918,6 +928,7 @@ def main() -> None:
 
     semantic_analysis_count = 0
     semantic_candidate_count = 0
+    semantic_publication_count = 0
     if semantic_cached_ids == set(semantic_items_by_id):
         require(
             SEMANTIC_MAP_ANALYSIS_PATH.is_file(),
@@ -973,6 +984,7 @@ def main() -> None:
             "V3 semantic analysis parameters differ from configuration",
             errors,
         )
+
         implementation = semantic_analysis.get("implementation") or {}
         require(
             implementation.get("algorithmVersion")
@@ -1114,6 +1126,51 @@ def main() -> None:
             "V3 semantic-map quality metrics are invalid",
             errors,
         )
+
+    if LABEL_REGISTRY_PATH.is_file():
+        hierarchy_selection = read_semantic_yaml(SELECTION_PATH)
+        hierarchy_labels = read_semantic_yaml(LABEL_REGISTRY_PATH)
+        if hierarchy_labels.get("status") == "human-approved":
+            require(PUBLICATION_REPORT_PATH.is_file(), "Approved hierarchy lacks a portable public report", errors)
+            try:
+                hierarchy_report = read_json(HIERARCHY_REPORT_PATH)
+                hierarchy_proposals = read_json(PROPOSAL_REPORT_PATH)
+                approved_labels = approved_label_map(
+                    hierarchy_report,
+                    hierarchy_proposals,
+                    hierarchy_selection,
+                    hierarchy_labels,
+                )
+                expected_publication = build_publication_report(
+                    read_json(SEMANTIC_MAP_ANALYSIS_PATH),
+                    hierarchy_report,
+                    hierarchy_selection,
+                    hierarchy_labels,
+                    approved_labels,
+                )
+                if PUBLICATION_REPORT_PATH.is_file():
+                    actual_publication = read_json(PUBLICATION_REPORT_PATH)
+                    semantic_publication_count = len(actual_publication.get("points") or [])
+                    require(
+                        actual_publication == expected_publication,
+                        "Portable hierarchy publication report is stale",
+                        errors,
+                    )
+                    require(
+                        len(actual_publication.get("clusters", {}).get("fine", [])) == 32
+                        and len(actual_publication.get("clusters", {}).get("top", [])) == 8
+                        and actual_publication.get("projectionIsNavigationalOnly") is True,
+                        "Portable hierarchy publication is incomplete or mis-scoped",
+                        errors,
+                    )
+            except (KeyError, TypeError, ValueError) as error:
+                errors.append(f"Invalid approved hierarchy publication: {error}")
+        else:
+            require(
+                not PUBLICATION_REPORT_PATH.exists(),
+                "Unapproved hierarchy must not have a portable public report",
+                errors,
+            )
 
     semantic_review_config = load_semantic_review_config()
     semantic_review_report_path = ROOT / semantic_review_config["reportPath"]
@@ -1392,7 +1449,8 @@ def main() -> None:
         f" V3-R1 has {v3_source_unit_count} pinned source unit(s) and one final PR;"
         f" {similar_relation_count} approved similar-game relation(s); V3 participant and practical-facet audits are current; "
         f"{len(semantic_cached_ids)} semantic-map embedding(s); {semantic_analysis_count} map point(s), "
-        f"{semantic_candidate_count} unreviewed semantic candidate pair(s) in a review packet."
+        f"{semantic_candidate_count} unreviewed semantic candidate pair(s) in a review packet; "
+        f"{semantic_publication_count} point(s) in the approved hierarchical publication."
     )
 
 
