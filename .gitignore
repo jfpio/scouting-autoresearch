@@ -8,6 +8,7 @@ dist/
 data/checkpoints/
 !data/checkpoints/
 data/checkpoints/*
+!data/checkpoints/semantic-map-hierarchy-pilot-v1.json
 !data/checkpoints/research-runs/
 data/checkpoints/research-runs/*
 !data/checkpoints/research-runs/v3-source-expansion-2026-09.json

@@ -45,3 +45,17 @@ analysis:
   stabilitySeeds: [20260905, 20260906, 20260907]
   stabilityNeighborCount: 10
   status: generated-proposal
+hierarchicPilot:
+  schemaVersion: 1
+  algorithmVersion: semantic-map-hierarchy-kmeans-v1
+  fineClusterCount: 32
+  topClusterCount: 8
+  minimumFineClusterSize: 5
+  kMeansNInit: 50
+  randomSeed: 20260909
+  stabilitySeeds: [20260910, 20260911, 20260912]
+  representativeCount: 5
+  boundaryCount: 3
+  nearestOutsideCount: 3
+  reviewPacketVersion: blind-cluster-comparison-v1
+  status: proposed
