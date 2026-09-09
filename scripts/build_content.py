@@ -305,11 +305,6 @@ def activity_page(record: dict, *, locale: str) -> str:
             + f'<a href="{source_path}">{f"Przeczytaj tekst źródłowy po {source_locale_pl}" if is_pl else f"Read the source {source_locale_en} transcription"}</a>; '
             + ("odnośnik do wydania źródłowego znajduje się w metadanych poniżej.</div>\n\n" if is_pl else "the source edition is linked in the metadata below.</div>\n\n")
         )
-    warning = (
-        "Historyczna aktywność nie jest automatycznie rekomendacją metodyczną. Przed użyciem oceń współczesne ryzyko, wiek uczestników, warunki i przepisy."
-        if is_pl
-        else "A historical activity is not automatically a modern recommendation. Assess present-day risk, participants’ ages, conditions, and applicable rules before use."
-    )
     pl_link = f"{SITE_ROOT}/activities/{record['id']}/"
     en_link = f"{SITE_ROOT}/en/activities/{record['id']}/"
     labels = {
@@ -370,7 +365,6 @@ def activity_page(record: dict, *, locale: str) -> str:
         frontmatter(record, locale=locale)
         + "\n\n"
         + machine
-        + f'<div class="safety-notice"><strong>{"Uwaga bezpieczeństwa." if is_pl else "Safety note."}</strong> {warning}</div>\n\n'
         + similar
         + f"## {labels['meta']}\n\n"
         + f"- **{labels['type']}:** {kinds}\n"
@@ -642,8 +636,6 @@ def write_exports(polish: list[dict], english: list[dict], sources: dict[str, di
         "- [English JSONL](https://jfpio.github.io/scouting-autoresearch/data/activities.en.jsonl)",
         "- [Sources](https://jfpio.github.io/scouting-autoresearch/data/sources.json)",
         "- [Full bilingual text](https://jfpio.github.io/scouting-autoresearch/llms-full.txt)",
-        "",
-        "Historical material is not automatically a recommendation. Perform a modern risk assessment before use.",
     ]
     (public / "llms.txt").write_text("\n".join(index_lines) + "\n", encoding="utf-8")
     full = ["# Scouting Autoresearch — full bilingual corpus", ""]

@@ -202,13 +202,29 @@ def main() -> None:
             metric_errors.append(f"{path}: exposes unreviewed semantic candidates")
         if any(candidate_id in text for candidate_id in review_candidate_ids):
             metric_errors.append(f"{path}: exposes a review-only semantic pair")
-        for required in ("search-container", "topic-tree", "data-accessible-map-list", "approved-relations.svg"):
+        for required in (
+            "search-container",
+            "topic-tree",
+            "data-accessible-map-list",
+            "data-cluster-downloads",
+            "approved-relations.svg",
+        ):
             if required not in text:
                 metric_errors.append(f"{path}: missing DataMapPlot feature {required}")
         output_dir = rendered_path.parent
         for filename in ("map_label_data.zip", "map_meta_data_0.zip", "map_point_data_0.zip", "approved-relations.svg"):
             if not (output_dir / filename).is_file():
                 metric_errors.append(f"{path}: missing map asset {filename}")
+        expected_downloads = {
+            output_dir / "downloads" / level / f"{level}-{index:02d}.txt"
+            for level, count in (("top", 8), ("fine", 32))
+            for index in range(1, count + 1)
+        }
+        actual_downloads = set((output_dir / "downloads").glob("*/*.txt"))
+        if actual_downloads != expected_downloads:
+            metric_errors.append(
+                f"{path}: expected 40 cluster TXT downloads, found {len(actual_downloads)}"
+            )
     disclosure_checks = {
         "pl": ("Tłumaczenia automatyczne:", "nie zostały zweryfikowane przez człowieka"),
         "en": ("Automatic translations:", "have not been verified by a person"),
@@ -231,16 +247,19 @@ def main() -> None:
             if any(phrase not in text for phrase in expected_phrases):
                 metric_errors.append(f"{path}: missing the automatic-translation disclosure")
     obsolete_safety_notices = (
+        "safety-notice",
+        "Uwaga bezpieczeństwa.",
+        "Historyczna aktywność nie jest automatycznie rekomendacją metodyczną",
+        "A historical activity is not automatically a modern recommendation",
         "materiały historyczne wymagają współczesnej oceny ryzyka",
         "historical materials require a modern risk assessment",
     )
-    for path in expected_cards:
-        rendered_path = DIST / path
-        if not rendered_path.exists():
-            continue
+    for rendered_path in html_paths:
         text = rendered_path.read_text(encoding="utf-8")
         if any(notice in text for notice in obsolete_safety_notices):
-            metric_errors.append(f"{path}: obsolete safety callout is still visible")
+            metric_errors.append(
+                f"{rendered_path.relative_to(DIST)}: obsolete safety callout is still visible"
+            )
     activity_disclosures = {
         "pl": ("Tłumaczenie automatyczne.", "nie został zweryfikowany przez człowieka"),
         "en": ("Automatic translation.", "has not been verified by a person"),
@@ -291,8 +310,9 @@ def main() -> None:
     )
     print(
         f"Rendered semantic-map check passed: {kind_counts['pl']['game']} points, "
-        f"{kind_counts['pl']['game']} accessible list items and {approved_relation_count} approved relation "
-        "in both bilingual DataMapPlot explorers; no unreviewed candidates exposed."
+        f"{kind_counts['pl']['game']} accessible list items, 40 TXT cluster downloads and "
+        f"{approved_relation_count} approved relation in both bilingual DataMapPlot explorers; "
+        "no unreviewed candidates exposed."
     )
 
 

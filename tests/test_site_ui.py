@@ -63,6 +63,20 @@ class SiteUiTests(unittest.TestCase):
         self.assertIn("/scouting-autoresearch/semantic-map/${locale}/", component)
         self.assertIn("Otwórz pełną mapę", component)
         self.assertIn("Open the full map", component)
+        self.assertIn("pobrać jako TXT", component)
+        self.assertIn("downloaded as TXT", component)
+
+    def test_generic_historical_safety_warning_is_not_rendered(self):
+        builder = (ROOT / "scripts" / "build_content.py").read_text(encoding="utf-8")
+        stylesheet = (ROOT / "src" / "styles" / "site.css").read_text(encoding="utf-8")
+        for forbidden in (
+            "Uwaga bezpieczeństwa.",
+            "Historyczna aktywność nie jest automatycznie rekomendacją metodyczną",
+            "A historical activity is not automatically a modern recommendation",
+            "safety-notice",
+        ):
+            self.assertNotIn(forbidden, builder)
+            self.assertNotIn(forbidden, stylesheet)
 
 
 if __name__ == "__main__":
