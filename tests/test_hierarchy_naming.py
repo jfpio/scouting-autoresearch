@@ -1,3 +1,4 @@
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -11,7 +12,9 @@ from name_hierarchy_clusters import (
     parse_response,
     prompt_payload,
     reference_upper_bound,
+    review_markdown,
     update_totals,
+    validate_registry_state,
 )
 
 
@@ -92,6 +95,65 @@ class HierarchyNamingTests(unittest.TestCase):
         self.assertEqual(ledger["totals"]["requests"], 2)
         self.assertEqual(ledger["totals"]["promptTokens"], 15)
         self.assertEqual(ledger["totals"]["referenceCostUsd"], 0.15)
+
+    def test_review_packet_asks_expert_questions_without_leaking_them_to_prompt(self):
+        root = Path(__file__).resolve().parents[1]
+        report = json.loads(
+            (root / "data" / "reports" / "semantic-map-hierarchy-label-proposals-v1.json").read_text(encoding="utf-8")
+        )
+        ledger = json.loads(
+            (root / "data" / "reports" / "semantic-map-hierarchy-label-ledger-v1.json").read_text(encoding="utf-8")
+        )
+        rendered = review_markdown(report, ledger)
+        for phrase in ("gier w lesie", "gier w pomieszczeniu", "duże gry terenowe", "gry i zabawy zuchowe"):
+            self.assertIn(phrase, rendered)
+        self.assertNotIn("gier w lesie", str(prompt_payload(self.unit, [])).lower())
+
+    def test_proposal_check_accepts_only_complete_human_registry_after_review(self):
+        root = Path(__file__).resolve().parents[1]
+        report = json.loads(
+            (root / "data" / "reports" / "semantic-map-hierarchy-label-proposals-v1.json").read_text(encoding="utf-8")
+        )
+        approved = []
+        for level in ("fine", "top"):
+            for cluster_id, proposal in report[level].items():
+                response = proposal["response"]
+                approved.append(
+                    {
+                        "clusterId": cluster_id,
+                        "level": level,
+                        "status": "human-approved",
+                        "proposalInputHash": proposal["inputHash"],
+                        **{key: response[key] for key in ("namePl", "descriptionPl", "nameEn", "descriptionEn")},
+                    }
+                )
+        registry = {"status": "human-approved", "approvedBy": "repository-owner", "approvedLabels": approved}
+        validate_registry_state(registry, report)
+        registry["approvedLabels"].pop()
+        with self.assertRaisesRegex(ValueError, "40 current proposals"):
+            validate_registry_state(registry, report)
+
+    def test_proposal_check_rejects_duplicate_approved_cluster(self):
+        root = Path(__file__).resolve().parents[1]
+        report = json.loads(
+            (root / "data" / "reports" / "semantic-map-hierarchy-label-proposals-v1.json").read_text(encoding="utf-8")
+        )
+        proposal = report["fine"]["fine-01"]
+        response = proposal["response"]
+        item = {
+            "clusterId": "fine-01",
+            "level": "fine",
+            "status": "human-approved",
+            "proposalInputHash": proposal["inputHash"],
+            **{key: response[key] for key in ("namePl", "descriptionPl", "nameEn", "descriptionEn")},
+        }
+        registry = {
+            "status": "human-approved",
+            "approvedBy": "repository-owner",
+            "approvedLabels": [item] * 40,
+        }
+        with self.assertRaisesRegex(ValueError, "40 current proposals"):
+            validate_registry_state(registry, report)
 
 
 if __name__ == "__main__":

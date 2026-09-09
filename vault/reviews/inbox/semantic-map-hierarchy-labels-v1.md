@@ -60,6 +60,15 @@ Model: `mistral-large-2512` · prompt: `semantic-map-cluster-labels-bilingual-v1
 | `fine-31` | **Pościgi i polowania w terenie** — Zabawy polegające na ściganiu i tropieniu wyznaczonej osoby lub grupy w naturalnym otoczeniu z wykorzystaniem ukrycia i taktyki. | **Field Pursuit and Hunting Games** — Games involving chasing and tracking a designated individual or group in a natural setting using concealment and tactics. | `high` | approve / edit / reject |
 | `fine-32` | **Polowania na duże zwierzęta w terenie** — Zabawy terenowe polegające na tropieniu, osaczaniu lub łapaniu symbolicznego dużego zwierzęcia przez grupę uczestników. | **Large Animal Hunting Games in the Field** — Field games involving tracking, cornering, or capturing a symbolic large animal by a group of participants. | `high` | approve / edit / reject |
 
+## Pytania przekrojowe
+
+Te pytania nie sugerują etykiet modelowi i nie tworzą filtrów. Służą wyłącznie ocenie, czy oczekiwane obszary rzeczywiście wyłoniły się z nienadzorowanej geometrii:
+
+- [ ] Czy na mapie wyłania się czytelny region gier w lesie, czy są one rozproszone między tematami?
+- [ ] Czy na mapie wyłania się czytelny region gier w pomieszczeniu, czy są one rozproszone między tematami?
+- [ ] Czy duże gry terenowe dla wielu osób tworzą własny region albo sąsiednie podregiony?
+- [ ] Czy gry i zabawy zuchowe tworzą własny region albo sąsiednie podregiony?
+
 ## Zakres decyzji
 
 Zatwierdzenie dotyczy tylko nawigacyjnych etykiet tej projekcji. Nie tworzy taksonomii gier, filtrów ani twierdzeń historycznych.

@@ -53,6 +53,12 @@ GENERIC_NAMES = {
     "gry", "zabawy", "aktywności", "różne gry", "gry harcerskie",
     "games", "activities", "various games", "scouting games",
 }
+EXPERT_REVIEW_QUESTIONS = (
+    "Czy na mapie wyłania się czytelny region gier w lesie, czy są one rozproszone między tematami?",
+    "Czy na mapie wyłania się czytelny region gier w pomieszczeniu, czy są one rozproszone między tematami?",
+    "Czy duże gry terenowe dla wielu osób tworzą własny region albo sąsiednie podregiony?",
+    "Czy gry i zabawy zuchowe tworzą własny region albo sąsiednie podregiony?",
+)
 
 
 class LabelContractError(ValueError):
@@ -486,10 +492,44 @@ def review_markdown(report: dict[str, Any], ledger: dict[str, Any]) -> str:
             lines.append(f"| `{cluster_id}` | {pl.replace('|', '&#124;')} | {en.replace('|', '&#124;')} | `{value['confidence']}` | approve / edit / reject |")
         lines.append("")
     lines.extend([
+        "## Pytania przekrojowe", "",
+        "Te pytania nie sugerują etykiet modelowi i nie tworzą filtrów. Służą wyłącznie ocenie, czy oczekiwane obszary rzeczywiście wyłoniły się z nienadzorowanej geometrii:", "",
+        *[f"- [ ] {question}" for question in EXPERT_REVIEW_QUESTIONS], "",
         "## Zakres decyzji", "",
         "Zatwierdzenie dotyczy tylko nawigacyjnych etykiet tej projekcji. Nie tworzy taksonomii gier, filtrów ani twierdzeń historycznych.", "",
     ])
     return "\n".join(lines)
+
+
+def validate_registry_state(registry: dict[str, Any], report: dict[str, Any]) -> None:
+    status = registry.get("status")
+    approved = registry.get("approvedLabels")
+    if status == "human-review-required":
+        if approved != []:
+            raise ValueError("Unapproved hierarchy labels leaked into the public registry")
+        return
+    if status != "human-approved" or registry.get("approvedBy") != "repository-owner":
+        raise ValueError("Hierarchy label registry has an invalid approval state")
+    if not isinstance(approved, list):
+        raise ValueError("Approved hierarchy labels must be a list")
+    expected = {
+        cluster_id: (level, item["inputHash"])
+        for level in ("fine", "top")
+        for cluster_id, item in report[level].items()
+    }
+    actual = {str(item.get("clusterId")): item for item in approved if isinstance(item, dict)}
+    if len(approved) != 40 or len(actual) != 40 or set(actual) != set(expected):
+        raise ValueError("Approved hierarchy labels do not cover all 40 current proposals")
+    required_text = ("namePl", "descriptionPl", "nameEn", "descriptionEn")
+    for cluster_id, (level, input_hash) in expected.items():
+        item = actual[cluster_id]
+        if (
+            item.get("status") != "human-approved"
+            or item.get("level") != level
+            or item.get("proposalInputHash") != input_hash
+            or any(not str(item.get(field) or "").strip() for field in required_text)
+        ):
+            raise ValueError(f"Approved hierarchy label is incomplete or stale: {cluster_id}")
 
 
 def persist(
@@ -564,9 +604,7 @@ def validate_complete(
     note_path = ROOT / config["reviewNote"]
     if not note_path.is_file() or note_path.read_text(encoding="utf-8") != expected_note:
         raise ValueError("Hierarchy label review note is missing or stale")
-    registry = load_yaml(ROOT / config["approvedRegistry"])
-    if registry.get("status") != "human-review-required" or registry.get("approvedLabels") != []:
-        raise ValueError("Unapproved hierarchy labels leaked into the public registry")
+    validate_registry_state(load_yaml(ROOT / config["approvedRegistry"]), report)
     return report, ledger
 
 
