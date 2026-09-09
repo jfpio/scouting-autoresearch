@@ -10,6 +10,7 @@
     "import": "python3 scripts/import_sources.py",
     "translate": "python3 scripts/translate.py",
     "generate": "python3 scripts/build_content.py",
+    "map": "python3 scripts/render_semantic_map.py",
     "validate": "python3 scripts/validate.py",
     "check-links": "python3 scripts/check_links.py",
     "test": "python3 -m unittest discover -s tests -p 'test_*.py'"

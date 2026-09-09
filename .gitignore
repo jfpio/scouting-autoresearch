@@ -5,6 +5,7 @@ dist/
 .venv/
 .DS_Store
 /artifacts/
+/public/semantic-map/
 data/checkpoints/
 !data/checkpoints/
 data/checkpoints/*

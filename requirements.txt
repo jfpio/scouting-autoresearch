@@ -1,5 +1,6 @@
 PyYAML==6.0.2
 cloudpickle==3.1.2
+datamapplot==0.7.3
 joblib==1.6.0
 llvmlite==0.49.0
 narwhals==2.25.0

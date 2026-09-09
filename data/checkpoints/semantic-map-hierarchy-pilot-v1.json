@@ -29,6 +29,27 @@
     "testsRun": 5,
     "reviewMarkdownSha256": "299d0ec1a623eb5260f436fd82338177c32c77e3a3d735b3d9d68883d21289e8"
   },
+  "dataMapPlotSmokeJob": {
+    "jobId": "22221919",
+    "state": "COMPLETED",
+    "exitCode": "0:0",
+    "points": 64,
+    "files": 4,
+    "dataMapPlotVersion": "0.7.3",
+    "testsRun": 11,
+    "maxRssKiB": 475960,
+    "htmlSha256": "e952968c123ab4a4237d62d20d3c83a95217d78713d397e07664b5d409842403",
+    "externalResourceTags": 0
+  },
+  "preapprovalValidationJob": {
+    "jobId": "22222308",
+    "state": "COMPLETED",
+    "exitCode": "0:0",
+    "testsRun": 307,
+    "testsSkipped": 2,
+    "validation": "passed",
+    "maxRssKiB": 366620
+  },
   "comparisonArtifact": {
     "path": "artifacts/hierarchic-map-pilot/cluster-comparison.html",
     "sha256": "90bb118aa0424136d6df7691194ba13a8366ca2c1436f71535b2b1dfbb4b7a3a",
@@ -57,7 +78,7 @@
     "algorithm": "kmeans-on-umap-2d",
     "scope": "navigational-cluster-presentation-only"
   },
-  "nextStep": "Validate completed hierarchy label proposals.",
+  "nextStep": "Repository owner reviews and approves or edits all 40 bilingual hierarchy labels.",
   "labeling": {
     "modelRequested": "mistral-large-2512",
     "promptVersion": "semantic-map-cluster-labels-bilingual-v1",

@@ -506,9 +506,9 @@ def semantic_map_page(locale: str) -> str:
     is_pl = locale == "pl"
     title = "Mapa semantyczna gier" if is_pl else "Semantic map of games"
     description = (
-        "Eksploracyjna mapa podobieństwa 199 historycznych gier z filtrem źródła i dostępną listą."
+        "Eksploracyjna, hierarchiczna mapa podobieństwa 914 historycznych gier z wyszukiwaniem, drzewem tematów i dostępną listą."
         if is_pl
-        else "An exploratory similarity map of 199 historical games with a source filter and accessible list."
+        else "An exploratory hierarchical similarity map of 914 historical games with search, a topic tree, and an accessible list."
     )
     component_path = (
         "../../components/SemanticMap.astro"

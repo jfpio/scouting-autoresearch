@@ -38,9 +38,9 @@ class Links(HTMLParser):
             self.map_point_count += 1
         if tag == "li" and "data-map-list-item" in attributes:
             self.map_list_item_count += 1
-        if tag == "line" and "data-map-relation" in attributes:
+        if "data-map-relation" in attributes:
             self.map_relation_count += 1
-        attr = "href" if tag in {"a", "link"} else "src" if tag in {"img", "script", "source"} else None
+        attr = "href" if tag in {"a", "link"} else "src" if tag in {"iframe", "img", "script", "source"} else None
         if not attr:
             return
         for key, value in attrs:
@@ -160,21 +160,14 @@ def main() -> None:
     else:
         review_candidate_ids = []
         metric_errors.append("Semantic-map review packet is missing")
-    for path, expected_language in (("map/index.html", "pl"), ("en/map/index.html", "en")):
-        _, _, points, list_items, relations, language = page_metrics.get(
+    preview_paths = {
+        "map/index.html": ("pl", "/scouting-autoresearch/semantic-map/pl/"),
+        "en/map/index.html": ("en", "/scouting-autoresearch/semantic-map/en/"),
+    }
+    for path, (expected_language, iframe_src) in preview_paths.items():
+        *_, language = page_metrics.get(
             path, (-1, -1, -1, -1, -1, None)
         )
-        expected_games = kind_counts[expected_language]["game"]
-        if points != expected_games:
-            metric_errors.append(f"{path}: expected {expected_games} map points, found {points}")
-        if list_items != expected_games:
-            metric_errors.append(
-                f"{path}: expected {expected_games} accessible list items, found {list_items}"
-            )
-        if relations != approved_relation_count:
-            metric_errors.append(
-                f"{path}: expected {approved_relation_count} approved relation, found {relations}"
-            )
         if language != expected_language:
             metric_errors.append(f"{path}: expected lang={expected_language}, found {language}")
         rendered_path = DIST / path
@@ -182,21 +175,40 @@ def main() -> None:
             metric_errors.append(f"{path}: rendered semantic map is missing")
             continue
         text = rendered_path.read_text(encoding="utf-8")
-        if any(
-            forbidden in text
-            for forbidden in ("algorithmic-candidate", "algorithmicCandidates", "nearestNeighbors")
-        ):
+        if iframe_src not in text or "data-semantic-map-frame" not in text:
+            metric_errors.append(f"{path}: missing the bilingual map preview iframe")
+
+    full_map_paths = {
+        "semantic-map/pl/index.html": "pl",
+        "semantic-map/en/index.html": "en",
+    }
+    for path, expected_language in full_map_paths.items():
+        _, _, _, list_items, relations, language = page_metrics.get(
+            path, (-1, -1, -1, -1, -1, None)
+        )
+        expected_games = kind_counts[expected_language]["game"]
+        if list_items != expected_games:
+            metric_errors.append(f"{path}: expected {expected_games} accessible list items, found {list_items}")
+        if relations != approved_relation_count:
+            metric_errors.append(f"{path}: expected {approved_relation_count} approved relation, found {relations}")
+        if language != expected_language:
+            metric_errors.append(f"{path}: expected lang={expected_language}, found {language}")
+        rendered_path = DIST / path
+        if not rendered_path.is_file():
+            metric_errors.append(f"{path}: full-screen DataMapPlot is missing")
+            continue
+        text = rendered_path.read_text(encoding="utf-8")
+        if any(forbidden in text for forbidden in ("algorithmic-candidate", "algorithmicCandidates", "nearestNeighbors")):
             metric_errors.append(f"{path}: exposes unreviewed semantic candidates")
         if any(candidate_id in text for candidate_id in review_candidate_ids):
             metric_errors.append(f"{path}: exposes a review-only semantic pair")
-        for required in (
-            'data-map-query',
-            'data-map-source',
-            'aria-live="polite"',
-            'aria-labelledby="semantic-map-title semantic-map-description"',
-        ):
+        for required in ("search-container", "topic-tree", "data-accessible-map-list", "approved-relations.svg"):
             if required not in text:
-                metric_errors.append(f"{path}: missing accessible map control {required}")
+                metric_errors.append(f"{path}: missing DataMapPlot feature {required}")
+        output_dir = rendered_path.parent
+        for filename in ("map_label_data.zip", "map_meta_data_0.zip", "map_point_data_0.zip", "approved-relations.svg"):
+            if not (output_dir / filename).is_file():
+                metric_errors.append(f"{path}: missing map asset {filename}")
     disclosure_checks = {
         "pl": ("Tłumaczenia automatyczne:", "nie zostały zweryfikowane przez człowieka"),
         "en": ("Automatic translations:", "have not been verified by a person"),
@@ -279,8 +291,8 @@ def main() -> None:
     )
     print(
         f"Rendered semantic-map check passed: {kind_counts['pl']['game']} points, "
-        f"{kind_counts['pl']['game']} list items and {approved_relation_count} approved relation "
-        "in both languages; no unreviewed candidates exposed."
+        f"{kind_counts['pl']['game']} accessible list items and {approved_relation_count} approved relation "
+        "in both bilingual DataMapPlot explorers; no unreviewed candidates exposed."
     )
 
 

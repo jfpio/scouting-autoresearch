@@ -4,11 +4,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-STYLING_BOUNDARY_EXCEPTIONS = {
-    (ROOT / "src" / "components" / "SemanticMap.astro").resolve(): (
-        "Semantic-map styling is explicitly deferred to the next product phase."
-    ),
-}
+STYLING_BOUNDARY_EXCEPTIONS = {}
 
 
 def embedded_astro_components() -> set[Path]:
@@ -60,10 +56,13 @@ class SiteUiTests(unittest.TestCase):
         for label in ("Activities", "Semantic map", "Books", "Authors", "About"):
             self.assertIn(label, header)
 
-    def test_semantic_map_component_is_not_extended_in_this_phase(self):
+    def test_semantic_map_component_embeds_bilingual_fullscreen_explorer(self):
         component = (ROOT / "src" / "components" / "SemanticMap.astro").read_text(encoding="utf-8")
-        self.assertIn("All three sources", component)
-        self.assertNotIn("scout-course", component)
+        self.assertIn("not-content", component)
+        self.assertIn("data-semantic-map-frame", component)
+        self.assertIn("/scouting-autoresearch/semantic-map/${locale}/", component)
+        self.assertIn("Otwórz pełną mapę", component)
+        self.assertIn("Open the full map", component)
 
 
 if __name__ == "__main__":

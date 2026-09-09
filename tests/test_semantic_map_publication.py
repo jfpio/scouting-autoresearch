@@ -26,8 +26,10 @@ class SemanticMapPublicationTests(unittest.TestCase):
         )
         self.assertNotIn("analysis.algorithmicCandidates", component)
         self.assertNotIn("analysis.nearestNeighbors", component)
-        self.assertIn("analysis.approvedRelationOverlays", component)
-        self.assertIn("data-map-list-item", component)
+        self.assertIn("data-semantic-map-frame", component)
+        renderer = (ROOT / "scripts" / "render_semantic_map.py").read_text(encoding="utf-8")
+        self.assertIn('relation.get("status") == "human-approved"', renderer)
+        self.assertIn("data-map-list-item", renderer)
 
 
 if __name__ == "__main__":
