@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "pipeline": "semantic-map-hierarchy-pilot-v1",
   "status": "human-review-required",
-  "updatedAt": "2026-09-09T15:32:00+02:00",
+  "updatedAt": "2026-09-09T15:49:55+02:00",
   "branch": "codex/autoresearch-2026-09-09-hierarchic-map-pilot",
   "baseCommit": "16b15452e3a69643e73e1fc0ef8f0d02dbba3800",
   "corpusActivities": 914,
@@ -39,6 +39,13 @@
   },
   "reportSha256": "ec8c42fdc95e07670a748c429204fc9e76f259a53f9c12c438f07d65109a271a",
   "reviewPacketSha256": "14698463ce562b62174ae7576cb0e66eeec1164a1dea9892fea99fb63c492d3f",
-  "selection": null,
-  "nextStep": "Owner selects candidate-amber, candidate-blue, or rejects both before cluster naming."
+  "selection": {
+    "status": "human-approved",
+    "approvedBy": "repository-owner",
+    "approvedAt": "2026-09-09T15:49:55+02:00",
+    "blindVariantId": "candidate-amber",
+    "algorithm": "kmeans-on-umap-2d",
+    "scope": "navigational-cluster-presentation-only"
+  },
+  "nextStep": "Generate 32 fine and 8 top bilingual label proposals with mistral-large-2512."
 }

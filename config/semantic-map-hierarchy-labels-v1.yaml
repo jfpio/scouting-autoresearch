@@ -1,0 +1,9 @@
+schemaVersion: 1
+registryId: semantic-map-hierarchy-labels-v1
+status: human-review-required
+selection: config/semantic-map-hierarchy-selection-v1.yaml
+proposalReport: data/reports/semantic-map-hierarchy-label-proposals-v1.json
+corpusDigest: 168e61d1252922b26a0dc1e8021d2a79c4f482fe13f9ef74dc28a838c7a853e0
+scope: navigational-cluster-presentation-only
+humanApprovalRequired: true
+approvedLabels: []

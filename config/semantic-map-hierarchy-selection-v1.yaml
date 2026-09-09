@@ -1,0 +1,15 @@
+schemaVersion: 1
+selectionId: semantic-map-hierarchy-selection-v1
+status: human-approved
+approvedAt: "2026-09-09T15:49:55+02:00"
+approvedBy: repository-owner
+blindVariantId: candidate-amber
+algorithm: kmeans-on-umap-2d
+analysisReport: data/reports/semantic-map-hierarchy-pilot-v1.json
+corpusDigest: 168e61d1252922b26a0dc1e8021d2a79c4f482fe13f9ef74dc28a838c7a853e0
+scope: navigational-cluster-presentation-only
+doesNotApprove:
+  - cluster-labels
+  - activity-taxonomy
+  - practical-filters
+  - historical-classification
