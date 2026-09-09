@@ -10,5 +10,3 @@
 - [English JSONL](https://jfpio.github.io/scouting-autoresearch/data/activities.en.jsonl)
 - [Sources](https://jfpio.github.io/scouting-autoresearch/data/sources.json)
 - [Full bilingual text](https://jfpio.github.io/scouting-autoresearch/llms-full.txt)
-
-Historical material is not automatically a recommendation. Perform a modern risk assessment before use.
