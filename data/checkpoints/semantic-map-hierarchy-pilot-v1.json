@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "pipeline": "semantic-map-hierarchy-pilot-v1",
   "status": "human-label-review-required",
-  "updatedAt": "2026-09-09T14:04:33.794323+00:00",
+  "updatedAt": "2026-09-09T15:17:55+00:00",
   "branch": "codex/autoresearch-2026-09-09-hierarchic-map-pilot",
   "baseCommit": "16b15452e3a69643e73e1fc0ef8f0d02dbba3800",
   "corpusActivities": 914,
@@ -42,13 +42,13 @@
     "externalResourceTags": 0
   },
   "preapprovalValidationJob": {
-    "jobId": "22222308",
+    "jobId": "22222658",
     "state": "COMPLETED",
     "exitCode": "0:0",
-    "testsRun": 307,
+    "testsRun": 311,
     "testsSkipped": 2,
     "validation": "passed",
-    "maxRssKiB": 366620
+    "maxRssKiB": 339916
   },
   "comparisonArtifact": {
     "path": "artifacts/hierarchic-map-pilot/cluster-comparison.html",
