@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import datetime
 import hashlib
 import html
 import json
@@ -60,6 +61,15 @@ def approved_label_map(
         raise ValueError("Hierarchy labels were not approved by the repository owner")
     if registry.get("scope") != "navigational-cluster-presentation-only":
         raise ValueError("Hierarchy-label approval has an unsupported scope")
+    approved_at = registry.get("approvedAt")
+    if not isinstance(approved_at, str):
+        raise ValueError("Hierarchy-label approval lacks an approval timestamp")
+    try:
+        parsed_approved_at = datetime.fromisoformat(approved_at.replace("Z", "+00:00"))
+    except ValueError as error:
+        raise ValueError("Hierarchy-label approval timestamp is invalid") from error
+    if parsed_approved_at.tzinfo is None:
+        raise ValueError("Hierarchy-label approval timestamp must include a timezone")
 
     digest = hierarchy.get("corpus", {}).get("corpusDigest")
     for name, value in (
@@ -149,6 +159,7 @@ def build_publication_report(
     base: dict[str, Any],
     hierarchy: dict[str, Any],
     selection: dict[str, Any],
+    registry: dict[str, Any],
     labels: dict[str, dict[str, Any]],
 ) -> dict[str, Any]:
     variants = {
@@ -240,7 +251,7 @@ def build_publication_report(
         "schemaVersion": 1,
         "pipeline": "semantic-map-hierarchy-public-v1",
         "status": "human-approved",
-        "generatedAt": selection.get("approvedAt"),
+        "generatedAt": registry["approvedAt"],
         "projectionIsNavigationalOnly": True,
         "corpus": hierarchy["corpus"],
         "selection": {
@@ -249,6 +260,11 @@ def build_publication_report(
             "approvedBy": selection["approvedBy"],
             "approvedAt": selection["approvedAt"],
             "scope": selection["scope"],
+        },
+        "labelApproval": {
+            "approvedBy": registry["approvedBy"],
+            "approvedAt": registry["approvedAt"],
+            "scope": registry["scope"],
         },
         "implementation": {
             **hierarchy["implementation"],
@@ -552,7 +568,7 @@ def load_approved_inputs() -> tuple[dict[str, Any], dict[str, Any]]:
     selection = read_yaml(SELECTION_PATH)
     registry = read_yaml(LABEL_REGISTRY_PATH)
     labels = approved_label_map(hierarchy, proposals, selection, registry)
-    report = build_publication_report(base, hierarchy, selection, labels)
+    report = build_publication_report(base, hierarchy, selection, registry, labels)
     return report, registry
 
 

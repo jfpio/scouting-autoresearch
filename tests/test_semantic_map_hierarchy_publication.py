@@ -50,6 +50,7 @@ def approved_registry(proposals, selection):
     return {
         "status": "human-approved",
         "approvedBy": "repository-owner",
+        "approvedAt": "2026-09-09T17:30:00+02:00",
         "scope": "navigational-cluster-presentation-only",
         "corpusDigest": selection["corpusDigest"],
         "approvedLabels": labels,
@@ -76,13 +77,24 @@ class SemanticMapHierarchyPublicationTests(unittest.TestCase):
     def test_complete_human_approval_produces_portable_914_point_report(self):
         registry = approved_registry(self.proposals, self.selection)
         labels = approved_label_map(self.hierarchy, self.proposals, self.selection, registry)
-        report = build_publication_report(self.base, self.hierarchy, self.selection, labels)
+        report = build_publication_report(
+            self.base, self.hierarchy, self.selection, registry, labels
+        )
         self.assertEqual(len(report["points"]), 914)
         self.assertEqual(len({item["activityId"] for item in report["points"]}), 914)
         self.assertEqual(len(report["clusters"]["fine"]), 32)
         self.assertEqual(len(report["clusters"]["top"]), 8)
         self.assertTrue(all(item["boundaryPolygon"] for item in report["clusters"]["fine"]))
         self.assertTrue(report["projectionIsNavigationalOnly"])
+        self.assertEqual(report["generatedAt"], registry["approvedAt"])
+        self.assertEqual(
+            report["labelApproval"],
+            {
+                "approvedBy": "repository-owner",
+                "approvedAt": registry["approvedAt"],
+                "scope": "navigational-cluster-presentation-only",
+            },
+        )
         self.assertEqual(
             {item["status"] for item in report["approvedRelationOverlays"]},
             {"human-approved"},
@@ -99,6 +111,12 @@ class SemanticMapHierarchyPublicationTests(unittest.TestCase):
         registry = approved_registry(self.proposals, self.selection)
         registry["approvedLabels"][0]["proposalInputHash"] = "stale"
         with self.assertRaisesRegex(ValueError, "current proposal"):
+            approved_label_map(self.hierarchy, self.proposals, self.selection, registry)
+
+    def test_approval_without_a_zoned_timestamp_is_rejected(self):
+        registry = approved_registry(self.proposals, self.selection)
+        registry["approvedAt"] = "2026-09-09T17:30:00"
+        with self.assertRaisesRegex(ValueError, "timezone"):
             approved_label_map(self.hierarchy, self.proposals, self.selection, registry)
 
     def test_accessible_list_uses_summaries_not_full_game_bodies(self):

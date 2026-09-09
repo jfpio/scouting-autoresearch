@@ -127,7 +127,14 @@ class HierarchyNamingTests(unittest.TestCase):
                         **{key: response[key] for key in ("namePl", "descriptionPl", "nameEn", "descriptionEn")},
                     }
                 )
-        registry = {"status": "human-approved", "approvedBy": "repository-owner", "approvedLabels": approved}
+        registry = {
+            "status": "human-approved",
+            "approvedBy": "repository-owner",
+            "approvedAt": "2026-09-09T17:30:00+02:00",
+            "scope": "navigational-cluster-presentation-only",
+            "corpusDigest": report["corpusDigest"],
+            "approvedLabels": approved,
+        }
         validate_registry_state(registry, report)
         registry["approvedLabels"].pop()
         with self.assertRaisesRegex(ValueError, "40 current proposals"):
@@ -150,6 +157,9 @@ class HierarchyNamingTests(unittest.TestCase):
         registry = {
             "status": "human-approved",
             "approvedBy": "repository-owner",
+            "approvedAt": "2026-09-09T17:30:00+02:00",
+            "scope": "navigational-cluster-presentation-only",
+            "corpusDigest": report["corpusDigest"],
             "approvedLabels": [item] * 40,
         }
         with self.assertRaisesRegex(ValueError, "40 current proposals"):

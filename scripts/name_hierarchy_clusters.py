@@ -510,6 +510,19 @@ def validate_registry_state(registry: dict[str, Any], report: dict[str, Any]) ->
         return
     if status != "human-approved" or registry.get("approvedBy") != "repository-owner":
         raise ValueError("Hierarchy label registry has an invalid approval state")
+    if registry.get("scope") != "navigational-cluster-presentation-only":
+        raise ValueError("Hierarchy label registry has an invalid approval scope")
+    if registry.get("corpusDigest") != report.get("corpusDigest"):
+        raise ValueError("Hierarchy label registry has a stale corpus digest")
+    approved_at = registry.get("approvedAt")
+    if not isinstance(approved_at, str):
+        raise ValueError("Hierarchy label registry lacks an approval timestamp")
+    try:
+        parsed_approved_at = datetime.fromisoformat(approved_at.replace("Z", "+00:00"))
+    except ValueError as error:
+        raise ValueError("Hierarchy label registry has an invalid approval timestamp") from error
+    if parsed_approved_at.tzinfo is None:
+        raise ValueError("Hierarchy label approval timestamp must include a timezone")
     if not isinstance(approved, list):
         raise ValueError("Approved hierarchy labels must be a list")
     expected = {

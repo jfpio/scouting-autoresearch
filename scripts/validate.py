@@ -1145,6 +1145,7 @@ def main() -> None:
                     read_json(SEMANTIC_MAP_ANALYSIS_PATH),
                     hierarchy_report,
                     hierarchy_selection,
+                    hierarchy_labels,
                     approved_labels,
                 )
                 if PUBLICATION_REPORT_PATH.is_file():
