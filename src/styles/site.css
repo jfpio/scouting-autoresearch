@@ -62,6 +62,7 @@ body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: var
 .filter-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem .75rem; margin-top: .75rem; }
 .multi-filter { position: relative; min-width: 0; }
 .multi-filter summary { display: flex; align-items: center; justify-content: space-between; gap: .6rem; min-height: 2.35rem; padding: .45rem .65rem; border: 1px solid var(--rule); border-radius: .5rem; background: var(--paper); color: var(--ink); font-size: .8rem; font-weight: 700; line-height: 1.2; cursor: pointer; list-style: none; }
+.multi-filter summary::marker { content: ''; }
 .multi-filter summary::-webkit-details-marker { display: none; }
 .multi-filter summary::after { content: '▾'; color: var(--muted); }
 .multi-filter[open] summary { border-color: var(--brown); border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
@@ -70,9 +71,9 @@ body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: var
 .filter-options label { display: flex; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: .5rem; padding: .42rem; border-radius: .3rem; color: var(--ink); font-size: .78rem; font-weight: 500; cursor: pointer; }
 .filter-options label:hover { background: var(--paper-deep); }
 .filter-options input { flex: none; width: 1rem; min-height: 1rem; margin: .08rem 0 0; accent-color: var(--brown); }
-.selected-filters { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
-.filter-chip { padding: .3rem .55rem; border: 1px solid var(--brown); border-radius: 999px; background: var(--paper); color: var(--ink); font-size: .73rem; font-weight: 650; cursor: pointer; }
-.filter-chip span { margin-left: .2rem; color: var(--brown); font-size: .95rem; line-height: 0; }
+.selected-filters { display: flex; align-items: center; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
+.filter-chip { display: inline-flex; align-items: center; justify-content: center; gap: .2rem; padding: .3rem .55rem; border: 1px solid var(--brown); border-radius: 999px; background: var(--paper); color: var(--ink); font-size: .73rem; font-weight: 650; line-height: 1.2; cursor: pointer; }
+.filter-chip span { color: var(--brown); font-size: .95rem; line-height: 0; }
 .filter-chip:hover { background: var(--sl-color-accent-low); }
 .clear-filters { min-height: 2.5rem; margin: 0; padding: .45rem .78rem; border: 1px solid var(--rule); border-radius: .5rem; background: transparent; color: var(--ink); font-size: .8rem; font-weight: 700; line-height: 1.2; white-space: nowrap; cursor: pointer; }
 .clear-filters:hover { border-color: var(--brown); color: var(--brown); }
@@ -88,7 +89,7 @@ body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: var
 .kind-trial { background: var(--brown); }
 .kind-scout-course { background: #5f4778; }
 :root[data-theme='dark'] .kind-scout-course { background: #946eb7; }
-.activity-card h2 { margin: .85rem 0 .6rem; font-size: 1.2rem; line-height: 1.18; }
+.activity-card h2 { margin: .85rem 0 .6rem; font-size: 1.2rem; font-weight: 600; line-height: 1.18; }
 .activity-card h2 a { color: var(--ink); text-decoration: none; }
 .activity-card h2 a:hover { color: var(--brown); }
 .trait-list { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0 0 .7rem; padding: 0; list-style: none; }
@@ -96,7 +97,8 @@ body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: var
 .card-preview { display: -webkit-box; overflow: hidden; margin: 0; color: var(--muted); font-family: Georgia, serif; line-height: 1.5; -webkit-box-orient: vertical; -webkit-line-clamp: 4; }
 .source-line { margin-top: auto; padding-top: 1rem; color: var(--muted); font-size: .8rem; line-height: 1.4; }
 .card-footer { padding-top: .75rem; border-top: 1px solid var(--sl-color-gray-5); color: var(--muted); font-size: .75rem; }
-.card-footer a { font-weight: 800; }
+.card-footer a { color: var(--brown); font-weight: 800; }
+.card-footer a:hover { color: var(--ink); }
 .no-results { padding: 2rem; text-align: center; color: var(--muted); }
 .activity-meta, .safety-notice, .machine-notice, .similar-notice { padding: 1rem 1.1rem; border-left: .25rem solid var(--brown); border-radius: .35rem; background: var(--paper-deep); }
 .safety-notice { border-color: #a35b2b; }
