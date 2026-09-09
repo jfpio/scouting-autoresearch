@@ -17,6 +17,8 @@ from render_semantic_map import (
     accessible_html,
     approved_label_map,
     build_publication_report,
+    cluster_download_options,
+    cluster_txt,
     convex_hull,
     finalize_offline_html,
 )
@@ -139,6 +141,55 @@ class SemanticMapHierarchyPublicationTests(unittest.TestCase):
         self.assertIn("Visible title", rendered)
         self.assertNotIn("Short summary", rendered)
         self.assertNotIn("FULL BODY MUST NOT LEAK", rendered)
+
+    def test_cluster_txt_contains_only_members_with_full_text_and_provenance(self):
+        report = {"reportDigest": "digest"}
+        cluster = {
+            "id": "fine-01",
+            "size": 1,
+            "labels": {
+                "pl": {"name": "Tropienie", "description": "Gry tropieniowe."},
+                "en": {"name": "Tracking", "description": "Tracking games."},
+            },
+        }
+        common = {
+            "author": "Autor",
+            "year": 1911,
+            "sourceTitle": "Książka",
+            "sourceUrl": "https://example.test/source",
+            "digitalEditionUrl": "https://example.test/edition",
+            "facsimileUrl": "https://example.test/scan",
+            "rightsStatus": "public-domain",
+            "originalLanguage": "pl",
+            "translationStatus": "source-text",
+            "translationModel": None,
+            "activityUrl": "/scouting-autoresearch/activities/game-1/",
+            "topClusterId": "top-01",
+        }
+        records = [
+            {**common, "id": "game-1", "title": "W klastrze", "body": "PEŁNY TEKST", "fineClusterId": "fine-01"},
+            {**common, "id": "game-2", "title": "Poza klastrem", "body": "NIE DOŁĄCZAJ", "fineClusterId": "fine-02"},
+        ]
+        rendered = cluster_txt(report, cluster, "fine", records, "pl")
+        self.assertIn("PEŁNY TEKST", rendered)
+        self.assertIn("public-domain", rendered)
+        self.assertIn("https://example.test/source", rendered)
+        self.assertNotIn("NIE DOŁĄCZAJ", rendered)
+
+    def test_download_selector_covers_all_40_approved_clusters(self):
+        registry = approved_registry(self.proposals, self.selection)
+        labels = approved_label_map(self.hierarchy, self.proposals, self.selection, registry)
+        report = build_publication_report(
+            self.base, self.hierarchy, self.selection, registry, labels
+        )
+        options = cluster_download_options(report, "pl")
+        self.assertEqual(len(options), 40)
+        self.assertEqual({item["level"] for item in options}, {"top", "fine"})
+        rendered = accessible_html([], "pl", [], options)
+        self.assertIn("data-cluster-downloads", rendered)
+        self.assertIn("downloads/top/top-01.txt", rendered)
+        self.assertIn("downloads/fine/fine-32.txt", rendered)
+        self.assertIn("Pobierz TXT", rendered)
 
     def test_convex_hull_is_stable_and_excludes_interior_points(self):
         points = [(0.0, 0.0), (1.0, 0.0), (1.0, 1.0), (0.0, 1.0), (0.5, 0.5)]

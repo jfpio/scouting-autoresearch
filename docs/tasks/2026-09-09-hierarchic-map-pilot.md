@@ -73,6 +73,10 @@
 - Pełnoekranowe trasy zawierają mapę, powrót do serwisu i stały, kontrastowy dark mode.
 - Nie umieszczać pełnych tekstów gier w payloadzie. Dostępna lista tekstowa wszystkich
   punktów pozostaje poza canvasem jako równoważna nawigacja klawiaturowa.
+- Dla każdego z 8 regionów i 32 podregionów wygenerować w obu językach osobny plik TXT do
+  pobrania i dalszej pracy z LLM. Paczka zawiera pełne teksty należących do klastra gier,
+  identyfikatory, proweniencję, status prawny i status tłumaczenia, ale nie trafia do
+  interaktywnego payloadu mapy. Interfejs pozwala wybrać klaster i pobrać jego paczkę.
 
 ## Uruchomienie, walidacja i publikacja
 
@@ -93,6 +97,8 @@
   - blokadę publikacji niezatwierdzonych lub niepełnych nazw;
   - kompletność PL/EN, wewnętrznych URL-i i brak kandydatur podobieństw w publicznym payloadzie;
   - obecność drzewa tematów, wyszukiwania, tooltipów, zatwierdzonych relacji i dostępnej listy;
+  - kompletność 80 paczek TXT, zgodność ich liczebności z klastrami oraz brak gier spoza
+    wybranego klastra;
   - brak nowych requestów embeddingowych podczas ponownego buildu.
 - CI instaluje przypięte zależności, sprawdza portable semantic report, buduje oba artefakty
   DataMapPlot, uruchamia testy, Astro build i kontrolę linków.

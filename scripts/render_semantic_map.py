@@ -280,7 +280,33 @@ def build_publication_report(
     return report
 
 
-def accessible_html(records: list[dict[str, Any]], locale: str, relations: list[dict[str, Any]]) -> str:
+def cluster_download_options(report: dict[str, Any], locale: str) -> list[dict[str, Any]]:
+    options = []
+    labels = {
+        "top": "Region" if locale == "pl" else "Region",
+        "fine": "Podregion" if locale == "pl" else "Subregion",
+    }
+    for level in ("top", "fine"):
+        for cluster in sorted(report["clusters"][level], key=lambda item: item["id"]):
+            options.append(
+                {
+                    "level": level,
+                    "id": cluster["id"],
+                    "name": cluster["labels"][locale]["name"],
+                    "size": cluster["size"],
+                    "label": labels[level],
+                    "url": f"downloads/{level}/{cluster['id']}.txt",
+                }
+            )
+    return options
+
+
+def accessible_html(
+    records: list[dict[str, Any]],
+    locale: str,
+    relations: list[dict[str, Any]],
+    download_options: list[dict[str, Any]] | None = None,
+) -> str:
     is_pl = locale == "pl"
     back_label = "Powrót do strony mapy" if is_pl else "Back to the map page"
     list_label = "Dostępna lista wszystkich 914 gier" if is_pl else "Accessible list of all 914 games"
@@ -307,15 +333,138 @@ def accessible_html(records: list[dict[str, Any]], locale: str, relations: list[
             f'<a target="_top" href="{html.escape(left["activityUrl"], quote=True)}">{html.escape(left["title"])}</a> — '
             f'<a target="_top" href="{html.escape(right["activityUrl"], quote=True)}">{html.escape(right["title"])}</a></p>'
         )
+    download_options = download_options or []
+    download_heading = "Pobierz klaster jako TXT" if is_pl else "Download a cluster as TXT"
+    download_intro = (
+        "Wybierz region lub podregion. Plik zawiera pełne teksty gier i ich proweniencję do dalszej pracy z LLM."
+        if is_pl
+        else "Choose a region or subregion. The file contains full game texts and provenance for further LLM work."
+    )
+    choose_label = "Wybierz klaster" if is_pl else "Choose a cluster"
+    button_label = "Pobierz TXT" if is_pl else "Download TXT"
+    option_groups = []
+    for level in ("top", "fine"):
+        group = [item for item in download_options if item["level"] == level]
+        if not group:
+            continue
+        if level == "top":
+            group_label = "Regiony" if is_pl else "Regions"
+        else:
+            group_label = "Podregiony" if is_pl else "Subregions"
+        choices = "".join(
+            f'<option value="{html.escape(item["url"], quote=True)}">'
+            f'{html.escape(item["label"])}: {html.escape(item["name"])} ({item["size"]})</option>'
+            for item in group
+        )
+        option_groups.append(f'<optgroup label="{group_label}">{choices}</optgroup>')
+    downloads = (
+        '<details class="cluster-downloads" data-cluster-downloads><summary>'
+        f'{download_heading}</summary><p>{download_intro}</p>'
+        f'<label for="cluster-download-select">{choose_label}</label>'
+        '<select id="cluster-download-select" data-cluster-download-select '
+        'onchange="const link=this.parentElement.querySelector(\'[data-cluster-download-link]\');'
+        'link.href=this.value;link.hidden=!this.value">'
+        f'<option value="">— {choose_label} —</option>{"".join(option_groups)}</select>'
+        f'<a data-cluster-download-link download hidden href="">{button_label}</a></details>'
+    )
     return (
         '<nav class="project-nav" aria-label="Scouting Autoresearch">'
         f'<a target="_top" href="{back_url}">← {back_label}</a><p>{caveat}</p></nav>'
         + "".join(relation_notes)
+        + downloads
         + f'<details class="accessible-map-list" data-accessible-map-list><summary>{list_label}</summary>'
         + '<ol class="accessible-map-items">'
         + "".join(items)
         + "</ol></details>"
     )
+
+
+def cluster_txt(
+    report: dict[str, Any],
+    cluster: dict[str, Any],
+    level: str,
+    records: list[dict[str, Any]],
+    locale: str,
+) -> str:
+    is_pl = locale == "pl"
+    id_key = f"{level}ClusterId"
+    members = sorted(
+        (record for record in records if record[id_key] == cluster["id"]),
+        key=lambda item: (item["title"].casefold(), item["id"]),
+    )
+    if len(members) != cluster["size"]:
+        raise ValueError(
+            f"TXT export size mismatch for {locale} {cluster['id']}: "
+            f"expected {cluster['size']}, found {len(members)}"
+        )
+    label = cluster["labels"][locale]
+    level_name = (
+        ("region" if level == "top" else "podregion")
+        if is_pl
+        else ("region" if level == "top" else "subregion")
+    )
+    lines = [
+        "SCOUTING AUTORESEARCH — EKSPORT KLASTRA TXT" if is_pl else "SCOUTING AUTORESEARCH — CLUSTER TXT EXPORT",
+        f"Język: polski (pl)" if is_pl else "Language: English (en)",
+        f"Poziom: {level_name}" if is_pl else f"Level: {level_name}",
+        f"ID klastra: {cluster['id']}" if is_pl else f"Cluster ID: {cluster['id']}",
+        f"Nazwa: {label['name']}" if is_pl else f"Name: {label['name']}",
+        f"Opis: {label['description']}" if is_pl else f"Description: {label['description']}",
+        f"Liczba gier: {len(members)}" if is_pl else f"Games: {len(members)}",
+        f"Hash raportu: {report['reportDigest']}" if is_pl else f"Report digest: {report['reportDigest']}",
+        "Zakres: klaster nawigacyjny; nie jest klasyfikacją historyczną." if is_pl else "Scope: navigational cluster; not a historical classification.",
+        "Każdy rekord zachowuje własny status prawny, status tekstu i odnośniki źródłowe." if is_pl else "Each record retains its own rights status, text status, and source links.",
+        "",
+    ]
+    for index, record in enumerate(members, 1):
+        text_status = (
+            "tekst źródłowy"
+            if record["translationStatus"] == "source-text" and is_pl
+            else "source text"
+            if record["translationStatus"] == "source-text"
+            else f"tłumaczenie automatyczne ({record.get('translationModel') or 'model nieustalony'}, bez weryfikacji człowieka)"
+            if is_pl
+            else f"automatic translation ({record.get('translationModel') or 'unknown model'}, not human-verified)"
+        )
+        lines.extend(
+            [
+                "=" * 80,
+                f"[{index}/{len(members)}]",
+                f"ID: {record['id']}",
+                f"Tytuł: {record['title']}" if is_pl else f"Title: {record['title']}",
+                f"Autor: {record['author']}" if is_pl else f"Author: {record['author']}",
+                f"Źródło: {record['sourceTitle']} ({record['year']})" if is_pl else f"Source: {record['sourceTitle']} ({record['year']})",
+                f"Rekord źródłowy: {record['sourceUrl']}" if is_pl else f"Source record: {record['sourceUrl']}",
+                f"Wydanie cyfrowe: {record['digitalEditionUrl']}" if is_pl else f"Digital edition: {record['digitalEditionUrl']}",
+                f"Faksymile: {record.get('facsimileUrl') or '-'}" if is_pl else f"Facsimile: {record.get('facsimileUrl') or '-'}",
+                f"Status prawny: {record['rightsStatus']}" if is_pl else f"Rights status: {record['rightsStatus']}",
+                f"Język oryginału: {record['originalLanguage']}" if is_pl else f"Original language: {record['originalLanguage']}",
+                f"Status tekstu: {text_status}" if is_pl else f"Text status: {text_status}",
+                f"Karta gry: {record['activityUrl']}" if is_pl else f"Activity page: {record['activityUrl']}",
+                "",
+                "TEKST" if is_pl else "TEXT",
+                "",
+                str(record["body"]).strip(),
+                "",
+            ]
+        )
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def write_cluster_downloads(
+    report: dict[str, Any], records: list[dict[str, Any]], locale: str, output_dir: Path
+) -> list[Path]:
+    outputs = []
+    for level in ("top", "fine"):
+        directory = output_dir / "downloads" / level
+        directory.mkdir(parents=True, exist_ok=True)
+        for cluster in sorted(report["clusters"][level], key=lambda item: item["id"]):
+            path = directory / f"{cluster['id']}.txt"
+            path.write_text(cluster_txt(report, cluster, level, records, locale), encoding="utf-8")
+            outputs.append(path)
+    if len(outputs) != 40:
+        raise ValueError(f"Expected 40 TXT cluster exports for {locale}, found {len(outputs)}")
+    return outputs
 
 
 def relation_svg(
@@ -396,6 +545,16 @@ def render_locale(report: dict[str, Any], locale: str, output_root: Path) -> lis
             "year": activity["year"],
             "sourceTitle": activity["sourceTitle"],
             "summary": activity["summary"],
+            "body": activity["body"],
+            "rightsStatus": activity["rightsStatus"],
+            "originalLanguage": activity["originalLanguage"],
+            "translationStatus": activity["translationStatus"],
+            "translationModel": activity.get("translationModel"),
+            "sourceUrl": activity["sourceUrl"],
+            "digitalEditionUrl": activity["digitalEditionUrl"],
+            "facsimileUrl": activity.get("facsimileUrl"),
+            "fineClusterId": point["fineClusterId"],
+            "topClusterId": point["topClusterId"],
             "topName": top_label["name"],
             "topDescription": top_label["description"],
             "fineName": fine_label["name"],
@@ -465,10 +624,17 @@ html, body { background: #0b1016 !important; color: #f4ead8 !important; }
 .accessible-map-items li { margin: .55rem 0; }
 .accessible-map-items span { display: block; color: #c9bda8; font-size: 12px; }
 [data-map-relation] { position: fixed; z-index: 20; right: 1rem; top: 4.2rem; max-width: min(32rem, calc(100vw - 2rem)); padding: .55rem .75rem; border-left: 4px solid #ffe08a; background: #101821ee; color: #f4ead8; font: 13px/1.4 system-ui, sans-serif; }
+.cluster-downloads { position: fixed; z-index: 21; left: 1rem; top: 4.2rem; width: min(30rem, calc(100vw - 2rem)); padding: .65rem .85rem; border: 1px solid #86662f; border-radius: .65rem; background: #101821f5; color: #f4ead8; font: 14px/1.4 system-ui, sans-serif; }
+.cluster-downloads summary { cursor: pointer; font-weight: 800; }
+.cluster-downloads p { margin: .5rem 0; color: #c9bda8; }
+.cluster-downloads label { display: block; margin-bottom: .25rem; font-weight: 700; }
+.cluster-downloads select { max-width: 100%; padding: .4rem; border: 1px solid #86662f; border-radius: .35rem; background: #0b1016; color: #f4ead8; }
+.cluster-downloads [data-cluster-download-link] { display: inline-block; margin-left: .5rem; color: #ffe08a; font-weight: 800; }
+.cluster-downloads [data-cluster-download-link][hidden] { display: none; }
 .tooltip-card h2 { margin: 0 0 .35rem; font-size: 1.05rem; }
 .tooltip-card p { margin: .35rem 0; }
 .tooltip-id { color: #c9bda8; font-family: ui-monospace, monospace; }
-@media (max-width: 48rem) { .project-nav { bottom: 4rem; } .accessible-map-list { max-height: 38vh; } [data-map-relation] { top: 7rem; } }
+@media (max-width: 48rem) { .project-nav { bottom: 4rem; } .accessible-map-list { max-height: 38vh; } [data-map-relation] { top: 7rem; } .cluster-downloads { top: 7rem; } }
 """
 
     output_dir = output_root / locale
@@ -511,13 +677,20 @@ html, body { background: #0b1016 !important; color: #f4ead8 !important; }
         inline_data=False,
         offline_data_path=output_dir / "map",
         offline_mode=True,
-        custom_html=accessible_html(records, locale, report["approvedRelationOverlays"]),
+        custom_html=accessible_html(
+            records,
+            locale,
+            report["approvedRelationOverlays"],
+            cluster_download_options(report, locale),
+        ),
         custom_css=custom_css,
     )
     figure.save(str(output_dir / "index.html"))
     finalize_offline_html(output_dir / "index.html", locale)
+    downloads = write_cluster_downloads(report, records, locale, output_dir)
     required = [output_dir / "index.html", output_dir / "approved-relations.svg"]
     required.extend(sorted(output_dir.glob("map_*.zip")))
+    required.extend(downloads)
     if len(required) < 5 or any(not path.is_file() or path.stat().st_size == 0 for path in required):
         raise ValueError(f"Incomplete DataMapPlot output for {locale}: {[path.name for path in required]}")
     return required
@@ -599,6 +772,14 @@ def check_outputs(report: dict[str, Any], output_root: Path) -> None:
             raise ValueError(f"Public {locale} map still depends on a CDN")
         if len(list(output_dir.glob("map_*.zip"))) < 3:
             raise ValueError(f"Public {locale} map lacks non-inline compressed data")
+        expected_downloads = {
+            output_dir / "downloads" / level / f"{cluster['id']}.txt"
+            for level in ("top", "fine")
+            for cluster in report["clusters"][level]
+        }
+        actual_downloads = set((output_dir / "downloads").glob("*/*.txt"))
+        if actual_downloads != expected_downloads or any(path.stat().st_size == 0 for path in actual_downloads):
+            raise ValueError(f"Public {locale} map lacks complete TXT cluster exports")
     print("Approved bilingual DataMapPlot outputs are current")
 
 
