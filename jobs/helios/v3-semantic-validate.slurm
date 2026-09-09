@@ -74,14 +74,13 @@ fi
 python scripts/audit_v3_participants.py
 python scripts/audit_v3_facets.py
 python scripts/analyze_semantic_map.py --check
-python scripts/analyze_hierarchic_map.py
+python scripts/analyze_hierarchic_map.py --check
 python scripts/build_content.py
 python scripts/render_semantic_map.py
 python scripts/build_semantic_review_packet.py
 python scripts/analyze_duplicates.py
 python -m unittest discover -s tests -p 'test_*.py'
 python scripts/analyze_semantic_map.py --check
-python scripts/analyze_hierarchic_map.py --check
 python scripts/render_semantic_map.py --check
 python scripts/build_semantic_review_packet.py --check
 python scripts/analyze_duplicates.py --check

@@ -21,6 +21,8 @@ from render_semantic_map import (
     cluster_txt,
     convex_hull,
     finalize_offline_html,
+    percentile_bounds,
+    relation_svg,
 )
 
 
@@ -197,6 +199,21 @@ class SemanticMapHierarchyPublicationTests(unittest.TestCase):
             convex_hull(points),
             [[0.0, 0.0], [1.0, 0.0], [1.0, 1.0], [0.0, 1.0]],
         )
+
+    def test_relation_svg_uses_pinned_local_coordinate_normalization(self):
+        bounds = percentile_bounds([(0.0, 0.0), (1.0, 1.0), (2.0, 0.0)])
+        self.assertEqual(len(bounds), 4)
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "relations.svg"
+            relation_svg(
+                output,
+                [[0.0, 0.0], [1.0, 1.0], [2.0, 0.0]],
+                ["a", "b", "c"],
+                [{"activityIds": ["a", "c"]}],
+            )
+            rendered = output.read_text(encoding="utf-8")
+            self.assertIn('data-approved-relation-layer="true"', rendered)
+            self.assertIn("<line ", rendered)
 
     def test_offline_postprocessing_removes_remote_resource_tags(self):
         with tempfile.TemporaryDirectory() as directory:

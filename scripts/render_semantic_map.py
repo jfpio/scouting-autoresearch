@@ -155,6 +155,29 @@ def convex_hull(points: list[tuple[float, float]]) -> list[list[float]]:
     return [[round(x, 8), round(y, 8)] for x, y in boundary]
 
 
+def percentile_bounds(points: Any, percentage: float = 99.9) -> list[float]:
+    """Mirror DataMapPlot 0.7.3's coordinate normalization without private imports."""
+    import numpy as np
+
+    values = np.asarray(points, dtype=float)
+    if values.ndim != 2 or values.shape[1] != 2 or values.shape[0] == 0:
+        raise ValueError("Percentile bounds require a non-empty Nx2 coordinate array")
+    selected_count = max(1, int(values.shape[0] * (percentage / 100)))
+    centroid = np.mean(values, axis=0)
+    distances = np.linalg.norm((values - centroid) ** 2, axis=1)
+    selected = values[np.argsort(distances)[:selected_count]]
+    minimum_x, minimum_y = np.min(selected, axis=0)
+    maximum_x, maximum_y = np.max(selected, axis=0)
+    padding_x = 0.01 * (maximum_x - minimum_x)
+    padding_y = 0.01 * (maximum_y - minimum_y)
+    return [
+        float(minimum_x - padding_x),
+        float(maximum_x + padding_x),
+        float(minimum_y - padding_y),
+        float(maximum_y + padding_y),
+    ]
+
+
 def build_publication_report(
     base: dict[str, Any],
     hierarchy: dict[str, Any],
@@ -474,10 +497,9 @@ def relation_svg(
     relations: list[dict[str, Any]],
 ) -> None:
     import numpy as np
-    from datamapplot.rendering_helpers import compute_percentile_bounds
 
     raw = np.asarray(coordinates, dtype=float)
-    bounds = compute_percentile_bounds(raw)
+    bounds = percentile_bounds(raw)
     scale = 30.0 / max(bounds[1] - bounds[0], bounds[3] - bounds[2])
     transformed = scale * (raw - np.mean(raw, axis=0))
     by_id = {activity_id: transformed[index] for index, activity_id in enumerate(activity_ids)}
