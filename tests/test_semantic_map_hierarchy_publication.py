@@ -192,6 +192,7 @@ class SemanticMapHierarchyPublicationTests(unittest.TestCase):
         self.assertIn("downloads/top/top-01.txt", rendered)
         self.assertIn("downloads/fine/fine-32.txt", rendered)
         self.assertIn("Pobierz TXT", rendered)
+        self.assertIn("pracować nad tym typem gier z pomocą LLM", rendered)
 
     def test_convex_hull_is_stable_and_excludes_interior_points(self):
         points = [(0.0, 0.0), (1.0, 0.0), (1.0, 1.0), (0.0, 1.0), (0.5, 0.5)]

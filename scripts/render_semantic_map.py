@@ -359,9 +359,9 @@ def accessible_html(
     download_options = download_options or []
     download_heading = "Pobierz klaster jako TXT" if is_pl else "Download a cluster as TXT"
     download_intro = (
-        "Wybierz region lub podregion. Plik zawiera pełne teksty gier i ich proweniencję do dalszej pracy z LLM."
+        "Wybierz region lub podregion. Kliknij „Pobierz TXT”, by móc pracować nad tym typem gier z pomocą LLM. Plik zawiera pełne teksty gier i ich proweniencję."
         if is_pl
-        else "Choose a region or subregion. The file contains full game texts and provenance for further LLM work."
+        else "Choose a region or subregion. Click “Download TXT” to work on this type of game with an LLM. The file contains full game texts and their provenance."
     )
     choose_label = "Wybierz klaster" if is_pl else "Choose a cluster"
     button_label = "Pobierz TXT" if is_pl else "Download TXT"
