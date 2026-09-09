@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "pipeline": "semantic-map-hierarchy-pilot-v1",
-  "status": "human-label-review-required",
-  "updatedAt": "2026-09-09T15:32:23+00:00",
+  "status": "publication-site-validation-pending",
+  "updatedAt": "2026-09-09T18:29:57+02:00",
   "branch": "codex/autoresearch-2026-09-09-hierarchic-map-pilot",
   "baseCommit": "16b15452e3a69643e73e1fc0ef8f0d02dbba3800",
   "corpusActivities": 914,
@@ -50,6 +50,18 @@
     "validation": "passed",
     "maxRssKiB": 346608
   },
+  "publicationValidationJob": {
+    "jobId": "22224210",
+    "state": "COMPLETED",
+    "exitCode": "0:0",
+    "elapsed": "00:03:47",
+    "testsRun": 316,
+    "testsSkipped": 2,
+    "validation": "passed",
+    "maxRssKiB": 681156,
+    "points": 914,
+    "generatedFiles": 90
+  },
   "comparisonArtifact": {
     "path": "artifacts/hierarchic-map-pilot/cluster-comparison.html",
     "sha256": "90bb118aa0424136d6df7691194ba13a8366ca2c1436f71535b2b1dfbb4b7a3a",
@@ -66,7 +78,7 @@
     "fineLabelProposals": 32,
     "topLabelProposals": 8,
     "selfContained": true,
-    "publicationStatus": "human-review-required"
+    "publicationStatus": "human-approved"
   },
   "reportSha256": "ec8c42fdc95e07670a748c429204fc9e76f259a53f9c12c438f07d65109a271a",
   "reviewPacketSha256": "14698463ce562b62174ae7576cb0e66eeec1164a1dea9892fea99fb63c492d3f",
@@ -78,7 +90,24 @@
     "algorithm": "kmeans-on-umap-2d",
     "scope": "navigational-cluster-presentation-only"
   },
-  "nextStep": "Repository owner reviews and approves or edits all 40 bilingual hierarchy labels.",
+  "nextStep": "Run the production site build and link smoke test, then open the single pilot pull request.",
+  "labelApproval": {
+    "status": "human-approved",
+    "approvedBy": "repository-owner",
+    "approvedAt": "2026-09-09T18:08:31+02:00",
+    "fineLabels": 32,
+    "topLabels": 8,
+    "scope": "navigational-cluster-presentation-only"
+  },
+  "publication": {
+    "reportPath": "data/reports/semantic-map-hierarchy-public-v1.json",
+    "reportSha256": "e52c4bdbdc8d4c9c77c715d5836a97bdf215e0b3afee55578a34761d03089037",
+    "polishMapSha256": "3939bde5810b3cdefc3abdbf5cd17422b4d3ed39f610409cebed227c196f287a",
+    "englishMapSha256": "e95dd0330a4f3ef5f1ea9f087fe4e29e9005f56b8449ac699ebda14c2e2158aa",
+    "txtBundlesPerLocale": 40,
+    "txtBundlesTotal": 80,
+    "genericSafetyWarningRemoved": true
+  },
   "labeling": {
     "modelRequested": "mistral-large-2512",
     "promptVersion": "semantic-map-cluster-labels-bilingual-v1",
