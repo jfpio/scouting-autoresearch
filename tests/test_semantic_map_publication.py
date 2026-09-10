@@ -29,7 +29,8 @@ class SemanticMapPublicationTests(unittest.TestCase):
         self.assertIn("data-semantic-map-frame", component)
         renderer = (ROOT / "scripts" / "render_semantic_map.py").read_text(encoding="utf-8")
         self.assertIn('relation.get("status") == "human-approved"', renderer)
-        self.assertIn("data-map-list-item", renderer)
+        shell = (ROOT / "scripts/semantic_map/shell.py").read_text(encoding="utf-8")
+        self.assertIn("data-map-list-item", shell)
 
 
 if __name__ == "__main__":

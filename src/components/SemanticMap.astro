@@ -8,15 +8,15 @@ const isPl = locale === 'pl';
 const explorerPath = `/scouting-autoresearch/semantic-map/${locale}/`;
 const labels = isPl
   ? {
-      title: 'Interaktywna mapa semantyczna 914 gier',
-      description: 'Dwupoziomowa mapa Amber: osiem regionów i trzydzieści dwa podregiony. Każdy klaster można pobrać jako TXT do dalszej pracy z LLM.',
+      title: 'Odkrywaj podobne gry',
+      description: 'Przeglądaj listę lub mapę. Wybierz region, aby zawęzić wyniki i pobrać teksty gier.',
       open: 'Otwórz pełną mapę',
       loading: 'Ładowanie interaktywnej mapy semantycznej',
       fallback: 'Otwórz mapę w osobnej stronie, aby skorzystać z wyszukiwania, drzewa tematów i dostępnej listy tekstowej.',
     }
   : {
-      title: 'Interactive semantic map of 914 games',
-      description: 'A two-level Amber map with eight regions and thirty-two subregions. Every cluster can be downloaded as TXT for further LLM work.',
+      title: 'Explore similar games',
+      description: 'Browse the list or map. Choose a region to narrow the results and download game texts.',
       open: 'Open the full map',
       loading: 'Loading the interactive semantic map',
       fallback: 'Open the separate map page to use search, the topic tree, and the accessible text list.',
@@ -74,7 +74,7 @@ const labels = isPl
     display: inline-flex;
     gap: .35rem;
     align-items: center;
-    min-height: 2.6rem;
+    min-height: 44px;
     padding: .5rem .85rem;
     border: 1px solid var(--rule);
     border-radius: .55rem;
@@ -86,14 +86,14 @@ const labels = isPl
   }
   .full-map-link:hover,
   .full-map-link:focus-visible {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--forest);
+    color: var(--forest);
   }
   .map-frame-shell {
     overflow: hidden;
     border: 1px solid var(--rule);
     border-radius: .9rem;
-    background: #0b1016;
+    background: var(--paper);
   }
   iframe {
     display: block;
@@ -101,7 +101,7 @@ const labels = isPl
     height: min(72vh, 50rem);
     min-height: 32rem;
     border: 0;
-    background: #0b1016;
+    background: var(--paper);
   }
   @media (max-width: 48rem) {
     .map-heading {
@@ -112,8 +112,8 @@ const labels = isPl
       justify-content: center;
     }
     iframe {
-      height: 70vh;
-      min-height: 26rem;
+      height: 76dvh;
+      min-height: 32rem;
     }
   }
 </style>

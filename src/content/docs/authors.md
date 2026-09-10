@@ -3,8 +3,6 @@ title: "Autorzy"
 description: "Autorstwo zachowujemy dokładnie tak, jak opisano je dla danego źródła; nie rozdzielamy automatycznie współautorów ani prac zbiorowych."
 ---
 
-# Autorzy
-
 Autorstwo zachowujemy dokładnie tak, jak opisano je dla danego źródła; nie rozdzielamy automatycznie współautorów ani prac zbiorowych.
 
 ## Alojzy Pawełek

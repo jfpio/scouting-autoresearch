@@ -25,3 +25,6 @@ data/checkpoints/source-discovery/*
 *.log
 __pycache__/
 *.py[cod]
+
+/playwright-report/
+/test-results/

@@ -13,11 +13,15 @@
     "map": "python3 scripts/render_semantic_map.py",
     "validate": "python3 scripts/validate.py",
     "check-links": "python3 scripts/check_links.py",
-    "test": "python3 -m unittest discover -s tests -p 'test_*.py'"
+    "test": "python3 -m unittest discover -s tests -p 'test_*.py'",
+    "test:browser": "playwright test"
   },
   "dependencies": {
     "@astrojs/starlight": "0.41.10",
     "astro": "7.2.9",
     "sharp": "0.35.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
   }
 }

@@ -21,8 +21,6 @@ from render_semantic_map import (
     cluster_txt,
     convex_hull,
     finalize_offline_html,
-    percentile_bounds,
-    relation_svg,
 )
 
 
@@ -127,6 +125,8 @@ class SemanticMapHierarchyPublicationTests(unittest.TestCase):
         records = [
             {
                 "id": "game-1",
+                "topClusterId": "top-01",
+                "fineClusterId": "fine-01",
                 "title": "Visible title",
                 "author": "Author",
                 "sourceTitle": "Book",
@@ -141,7 +141,7 @@ class SemanticMapHierarchyPublicationTests(unittest.TestCase):
         rendered = accessible_html(records, "pl", [])
         self.assertIn("data-accessible-map-list", rendered)
         self.assertIn("Visible title", rendered)
-        self.assertNotIn("Short summary", rendered)
+        self.assertIn("Short summary", rendered)
         self.assertNotIn("FULL BODY MUST NOT LEAK", rendered)
 
     def test_cluster_txt_contains_only_members_with_full_text_and_provenance(self):
@@ -191,8 +191,8 @@ class SemanticMapHierarchyPublicationTests(unittest.TestCase):
         self.assertIn("data-cluster-downloads", rendered)
         self.assertIn("downloads/top/top-01.txt", rendered)
         self.assertIn("downloads/fine/fine-32.txt", rendered)
-        self.assertIn("Pobierz TXT", rendered)
-        self.assertIn("pracować nad tym typem gier z pomocą LLM", rendered)
+        self.assertIn("Pobierz region jako TXT", rendered)
+        self.assertIn("LLM", rendered)
 
     def test_convex_hull_is_stable_and_excludes_interior_points(self):
         points = [(0.0, 0.0), (1.0, 0.0), (1.0, 1.0), (0.0, 1.0), (0.5, 0.5)]
@@ -200,21 +200,6 @@ class SemanticMapHierarchyPublicationTests(unittest.TestCase):
             convex_hull(points),
             [[0.0, 0.0], [1.0, 0.0], [1.0, 1.0], [0.0, 1.0]],
         )
-
-    def test_relation_svg_uses_pinned_local_coordinate_normalization(self):
-        bounds = percentile_bounds([(0.0, 0.0), (1.0, 1.0), (2.0, 0.0)])
-        self.assertEqual(len(bounds), 4)
-        with tempfile.TemporaryDirectory() as directory:
-            output = Path(directory) / "relations.svg"
-            relation_svg(
-                output,
-                [[0.0, 0.0], [1.0, 1.0], [2.0, 0.0]],
-                ["a", "b", "c"],
-                [{"activityIds": ["a", "c"]}],
-            )
-            rendered = output.read_text(encoding="utf-8")
-            self.assertIn('data-approved-relation-layer="true"', rendered)
-            self.assertIn("<line ", rendered)
 
     def test_offline_postprocessing_removes_remote_resource_tags(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -230,13 +215,26 @@ class SemanticMapHierarchyPublicationTests(unittest.TestCase):
             self.assertNotIn('<link href="https://', rendered)
             self.assertIn('"https://unpkg.com/dependency"', rendered)
 
+    def test_python_scalars_in_generated_javascript_are_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "index.html"
+            path.write_text('<html><head></head><script>image([np.float64(1.2)]);</script></html>')
+            with self.assertRaisesRegex(ValueError, "Python scalar"):
+                finalize_offline_html(path, "pl")
+
+    def test_map_does_not_render_approved_relation_banner(self):
+        rendered = accessible_html([], "pl", [{"activityIds": ["a", "b"]}])
+        self.assertNotIn('data-map-relation', rendered)
+        self.assertNotIn('approved-relations.svg', rendered)
+        self.assertIn('name="viewport"', rendered)
+
     def test_renderer_reuses_analysis_without_embedding_requests(self):
         renderer = (Path(__file__).resolve().parents[1] / "scripts" / "render_semantic_map.py").read_text(
             encoding="utf-8"
         )
         self.assertIn("inline_data=False", renderer)
         self.assertIn("offline_mode=True", renderer)
-        self.assertIn("enable_topic_tree=True", renderer)
+        self.assertIn("enable_topic_tree=False", renderer)
         self.assertIn("cluster_boundary_polygons=True", renderer)
         self.assertNotIn("/v1/embeddings", renderer)
         self.assertNotIn("MISTRAL_API_KEY", renderer)

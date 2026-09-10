@@ -106,8 +106,8 @@ class PipelineTests(unittest.TestCase):
         }
         record = {"sourceId": "source-1"}
         self.assertIn('kind="scout-course"', explorer_page("pl", activity_count=1, source_count=1, kind="scout-course"))
-        self.assertIn("# Książki", sources_page("pl", {"source-1": source}, [record]))
-        self.assertIn("# Autorzy", authors_page("pl", {"source-1": source}, [record]))
+        self.assertIn('title: "Książki"', sources_page("pl", {"source-1": source}, [record]))
+        self.assertIn('title: "Autorzy"', authors_page("pl", {"source-1": source}, [record]))
 
     def test_generated_text_strips_only_trailing_whitespace(self):
         value = "first  \n  second\t\n   \n"

@@ -63,8 +63,8 @@ class SiteUiTests(unittest.TestCase):
         self.assertIn("/scouting-autoresearch/semantic-map/${locale}/", component)
         self.assertIn("Otwórz pełną mapę", component)
         self.assertIn("Open the full map", component)
-        self.assertIn("pobrać jako TXT", component)
-        self.assertIn("downloaded as TXT", component)
+        self.assertIn("pobrać teksty gier", component)
+        self.assertIn("download game texts", component)
 
     def test_generic_historical_safety_warning_is_not_rendered(self):
         builder = (ROOT / "scripts" / "build_content.py").read_text(encoding="utf-8")

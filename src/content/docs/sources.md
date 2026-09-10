@@ -3,8 +3,6 @@ title: "Książki"
 description: "Pełne teksty są publikowane wyłącznie dla wydań z potwierdzonym statusem domeny publicznej. Oznaczenie praw przypisujemy instytucji źródłowej."
 ---
 
-# Książki
-
 Pełne teksty są publikowane wyłącznie dla wydań z potwierdzonym statusem domeny publicznej. Oznaczenie praw przypisujemy instytucji źródłowej.
 
 ## Boy Scouts Handbook: The Games

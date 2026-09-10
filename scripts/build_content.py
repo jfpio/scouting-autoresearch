@@ -415,9 +415,9 @@ def explorer_page(locale: str, *, activity_count: int, source_count: int, kind: 
             if is_pl
             else f"{activity_count} activities from {source_count} public-domain books. Polish, English, or French source texts have Polish and English machine-translation layers."
         )
-        hero = f'<p class="eyebrow">{eyebrow}</p>\n\n# {title}\n\n{text}\n\n'
+        hero = f'<p class="eyebrow">{eyebrow}</p>\n\n{text}\n\n'
     else:
-        hero = f"# {title}\n\n{description}\n\n"
+        hero = f"{description}\n\n"
     kind_prop = f' kind="{kind}"' if kind else ""
     translation_note = (
         "> **Tłumaczenia automatyczne:** wersje w języku innym niż źródłowy nie zostały zweryfikowane przez człowieka. Każdy rekord prowadzi do tekstu źródłowego i wydania cyfrowego.\n\n"
@@ -450,7 +450,7 @@ def sources_page(locale: str, sources: dict[str, dict], records: list[dict]) -> 
         if is_pl
         else "Full text is published only for editions with confirmed public-domain status. Rights statements are attributed to the source institution."
     )
-    lines = ["---", f"title: {yaml_scalar(title)}", f"description: {yaml_scalar(intro)}", "---", "", f"# {title}", "", intro, ""]
+    lines = ["---", f"title: {yaml_scalar(title)}", f"description: {yaml_scalar(intro)}", "---", "", intro, ""]
     activity_counts = Counter(record["sourceId"] for record in records)
     for source in sources.values():
         count = activity_counts[source["id"]]
@@ -481,7 +481,7 @@ def authors_page(locale: str, sources: dict[str, dict], records: list[dict]) -> 
     sources_by_author: dict[str, list[dict]] = defaultdict(list)
     for source in sources.values():
         sources_by_author[source["author"]].append(source)
-    lines = ["---", f"title: {yaml_scalar(title)}", f"description: {yaml_scalar(intro)}", "---", "", f"# {title}", "", intro, ""]
+    lines = ["---", f"title: {yaml_scalar(title)}", f"description: {yaml_scalar(intro)}", "---", "", intro, ""]
     for author in sorted(sources_by_author, key=lambda value: value.casefold()):
         author_sources = sorted(sources_by_author[author], key=lambda source: (source["year"], source["title"]))
         count = sum(records_by_source[source["id"]] for source in author_sources)
@@ -521,7 +521,7 @@ def semantic_map_page(locale: str) -> str:
         "template: splash\n"
         "---\n\n"
         f"import SemanticMap from '{component_path}';\n\n"
-        f"# {title}\n\n{description}\n\n{caveat}\n\n"
+        f"{description}\n\n{caveat}\n\n"
         f'<SemanticMap locale="{locale}" />\n'
     )
 
@@ -550,7 +550,7 @@ The project code is MIT-licensed. Project metadata and translations are offered 
 
 V2 runs a controlled acquisition process for works by Robert Baden-Powell, Ernest Thompson Seton, and Jacques Sevin whose legal status has been confirmed. See the [project plan](https://github.com/jfpio/scouting-autoresearch/blob/main/project-plan.md)."""
     )
-    return f"---\ntitle: {yaml_scalar(title)}\ndescription: {yaml_scalar(plain_text(body)[:155])}\n---\n\n# {title}\n\n{body}\n"
+    return f"---\ntitle: {yaml_scalar(title)}\ndescription: {yaml_scalar(plain_text(body)[:155])}\n---\n\n{body}\n"
 
 
 def write_docs(polish: list[dict], english: list[dict], sources: dict[str, dict]) -> None:

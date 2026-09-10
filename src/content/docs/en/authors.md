@@ -3,8 +3,6 @@ title: "Authors"
 description: "Authorship is preserved exactly as recorded for each source; co-authors and collective works are not split automatically."
 ---
 
-# Authors
-
 Authorship is preserved exactly as recorded for each source; co-authors and collective works are not split automatically.
 
 ## Alojzy Pawełek

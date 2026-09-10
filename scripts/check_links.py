@@ -189,8 +189,8 @@ def main() -> None:
         expected_games = kind_counts[expected_language]["game"]
         if list_items != expected_games:
             metric_errors.append(f"{path}: expected {expected_games} accessible list items, found {list_items}")
-        if relations != approved_relation_count:
-            metric_errors.append(f"{path}: expected {approved_relation_count} approved relation, found {relations}")
+        if relations != 0:
+            metric_errors.append(f"{path}: expected no map relations, found {relations}")
         if language != expected_language:
             metric_errors.append(f"{path}: expected lang={expected_language}, found {language}")
         rendered_path = DIST / path
@@ -207,12 +207,12 @@ def main() -> None:
             "topic-tree",
             "data-accessible-map-list",
             "data-cluster-downloads",
-            "approved-relations.svg",
+            "map-engine",
         ):
             if required not in text:
                 metric_errors.append(f"{path}: missing DataMapPlot feature {required}")
         output_dir = rendered_path.parent
-        for filename in ("map_label_data.zip", "map_meta_data_0.zip", "map_point_data_0.zip", "approved-relations.svg"):
+        for filename in ("map_label_data.zip", "map_meta_data_0.zip", "map_point_data_0.zip", "engine.html", "shell.js", "shell.css", "engine.js", "theme.js"):
             if not (output_dir / filename).is_file():
                 metric_errors.append(f"{path}: missing map asset {filename}")
         expected_downloads = {
@@ -311,7 +311,7 @@ def main() -> None:
     print(
         f"Rendered semantic-map check passed: {kind_counts['pl']['game']} points, "
         f"{kind_counts['pl']['game']} accessible list items, 40 TXT cluster downloads and "
-        f"{approved_relation_count} approved relation in both bilingual DataMapPlot explorers; "
+        "no relation overlays in either bilingual DataMapPlot explorer; "
         "no unreviewed candidates exposed."
     )
 
