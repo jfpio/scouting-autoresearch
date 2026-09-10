@@ -65,12 +65,14 @@ const facetLabels = { kind: labels.kind, trait: labels.trait, author: labels.aut
           </div>
         </details>
       )}
-      <details class="multi-filter" data-filter-menu="trait">
-        <summary><span>{labels.trait}</span><span class="selection-count" data-selection-count>{labels.choose}</span></summary>
-        <div class="filter-options filter-options-long" role="group" aria-label={labels.trait}>
-          {traits.map((value) => <label><input type="checkbox" data-filter="trait" value={value} /><span>{value}</span></label>)}
-        </div>
-      </details>
+      {kind === 'trial' && (
+        <details class="multi-filter" data-filter-menu="trait">
+          <summary><span>{labels.trait}</span><span class="selection-count" data-selection-count>{labels.choose}</span></summary>
+          <div class="filter-options filter-options-long" role="group" aria-label={labels.trait}>
+            {traits.map((value) => <label><input type="checkbox" data-filter="trait" value={value} /><span>{value}</span></label>)}
+          </div>
+        </details>
+      )}
       <details class="multi-filter" data-filter-menu="author">
         <summary><span>{labels.author}</span><span class="selection-count" data-selection-count>{labels.choose}</span></summary>
         <div class="filter-options" role="group" aria-label={labels.author}>
