@@ -582,11 +582,11 @@ def write_docs(polish: list[dict], english: list[dict], sources: dict[str, dict]
     (DOCS / "en" / "authors.md").write_text(authors_page("en", sources, english), encoding="utf-8")
     (DOCS / "en" / "about.md").write_text(about_page("en"), encoding="utf-8")
     (DOCS / "404.md").write_text(
-        '---\ntitle: "Nie znaleziono strony"\ndescription: "Żądana strona nie istnieje."\nsidebar:\n  hidden: true\n---\n\n# Nie znaleziono strony\n\n[Wróć do wyszukiwarki](/scouting-autoresearch/).\n',
+        '---\ntitle: "Nie znaleziono strony"\ndescription: "Żądana strona nie istnieje."\nsidebar:\n  hidden: true\n---\n\n[Wróć do wyszukiwarki](/scouting-autoresearch/).\n',
         encoding="utf-8",
     )
     (DOCS / "en" / "404.md").write_text(
-        '---\ntitle: "Page not found"\ndescription: "The requested page does not exist."\nsidebar:\n  hidden: true\n---\n\n# Page not found\n\n[Return to the activity finder](/scouting-autoresearch/en/).\n',
+        '---\ntitle: "Page not found"\ndescription: "The requested page does not exist."\nsidebar:\n  hidden: true\n---\n\n[Return to the activity finder](/scouting-autoresearch/en/).\n',
         encoding="utf-8",
     )
     for record in polish:
