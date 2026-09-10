@@ -710,7 +710,7 @@ class PipelineTests(unittest.TestCase):
         self.assertIn("Tłumaczenie automatyczne.", rendered)
         self.assertIn("nie został zweryfikowany przez człowieka", rendered)
         self.assertIn("/scouting-autoresearch/en/activities/sfb-001/", rendered)
-        self.assertIn("Przeczytaj tekst źródłowy po angielsku", rendered)
+        self.assertIn("Tekst źródłowy po angielsku", rendered)
         self.assertIn("[Wydanie cyfrowe]", rendered)
         self.assertIn("[Rekord źródłowy]", rendered)
         self.assertIn("[s. 52]", rendered)
@@ -784,11 +784,11 @@ class PipelineTests(unittest.TestCase):
             locale="en",
         )
         self.assertIn('href="#source-text"', polish)
-        self.assertIn("Przeczytaj tekst źródłowy po francusku", polish)
+        self.assertIn("Tekst źródłowy po francusku", polish)
         self.assertIn('<span id="source-text"></span>', polish)
         self.assertIn("Francuski tekst źródłowy", polish)
         self.assertIn("Texte source français.", polish)
-        self.assertIn("Read the source French transcription", english)
+        self.assertIn("Source text in French", english)
         self.assertIn("French source text", english)
         self.assertIn("Texte source français.", english)
 

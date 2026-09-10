@@ -78,10 +78,11 @@ test('map selection opens details and zoom controls change the view', async ({ p
   await expect(page.locator('#detail-link')).toHaveAttribute('href', `${base}/activities/bsh-037/`);
 });
 
-for (const failure of ['missing-data', 'webgl']) {
+for (const failure of ['missing-data', 'corrupt-data', 'webgl']) {
   test(`${failure}: recover to list and retry`, async ({ page }) => {
     await page.setViewportSize({width:390,height:844});
     if (failure === 'missing-data') await page.route('**/map_point_data_0.zip', route => route.fulfill({status:404,body:'missing'}));
+    else if (failure === 'corrupt-data') await page.route('**/map_point_data_0.zip', route => route.fulfill({contentType:'application/zip',body:'not a compressed dataset'}));
     else await page.addInitScript(() => {
       const original = HTMLCanvasElement.prototype.getContext;
       HTMLCanvasElement.prototype.getContext = function(kind, ...args) {
@@ -95,7 +96,7 @@ for (const failure of ['missing-data', 'webgl']) {
     await page.locator('#fallback-list').click();
     await page.locator('#map-search').fill('bsh-037');
     await expect(page.locator('[data-map-list-item]:visible')).toHaveCount(1);
-    if (failure === 'missing-data') {
+    if (failure !== 'webgl') {
       await page.unroute('**/map_point_data_0.zip');
       await page.locator('[data-view-button=map]').click();
       await page.locator('#retry').click();

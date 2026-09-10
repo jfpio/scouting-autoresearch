@@ -414,6 +414,10 @@ def finalize_offline_html(path: Path, locale: str) -> None:
     rendered = rendered.replace('<head>', '<head><meta name="viewport" content="width=device-width, initial-scale=1">', 1)
     # Embedded upstream sourcemaps have no corresponding files in the offline bundle.
     rendered = re.sub(r"(?m)//[#@] sourceMappingURL=[^\r\n<]+", "", rendered)
+    rendered = rendered.replace(
+        "script.textContent = decodedScript;",
+        r"script.textContent = decodedScript.replace(/^[ \t]*\/\/[#@][ \t]*sourceMappingURL=[^\r\n]*/gm, '');",
+    )
     if path.name == "engine.html":
         rendered = rendered.replace('<head>', '<head><script src="engine.js"></script>', 1)
         anchor = 'window.datamap = datamap;'

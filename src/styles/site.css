@@ -104,6 +104,10 @@ body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: var
 .machine-notice { border-color: var(--forest); }
 .similar-notice { border-color: #326a73; }
 .similar-notice ul { margin-bottom: 0; }
+.sl-markdown-content :is(.machine-notice,.similar-notice) details { margin:0; padding:0; border:0; background:transparent; }
+.sl-markdown-content :is(.machine-notice,.similar-notice) summary { min-height:44px; margin:0; padding:.55rem 0; color:var(--forest); font-size:.9rem; }
+.notice-links { display:flex; flex-wrap:wrap; align-items:center; gap:0 .4rem; margin:0!important; }
+.notice-links a { display:inline-flex; align-items:center; min-height:44px; }
 .source-table { width: 100%; }
 
 @media (max-width: 48rem) { .filter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .activity-card { min-height: auto; } .hero { padding-block: 2rem 1rem; } }
