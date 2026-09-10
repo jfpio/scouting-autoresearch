@@ -504,19 +504,14 @@ def semantic_map_page(locale: str) -> str:
     is_pl = locale == "pl"
     title = "Mapa semantyczna gier" if is_pl else "Semantic map of games"
     description = (
-        "Eksploracyjna, hierarchiczna mapa podobieństwa 914 historycznych gier z wyszukiwaniem, drzewem tematów i dostępną listą."
+        "Odkrywaj 914 historycznych gier. Przeszukuj listę lub mapę i pobieraj teksty według regionów."
         if is_pl
-        else "An exploratory hierarchical similarity map of 914 historical games with search, a topic tree, and an accessible list."
+        else "Explore 914 historical games. Search the list or map and download game texts by region."
     )
     component_path = (
         "../../components/SemanticMap.astro"
         if is_pl
         else "../../../components/SemanticMap.astro"
-    )
-    caveat = (
-        "> **Jak czytać mapę:** bliskie punkty mają podobny tekst według embeddingów, ale ich położenie nie jest kategorią ani dowodem wspólnego pochodzenia. Filtry kategorii i liczby uczestników pojawią się dopiero po ręcznym zatwierdzeniu modelu danych. Mapa nie publikuje niezatwierdzonych kandydatur relacji."
-        if is_pl
-        else "> **How to read the map:** nearby points have similar text according to the embeddings, but position is neither a category nor evidence of common historical origin. Category and participant-count filters will appear only after manual approval of the data model. The map does not publish unreviewed relation candidates."
     )
     return (
         "---\n"
@@ -525,7 +520,6 @@ def semantic_map_page(locale: str) -> str:
         "template: splash\n"
         "---\n\n"
         f"import SemanticMap from '{component_path}';\n\n"
-        f"{description}\n\n{caveat}\n\n"
         f'<SemanticMap locale="{locale}" />\n'
     )
 
