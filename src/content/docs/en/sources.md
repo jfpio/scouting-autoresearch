@@ -3,8 +3,6 @@ title: "Books"
 description: "Full text is published only for editions with confirmed public-domain status. Rights statements are attributed to the source institution."
 ---
 
-# Books
-
 Full text is published only for editions with confirmed public-domain status. Rights statements are attributed to the source institution.
 
 ## Boy Scouts Handbook: The Games

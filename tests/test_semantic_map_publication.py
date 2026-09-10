@@ -11,12 +11,15 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class SemanticMapPublicationTests(unittest.TestCase):
-    def test_pages_explain_limits_and_do_not_promise_unapproved_filters(self):
+    def test_pages_embed_map_with_limits_explained_in_its_help(self):
         polish = semantic_map_page("pl")
         english = semantic_map_page("en")
-        self.assertIn("nie jest kategorią", polish)
-        self.assertIn("ręcznym zatwierdzeniu", polish)
-        self.assertIn("does not publish unreviewed relation candidates", english)
+        shell = (ROOT / "scripts/semantic_map/shell.py").read_text(encoding="utf-8")
+        self.assertIn('<details class="map-help">', shell)
+        self.assertIn("nie są klasyfikacją historyczną", shell)
+        self.assertIn("not a historical classification", shell)
+        self.assertNotIn("pojawią się", polish)
+        self.assertNotIn("will appear", english)
         self.assertIn('<SemanticMap locale="pl" />', polish)
         self.assertIn('<SemanticMap locale="en" />', english)
 
@@ -29,7 +32,8 @@ class SemanticMapPublicationTests(unittest.TestCase):
         self.assertIn("data-semantic-map-frame", component)
         renderer = (ROOT / "scripts" / "render_semantic_map.py").read_text(encoding="utf-8")
         self.assertIn('relation.get("status") == "human-approved"', renderer)
-        self.assertIn("data-map-list-item", renderer)
+        shell = (ROOT / "scripts/semantic_map/shell.py").read_text(encoding="utf-8")
+        self.assertIn("data-map-list-item", shell)
 
 
 if __name__ == "__main__":

@@ -15,6 +15,8 @@ from typing import Any
 
 import yaml
 
+from semantic_map.shell import shell_html
+
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE_REPORT_PATH = ROOT / "data" / "reports" / "semantic-map-v3-analysis.json"
@@ -153,29 +155,6 @@ def convex_hull(points: list[tuple[float, float]]) -> list[list[float]]:
         upper.append(point)
     boundary = lower[:-1] + upper[:-1]
     return [[round(x, 8), round(y, 8)] for x, y in boundary]
-
-
-def percentile_bounds(points: Any, percentage: float = 99.9) -> list[float]:
-    """Mirror DataMapPlot 0.7.3's coordinate normalization without private imports."""
-    import numpy as np
-
-    values = np.asarray(points, dtype=float)
-    if values.ndim != 2 or values.shape[1] != 2 or values.shape[0] == 0:
-        raise ValueError("Percentile bounds require a non-empty Nx2 coordinate array")
-    selected_count = max(1, int(values.shape[0] * (percentage / 100)))
-    centroid = np.mean(values, axis=0)
-    distances = np.linalg.norm((values - centroid) ** 2, axis=1)
-    selected = values[np.argsort(distances)[:selected_count]]
-    minimum_x, minimum_y = np.min(selected, axis=0)
-    maximum_x, maximum_y = np.max(selected, axis=0)
-    padding_x = 0.01 * (maximum_x - minimum_x)
-    padding_y = 0.01 * (maximum_y - minimum_y)
-    return [
-        float(minimum_x - padding_x),
-        float(maximum_x + padding_x),
-        float(minimum_y - padding_y),
-        float(maximum_y + padding_y),
-    ]
 
 
 def build_publication_report(
@@ -330,76 +309,8 @@ def accessible_html(
     relations: list[dict[str, Any]],
     download_options: list[dict[str, Any]] | None = None,
 ) -> str:
-    is_pl = locale == "pl"
-    back_label = "Powrót do strony mapy" if is_pl else "Back to the map page"
-    list_label = "Dostępna lista wszystkich 914 gier" if is_pl else "Accessible list of all 914 games"
-    caveat = (
-        "Położenie i regiony służą wyłącznie nawigacji; nie są klasyfikacją historyczną."
-        if is_pl
-        else "Positions and regions are navigational only; they are not a historical classification."
-    )
-    back_url = f"{SITE_BASE}/{'en/' if not is_pl else ''}map/"
-    items = []
-    for record in sorted(records, key=lambda value: (value["title"].casefold(), value["id"])):
-        detail = f'{record["author"]}, {record["sourceTitle"]} ({record["year"]}) · {record["topName"]} → {record["fineName"]}'
-        items.append(
-            f'<li data-map-list-item><a target="_top" href="{html.escape(record["activityUrl"], quote=True)}">'
-            f'{html.escape(record["title"])}</a><span>{html.escape(detail)}</span></li>'
-        )
-    relation_notes = []
-    record_by_id = {record["id"]: record for record in records}
-    for relation in relations:
-        left, right = (record_by_id[item] for item in relation["activityIds"])
-        label = "Zatwierdzony wariant" if is_pl else "Approved variant link"
-        relation_notes.append(
-            f'<p data-map-relation><strong>{label}:</strong> '
-            f'<a target="_top" href="{html.escape(left["activityUrl"], quote=True)}">{html.escape(left["title"])}</a> — '
-            f'<a target="_top" href="{html.escape(right["activityUrl"], quote=True)}">{html.escape(right["title"])}</a></p>'
-        )
-    download_options = download_options or []
-    download_heading = "Pobierz klaster jako TXT" if is_pl else "Download a cluster as TXT"
-    download_intro = (
-        "Wybierz region lub podregion. Kliknij „Pobierz TXT”, by móc pracować nad tym typem gier z pomocą LLM. Plik zawiera pełne teksty gier i ich proweniencję."
-        if is_pl
-        else "Choose a region or subregion. Click “Download TXT” to work on this type of game with an LLM. The file contains full game texts and their provenance."
-    )
-    choose_label = "Wybierz klaster" if is_pl else "Choose a cluster"
-    button_label = "Pobierz TXT" if is_pl else "Download TXT"
-    option_groups = []
-    for level in ("top", "fine"):
-        group = [item for item in download_options if item["level"] == level]
-        if not group:
-            continue
-        if level == "top":
-            group_label = "Regiony" if is_pl else "Regions"
-        else:
-            group_label = "Podregiony" if is_pl else "Subregions"
-        choices = "".join(
-            f'<option value="{html.escape(item["url"], quote=True)}">'
-            f'{html.escape(item["label"])}: {html.escape(item["name"])} ({item["size"]})</option>'
-            for item in group
-        )
-        option_groups.append(f'<optgroup label="{group_label}">{choices}</optgroup>')
-    downloads = (
-        '<details class="cluster-downloads" data-cluster-downloads><summary>'
-        f'{download_heading}</summary><p>{download_intro}</p>'
-        f'<label for="cluster-download-select">{choose_label}</label>'
-        '<select id="cluster-download-select" data-cluster-download-select '
-        'onchange="const link=this.parentElement.querySelector(\'[data-cluster-download-link]\');'
-        'link.href=this.value;link.hidden=!this.value">'
-        f'<option value="">— {choose_label} —</option>{"".join(option_groups)}</select>'
-        f'<a data-cluster-download-link download hidden href="">{button_label}</a></details>'
-    )
-    return (
-        '<nav class="project-nav" aria-label="Scouting Autoresearch">'
-        f'<a target="_top" href="{back_url}">← {back_label}</a><p>{caveat}</p></nav>'
-        + "".join(relation_notes)
-        + downloads
-        + f'<details class="accessible-map-list" data-accessible-map-list><summary>{list_label}</summary>'
-        + '<ol class="accessible-map-items">'
-        + "".join(items)
-        + "</ol></details>"
-    )
+    # Relations stay in the provenance report, never in the map presentation.
+    return shell_html(records, locale, download_options or [])
 
 
 def cluster_txt(
@@ -490,40 +401,6 @@ def write_cluster_downloads(
     return outputs
 
 
-def relation_svg(
-    output: Path,
-    coordinates: list[list[float]],
-    activity_ids: list[str],
-    relations: list[dict[str, Any]],
-) -> None:
-    import numpy as np
-
-    raw = np.asarray(coordinates, dtype=float)
-    bounds = percentile_bounds(raw)
-    scale = 30.0 / max(bounds[1] - bounds[0], bounds[3] - bounds[2])
-    transformed = scale * (raw - np.mean(raw, axis=0))
-    by_id = {activity_id: transformed[index] for index, activity_id in enumerate(activity_ids)}
-    min_x, min_y = np.min(transformed, axis=0)
-    max_x, max_y = np.max(transformed, axis=0)
-    width = max_x - min_x
-    height = max_y - min_y
-    lines = []
-    for relation in relations:
-        left, right = (by_id[item] for item in relation["activityIds"])
-        lines.append(
-            f'<line x1="{left[0]:.8f}" y1="{-left[1]:.8f}" x2="{right[0]:.8f}" y2="{-right[1]:.8f}" '
-            'stroke="#ffe08a" stroke-width="0.16" stroke-linecap="round" opacity="0.95" />'
-        )
-    svg = (
-        '<svg xmlns="http://www.w3.org/2000/svg" '
-        f'viewBox="{min_x:.8f} {-max_y:.8f} {width:.8f} {height:.8f}" '
-        'preserveAspectRatio="none" data-approved-relation-layer="true">'
-        + "".join(lines)
-        + "</svg>\n"
-    )
-    output.write_text(svg, encoding="utf-8")
-
-
 def finalize_offline_html(path: Path, locale: str) -> None:
     """Remove DataMapPlot's redundant remote CSS/font hints after offline embedding."""
     rendered = path.read_text(encoding="utf-8")
@@ -534,6 +411,25 @@ def finalize_offline_html(path: Path, locale: str) -> None:
         rendered,
         flags=re.IGNORECASE,
     )
+    rendered = rendered.replace('<head>', '<head><meta name="viewport" content="width=device-width, initial-scale=1">', 1)
+    # Embedded upstream sourcemaps have no corresponding files in the offline bundle.
+    rendered = re.sub(r"(?m)//[#@] sourceMappingURL=[^\r\n<]+", "", rendered)
+    rendered = rendered.replace(
+        "script.textContent = decodedScript;",
+        r"script.textContent = decodedScript.replace(/^[ \t]*\/\/[#@][ \t]*sourceMappingURL=[^\r\n]*/gm, '');",
+    )
+    if path.name == "engine.html":
+        rendered = rendered.replace('<head>', '<head><script src="engine.js"></script>', 1)
+        anchor = 'window.datamap = datamap;'
+        if rendered.count(anchor) != 1:
+            raise ValueError("Pinned DataMapPlot initialization hook changed")
+        rendered = rendered.replace(anchor, anchor + '\nwindow.scoutMapEngine.attach(datamap);', 1)
+        anchor = '  self.onmessage = async function(event) {'
+        if rendered.count(anchor) != 1:
+            raise ValueError("Pinned DataMapPlot worker hook changed")
+        rendered = rendered.replace(anchor, '  self.addEventListener("unhandledrejection", () => self.postMessage({type: "map-error"}));\n' + anchor, 1)
+    if re.search(r"\bnp\.(?:float|int)\d*\(", rendered):
+        raise ValueError("Python scalar leaked into generated JavaScript")
     path.write_text(rendered, encoding="utf-8")
 
 
@@ -635,40 +531,15 @@ def render_locale(report: dict[str, Any], locale: str, output_root: Path) -> lis
         f'<strong>{labels["subregion"]}:</strong> {{fine_name}}</p>'
         '<p class="tooltip-id">{activity_id}</p></div>'
     )
-    custom_css = """
-html, body { background: #0b1016 !important; color: #f4ead8 !important; }
-.project-nav { position: fixed; z-index: 20; left: 1rem; bottom: 1rem; max-width: min(34rem, calc(100vw - 2rem)); padding: .65rem .85rem; border: 1px solid #86662f; border-radius: .65rem; background: #101821ee; color: #eadfc9; font: 600 13px/1.35 system-ui, sans-serif; }
-.project-nav a, .accessible-map-list a, [data-map-relation] a { color: #ffe08a; }
-.project-nav p { margin: .25rem 0 0; font-weight: 400; }
-.accessible-map-list { position: fixed; z-index: 21; right: 1rem; bottom: 1rem; width: min(32rem, calc(100vw - 2rem)); max-height: 45vh; overflow: auto; padding: .65rem .85rem; border: 1px solid #86662f; border-radius: .65rem; background: #101821f5; color: #f4ead8; font: 14px/1.4 system-ui, sans-serif; }
-.accessible-map-list summary { cursor: pointer; font-weight: 800; }
-.accessible-map-items { padding-left: 1.4rem; }
-.accessible-map-items li { margin: .55rem 0; }
-.accessible-map-items span { display: block; color: #c9bda8; font-size: 12px; }
-[data-map-relation] { position: fixed; z-index: 20; right: 1rem; top: 4.2rem; max-width: min(32rem, calc(100vw - 2rem)); padding: .55rem .75rem; border-left: 4px solid #ffe08a; background: #101821ee; color: #f4ead8; font: 13px/1.4 system-ui, sans-serif; }
-.cluster-downloads { position: fixed; z-index: 21; left: 1rem; top: 4.2rem; width: min(30rem, calc(100vw - 2rem)); padding: .65rem .85rem; border: 1px solid #86662f; border-radius: .65rem; background: #101821f5; color: #f4ead8; font: 14px/1.4 system-ui, sans-serif; }
-.cluster-downloads summary { cursor: pointer; font-weight: 800; }
-.cluster-downloads p { margin: .5rem 0; color: #c9bda8; }
-.cluster-downloads label { display: block; margin-bottom: .25rem; font-weight: 700; }
-.cluster-downloads select { max-width: 100%; padding: .4rem; border: 1px solid #86662f; border-radius: .35rem; background: #0b1016; color: #f4ead8; }
-.cluster-downloads [data-cluster-download-link] { display: inline-block; margin-left: .5rem; color: #ffe08a; font-weight: 800; }
-.cluster-downloads [data-cluster-download-link][hidden] { display: none; }
-.tooltip-card h2 { margin: 0 0 .35rem; font-size: 1.05rem; }
-.tooltip-card p { margin: .35rem 0; }
-.tooltip-id { color: #c9bda8; font-family: ui-monospace, monospace; }
-@media (max-width: 48rem) { .project-nav { bottom: 4rem; } .accessible-map-list { max-height: 38vh; } [data-map-relation] { top: 7rem; } .cluster-downloads { top: 7rem; } }
-"""
-
     output_dir = output_root / locale
     if output_dir.exists():
         shutil.rmtree(output_dir)
     output_dir.mkdir(parents=True)
-    relation_svg(
-        output_dir / "approved-relations.svg",
-        coordinates,
-        [item["id"] for item in records],
-        report["approvedRelationOverlays"],
-    )
+    for asset in ("shell.css", "shell.js", "theme.js", "engine.js"):
+        shutil.copyfile(ROOT / "scripts" / "semantic_map" / asset, output_dir / asset)
+    palette = dict(zip(sorted(top_by_id), ["#3b7254", "#39788b", "#8c5a87", "#a76734", "#77722c", "#4a64a0", "#a44f57", "#626b79"]))
+    label_colors = {c["labels"][locale]["name"]: palette[c["id"]] for c in top_by_id.values()}
+    label_colors.update({c["labels"][locale]["name"]: palette[c["parentId"]] for c in fine_by_id.values()})
     figure = datamapplot.create_interactive_plot(
         np.asarray(coordinates, dtype=float),
         np.asarray(fine_labels, dtype=object),
@@ -676,41 +547,35 @@ html, body { background: #0b1016 !important; color: #f4ead8 !important; }
         hover_text=np.asarray([escaped(item["title"]) for item in records], dtype=object),
         extra_point_data=extra_data,
         hover_text_html_template=tooltip,
-        on_click="window.top.location.assign(`{activity_url}`)",
-        enable_search=True,
-        search_field="search_text",
-        enable_topic_tree=True,
-        topic_tree_kwds={"title": labels["tree"], "color_bullets": True, "max_width": "34vw"},
+        on_click="window.scoutMapEngine.select(`{activity_id}`)",
+        enable_search=False,
+        enable_topic_tree=False,
         cluster_boundary_polygons=True,
         color_cluster_boundaries=True,
         polygon_alpha=0.08,
-        darkmode=True,
-        background_color="#0b1016",
-        background_image="approved-relations.svg",
-        title=labels["title"],
-        sub_title=labels["subtitle"],
-        font_family="Roboto",
-        color_label_text=True,
+        darkmode=False,
+        background_color="#fbf8f3",
+        font_family="Arial",
+        color_label_text=False,
+        label_color_map=label_colors,
+        marker_alpha_array=np.full(len(records), 230, dtype=np.uint8),
+        text_min_pixel_size=12,
+        text_max_pixel_size=22,
         label_wrap_width=24,
         initial_zoom_fraction=0.96,
-        point_radius_min_pixels=1.1,
+        point_radius_min_pixels=1.8,
         point_radius_max_pixels=14,
         point_hover_color="#ffe08a",
         inline_data=False,
         offline_data_path=output_dir / "map",
         offline_mode=True,
-        custom_html=accessible_html(
-            records,
-            locale,
-            report["approvedRelationOverlays"],
-            cluster_download_options(report, locale),
-        ),
-        custom_css=custom_css,
+        custom_css="html,body { margin:0; background:#fbf8f3; } #loading,#progress-container { display:none!important; }",
     )
-    figure.save(str(output_dir / "index.html"))
-    finalize_offline_html(output_dir / "index.html", locale)
+    figure.save(str(output_dir / "engine.html"))
+    finalize_offline_html(output_dir / "engine.html", locale)
+    (output_dir / "index.html").write_text(accessible_html(records, locale, [], cluster_download_options(report, locale)), encoding="utf-8")
     downloads = write_cluster_downloads(report, records, locale, output_dir)
-    required = [output_dir / "index.html", output_dir / "approved-relations.svg"]
+    required = [output_dir / name for name in ("index.html", "engine.html", "shell.css", "shell.js", "theme.js", "engine.js")]
     required.extend(sorted(output_dir.glob("map_*.zip")))
     required.extend(downloads)
     if len(required) < 5 or any(not path.is_file() or path.stat().st_size == 0 for path in required):
@@ -784,13 +649,16 @@ def check_outputs(report: dict[str, Any], output_root: Path) -> None:
         if not html_path.is_file():
             raise ValueError(f"Public DataMapPlot output is missing for {locale}")
         rendered = html_path.read_text(encoding="utf-8")
-        for required in ("topic-tree", "search-container", "data-accessible-map-list", "data-map-relation"):
+        for required in ("topic-tree", "search-container", "data-accessible-map-list", "map-engine"):
             if required not in rendered:
                 raise ValueError(f"Public {locale} map lacks {required}")
+        engine = (output_dir / "engine.html").read_text(encoding="utf-8")
+        if 'np.float64(' in engine or 'approved-relations.svg' in engine or 'data-map-relation' in rendered:
+            raise ValueError("Map contains a removed overlay or Python scalar")
         for forbidden in ("algorithmicCandidates", "nearestNeighbors", "algorithmic-candidate"):
             if forbidden in rendered:
                 raise ValueError(f"Public {locale} map exposes {forbidden}")
-        if re.search(r'<(?:script|link)\b[^>]*(?:src|href)="https?://', rendered, re.IGNORECASE):
+        if re.search(r'<(?:script|link)\b[^>]*(?:src|href)="https?://', rendered + engine, re.IGNORECASE):
             raise ValueError(f"Public {locale} map still depends on a CDN")
         if len(list(output_dir.glob("map_*.zip"))) < 3:
             raise ValueError(f"Public {locale} map lacks non-inline compressed data")

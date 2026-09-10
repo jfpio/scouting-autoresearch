@@ -106,8 +106,8 @@ class PipelineTests(unittest.TestCase):
         }
         record = {"sourceId": "source-1"}
         self.assertIn('kind="scout-course"', explorer_page("pl", activity_count=1, source_count=1, kind="scout-course"))
-        self.assertIn("# Książki", sources_page("pl", {"source-1": source}, [record]))
-        self.assertIn("# Autorzy", authors_page("pl", {"source-1": source}, [record]))
+        self.assertIn('title: "Książki"', sources_page("pl", {"source-1": source}, [record]))
+        self.assertIn('title: "Autorzy"', authors_page("pl", {"source-1": source}, [record]))
 
     def test_generated_text_strips_only_trailing_whitespace(self):
         value = "first  \n  second\t\n   \n"
@@ -710,7 +710,7 @@ class PipelineTests(unittest.TestCase):
         self.assertIn("Tłumaczenie automatyczne.", rendered)
         self.assertIn("nie został zweryfikowany przez człowieka", rendered)
         self.assertIn("/scouting-autoresearch/en/activities/sfb-001/", rendered)
-        self.assertIn("Przeczytaj tekst źródłowy po angielsku", rendered)
+        self.assertIn("Tekst źródłowy po angielsku", rendered)
         self.assertIn("[Wydanie cyfrowe]", rendered)
         self.assertIn("[Rekord źródłowy]", rendered)
         self.assertIn("[s. 52]", rendered)
@@ -784,11 +784,11 @@ class PipelineTests(unittest.TestCase):
             locale="en",
         )
         self.assertIn('href="#source-text"', polish)
-        self.assertIn("Przeczytaj tekst źródłowy po francusku", polish)
+        self.assertIn("Tekst źródłowy po francusku", polish)
         self.assertIn('<span id="source-text"></span>', polish)
         self.assertIn("Francuski tekst źródłowy", polish)
         self.assertIn("Texte source français.", polish)
-        self.assertIn("Read the source French transcription", english)
+        self.assertIn("Source text in French", english)
         self.assertIn("French source text", english)
         self.assertIn("Texte source français.", english)
 

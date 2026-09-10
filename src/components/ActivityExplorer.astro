@@ -55,7 +55,8 @@ const facetLabels = { kind: labels.kind, trait: labels.trait, author: labels.aut
       </label>
       <button type="button" class="clear-filters" data-clear>{labels.clear}</button>
     </div>
-    <div class="filter-grid">
+    <button class="filter-toggle" type="button" data-toggle-filters aria-expanded="false" aria-controls="catalog-filters">{isPl ? 'Filtry' : 'Filters'} <span data-filter-total>0</span> <span aria-hidden="true">⌄</span></button>
+    <div class="filter-grid" id="catalog-filters">
       {!kind && (
         <details class="multi-filter" data-filter-menu="kind">
           <summary><span>{labels.kind}</span><span class="selection-count" data-selection-count>{labels.choose}</span></summary>
@@ -64,12 +65,14 @@ const facetLabels = { kind: labels.kind, trait: labels.trait, author: labels.aut
           </div>
         </details>
       )}
-      <details class="multi-filter" data-filter-menu="trait">
-        <summary><span>{labels.trait}</span><span class="selection-count" data-selection-count>{labels.choose}</span></summary>
-        <div class="filter-options filter-options-long" role="group" aria-label={labels.trait}>
-          {traits.map((value) => <label><input type="checkbox" data-filter="trait" value={value} /><span>{value}</span></label>)}
-        </div>
-      </details>
+      {kind === 'trial' && (
+        <details class="multi-filter" data-filter-menu="trait">
+          <summary><span>{labels.trait}</span><span class="selection-count" data-selection-count>{labels.choose}</span></summary>
+          <div class="filter-options filter-options-long" role="group" aria-label={labels.trait}>
+            {traits.map((value) => <label><input type="checkbox" data-filter="trait" value={value} /><span>{value}</span></label>)}
+          </div>
+        </details>
+      )}
       <details class="multi-filter" data-filter-menu="author">
         <summary><span>{labels.author}</span><span class="selection-count" data-selection-count>{labels.choose}</span></summary>
         <div class="filter-options" role="group" aria-label={labels.author}>
@@ -135,6 +138,13 @@ const facetLabels = { kind: labels.kind, trait: labels.trait, author: labels.aut
     const empty = explorer.querySelector('[data-empty]');
     const chips = explorer.querySelector('[data-selected-filters]');
     const clear = explorer.querySelector('[data-clear]');
+    const filterToggle = explorer.querySelector('[data-toggle-filters]');
+    const filterTotal = explorer.querySelector('[data-filter-total]');
+    filterToggle.addEventListener('click', () => {
+      const expanded = filterToggle.getAttribute('aria-expanded') !== 'true';
+      filterToggle.setAttribute('aria-expanded', String(expanded));
+      explorer.toggleAttribute('data-filters-open', expanded);
+    });
     const facetLabels = JSON.parse(explorer.dataset.facetLabels || '{}');
     const removeLabel = explorer.dataset.removeLabel || 'Remove filter';
     const selectedLabel = explorer.dataset.locale === 'pl' ? 'wybrano' : 'selected';
@@ -151,6 +161,7 @@ const facetLabels = { kind: labels.kind, trait: labels.trait, author: labels.aut
     const optionLabel = (input) => input.parentElement?.querySelector('span')?.textContent || input.value;
 
     const renderSelections = (values) => {
+      filterTotal.textContent = String(checkboxes.filter(input => input.checked).length);
       chips.replaceChildren();
       checkboxes.filter((input) => input.checked).forEach((input) => {
         const button = document.createElement('button');
@@ -223,7 +234,14 @@ const facetLabels = { kind: labels.kind, trait: labels.trait, author: labels.aut
       apply();
     });
     explorer.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') explorer.querySelectorAll('details[open]').forEach((menu) => menu.removeAttribute('open'));
+      if (event.key === 'Escape') {
+        explorer.querySelectorAll('details[open]').forEach((menu) => menu.removeAttribute('open'));
+        if (matchMedia('(max-width: 767px)').matches && explorer.hasAttribute('data-filters-open')) {
+          explorer.removeAttribute('data-filters-open');
+          filterToggle.setAttribute('aria-expanded', 'false');
+          filterToggle.focus();
+        }
+      }
     });
     window.addEventListener('popstate', restoreFromUrl);
     restoreFromUrl();

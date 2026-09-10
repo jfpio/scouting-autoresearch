@@ -298,12 +298,14 @@ def activity_page(record: dict, *, locale: str) -> str:
         machine = (
             f'<div class="machine-notice"><strong>{"Tłumaczenie automatyczne." if is_pl else "Automatic translation."}</strong> '
             + (
-                f'Ten polski tekst wygenerowano automatycznie modelem <code>{record["translationModel"]}</code> i nie został zweryfikowany przez człowieka. '
+                'Ten tekst nie został zweryfikowany przez człowieka. '
                 if is_pl
-                else f'This English text was generated automatically with <code>{record["translationModel"]}</code> and has not been verified by a person. '
+                else 'This text has not been verified by a person. '
             )
-            + f'<a href="{source_path}">{f"Przeczytaj tekst źródłowy po {source_locale_pl}" if is_pl else f"Read the source {source_locale_en} transcription"}</a>; '
-            + ("odnośnik do wydania źródłowego znajduje się w metadanych poniżej.</div>\n\n" if is_pl else "the source edition is linked in the metadata below.</div>\n\n")
+            + f'<div class="notice-links"><a href="{source_path}">{f"Tekst źródłowy po {source_locale_pl}" if is_pl else f"Source text in {source_locale_en}"}</a> · '
+            + f'<a href="{html.escape(record["digitalEditionUrl"])}">{"Wydanie cyfrowe" if is_pl else "Digital edition"}</a></div>'
+            + f'<details><summary>{"Szczegóły tłumaczenia" if is_pl else "Translation details"}</summary>'
+            + f'Model: <code>{html.escape(record["translationModel"])}</code>.</details></div>\n\n'
         )
     pl_link = f"{SITE_ROOT}/activities/{record['id']}/"
     en_link = f"{SITE_ROOT}/en/activities/{record['id']}/"
@@ -341,13 +343,14 @@ def activity_page(record: dict, *, locale: str) -> str:
         similar_items = "".join(
             "<li>"
             f'<a href="{html.escape(item["url"])}">{html.escape(item["title"])}</a>'
-            f' — {html.escape(item["author"])}, <cite>{html.escape(item["sourceTitle"])}</cite> '
-            f'({item["year"]}). {html.escape(item["note"])}</li>'
+            f'<details><summary>{"Źródło i powiązanie" if is_pl else "Source and relationship"}</summary>'
+            f'{html.escape(item["author"])}, <cite>{html.escape(item["sourceTitle"])}</cite> '
+            f'({item["year"]}). {html.escape(item["note"])} {similar_intro}</details></li>'
             for item in record["similarActivities"]
         )
         similar = (
             f'<div class="similar-notice"><strong>{similar_heading}.</strong> '
-            f"{similar_intro}<ul>{similar_items}</ul></div>\n\n"
+            f"<ul>{similar_items}</ul></div>\n\n"
         )
     source_appendix = ""
     if (
@@ -366,6 +369,11 @@ def activity_page(record: dict, *, locale: str) -> str:
         + "\n\n"
         + machine
         + similar
+        + "## "
+        + (("Treść źródłowa" if is_pl else "Source text") if record["translationStatus"] == "source-text" else ("Tekst przetłumaczony" if is_pl else "Translated text"))
+        + "\n\n"
+        + record["body"].strip()
+        + "\n\n"
         + f"## {labels['meta']}\n\n"
         + f"- **{labels['type']}:** {kinds}\n"
         + f"- **{labels['traits']}:** {traits}\n"
@@ -382,11 +390,7 @@ def activity_page(record: dict, *, locale: str) -> str:
             if facsimile_url
             else ""
         )
-        + f"- **{labels['other']}:** [{record['id']}]({other_link})\n\n"
-        + "## "
-        + (("Treść źródłowa" if is_pl else "Source text") if record["translationStatus"] == "source-text" else ("Tekst przetłumaczony" if is_pl else "Translated text"))
-        + "\n\n"
-        + record["body"].strip()
+        + f"- **{labels['other']}:** [{record['id']}]({other_link})"
         + source_appendix
         + "\n"
     )
@@ -415,9 +419,9 @@ def explorer_page(locale: str, *, activity_count: int, source_count: int, kind: 
             if is_pl
             else f"{activity_count} activities from {source_count} public-domain books. Polish, English, or French source texts have Polish and English machine-translation layers."
         )
-        hero = f'<p class="eyebrow">{eyebrow}</p>\n\n# {title}\n\n{text}\n\n'
+        hero = f'<p class="eyebrow">{eyebrow}</p>\n\n{text}\n\n'
     else:
-        hero = f"# {title}\n\n{description}\n\n"
+        hero = f"{description}\n\n"
     kind_prop = f' kind="{kind}"' if kind else ""
     translation_note = (
         "> **Tłumaczenia automatyczne:** wersje w języku innym niż źródłowy nie zostały zweryfikowane przez człowieka. Każdy rekord prowadzi do tekstu źródłowego i wydania cyfrowego.\n\n"
@@ -450,7 +454,7 @@ def sources_page(locale: str, sources: dict[str, dict], records: list[dict]) -> 
         if is_pl
         else "Full text is published only for editions with confirmed public-domain status. Rights statements are attributed to the source institution."
     )
-    lines = ["---", f"title: {yaml_scalar(title)}", f"description: {yaml_scalar(intro)}", "---", "", f"# {title}", "", intro, ""]
+    lines = ["---", f"title: {yaml_scalar(title)}", f"description: {yaml_scalar(intro)}", "---", "", intro, ""]
     activity_counts = Counter(record["sourceId"] for record in records)
     for source in sources.values():
         count = activity_counts[source["id"]]
@@ -481,7 +485,7 @@ def authors_page(locale: str, sources: dict[str, dict], records: list[dict]) -> 
     sources_by_author: dict[str, list[dict]] = defaultdict(list)
     for source in sources.values():
         sources_by_author[source["author"]].append(source)
-    lines = ["---", f"title: {yaml_scalar(title)}", f"description: {yaml_scalar(intro)}", "---", "", f"# {title}", "", intro, ""]
+    lines = ["---", f"title: {yaml_scalar(title)}", f"description: {yaml_scalar(intro)}", "---", "", intro, ""]
     for author in sorted(sources_by_author, key=lambda value: value.casefold()):
         author_sources = sorted(sources_by_author[author], key=lambda source: (source["year"], source["title"]))
         count = sum(records_by_source[source["id"]] for source in author_sources)
@@ -500,19 +504,14 @@ def semantic_map_page(locale: str) -> str:
     is_pl = locale == "pl"
     title = "Mapa semantyczna gier" if is_pl else "Semantic map of games"
     description = (
-        "Eksploracyjna, hierarchiczna mapa podobieństwa 914 historycznych gier z wyszukiwaniem, drzewem tematów i dostępną listą."
+        "Odkrywaj 914 historycznych gier. Przeszukuj listę lub mapę i pobieraj teksty według regionów."
         if is_pl
-        else "An exploratory hierarchical similarity map of 914 historical games with search, a topic tree, and an accessible list."
+        else "Explore 914 historical games. Search the list or map and download game texts by region."
     )
     component_path = (
         "../../components/SemanticMap.astro"
         if is_pl
         else "../../../components/SemanticMap.astro"
-    )
-    caveat = (
-        "> **Jak czytać mapę:** bliskie punkty mają podobny tekst według embeddingów, ale ich położenie nie jest kategorią ani dowodem wspólnego pochodzenia. Filtry kategorii i liczby uczestników pojawią się dopiero po ręcznym zatwierdzeniu modelu danych. Mapa nie publikuje niezatwierdzonych kandydatur relacji."
-        if is_pl
-        else "> **How to read the map:** nearby points have similar text according to the embeddings, but position is neither a category nor evidence of common historical origin. Category and participant-count filters will appear only after manual approval of the data model. The map does not publish unreviewed relation candidates."
     )
     return (
         "---\n"
@@ -521,7 +520,6 @@ def semantic_map_page(locale: str) -> str:
         "template: splash\n"
         "---\n\n"
         f"import SemanticMap from '{component_path}';\n\n"
-        f"# {title}\n\n{description}\n\n{caveat}\n\n"
         f'<SemanticMap locale="{locale}" />\n'
     )
 
@@ -550,7 +548,7 @@ The project code is MIT-licensed. Project metadata and translations are offered 
 
 V2 runs a controlled acquisition process for works by Robert Baden-Powell, Ernest Thompson Seton, and Jacques Sevin whose legal status has been confirmed. See the [project plan](https://github.com/jfpio/scouting-autoresearch/blob/main/project-plan.md)."""
     )
-    return f"---\ntitle: {yaml_scalar(title)}\ndescription: {yaml_scalar(plain_text(body)[:155])}\n---\n\n# {title}\n\n{body}\n"
+    return f"---\ntitle: {yaml_scalar(title)}\ndescription: {yaml_scalar(plain_text(body)[:155])}\n---\n\n{body}\n"
 
 
 def write_docs(polish: list[dict], english: list[dict], sources: dict[str, dict]) -> None:
@@ -578,11 +576,11 @@ def write_docs(polish: list[dict], english: list[dict], sources: dict[str, dict]
     (DOCS / "en" / "authors.md").write_text(authors_page("en", sources, english), encoding="utf-8")
     (DOCS / "en" / "about.md").write_text(about_page("en"), encoding="utf-8")
     (DOCS / "404.md").write_text(
-        '---\ntitle: "Nie znaleziono strony"\ndescription: "Żądana strona nie istnieje."\nsidebar:\n  hidden: true\n---\n\n# Nie znaleziono strony\n\n[Wróć do wyszukiwarki](/scouting-autoresearch/).\n',
+        '---\ntitle: "Nie znaleziono strony"\ndescription: "Żądana strona nie istnieje."\nsidebar:\n  hidden: true\n---\n\n[Wróć do wyszukiwarki](/scouting-autoresearch/).\n',
         encoding="utf-8",
     )
     (DOCS / "en" / "404.md").write_text(
-        '---\ntitle: "Page not found"\ndescription: "The requested page does not exist."\nsidebar:\n  hidden: true\n---\n\n# Page not found\n\n[Return to the activity finder](/scouting-autoresearch/en/).\n',
+        '---\ntitle: "Page not found"\ndescription: "The requested page does not exist."\nsidebar:\n  hidden: true\n---\n\n[Return to the activity finder](/scouting-autoresearch/en/).\n',
         encoding="utf-8",
     )
     for record in polish:

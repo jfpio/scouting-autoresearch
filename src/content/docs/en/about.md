@@ -3,8 +3,6 @@ title: "About"
 description: "Scouting Autoresearch organizes historical scouting games, trials, and exercises in one searchable knowledge base. The corpus preserves source texts withou"
 ---
 
-# About
-
 Scouting Autoresearch organizes historical scouting games, trials, and exercises in one searchable knowledge base. The corpus preserves source texts without copying PDFs.
 
 Versions in a language other than the source are automatic translations and are not verified by a person. Every record links to its source text and digital edition while preserving the author, original book title, year, and page references. Missing facts remain unknown: the project does not invent ages, duration, equipment, or risk levels.
